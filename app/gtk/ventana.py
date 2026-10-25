@@ -65,6 +65,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         self._eventos_pendientes = {}
         self._encuestas = {}        # db id del toot -> última encuesta descargada
         self._tiempo_real = None
+        self._tiempo_real_bsky = None
         # Todo lo que lee la base de datos para pintar (listas y texto) va a un hilo propio: el hilo de la
         # interfaz solo aplica resultados. Cada petición lleva un número de generación; si el usuario ya
         # se movió a otra cosa, el resultado viejo se descarta.
@@ -458,6 +459,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         accion("reportar", self.accion_reportar)
         accion("abrir-lista", self.accion_abrir_lista, ["<Ctrl><Alt>l"])
         accion("abrir-feed", self.bsky_abrir_feed, ["<Ctrl><Alt>f"])
+        self._registrar_acciones_bluesky(accion)
         accion("abrir-hashtag", self.accion_abrir_hashtag, ["<Ctrl><Alt>h"])
         accion("buscar-mastodon", self.accion_buscar_mastodon, ["<Ctrl><Shift>f"])
         for tipo in ("followers", "following", "blocked", "muted", "solicitudes"):
@@ -795,6 +797,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         obj = self.almacen_lista.get_item(posicion)
         if obj is None:
             return
+        if obj.fila.servicio == "bluesky" and obj.fila.extra.get("tipo") == "convo":
+            return self.bsky_abrir_convo(obj)
         # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
@@ -1278,6 +1282,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def iniciar_tiempo_real(self):
         """Arranca (o detiene) el streaming de Mastodon según la preferencia."""
         from .tiempo_real import TiempoReal
+        self.iniciar_tiempo_real_bluesky()
         activo = config.get("gtk", "mastodon_realtime", True)
         if not activo:
             if self._tiempo_real is not None:
@@ -1290,6 +1295,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def _al_cerrar(self, *_a):
         if self._tiempo_real is not None:
             self._tiempo_real.detener()
+        if self._tiempo_real_bsky is not None:
+            self._tiempo_real_bsky.detener()
         self._lector.shutdown(wait=False, cancel_futures=True)
         return False
 

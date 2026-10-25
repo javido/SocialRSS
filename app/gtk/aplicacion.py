@@ -129,6 +129,34 @@ def _menu() -> Gio.Menu:
     bsky.append_section(None, sec((_("_Buscar en Bluesky…"), "win.buscar-mastodon"),
                                   (_("Abrir un _feed…"), "win.abrir-feed"),
                                   (_("Abrir una _lista…"), "win.abrir-lista")))
+    bsky.append_section(None, sec((_("Quién ha dado me gusta…"), "win.bsky-quien-gusta"),
+                                  (_("Quién ha republicado…"), "win.bsky-quien-republico"),
+                                  (_("Quién ha citado…"), "win.bsky-quien-cito"),
+                                  (_("Ocultar la publicación para mí"), "win.bsky-ocultar"),
+                                  (_("Silenciar el hilo"), "win.bsky-silenciar-hilo"),
+                                  (_("Reactivar el hilo"), "win.bsky-reactivar-hilo"),
+                                  (_("Denunciar la publicación…"), "win.bsky-reportar"),
+                                  (_("Denunciar la cuenta…"), "win.bsky-reportar-cuenta")))
+    dm = Gio.Menu()
+    dm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.bsky-mensaje-nuevo"),
+                                (_("Mensaje directo al _autor"), "win.bsky-mensaje-autor"),
+                                (_("_Reaccionar al mensaje…"), "win.bsky-reaccionar"),
+                                (_("_Silenciar o reactivar la conversación"), "win.bsky-convo-silenciar")))
+    bsky.append_submenu(_("Mensajes _directos"), dm)
+    cta = Gio.Menu()
+    cta.append_section(None, sec((_("_Seguidores…"), "win.bsky-seguidores"),
+                                 (_("S_iguiendo…"), "win.bsky-siguiendo"),
+                                 (_("Cuentas _bloqueadas…"), "win.bsky-bloqueadas"),
+                                 (_("Cuentas s_ilenciadas…"), "win.bsky-silenciadas")))
+    cta.append_section(None, sec((_("_Listas…"), "win.bsky-listas"),
+                                 (_("_Feeds…"), "win.bsky-feeds"),
+                                 (_("_Palabras silenciadas…"), "win.bsky-palabras"),
+                                 (_("_Moderación de contenido…"), "win.bsky-moderacion"),
+                                 (_("Servicios de _etiquetado…"), "win.bsky-etiquetadores")))
+    cta.append_section(None, sec((_("Editar mi _perfil…"), "win.bsky-mi-perfil"),
+                                 (_("_Contraseñas de aplicación…"), "win.bsky-claves"),
+                                 (_("_Eliminar la cuenta…"), "win.bsky-eliminar-cuenta")))
+    bsky.append_submenu(_("Mi _cuenta"), cta)
     barra.append_submenu(_("Blues_ky"), bsky)
 
     rep = Gio.Menu()
@@ -271,6 +299,7 @@ class Aplicacion(Gtk.Application):
 
         def _hecha(account_id):
             self.ventana.cargar_arbol(seleccionar=("bluesky", account_id, "timeline", None, None, "home"))
+            self.ventana.iniciar_tiempo_real_bluesky()
         DialogoCuentaBluesky(self.ventana, _hecha).present()
 
     def acerca(self):

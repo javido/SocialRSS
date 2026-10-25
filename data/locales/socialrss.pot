@@ -44695,7 +44695,9 @@ msgstr ""
 msgid "_Buscar en Mastodon…"
 msgstr ""
 
-msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
+msgid ""
+"Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven "
+"por las filas)"
 msgstr ""
 
 msgid "Ctrl+Alt+B: borradores"
@@ -45142,7 +45144,9 @@ msgstr ""
 msgid "Publicando el hilo de {n} mensajes…"
 msgstr ""
 
-msgid "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
+msgid ""
+"El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos "
+"guardados."
 msgstr ""
 
 msgid "Hilos guardados"
@@ -45379,7 +45383,9 @@ msgstr ""
 msgid "silenciar"
 msgstr ""
 
-msgid "La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia artificial."
+msgid ""
+"La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia "
+"artificial."
 msgstr ""
 
 msgid "Selecciona un elemento para traducir"
@@ -45457,7 +45463,8 @@ msgstr ""
 msgid "Consultando a la IA…"
 msgstr ""
 
-msgid "Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
+msgid ""
+"Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
 msgstr ""
 
 msgid "Ctrl+Alt+R: resumir con IA"
@@ -45496,7 +45503,9 @@ msgstr ""
 msgid "_Proveedor de IA:"
 msgstr ""
 
-msgid "Servicio que describe imágenes, resume y mejora textos. Desactivada apaga todas las funciones de IA."
+msgid ""
+"Servicio que describe imágenes, resume y mejora textos. Desactivada apaga "
+"todas las funciones de IA."
 msgstr ""
 
 msgid "_Claves API (una por línea):"
@@ -45508,13 +45517,15 @@ msgstr ""
 msgid "_Modelo:"
 msgstr ""
 
-msgid "Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
+msgid ""
+"Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
 msgstr ""
 
 msgid "_URL del servidor local:"
 msgstr ""
 
-msgid "Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
+msgid ""
+"Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
 msgstr ""
 
 msgid "Guardar en ca_ché las respuestas:"
@@ -45571,13 +45582,17 @@ msgstr ""
 msgid "_Motor de traducción:"
 msgstr ""
 
-msgid "Todos son gratuitos y no necesitan clave. Si uno falla por límites del servidor, prueba con otro."
+msgid ""
+"Todos son gratuitos y no necesitan clave. Si uno falla por límites del "
+"servidor, prueba con otro."
 msgstr ""
 
 msgid "En Mastodon, usar _primero la traducción de tu servidor:"
 msgstr ""
 
-msgid "Si tu instancia ofrece traducción se usa antes que el motor externo, que queda de respaldo."
+msgid ""
+"Si tu instancia ofrece traducción se usa antes que el motor externo, que "
+"queda de respaldo."
 msgstr ""
 
 msgid "_Idioma de destino:"
@@ -45763,7 +45778,9 @@ msgstr ""
 msgid "_Contraseña de aplicación:"
 msgstr ""
 
-msgid "Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu contraseña normal."
+msgid ""
+"Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu "
+"contraseña normal."
 msgstr ""
 
 msgid "_Servidor (opcional):"
@@ -45793,7 +45810,9 @@ msgstr ""
 msgid "Bluesky admite hasta cuatro imágenes"
 msgstr ""
 
-msgid "Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, mov, webm)"
+msgid ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov, webm)"
 msgstr ""
 
 msgid "Describe la imagen o el vídeo. Se recomienda siempre."
@@ -45848,4 +45867,538 @@ msgid "ha respondido"
 msgstr ""
 
 msgid "Solo las mencionadas"
+msgstr ""
+
+msgid "Abriendo la conversación…"
+msgstr ""
+
+msgid "Baja de {n}"
+msgstr ""
+
+msgid "Buscar feeds"
+msgstr ""
+
+msgid "Buscar un servicio de etiquetado"
+msgstr ""
+
+msgid "Con acceso a mensajes directos"
+msgstr ""
+
+msgid ""
+"Contraseña creada y copiada al portapapeles: {p}. No se volverá a mostrar."
+msgstr ""
+
+msgid "Contraseña revocada"
+msgstr ""
+
+msgid "Contraseñas de aplicación de Bluesky"
+msgstr ""
+
+msgid "Conversación con {t}"
+msgstr ""
+
+msgid "Creada el {f}"
+msgstr ""
+
+msgid "Crear una contraseña de aplicación"
+msgstr ""
+
+msgid "Crear una lista"
+msgstr ""
+
+msgid "Cuenta añadida"
+msgstr ""
+
+msgid "Cuenta quitada"
+msgstr ""
+
+msgid "Denuncia enviada"
+msgstr ""
+
+msgid "Denunciar la cuenta…"
+msgstr ""
+
+msgid "Denunciar la publicación…"
+msgstr ""
+
+msgid "Denunciar {q}"
+msgstr ""
+
+msgid "Desfijado"
+msgstr ""
+
+msgid "Editar mi _perfil…"
+msgstr ""
+
+msgid "El mensaje supera los {n} caracteres"
+msgstr ""
+
+msgid "Enviar _mensaje"
+msgstr ""
+
+msgid "Escribe el mensaje"
+msgstr ""
+
+msgid "Escribe la palabra"
+msgstr ""
+
+msgid "Escribe un nombre"
+msgstr ""
+
+msgid "Esto es un mensaje directo, no una publicación"
+msgstr ""
+
+msgid "Feed guardado"
+msgstr ""
+
+msgid "Feed quitado"
+msgstr ""
+
+msgid "Feeds de Bluesky"
+msgstr ""
+
+msgid "Grupo {t}"
+msgstr ""
+
+msgid "Has salido de la conversación"
+msgstr ""
+
+msgid "Hilo reactivado"
+msgstr ""
+
+msgid "Hilo silenciado: no recibirás sus notificaciones"
+msgstr ""
+
+msgid ""
+"Intro abre el artículo. Control M marca leído, Control D favorito, Control L"
+" leer más tarde, Suprimir a la papelera."
+msgstr ""
+
+msgid "La lista está vacía"
+msgstr ""
+
+msgid "Le sigues"
+msgstr ""
+
+msgid "Lista borrada"
+msgstr ""
+
+msgid "Lista creada"
+msgstr ""
+
+msgid "Lista de contraseñas de aplicación"
+msgstr ""
+
+msgid "Lista de feeds"
+msgstr ""
+
+msgid "Lista de palabras silenciadas"
+msgstr ""
+
+msgid "Lista de servicios de etiquetado"
+msgstr ""
+
+msgid "Lista de tus listas"
+msgstr ""
+
+msgid "Mensaje a {t}"
+msgstr ""
+
+msgid "Mensaje borrado para ti"
+msgstr ""
+
+msgid "Mensaje directo al _autor"
+msgstr ""
+
+msgid "Mensaje enviado"
+msgstr ""
+
+msgid "Mensajes _directos"
+msgstr ""
+
+msgid "Miembros de {n}"
+msgstr ""
+
+msgid "Moderación de contenido de Bluesky"
+msgstr ""
+
+msgid "Moderación guardada"
+msgstr ""
+
+msgid "No hay contraseñas"
+msgstr ""
+
+msgid "No hay palabras silenciadas"
+msgstr ""
+
+msgid "No se encontró esa cuenta"
+msgstr ""
+
+msgid "No se encontró ningún feed"
+msgstr ""
+
+msgid "No se pudieron leer las preferencias: {e}"
+msgstr ""
+
+msgid "No se pudo abrir la conversación: {e}"
+msgstr ""
+
+msgid "No se pudo añadir: {e}"
+msgstr ""
+
+msgid "No se pudo enviar la denuncia: {e}"
+msgstr ""
+
+msgid "No se pudo enviar: {e}"
+msgstr ""
+
+msgid "No se pudo ocultar: {e}"
+msgstr ""
+
+msgid "No se pudo quitar: {e}"
+msgstr ""
+
+msgid "No se pudo reaccionar: {e}"
+msgstr ""
+
+msgid "No se pudo revocar: {e}"
+msgstr ""
+
+msgid "No se pudo salir: {e}"
+msgstr ""
+
+msgid "No verás las publicaciones que la contengan."
+msgstr ""
+
+msgid "Ocultar la publicación para mí"
+msgstr ""
+
+msgid "Oficial, siempre activo"
+msgstr ""
+
+msgid "Palabra quitada"
+msgstr ""
+
+msgid "Palabra silenciada"
+msgstr ""
+
+msgid "Palabras silenciadas de Bluesky"
+msgstr ""
+
+msgid ""
+"Para usarla en otro programa. La que se crea aquí no permite mensajes "
+"directos."
+msgstr ""
+
+msgid "Permitir contenido para _adultos:"
+msgstr ""
+
+msgid "Publicación oculta para ti"
+msgstr ""
+
+msgid "Pulsa Intro para abrir la conversación."
+msgstr ""
+
+msgid "Quién ha citado…"
+msgstr ""
+
+msgid "Quién ha dado me gusta…"
+msgstr ""
+
+msgid "Quién ha republicado…"
+msgstr ""
+
+msgid "Reaccionar al mensaje"
+msgstr ""
+
+msgid "Reacción enviada"
+msgstr ""
+
+msgid "Reactivar el hilo"
+msgstr ""
+
+msgid ""
+"Redes sociales, chats y noticias en una sola ventana, accesible con el "
+"teclado y con Orca."
+msgstr ""
+
+msgid "S_iguiendo"
+msgstr ""
+
+msgid "Salir"
+msgstr ""
+
+msgid "Se_guidores"
+msgstr ""
+
+msgid "Selecciona un mensaje"
+msgstr ""
+
+msgid "Selecciona una conversación"
+msgstr ""
+
+msgid "Selecciona una publicación"
+msgstr ""
+
+msgid "Servicios de _etiquetado…"
+msgstr ""
+
+msgid "Servicios de etiquetado de Bluesky"
+msgstr ""
+
+msgid "Si está desactivado, el contenido adulto queda oculto."
+msgstr ""
+
+msgid "Silenciar el hilo"
+msgstr ""
+
+msgid "Sin acceso a mensajes directos"
+msgstr ""
+
+msgid "Suscrito a {n}"
+msgstr ""
+
+msgid "Tiempo real en Blues_ky:"
+msgstr ""
+
+msgid "Tus listas de Bluesky"
+msgstr ""
+
+msgid "_Abrir conversación"
+msgstr ""
+
+msgid "_Añadir cuenta…"
+msgstr ""
+
+msgid "_Añadir palabra…"
+msgstr ""
+
+msgid "_Borrar lista"
+msgstr ""
+
+msgid "_Buscar feeds…"
+msgstr ""
+
+msgid "_Buscar por usuario…"
+msgstr ""
+
+msgid "_Caduca:"
+msgstr ""
+
+msgid "_Contraseñas de aplicación…"
+msgstr ""
+
+msgid "_Crear"
+msgstr ""
+
+msgid "_Crear contraseña…"
+msgstr ""
+
+msgid "_Crear lista…"
+msgstr ""
+
+msgid "_Denunciar"
+msgstr ""
+
+msgid "_Descripción (opcional):"
+msgstr ""
+
+msgid "_Detalles (opcional):"
+msgstr ""
+
+msgid "_Dónde buscarla:"
+msgstr ""
+
+msgid "_Eliminar la cuenta…"
+msgstr ""
+
+msgid "_Emoji:"
+msgstr ""
+
+msgid "_Enviar"
+msgstr ""
+
+msgid "_Enviar denuncia"
+msgstr ""
+
+msgid "_Feeds…"
+msgstr ""
+
+msgid "_Fijar o desfijar / Guardar"
+msgstr ""
+
+msgid "_Listas…"
+msgstr ""
+
+msgid "_Mensaje:"
+msgstr ""
+
+msgid "_Miembros…"
+msgstr ""
+
+msgid "_Mis feeds"
+msgstr ""
+
+msgid "_Moderación de contenido…"
+msgstr ""
+
+msgid "_Nombre:"
+msgstr ""
+
+msgid "_Nuevo mensaje directo…"
+msgstr ""
+
+msgid "_Palabra o frase:"
+msgstr ""
+
+msgid "_Palabras silenciadas…"
+msgstr ""
+
+msgid "_Perfil"
+msgstr ""
+
+msgid "_Quitar de guardados"
+msgstr ""
+
+msgid "_Quitar de la lista"
+msgstr ""
+
+msgid "_Quitar palabra"
+msgstr ""
+
+msgid "_Reaccionar"
+msgstr ""
+
+msgid "_Reaccionar al mensaje…"
+msgstr ""
+
+msgid "_Revocar contraseña"
+msgstr ""
+
+msgid "_Silenciar o reactivar la conversación"
+msgstr ""
+
+msgid "_Sugeridos"
+msgstr ""
+
+msgid "_Suscribirse o darse de baja"
+msgstr ""
+
+msgid "_Usuario:"
+msgstr ""
+
+msgid "a la cuenta"
+msgstr ""
+
+msgid "búsqueda"
+msgstr ""
+
+msgid "caduca el {f}"
+msgstr ""
+
+msgid "excepto cuentas que sigues"
+msgstr ""
+
+msgid "la publicación"
+msgstr ""
+
+msgid "reacciones: {r}"
+msgstr ""
+
+msgid "solo etiquetas"
+msgstr ""
+
+msgid "texto y etiquetas"
+msgstr ""
+
+msgid "{n} contraseñas"
+msgstr ""
+
+msgid "{n} feeds guardados"
+msgstr ""
+
+msgid "{n} feeds. Pulsa Abrir para leerlo o Guardar para añadirlo"
+msgstr ""
+
+msgid "{n} listas"
+msgstr ""
+
+msgid "{n} me gusta"
+msgstr ""
+
+msgid "{n} mensajes directos nuevos"
+msgstr ""
+
+msgid "{n} miembros"
+msgstr ""
+
+msgid "{n} palabras"
+msgstr ""
+
+msgid "{n} servicios"
+msgstr ""
+
+msgid "{n}:"
+msgstr ""
+
+msgid "¿Borrar este mensaje solo para ti? La otra persona lo seguirá viendo."
+msgstr ""
+
+msgid "¿Borrar la lista «{n}»?"
+msgstr ""
+
+msgid "¿De _quién?"
+msgstr ""
+
+msgid "¿Quitar «{n}» de tus feeds guardados?"
+msgstr ""
+
+msgid ""
+"¿Revocar la contraseña «{n}»? Los programas que la usen dejarán de "
+"funcionar."
+msgstr ""
+
+msgid "¿Salir de la conversación con {t} y borrarla de este equipo?"
+msgstr ""
+
+msgid "Infringe las normas"
+msgstr ""
+
+msgid "Trato grosero o acoso"
+msgstr ""
+
+msgid "Solo etiquetas (hashtags)"
+msgstr ""
+
+msgid "Todas las cuentas"
+msgstr ""
+
+msgid "Quién ha marcado me gusta"
+msgstr ""
+
+msgid "Quién ha republicado"
+msgstr ""
+
+msgid "Quién ha citado"
+msgstr ""
+
+msgid "Lista de cuentas que dieron me gusta"
+msgstr ""
+
+msgid "Lista de cuentas que republicaron"
+msgstr ""
+
+msgid "Lista de cuentas que citaron"
+msgstr ""
+
+msgid "contenido adulto"
+msgstr ""
+
+msgid "contenido sexual"
+msgstr ""
+
+msgid "contenido gráfico"
+msgstr ""
+
+msgid "desnudos"
 msgstr ""

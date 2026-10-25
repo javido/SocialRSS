@@ -20,6 +20,7 @@ BUFFERS = [
     ("sent", "Mis publicaciones"),
     ("likes", "Me gusta"),
     ("bookmarks", "Marcadores"),
+    ("dms", "Mensajes directos"),
 ]
 
 EXTRA: Dict[int, List[Nodo]] = {}
@@ -119,6 +120,10 @@ def _fila_post(r, yo: str, account_id: int) -> Fila:
 
 
 def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
+    if timeline == "dms":
+        return _listar_convos(account_id, limite)
+    if timeline.startswith("dm:"):
+        return _listar_mensajes(account_id, timeline[3:], limite)
     yo = _yo(account_id)
     if timeline in ("notifications", "mentions"):
         return _listar_notificaciones(account_id, yo, solo_menciones=(timeline == "mentions"), limite=limite)
@@ -167,10 +172,67 @@ def _listar_notificaciones(account_id: int, yo: str, solo_menciones: bool, limit
     return filas
 
 
+def _listar_convos(account_id: int, limite: int) -> List[Fila]:
+    filas = []
+    try:
+        rows = db.query("SELECT convo_id, COALESCE(title, ''), COALESCE(unread_count, 0), COALESCE(muted, 0), "
+                        "COALESCE(last_message, ''), COALESCE(last_message_date, ''), COALESCE(is_group, 0) "
+                        "FROM bluesky_convos WHERE account_id = ? ORDER BY last_message_date DESC LIMIT ?",
+                        (account_id, limite))
+    except Exception as e:
+        log.error(f"Error al listar las conversaciones de Bluesky: {e}")
+        return []
+    for convo_id, titulo, no_leidos, silenciada, ultimo, fecha, grupo in rows:
+        texto = (_("Grupo {t}") if grupo else _("Conversación con {t}")).format(t=titulo)
+        if no_leidos:
+            texto += " · " + _("{n} sin leer").format(n=no_leidos)
+        if silenciada:
+            texto += " · " + _("silenciada")
+        if ultimo:
+            texto += ": " + _condensar(ultimo, 160)
+        filas.append(Fila(id=convo_id, feed_id=0, feed_titulo=titulo, titulo=texto, autor=titulo, fecha=fecha,
+                          leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="",
+                          servicio="bluesky",
+                          extra={"tipo": "convo", "account_id": account_id, "convo_id": convo_id, "titulo": titulo,
+                                 "silenciada": bool(silenciada), "grupo": bool(grupo), "propio": False}))
+    return filas
+
+
+def _listar_mensajes(account_id: int, convo_id: str, limite: int) -> List[Fila]:
+    filas = []
+    try:
+        rows = db.query("SELECT message_id, COALESCE(sender_name, ''), COALESCE(text, ''), COALESCE(sent_at, ''), "
+                        "COALESCE(outgoing, 0), COALESCE(reactions_json, '') FROM bluesky_messages "
+                        "WHERE account_id = ? AND convo_id = ? ORDER BY sent_at ASC LIMIT ?",
+                        (account_id, convo_id, limite))
+    except Exception as e:
+        log.error(f"Error al listar los mensajes de Bluesky: {e}")
+        return []
+    for mid, quien, texto, fecha, saliente, reacciones in rows:
+        quien = _("Yo") if saliente else quien
+        linea = f"{quien}: {_condensar(texto, 400)}"
+        try:
+            rs = json.loads(reacciones) if reacciones else []
+        except Exception:
+            rs = []
+        if rs:
+            linea += " · " + _("reacciones: {r}").format(r=" ".join(r.get("emoji", "") for r in rs))
+        filas.append(Fila(id=mid, feed_id=0, feed_titulo=quien, titulo=linea, autor=quien, fecha=fecha,
+                          leido=True, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="bluesky",
+                          extra={"tipo": "mensaje", "account_id": account_id, "convo_id": convo_id,
+                                 "message_id": mid, "usuario": "", "propio": bool(saliente), "texto": texto}))
+    return filas
+
+
 def detalle(fila: Fila) -> tuple:
     """(título, meta, enlace, cuerpo) de una fila de Bluesky para el panel de lectura."""
     from .datos import fecha_legible
     x = fila.extra
+    if x.get("tipo") == "convo":
+        return (fila.autor, fecha_legible(fila.fecha), "",
+                fila.titulo + "\n\n" + _("Pulsa Intro para abrir la conversación."))
+    if x.get("tipo") == "mensaje":
+        return (fila.autor, fecha_legible(fila.fecha), "", x.get("texto") or fila.titulo)
     if x.get("tipo") == "notificacion":
         cuerpo = fila.titulo
         if x.get("uri"):

@@ -45155,7 +45155,9 @@ msgid "Descargas si_multáneas al actualizar:"
 msgstr "_Simultaneous downloads when updating:"
 
 msgid "Dirección del feed o de la web. Si es una web, se busca el feed."
-msgstr "Address of the feed or of the website. If it is a website, its feed is looked up."
+msgstr ""
+"Address of the feed or of the website. If it is a website, its feed is "
+"looked up."
 
 msgid "Enlace copiado"
 msgstr "Link copied"
@@ -45551,7 +45553,8 @@ msgid "_Iniciar sesión"
 msgstr "_Log in"
 
 msgid "Autoriza la aplicación en el navegador, copia el código y pégalo aquí."
-msgstr "Authorize the application in the browser, copy the code and paste it here."
+msgstr ""
+"Authorize the application in the browser, copy the code and paste it here."
 
 msgid "No se pudo iniciar sesión: {e}"
 msgstr "Could not log in: {e}"
@@ -46108,8 +46111,12 @@ msgstr "Open a _hashtag…"
 msgid "_Buscar en Mastodon…"
 msgstr "_Search Mastodon…"
 
-msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
-msgstr "Tab / Shift+Tab: from one pane to the next or the previous (arrow keys move between rows)"
+msgid ""
+"Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven "
+"por las filas)"
+msgstr ""
+"Tab / Shift+Tab: from one pane to the next or the previous (arrow keys move "
+"between rows)"
 
 msgid "Ctrl+Alt+B: borradores"
 msgstr "Ctrl+Alt+B: drafts"
@@ -46555,8 +46562,12 @@ msgstr "Thread saved: {n} messages"
 msgid "Publicando el hilo de {n} mensajes…"
 msgstr "Posting the thread of {n} messages…"
 
-msgid "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
-msgstr "The thread could not be posted in full: {e}. You can resume it from Saved threads."
+msgid ""
+"El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos "
+"guardados."
+msgstr ""
+"The thread could not be posted in full: {e}. You can resume it from Saved "
+"threads."
 
 msgid "Hilos guardados"
 msgstr "Saved threads"
@@ -46792,8 +46803,11 @@ msgstr "suspend"
 msgid "silenciar"
 msgstr "silence"
 
-msgid "La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia artificial."
-msgstr "AI is turned off. Turn it on in Preferences, Artificial intelligence tab."
+msgid ""
+"La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia "
+"artificial."
+msgstr ""
+"AI is turned off. Turn it on in Preferences, Artificial intelligence tab."
 
 msgid "Selecciona un elemento para traducir"
 msgstr "Select an item to translate"
@@ -46870,8 +46884,10 @@ msgstr "Write the text first"
 msgid "Consultando a la IA…"
 msgstr "Asking the AI…"
 
-msgid "Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
-msgstr "Ctrl+T: translate the item (uses the target language from Preferences)"
+msgid ""
+"Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
+msgstr ""
+"Ctrl+T: translate the item (uses the target language from Preferences)"
 
 msgid "Ctrl+Alt+R: resumir con IA"
 msgstr "Ctrl+Alt+R: summarize with AI"
@@ -46909,8 +46925,12 @@ msgstr "_General"
 msgid "_Proveedor de IA:"
 msgstr "_AI provider:"
 
-msgid "Servicio que describe imágenes, resume y mejora textos. Desactivada apaga todas las funciones de IA."
-msgstr "Service that describes images, summarizes and improves texts. Off turns all AI features off."
+msgid ""
+"Servicio que describe imágenes, resume y mejora textos. Desactivada apaga "
+"todas las funciones de IA."
+msgstr ""
+"Service that describes images, summarizes and improves texts. Off turns all "
+"AI features off."
 
 msgid "_Claves API (una por línea):"
 msgstr "_API keys (one per line):"
@@ -46921,13 +46941,15 @@ msgstr "If you give several, when one runs out of quota the next one is used."
 msgid "_Modelo:"
 msgstr "_Model:"
 
-msgid "Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
+msgid ""
+"Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
 msgstr "Model name. Use Get models to see those the provider offers."
 
 msgid "_URL del servidor local:"
 msgstr "Local server _URL:"
 
-msgid "Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
+msgid ""
+"Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
 msgstr "Address compatible with the OpenAI chat API (llama.cpp, Ollama...)."
 
 msgid "Guardar en ca_ché las respuestas:"
@@ -46984,14 +47006,22 @@ msgstr "The provider answers: {r}"
 msgid "_Motor de traducción:"
 msgstr "Translation _engine:"
 
-msgid "Todos son gratuitos y no necesitan clave. Si uno falla por límites del servidor, prueba con otro."
-msgstr "All are free and need no key. If one fails because of server limits, try another."
+msgid ""
+"Todos son gratuitos y no necesitan clave. Si uno falla por límites del "
+"servidor, prueba con otro."
+msgstr ""
+"All are free and need no key. If one fails because of server limits, try "
+"another."
 
 msgid "En Mastodon, usar _primero la traducción de tu servidor:"
 msgstr "In Mastodon, use your server's translation _first:"
 
-msgid "Si tu instancia ofrece traducción se usa antes que el motor externo, que queda de respaldo."
-msgstr "If your instance offers translation it is used before the external engine, which stays as a fallback."
+msgid ""
+"Si tu instancia ofrece traducción se usa antes que el motor externo, que "
+"queda de respaldo."
+msgstr ""
+"If your instance offers translation it is used before the external engine, "
+"which stays as a fallback."
 
 msgid "_Idioma de destino:"
 msgstr "_Target language:"
@@ -47176,8 +47206,12 @@ msgstr "_User (for example ana.bsky.social):"
 msgid "_Contraseña de aplicación:"
 msgstr "_App password:"
 
-msgid "Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu contraseña normal."
-msgstr "Create it in Settings, App passwords, at bsky.app. Do not use your normal password."
+msgid ""
+"Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu "
+"contraseña normal."
+msgstr ""
+"Create it in Settings, App passwords, at bsky.app. Do not use your normal "
+"password."
 
 msgid "_Servidor (opcional):"
 msgstr "_Server (optional):"
@@ -47206,8 +47240,12 @@ msgstr "A video cannot be combined with other attachments"
 msgid "Bluesky admite hasta cuatro imágenes"
 msgstr "Bluesky allows up to four images"
 
-msgid "Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, mov, webm)"
-msgstr "Unsupported format: use images (png, jpg, gif, webp) or a video (mp4, mov, webm)"
+msgid ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov, webm)"
+msgstr ""
+"Unsupported format: use images (png, jpg, gif, webp) or a video (mp4, mov, "
+"webm)"
 
 msgid "Describe la imagen o el vídeo. Se recomienda siempre."
 msgstr "Describe the image or the video. Always recommended."
@@ -47262,3 +47300,545 @@ msgstr "replied"
 
 msgid "Solo las mencionadas"
 msgstr "Only those mentioned"
+
+msgid "Abriendo la conversación…"
+msgstr "Opening the conversation…"
+
+msgid "Baja de {n}"
+msgstr "Unsubscribed from {n}"
+
+msgid "Buscar feeds"
+msgstr "Search feeds"
+
+msgid "Buscar un servicio de etiquetado"
+msgstr "Search for a labeling service"
+
+msgid "Con acceso a mensajes directos"
+msgstr "With access to direct messages"
+
+msgid ""
+"Contraseña creada y copiada al portapapeles: {p}. No se volverá a mostrar."
+msgstr ""
+"Password created and copied to the clipboard: {p}. It will not be shown "
+"again."
+
+msgid "Contraseña revocada"
+msgstr "Password revoked"
+
+msgid "Contraseñas de aplicación de Bluesky"
+msgstr "Bluesky app passwords"
+
+msgid "Conversación con {t}"
+msgstr "Conversation with {t}"
+
+msgid "Creada el {f}"
+msgstr "Created on {f}"
+
+msgid "Crear una contraseña de aplicación"
+msgstr "Create an app password"
+
+msgid "Crear una lista"
+msgstr "Create a list"
+
+msgid "Cuenta añadida"
+msgstr "Account added"
+
+msgid "Cuenta quitada"
+msgstr "Account removed"
+
+msgid "Denuncia enviada"
+msgstr "Report sent"
+
+msgid "Denunciar la cuenta…"
+msgstr "Report the account…"
+
+msgid "Denunciar la publicación…"
+msgstr "Report the post…"
+
+msgid "Denunciar {q}"
+msgstr "Report {q}"
+
+msgid "Desfijado"
+msgstr "Unpinned"
+
+msgid "Editar mi _perfil…"
+msgstr "Edit my _profile…"
+
+msgid "El mensaje supera los {n} caracteres"
+msgstr "The message exceeds {n} characters"
+
+msgid "Enviar _mensaje"
+msgstr "Send _message"
+
+msgid "Escribe el mensaje"
+msgstr "Write the message"
+
+msgid "Escribe la palabra"
+msgstr "Write the word"
+
+msgid "Escribe un nombre"
+msgstr "Write a name"
+
+msgid "Esto es un mensaje directo, no una publicación"
+msgstr "This is a direct message, not a post"
+
+msgid "Feed guardado"
+msgstr "Feed saved"
+
+msgid "Feed quitado"
+msgstr "Feed removed"
+
+msgid "Feeds de Bluesky"
+msgstr "Bluesky feeds"
+
+msgid "Grupo {t}"
+msgstr "Group {t}"
+
+msgid "Has salido de la conversación"
+msgstr "You have left the conversation"
+
+msgid "Hilo reactivado"
+msgstr "Thread reactivated"
+
+msgid "Hilo silenciado: no recibirás sus notificaciones"
+msgstr "Thread muted: you will not receive its notifications"
+
+msgid ""
+"Intro abre el artículo. Control M marca leído, Control D favorito, Control L"
+" leer más tarde, Suprimir a la papelera."
+msgstr ""
+"Enter opens the article. Control M marks as read, Control D favorite, "
+"Control L read later, Delete to trash."
+
+msgid "La lista está vacía"
+msgstr "The list is empty"
+
+msgid "Le sigues"
+msgstr "You follow them"
+
+msgid "Lista borrada"
+msgstr "List deleted"
+
+msgid "Lista creada"
+msgstr "List created"
+
+msgid "Lista de contraseñas de aplicación"
+msgstr "List of app passwords"
+
+msgid "Lista de feeds"
+msgstr "List of feeds"
+
+msgid "Lista de palabras silenciadas"
+msgstr "List of muted words"
+
+msgid "Lista de servicios de etiquetado"
+msgstr "List of labeling services"
+
+msgid "Lista de tus listas"
+msgstr "List of your lists"
+
+msgid "Mensaje a {t}"
+msgstr "Message to {t}"
+
+msgid "Mensaje borrado para ti"
+msgstr "Message deleted for you"
+
+msgid "Mensaje directo al _autor"
+msgstr "Direct message to the _author"
+
+msgid "Mensaje enviado"
+msgstr "Message sent"
+
+msgid "Mensajes _directos"
+msgstr "_Direct messages"
+
+msgid "Miembros de {n}"
+msgstr "Members of {n}"
+
+msgid "Moderación de contenido de Bluesky"
+msgstr "Bluesky content moderation"
+
+msgid "Moderación guardada"
+msgstr "Moderation saved"
+
+msgid "No hay contraseñas"
+msgstr "There are no passwords"
+
+msgid "No hay palabras silenciadas"
+msgstr "There are no muted words"
+
+msgid "No se encontró esa cuenta"
+msgstr "That account was not found"
+
+msgid "No se encontró ningún feed"
+msgstr "No feed was found"
+
+msgid "No se pudieron leer las preferencias: {e}"
+msgstr "Could not read the preferences: {e}"
+
+msgid "No se pudo abrir la conversación: {e}"
+msgstr "Could not open the conversation: {e}"
+
+msgid "No se pudo añadir: {e}"
+msgstr "Could not add: {e}"
+
+msgid "No se pudo enviar la denuncia: {e}"
+msgstr "Could not send the report: {e}"
+
+msgid "No se pudo enviar: {e}"
+msgstr "Could not send: {e}"
+
+msgid "No se pudo ocultar: {e}"
+msgstr "Could not hide: {e}"
+
+msgid "No se pudo quitar: {e}"
+msgstr "Could not remove: {e}"
+
+msgid "No se pudo reaccionar: {e}"
+msgstr "Could not react: {e}"
+
+msgid "No se pudo revocar: {e}"
+msgstr "Could not revoke: {e}"
+
+msgid "No se pudo salir: {e}"
+msgstr "Could not leave: {e}"
+
+msgid "No verás las publicaciones que la contengan."
+msgstr "You will not see posts that contain it."
+
+msgid "Ocultar la publicación para mí"
+msgstr "Hide the post for me"
+
+msgid "Oficial, siempre activo"
+msgstr "Official, always on"
+
+msgid "Palabra quitada"
+msgstr "Word removed"
+
+msgid "Palabra silenciada"
+msgstr "Word muted"
+
+msgid "Palabras silenciadas de Bluesky"
+msgstr "Bluesky muted words"
+
+msgid ""
+"Para usarla en otro programa. La que se crea aquí no permite mensajes "
+"directos."
+msgstr ""
+"To use it in another program. The one created here does not allow direct "
+"messages."
+
+msgid "Permitir contenido para _adultos:"
+msgstr "Allow _adult content:"
+
+msgid "Publicación oculta para ti"
+msgstr "Post hidden for you"
+
+msgid "Pulsa Intro para abrir la conversación."
+msgstr "Press Enter to open the conversation."
+
+msgid "Quién ha citado…"
+msgstr "Who quoted…"
+
+msgid "Quién ha dado me gusta…"
+msgstr "Who liked…"
+
+msgid "Quién ha republicado…"
+msgstr "Who reposted…"
+
+msgid "Reaccionar al mensaje"
+msgstr "React to the message"
+
+msgid "Reacción enviada"
+msgstr "Reaction sent"
+
+msgid "Reactivar el hilo"
+msgstr "Reactivate the thread"
+
+msgid ""
+"Redes sociales, chats y noticias en una sola ventana, accesible con el "
+"teclado y con Orca."
+msgstr ""
+"Social networks, chats and news in a single window, accessible by keyboard "
+"and with Orca."
+
+msgid "S_iguiendo"
+msgstr "Fo_llowing"
+
+msgid "Salir"
+msgstr "Leave"
+
+msgid "Se_guidores"
+msgstr "Fol_lowers"
+
+msgid "Selecciona un mensaje"
+msgstr "Select a message"
+
+msgid "Selecciona una conversación"
+msgstr "Select a conversation"
+
+msgid "Selecciona una publicación"
+msgstr "Select a post"
+
+msgid "Servicios de _etiquetado…"
+msgstr "_Labeling services…"
+
+msgid "Servicios de etiquetado de Bluesky"
+msgstr "Bluesky labeling services"
+
+msgid "Si está desactivado, el contenido adulto queda oculto."
+msgstr "If off, adult content stays hidden."
+
+msgid "Silenciar el hilo"
+msgstr "Mute the thread"
+
+msgid "Sin acceso a mensajes directos"
+msgstr "Without access to direct messages"
+
+msgid "Suscrito a {n}"
+msgstr "Subscribed to {n}"
+
+msgid "Tiempo real en Blues_ky:"
+msgstr "Real time on Blues_ky:"
+
+msgid "Tus listas de Bluesky"
+msgstr "Your Bluesky lists"
+
+msgid "_Abrir conversación"
+msgstr "_Open conversation"
+
+msgid "_Añadir cuenta…"
+msgstr "_Add account…"
+
+msgid "_Añadir palabra…"
+msgstr "_Add word…"
+
+msgid "_Borrar lista"
+msgstr "_Delete list"
+
+msgid "_Buscar feeds…"
+msgstr "_Search feeds…"
+
+msgid "_Buscar por usuario…"
+msgstr "_Search by user…"
+
+msgid "_Caduca:"
+msgstr "_Expires:"
+
+msgid "_Contraseñas de aplicación…"
+msgstr "App _passwords…"
+
+msgid "_Crear"
+msgstr "_Create"
+
+msgid "_Crear contraseña…"
+msgstr "_Create password…"
+
+msgid "_Crear lista…"
+msgstr "_Create list…"
+
+msgid "_Denunciar"
+msgstr "_Report"
+
+msgid "_Descripción (opcional):"
+msgstr "_Description (optional):"
+
+msgid "_Detalles (opcional):"
+msgstr "_Details (optional):"
+
+msgid "_Dónde buscarla:"
+msgstr "_Where to look for it:"
+
+msgid "_Eliminar la cuenta…"
+msgstr "_Remove the account…"
+
+msgid "_Emoji:"
+msgstr "_Emoji:"
+
+msgid "_Enviar"
+msgstr "_Send"
+
+msgid "_Enviar denuncia"
+msgstr "_Send report"
+
+msgid "_Feeds…"
+msgstr "_Feeds…"
+
+msgid "_Fijar o desfijar / Guardar"
+msgstr "_Pin or unpin / Save"
+
+msgid "_Listas…"
+msgstr "_Lists…"
+
+msgid "_Mensaje:"
+msgstr "_Message:"
+
+msgid "_Miembros…"
+msgstr "_Members…"
+
+msgid "_Mis feeds"
+msgstr "_My feeds"
+
+msgid "_Moderación de contenido…"
+msgstr "Content _moderation…"
+
+msgid "_Nombre:"
+msgstr "_Name:"
+
+msgid "_Nuevo mensaje directo…"
+msgstr "_New direct message…"
+
+msgid "_Palabra o frase:"
+msgstr "_Word or phrase:"
+
+msgid "_Palabras silenciadas…"
+msgstr "Muted _words…"
+
+msgid "_Perfil"
+msgstr "_Profile"
+
+msgid "_Quitar de guardados"
+msgstr "_Remove from saved"
+
+msgid "_Quitar de la lista"
+msgstr "_Remove from the list"
+
+msgid "_Quitar palabra"
+msgstr "_Remove word"
+
+msgid "_Reaccionar"
+msgstr "_React"
+
+msgid "_Reaccionar al mensaje…"
+msgstr "_React to the message…"
+
+msgid "_Revocar contraseña"
+msgstr "_Revoke password"
+
+msgid "_Silenciar o reactivar la conversación"
+msgstr "_Mute or unmute the conversation"
+
+msgid "_Sugeridos"
+msgstr "S_uggested"
+
+msgid "_Suscribirse o darse de baja"
+msgstr "_Subscribe or unsubscribe"
+
+msgid "_Usuario:"
+msgstr "_User:"
+
+msgid "a la cuenta"
+msgstr "the account"
+
+msgid "búsqueda"
+msgstr "search"
+
+msgid "caduca el {f}"
+msgstr "expires on {f}"
+
+msgid "excepto cuentas que sigues"
+msgstr "except accounts you follow"
+
+msgid "la publicación"
+msgstr "the post"
+
+msgid "reacciones: {r}"
+msgstr "reactions: {r}"
+
+msgid "solo etiquetas"
+msgstr "tags only"
+
+msgid "texto y etiquetas"
+msgstr "text and tags"
+
+msgid "{n} contraseñas"
+msgstr "{n} passwords"
+
+msgid "{n} feeds guardados"
+msgstr "{n} saved feeds"
+
+msgid "{n} feeds. Pulsa Abrir para leerlo o Guardar para añadirlo"
+msgstr "{n} feeds. Press Open to read one or Save to add it"
+
+msgid "{n} listas"
+msgstr "{n} lists"
+
+msgid "{n} me gusta"
+msgstr "{n} likes"
+
+msgid "{n} mensajes directos nuevos"
+msgstr "{n} new direct messages"
+
+msgid "{n} miembros"
+msgstr "{n} members"
+
+msgid "{n} palabras"
+msgstr "{n} words"
+
+msgid "{n} servicios"
+msgstr "{n} services"
+
+msgid "{n}:"
+msgstr "{n}:"
+
+msgid "¿Borrar este mensaje solo para ti? La otra persona lo seguirá viendo."
+msgstr "Delete this message just for you? The other person will still see it."
+
+msgid "¿Borrar la lista «{n}»?"
+msgstr "Delete the list «{n}»?"
+
+msgid "¿De _quién?"
+msgstr "From _whom?"
+
+msgid "¿Quitar «{n}» de tus feeds guardados?"
+msgstr "Remove «{n}» from your saved feeds?"
+
+msgid ""
+"¿Revocar la contraseña «{n}»? Los programas que la usen dejarán de "
+"funcionar."
+msgstr "Revoke the password «{n}»? Programs using it will stop working."
+
+msgid "¿Salir de la conversación con {t} y borrarla de este equipo?"
+msgstr "Leave the conversation with {t} and delete it from this computer?"
+
+msgid "Infringe las normas"
+msgstr "Breaks the rules"
+
+msgid "Trato grosero o acoso"
+msgstr "Rude behavior or harassment"
+
+msgid "Solo etiquetas (hashtags)"
+msgstr "Tags only (hashtags)"
+
+msgid "Todas las cuentas"
+msgstr "All accounts"
+
+msgid "Quién ha marcado me gusta"
+msgstr "Who liked"
+
+msgid "Quién ha republicado"
+msgstr "Who reposted"
+
+msgid "Quién ha citado"
+msgstr "Who quoted"
+
+msgid "Lista de cuentas que dieron me gusta"
+msgstr "List of accounts that liked"
+
+msgid "Lista de cuentas que republicaron"
+msgstr "List of accounts that reposted"
+
+msgid "Lista de cuentas que citaron"
+msgstr "List of accounts that quoted"
+
+msgid "contenido adulto"
+msgstr "adult content"
+
+msgid "contenido sexual"
+msgstr "sexual content"
+
+msgid "contenido gráfico"
+msgstr "graphic content"
+
+msgid "desnudos"
+msgstr "nudity"

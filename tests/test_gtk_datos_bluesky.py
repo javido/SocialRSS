@@ -78,3 +78,39 @@ def test_url_web_y_buffers_extra(cuenta):
     assert db_.nodo_extra(cuenta, "thread:at://z", "Hilo") is n and n.cerrable
     db_.cerrar_extra(n)
     assert n not in next(c for c in db_.construir_nodos().hijos if c.account_id == cuenta).hijos
+
+
+@pytest.fixture
+def mensajes(cuenta):
+    db.execute("DELETE FROM bluesky_convos WHERE account_id = ?", (cuenta,))
+    db.execute("DELETE FROM bluesky_messages WHERE account_id = ?", (cuenta,))
+    db.execute("INSERT INTO bluesky_convos (id, account_id, convo_id, members_json, title, unread_count, muted, "
+               "last_message, last_message_date, is_group) VALUES (?,?,?,?,?,?,?,?,?,?)",
+               (f"{cuenta}:c1", cuenta, "c1", "[]", "Ana", 2, 1, "¿Quedamos mañana?", "2026-10-25T20:00:00Z", 0))
+    for i, (quien, texto, saliente, reacc) in enumerate([("Ana", "Hola", 0, ""), ("Yo", "Bien", 1, ""),
+                                                          ("Ana", "¿Quedamos?", 0, json.dumps([{"emoji": "👍"}]))]):
+        db.execute("INSERT INTO bluesky_messages (id, account_id, convo_id, message_id, sender_did, sender_name, text, "
+                   "embed_json, reactions_json, sent_at, outgoing) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                   (f"{cuenta}:c1:m{i}", cuenta, "c1", f"m{i}", "did:x", quien, texto, "", reacc,
+                    f"2026-10-25T19:0{i}:00Z", saliente))
+    return cuenta
+
+
+def test_mensajes_directos_aparecen_como_buffer(cuenta):
+    mia = next(c for c in db_.construir_nodos().hijos if c.account_id == cuenta)
+    assert "dms" in [h.timeline for h in mia.hijos]
+
+
+def test_conversaciones_con_no_leidos_y_silencio(mensajes):
+    (fila,) = db_.listar(mensajes, "dms")
+    assert fila.extra["tipo"] == "convo" and fila.extra["convo_id"] == "c1" and fila.leido is False
+    assert "2 sin leer" in fila.titulo and "silenciada" in fila.titulo and "¿Quedamos mañana?" in fila.titulo
+    assert "Intro" in db_.detalle(fila)[3]
+
+
+def test_mensajes_de_una_conversacion_en_orden_cronologico(mensajes):
+    filas = db_.listar(mensajes, "dm:c1")
+    assert [f.extra["texto"] for f in filas] == ["Hola", "Bien", "¿Quedamos?"]
+    assert filas[1].extra["propio"] is True and filas[1].titulo.startswith("Yo: ")
+    assert "👍" in filas[2].titulo
+    assert db_.detalle(filas[0])[3] == "Hola"

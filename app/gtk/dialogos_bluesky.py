@@ -264,13 +264,21 @@ class DialogoPerfilBsky(Gtk.Window):
         self.b_bloquear = Gtk.Button(label=_("_Bloquear"), use_underline=True, sensitive=False)
         b_pub = Gtk.Button(label=_("Ver _publicaciones"), use_underline=True)
         cerrar = Gtk.Button(label=_("_Cerrar"), use_underline=True)
+        b_dm = Gtk.Button(label=_("Enviar _mensaje"), use_underline=True)
+        b_seg = Gtk.Button(label=_("Se_guidores"), use_underline=True)
+        b_sig = Gtk.Button(label=_("S_iguiendo"), use_underline=True)
+        b_rep = Gtk.Button(label=_("_Denunciar"), use_underline=True)
+        b_dm.connect("clicked", lambda *_a: (self.close(), padre.bsky_mensaje_nuevo(account_id, self.datos.get("did") or actor)))
+        b_seg.connect("clicked", lambda *_a: self._cuentas("followers"))
+        b_sig.connect("clicked", lambda *_a: self._cuentas("follows"))
+        b_rep.connect("clicked", lambda *_a: self._denunciar())
         self.b_seguir.connect("clicked", lambda *_a: self._accion("unfollow" if self.datos.get("following_uri") else "follow"))
         self.b_silenciar.connect("clicked", lambda *_a: self._accion("unmute" if self.datos.get("muted") else "mute"))
         self.b_bloquear.connect("clicked", lambda *_a: self._bloqueo())
         b_pub.connect("clicked", lambda *_a: (self.close(), padre.bsky_abrir_cronologia(account_id, self.datos.get("did") or actor,
                                                                                         self.datos.get("handle") or actor)))
         cerrar.connect("clicked", lambda *_a: self.close())
-        for b in (self.b_seguir, self.b_silenciar, self.b_bloquear, b_pub, cerrar):
+        for b in (self.b_seguir, self.b_silenciar, self.b_bloquear, b_dm, b_seg, b_sig, b_rep, b_pub, cerrar):
             fila.append(b)
         caja.append(fila)
         ctl = Gtk.ShortcutController()
@@ -279,6 +287,14 @@ class DialogoPerfilBsky(Gtk.Window):
         self.add_controller(ctl)
         self.set_focus(self.texto)
         self._cargar()
+
+    def _cuentas(self, tipo: str):
+        from .dialogos_bluesky_extra import DialogoActoresBsky
+        DialogoActoresBsky(self.get_transient_for(), self.account_id, tipo, actor=self.datos.get("did") or self.actor).present()
+
+    def _denunciar(self):
+        from .dialogos_bluesky_extra import DialogoReportarBsky
+        DialogoReportarBsky(self, self.account_id, did=self.datos.get("did"), quien="@" + self.datos.get("handle", "")).present()
 
     def _cargar(self):
         bluesky_service.obtener_perfil_async(self.account_id, self.actor, callback=self._pintar)
