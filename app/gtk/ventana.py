@@ -76,6 +76,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self.set_default_size(1180, 760)
 
         self._construir_interfaz()
+        self._configurar_tabulador()
         self._registrar_acciones()
         self.cargar_arbol()
         self.connect("close-request", self._al_cerrar)
@@ -264,6 +265,54 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self.etiqueta_meta = self.buffer.create_tag("meta", foreground_rgba=Gdk.RGBA(0.45, 0.45, 0.45, 1))
         return Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
 
+    # ------------------------------------------------------------------ foco entre paneles
+    def _configurar_tabulador(self):
+        """Tab y Mayús+Tab saltan ENTRE los paneles (árbol, lista, texto), no entre las filas de una lista.
+        Las flechas siguen moviendo por las filas. Se intercepta antes de que GTK reparta el foco."""
+        ctl = Gtk.EventControllerKey()
+        ctl.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
+        ctl.connect("key-pressed", self._on_tecla_ventana)
+        self.add_controller(ctl)
+
+    def _panel_con_foco(self):
+        foco = self.get_focus()
+        if foco is None:
+            return None
+        for panel in (self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto):
+            if foco is panel or foco.is_ancestor(panel):
+                return panel
+        return None
+
+    def _on_tecla_ventana(self, ctl, keyval, keycode, estado):
+        if keyval not in (Gdk.KEY_Tab, Gdk.KEY_ISO_Left_Tab):
+            return False
+        if estado & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK):
+            return False
+        actual = self._panel_con_foco()
+        if actual is None:
+            return False
+        atras = keyval == Gdk.KEY_ISO_Left_Tab or bool(estado & Gdk.ModifierType.SHIFT_MASK)
+        orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto]
+        i = orden.index(actual)
+        j = i - 1 if atras else i + 1
+        if j < 0 or j >= len(orden):
+            return False        # fuera de los paneles: el recorrido normal de GTK
+        self.enfocar_panel(orden[j])
+        return True
+
+    def enfocar_panel(self, panel):
+        """Lleva el foco a un panel. En una lista cae en la fila que estaba seleccionada (la última enfocada),
+        no en la primera."""
+        seleccion = {self.vista_arbol: self.seleccion_arbol, self.vista_lista: self.seleccion_lista}.get(panel)
+        if seleccion is not None:
+            pos = seleccion.get_selected()
+            panel.grab_focus()
+            if pos != Gtk.INVALID_LIST_POSITION:
+                # grab_focus() deja el foco en el primer elemento visible; se lleva al seleccionado.
+                panel.scroll_to(pos, Gtk.ListScrollFlags.FOCUS, None)
+            return
+        panel.grab_focus()
+
     # ------------------------------------------------------------------ acciones
     def _registrar_acciones(self):
         def accion(nombre, fn, aceleradores=()):
@@ -306,9 +355,9 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         accion("copiar-titulo", self.accion_copiar_titulo, ["<Ctrl><Shift>c"])
         accion("texto-completo", self.accion_texto_completo, ["<Alt>a"])
         accion("marcar-todo-leido", self.accion_marcar_todo_leido)
-        accion("ir-arbol", lambda: self.vista_arbol.grab_focus(), ["<Alt>1"])
-        accion("ir-lista", lambda: self.vista_lista.grab_focus(), ["<Alt>2"])
-        accion("ir-lectura", lambda: self.texto.grab_focus(), ["<Alt>3"])
+        accion("ir-arbol", lambda: self.enfocar_panel(self.vista_arbol), ["<Alt>1"])
+        accion("ir-lista", lambda: self.enfocar_panel(self.vista_lista), ["<Alt>2"])
+        accion("ir-lectura", lambda: self.enfocar_panel(self.texto), ["<Alt>3"])
         # Reproductor (mismas teclas que en Windows)
         accion("reproducir", self.accion_reproducir_pausa, ["F2"])
         accion("retroceder", lambda: self.accion_saltar(-1), ["F1"])
@@ -593,7 +642,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if obj is None:
             return
         # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
-        self._vista_previa(obj, ahora=True, despues=self.texto.grab_focus)
+        self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
             self._marcar_leido(obj, True)
             rss_service.registrar_lectura(obj.fila.id)
@@ -751,7 +800,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
 
         def _listo(filas):
             if filas:
-                self.vista_lista.grab_focus()
+                self.enfocar_panel(self.vista_lista)
             else:
                 self.avisar(_("Sin resultados"))
         self.cargar_lista(despues=_listo)
@@ -761,7 +810,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if self.busqueda:
             self.busqueda = ""
             self.cargar_lista()
-        self.vista_lista.grab_focus()
+        self.enfocar_panel(self.vista_lista)
 
     # ------------------------------------------------------------------ actualización
     def accion_actualizar(self):
@@ -969,7 +1018,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         """Abre un hilo o una cronología como buffer del árbol (bajo su cuenta) y pasa a la lista."""
         nodo = datos_mastodon.nodo_extra(account_id, timeline, titulo)
         self.cargar_arbol(seleccionar=NodoObj(nodo).clave())
-        self.vista_lista.grab_focus()
+        self.enfocar_panel(self.vista_lista)
         self.avisar(_("Abriendo {t}…").format(t=titulo))
 
     def accion_conversacion(self):

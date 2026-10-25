@@ -46107,3 +46107,6 @@ msgstr "Open a _hashtag…"
 
 msgid "_Buscar en Mastodon…"
 msgstr "_Search Mastodon…"
+
+msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
+msgstr "Tab / Shift+Tab: from one pane to the next or the previous (arrow keys move between rows)"

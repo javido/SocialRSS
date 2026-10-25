@@ -161,7 +161,7 @@ def _teclas() -> str:
     return "\n".join([
         _("Moverse"),
         _("Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto"),
-        _("F6: siguiente panel"),
+        _("Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"),
         _("Ctrl+F: buscar en la lista"),
         _("Intro: abrir el elemento (en RSS lo marca leído; pasa al texto)"),
         _("Menú o Mayús+F10: menú de acciones del elemento"),

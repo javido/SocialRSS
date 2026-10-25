@@ -122,7 +122,8 @@ Tus datos viven en la carpeta `data`, junto al código, igual que en Windows.
 ### Cómo se usa con Orca
 
 - La ventana tiene tres paneles: **Navegación** (árbol), **Artículos** y **Contenido del
-  artículo**. `Alt+1`, `Alt+2` y `Alt+3` saltan a cada uno; `F6` va al siguiente.
+  artículo**. `Tab` y `Mayús+Tab` pasan de uno a otro (las flechas mueven por las filas, y al volver a una
+  lista el foco cae en la última fila en la que estabas); `Alt+1`, `Alt+2` y `Alt+3` saltan directos.
 - Cada artículo se lee entero al moverte con las flechas (estado, título, feed, autor, fecha).
 - Las acciones (leído, destacado, actualizar, reproductor...) se anuncian por el lector sin mover
   el foco. `Ctrl+Mayús+B` repite la barra de estado.

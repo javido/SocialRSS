@@ -44694,3 +44694,6 @@ msgstr ""
 
 msgid "_Buscar en Mastodon…"
 msgstr ""
+
+msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
+msgstr ""
