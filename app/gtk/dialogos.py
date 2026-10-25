@@ -1,0 +1,671 @@
+# -*- coding: utf-8 -*-
+"""Diálogos de la interfaz GTK 4. Todos son ventanas modales con etiquetas asociadas a sus campos
+(Alt+letra), Intro acepta y Escape cierra."""
+
+import logging
+
+import gi
+gi.require_version("Gtk", "4.0")
+from gi.repository import Gtk  # noqa: E402
+
+from app.core.config_manager import config
+from app.core.speech import notificar
+from app.core.task_manager import task_manager
+from app.services.rss.rss_service import rss_service
+
+log = logging.getLogger(__name__)
+
+
+class DialogoBase(Gtk.Window):
+    """Ventana modal con rejilla etiqueta/campo, botones Aceptar/Cancelar y Escape para cerrar."""
+
+    def __init__(self, padre, titulo: str, aceptar: str = None):
+        super().__init__(title=titulo, transient_for=padre, modal=True, resizable=False)
+        self.padre = padre
+        caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+        for m in ("top", "bottom", "start", "end"):
+            getattr(caja, f"set_margin_{m}")(14)
+        self.set_child(caja)
+        self.rejilla = Gtk.Grid(row_spacing=8, column_spacing=10)
+        caja.append(self.rejilla)
+        self._fila = 0
+
+        botones = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8, halign=Gtk.Align.END)
+        self.boton_cancelar = Gtk.Button(label=_("_Cancelar"), use_underline=True)
+        self.boton_cancelar.connect("clicked", lambda *_a: self.close())
+        self.boton_aceptar = Gtk.Button(label=aceptar or _("_Aceptar"), use_underline=True)
+        self.boton_aceptar.add_css_class("suggested-action")
+        self.boton_aceptar.connect("clicked", lambda *_a: self.aceptar())
+        botones.append(self.boton_cancelar)
+        botones.append(self.boton_aceptar)
+        caja.append(botones)
+        self.set_default_widget(self.boton_aceptar)
+
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Escape"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.close() or True)))
+        self.add_controller(ctl)
+
+    def campo(self, etiqueta: str, widget, ayuda: str = ""):
+        """Añade una fila 'etiqueta: widget' con la etiqueta enlazada al campo (para el lector)."""
+        lbl = Gtk.Label(label=etiqueta, use_underline=True, xalign=0)
+        lbl.set_mnemonic_widget(widget)
+        widget.set_hexpand(True)
+        if ayuda:
+            widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [ayuda])
+        self.rejilla.attach(lbl, 0, self._fila, 1, 1)
+        self.rejilla.attach(widget, 1, self._fila, 1, 1)
+        self._fila += 1
+        return widget
+
+    def aceptar(self):
+        self.close()
+
+
+class DialogoAnadirFeed(DialogoBase):
+    def __init__(self, padre, account_id: int, al_terminar):
+        super().__init__(padre, _("Añadir feed o podcast"), _("_Añadir"))
+        self.account_id = account_id
+        self.al_terminar = al_terminar
+        self.url = self.campo(_("_Dirección (URL):"), Gtk.Entry(activates_default=True, width_chars=50),
+                              _("Dirección del feed o de la web. Si es una web, se busca el feed."))
+        self.titulo = self.campo(_("_Título (opcional):"), Gtk.Entry(activates_default=True))
+        cats = rss_service.obtener_categorias(account_id)
+        self._cats = [None] + [c["id"] for c in cats]
+        self.combo = self.campo(_("_Carpeta:"), Gtk.DropDown.new_from_strings(
+            [_("(sin carpeta)")] + [c["name"] for c in cats]))
+        self.set_focus(self.url)
+
+    def aceptar(self):
+        url = self.url.get_text().strip()
+        if not url:
+            return
+        titulo = self.titulo.get_text().strip() or None
+        cat = self._cats[self.combo.get_selected()]
+        self.boton_aceptar.set_sensitive(False)
+        from app.core.speech import speak
+        speak(_("Validando y descargando el feed…"), interrupt=True)
+
+        def _bg(ctx):
+            return rss_service.añadir_feed(account_id=self.account_id, url=url, category_id=cat,
+                                           custom_title=titulo, ctx=ctx)
+
+        def _fin(res, err):
+            if err:
+                self.boton_aceptar.set_sensitive(True)
+                notificar(_("Error al añadir el feed: {e}").format(e=err))
+                return
+            notificar(_("Feed añadido: {t}").format(t=res))
+            self.close()
+            self.al_terminar()
+        task_manager.start_task(_bg, callback=_fin, pass_context=True)
+
+
+class DialogoPreferencias(DialogoBase):
+    """Preferencias básicas que ya entiende el núcleo (las mismas claves que en Windows)."""
+
+    def __init__(self, padre):
+        super().__init__(padre, _("Preferencias"), _("_Guardar"))
+        self.sonidos = self.campo(_("_Sonidos de la aplicación:"), Gtk.Switch(halign=Gtk.Align.START))
+        self.sonidos.set_active(config.get("accessibility", "enable_sounds", True))
+        self.voz = self.campo(_("_Avisos al lector de pantalla:"), Gtk.Switch(halign=Gtk.Align.START))
+        self.voz.set_active(config.get("accessibility", "speech_announcements", True))
+        self.completo = self.campo(_("Descargar el artículo completo al a_brirlo:"), Gtk.Switch(halign=Gtk.Align.START))
+        self.completo.set_active(config.get("rss", "fulltext_auto", True))
+        self.solo_no_leidos = self.campo(_("Mostrar solo no _leídos en carpetas y feeds:"),
+                                         Gtk.Switch(halign=Gtk.Align.START))
+        self.solo_no_leidos.set_active(config.get("rss", "show_only_unread", False))
+        self.tiempo_real = self.campo(_("_Tiempo real en Mastodon:"), Gtk.Switch(halign=Gtk.Align.START))
+        self.tiempo_real.set_active(config.get("gtk", "mastodon_realtime", True))
+        self.paralelas = self.campo(_("Descargas si_multáneas al actualizar:"),
+                                    Gtk.SpinButton.new_with_range(1, 50, 1))
+        self.paralelas.set_value(int(config.get("rss", "max_parallel_updates", 5)))
+        self.paso = self.campo(_("Salto del _reproductor (segundos):"), Gtk.SpinButton.new_with_range(5, 120, 5))
+        self.paso.set_value(float(config.get("media_player", "default_step_forward2", 15.0)))
+
+    def aceptar(self):
+        config.set("accessibility", "enable_sounds", self.sonidos.get_active())
+        config.set("accessibility", "speech_announcements", self.voz.get_active())
+        config.set("rss", "fulltext_auto", self.completo.get_active())
+        config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
+        config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
+        config.set("gtk", "mastodon_realtime", self.tiempo_real.get_active())
+        paso = float(self.paso.get_value())
+        config.set("media_player", "default_step_forward2", paso)
+        config.set("media_player", "default_step_backward2", paso)
+        config.save()
+        notificar(_("Preferencias guardadas"))
+        self.close()
+        self.padre.cargar_lista()
+        self.padre.iniciar_tiempo_real()
+
+
+class DialogoTeclas(Gtk.Window):
+    """Lista de teclas, en un cuadro de texto de solo lectura (se lee con las flechas)."""
+
+    def __init__(self, padre):
+        super().__init__(title=_("Teclas de la aplicación"), transient_for=padre, modal=True)
+        self.set_default_size(560, 520)
+        tv = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+                          left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
+        tv.update_property([Gtk.AccessibleProperty.LABEL], [_("Lista de teclas")])
+        tv.get_buffer().set_text(_teclas())
+        self.set_child(Gtk.ScrolledWindow(child=tv))
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Escape"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.close() or True)))
+        self.add_controller(ctl)
+
+
+def _teclas() -> str:
+    return "\n".join([
+        _("Moverse"),
+        _("Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto"),
+        _("F6: siguiente panel"),
+        _("Ctrl+F: buscar en la lista"),
+        _("Intro: abrir el elemento (en RSS lo marca leído; pasa al texto)"),
+        _("Menú o Mayús+F10: menú de acciones del elemento"),
+        "",
+        _("RSS"),
+        _("Ctrl+M: leído / no leído"),
+        _("Ctrl+D: destacar"),
+        _("Ctrl+L: leer más tarde"),
+        _("Supr: a la papelera"),
+        _("Ctrl+K / Ctrl+Mayús+K: siguiente / anterior sin leer"),
+        _("Ctrl+Intro: abrir en el navegador"),
+        _("Ctrl+Mayús+C: copiar el título"),
+        _("Alt+A: descargar el artículo completo"),
+        _("Ctrl+Alt+N: añadir feed"),
+        _("Ctrl+O: importar OPML"),
+        "",
+        _("Mastodon"),
+        _("Ctrl+N: nueva publicación (en RSS, añade un feed)"),
+        _("Ctrl+R: responder"),
+        _("Ctrl+B: me gusta"),
+        _("Ctrl+Mayús+P: impulsar"),
+        _("Ctrl+Mayús+J: marcador"),
+        _("Ctrl+Mayús+V: ver la conversación como buffer"),
+        _("Ctrl+Mayús+G: publicaciones del autor"),
+        _("Ctrl+Mayús+M: cargar publicaciones anteriores"),
+        _("Ctrl+W: cerrar el buffer abierto"),
+        _("Ctrl+Alt+V: votar en la encuesta"),
+        _("Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"),
+        _("Ctrl+Alt+E: editar tu publicación"),
+        _("Ctrl+Mayús+U: citar la publicación"),
+        _("Ctrl+Alt+L: abrir una lista"),
+        _("Ctrl+Alt+H: abrir un hashtag"),
+        _("Ctrl+Mayús+F: buscar en Mastodon"),
+        _("Supr: borrar tu publicación"),
+        _("En el editor: Ctrl+Intro publica"),
+        "",
+        _("Actualizar y reproductor"),
+        _("Ctrl+Mayús+R: actualizar (todos los feeds o el buffer actual)"),
+        _("F1 / F3: retroceder / avanzar"),
+        _("F2: reproducir o pausar (sobre un podcast, lo empieza)"),
+        _("F4: detener"),
+        _("F5 / F6: bajar / subir volumen"),
+        _("F7 / F8: bajar / subir velocidad"),
+        "",
+        _("Aplicación"),
+        _("Ctrl+Mayús+B: repetir la barra de estado"),
+        _("Ctrl+P: preferencias"),
+        _("Ctrl+Q: salir"),
+    ])
+
+
+def confirmar_async(padre, texto: str, si, titulo: str = "", etiqueta_si: str = None):
+    """Pregunta Sí/No sin bloquear; llama a `si()` solo si la respuesta es afirmativa."""
+    dlg = Gtk.AlertDialog()
+    dlg.set_message(titulo or "SocialRSS")
+    dlg.set_detail(texto)
+    dlg.set_buttons([_("Cancelar"), etiqueta_si or _("Sí")])
+    dlg.set_default_button(0)
+    dlg.set_cancel_button(0)
+
+    def _fin(origen, res):
+        try:
+            if origen.choose_finish(res) == 1:
+                si()
+        except Exception:
+            pass
+    dlg.choose(padre, None, _fin)
+
+
+class DialogoCuentaMastodon(DialogoBase):
+    """Inicio de sesión en una instancia: se registra la app, se abre el navegador para autorizar y
+    se pega aquí el código que da la instancia."""
+
+    def __init__(self, padre, al_terminar):
+        super().__init__(padre, _("Añadir cuenta de Mastodon"), _("_Continuar"))
+        self.al_terminar = al_terminar
+        self._registro = None
+        self.instancia = self.campo(_("_Instancia:"), Gtk.Entry(activates_default=True, width_chars=40),
+                                    _("Por ejemplo mastodon.social. Se abrirá el navegador para autorizar."))
+        self.codigo = self.campo(_("C_ódigo de autorización:"), Gtk.Entry(activates_default=True, sensitive=False),
+                                 _("Pega aquí el código que te da la instancia tras autorizar."))
+        self.set_focus(self.instancia)
+
+    def aceptar(self):
+        if self._registro is None:
+            self._paso_autorizar()
+        else:
+            self._paso_codigo()
+
+    def _paso_autorizar(self):
+        from app.services.mastodon.mastodon_service import mastodon_service
+        instancia = self.instancia.get_text().strip()
+        if not instancia:
+            return
+        self.boton_aceptar.set_sensitive(False)
+        notificar(_("Conectando con la instancia…"))
+
+        def _bg(ctx):
+            return mastodon_service.registrar_aplicacion(instancia)
+
+        def _fin(res, err):
+            self.boton_aceptar.set_sensitive(True)
+            if err:
+                notificar(_("No se pudo conectar: {e}").format(e=err))
+                return
+            self._registro = (instancia,) + tuple(res[:2])
+            import webbrowser
+            webbrowser.open(res[2])
+            self.instancia.set_sensitive(False)
+            self.codigo.set_sensitive(True)
+            self.boton_aceptar.set_label(_("_Iniciar sesión"))
+            self.codigo.grab_focus()
+            notificar(_("Autoriza la aplicación en el navegador, copia el código y pégalo aquí."))
+        task_manager.start_task(_bg, callback=_fin, pass_context=True)
+
+    def _paso_codigo(self):
+        from app.services.mastodon.mastodon_service import mastodon_service
+        codigo = self.codigo.get_text().strip()
+        if not codigo:
+            return
+        instancia, cid, secreto = self._registro
+        self.boton_aceptar.set_sensitive(False)
+
+        def _bg(ctx):
+            return mastodon_service.completar_inicio_sesion(instancia, cid, secreto, codigo)
+
+        def _fin(res, err):
+            if err:
+                self.boton_aceptar.set_sensitive(True)
+                notificar(_("No se pudo iniciar sesión: {e}").format(e=err))
+                return
+            notificar(_("Cuenta añadida: {n}").format(n=res["username"]))
+            self.close()
+            self.al_terminar(res["account_id"])
+        task_manager.start_task(_bg, callback=_fin, pass_context=True)
+
+
+VISIBILIDADES = [("public", "Público"), ("unlisted", "No listado"),
+                 ("private", "Solo seguidores"), ("direct", "Mensaje directo")]
+
+
+class DialogoPublicar(DialogoBase):
+    """Redactar un toot (nuevo o respuesta). Ctrl+Intro publica."""
+
+    def __init__(self, padre, account_id: int, texto_inicial: str = "", responde_a: str = None,
+                 visibilidad: str = None, aviso: str = "", titulo: str = None, cita_id: str = None,
+                 editar_db_id: str = None):
+        super().__init__(padre, titulo or (_("Editar publicación") if editar_db_id else
+                                           _("Citar") if cita_id else
+                                           _("Responder") if responde_a else _("Nueva publicación")),
+                         _("_Guardar") if editar_db_id else _("_Publicar"))
+        self.cita_id = cita_id
+        self.editar_db_id = editar_db_id
+        from app.services.mastodon.mastodon_service import mastodon_service
+        self.account_id = account_id
+        self.responde_a = responde_a
+        self.adjuntos = []   # [(ruta, descripción)]
+        self.limite = mastodon_service.obtener_limite_caracteres(account_id)
+        self.set_default_size(620, -1)
+
+        self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
+                                  left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        self.buffer = self.texto.get_buffer()
+        self.buffer.set_text(texto_inicial)
+        marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=140, hexpand=True)
+        marco.set_has_frame(True)
+        etiqueta = Gtk.Label(label=_("_Texto:"), use_underline=True, xalign=0, yalign=0)
+        etiqueta.set_mnemonic_widget(self.texto)
+        self.rejilla.attach(etiqueta, 0, self._fila, 1, 1)
+        self.rejilla.attach(marco, 1, self._fila, 1, 1)
+        self._fila += 1
+        self.contador = Gtk.Label(xalign=0)
+        self.rejilla.attach(self.contador, 1, self._fila, 1, 1)
+        self._fila += 1
+        self.buffer.connect("changed", self._actualizar_contador)
+
+        self.aviso = self.campo(_("_Aviso de contenido (opcional):"), Gtk.Entry())
+        self.aviso.set_text(aviso)
+        self.visibilidad = self.campo(_("_Visibilidad:"), Gtk.DropDown.new_from_strings(
+            [_(n) for _c, n in VISIBILIDADES]))
+        pred = visibilidad or mastodon_service.visibilidad_predeterminada(account_id)
+        self.visibilidad.set_selected(next((i for i, (c, _n) in enumerate(VISIBILIDADES) if c == pred), 0))
+        self.idioma = self.campo(_("_Idioma (código, opcional):"), Gtk.Entry(max_length=5, width_chars=6))
+        self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(
+            wrap_mode=Gtk.WrapMode.WORD_CHAR, hexpand=True, top_margin=4, bottom_margin=4, left_margin=6))
+
+        self.lista_adj = Gtk.Label(xalign=0, wrap=True, label=_("Sin adjuntos"))
+        self.campo(_("Adjuntos:"), self.lista_adj)
+        fila = Gtk.Box(spacing=8)
+        b1 = Gtk.Button(label=_("Añadir _adjunto…"), use_underline=True)
+        b1.connect("clicked", lambda *_a: self._anadir_adjunto())
+        b2 = Gtk.Button(label=_("_Quitar el último adjunto"), use_underline=True)
+        b2.connect("clicked", lambda *_a: self._quitar_adjunto())
+        fila.append(b1)
+        fila.append(b2)
+        self.rejilla.attach(fila, 1, self._fila, 1, 1)
+        self._fila += 1
+
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("<Ctrl>Return"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.aceptar() or True)))
+        self.add_controller(ctl)
+        self._actualizar_contador()
+        self.set_focus(self.texto)
+        self.buffer.place_cursor(self.buffer.get_end_iter())
+        if editar_db_id:
+            # Al editar, Mastodon no permite cambiar visibilidad, idioma, encuesta ni (aquí) los adjuntos.
+            for w in (self.visibilidad, self.idioma, self.encuesta):
+                w.set_sensitive(False)
+
+    def _texto(self) -> str:
+        return self.buffer.get_text(self.buffer.get_start_iter(), self.buffer.get_end_iter(), False)
+
+    def _actualizar_contador(self, *_a):
+        resto = self.limite - len(self._texto())
+        self.contador.set_text(_("Caracteres restantes: {n}").format(n=resto))
+
+    def _anadir_adjunto(self):
+        dlg = Gtk.FileDialog(title=_("Añadir adjunto"))
+
+        def _fin(origen, res):
+            try:
+                f = origen.open_finish(res)
+            except Exception:
+                return
+            self._pedir_descripcion(f.get_path())
+        dlg.open(self, None, _fin)
+
+    def _pedir_descripcion(self, ruta: str):
+        d = DialogoBase(self, _("Descripción del adjunto"), _("_Aceptar"))
+        entrada = d.campo(_("_Descripción para quien no lo ve:"), Gtk.Entry(activates_default=True, width_chars=50),
+                          _("Describe la imagen o el audio. Se recomienda siempre."))
+        d.aceptar = lambda: (self._guardar_adjunto(ruta, entrada.get_text().strip()), d.close())
+        d.set_focus(entrada)
+        d.present()
+
+    def _guardar_adjunto(self, ruta: str, descripcion: str):
+        self.adjuntos.append((ruta, descripcion))
+        self._pintar_adjuntos()
+
+    def _quitar_adjunto(self):
+        if self.adjuntos:
+            self.adjuntos.pop()
+            self._pintar_adjuntos()
+
+    def _pintar_adjuntos(self):
+        import os
+        if not self.adjuntos:
+            self.lista_adj.set_text(_("Sin adjuntos"))
+            return
+        self.lista_adj.set_text("; ".join(
+            f"{os.path.basename(r)} ({d or _('sin descripción')})" for r, d in self.adjuntos))
+        notificar(_("{n} adjuntos").format(n=len(self.adjuntos)))
+
+    def aceptar(self):
+        from app.services.mastodon.mastodon_composer import MastodonComposer
+        texto = self._texto().strip()
+        if not texto and not self.adjuntos:
+            notificar(_("Escribe algo o añade un adjunto"))
+            return
+        if len(texto) > self.limite:
+            notificar(_("El texto supera el límite de {n} caracteres").format(n=self.limite))
+            return
+        aviso = self.aviso.get_text().strip()
+        enc = self.encuesta.get_buffer()
+        opciones = [o.strip() for o in enc.get_text(enc.get_start_iter(), enc.get_end_iter(), False).splitlines()
+                    if o.strip()]
+        if self.editar_db_id:
+            from app.services.mastodon.mastodon_service import mastodon_service as _ms
+
+            def _fin_edicion(res, err):
+                if err:
+                    self.boton_aceptar.set_sensitive(True)
+                    notificar(_("No se pudo guardar: {e}").format(e=err))
+                    return
+                notificar(_("Publicación editada"))
+                self.close()
+                self.padre.tras_publicar()
+            self.boton_aceptar.set_sensitive(False)
+            _ms.editar_toot_async(self.account_id, self.editar_db_id, texto, spoiler_text=aviso or None,
+                                  callback=_fin_edicion)
+            return
+        if opciones and (len(opciones) < 2 or self.adjuntos):
+            notificar(_("Una encuesta necesita al menos dos opciones y no admite adjuntos"))
+            return
+        self.boton_aceptar.set_sensitive(False)
+        notificar(_("Publicando…"))
+
+        def _fin(ok, detalle):
+            # El compositor avisa con (éxito, id del toot) o (False, motivo del error).
+            if not ok:
+                self.boton_aceptar.set_sensitive(True)
+                notificar(_("No se pudo publicar: {e}").format(e=detalle))
+                return
+            notificar(_("Publicado"))
+            self.close()
+            self.padre.tras_publicar()
+        MastodonComposer.publicar_toot_async(
+            self.account_id, texto, visibility=VISIBILIDADES[self.visibilidad.get_selected()][0],
+            sensitive=bool(aviso), spoiler_text=aviso or None,
+            media_paths=[r for r, _d in self.adjuntos] or None,
+            alt_texts=[d for _r, d in self.adjuntos] or None,
+            poll_options=opciones or None, in_reply_to_id=self.responde_a, quoted_status_id=self.cita_id,
+            language=self.idioma.get_text().strip() or None, callback=_fin)
+
+
+class DialogoTexto(DialogoBase):
+    """Pide una sola cadena (un hashtag, una búsqueda...) y la entrega a `al_aceptar(texto)`."""
+
+    def __init__(self, padre, titulo: str, etiqueta: str, al_aceptar, ayuda: str = "", aceptar: str = None):
+        super().__init__(padre, titulo, aceptar)
+        self.al_aceptar = al_aceptar
+        self.entrada = self.campo(etiqueta, Gtk.Entry(activates_default=True, width_chars=40), ayuda)
+        self.set_focus(self.entrada)
+
+    def aceptar(self):
+        texto = self.entrada.get_text().strip()
+        if texto:
+            self.close()
+            self.al_aceptar(texto)
+
+
+class DialogoElegir(DialogoBase):
+    """Lista de opciones con un desplegable; entrega el índice elegido."""
+
+    def __init__(self, padre, titulo: str, etiqueta: str, opciones, al_aceptar, aceptar: str = None):
+        super().__init__(padre, titulo, aceptar)
+        self.al_aceptar = al_aceptar
+        self.combo = self.campo(etiqueta, Gtk.DropDown.new_from_strings(list(opciones)))
+        self.set_focus(self.combo)
+
+    def aceptar(self):
+        i = self.combo.get_selected()
+        self.close()
+        self.al_aceptar(i)
+
+
+class DialogoVotar(DialogoBase):
+    """Votar en una encuesta: casillas si admite varias opciones y botones de opción si solo una."""
+
+    def __init__(self, padre, encuesta: dict, al_votar):
+        super().__init__(padre, _("Votar en la encuesta"), _("_Votar"))
+        self.al_votar = al_votar
+        self.botones = []
+        caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        primero = None
+        for i, titulo in enumerate(encuesta["options"]):
+            if encuesta.get("multiple"):
+                b = Gtk.CheckButton(label=titulo)
+            else:
+                b = Gtk.CheckButton(label=titulo)
+                if primero is None:
+                    primero = b
+                else:
+                    b.set_group(primero)
+            self.botones.append(b)
+            caja.append(b)
+        marco = Gtk.Frame(label=_("Elige varias opciones") if encuesta.get("multiple") else _("Elige una opción"))
+        marco.set_child(caja)
+        marco.update_property([Gtk.AccessibleProperty.LABEL], [_("Opciones de la encuesta")])
+        self.rejilla.attach(marco, 0, 0, 2, 1)
+        self.set_focus(self.botones[0])
+
+    def aceptar(self):
+        elegidas = [i for i, b in enumerate(self.botones) if b.get_active()]
+        if not elegidas:
+            notificar(_("Elige al menos una opción"))
+            return
+        self.close()
+        self.al_votar(elegidas)
+
+
+class DialogoPerfil(Gtk.Window):
+    """Ficha de una cuenta con acciones: seguir, silenciar, bloquear y ver sus publicaciones."""
+
+    def __init__(self, padre, account_id: int, acct: str):
+        super().__init__(title=_("Perfil de {u}").format(u=acct), transient_for=padre, modal=True)
+        self.padre, self.account_id, self.acct = padre, account_id, acct.lstrip("@")
+        self.rel = {}
+        self.set_default_size(560, 480)
+        caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        for m in ("top", "bottom", "start", "end"):
+            getattr(caja, f"set_margin_{m}")(12)
+        self.set_child(caja)
+        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+                                  left_margin=8, right_margin=8, top_margin=6, bottom_margin=6)
+        self.texto.update_property([Gtk.AccessibleProperty.LABEL], [_("Datos del perfil")])
+        self.texto.get_buffer().set_text(_("Cargando el perfil…"))
+        caja.append(Gtk.ScrolledWindow(child=self.texto, vexpand=True, has_frame=True))
+        fila = Gtk.Box(spacing=8, halign=Gtk.Align.END)
+        self.b_seguir = Gtk.Button(label=_("_Seguir"), use_underline=True, sensitive=False)
+        self.b_silenciar = Gtk.Button(label=_("Sile_nciar"), use_underline=True, sensitive=False)
+        self.b_bloquear = Gtk.Button(label=_("_Bloquear"), use_underline=True, sensitive=False)
+        self.b_publicaciones = Gtk.Button(label=_("Ver _publicaciones"), use_underline=True)
+        cerrar = Gtk.Button(label=_("_Cerrar"), use_underline=True)
+        self.b_seguir.connect("clicked", lambda *_a: self._accion("unfollow" if self.rel.get("following") else "follow"))
+        self.b_silenciar.connect("clicked", lambda *_a: self._accion("unmute" if self.rel.get("muting") else "mute"))
+        self.b_bloquear.connect("clicked", lambda *_a: self._confirmar_bloqueo())
+        self.b_publicaciones.connect("clicked", lambda *_a: (self.close(), padre.abrir_cronologia(account_id, self.acct)))
+        cerrar.connect("clicked", lambda *_a: self.close())
+        for b in (self.b_seguir, self.b_silenciar, self.b_bloquear, self.b_publicaciones, cerrar):
+            fila.append(b)
+        caja.append(fila)
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Escape"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.close() or True)))
+        self.add_controller(ctl)
+        self.set_focus(self.texto)
+        self._cargar()
+
+    def _cargar(self):
+        from app.services.mastodon.mastodon_service import mastodon_service
+        mastodon_service.obtener_detalles_cuenta_async(self.account_id, self.acct, callback=self._pintar)
+
+    def _pintar(self, d, err):
+        if err or not d:
+            self.texto.get_buffer().set_text(_("No se pudo cargar el perfil: {e}").format(e=err))
+            return
+        self.rel = d.get("relacion") or {}
+        r = self.rel
+        lineas = [f"{d['display_name']} (@{d['acct']})"]
+        if d.get("estado"):
+            lineas.append(d["estado"])
+        etiquetas = []
+        if d.get("bot"):
+            etiquetas.append(_("cuenta automatizada"))
+        if r.get("es_yo"):
+            etiquetas.append(_("eres tú"))
+        if r.get("following"):
+            etiquetas.append(_("le sigues"))
+        if r.get("followed_by"):
+            etiquetas.append(_("te sigue"))
+        if r.get("requested"):
+            etiquetas.append(_("solicitud de seguimiento pendiente"))
+        if r.get("muting"):
+            etiquetas.append(_("silenciada"))
+        if r.get("blocking"):
+            etiquetas.append(_("bloqueada"))
+        if r.get("blocked_by"):
+            etiquetas.append(_("te ha bloqueado"))
+        if etiquetas:
+            lineas.append(", ".join(etiquetas).capitalize())
+        lineas.append(_("{p} publicaciones · {s} seguidores · {g} siguiendo").format(
+            p=d["statuses"], s=d["followers"], g=d["following"]))
+        if d.get("created_at"):
+            lineas.append(_("Cuenta creada: {f}").format(f=d["created_at"][:10]))
+        if d.get("bio"):
+            lineas += ["", d["bio"]]
+        for c in d.get("campos") or []:
+            lineas.append(f"{c[0]}: {c[1]}" if isinstance(c, (list, tuple)) else str(c))
+        if d.get("url"):
+            lineas += ["", d["url"]]
+        self.texto.get_buffer().set_text("\n".join(lineas))
+        yo = bool(r.get("es_yo"))
+        self.b_seguir.set_sensitive(not yo)
+        self.b_silenciar.set_sensitive(not yo)
+        self.b_bloquear.set_sensitive(not yo)
+        self.b_seguir.set_label(_("Dejar de _seguir") if r.get("following") else _("_Seguir"))
+        self.b_silenciar.set_label(_("Quitar sile_nciar") if r.get("muting") else _("Sile_nciar"))
+        self.b_bloquear.set_label(_("Desb_loquear") if r.get("blocking") else _("_Bloquear"))
+
+    def _confirmar_bloqueo(self):
+        if self.rel.get("blocking"):
+            self._accion("unblock")
+        else:
+            confirmar_async(self, _("¿Bloquear a @{u}?").format(u=self.acct), lambda: self._accion("block"),
+                            etiqueta_si=_("Bloquear"))
+
+    def _accion(self, accion: str):
+        from app.services.mastodon.mastodon_service import mastodon_service
+        textos = {"follow": _("Siguiendo a @{u}"), "unfollow": _("Has dejado de seguir a @{u}"),
+                  "mute": _("Silenciada @{u}"), "unmute": _("Silencio quitado a @{u}"),
+                  "block": _("Bloqueada @{u}"), "unblock": _("Desbloqueada @{u}")}
+
+        def _fin(res, err):
+            if err:
+                notificar(_("No se pudo: {e}").format(e=err))
+                return
+            notificar(textos[accion].format(u=self.acct))
+            self._cargar()
+        mastodon_service.accion_cuenta_por_acct_async(self.account_id, self.acct, accion, callback=_fin)
+
+
+class DialogoReportar(DialogoBase):
+    def __init__(self, padre, account_id: int, db_id: str, usuario: str):
+        super().__init__(padre, _("Reportar a {u}").format(u=usuario), _("_Enviar informe"))
+        self.account_id, self.db_id = account_id, db_id
+        self.categorias = [("spam", _("Spam")), ("legal", _("Contenido ilegal")),
+                           ("violation", _("Incumple las normas")), ("other", _("Otro motivo"))]
+        self.combo = self.campo(_("_Motivo:"), Gtk.DropDown.new_from_strings([n for _c, n in self.categorias]))
+        self.comentario = self.campo(_("_Comentario (opcional):"), Gtk.Entry(activates_default=True, width_chars=50))
+        self.reenviar = self.campo(_("_Reenviar también al servidor del autor:"), Gtk.Switch(halign=Gtk.Align.START))
+        self.set_focus(self.combo)
+
+    def aceptar(self):
+        from app.services.mastodon.mastodon_service import mastodon_service
+        cat = self.categorias[self.combo.get_selected()][0]
+
+        def _fin(res, err):
+            if err:
+                notificar(_("No se pudo enviar el informe: {e}").format(e=err))
+                return
+            notificar(_("Informe enviado"))
+            self.close()
+        mastodon_service.reportar_toot_async(
+            self.account_id, self.db_id, self.comentario.get_text().strip(),
+            reenviar=self.reenviar.get_active(), callback=_fin, categoria=cat)

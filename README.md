@@ -1,6 +1,7 @@
 # SocialRSS Accessible Suite
 
-**SocialRSS Accessible Suite** es una aplicación para Windows que reúne en una sola ventana tus
+**SocialRSS Accessible Suite** es una aplicación para Windows (y, con interfaz GTK 4, para el
+escritorio Linux con Orca) que reúne en una sola ventana tus
 redes sociales, tus chats y tus noticias: **Mastodon, Bluesky, W Social, RSS y podcasts, Telegram,
 X (experimental), IRC, Matrix, XMPP (Jabber, con pasarelas como WhatsApp), Reddit y PeerTube**.
 
@@ -9,6 +10,7 @@ pantalla** (NVDA y JAWS): cada lista, diálogo y aviso está diseñado para que 
 haga perder el foco.
 
 - [Para quien quiere usarla](#para-quien-quiere-usarla)
+- [En Linux: escritorio GTK 4 con Orca](#en-linux-escritorio-gtk-4-con-orca)
 - [Para quien quiere compilarla](#para-quien-quiere-compilarla)
 - [Licencia](#licencia)
 
@@ -76,6 +78,57 @@ se descarga de las releases de este repositorio.
 Dentro de la aplicación, el menú **Ayuda** tiene el manual, la lista de teclas, las novedades de
 cada versión y una prueba de sonidos. También puedes leerlos aquí:
 [MANUAL.md](MANUAL.md) y [TECLAS.md](TECLAS.md).
+
+---
+
+## En Linux: escritorio GTK 4 con Orca
+
+En Linux la aplicación usa una interfaz propia escrita en **GTK 4**, pensada para el lector de
+pantalla **Orca**. El núcleo (base de datos, redes, RSS, cifrado de credenciales...) es el mismo
+que en Windows; solo cambia la ventana, la voz y el audio.
+
+**Estado actual:** RSS y podcasts completos (árbol de carpetas y feeds, lectura, búsqueda, OPML,
+texto completo, reproductor con velocidad) y **Mastodon**: varias cuentas, Inicio, Notificaciones,
+Menciones, Local, Federada, Mensajes directos, Marcadores, Favoritos y Mis publicaciones;
+publicar y responder (aviso de contenido, visibilidad, adjuntos con descripción y encuestas), me
+gusta, impulsar, marcadores, borrar, conversaciones y cronologías de usuario como buffers del
+árbol, listas, hashtags y búsquedas, votar en encuestas, citar, editar, reportar, perfil del autor
+(seguir, silenciar, bloquear) y cargar publicaciones anteriores. Las novedades de Inicio,
+Notificaciones, Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en
+Preferencias) y se anuncian sin interrumpir a Orca. Todavía faltan en esta interfaz: filtros,
+moderación de la instancia, borradores y programadas, traducción, IA y los hilos propios. El resto
+de redes (Bluesky, Telegram...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+
+### Qué necesitas
+
+Paquetes del sistema (nombres de Arch; en Debian/Ubuntu y Fedora son los equivalentes):
+
+- `gtk4`, `python-gobject` (PyGObject) y `at-spi2-core` (accesibilidad, Orca).
+- `gstreamer`, `gst-plugins-base`, `gst-plugins-good`, `gst-plugins-bad`, `gst-plugins-ugly`
+  (reproductor y sonidos; los dos últimos dan los códecs de audio habituales).
+- Opcionales: `libsecret` (guarda la clave de cifrado en el llavero del escritorio), `speech-dispatcher`
+  (avisos por voz si no usas Orca), `ffmpeg`.
+- Python 3.12 o superior.
+
+```bash
+python -m venv --system-site-packages .venv   # --system-site-packages: para ver PyGObject
+.venv/bin/pip install -r requirements-linux.txt
+scripts/socialrss                              # o: python main.py
+```
+
+En Linux `main.py` abre la interfaz GTK 4 por sí solo (`SOCIALRSS_UI=wx` fuerza wxPython).
+Tus datos viven en la carpeta `data`, junto al código, igual que en Windows.
+
+### Cómo se usa con Orca
+
+- La ventana tiene tres paneles: **Navegación** (árbol), **Artículos** y **Contenido del
+  artículo**. `Alt+1`, `Alt+2` y `Alt+3` saltan a cada uno; `F6` va al siguiente.
+- Cada artículo se lee entero al moverte con las flechas (estado, título, feed, autor, fecha).
+- Las acciones (leído, destacado, actualizar, reproductor...) se anuncian por el lector sin mover
+  el foco. `Ctrl+Mayús+B` repite la barra de estado.
+- Las teclas son las mismas que en Windows siempre que tienen sentido: `Ctrl+M`, `Ctrl+D`,
+  `Ctrl+L`, `Ctrl+K`, `Supr`, `Ctrl+Mayús+R`, y `F1`-`F8` para el reproductor. La lista completa
+  está en **Ayuda → Teclas de la aplicación**.
 
 ---
 

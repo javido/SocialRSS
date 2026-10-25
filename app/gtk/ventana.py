@@ -1,0 +1,1326 @@
+# -*- coding: utf-8 -*-
+"""
+Ventana principal GTK 4: tres paneles (navegación, artículos, lectura) pensados para Orca.
+
+Decisiones de accesibilidad:
+  * Cada panel tiene un nombre accesible y se recorre con Tab / F6.
+  * Cada fila de la lista lleva una descripción completa (estado, título, feed, autor, fecha) como
+    etiqueta accesible, de modo que Orca la lee entera al moverse con las flechas.
+  * Los cambios de estado (leído, favorito, actualizaciones, reproductor) se anuncian con
+    `Gtk.Accessible.announce` y no mueven el foco; las listas se actualizan en su sitio.
+  * El texto del artículo está en un `Gtk.TextView` de solo lectura con cursor, para leerlo con flechas.
+"""
+
+import logging
+import webbrowser
+
+import gi
+gi.require_version("Gtk", "4.0")
+gi.require_version("Gdk", "4.0")
+from gi.repository import Gtk, Gdk, Gio, GLib, Pango  # noqa: E402
+
+from app.core.config_manager import config
+from app.core.speech import speak
+from app.services.rss.rss_service import rss_service
+from app.services.mastodon.mastodon_service import mastodon_service
+
+from app.core.event_bus import event_bus
+
+from . import datos, datos_mastodon
+from .datos import Nodo
+from .modelos import NodoObj, FilaObj
+
+log = logging.getLogger(__name__)
+
+# Intervalo del sondeo automático de feeds (los que ya vencieron según su propio intervalo).
+SONDEO_SEGUNDOS = 300
+
+
+def _etiquetar(widget, nombre: str, descripcion: str = ""):
+    widget.update_property([Gtk.AccessibleProperty.LABEL], [nombre])
+    if descripcion:
+        widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
+
+
+class VentanaPrincipal(Gtk.ApplicationWindow):
+    def __init__(self, app, account_id: int):
+        super().__init__(application=app, title="SocialRSS Accessible Suite")
+        self.account_id = account_id
+        self.nodo_actual = None
+        self.busqueda = ""
+        self._articulo_abierto = None
+        self._tick_reproductor = 0
+        self._actualizando = False
+        self._cargados = set()      # buffers de Mastodon ya descargados en esta sesión
+        self._nodo_listado = None   # nodo cuya lista está en pantalla (para actualizar sin reconstruir)
+        self._eventos_pendientes = {}
+        self._encuestas = {}        # db id del toot -> última encuesta descargada
+        self._tiempo_real = None
+        self.set_default_size(1180, 760)
+
+        self._construir_interfaz()
+        self._registrar_acciones()
+        self.cargar_arbol()
+        self.connect("close-request", self._al_cerrar)
+        self.iniciar_tiempo_real()
+        GLib.timeout_add_seconds(SONDEO_SEGUNDOS, self._sondeo_automatico)
+        GLib.timeout_add_seconds(1, self._latido_reproductor)
+
+    # ------------------------------------------------------------------ construcción
+    def _construir_interfaz(self):
+        raiz = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.set_child(raiz)
+
+        # Barra de búsqueda
+        barra = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
+        barra.set_margin_start(6)
+        barra.set_margin_end(6)
+        barra.set_margin_top(4)
+        barra.set_margin_bottom(4)
+        etiqueta = Gtk.Label(label=_("_Buscar:"), use_underline=True)
+        self.entrada_busqueda = Gtk.SearchEntry(hexpand=True)
+        self.entrada_busqueda.set_placeholder_text(_("Buscar en los artículos del panel actual"))
+        etiqueta.set_mnemonic_widget(self.entrada_busqueda)
+        _etiquetar(self.entrada_busqueda, _("Buscar en los artículos"),
+                   _("Escribe y pulsa Intro. Escape borra la búsqueda."))
+        self.entrada_busqueda.connect("activate", self._on_buscar)
+        self.entrada_busqueda.connect("stop-search", self._on_limpiar_busqueda)
+        barra.append(etiqueta)
+        barra.append(self.entrada_busqueda)
+        raiz.append(barra)
+
+        # Paneles
+        self.paned_horizontal = Gtk.Paned(orientation=Gtk.Orientation.HORIZONTAL, vexpand=True)
+        self.paned_horizontal.set_position(260)
+        self.paned_horizontal.set_shrink_start_child(False)
+        self.paned_horizontal.set_resize_start_child(False)
+        raiz.append(self.paned_horizontal)
+
+        self.paned_vertical = Gtk.Paned(orientation=Gtk.Orientation.VERTICAL)
+        self.paned_vertical.set_position(330)
+        self.paned_horizontal.set_start_child(self._crear_arbol())
+        self.paned_horizontal.set_end_child(self.paned_vertical)
+        self.paned_vertical.set_start_child(self._crear_lista())
+        self.paned_vertical.set_end_child(self._crear_lectura())
+
+        # Barra de estado (rol "status": el lector la anuncia al cambiar)
+        self.estado = Gtk.Label(xalign=0, accessible_role=Gtk.AccessibleRole.STATUS, ellipsize=Pango.EllipsizeMode.END)
+        self.estado.set_margin_start(6)
+        self.estado.set_margin_end(6)
+        self.estado.set_margin_top(3)
+        self.estado.set_margin_bottom(3)
+        raiz.append(self.estado)
+
+    def _crear_arbol(self):
+        self.raiz_arbol = Gio.ListStore.new(NodoObj)
+        self.modelo_arbol = Gtk.TreeListModel.new(self.raiz_arbol, False, False, self._hijos_arbol)
+        self.seleccion_arbol = Gtk.SingleSelection(model=self.modelo_arbol)
+        self.seleccion_arbol.connect("notify::selected", self._on_nodo_seleccionado)
+
+        fabrica = Gtk.SignalListItemFactory()
+        fabrica.connect("setup", self._arbol_setup)
+        fabrica.connect("bind", self._arbol_bind)
+        fabrica.connect("unbind", self._arbol_unbind)
+        self.vista_arbol = Gtk.ListView(model=self.seleccion_arbol, factory=fabrica)
+        self.vista_arbol.set_name("arbol")
+        _etiquetar(self.vista_arbol, _("Navegación"), _("Árbol de carpetas y feeds. Flecha derecha expande."))
+        marco = Gtk.ScrolledWindow(child=self.vista_arbol, min_content_width=160)
+        return marco
+
+    def _hijos_arbol(self, obj):
+        return obj.almacen_hijos()
+
+    def _arbol_setup(self, fabrica, item):
+        exp = Gtk.TreeExpander()
+        etiqueta = Gtk.Label(xalign=0, ellipsize=Pango.EllipsizeMode.END)
+        exp.set_child(etiqueta)
+        item.set_child(exp)
+
+    def _arbol_bind(self, fabrica, item):
+        fila = item.get_item()
+        exp = item.get_child()
+        exp.set_list_row(fila)
+        obj = fila.get_item()
+        etiqueta = exp.get_child()
+        etiqueta.set_text(obj.etiqueta)
+        item.set_accessible_label(self._texto_nodo(obj))
+
+        def _cambio(o, _p, item=item, etiqueta=etiqueta):
+            etiqueta.set_text(o.etiqueta)
+            item.set_accessible_label(self._texto_nodo(o))
+        item._id_notify = obj.connect("notify::etiqueta", _cambio)
+        item._obj = obj
+
+    def _arbol_unbind(self, fabrica, item):
+        obj = getattr(item, "_obj", None)
+        if obj is not None and hasattr(item, "_id_notify"):
+            obj.disconnect(item._id_notify)
+        item._obj = None
+
+    @staticmethod
+    def _texto_nodo(obj) -> str:
+        n = obj.nodo
+        base = n.titulo
+        if n.no_leidos:
+            base += ". " + _("{n} sin leer").format(n=n.no_leidos)
+        if n.error:
+            base += ". " + _("con errores")
+        if n.tipo == "category":
+            base += ". " + _("carpeta")
+        return base
+
+    def _crear_lista(self):
+        self.almacen_lista = Gio.ListStore.new(FilaObj)
+        self.seleccion_lista = Gtk.SingleSelection(model=self.almacen_lista)
+        self.seleccion_lista.connect("notify::selected", self._on_fila_seleccionada)
+
+        fabrica = Gtk.SignalListItemFactory()
+        fabrica.connect("setup", self._lista_setup)
+        fabrica.connect("bind", self._lista_bind)
+        fabrica.connect("unbind", self._lista_unbind)
+        self.vista_lista = Gtk.ListView(model=self.seleccion_lista, factory=fabrica)
+        self.vista_lista.set_name("lista")
+        self.vista_lista.set_single_click_activate(False)
+        self.vista_lista.connect("activate", self._on_abrir_fila)
+        _etiquetar(self.vista_lista, _("Artículos"),
+                   _("Intro abre el artículo. Control M marca leído, Control D favorito, "
+                     "Control L leer más tarde, Suprimir a la papelera."))
+
+        ctl = Gtk.ShortcutController()
+        ctl.set_scope(Gtk.ShortcutScope.LOCAL)
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Delete"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.accion_papelera() or True)))
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Menu"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.mostrar_menu_contextual() or True)))
+        self.vista_lista.add_controller(ctl)
+        clic = Gtk.GestureClick(button=3)
+        clic.connect("pressed", lambda g, n, x, y: self.mostrar_menu_contextual(x, y))
+        self.vista_lista.add_controller(clic)
+        return Gtk.ScrolledWindow(child=self.vista_lista, min_content_height=120)
+
+    def _lista_setup(self, fabrica, item):
+        caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=1)
+        caja.set_margin_top(3)
+        caja.set_margin_bottom(3)
+        caja.set_margin_start(6)
+        caja.set_margin_end(6)
+        titulo = Gtk.Label(xalign=0, ellipsize=Pango.EllipsizeMode.END)
+        meta = Gtk.Label(xalign=0, ellipsize=Pango.EllipsizeMode.END)
+        meta.add_css_class("dim-label")
+        caja.append(titulo)
+        caja.append(meta)
+        item.set_child(caja)
+
+    def _lista_bind(self, fabrica, item):
+        obj = item.get_item()
+        caja = item.get_child()
+        titulo = caja.get_first_child()
+        meta = titulo.get_next_sibling()
+
+        def _pintar(*_a):
+            f = obj.fila
+            texto = ("★ " if obj.favorito else "") + f.titulo
+            titulo.set_markup(f"<b>{GLib.markup_escape_text(texto)}</b>" if not obj.leido
+                              else GLib.markup_escape_text(texto))
+            partes = [p for p in (f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
+                                  datos.fecha_legible(f.fecha)) if p]
+            meta.set_text(" · ".join(partes))
+            item.set_accessible_label(obj.descripcion())
+        _pintar()
+        item._ids = [obj.connect(f"notify::{p}", _pintar) for p in ("leido", "favorito", "mas_tarde")]
+        item._obj = obj
+
+    def _lista_unbind(self, fabrica, item):
+        obj = getattr(item, "_obj", None)
+        if obj is not None:
+            for i in getattr(item, "_ids", []):
+                obj.disconnect(i)
+        item._obj = None
+
+    def _crear_lectura(self):
+        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
+                                  left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
+        self.texto.set_name("lectura")
+        _etiquetar(self.texto, _("Contenido del artículo"))
+        self.buffer = self.texto.get_buffer()
+        self.etiqueta_titulo = self.buffer.create_tag("titulo", weight=Pango.Weight.BOLD, scale=1.3)
+        self.etiqueta_meta = self.buffer.create_tag("meta", foreground_rgba=Gdk.RGBA(0.45, 0.45, 0.45, 1))
+        return Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
+
+    # ------------------------------------------------------------------ acciones
+    def _registrar_acciones(self):
+        def accion(nombre, fn, aceleradores=()):
+            a = Gio.SimpleAction.new(nombre, None)
+            a.connect("activate", lambda *_a: fn())
+            self.add_action(a)
+            if aceleradores:
+                self.get_application().set_accels_for_action(f"win.{nombre}", list(aceleradores))
+        self._accion = accion
+        accion("actualizar", self.accion_actualizar, ["<Ctrl><Shift>r"])
+        accion("actualizar-feed", self.accion_actualizar_feed)
+        accion("buscar", lambda: self.entrada_busqueda.grab_focus(), ["<Ctrl>f"])
+        accion("leido", self.accion_alternar_leido, ["<Ctrl>m"])
+        accion("favorito", self.accion_alternar_favorito, ["<Ctrl>d"])
+        accion("me-gusta", self.accion_alternar_favorito, ["<Ctrl>b"])
+        accion("impulsar", self.accion_impulsar, ["<Ctrl><Shift>p"])
+        accion("marcador", self.accion_marcador, ["<Ctrl><Shift>j"])
+        accion("responder", self.accion_responder, ["<Ctrl>r"])
+        accion("nuevo", self.accion_nuevo, ["<Ctrl>n"])
+        accion("conversacion", self.accion_conversacion, ["<Ctrl><Shift>v"])
+        accion("cronologia-usuario", self.accion_cronologia_usuario, ["<Ctrl><Shift>g"])
+        accion("cargar-mas", self.accion_cargar_mas, ["<Ctrl><Shift>m"])
+        accion("cerrar-buffer", self.accion_cerrar_buffer, ["<Ctrl>w"])
+        accion("eliminar-cuenta", self.accion_eliminar_cuenta)
+        accion("menu-contextual", self.mostrar_menu_contextual, ["<Shift>F10"])
+        accion("votar", self.accion_votar, ["<Ctrl><Alt>v"])
+        accion("perfil", self.accion_perfil, ["<Ctrl><Alt>p"])
+        accion("editar", self.accion_editar, ["<Ctrl><Alt>e"])
+        accion("citar", self.accion_citar, ["<Ctrl><Shift>u"])
+        accion("reportar", self.accion_reportar)
+        accion("abrir-lista", self.accion_abrir_lista, ["<Ctrl><Alt>l"])
+        accion("abrir-hashtag", self.accion_abrir_hashtag, ["<Ctrl><Alt>h"])
+        accion("buscar-mastodon", self.accion_buscar_mastodon, ["<Ctrl><Shift>f"])
+        accion("mas-tarde", self.accion_alternar_mas_tarde, ["<Ctrl>l"])
+        accion("papelera", self.accion_papelera)
+        accion("siguiente-no-leido", lambda: self.accion_saltar_no_leido(True), ["<Ctrl>k"])
+        accion("anterior-no-leido", lambda: self.accion_saltar_no_leido(False), ["<Ctrl><Shift>k"])
+        accion("navegador", self.accion_abrir_navegador, ["<Ctrl>Return"])
+        accion("copiar-enlace", self.accion_copiar_enlace)
+        accion("copiar-titulo", self.accion_copiar_titulo, ["<Ctrl><Shift>c"])
+        accion("texto-completo", self.accion_texto_completo, ["<Alt>a"])
+        accion("marcar-todo-leido", self.accion_marcar_todo_leido)
+        accion("ir-arbol", lambda: self.vista_arbol.grab_focus(), ["<Alt>1"])
+        accion("ir-lista", lambda: self.vista_lista.grab_focus(), ["<Alt>2"])
+        accion("ir-lectura", lambda: self.texto.grab_focus(), ["<Alt>3"])
+        # Reproductor (mismas teclas que en Windows)
+        accion("reproducir", self.accion_reproducir_pausa, ["F2"])
+        accion("retroceder", lambda: self.accion_saltar(-1), ["F1"])
+        accion("avanzar", lambda: self.accion_saltar(+1), ["F3"])
+        accion("detener", self.accion_detener, ["F4"])
+        accion("volumen-menos", lambda: self.accion_volumen(-0.05), ["F5"])
+        accion("volumen-mas", lambda: self.accion_volumen(+0.05), ["F6"])
+        accion("velocidad-menos", lambda: self.accion_velocidad(-0.1), ["F7"])
+        accion("velocidad-mas", lambda: self.accion_velocidad(+0.1), ["F8"])
+        accion("reproducir-articulo", self.accion_reproducir_articulo)
+        accion("decir-estado", self.accion_decir_estado, ["<Ctrl><Shift>b"])
+
+    # ------------------------------------------------------------------ utilidades
+    def avisar(self, texto: str, interrumpir: bool = True):
+        """Actualiza la barra de estado y lo dice por el lector."""
+        self.estado.set_text(texto)
+        speak(texto, interrupt=interrumpir)
+
+    def _fila_actual(self):
+        i = self.seleccion_lista.get_selected()
+        if i == Gtk.INVALID_LIST_POSITION:
+            return None
+        return self.almacen_lista.get_item(i)
+
+    def _nodo_obj_actual(self):
+        i = self.seleccion_arbol.get_selected()
+        if i == Gtk.INVALID_LIST_POSITION:
+            return None
+        row = self.modelo_arbol.get_row(i)
+        return row.get_item() if row else None
+
+    # ------------------------------------------------------------------ árbol
+    def _arbol_completo(self):
+        """RSS y Mastodon como dos servicios en la raíz del árbol."""
+        rss = Nodo(_("RSS y podcasts"), "servicio", servicio="rss", hijos=datos.construir_arbol(self.account_id))
+        return [rss, datos_mastodon.construir_nodos()]
+
+    def cargar_arbol(self, conservar=True, seleccionar=None):
+        """Reconstruye el árbol. `seleccionar` es la clave de un nodo a enfocar (si no, se conserva el actual)."""
+        previo = seleccionar or (self._nodo_obj_actual().clave() if (conservar and self._nodo_obj_actual()) else None)
+        self.arbol = self._arbol_completo()
+        self.raiz_arbol.remove_all()
+        for n in self.arbol:
+            self.raiz_arbol.append(NodoObj(n))
+        # Servicios y cuentas desplegados: lo que se usa a diario queda a un paso.
+        i = 0
+        while i < self.modelo_arbol.get_n_items():
+            row = self.modelo_arbol.get_row(i)
+            if row.get_item().nodo.tipo in ("servicio", "cuenta"):
+                row.set_expanded(True)
+            i += 1
+        destino = None
+        if previo:
+            for i in range(self.modelo_arbol.get_n_items()):
+                if self.modelo_arbol.get_row(i).get_item().clave() == previo:
+                    destino = i
+                    break
+        if destino is None:
+            destino = next((i for i in range(self.modelo_arbol.get_n_items())
+                            if self.modelo_arbol.get_row(i).get_item().nodo.listable), 0)
+        self.seleccion_arbol.set_selected(destino)
+        self._on_nodo_seleccionado()
+
+    def seleccionar_nodo(self, nodo: Nodo):
+        """Enfoca un nodo concreto del árbol (tras abrir un buffer, por ejemplo)."""
+        for i in range(self.modelo_arbol.get_n_items()):
+            if self.modelo_arbol.get_row(i).get_item().nodo is nodo:
+                self.seleccion_arbol.set_selected(i)
+                self.vista_arbol.scroll_to(i, Gtk.ListScrollFlags.FOCUS, None)
+                return
+
+    def refrescar_contadores(self):
+        """Actualiza los contadores del árbol SIN reconstruirlo (no se pierde el foco ni lo expandido)."""
+        nuevo = {}
+
+        def _recoger(nodos):
+            for n in nodos:
+                nuevo[(n.tipo, n.category_id, n.feed_id)] = n
+                _recoger(n.hijos)
+        _recoger(self._arbol_completo())
+        for i in range(self.modelo_arbol.get_n_items()):
+            obj = self.modelo_arbol.get_row(i).get_item()
+            n = nuevo.get(obj.clave())
+            if n is not None:
+                obj.nodo.no_leidos = n.no_leidos
+                obj.nodo.error = n.error
+                obj.sincronizar()
+
+    def _on_nodo_seleccionado(self, *_a):
+        obj = self._nodo_obj_actual()
+        if obj is None:
+            return
+        self.nodo_actual = obj.nodo
+        self.busqueda = ""
+        self.cargar_lista()
+        self._actualizar_acciones()
+
+    # ------------------------------------------------------------------ lista
+    def cargar_lista(self, conservar_id: str = None, incremental: bool = False):
+        """Rellena la lista. Con `incremental`, si es el mismo buffer que ya se ve, solo se insertan, quitan
+        y repintan las filas que cambian: las demás (y el foco) no se tocan."""
+        if self.nodo_actual is None:
+            return
+        n = self.nodo_actual
+        if not n.listable:
+            filas = []
+        elif n.servicio == "mastodon":
+            filas = datos_mastodon.listar(n.account_id, n.timeline)
+            if self.busqueda:
+                q = self.busqueda.lower()
+                filas = [f for f in filas if q in f.titulo.lower()]
+        else:
+            filas = datos.listar(self.account_id, n, busqueda=self.busqueda)
+        if incremental and self._nodo_listado is n and self._sincronizar_lista(filas):
+            self.estado.set_text(_("{t}: {n} elementos").format(t=n.titulo, n=len(filas)))
+            return
+        self._nodo_listado = n
+        self.almacen_lista.remove_all()
+        self.almacen_lista.splice(0, 0, [FilaObj(f) for f in filas])
+        seleccionar = 0
+        if conservar_id:
+            for i, f in enumerate(filas):
+                if f.id == conservar_id:
+                    seleccionar = i
+                    break
+        if filas:
+            self.seleccion_lista.set_selected(seleccionar)
+        n = len(filas)
+        titulo = self.nodo_actual.titulo + (f" — {_('búsqueda')}: {self.busqueda}" if self.busqueda else "")
+        self.estado.set_text(_("{t}: {n} elementos").format(t=titulo, n=n) if self.nodo_actual.listable else titulo)
+        if not filas:
+            if not self.nodo_actual.listable:
+                vacio = (_("Usa Archivo, Añadir cuenta de Mastodon para empezar.")
+                         if self.nodo_actual.servicio == "mastodon" and not self.nodo_actual.hijos else "")
+                self._mostrar_texto("", vacio, "", "")
+            else:
+                self._mostrar_texto("", _("No hay elementos."), "", "")
+
+    def _sincronizar_lista(self, filas) -> bool:
+        """Actualiza la lista en su sitio. False si el orden relativo cambió y hay que rehacerla."""
+        almacen = self.almacen_lista
+        viejos = [almacen.get_item(i).fila.id for i in range(almacen.get_n_items())]
+        nuevos = {f.id for f in filas}
+        viejos_set = set(viejos)
+        if [i for i in viejos if i in nuevos] != [f.id for f in filas if f.id in viejos_set]:
+            return False
+        for i in range(almacen.get_n_items() - 1, -1, -1):
+            if almacen.get_item(i).fila.id not in nuevos:
+                almacen.remove(i)
+        for i, f in enumerate(filas):
+            if i < almacen.get_n_items() and almacen.get_item(i).fila.id == f.id:
+                obj = almacen.get_item(i)
+                obj.fila = f
+                obj.favorito, obj.leido = f.favorito, f.leido
+                obj.impulsado, obj.marcador = bool(f.extra.get("impulsado")), bool(f.extra.get("marcador"))
+                obj.notify("leido")      # repinta contadores y estado
+            else:
+                almacen.insert(i, FilaObj(f))
+        if almacen.get_n_items() and self.seleccion_lista.get_selected() == Gtk.INVALID_LIST_POSITION:
+            self.seleccion_lista.set_selected(0)
+        return True
+
+    def _on_fila_seleccionada(self, *_a):
+        obj = self._fila_actual()
+        if obj is not None:
+            self._vista_previa(obj)
+
+    def _vista_previa(self, obj):
+        """Carga el texto en el panel de lectura sin marcar como leído ni mover el foco."""
+        if obj.fila.servicio == "mastodon":
+            titulo, meta, enlace, cuerpo = datos_mastodon.detalle(obj.fila)
+            self._mostrar_texto(titulo, meta, enlace, cuerpo)
+            self._articulo_abierto = obj.fila.id
+            if obj.fila.extra.get("encuesta"):
+                self._anadir_encuesta_a_lectura(obj)
+            return
+        art = rss_service.obtener_articulo(obj.fila.id)
+        if art is None:
+            return
+        from app.core.html_utils import html_a_texto
+        cuerpo = html_a_texto(art.translated_content or art.content or "") or _("(sin contenido)")
+        meta = " · ".join(p for p in (obj.fila.feed_titulo, obj.fila.autor, datos.fecha_legible(obj.fila.fecha)) if p)
+        self._mostrar_texto(obj.fila.titulo, meta, obj.fila.enlace, cuerpo)
+        self._articulo_abierto = obj.fila.id
+
+    def _mostrar_texto(self, titulo, meta, enlace, cuerpo):
+        self.buffer.set_text("")
+        fin = self.buffer.get_end_iter()
+        if titulo:
+            self.buffer.insert_with_tags(fin, titulo + "\n", self.etiqueta_titulo)
+        if meta:
+            self.buffer.insert_with_tags(self.buffer.get_end_iter(), meta + "\n", self.etiqueta_meta)
+        if enlace:
+            self.buffer.insert_with_tags(self.buffer.get_end_iter(), enlace + "\n", self.etiqueta_meta)
+        if cuerpo:
+            self.buffer.insert(self.buffer.get_end_iter(), "\n" + cuerpo)
+        self.buffer.place_cursor(self.buffer.get_start_iter())
+
+    def _on_abrir_fila(self, vista, posicion):
+        """Intro sobre un artículo: marcar leído, descargar el texto completo si falta y pasar a leerlo."""
+        obj = self.almacen_lista.get_item(posicion)
+        if obj is None:
+            return
+        self._vista_previa(obj)
+        if obj.fila.servicio == "rss":
+            self._marcar_leido(obj, True)
+            rss_service.registrar_lectura(obj.fila.id)
+            if rss_service.texto_completo_pendiente(obj.fila.id) and config.get("rss", "fulltext_auto", True):
+                self._descargar_completo(obj, silencioso=True)
+        self.texto.grab_focus()
+
+    def _marcar_leido(self, obj, leido: bool):
+        if obj.leido == leido:
+            return
+        rss_service.marcar_leido(obj.fila.id, leido)
+        obj.leido = leido
+        self._contadores_pendientes()
+
+    def _contadores_pendientes(self):
+        if getattr(self, "_id_contadores", 0):
+            return
+
+        def _hacer():
+            self._id_contadores = 0
+            self.refrescar_contadores()
+            return GLib.SOURCE_REMOVE
+        self._id_contadores = GLib.timeout_add(400, _hacer)
+
+    # ------------------------------------------------------------------ acciones sobre el artículo
+    def accion_alternar_leido(self):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        if obj.fila.servicio != "rss":
+            self.avisar(_("Esta acción es solo de RSS"))
+            return
+        self._marcar_leido(obj, not obj.leido)
+        self.avisar(_("Leído") if obj.leido else _("Sin leer"))
+
+    def accion_alternar_favorito(self):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        if obj.fila.servicio == "mastodon":
+            self._accion_estado(obj, "favourite", "unfavourite", "favorito",
+                                _("Marcado como favorito"), _("Quitado de favoritos"))
+            return
+        rss_service.marcar_favorito(obj.fila.id, not obj.favorito)
+        obj.favorito = not obj.favorito
+        self.avisar(_("Destacado") if obj.favorito else _("Ya no está destacado"))
+
+    def accion_alternar_mas_tarde(self):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        if obj.fila.servicio != "rss":
+            self.avisar(_("Esta acción es solo de RSS"))
+            return
+        rss_service.marcar_leer_mas_tarde(obj.fila.id, not obj.mas_tarde)
+        obj.mas_tarde = not obj.mas_tarde
+        self.avisar(_("Leer más tarde") if obj.mas_tarde else _("Quitado de leer más tarde"))
+
+    def accion_papelera(self):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        if obj.fila.servicio == "mastodon":
+            self._borrar_publicacion(obj)
+            return
+        i = self.seleccion_lista.get_selected()
+        rss_service.mover_a_papelera(obj.fila.id)
+        self.almacen_lista.remove(i)
+        n = self.almacen_lista.get_n_items()
+        if n:
+            self.seleccion_lista.set_selected(min(i, n - 1))
+        self._contadores_pendientes()
+        self.avisar(_("Movido a la papelera"))
+
+    def accion_saltar_no_leido(self, adelante: bool):
+        if self.nodo_actual is None or self.nodo_actual.servicio != "rss":
+            self.avisar(_("Esta acción es solo de RSS"))
+            return
+        n = self.almacen_lista.get_n_items()
+        actual = self.seleccion_lista.get_selected()
+        if n == 0:
+            return
+        rango = range(actual + 1, n) if adelante else range(actual - 1, -1, -1)
+        if actual == Gtk.INVALID_LIST_POSITION:
+            rango = range(0, n) if adelante else range(n - 1, -1, -1)
+        for i in rango:
+            if not self.almacen_lista.get_item(i).leido:
+                self.seleccion_lista.set_selected(i)
+                self.vista_lista.scroll_to(i, Gtk.ListScrollFlags.FOCUS | Gtk.ListScrollFlags.SELECT, None)
+                return
+        self.avisar(_("No hay más artículos sin leer"))
+
+    def accion_marcar_todo_leido(self):
+        if self.nodo_actual is None or self.nodo_actual.servicio != "rss":
+            self.avisar(_("Esta acción es solo de RSS"))
+            return
+        n = self.almacen_lista.get_n_items()
+        for i in range(n):
+            obj = self.almacen_lista.get_item(i)
+            if not obj.leido:
+                rss_service.marcar_leido(obj.fila.id, True)
+                obj.leido = True
+        self.refrescar_contadores()
+        self.avisar(_("Todo marcado como leído"))
+
+    def accion_abrir_navegador(self):
+        obj = self._fila_actual()
+        if obj is None or not obj.fila.enlace:
+            self.avisar(_("Este artículo no tiene enlace"))
+            return
+        webbrowser.open(obj.fila.enlace)
+        self._marcar_leido(obj, True)
+        self.avisar(_("Abierto en el navegador"))
+
+    def accion_copiar_enlace(self):
+        obj = self._fila_actual()
+        if obj is None or not obj.fila.enlace:
+            return
+        from app.core.speech import copiar_al_portapapeles
+        copiar_al_portapapeles(obj.fila.enlace, _("Enlace copiado"))
+
+    def accion_copiar_titulo(self):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        from app.core.speech import copiar_al_portapapeles
+        copiar_al_portapapeles(obj.fila.titulo, _("Título copiado"))
+
+    def accion_texto_completo(self):
+        obj = self._fila_actual()
+        if obj is not None and obj.fila.servicio == "rss":
+            self._descargar_completo(obj, silencioso=False)
+
+    def _descargar_completo(self, obj, silencioso: bool):
+        if not silencioso:
+            self.avisar(_("Descargando el artículo completo…"))
+
+        def _fin(html, err):
+            if err:
+                if not silencioso:
+                    self.avisar(_("No se pudo descargar el artículo completo"))
+                return
+            if html is None:
+                if not silencioso:
+                    self.avisar(_("No hay nada mejor que lo que ya tienes"))
+                return
+            if self._articulo_abierto == obj.fila.id:
+                self._vista_previa(obj)
+            if not silencioso:
+                self.avisar(_("Artículo completo descargado"))
+        rss_service.descargar_articulo_completo_async(obj.fila.id, _fin)
+
+    # ------------------------------------------------------------------ búsqueda
+    def _on_buscar(self, entrada):
+        self.busqueda = entrada.get_text().strip()
+        self.cargar_lista()
+        if self.almacen_lista.get_n_items():
+            self.vista_lista.grab_focus()
+        else:
+            self.avisar(_("Sin resultados"))
+
+    def _on_limpiar_busqueda(self, entrada):
+        entrada.set_text("")
+        if self.busqueda:
+            self.busqueda = ""
+            self.cargar_lista()
+        self.vista_lista.grab_focus()
+
+    # ------------------------------------------------------------------ actualización
+    def accion_actualizar(self):
+        n = self.nodo_actual
+        if n is not None and n.servicio == "mastodon":
+            if n.listable:
+                self.avisar(_("Actualizando {t}…").format(t=n.titulo))
+                self._actualizar_mastodon(n)
+            return
+        if self._actualizando:
+            self.avisar(_("Ya se está actualizando"))
+            return
+        self._actualizando = True
+        self.avisar(_("Actualizando todos los feeds…"))
+
+        def _fin(nuevos, err):
+            self._actualizando = False
+            if err:
+                self.avisar(_("Error al actualizar: {e}").format(e=err))
+                return
+            self._tras_actualizar()
+            self.avisar(_("{n} artículos nuevos").format(n=nuevos or 0) if nuevos else _("No hay artículos nuevos"))
+        rss_service.actualizar_todos_async(self.account_id, callback=_fin)
+
+    def accion_actualizar_feed(self):
+        n = self.nodo_actual
+        if n is None or n.servicio != "rss" or n.tipo != "feed":
+            self.avisar(_("Selecciona un feed en el árbol"))
+            return
+        self.avisar(_("Actualizando {t}…").format(t=n.titulo))
+
+        def _fin(nuevos, err):
+            if err:
+                self.avisar(_("Error al actualizar: {e}").format(e=err))
+                return
+            self._tras_actualizar()
+            self.avisar(_("{n} artículos nuevos").format(n=nuevos or 0) if nuevos else _("No hay artículos nuevos"))
+        rss_service.actualizar_feed_async(n.feed_id, callback=_fin)
+
+    def _tras_actualizar(self):
+        """Repinta contadores y añade lo nuevo a la lista, conservando el elemento seleccionado."""
+        self.refrescar_contadores()
+        if self.nodo_actual is not None and not self.busqueda:
+            obj = self._fila_actual()
+            self.cargar_lista(conservar_id=obj.fila.id if obj else None, incremental=True)
+
+    def _sondeo_automatico(self):
+        if not self._actualizando:
+            def _fin(nuevos, err):
+                if not err and nuevos:
+                    self._tras_actualizar()
+                    speak(_("{n} artículos nuevos").format(n=nuevos), interrupt=False)
+            rss_service.actualizar_todos_async(self.account_id, callback=_fin, max_par_override=3,
+                                               unique_key=f"rss:update_all:{self.account_id}",
+                                               solo_vencidos=True)
+        self._sondeo_mastodon()
+        return GLib.SOURCE_CONTINUE
+
+    # ------------------------------------------------------------------ Mastodon
+    def _sondeo_mastodon(self):
+        """Trae lo nuevo de Inicio y Notificaciones de cada cuenta; avisa sin interrumpir al lector."""
+        for acc_id, _nombre in datos_mastodon.cuentas():
+            for clave in ("home", "notifications"):
+                nodo = next((h for c in self._cuentas_nodos() if c.account_id == acc_id for h in c.hijos
+                             if h.timeline == clave), None)
+                if nodo is not None and (acc_id, clave) in self._cargados:
+                    self._actualizar_mastodon(nodo, silencioso=True)
+
+    def _cuentas_nodos(self):
+        for raiz in getattr(self, "arbol", []):
+            if raiz.servicio == "mastodon":
+                return raiz.hijos
+        return []
+
+    def _actualizar_mastodon(self, nodo, silencioso: bool = False):
+        clave = (nodo.account_id, nodo.timeline)
+        primera = clave not in self._cargados
+
+        def _fin(res, err):
+            if err:
+                if not silencioso:
+                    self.avisar(_("Error al actualizar: {e}").format(e=err))
+                return
+            self._cargados.add(clave)
+            nuevos = len(res or [])
+            if nodo is self.nodo_actual and not self.busqueda:
+                obj = self._fila_actual()
+                self.cargar_lista(conservar_id=obj.fila.id if obj else None, incremental=True)
+            if primera or not nuevos:
+                if not silencioso and nodo is self.nodo_actual:
+                    self.estado.set_text(_("{t}: actualizado").format(t=nodo.titulo))
+                return
+            if nodo.timeline == "notifications":
+                speak(_("{n} notificaciones nuevas").format(n=nuevos), interrupt=False)
+            elif nodo is self.nodo_actual:
+                self.avisar(_("{n} nuevas").format(n=nuevos), interrumpir=False)
+        if nodo.timeline.startswith("search:"):
+            mastodon_service.buscar_y_guardar_async(nodo.account_id, nodo.timeline.split(":", 1)[1], nodo.timeline,
+                                                    callback=lambda n, e: _fin([None] * (n or 0) if not e else None, e))
+        else:
+            mastodon_service.cargar_timeline_async(nodo.account_id, nodo.timeline, callback=_fin)
+
+    def _contexto_mastodon(self, obj=None):
+        """(account_id, fila_obj) de la publicación enfocada, o None si no hay una de Mastodon."""
+        obj = obj or self._fila_actual()
+        if obj is None or obj.fila.servicio != "mastodon":
+            self.avisar(_("Esta acción es de Mastodon"))
+            return None
+        return obj
+
+    def _estado_db_id(self, obj):
+        return obj.fila.extra.get("estado_db_id") or obj.fila.id
+
+    def _accion_estado(self, obj, on: str, off: str, propiedad: str, texto_on: str, texto_off: str):
+        x = obj.fila.extra
+        if x.get("tipo") == "notificacion" and not x.get("estado_db_id"):
+            self.avisar(_("Esta notificación no tiene publicación"))
+            return
+        activo = obj.get_property(propiedad)
+
+        def _fin(res, err):
+            if err:
+                self.avisar(_("No se pudo: {e}").format(e=err))
+                return
+            obj.set_property(propiedad, not activo)
+            self.avisar(texto_off if activo else texto_on)
+        mastodon_service.ejecutar_accion_toot_async(x["account_id"], self._estado_db_id(obj),
+                                                    off if activo else on, callback=_fin)
+
+    def accion_impulsar(self):
+        obj = self._contexto_mastodon()
+        if obj:
+            self._accion_estado(obj, "reblog", "unreblog", "impulsado",
+                                _("Impulsado"), _("Impulso quitado"))
+
+    def accion_marcador(self):
+        obj = self._contexto_mastodon()
+        if obj:
+            self._accion_estado(obj, "bookmark", "unbookmark", "marcador",
+                                _("Añadido a marcadores"), _("Quitado de marcadores"))
+
+    def _cuenta_activa(self):
+        n = self.nodo_actual
+        if n is not None and n.servicio == "mastodon" and n.account_id:
+            return n.account_id
+        cuentas = datos_mastodon.cuentas()
+        return cuentas[0][0] if len(cuentas) == 1 else None
+
+    def accion_nuevo(self):
+        n = self.nodo_actual
+        if n is None or n.servicio == "rss":
+            self.get_application().anadir_feed()
+            return
+        acc = self._cuenta_activa()
+        if acc is None:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+            return
+        from .dialogos import DialogoPublicar
+        DialogoPublicar(self, acc).present()
+
+    def accion_responder(self):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        x = obj.fila.extra
+        if not x.get("status_id"):
+            self.avisar(_("Esta notificación no tiene publicación"))
+            return
+        from .dialogos import DialogoPublicar
+        visib = x.get("visibilidad")
+        DialogoPublicar(self, x["account_id"], texto_inicial=datos_mastodon.menciones_de_respuesta(obj.fila),
+                        responde_a=x["status_id"], visibilidad=visib if visib in ("unlisted", "private", "direct") else None
+                        ).present()
+
+    def tras_publicar(self):
+        """Tras publicar, vuelve a leer Mis publicaciones y el buffer actual."""
+        n = self.nodo_actual
+        if n is not None and n.servicio == "mastodon" and n.listable:
+            self._actualizar_mastodon(n, silencioso=True)
+
+    def _borrar_publicacion(self, obj):
+        x = obj.fila.extra
+        if not x.get("propio"):
+            self.avisar(_("Solo puedes borrar tus propias publicaciones"))
+            return
+        from .dialogos import confirmar_async
+
+        def _hacer():
+            def _fin(res, err):
+                if err:
+                    self.avisar(_("No se pudo borrar: {e}").format(e=err))
+                    return
+                for i in range(self.almacen_lista.get_n_items()):
+                    if self.almacen_lista.get_item(i) is obj:
+                        self.almacen_lista.remove(i)
+                        n = self.almacen_lista.get_n_items()
+                        if n:
+                            self.seleccion_lista.set_selected(min(i, n - 1))
+                        break
+                self.avisar(_("Publicación borrada"))
+            mastodon_service.ejecutar_accion_toot_async(x["account_id"], self._estado_db_id(obj), "delete", callback=_fin)
+        confirmar_async(self, _("¿Borrar esta publicación? No se puede deshacer."), _hacer, etiqueta_si=_("Borrar"))
+
+    def _abrir_buffer(self, account_id: int, timeline: str, titulo: str):
+        """Abre un hilo o una cronología como buffer del árbol (bajo su cuenta) y pasa a la lista."""
+        nodo = datos_mastodon.nodo_extra(account_id, timeline, titulo)
+        self.cargar_arbol(seleccionar=NodoObj(nodo).clave())
+        self.vista_lista.grab_focus()
+        self.avisar(_("Abriendo {t}…").format(t=titulo))
+
+    def accion_conversacion(self):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+        x = obj.fila.extra
+        self._abrir_buffer(x["account_id"], f"thread:{x['status_id']}", _("Conversación de {n}").format(n=obj.fila.autor))
+
+    def accion_cronologia_usuario(self):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        x = obj.fila.extra
+        usuario = x.get("usuario") or x.get("de_usuario") or ""
+        if not usuario:
+            return
+        self._abrir_buffer(x["account_id"], f"user:{usuario.lstrip('@')}", _("Publicaciones de {u}").format(u=usuario))
+
+    def accion_cerrar_buffer(self):
+        n = self.nodo_actual
+        if n is None or not n.cerrable:
+            self.avisar(_("Este buffer no se puede cerrar"))
+            return
+        datos_mastodon.cerrar_extra(n)
+        self.cargar_arbol(seleccionar=("mastodon", n.account_id, "timeline", None, None, "home"))
+        self.avisar(_("Buffer cerrado"))
+
+    def accion_cargar_mas(self):
+        n = self.nodo_actual
+        if n is None or n.servicio != "mastodon" or not n.listable:
+            self.avisar(_("Esta acción es de Mastodon"))
+            return
+        ultima = self.almacen_lista.get_n_items()
+        if not ultima:
+            return
+        x = self.almacen_lista.get_item(ultima - 1).fila.extra
+        if n.timeline in ("bookmarks", "favourites", "direct"):
+            max_id = mastodon_service.PAG_SIGUIENTE
+        elif n.timeline in ("notifications", "mentions"):
+            max_id = x.get("notificacion_id")
+        else:
+            max_id = x.get("entrada_id")
+        if not max_id:
+            return
+        self.avisar(_("Cargando publicaciones anteriores…"))
+        actual = self._fila_actual()
+
+        def _fin(res, err):
+            if err:
+                self.avisar(_("Error al cargar: {e}").format(e=err))
+                return
+            self.cargar_lista(conservar_id=actual.fila.id if actual else None, incremental=True)
+            self.avisar(_("{n} cargadas").format(n=len(res or [])))
+        mastodon_service.cargar_timeline_async(n.account_id, n.timeline, max_id=max_id, callback=_fin)
+
+    def accion_eliminar_cuenta(self):
+        n = self.nodo_actual
+        if n is None or n.servicio != "mastodon" or not n.account_id:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+            return
+        from .dialogos import confirmar_async
+        acc = n.account_id
+        nombre = next((nm for i, nm in datos_mastodon.cuentas() if i == acc), "")
+
+        def _hacer():
+            mastodon_service.eliminar_cuenta(acc)
+            datos_mastodon.EXTRA.pop(acc, None)
+            self.cargar_arbol(conservar=False)
+            self.avisar(_("Cuenta eliminada"))
+        confirmar_async(self, _("¿Eliminar la cuenta {n} y sus datos de este equipo?").format(n=nombre), _hacer,
+                        etiqueta_si=_("Eliminar"))
+
+    def _actualizar_acciones(self):
+        """Pone el nombre del buffer en el título de la ventana (lo anuncia el lector al cambiar de ventana)."""
+        n = self.nodo_actual
+        if n is not None:
+            self.set_title(f"{n.titulo} — SocialRSS")
+        # Al entrar por primera vez en un buffer de Mastodon, se descarga en segundo plano.
+        if n is not None and n.servicio == "mastodon" and n.listable and (n.account_id, n.timeline) not in self._cargados:
+            self.estado.set_text(_("Cargando {t}…").format(t=n.titulo))
+            self._actualizar_mastodon(n, silencioso=True)
+
+    # ------------------------------------------------------------------ tiempo real
+    def iniciar_tiempo_real(self):
+        """Arranca (o detiene) el streaming de Mastodon según la preferencia."""
+        from .tiempo_real import TiempoReal
+        activo = config.get("gtk", "mastodon_realtime", True)
+        if not activo:
+            if self._tiempo_real is not None:
+                self._tiempo_real.detener()
+            return
+        if self._tiempo_real is None:
+            self._tiempo_real = TiempoReal(self._evento_mastodon, self._reconectado_mastodon)
+        self._tiempo_real.sincronizar([a for a, _n in datos_mastodon.cuentas()])
+
+    def _al_cerrar(self, *_a):
+        if self._tiempo_real is not None:
+            self._tiempo_real.detener()
+        return False
+
+    def _reconectado_mastodon(self, account_id: int):
+        """Tras una reconexión del streaming se recupera lo perdido durante el corte."""
+        for nodo in [h for c in self._cuentas_nodos() if c.account_id == account_id for h in c.hijos
+                     if h.timeline in ("home", "notifications")]:
+            if (account_id, nodo.timeline) in self._cargados:
+                self._actualizar_mastodon(nodo, silencioso=True)
+
+    def _evento_mastodon(self, account_id, timeline, procesado, tipo, payload):
+        """Una novedad llegó por el streaming (hilo de la UI). Las ráfagas se juntan en un solo repintado."""
+        if tipo == "delete":
+            self._eventos_pendientes.setdefault((account_id, timeline), {})["borrado"] = True
+        if not procesado:
+            # Sin contenido aplicable: se trae por REST y se repinta al terminar.
+            for nodo in [h for c in self._cuentas_nodos() if c.account_id == account_id for h in c.hijos
+                         if h.timeline == timeline]:
+                self._actualizar_mastodon(nodo, silencioso=True)
+            return
+        info = self._eventos_pendientes.setdefault((account_id, timeline), {})
+        info["n"] = info.get("n", 0) + (1 if tipo in ("update", "notification", "conversation") else 0)
+        if tipo == "notification" and isinstance(payload, dict):
+            info.setdefault("avisos", []).append(self._texto_aviso(payload))
+        if not info.get("programado"):
+            info["programado"] = True
+            GLib.timeout_add(250, self._vaciar_eventos, account_id, timeline)
+
+    def _vaciar_eventos(self, account_id, timeline):
+        info = self._eventos_pendientes.pop((account_id, timeline), {})
+        n = self.nodo_actual
+        visible = (n is not None and n.servicio == "mastodon" and n.account_id == account_id and
+                   (n.timeline == timeline or (timeline == "notifications" and n.timeline == "mentions")))
+        if visible:
+            self.cargar_lista(conservar_id=(self._fila_actual().fila.id if self._fila_actual() else None),
+                              incremental=True)
+        if timeline == "notifications" and info.get("avisos"):
+            for texto in info["avisos"][:3]:
+                speak(texto, interrupt=False)
+            if len(info["avisos"]) > 3:
+                speak(_("{n} notificaciones más").format(n=len(info["avisos"]) - 3), interrupt=False)
+            event_bus.emit("sound_trigger", "mastodon_new_notification")
+        elif timeline == "home" and info.get("n"):
+            event_bus.emit("sound_trigger", "mastodon_new_status")
+        elif timeline == "direct" and info.get("n"):
+            speak(_("Mensaje directo nuevo"), interrupt=False)
+            event_bus.emit("sound_trigger", "mastodon_new_mention")
+        return GLib.SOURCE_REMOVE
+
+    @staticmethod
+    def _texto_aviso(notif: dict) -> str:
+        from app.core.html_utils import html_a_texto
+        cuenta = notif.get("account") or {}
+        nombre = cuenta.get("display_name") or cuenta.get("username") or ""
+        accion = _(datos_mastodon.TIPOS_NOTIFICACION.get(notif.get("type"), notif.get("type", "")))
+        texto = f"{nombre} {accion}"
+        estado = notif.get("status") or {}
+        if estado.get("content") and notif.get("type") in ("mention", "status", "update", "quote"):
+            texto += ": " + datos_mastodon._condensar(html_a_texto(estado["content"]), 140)
+        return texto
+
+    # ------------------------------------------------------------------ encuestas
+    def _pedir_encuesta(self, obj, al_tener):
+        x = obj.fila.extra
+        dbid = self._estado_db_id(obj)
+
+        def _fin(enc, err):
+            if err or not enc:
+                self.avisar(_("No se pudo leer la encuesta") if err else _("Esta publicación no tiene encuesta"))
+                return
+            self._encuestas[dbid] = enc
+            al_tener(enc)
+        mastodon_service.obtener_encuesta_async(x["account_id"], dbid, callback=_fin)
+
+    @staticmethod
+    def _texto_encuesta(enc: dict) -> str:
+        total = max(1, sum(enc["votes"]))
+        lineas = [_("Encuesta ({s}):").format(s=_("cerrada") if enc["expired"] else _("abierta"))]
+        for t, v in zip(enc["options"], enc["votes"]):
+            lineas.append(_("- {t}: {v} votos ({p} %)").format(t=t, v=v, p=round(100 * v / total)))
+        lineas.append(_("{n} votos en total").format(n=enc["votes_count"]))
+        if enc["voted"]:
+            lineas.append(_("Ya has votado"))
+        return "\n".join(lineas)
+
+    def _anadir_encuesta_a_lectura(self, obj):
+        """Añade el estado de la encuesta al final del texto abierto, cuando llega."""
+        def _poner(enc):
+            if self._articulo_abierto != obj.fila.id:
+                return
+            self.buffer.insert(self.buffer.get_end_iter(), "\n\n" + self._texto_encuesta(enc))
+        self._pedir_encuesta(obj, _poner)
+
+    def accion_votar(self):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        if not obj.fila.extra.get("encuesta"):
+            self.avisar(_("Esta publicación no tiene encuesta"))
+            return
+
+        def _tengo(enc):
+            if enc["expired"] or enc["voted"]:
+                self.avisar(self._texto_encuesta(enc).replace("\n", ". "))
+                return
+            from .dialogos import DialogoVotar
+
+            def _votar(elegidas):
+                def _fin(res, err):
+                    if err:
+                        self.avisar(_("No se pudo votar: {e}").format(e=err))
+                        return
+                    self.avisar(_("Voto registrado"))
+                    self._anadir_encuesta_a_lectura(obj)
+                mastodon_service.votar_encuesta_async(obj.fila.extra["account_id"], enc["id"], elegidas, callback=_fin)
+            DialogoVotar(self, enc, _votar).present()
+        self._pedir_encuesta(obj, _tengo)
+
+    # ------------------------------------------------------------------ perfil, edición, cita, informe
+    def _usuario_de(self, obj) -> str:
+        x = obj.fila.extra
+        return x.get("usuario") or x.get("de_usuario") or ""
+
+    def accion_perfil(self):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        usuario = self._usuario_de(obj)
+        if not usuario:
+            return
+        from .dialogos import DialogoPerfil
+        DialogoPerfil(self, obj.fila.extra["account_id"], usuario).present()
+
+    def abrir_cronologia(self, account_id: int, acct: str):
+        self._abrir_buffer(account_id, f"user:{acct.lstrip('@')}", _("Publicaciones de @{u}").format(u=acct.lstrip("@")))
+
+    def accion_editar(self):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        x = obj.fila.extra
+        if not x.get("propio") or x.get("impulsado_por"):
+            self.avisar(_("Solo puedes editar tus propias publicaciones"))
+            return
+        self.avisar(_("Leyendo la publicación original…"))
+
+        def _fuente(res, err):
+            if err or not res:
+                self.avisar(_("No se pudo leer la publicación: {e}").format(e=err))
+                return
+            from .dialogos import DialogoPublicar
+            DialogoPublicar(self, x["account_id"], texto_inicial=res["text"], aviso=res["spoiler_text"],
+                            editar_db_id=self._estado_db_id(obj)).present()
+        mastodon_service.obtener_fuente_toot_async(x["account_id"], self._estado_db_id(obj), _fuente)
+
+    def accion_citar(self):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+        x = obj.fila.extra
+        from .dialogos import DialogoPublicar
+        DialogoPublicar(self, x["account_id"], cita_id=x["status_id"]).present()
+
+    def accion_reportar(self):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+        from .dialogos import DialogoReportar
+        DialogoReportar(self, obj.fila.extra["account_id"], self._estado_db_id(obj), self._usuario_de(obj)).present()
+
+    # ------------------------------------------------------------------ listas, hashtags y búsqueda
+    def accion_abrir_lista(self):
+        acc = self._cuenta_activa()
+        if acc is None:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+            return
+        self.avisar(_("Leyendo tus listas…"))
+
+        def _fin(listas, err):
+            if err:
+                self.avisar(_("No se pudieron leer las listas: {e}").format(e=err))
+                return
+            if not listas:
+                self.avisar(_("No tienes listas en esta cuenta"))
+                return
+            from .dialogos import DialogoElegir
+
+            def _elegida(i):
+                lista = listas[i]
+                self._abrir_buffer(acc, f"list:{lista['id']}", _("Lista {t}").format(t=lista["title"]))
+            DialogoElegir(self, _("Abrir una lista"), _("_Lista:"), [l["title"] for l in listas], _elegida,
+                          _("_Abrir")).present()
+        mastodon_service.obtener_listas_async(acc, callback=_fin)
+
+    def accion_abrir_hashtag(self):
+        acc = self._cuenta_activa()
+        if acc is None:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+            return
+        from .dialogos import DialogoTexto
+
+        def _tag(texto):
+            tag = texto.strip().lstrip("#")
+            if tag:
+                self._abrir_buffer(acc, f"search:#{tag}", f"#{tag}")
+        DialogoTexto(self, _("Abrir un hashtag"), _("_Hashtag:"), _tag, _("Sin la almohadilla, por ejemplo accesibilidad."),
+                     _("_Abrir")).present()
+
+    def accion_buscar_mastodon(self):
+        acc = self._cuenta_activa()
+        if acc is None:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+            return
+        from .dialogos import DialogoTexto
+
+        def _buscar(texto):
+            self._abrir_buffer(acc, f"search:{texto}", _("Búsqueda: {t}").format(t=texto))
+        DialogoTexto(self, _("Buscar en Mastodon"), _("_Buscar:"), _buscar,
+                     _("Busca publicaciones en tu instancia. Empieza por # para un hashtag."), _("_Buscar")).present()
+
+    # ------------------------------------------------------------------ menú contextual
+    def mostrar_menu_contextual(self, x=None, y=None):
+        obj = self._fila_actual()
+        if obj is None:
+            return
+        m = Gio.Menu()
+        if obj.fila.servicio == "mastodon":
+            a = Gio.Menu()
+            for et, ac in ((_("Responder"), "win.responder"), (_("Citar"), "win.citar"),
+                           (_("Me gusta / quitar me gusta"), "win.me-gusta"),
+                           (_("Impulsar / quitar impulso"), "win.impulsar"),
+                           (_("Marcador / quitar marcador"), "win.marcador")):
+                a.append(et, ac)
+            m.append_section(None, a)
+            b = Gio.Menu()
+            for et, ac in ((_("Ver la conversación"), "win.conversacion"),
+                           (_("Perfil del autor"), "win.perfil"),
+                           (_("Publicaciones del autor"), "win.cronologia-usuario"),
+                           (_("Votar en la encuesta"), "win.votar"),
+                           (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace")):
+                b.append(et, ac)
+            m.append_section(None, b)
+            c = Gio.Menu()
+            if obj.fila.extra.get("propio"):
+                c.append(_("Editar mi publicación"), "win.editar")
+                c.append(_("Borrar mi publicación"), "win.papelera")
+            else:
+                c.append(_("Reportar"), "win.reportar")
+            m.append_section(None, c)
+        else:
+            a = Gio.Menu()
+            for et, ac in ((_("Leído / no leído"), "win.leido"), (_("Destacar"), "win.favorito"),
+                           (_("Leer más tarde"), "win.mas-tarde"), (_("A la papelera"), "win.papelera"),
+                           (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace"),
+                           (_("Reproducir el audio"), "win.reproducir-articulo")):
+                a.append(et, ac)
+            m.append_section(None, a)
+        pop = Gtk.PopoverMenu.new_from_model(m)
+        pop.set_parent(self.vista_lista)
+        pop.set_has_arrow(False)
+        if x is not None:
+            r = Gdk.Rectangle()
+            r.x, r.y, r.width, r.height = int(x), int(y), 1, 1
+            pop.set_pointing_to(r)
+        pop.connect("closed", lambda p: GLib.idle_add(p.unparent))
+        pop.popup()
+
+    def _player(self):
+        from app.services.media_player.player2_service import player2_service
+        return player2_service
+
+    def accion_reproducir_articulo(self):
+        obj = self._fila_actual()
+        if obj is None or obj.fila.servicio != "rss":
+            return
+        self.avisar(_("Cargando el audio…"))
+
+        def _fin(ok, err=None):
+            if ok:
+                self.avisar(_("Reproduciendo: {t}").format(t=obj.fila.titulo))
+            else:
+                self.avisar(err or _("No se pudo reproducir"))
+        rss_service.reproducir_articulo_audio(obj.fila.id, callback=_fin)
+
+    def accion_reproducir_pausa(self):
+        p = self._player()
+        if p.esta_activo():
+            p.alternar_pausa()
+            est = p.backend.obtener_estado()
+            self.avisar(_("Pausado") if est == "pausado" else _("Reproduciendo"))
+        else:
+            obj = self._fila_actual()
+            if obj is not None and obj.fila.servicio == "rss" and obj.fila.audio:
+                self.accion_reproducir_articulo()
+            else:
+                self.avisar(_("No hay nada reproduciéndose"))
+
+    def accion_saltar(self, signo: int):
+        p = self._player()
+        if not p.esta_activo():
+            self.avisar(_("No hay nada reproduciéndose"))
+            return
+        paso = float(config.get("media_player", "default_step_forward2" if signo > 0 else "default_step_backward2", 15.0))
+        (p.avanzar_segundos if signo > 0 else p.retroceder_segundos)(paso)
+        self.avisar(self._tiempo(p), interrumpir=True)
+
+    def accion_detener(self):
+        p = self._player()
+        if p.esta_activo():
+            p.detener()
+            self.avisar(_("Detenido"))
+        else:
+            self.avisar(_("No hay nada reproduciéndose"))
+
+    def accion_volumen(self, delta: float):
+        p = self._player()
+        vol = max(0.0, min(1.0, p.backend.obtener_volumen() + delta))
+        p.establecer_volumen(vol)
+        self.avisar(_("Volumen {n} por ciento").format(n=round(vol * 100)))
+
+    def accion_velocidad(self, delta: float):
+        p = self._player()
+        vel = max(0.5, min(3.0, round(p.backend.obtener_velocidad() + delta, 2)))
+        p.establecer_velocidad(vel)
+        self.avisar(_("Velocidad {v}").format(v=vel))
+
+    @staticmethod
+    def _mm_ss(seg: float) -> str:
+        seg = int(max(0, seg))
+        h, r = divmod(seg, 3600)
+        m, s = divmod(r, 60)
+        return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
+
+    def _tiempo(self, p) -> str:
+        info = p.obtener_informacion()
+        if info["duration"]:
+            return _("{a} de {b}").format(a=self._mm_ss(info["position"]), b=self._mm_ss(info["duration"]))
+        return self._mm_ss(info["position"])
+
+    def accion_decir_estado(self):
+        speak(self.estado.get_text(), interrupt=True)
+
+    def _latido_reproductor(self):
+        """Muestra en la barra de estado lo que suena; no lo dice (para no interrumpir al lector)."""
+        try:
+            p = self._player()
+            if p.esta_activo() and p.current_title:
+                info = p.obtener_informacion()
+                est = {"reproduciendo": _("Reproduciendo"), "pausado": _("Pausado"),
+                       "esperando": _("Cargando")}.get(info["state"], "")
+                if est:
+                    self.estado.set_text(f"{est}: {p.current_title} — {self._tiempo(p)}")
+        except Exception:
+            pass
+        return GLib.SOURCE_CONTINUE
