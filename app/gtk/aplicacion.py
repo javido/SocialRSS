@@ -31,6 +31,7 @@ def _menu() -> Gio.Menu:
     barra = Gio.Menu()
     archivo = Gio.Menu()
     archivo.append_section(None, sec((_("Añadir _cuenta de Mastodon…"), "app.anadir-cuenta-mastodon"),
+                                     (_("Añadir cuenta de _Bluesky…"), "app.anadir-cuenta-bluesky"),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -112,6 +113,24 @@ def _menu() -> Gio.Menu:
     pub.append_submenu(_("Mi _cuenta"), cuentas)
     barra.append_submenu(_("_Mastodon"), pub)
 
+    bsky = Gio.Menu()
+    bsky.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
+                                  (_("_Responder"), "win.responder"),
+                                  (_("C_itar"), "win.citar"),
+                                  (_("Borrar mi publicación"), "win.papelera")))
+    bsky.append_section(None, sec((_("Me _gusta"), "win.me-gusta"),
+                                  (_("Re_publicar"), "win.impulsar"),
+                                  (_("_Marcador"), "win.marcador")))
+    bsky.append_section(None, sec((_("Ver la _conversación"), "win.conversacion"),
+                                  (_("_Perfil del autor"), "win.perfil"),
+                                  (_("Publicaciones del _autor"), "win.cronologia-usuario"),
+                                  (_("Cargar publicaciones a_nteriores"), "win.cargar-mas"),
+                                  (_("C_errar el buffer"), "win.cerrar-buffer")))
+    bsky.append_section(None, sec((_("_Buscar en Bluesky…"), "win.buscar-mastodon"),
+                                  (_("Abrir un _feed…"), "win.abrir-feed"),
+                                  (_("Abrir una _lista…"), "win.abrir-lista")))
+    barra.append_submenu(_("Blues_ky"), bsky)
+
     rep = Gio.Menu()
     rep.append_section(None, sec((_("Reproducir el audio del artículo"), "win.reproducir-articulo"),
                                  (_("Reproducir / pausar"), "win.reproducir"),
@@ -166,6 +185,7 @@ class Aplicacion(Gtk.Application):
                 self.set_accels_for_action(f"app.{nombre}", list(accels))
         accion("anadir-feed", self.anadir_feed, ["<Ctrl><Alt>n"])
         accion("anadir-cuenta-mastodon", self.anadir_cuenta_mastodon)
+        accion("anadir-cuenta-bluesky", self.anadir_cuenta_bluesky)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -245,6 +265,13 @@ class Aplicacion(Gtk.Application):
         def _hecha(account_id):
             self.ventana.cargar_arbol(seleccionar=("mastodon", account_id, "timeline", None, None, "home"))
         DialogoCuentaMastodon(self.ventana, _hecha).present()
+
+    def anadir_cuenta_bluesky(self):
+        from .dialogos_bluesky import DialogoCuentaBluesky
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("bluesky", account_id, "timeline", None, None, "home"))
+        DialogoCuentaBluesky(self.ventana, _hecha).present()
 
     def acerca(self):
         dlg = Gtk.AboutDialog(transient_for=self.ventana, modal=True, program_name="SocialRSS Accessible Suite",

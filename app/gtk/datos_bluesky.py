@@ -1,0 +1,236 @@
+# -*- coding: utf-8 -*-
+"""Datos de Bluesky para la interfaz GTK: árbol de cuentas y buffers, listados y detalle.
+
+Igual que con Mastodon: el servicio descarga y cachea en SQLite; aquí solo se LEE esa caché."""
+
+import json
+import logging
+from typing import Dict, List, Optional
+
+from app.core.database import db
+from .datos import Nodo, Fila
+
+log = logging.getLogger(__name__)
+
+# (clave del servicio, título). Las claves son las de bluesky_service.cargar_timeline_async.
+BUFFERS = [
+    ("home", "Inicio"),
+    ("notifications", "Notificaciones"),
+    ("mentions", "Menciones"),
+    ("sent", "Mis publicaciones"),
+    ("likes", "Me gusta"),
+    ("bookmarks", "Marcadores"),
+]
+
+EXTRA: Dict[int, List[Nodo]] = {}
+
+MOTIVOS = {
+    "like": "ha marcado como me gusta tu publicación",
+    "repost": "ha republicado tu publicación",
+    "follow": "te ha seguido",
+    "mention": "te ha mencionado",
+    "reply": "ha respondido a tu publicación",
+    "quote": "ha citado tu publicación",
+    "starterpack-joined": "se ha unido con tu paquete de inicio",
+    "verified": "te ha verificado",
+    "unverified": "ha retirado tu verificación",
+    "like-via-repost": "ha marcado como me gusta una republicación tuya",
+    "repost-via-repost": "ha republicado una republicación tuya",
+    "subscribed-post": "ha publicado",
+    "subscribed-reply": "ha respondido",
+}
+
+
+def cuentas() -> List[tuple]:
+    return [(r[0], r[1]) for r in db.query(
+        "SELECT id, name FROM accounts WHERE service_id = 'bluesky' AND active = 1 ORDER BY position, id")]
+
+
+def construir_nodos() -> Nodo:
+    raiz = Nodo(_("Bluesky"), "servicio", servicio="bluesky")
+    for acc_id, nombre in cuentas():
+        cuenta = Nodo(nombre, "cuenta", servicio="bluesky", account_id=acc_id)
+        for clave, titulo in BUFFERS:
+            cuenta.hijos.append(Nodo(_(titulo), "timeline", servicio="bluesky", account_id=acc_id, timeline=clave))
+        cuenta.hijos.extend(EXTRA.get(acc_id, []))
+        raiz.hijos.append(cuenta)
+    return raiz
+
+
+def nodo_extra(account_id: int, timeline: str, titulo: str) -> Nodo:
+    for n in EXTRA.setdefault(account_id, []):
+        if n.timeline == timeline:
+            return n
+    n = Nodo(titulo, "timeline", servicio="bluesky", account_id=account_id, timeline=timeline, cerrable=True)
+    EXTRA[account_id].append(n)
+    return n
+
+
+def cerrar_extra(nodo: Nodo):
+    lista = EXTRA.get(nodo.account_id, [])
+    if nodo in lista:
+        lista.remove(nodo)
+
+
+def _condensar(texto: str, limite: int = 240) -> str:
+    t = " ".join((texto or "").split())
+    return t if len(t) <= limite else t[:limite].rstrip() + "…"
+
+
+def url_web(uri: str, handle: str) -> str:
+    """Enlace público de una publicación (at://did/app.bsky.feed.post/rkey)."""
+    if not uri:
+        return ""
+    rkey = uri.rsplit("/", 1)[-1]
+    return f"https://bsky.app/profile/{handle or uri.split('/')[2]}/post/{rkey}"
+
+
+def _yo(account_id: int) -> str:
+    """Handle propio (de la cuenta) para reconocer tus publicaciones."""
+    fila = db.query_one("SELECT name FROM accounts WHERE id = ?", (account_id,))
+    return ((fila[0] if fila else "") or "").lstrip("@").lower()
+
+
+_COLS = ("p.id, p.uri, p.cid, p.author_did, COALESCE(p.author_handle, ''), COALESCE(p.author_name, ''), "
+         "COALESCE(p.content, ''), COALESCE(p.created_at, ''), COALESCE(p.indexed_at, ''), COALESCE(p.labels, ''), "
+         "COALESCE(p.like_count, 0), COALESCE(p.repost_count, 0), COALESCE(p.reply_count, 0), "
+         "COALESCE(p.quote_count, 0), COALESCE(p.liked_uri, ''), COALESCE(p.reposted_uri, ''), "
+         "COALESCE(p.bookmarked, 0), COALESCE(p.media_json, '[]'), COALESCE(p.repost_by_name, ''), "
+         "COALESCE(p.reply_parent_uri, ''), COALESCE(p.quote_uri, '')")
+
+
+def _fila_post(r, yo: str, account_id: int) -> Fila:
+    (dbid, uri, cid, did, handle, nombre, contenido, creado, indexado, etiquetas, nlikes, nreposts, nresp,
+     ncitas, liked, reposted, marcador, media, repost_por, padre, cita) = r
+    try:
+        adjuntos = len(json.loads(media or "[]"))
+    except Exception:
+        adjuntos = 0
+    autor = nombre or handle
+    resumen = f"{autor} (@{handle}): " + _condensar(contenido)
+    return Fila(id=dbid, feed_id=0, feed_titulo=f"@{handle}", titulo=resumen, autor=autor,
+                fecha=creado or indexado, leido=True, favorito=bool(liked), mas_tarde=False, audio=False,
+                enlace=url_web(uri, handle), servicio="bluesky",
+                extra={"tipo": "estado", "account_id": account_id, "uri": uri, "cid": cid, "did": did,
+                       "usuario": handle, "impulsado": bool(reposted), "marcador": bool(marcador),
+                       "impulsado_por": repost_por, "adjuntos": adjuntos, "respuestas": nresp,
+                       "n_impulsos": nreposts + ncitas, "n_favoritos": nlikes, "etiquetas": etiquetas,
+                       "es_respuesta": bool(padre), "propio": handle.lower() == yo, "cita": cita})
+
+
+def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
+    yo = _yo(account_id)
+    if timeline in ("notifications", "mentions"):
+        return _listar_notificaciones(account_id, yo, solo_menciones=(timeline == "mentions"), limite=limite)
+    if timeline == "bookmarks":
+        sql = (f"SELECT {_COLS} FROM bluesky_posts p WHERE p.account_id = ? AND p.bookmarked = 1 "
+               "ORDER BY p.indexed_at DESC LIMIT ?")
+        params = (account_id, limite)
+    else:
+        # sort_key conserva el orden del servidor (feeds, repost antiguo...); es descendente.
+        orden = "ASC" if timeline.startswith("thread:") else "DESC"
+        sql = (f"SELECT {_COLS} FROM bluesky_timeline_posts t JOIN bluesky_posts p ON p.id = t.post_db_id "
+               "WHERE t.account_id = ? AND t.timeline = ? "
+               f"ORDER BY COALESCE(t.sort_key, 0) {orden}, p.indexed_at {orden} LIMIT ?")
+        params = (account_id, timeline, limite)
+    try:
+        return [_fila_post(r, yo, account_id) for r in db.query(sql, params)]
+    except Exception as e:
+        log.error(f"Error al listar el buffer '{timeline}' de Bluesky: {e}")
+        return []
+
+
+def _listar_notificaciones(account_id: int, yo: str, solo_menciones: bool, limite: int) -> List[Fila]:
+    where = "AND n.reason IN ('mention', 'reply', 'quote') " if solo_menciones else ""
+    sql = ("SELECT n.id, n.reason, COALESCE(n.subject_uri, ''), COALESCE(n.content, ''), "
+           "COALESCE(n.author_handle, ''), COALESCE(n.author_name, ''), COALESCE(n.indexed_at, ''), n.is_read "
+           f"FROM bluesky_notifications n WHERE n.account_id = ? {where}"
+           "ORDER BY n.indexed_at DESC LIMIT ?")
+    filas = []
+    try:
+        rows = db.query(sql, (account_id, limite))
+    except Exception as e:
+        log.error(f"Error al listar notificaciones de Bluesky: {e}")
+        return []
+    for nid, motivo, sujeto, contenido, handle, nombre, indexado, leida in rows:
+        quien = nombre or handle
+        accion = _(MOTIVOS.get(motivo, motivo))
+        texto = f"{quien} (@{handle}) {accion}"
+        if contenido:
+            texto += ": " + _condensar(contenido, 200)
+        f = Fila(id=nid, feed_id=0, feed_titulo=f"@{handle}", titulo=texto, autor=quien, fecha=indexado,
+                 leido=bool(leida), favorito=False, mas_tarde=False, audio=False,
+                 enlace=url_web(sujeto, "") if sujeto else "", servicio="bluesky",
+                 extra={"tipo": "notificacion", "motivo": motivo, "account_id": account_id, "usuario": handle,
+                        "uri": sujeto, "propio": False})
+        filas.append(f)
+    return filas
+
+
+def detalle(fila: Fila) -> tuple:
+    """(título, meta, enlace, cuerpo) de una fila de Bluesky para el panel de lectura."""
+    from .datos import fecha_legible
+    x = fila.extra
+    if x.get("tipo") == "notificacion":
+        cuerpo = fila.titulo
+        if x.get("uri"):
+            r = db.query_one(f"SELECT {_COLS} FROM bluesky_posts p WHERE p.account_id = ? AND p.uri = ?",
+                             (x["account_id"], x["uri"]))
+            if r:
+                return detalle(_fila_post(r, _yo(x["account_id"]), x["account_id"]))
+        return (fila.titulo, fecha_legible(fila.fecha), fila.enlace, cuerpo)
+    r = db.query_one(f"SELECT {_COLS}, COALESCE(p.external_json, ''), COALESCE(p.urls_json, '[]') "
+                     "FROM bluesky_posts p WHERE p.id = ?", (fila.id,))
+    if not r:
+        return (fila.titulo, "", fila.enlace, "")
+    base, (externo, urls) = r[:21], r[21:]
+    (dbid, uri, cid, did, handle, nombre, contenido, creado, indexado, etiquetas, nlikes, nreposts, nresp,
+     ncitas, liked, reposted, marcador, media, repost_por, padre, cita) = base
+    meta = [f"{nombre or handle} (@{handle})", fecha_legible(creado or indexado)]
+    partes = []
+    if repost_por:
+        partes.append(_("Republicado por {n}").format(n=repost_por))
+    if etiquetas:
+        partes.append(_("Advertencia de contenido: {e}").format(e=etiquetas.replace(",", ", ")))
+    if padre:
+        partes.append(_("Es una respuesta."))
+    partes.append(contenido)
+    try:
+        adj = json.loads(media or "[]")
+    except Exception:
+        adj = []
+    for i, a in enumerate(adj, 1):
+        partes.append("\n" + _("Adjunto {i} ({t}): {d}").format(
+            i=i, t=a.get("type", ""), d=(a.get("alt") or _("sin descripción"))))
+    if externo:
+        try:
+            e = json.loads(externo)
+            partes.append("\n" + _("Enlace: {t}. {d}").format(t=e.get("title", ""), d=e.get("description", "")))
+        except Exception:
+            pass
+    if cita:
+        q = db.query_one("SELECT COALESCE(author_name, author_handle), COALESCE(author_handle, ''), COALESCE(content, '') "
+                         "FROM bluesky_posts WHERE account_id = ? AND uri = ?", (x["account_id"], cita))
+        if q:
+            partes.append("\n" + _("Citando a {n} (@{h}): {t}").format(n=q[0], h=q[1], t=q[2]))
+        else:
+            partes.append("\n" + _("Cita otra publicación (ábrela desde el menú para leerla)."))
+    try:
+        enlaces = json.loads(urls or "[]")
+    except Exception:
+        enlaces = []
+    if enlaces:
+        partes.append("\n" + _("Enlaces:") + "\n" + "\n".join(enlaces))
+    partes.append("\n" + _("{r} respuestas · {i} republicaciones y citas · {f} me gusta").format(
+        r=nresp, i=nreposts + ncitas, f=nlikes))
+    return (nombre or handle, " · ".join(p for p in meta if p), fila.enlace, "\n".join(partes))
+
+
+def menciones_de_respuesta(fila: Fila) -> str:
+    """Respuesta: Bluesky enlaza al padre, no hace falta escribir la mención."""
+    return ""
+
+
+def estado_por_uri(account_id: int, uri: str) -> Optional[Fila]:
+    r = db.query_one(f"SELECT {_COLS} FROM bluesky_posts p WHERE p.account_id = ? AND p.uri = ?", (account_id, uri))
+    return None if not r else _fila_post(r, _yo(account_id), account_id)

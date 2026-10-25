@@ -47100,3 +47100,165 @@ msgstr "Image description"
 
 msgid "Resúmenes"
 msgstr "Summaries"
+
+msgid "Selecciona una publicación de Bluesky"
+msgstr "Select a Bluesky post"
+
+msgid "Selecciona una cuenta de Bluesky"
+msgstr "Select a Bluesky account"
+
+msgid "No hay más publicaciones"
+msgstr "There are no more posts"
+
+msgid "Me gusta quitado"
+msgstr "Like removed"
+
+msgid "Republicado"
+msgstr "Reposted"
+
+msgid "Republicación quitada"
+msgstr "Repost removed"
+
+msgid "Marcador quitado"
+msgstr "Bookmark removed"
+
+msgid "Buscar en Bluesky"
+msgstr "Search Bluesky"
+
+msgid "Busca publicaciones. Puedes usar #hashtags y from:usuario."
+msgstr "Search posts. You can use #hashtags and from:user."
+
+msgid "Leyendo tus feeds…"
+msgstr "Reading your feeds…"
+
+msgid "No se pudo leer: {e}"
+msgstr "Could not read: {e}"
+
+msgid "No tienes feeds guardados"
+msgstr "You have no saved feeds"
+
+msgid "No tienes listas"
+msgstr "You have no lists"
+
+msgid "Feed {t}"
+msgstr "Feed {t}"
+
+msgid "Abrir un feed"
+msgstr "Open a feed"
+
+msgid "_Feed:"
+msgstr "_Feed:"
+
+msgid "Republicar / quitar republicación"
+msgstr "Repost / remove repost"
+
+msgid "Añadir cuenta de _Bluesky…"
+msgstr "Add _Bluesky account…"
+
+msgid "Re_publicar"
+msgstr "Re_post"
+
+msgid "Cargar publicaciones a_nteriores"
+msgstr "Load _older posts"
+
+msgid "_Buscar en Bluesky…"
+msgstr "_Search Bluesky…"
+
+msgid "Abrir un _feed…"
+msgstr "Open a _feed…"
+
+msgid "Blues_ky"
+msgstr "Blues_ky"
+
+msgid "_Usuario (por ejemplo ana.bsky.social):"
+msgstr "_User (for example ana.bsky.social):"
+
+msgid "_Contraseña de aplicación:"
+msgstr "_App password:"
+
+msgid "Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu contraseña normal."
+msgstr "Create it in Settings, App passwords, at bsky.app. Do not use your normal password."
+
+msgid "_Servidor (opcional):"
+msgstr "_Server (optional):"
+
+msgid "Solo cámbialo si tu cuenta está en otro servidor (PDS)."
+msgstr "Only change it if your account is on another server (PDS)."
+
+msgid "Escribe el usuario y la contraseña de aplicación"
+msgstr "Write the user and the app password"
+
+msgid "Iniciando sesión…"
+msgstr "Logging in…"
+
+msgid "Cuenta añadida: @{h}"
+msgstr "Account added: @{h}"
+
+msgid "¿Quién puede _responder?"
+msgstr "Who can _reply?"
+
+msgid "¿Quieres descartarla?"
+msgstr "Do you want to discard it?"
+
+msgid "Un vídeo no se puede combinar con otros adjuntos"
+msgstr "A video cannot be combined with other attachments"
+
+msgid "Bluesky admite hasta cuatro imágenes"
+msgstr "Bluesky allows up to four images"
+
+msgid "Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, mov, webm)"
+msgstr "Unsupported format: use images (png, jpg, gif, webp) or a video (mp4, mov, webm)"
+
+msgid "Describe la imagen o el vídeo. Se recomienda siempre."
+msgstr "Describe the image or the video. Always recommended."
+
+msgid "Republicado por {n}"
+msgstr "Reposted by {n}"
+
+msgid "Advertencia de contenido: {e}"
+msgstr "Content warning: {e}"
+
+msgid "Es una respuesta."
+msgstr "It is a reply."
+
+msgid "Enlace: {t}. {d}"
+msgstr "Link: {t}. {d}"
+
+msgid "Citando a {n} (@{h}): {t}"
+msgstr "Quoting {n} (@{h}): {t}"
+
+msgid "Cita otra publicación (ábrela desde el menú para leerla)."
+msgstr "It quotes another post (open it from the menu to read it)."
+
+msgid "{r} respuestas · {i} republicaciones y citas · {f} me gusta"
+msgstr "{r} replies · {i} reposts and quotes · {f} likes"
+
+msgid "ha marcado como me gusta tu publicación"
+msgstr "liked your post"
+
+msgid "ha republicado tu publicación"
+msgstr "reposted your post"
+
+msgid "ha respondido a tu publicación"
+msgstr "replied to your post"
+
+msgid "se ha unido con tu paquete de inicio"
+msgstr "joined with your starter pack"
+
+msgid "te ha verificado"
+msgstr "verified you"
+
+msgid "ha retirado tu verificación"
+msgstr "removed your verification"
+
+msgid "ha marcado como me gusta una republicación tuya"
+msgstr "liked a repost of yours"
+
+msgid "ha republicado una republicación tuya"
+msgstr "reposted a repost of yours"
+
+msgid "ha respondido"
+msgstr "replied"
+
+msgid "Solo las mencionadas"
+msgstr "Only those mentioned"

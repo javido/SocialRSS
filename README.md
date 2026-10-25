@@ -106,8 +106,13 @@ sus claves y modelo, prompts, motor y idiomas de traducción, historiales y prue
 traduce (primero con el servidor de Mastodon si lo ofrece), Ctrl+Alt+R resume, Ctrl+I describe
 imágenes, Ctrl+Mayús+O extrae su texto y el editor puede mejorar la redacción, sugerir hashtags y
 escribir el texto alternativo. Todavía faltan en esta interfaz: colecciones, anuncios de la instancia, el directorio, y la
-administración avanzada (bloqueos de IP y de correo, estadísticas). El resto de redes (Bluesky,
-Telegram...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+administración avanzada (bloqueos de IP y de correo, estadísticas). **Bluesky** (primera fase): cuentas con contraseña de aplicación, Inicio, Notificaciones, Menciones,
+Mis publicaciones, Me gusta y Marcadores; publicar con imágenes o vídeo y texto alternativo,
+responder (con control de quién puede responder), citar, me gusta, republicar, marcadores, borrar,
+conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
+listas, además de traducir, resumir y describir imágenes con IA. Aún sin tiempo real, gestión de listas,
+moderación, mensajes privados ni palabras silenciadas. El resto de redes (Telegram, IRC, Matrix...)
+se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
 

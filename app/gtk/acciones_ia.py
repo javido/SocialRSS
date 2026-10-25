@@ -41,6 +41,13 @@ def texto_de(v, obj):
             return None
         texto = (r[0] + "\n" if r[0] else "") + r[1]
         return texto.strip(), r[2], r[3], f.extra.get("account_id")
+    if f.servicio == "bluesky":
+        uri = f.extra.get("uri") or ""
+        r = db.query_one("SELECT COALESCE(content, ''), COALESCE(langs, '') FROM bluesky_posts WHERE account_id = ? AND uri = ?",
+                         (f.extra.get("account_id"), uri))
+        if not r:
+            return None
+        return r[0].strip(), (r[1].split(",")[0] if r[1] else ""), None, None
     from app.services.rss.rss_service import rss_service
     art = rss_service.obtener_articulo(f.id)
     if art is None:
@@ -143,6 +150,15 @@ def resumir(v):
 # --------------------------------------------------------------------------- imágenes
 def _imagenes_de(obj) -> list:
     f = obj.fila
+    if f.servicio == "bluesky":
+        r = db.query_one("SELECT media_json FROM bluesky_posts WHERE account_id = ? AND uri = ?",
+                         (f.extra.get("account_id"), f.extra.get("uri") or ""))
+        try:
+            adj = json.loads(r[0]) if r and r[0] else []
+        except Exception:
+            adj = []
+        return [{"type": a.get("type"), "url": a.get("url"), "description": a.get("alt") or ""}
+                for a in adj if a.get("type") == "image" and a.get("url")]
     if f.servicio != "mastodon":
         return []
     dbid = f.extra.get("estado_db_id") or f.id

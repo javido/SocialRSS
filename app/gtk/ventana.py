@@ -28,7 +28,8 @@ from app.services.mastodon.mastodon_service import mastodon_service
 from app.core.event_bus import event_bus
 from app.core.plataforma import llamar_en_ui
 
-from . import datos, datos_mastodon
+from . import datos, datos_bluesky, datos_mastodon
+from .ventana_bluesky import _BlueskyMixin
 from .datos import Nodo
 from .modelos import NodoObj, FilaObj
 
@@ -50,7 +51,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(Gtk.ApplicationWindow):
+class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -456,6 +457,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         accion("citar", self.accion_citar, ["<Ctrl><Shift>u"])
         accion("reportar", self.accion_reportar)
         accion("abrir-lista", self.accion_abrir_lista, ["<Ctrl><Alt>l"])
+        accion("abrir-feed", self.bsky_abrir_feed, ["<Ctrl><Alt>f"])
         accion("abrir-hashtag", self.accion_abrir_hashtag, ["<Ctrl><Alt>h"])
         accion("buscar-mastodon", self.accion_buscar_mastodon, ["<Ctrl><Shift>f"])
         for tipo in ("followers", "following", "blocked", "muted", "solicitudes"):
@@ -539,7 +541,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
     def _arbol_completo(self):
         """RSS y Mastodon como dos servicios en la raíz del árbol."""
         rss = Nodo(_("RSS y podcasts"), "servicio", servicio="rss", hijos=datos.construir_arbol(self.account_id))
-        return [rss, datos_mastodon.construir_nodos()]
+        return [rss, datos_mastodon.construir_nodos(), datos_bluesky.construir_nodos()]
 
     def cargar_arbol(self, conservar=True, seleccionar=None):
         """Reconstruye el árbol. `seleccionar` es la clave de un nodo a enfocar (si no, se conserva el actual)."""
@@ -619,14 +621,17 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
             return GLib.SOURCE_REMOVE
         self.cargar_lista()
         # La descarga de red se retrasa más: solo si el usuario se queda en el buffer.
-        if nodo.servicio == "mastodon" and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
+        if nodo.servicio in ("mastodon", "bluesky") and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
             self._timer_red = GLib.timeout_add(PAUSA_RED_MS, self._descarga_tras_pausa, nodo)
         return GLib.SOURCE_REMOVE
 
     def _descarga_tras_pausa(self, nodo):
         self._timer_red = 0
         if nodo is self.nodo_actual and (nodo.account_id, nodo.timeline) not in self._cargados:
-            self._actualizar_mastodon(nodo, silencioso=True)
+            if nodo.servicio == "bluesky":
+                self.bsky_actualizar_nodo(nodo, silencioso=True)
+            else:
+                self._actualizar_mastodon(nodo, silencioso=True)
         return GLib.SOURCE_REMOVE
 
     # ------------------------------------------------------------------ lista
@@ -634,8 +639,9 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
         if not nodo.listable:
             return []
-        if nodo.servicio == "mastodon":
-            filas = datos_mastodon.listar(nodo.account_id, nodo.timeline)
+        if nodo.servicio in ("mastodon", "bluesky"):
+            modulo = datos_mastodon if nodo.servicio == "mastodon" else datos_bluesky
+            filas = modulo.listar(nodo.account_id, nodo.timeline)
             if busqueda:
                 q = busqueda.lower()
                 filas = [f for f in filas if q in f.titulo.lower()]
@@ -726,6 +732,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         """Hilo lector: arma (título, meta, enlace, cuerpo) de una fila; None si no hay nada que mostrar."""
         if fila.servicio == "mastodon":
             return datos_mastodon.detalle(fila)
+        if fila.servicio == "bluesky":
+            return datos_bluesky.detalle(fila)
         art = rss_service.obtener_articulo(fila.id)
         if art is None:
             return None
@@ -824,6 +832,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self.avisar(_("Leído") if obj.leido else _("Sin leer"))
 
     def accion_alternar_favorito(self):
+        if self._bsky_ctx():
+            return self.bsky_me_gusta()
         obj = self._fila_actual()
         if obj is None:
             return
@@ -847,6 +857,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self.avisar(_("Leer más tarde") if obj.mas_tarde else _("Quitado de leer más tarde"))
 
     def accion_papelera(self):
+        if self._bsky_ctx():
+            return self.bsky_borrar()
         obj = self._fila_actual()
         if obj is None:
             return
@@ -960,6 +972,12 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
 
     # ------------------------------------------------------------------ actualización
     def accion_actualizar(self):
+        n0 = self.nodo_actual
+        if n0 is not None and n0.servicio == "bluesky":
+            if n0.listable:
+                self.avisar(_("Actualizando {t}…").format(t=n0.titulo))
+                self.bsky_actualizar_nodo(n0)
+            return
         n = self.nodo_actual
         if n is not None and n.servicio == "mastodon":
             if n.listable:
@@ -1013,6 +1031,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                                                unique_key=f"rss:update_all:{self.account_id}",
                                                solo_vencidos=True)
         self._sondeo_mastodon()
+        self._sondeo_bluesky()
         return GLib.SOURCE_CONTINUE
 
     # ------------------------------------------------------------------ Mastodon
@@ -1087,12 +1106,16 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                                                     off if activo else on, callback=_fin)
 
     def accion_impulsar(self):
+        if self._bsky_ctx():
+            return self.bsky_republicar()
         obj = self._contexto_mastodon()
         if obj:
             self._accion_estado(obj, "reblog", "unreblog", "impulsado",
                                 _("Impulsado"), _("Impulso quitado"))
 
     def accion_marcador(self):
+        if self._bsky_ctx():
+            return self.bsky_marcador()
         obj = self._contexto_mastodon()
         if obj:
             self._accion_estado(obj, "bookmark", "unbookmark", "marcador",
@@ -1106,6 +1129,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         return cuentas[0][0] if len(cuentas) == 1 else None
 
     def accion_nuevo(self):
+        if self._bsky_ctx():
+            return self.bsky_nuevo()
         n = self.nodo_actual
         if n is None or n.servicio == "rss":
             self.get_application().anadir_feed()
@@ -1118,6 +1143,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         DialogoPublicar(self, acc).present()
 
     def accion_responder(self):
+        if self._bsky_ctx():
+            return self.bsky_responder()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1160,14 +1187,17 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
             mastodon_service.ejecutar_accion_toot_async(x["account_id"], self._estado_db_id(obj), "delete", callback=_fin)
         confirmar_async(self, _("¿Borrar esta publicación? No se puede deshacer."), _hacer, etiqueta_si=_("Borrar"))
 
-    def _abrir_buffer(self, account_id: int, timeline: str, titulo: str):
+    def _abrir_buffer(self, account_id: int, timeline: str, titulo: str, servicio: str = "mastodon"):
         """Abre un hilo o una cronología como buffer del árbol (bajo su cuenta) y pasa a la lista."""
-        nodo = datos_mastodon.nodo_extra(account_id, timeline, titulo)
+        modulo = datos_bluesky if servicio == "bluesky" else datos_mastodon
+        nodo = modulo.nodo_extra(account_id, timeline, titulo)
         self.cargar_arbol(seleccionar=NodoObj(nodo).clave())
         self.enfocar_panel(self.vista_lista)
         self.avisar(_("Abriendo {t}…").format(t=titulo))
 
     def accion_conversacion(self):
+        if self._bsky_ctx():
+            return self.bsky_conversacion()
         obj = self._contexto_mastodon()
         if not obj or not obj.fila.extra.get("status_id"):
             return
@@ -1175,6 +1205,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self._abrir_buffer(x["account_id"], f"thread:{x['status_id']}", _("Conversación de {n}").format(n=obj.fila.autor))
 
     def accion_cronologia_usuario(self):
+        if self._bsky_ctx():
+            return self.bsky_cronologia_usuario()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1189,11 +1221,13 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if n is None or not n.cerrable:
             self.avisar(_("Este buffer no se puede cerrar"))
             return
-        datos_mastodon.cerrar_extra(n)
-        self.cargar_arbol(seleccionar=("mastodon", n.account_id, "timeline", None, None, "home"))
+        (datos_bluesky if n.servicio == "bluesky" else datos_mastodon).cerrar_extra(n)
+        self.cargar_arbol(seleccionar=(n.servicio, n.account_id, "timeline", None, None, "home"))
         self.avisar(_("Buffer cerrado"))
 
     def accion_cargar_mas(self):
+        if self._bsky_ctx():
+            return self.bsky_cargar_mas()
         n = self.nodo_actual
         if n is None or n.servicio != "mastodon" or not n.listable:
             self.avisar(_("Esta acción es de Mastodon"))
@@ -1222,6 +1256,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         mastodon_service.cargar_timeline_async(n.account_id, n.timeline, max_id=max_id, callback=_fin)
 
     def accion_eliminar_cuenta(self):
+        if self.nodo_actual is not None and self.nodo_actual.servicio == "bluesky":
+            return self.bsky_eliminar_cuenta()
         n = self.nodo_actual
         if n is None or n.servicio != "mastodon" or not n.account_id:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1378,6 +1414,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         return x.get("usuario") or x.get("de_usuario") or ""
 
     def accion_perfil(self):
+        if self._bsky_ctx():
+            return self.bsky_perfil()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1410,6 +1448,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         mastodon_service.obtener_fuente_toot_async(x["account_id"], self._estado_db_id(obj), _fuente)
 
     def accion_citar(self):
+        if self._bsky_ctx():
+            return self.bsky_citar()
         obj = self._contexto_mastodon()
         if not obj or not obj.fila.extra.get("status_id"):
             return
@@ -1426,6 +1466,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
 
     # ------------------------------------------------------------------ listas, hashtags y búsqueda
     def accion_abrir_lista(self):
+        if self._bsky_ctx():
+            return self.bsky_abrir_lista()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1449,6 +1491,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         mastodon_service.obtener_listas_async(acc, callback=_fin)
 
     def accion_abrir_hashtag(self):
+        if self._bsky_ctx():
+            return self.bsky_buscar()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1463,6 +1507,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                      _("_Abrir")).present()
 
     def accion_buscar_mastodon(self):
+        if self._bsky_ctx():
+            return self.bsky_buscar()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1642,7 +1688,28 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if obj is None:
             return
         m = Gio.Menu()
-        if obj.fila.servicio == "mastodon":
+        if obj.fila.servicio == "bluesky":
+            a = Gio.Menu()
+            for et, ac in ((_("Responder"), "win.responder"), (_("Citar"), "win.citar"),
+                           (_("Me gusta / quitar me gusta"), "win.me-gusta"),
+                           (_("Republicar / quitar republicación"), "win.impulsar"),
+                           (_("Marcador / quitar marcador"), "win.marcador"),
+                           (_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia"),
+                           (_("Describir la imagen con IA"), "win.describir-imagen"),
+                           (_("Extraer el texto de la imagen"), "win.ocr-imagen")):
+                a.append(et, ac)
+            m.append_section(None, a)
+            b = Gio.Menu()
+            for et, ac in ((_("Ver la conversación"), "win.conversacion"), (_("Perfil del autor"), "win.perfil"),
+                           (_("Publicaciones del autor"), "win.cronologia-usuario"),
+                           (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace")):
+                b.append(et, ac)
+            m.append_section(None, b)
+            if obj.fila.extra.get("propio") and obj.fila.extra.get("tipo") != "notificacion":
+                c = Gio.Menu()
+                c.append(_("Borrar mi publicación"), "win.papelera")
+                m.append_section(None, c)
+        elif obj.fila.servicio == "mastodon":
             a = Gio.Menu()
             for et, ac in ((_("Responder"), "win.responder"), (_("Citar"), "win.citar"),
                            (_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia"),

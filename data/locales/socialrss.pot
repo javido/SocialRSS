@@ -45687,3 +45687,165 @@ msgstr ""
 
 msgid "Resúmenes"
 msgstr ""
+
+msgid "Selecciona una publicación de Bluesky"
+msgstr ""
+
+msgid "Selecciona una cuenta de Bluesky"
+msgstr ""
+
+msgid "No hay más publicaciones"
+msgstr ""
+
+msgid "Me gusta quitado"
+msgstr ""
+
+msgid "Republicado"
+msgstr ""
+
+msgid "Republicación quitada"
+msgstr ""
+
+msgid "Marcador quitado"
+msgstr ""
+
+msgid "Buscar en Bluesky"
+msgstr ""
+
+msgid "Busca publicaciones. Puedes usar #hashtags y from:usuario."
+msgstr ""
+
+msgid "Leyendo tus feeds…"
+msgstr ""
+
+msgid "No se pudo leer: {e}"
+msgstr ""
+
+msgid "No tienes feeds guardados"
+msgstr ""
+
+msgid "No tienes listas"
+msgstr ""
+
+msgid "Feed {t}"
+msgstr ""
+
+msgid "Abrir un feed"
+msgstr ""
+
+msgid "_Feed:"
+msgstr ""
+
+msgid "Republicar / quitar republicación"
+msgstr ""
+
+msgid "Añadir cuenta de _Bluesky…"
+msgstr ""
+
+msgid "Re_publicar"
+msgstr ""
+
+msgid "Cargar publicaciones a_nteriores"
+msgstr ""
+
+msgid "_Buscar en Bluesky…"
+msgstr ""
+
+msgid "Abrir un _feed…"
+msgstr ""
+
+msgid "Blues_ky"
+msgstr ""
+
+msgid "_Usuario (por ejemplo ana.bsky.social):"
+msgstr ""
+
+msgid "_Contraseña de aplicación:"
+msgstr ""
+
+msgid "Créala en Ajustes, Contraseñas de aplicación, en bsky.app. No uses tu contraseña normal."
+msgstr ""
+
+msgid "_Servidor (opcional):"
+msgstr ""
+
+msgid "Solo cámbialo si tu cuenta está en otro servidor (PDS)."
+msgstr ""
+
+msgid "Escribe el usuario y la contraseña de aplicación"
+msgstr ""
+
+msgid "Iniciando sesión…"
+msgstr ""
+
+msgid "Cuenta añadida: @{h}"
+msgstr ""
+
+msgid "¿Quién puede _responder?"
+msgstr ""
+
+msgid "¿Quieres descartarla?"
+msgstr ""
+
+msgid "Un vídeo no se puede combinar con otros adjuntos"
+msgstr ""
+
+msgid "Bluesky admite hasta cuatro imágenes"
+msgstr ""
+
+msgid "Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, mov, webm)"
+msgstr ""
+
+msgid "Describe la imagen o el vídeo. Se recomienda siempre."
+msgstr ""
+
+msgid "Republicado por {n}"
+msgstr ""
+
+msgid "Advertencia de contenido: {e}"
+msgstr ""
+
+msgid "Es una respuesta."
+msgstr ""
+
+msgid "Enlace: {t}. {d}"
+msgstr ""
+
+msgid "Citando a {n} (@{h}): {t}"
+msgstr ""
+
+msgid "Cita otra publicación (ábrela desde el menú para leerla)."
+msgstr ""
+
+msgid "{r} respuestas · {i} republicaciones y citas · {f} me gusta"
+msgstr ""
+
+msgid "ha marcado como me gusta tu publicación"
+msgstr ""
+
+msgid "ha republicado tu publicación"
+msgstr ""
+
+msgid "ha respondido a tu publicación"
+msgstr ""
+
+msgid "se ha unido con tu paquete de inicio"
+msgstr ""
+
+msgid "te ha verificado"
+msgstr ""
+
+msgid "ha retirado tu verificación"
+msgstr ""
+
+msgid "ha marcado como me gusta una republicación tuya"
+msgstr ""
+
+msgid "ha republicado una republicación tuya"
+msgstr ""
+
+msgid "ha respondido"
+msgstr ""
+
+msgid "Solo las mencionadas"
+msgstr ""

@@ -80,7 +80,7 @@ class FilaObj(GObject.Object):
     def _construir_descripcion(self) -> str:
         from .datos import fecha_legible
         f = self.fila
-        if f.servicio == "mastodon":
+        if f.servicio in ("mastodon", "bluesky"):
             return self._descripcion_mastodon()
         partes = []
         if not self.leido:
