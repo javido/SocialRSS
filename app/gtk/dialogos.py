@@ -3,6 +3,7 @@
 (Alt+letra), Intro acepta y Escape cierra."""
 
 import logging
+from datetime import datetime, timedelta
 
 import gi
 gi.require_version("Gtk", "4.0")
@@ -188,6 +189,7 @@ def _teclas() -> str:
         _("Ctrl+Mayús+G: publicaciones del autor"),
         _("Ctrl+Mayús+M: cargar publicaciones anteriores"),
         _("Ctrl+W: cerrar el buffer abierto"),
+        _("Ctrl+Alt+B: borradores"),
         _("Ctrl+Alt+V: votar en la encuesta"),
         _("Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"),
         _("Ctrl+Alt+E: editar tu publicación"),
@@ -308,13 +310,15 @@ class DialogoPublicar(DialogoBase):
 
     def __init__(self, padre, account_id: int, texto_inicial: str = "", responde_a: str = None,
                  visibilidad: str = None, aviso: str = "", titulo: str = None, cita_id: str = None,
-                 editar_db_id: str = None):
+                 editar_db_id: str = None, borrador: dict = None, borrador_id: int = None):
         super().__init__(padre, titulo or (_("Editar publicación") if editar_db_id else
                                            _("Citar") if cita_id else
                                            _("Responder") if responde_a else _("Nueva publicación")),
                          _("_Guardar") if editar_db_id else _("_Publicar"))
         self.cita_id = cita_id
         self.editar_db_id = editar_db_id
+        self.borrador_id = borrador_id
+        self._terminado = False          # publicado o guardado: ya no hay nada que preguntar al cerrar
         from app.services.mastodon.mastodon_service import mastodon_service
         self.account_id = account_id
         self.responde_a = responde_a
@@ -348,6 +352,8 @@ class DialogoPublicar(DialogoBase):
         self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(
             wrap_mode=Gtk.WrapMode.WORD_CHAR, hexpand=True, top_margin=4, bottom_margin=4, left_margin=6))
 
+        self.programar = self.campo(_("Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"), Gtk.Entry(width_chars=18),
+                                    _("Hora local, al menos cinco minutos en el futuro. Vacío publica ahora."))
         self.lista_adj = Gtk.Label(xalign=0, wrap=True, label=_("Sin adjuntos"))
         self.campo(_("Adjuntos:"), self.lista_adj)
         fila = Gtk.Box(spacing=8)
@@ -367,6 +373,13 @@ class DialogoPublicar(DialogoBase):
         self._actualizar_contador()
         self.set_focus(self.texto)
         self.buffer.place_cursor(self.buffer.get_end_iter())
+        if not editar_db_id:
+            guardar = Gtk.Button(label=_("Guardar _borrador"), use_underline=True)
+            guardar.connect("clicked", lambda *_a: self._guardar_borrador())
+            self.boton_cancelar.get_parent().prepend(guardar)
+        if borrador:
+            self._aplicar_borrador(borrador)
+        self.connect("close-request", self._al_cerrar)
         if editar_db_id:
             # Al editar, Mastodon no permite cambiar visibilidad, idioma, encuesta ni (aquí) los adjuntos.
             for w in (self.visibilidad, self.idioma, self.encuesta):
@@ -374,6 +387,62 @@ class DialogoPublicar(DialogoBase):
 
     def _texto(self) -> str:
         return self.buffer.get_text(self.buffer.get_start_iter(), self.buffer.get_end_iter(), False)
+
+    # --- borradores ---
+    def _capturar_borrador(self) -> dict:
+        enc = self.encuesta.get_buffer()
+        return {"formato": "gtk", "texto": self._texto(), "aviso": self.aviso.get_text(),
+                "visibilidad": VISIBILIDADES[self.visibilidad.get_selected()][0], "idioma": self.idioma.get_text(),
+                "encuesta": enc.get_text(enc.get_start_iter(), enc.get_end_iter(), False),
+                "adjuntos": [list(a) for a in self.adjuntos], "programar": self.programar.get_text()}
+
+    def _aplicar_borrador(self, b: dict):
+        self.buffer.set_text(b.get("texto", ""))
+        self.aviso.set_text(b.get("aviso", ""))
+        self.idioma.set_text(b.get("idioma", ""))
+        self.encuesta.get_buffer().set_text(b.get("encuesta", ""))
+        self.programar.set_text(b.get("programar", ""))
+        self.visibilidad.set_selected(next((i for i, (c, _n) in enumerate(VISIBILIDADES)
+                                            if c == b.get("visibilidad")), self.visibilidad.get_selected()))
+        self.adjuntos = [tuple(a) for a in b.get("adjuntos", []) if len(a) == 2]
+        self._pintar_adjuntos(avisar=False)
+
+    def _hay_contenido(self) -> bool:
+        return bool(self._texto().strip() or self.adjuntos or self.aviso.get_text().strip())
+
+    def _guardar_borrador(self, cerrar: bool = False):
+        from app.services.mastodon import mastodon_borradores as mb
+        contexto = {k: v for k, v in (("in_reply_to_id", self.responde_a), ("cita_id", self.cita_id)) if v}
+        self.borrador_id = mb.guardar_borrador(self.account_id, self._texto(), self._capturar_borrador(),
+                                               contexto, draft_id=self.borrador_id)
+        self._terminado = True
+        notificar(_("Borrador guardado"))
+        if cerrar:
+            self.close()
+
+    def _al_cerrar(self, *_a):
+        """Al cerrar con texto sin publicar ni guardar, pregunta qué hacer (no se pierde nada por accidente)."""
+        if self._terminado or self.editar_db_id or not self._hay_contenido():
+            return False
+        dlg = Gtk.AlertDialog()
+        dlg.set_message(_("Hay una publicación sin enviar"))
+        dlg.set_detail(_("¿Quieres guardarla como borrador?"))
+        dlg.set_buttons([_("Seguir editando"), _("Descartar"), _("Guardar borrador")])
+        dlg.set_default_button(2)
+        dlg.set_cancel_button(0)
+
+        def _fin(origen, res):
+            try:
+                opcion = origen.choose_finish(res)
+            except Exception:
+                return
+            if opcion == 2:
+                self._guardar_borrador(cerrar=True)
+            elif opcion == 1:
+                self._terminado = True
+                self.close()
+        dlg.choose(self, None, _fin)
+        return True
 
     def _actualizar_contador(self, *_a):
         resto = self.limite - len(self._texto())
@@ -407,14 +476,15 @@ class DialogoPublicar(DialogoBase):
             self.adjuntos.pop()
             self._pintar_adjuntos()
 
-    def _pintar_adjuntos(self):
+    def _pintar_adjuntos(self, avisar: bool = True):
         import os
         if not self.adjuntos:
             self.lista_adj.set_text(_("Sin adjuntos"))
             return
         self.lista_adj.set_text("; ".join(
             f"{os.path.basename(r)} ({d or _('sin descripción')})" for r, d in self.adjuntos))
-        notificar(_("{n} adjuntos").format(n=len(self.adjuntos)))
+        if avisar:
+            notificar(_("{n} adjuntos").format(n=len(self.adjuntos)))
 
     def aceptar(self):
         from app.services.mastodon.mastodon_composer import MastodonComposer
@@ -447,8 +517,18 @@ class DialogoPublicar(DialogoBase):
         if opciones and (len(opciones) < 2 or self.adjuntos):
             notificar(_("Una encuesta necesita al menos dos opciones y no admite adjuntos"))
             return
+        programada = None
+        if self.programar.get_text().strip():
+            try:
+                programada = datetime.strptime(self.programar.get_text().strip(), "%Y-%m-%d %H:%M").astimezone()
+            except ValueError:
+                notificar(_("Escribe la fecha como AAAA-MM-DD HH:MM"))
+                return
+            if programada <= datetime.now().astimezone() + timedelta(minutes=5):
+                notificar(_("La fecha debe ser al menos 5 minutos en el futuro"))
+                return
         self.boton_aceptar.set_sensitive(False)
-        notificar(_("Publicando…"))
+        notificar(_("Programando…") if programada else _("Publicando…"))
 
         def _fin(ok, detalle):
             # El compositor avisa con (éxito, id del toot) o (False, motivo del error).
@@ -456,7 +536,11 @@ class DialogoPublicar(DialogoBase):
                 self.boton_aceptar.set_sensitive(True)
                 notificar(_("No se pudo publicar: {e}").format(e=detalle))
                 return
-            notificar(_("Publicado"))
+            notificar(_("Publicación programada") if programada else _("Publicado"))
+            if self.borrador_id:
+                from app.services.mastodon import mastodon_borradores as mb
+                mb.borrar_borrador(self.borrador_id)
+            self._terminado = True
             self.close()
             self.padre.tras_publicar()
         MastodonComposer.publicar_toot_async(
@@ -465,7 +549,7 @@ class DialogoPublicar(DialogoBase):
             media_paths=[r for r, _d in self.adjuntos] or None,
             alt_texts=[d for _r, d in self.adjuntos] or None,
             poll_options=opciones or None, in_reply_to_id=self.responde_a, quoted_status_id=self.cita_id,
-            language=self.idioma.get_text().strip() or None, callback=_fin)
+            language=self.idioma.get_text().strip() or None, scheduled_at=programada, callback=_fin)
 
 
 class DialogoTexto(DialogoBase):

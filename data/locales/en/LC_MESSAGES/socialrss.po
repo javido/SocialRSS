@@ -46110,3 +46110,381 @@ msgstr "_Search Mastodon…"
 
 msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
 msgstr "Tab / Shift+Tab: from one pane to the next or the previous (arrow keys move between rows)"
+
+msgid "Ctrl+Alt+B: borradores"
+msgstr "Ctrl+Alt+B: drafts"
+
+msgid "Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"
+msgstr "Sche_dule for (YYYY-MM-DD HH:MM, optional):"
+
+msgid "Hora local, al menos cinco minutos en el futuro. Vacío publica ahora."
+msgstr "Local time, at least five minutes ahead. Empty posts now."
+
+msgid "Guardar _borrador"
+msgstr "Save _draft"
+
+msgid "Hay una publicación sin enviar"
+msgstr "There is a post that has not been sent"
+
+msgid "¿Quieres guardarla como borrador?"
+msgstr "Do you want to save it as a draft?"
+
+msgid "Seguir editando"
+msgstr "Keep editing"
+
+msgid "Guardar borrador"
+msgstr "Save draft"
+
+msgid "Escribe la fecha como AAAA-MM-DD HH:MM"
+msgstr "Write the date as YYYY-MM-DD HH:MM"
+
+msgid "La fecha debe ser al menos 5 minutos en el futuro"
+msgstr "The date must be at least 5 minutes ahead"
+
+msgid "Programando…"
+msgstr "Scheduling…"
+
+msgid "No se pudo leer el historial: {e}"
+msgstr "Could not read the history: {e}"
+
+msgid "Conversación silenciada"
+msgstr "Conversation muted"
+
+msgid "Conversación reactivada"
+msgstr "Conversation unmuted"
+
+msgid "Solo puedes fijar tus propias publicaciones"
+msgstr "You can only pin your own posts"
+
+msgid "Publicación fijada en tu perfil"
+msgstr "Post pinned to your profile"
+
+msgid "Publicación desfijada"
+msgstr "Post unpinned"
+
+msgid "El borrador ya no existe"
+msgstr "The draft no longer exists"
+
+msgid "Abre antes un hashtag"
+msgstr "Open a hashtag first"
+
+msgid "Sigues #{t}: sus publicaciones llegarán a Inicio"
+msgstr "You follow #{t}: its posts will arrive in Home"
+
+msgid "Has dejado de seguir #{t}"
+msgstr "You stopped following #{t}"
+
+msgid "Selecciona una notificación"
+msgstr "Select a notification"
+
+msgid "Notificación descartada"
+msgstr "Notification dismissed"
+
+msgid "Abre antes las notificaciones"
+msgstr "Open the notifications first"
+
+msgid "Notificaciones borradas"
+msgstr "Notifications deleted"
+
+msgid "¿Borrar todas las notificaciones de esta cuenta?"
+msgstr "Delete all notifications of this account?"
+
+msgid "Quién la ha impulsado"
+msgstr "Who boosted it"
+
+msgid "Quién la ha marcado como favorita"
+msgstr "Who favourited it"
+
+msgid "Silenciar la conversación"
+msgstr "Mute the conversation"
+
+msgid "Reactivar la conversación"
+msgstr "Unmute the conversation"
+
+msgid "Desfijar de mi perfil"
+msgstr "Unpin from my profile"
+
+msgid "Descartar la notificación"
+msgstr "Dismiss the notification"
+
+msgid "Quién la ha impulsa_do"
+msgstr "Who boos_ted it"
+
+msgid "Quién la ha marcado como _favorita"
+msgstr "Who _favourited it"
+
+msgid "_Historial de ediciones"
+msgstr "Edit _history"
+
+msgid "_Silenciar la conversación"
+msgstr "_Mute the conversation"
+
+msgid "Reacti_var la conversación"
+msgstr "Un_mute the conversation"
+
+msgid "Fi_jar en mi perfil"
+msgstr "_Pin to my profile"
+
+msgid "Hashtags en _tendencia…"
+msgstr "_Trending hashtags…"
+
+msgid "Hashtags que _sigo…"
+msgstr "Hashtags I _follow…"
+
+msgid "Seguir este hashtag"
+msgstr "Follow this hashtag"
+
+msgid "Dejar de seguir este hashtag"
+msgstr "Unfollow this hashtag"
+
+msgid "_Borradores…"
+msgstr "_Drafts…"
+
+msgid "Publicaciones pro_gramadas…"
+msgstr "Sche_duled posts…"
+
+msgid "Descartar la _notificación"
+msgstr "Dismiss the _notification"
+
+msgid "_Borrar todas las notificaciones"
+msgstr "_Delete all notifications"
+
+msgid "_Seguidores…"
+msgstr "_Followers…"
+
+msgid "S_iguiendo…"
+msgstr "Fo_llowing…"
+
+msgid "Solicitudes de seguimiento…"
+msgstr "Follow requests…"
+
+msgid "Cuentas _bloqueadas…"
+msgstr "_Blocked accounts…"
+
+msgid "Cuentas s_ilenciadas…"
+msgstr "Mu_ted accounts…"
+
+msgid "Filtros del _servidor…"
+msgstr "_Server filters…"
+
+msgid "Editar _mi perfil…"
+msgstr "Edit _my profile…"
+
+msgid "Mi _cuenta"
+msgstr "My _account"
+
+msgid "Ver _perfil"
+msgstr "View _profile"
+
+msgid "_Rechazar"
+msgstr "_Reject"
+
+msgid "_Quitar seguidor"
+msgstr "_Remove follower"
+
+msgid "Cargar _más"
+msgstr "Load _more"
+
+msgid "{n} seguidores"
+msgstr "{n} followers"
+
+msgid "No se pudo cargar: {e}"
+msgstr "Could not load: {e}"
+
+msgid "{n} cuentas"
+msgstr "{n} accounts"
+
+msgid "No hay cuentas"
+msgstr "There are no accounts"
+
+msgid "Solicitud aceptada"
+msgstr "Request accepted"
+
+msgid "Solicitud rechazada"
+msgstr "Request rejected"
+
+msgid "{u} ya no te sigue"
+msgstr "{u} no longer follows you"
+
+msgid "¿Quitar a @{u} de tus seguidores?"
+msgstr "Remove @{u} from your followers?"
+
+msgid "_Borrar"
+msgstr "_Delete"
+
+msgid "{n} borradores"
+msgstr "{n} drafts"
+
+msgid "No hay borradores"
+msgstr "There are no drafts"
+
+msgid "Borrador borrado"
+msgstr "Draft deleted"
+
+msgid "Lista de publicaciones programadas"
+msgstr "List of scheduled posts"
+
+msgid "_Cambiar la fecha"
+msgstr "_Change the date"
+
+msgid "_Cancelar la publicación"
+msgstr "_Cancel the post"
+
+msgid "{n} programadas"
+msgstr "{n} scheduled"
+
+msgid "No hay publicaciones programadas"
+msgstr "There are no scheduled posts"
+
+msgid "No se pudo cancelar: {e}"
+msgstr "Could not cancel: {e}"
+
+msgid "Publicación cancelada"
+msgstr "Post cancelled"
+
+msgid "Cancelar publicación"
+msgstr "Cancel post"
+
+msgid "No se pudo cambiar: {e}"
+msgstr "Could not change: {e}"
+
+msgid "Fecha cambiada"
+msgstr "Date changed"
+
+msgid "Cambiar la fecha"
+msgstr "Change the date"
+
+msgid "_Nueva fecha (AAAA-MM-DD HH:MM):"
+msgstr "_New date (YYYY-MM-DD HH:MM):"
+
+msgid "Hora local, al menos cinco minutos en el futuro."
+msgstr "Local time, at least five minutes ahead."
+
+msgid "_Cambiar"
+msgstr "_Change"
+
+msgid "Versiones de la publicación"
+msgstr "Versions of the post"
+
+msgid "Versión {i} de {n} — {f}"
+msgstr "Version {i} of {n} — {f}"
+
+msgid "Sin ediciones"
+msgstr "No edits"
+
+msgid "Lista de filtros"
+msgstr "List of filters"
+
+msgid "_Añadir filtro…"
+msgstr "_Add filter…"
+
+msgid "_Borrar filtro"
+msgstr "_Delete filter"
+
+msgid "oculta"
+msgstr "hides"
+
+msgid "avisa"
+msgstr "warns"
+
+msgid "{n} filtros"
+msgstr "{n} filters"
+
+msgid "No hay filtros"
+msgstr "There are no filters"
+
+msgid "Filtro borrado"
+msgstr "Filter deleted"
+
+msgid "¿Borrar el filtro «{p}»?"
+msgstr "Delete the filter “{p}”?"
+
+msgid "_Crear filtro"
+msgstr "_Create filter"
+
+msgid "_Palabras (separadas por comas):"
+msgstr "_Words (separated by commas):"
+
+msgid "Se ocultarán o avisarán las publicaciones que las contengan."
+msgstr "Posts containing them will be hidden or flagged."
+
+msgid "_Qué hacer:"
+msgstr "_What to do:"
+
+msgid "Escribe al menos una palabra y elige un contexto"
+msgstr "Write at least one word and choose a context"
+
+msgid "No se pudo crear: {e}"
+msgstr "Could not create: {e}"
+
+msgid "Filtro creado"
+msgstr "Filter created"
+
+msgid "Hashtags que sigues"
+msgstr "Hashtags you follow"
+
+msgid "_Dejar de seguir"
+msgstr "_Unfollow"
+
+msgid ". {n} usos recientes"
+msgstr ". {n} recent uses"
+
+msgid "{n} hashtags"
+msgstr "{n} hashtags"
+
+msgid "No hay hashtags"
+msgstr "There are no hashtags"
+
+msgid "Mi perfil"
+msgstr "My profile"
+
+msgid "_Nombre para mostrar:"
+msgstr "_Display name:"
+
+msgid "_Biografía:"
+msgstr "_Bio:"
+
+msgid "Cuenta _privada (apruebo a quien me sigue):"
+msgstr "_Private account (I approve who follows me):"
+
+msgid "Cuenta _automatizada (bot):"
+msgstr "_Automated account (bot):"
+
+msgid "No se pudo cargar tu perfil: {e}"
+msgstr "Could not load your profile: {e}"
+
+msgid "Perfil guardado"
+msgstr "Profile saved"
+
+msgid "Lista de seguidores"
+msgstr "List of followers"
+
+msgid "Lista de cuentas que sigues"
+msgstr "List of accounts you follow"
+
+msgid "Cuentas bloqueadas"
+msgstr "Blocked accounts"
+
+msgid "Lista de cuentas bloqueadas"
+msgstr "List of blocked accounts"
+
+msgid "Cuentas silenciadas"
+msgstr "Muted accounts"
+
+msgid "Lista de cuentas silenciadas"
+msgstr "List of muted accounts"
+
+msgid "Quién ha impulsado la publicación"
+msgstr "Who boosted the post"
+
+msgid "Lista de cuentas que impulsaron"
+msgstr "List of accounts that boosted"
+
+msgid "Quién ha marcado la publicación como favorita"
+msgstr "Who favourited the post"
+
+msgid "Lista de cuentas que marcaron favorito"
+msgstr "List of accounts that favourited"
+
+msgid "Avisar y ocultar tras un aviso"
+msgstr "Warn and hide behind a notice"

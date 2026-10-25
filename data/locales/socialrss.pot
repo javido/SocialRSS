@@ -44697,3 +44697,381 @@ msgstr ""
 
 msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
 msgstr ""
+
+msgid "Ctrl+Alt+B: borradores"
+msgstr ""
+
+msgid "Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"
+msgstr ""
+
+msgid "Hora local, al menos cinco minutos en el futuro. Vacío publica ahora."
+msgstr ""
+
+msgid "Guardar _borrador"
+msgstr ""
+
+msgid "Hay una publicación sin enviar"
+msgstr ""
+
+msgid "¿Quieres guardarla como borrador?"
+msgstr ""
+
+msgid "Seguir editando"
+msgstr ""
+
+msgid "Guardar borrador"
+msgstr ""
+
+msgid "Escribe la fecha como AAAA-MM-DD HH:MM"
+msgstr ""
+
+msgid "La fecha debe ser al menos 5 minutos en el futuro"
+msgstr ""
+
+msgid "Programando…"
+msgstr ""
+
+msgid "No se pudo leer el historial: {e}"
+msgstr ""
+
+msgid "Conversación silenciada"
+msgstr ""
+
+msgid "Conversación reactivada"
+msgstr ""
+
+msgid "Solo puedes fijar tus propias publicaciones"
+msgstr ""
+
+msgid "Publicación fijada en tu perfil"
+msgstr ""
+
+msgid "Publicación desfijada"
+msgstr ""
+
+msgid "El borrador ya no existe"
+msgstr ""
+
+msgid "Abre antes un hashtag"
+msgstr ""
+
+msgid "Sigues #{t}: sus publicaciones llegarán a Inicio"
+msgstr ""
+
+msgid "Has dejado de seguir #{t}"
+msgstr ""
+
+msgid "Selecciona una notificación"
+msgstr ""
+
+msgid "Notificación descartada"
+msgstr ""
+
+msgid "Abre antes las notificaciones"
+msgstr ""
+
+msgid "Notificaciones borradas"
+msgstr ""
+
+msgid "¿Borrar todas las notificaciones de esta cuenta?"
+msgstr ""
+
+msgid "Quién la ha impulsado"
+msgstr ""
+
+msgid "Quién la ha marcado como favorita"
+msgstr ""
+
+msgid "Silenciar la conversación"
+msgstr ""
+
+msgid "Reactivar la conversación"
+msgstr ""
+
+msgid "Desfijar de mi perfil"
+msgstr ""
+
+msgid "Descartar la notificación"
+msgstr ""
+
+msgid "Quién la ha impulsa_do"
+msgstr ""
+
+msgid "Quién la ha marcado como _favorita"
+msgstr ""
+
+msgid "_Historial de ediciones"
+msgstr ""
+
+msgid "_Silenciar la conversación"
+msgstr ""
+
+msgid "Reacti_var la conversación"
+msgstr ""
+
+msgid "Fi_jar en mi perfil"
+msgstr ""
+
+msgid "Hashtags en _tendencia…"
+msgstr ""
+
+msgid "Hashtags que _sigo…"
+msgstr ""
+
+msgid "Seguir este hashtag"
+msgstr ""
+
+msgid "Dejar de seguir este hashtag"
+msgstr ""
+
+msgid "_Borradores…"
+msgstr ""
+
+msgid "Publicaciones pro_gramadas…"
+msgstr ""
+
+msgid "Descartar la _notificación"
+msgstr ""
+
+msgid "_Borrar todas las notificaciones"
+msgstr ""
+
+msgid "_Seguidores…"
+msgstr ""
+
+msgid "S_iguiendo…"
+msgstr ""
+
+msgid "Solicitudes de seguimiento…"
+msgstr ""
+
+msgid "Cuentas _bloqueadas…"
+msgstr ""
+
+msgid "Cuentas s_ilenciadas…"
+msgstr ""
+
+msgid "Filtros del _servidor…"
+msgstr ""
+
+msgid "Editar _mi perfil…"
+msgstr ""
+
+msgid "Mi _cuenta"
+msgstr ""
+
+msgid "Ver _perfil"
+msgstr ""
+
+msgid "_Rechazar"
+msgstr ""
+
+msgid "_Quitar seguidor"
+msgstr ""
+
+msgid "Cargar _más"
+msgstr ""
+
+msgid "{n} seguidores"
+msgstr ""
+
+msgid "No se pudo cargar: {e}"
+msgstr ""
+
+msgid "{n} cuentas"
+msgstr ""
+
+msgid "No hay cuentas"
+msgstr ""
+
+msgid "Solicitud aceptada"
+msgstr ""
+
+msgid "Solicitud rechazada"
+msgstr ""
+
+msgid "{u} ya no te sigue"
+msgstr ""
+
+msgid "¿Quitar a @{u} de tus seguidores?"
+msgstr ""
+
+msgid "_Borrar"
+msgstr ""
+
+msgid "{n} borradores"
+msgstr ""
+
+msgid "No hay borradores"
+msgstr ""
+
+msgid "Borrador borrado"
+msgstr ""
+
+msgid "Lista de publicaciones programadas"
+msgstr ""
+
+msgid "_Cambiar la fecha"
+msgstr ""
+
+msgid "_Cancelar la publicación"
+msgstr ""
+
+msgid "{n} programadas"
+msgstr ""
+
+msgid "No hay publicaciones programadas"
+msgstr ""
+
+msgid "No se pudo cancelar: {e}"
+msgstr ""
+
+msgid "Publicación cancelada"
+msgstr ""
+
+msgid "Cancelar publicación"
+msgstr ""
+
+msgid "No se pudo cambiar: {e}"
+msgstr ""
+
+msgid "Fecha cambiada"
+msgstr ""
+
+msgid "Cambiar la fecha"
+msgstr ""
+
+msgid "_Nueva fecha (AAAA-MM-DD HH:MM):"
+msgstr ""
+
+msgid "Hora local, al menos cinco minutos en el futuro."
+msgstr ""
+
+msgid "_Cambiar"
+msgstr ""
+
+msgid "Versiones de la publicación"
+msgstr ""
+
+msgid "Versión {i} de {n} — {f}"
+msgstr ""
+
+msgid "Sin ediciones"
+msgstr ""
+
+msgid "Lista de filtros"
+msgstr ""
+
+msgid "_Añadir filtro…"
+msgstr ""
+
+msgid "_Borrar filtro"
+msgstr ""
+
+msgid "oculta"
+msgstr ""
+
+msgid "avisa"
+msgstr ""
+
+msgid "{n} filtros"
+msgstr ""
+
+msgid "No hay filtros"
+msgstr ""
+
+msgid "Filtro borrado"
+msgstr ""
+
+msgid "¿Borrar el filtro «{p}»?"
+msgstr ""
+
+msgid "_Crear filtro"
+msgstr ""
+
+msgid "_Palabras (separadas por comas):"
+msgstr ""
+
+msgid "Se ocultarán o avisarán las publicaciones que las contengan."
+msgstr ""
+
+msgid "_Qué hacer:"
+msgstr ""
+
+msgid "Escribe al menos una palabra y elige un contexto"
+msgstr ""
+
+msgid "No se pudo crear: {e}"
+msgstr ""
+
+msgid "Filtro creado"
+msgstr ""
+
+msgid "Hashtags que sigues"
+msgstr ""
+
+msgid "_Dejar de seguir"
+msgstr ""
+
+msgid ". {n} usos recientes"
+msgstr ""
+
+msgid "{n} hashtags"
+msgstr ""
+
+msgid "No hay hashtags"
+msgstr ""
+
+msgid "Mi perfil"
+msgstr ""
+
+msgid "_Nombre para mostrar:"
+msgstr ""
+
+msgid "_Biografía:"
+msgstr ""
+
+msgid "Cuenta _privada (apruebo a quien me sigue):"
+msgstr ""
+
+msgid "Cuenta _automatizada (bot):"
+msgstr ""
+
+msgid "No se pudo cargar tu perfil: {e}"
+msgstr ""
+
+msgid "Perfil guardado"
+msgstr ""
+
+msgid "Lista de seguidores"
+msgstr ""
+
+msgid "Lista de cuentas que sigues"
+msgstr ""
+
+msgid "Cuentas bloqueadas"
+msgstr ""
+
+msgid "Lista de cuentas bloqueadas"
+msgstr ""
+
+msgid "Cuentas silenciadas"
+msgstr ""
+
+msgid "Lista de cuentas silenciadas"
+msgstr ""
+
+msgid "Quién ha impulsado la publicación"
+msgstr ""
+
+msgid "Lista de cuentas que impulsaron"
+msgstr ""
+
+msgid "Quién ha marcado la publicación como favorita"
+msgstr ""
+
+msgid "Lista de cuentas que marcaron favorito"
+msgstr ""
+
+msgid "Avisar y ocultar tras un aviso"
+msgstr ""

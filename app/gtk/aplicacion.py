@@ -72,9 +72,33 @@ def _menu() -> Gio.Menu:
                                  (_("Re_portar la publicación"), "win.reportar"),
                                  (_("Cargar publicaciones _anteriores"), "win.cargar-mas"),
                                  (_("C_errar el buffer"), "win.cerrar-buffer")))
+    pub.append_section(None, sec((_("Quién la ha impulsa_do"), "win.quien-impulso"),
+                                 (_("Quién la ha marcado como _favorita"), "win.quien-favorito"),
+                                 (_("_Historial de ediciones"), "win.historial"),
+                                 (_("_Silenciar la conversación"), "win.silenciar-conversacion"),
+                                 (_("Reacti_var la conversación"), "win.reactivar-conversacion"),
+                                 (_("Fi_jar en mi perfil"), "win.fijar"),
+                                 (_("Desfijar de mi perfil"), "win.desfijar")))
     pub.append_section(None, sec((_("Abrir una _lista…"), "win.abrir-lista"),
                                  (_("Abrir un _hashtag…"), "win.abrir-hashtag"),
-                                 (_("_Buscar en Mastodon…"), "win.buscar-mastodon")))
+                                 (_("_Buscar en Mastodon…"), "win.buscar-mastodon"),
+                                 (_("Hashtags en _tendencia…"), "win.tendencias"),
+                                 (_("Hashtags que _sigo…"), "win.hashtags-seguidos"),
+                                 (_("Seguir este hashtag"), "win.seguir-hashtag"),
+                                 (_("Dejar de seguir este hashtag"), "win.dejar-hashtag")))
+    pub.append_section(None, sec((_("_Borradores…"), "win.borradores"),
+                                 (_("Publicaciones pro_gramadas…"), "win.programadas"),
+                                 (_("Descartar la _notificación"), "win.descartar-notificacion"),
+                                 (_("_Borrar todas las notificaciones"), "win.limpiar-notificaciones")))
+    cuentas = Gio.Menu()
+    cuentas.append_section(None, sec((_("_Seguidores…"), "win.cuentas-followers"),
+                                     (_("S_iguiendo…"), "win.cuentas-following"),
+                                     (_("Solicitudes de seguimiento…"), "win.cuentas-solicitudes"),
+                                     (_("Cuentas _bloqueadas…"), "win.cuentas-blocked"),
+                                     (_("Cuentas s_ilenciadas…"), "win.cuentas-muted")))
+    cuentas.append_section(None, sec((_("Filtros del _servidor…"), "win.filtros"),
+                                     (_("Editar _mi perfil…"), "win.mi-perfil")))
+    pub.append_submenu(_("Mi _cuenta"), cuentas)
     barra.append_submenu(_("_Mastodon"), pub)
 
     rep = Gio.Menu()

@@ -34272,3 +34272,381 @@ msgstr "_Buscar en Mastodon…"
 
 msgid "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
 msgstr "Tab / Mayús+Tab: de un panel al siguiente o al anterior (las flechas mueven por las filas)"
+
+msgid "Ctrl+Alt+B: borradores"
+msgstr "Ctrl+Alt+B: borradores"
+
+msgid "Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"
+msgstr "Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"
+
+msgid "Hora local, al menos cinco minutos en el futuro. Vacío publica ahora."
+msgstr "Hora local, al menos cinco minutos en el futuro. Vacío publica ahora."
+
+msgid "Guardar _borrador"
+msgstr "Guardar _borrador"
+
+msgid "Hay una publicación sin enviar"
+msgstr "Hay una publicación sin enviar"
+
+msgid "¿Quieres guardarla como borrador?"
+msgstr "¿Quieres guardarla como borrador?"
+
+msgid "Seguir editando"
+msgstr "Seguir editando"
+
+msgid "Guardar borrador"
+msgstr "Guardar borrador"
+
+msgid "Escribe la fecha como AAAA-MM-DD HH:MM"
+msgstr "Escribe la fecha como AAAA-MM-DD HH:MM"
+
+msgid "La fecha debe ser al menos 5 minutos en el futuro"
+msgstr "La fecha debe ser al menos 5 minutos en el futuro"
+
+msgid "Programando…"
+msgstr "Programando…"
+
+msgid "No se pudo leer el historial: {e}"
+msgstr "No se pudo leer el historial: {e}"
+
+msgid "Conversación silenciada"
+msgstr "Conversación silenciada"
+
+msgid "Conversación reactivada"
+msgstr "Conversación reactivada"
+
+msgid "Solo puedes fijar tus propias publicaciones"
+msgstr "Solo puedes fijar tus propias publicaciones"
+
+msgid "Publicación fijada en tu perfil"
+msgstr "Publicación fijada en tu perfil"
+
+msgid "Publicación desfijada"
+msgstr "Publicación desfijada"
+
+msgid "El borrador ya no existe"
+msgstr "El borrador ya no existe"
+
+msgid "Abre antes un hashtag"
+msgstr "Abre antes un hashtag"
+
+msgid "Sigues #{t}: sus publicaciones llegarán a Inicio"
+msgstr "Sigues #{t}: sus publicaciones llegarán a Inicio"
+
+msgid "Has dejado de seguir #{t}"
+msgstr "Has dejado de seguir #{t}"
+
+msgid "Selecciona una notificación"
+msgstr "Selecciona una notificación"
+
+msgid "Notificación descartada"
+msgstr "Notificación descartada"
+
+msgid "Abre antes las notificaciones"
+msgstr "Abre antes las notificaciones"
+
+msgid "Notificaciones borradas"
+msgstr "Notificaciones borradas"
+
+msgid "¿Borrar todas las notificaciones de esta cuenta?"
+msgstr "¿Borrar todas las notificaciones de esta cuenta?"
+
+msgid "Quién la ha impulsado"
+msgstr "Quién la ha impulsado"
+
+msgid "Quién la ha marcado como favorita"
+msgstr "Quién la ha marcado como favorita"
+
+msgid "Silenciar la conversación"
+msgstr "Silenciar la conversación"
+
+msgid "Reactivar la conversación"
+msgstr "Reactivar la conversación"
+
+msgid "Desfijar de mi perfil"
+msgstr "Desfijar de mi perfil"
+
+msgid "Descartar la notificación"
+msgstr "Descartar la notificación"
+
+msgid "Quién la ha impulsa_do"
+msgstr "Quién la ha impulsa_do"
+
+msgid "Quién la ha marcado como _favorita"
+msgstr "Quién la ha marcado como _favorita"
+
+msgid "_Historial de ediciones"
+msgstr "_Historial de ediciones"
+
+msgid "_Silenciar la conversación"
+msgstr "_Silenciar la conversación"
+
+msgid "Reacti_var la conversación"
+msgstr "Reacti_var la conversación"
+
+msgid "Fi_jar en mi perfil"
+msgstr "Fi_jar en mi perfil"
+
+msgid "Hashtags en _tendencia…"
+msgstr "Hashtags en _tendencia…"
+
+msgid "Hashtags que _sigo…"
+msgstr "Hashtags que _sigo…"
+
+msgid "Seguir este hashtag"
+msgstr "Seguir este hashtag"
+
+msgid "Dejar de seguir este hashtag"
+msgstr "Dejar de seguir este hashtag"
+
+msgid "_Borradores…"
+msgstr "_Borradores…"
+
+msgid "Publicaciones pro_gramadas…"
+msgstr "Publicaciones pro_gramadas…"
+
+msgid "Descartar la _notificación"
+msgstr "Descartar la _notificación"
+
+msgid "_Borrar todas las notificaciones"
+msgstr "_Borrar todas las notificaciones"
+
+msgid "_Seguidores…"
+msgstr "_Seguidores…"
+
+msgid "S_iguiendo…"
+msgstr "S_iguiendo…"
+
+msgid "Solicitudes de seguimiento…"
+msgstr "Solicitudes de seguimiento…"
+
+msgid "Cuentas _bloqueadas…"
+msgstr "Cuentas _bloqueadas…"
+
+msgid "Cuentas s_ilenciadas…"
+msgstr "Cuentas s_ilenciadas…"
+
+msgid "Filtros del _servidor…"
+msgstr "Filtros del _servidor…"
+
+msgid "Editar _mi perfil…"
+msgstr "Editar _mi perfil…"
+
+msgid "Mi _cuenta"
+msgstr "Mi _cuenta"
+
+msgid "Ver _perfil"
+msgstr "Ver _perfil"
+
+msgid "_Rechazar"
+msgstr "_Rechazar"
+
+msgid "_Quitar seguidor"
+msgstr "_Quitar seguidor"
+
+msgid "Cargar _más"
+msgstr "Cargar _más"
+
+msgid "{n} seguidores"
+msgstr "{n} seguidores"
+
+msgid "No se pudo cargar: {e}"
+msgstr "No se pudo cargar: {e}"
+
+msgid "{n} cuentas"
+msgstr "{n} cuentas"
+
+msgid "No hay cuentas"
+msgstr "No hay cuentas"
+
+msgid "Solicitud aceptada"
+msgstr "Solicitud aceptada"
+
+msgid "Solicitud rechazada"
+msgstr "Solicitud rechazada"
+
+msgid "{u} ya no te sigue"
+msgstr "{u} ya no te sigue"
+
+msgid "¿Quitar a @{u} de tus seguidores?"
+msgstr "¿Quitar a @{u} de tus seguidores?"
+
+msgid "_Borrar"
+msgstr "_Borrar"
+
+msgid "{n} borradores"
+msgstr "{n} borradores"
+
+msgid "No hay borradores"
+msgstr "No hay borradores"
+
+msgid "Borrador borrado"
+msgstr "Borrador borrado"
+
+msgid "Lista de publicaciones programadas"
+msgstr "Lista de publicaciones programadas"
+
+msgid "_Cambiar la fecha"
+msgstr "_Cambiar la fecha"
+
+msgid "_Cancelar la publicación"
+msgstr "_Cancelar la publicación"
+
+msgid "{n} programadas"
+msgstr "{n} programadas"
+
+msgid "No hay publicaciones programadas"
+msgstr "No hay publicaciones programadas"
+
+msgid "No se pudo cancelar: {e}"
+msgstr "No se pudo cancelar: {e}"
+
+msgid "Publicación cancelada"
+msgstr "Publicación cancelada"
+
+msgid "Cancelar publicación"
+msgstr "Cancelar publicación"
+
+msgid "No se pudo cambiar: {e}"
+msgstr "No se pudo cambiar: {e}"
+
+msgid "Fecha cambiada"
+msgstr "Fecha cambiada"
+
+msgid "Cambiar la fecha"
+msgstr "Cambiar la fecha"
+
+msgid "_Nueva fecha (AAAA-MM-DD HH:MM):"
+msgstr "_Nueva fecha (AAAA-MM-DD HH:MM):"
+
+msgid "Hora local, al menos cinco minutos en el futuro."
+msgstr "Hora local, al menos cinco minutos en el futuro."
+
+msgid "_Cambiar"
+msgstr "_Cambiar"
+
+msgid "Versiones de la publicación"
+msgstr "Versiones de la publicación"
+
+msgid "Versión {i} de {n} — {f}"
+msgstr "Versión {i} de {n} — {f}"
+
+msgid "Sin ediciones"
+msgstr "Sin ediciones"
+
+msgid "Lista de filtros"
+msgstr "Lista de filtros"
+
+msgid "_Añadir filtro…"
+msgstr "_Añadir filtro…"
+
+msgid "_Borrar filtro"
+msgstr "_Borrar filtro"
+
+msgid "oculta"
+msgstr "oculta"
+
+msgid "avisa"
+msgstr "avisa"
+
+msgid "{n} filtros"
+msgstr "{n} filtros"
+
+msgid "No hay filtros"
+msgstr "No hay filtros"
+
+msgid "Filtro borrado"
+msgstr "Filtro borrado"
+
+msgid "¿Borrar el filtro «{p}»?"
+msgstr "¿Borrar el filtro «{p}»?"
+
+msgid "_Crear filtro"
+msgstr "_Crear filtro"
+
+msgid "_Palabras (separadas por comas):"
+msgstr "_Palabras (separadas por comas):"
+
+msgid "Se ocultarán o avisarán las publicaciones que las contengan."
+msgstr "Se ocultarán o avisarán las publicaciones que las contengan."
+
+msgid "_Qué hacer:"
+msgstr "_Qué hacer:"
+
+msgid "Escribe al menos una palabra y elige un contexto"
+msgstr "Escribe al menos una palabra y elige un contexto"
+
+msgid "No se pudo crear: {e}"
+msgstr "No se pudo crear: {e}"
+
+msgid "Filtro creado"
+msgstr "Filtro creado"
+
+msgid "Hashtags que sigues"
+msgstr "Hashtags que sigues"
+
+msgid "_Dejar de seguir"
+msgstr "_Dejar de seguir"
+
+msgid ". {n} usos recientes"
+msgstr ". {n} usos recientes"
+
+msgid "{n} hashtags"
+msgstr "{n} hashtags"
+
+msgid "No hay hashtags"
+msgstr "No hay hashtags"
+
+msgid "Mi perfil"
+msgstr "Mi perfil"
+
+msgid "_Nombre para mostrar:"
+msgstr "_Nombre para mostrar:"
+
+msgid "_Biografía:"
+msgstr "_Biografía:"
+
+msgid "Cuenta _privada (apruebo a quien me sigue):"
+msgstr "Cuenta _privada (apruebo a quien me sigue):"
+
+msgid "Cuenta _automatizada (bot):"
+msgstr "Cuenta _automatizada (bot):"
+
+msgid "No se pudo cargar tu perfil: {e}"
+msgstr "No se pudo cargar tu perfil: {e}"
+
+msgid "Perfil guardado"
+msgstr "Perfil guardado"
+
+msgid "Lista de seguidores"
+msgstr "Lista de seguidores"
+
+msgid "Lista de cuentas que sigues"
+msgstr "Lista de cuentas que sigues"
+
+msgid "Cuentas bloqueadas"
+msgstr "Cuentas bloqueadas"
+
+msgid "Lista de cuentas bloqueadas"
+msgstr "Lista de cuentas bloqueadas"
+
+msgid "Cuentas silenciadas"
+msgstr "Cuentas silenciadas"
+
+msgid "Lista de cuentas silenciadas"
+msgstr "Lista de cuentas silenciadas"
+
+msgid "Quién ha impulsado la publicación"
+msgstr "Quién ha impulsado la publicación"
+
+msgid "Lista de cuentas que impulsaron"
+msgstr "Lista de cuentas que impulsaron"
+
+msgid "Quién ha marcado la publicación como favorita"
+msgstr "Quién ha marcado la publicación como favorita"
+
+msgid "Lista de cuentas que marcaron favorito"
+msgstr "Lista de cuentas que marcaron favorito"
+
+msgid "Avisar y ocultar tras un aviso"
+msgstr "Avisar y ocultar tras un aviso"

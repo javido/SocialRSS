@@ -346,6 +346,25 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         accion("abrir-lista", self.accion_abrir_lista, ["<Ctrl><Alt>l"])
         accion("abrir-hashtag", self.accion_abrir_hashtag, ["<Ctrl><Alt>h"])
         accion("buscar-mastodon", self.accion_buscar_mastodon, ["<Ctrl><Shift>f"])
+        for tipo in ("followers", "following", "blocked", "muted", "solicitudes"):
+            accion(f"cuentas-{tipo}", lambda t=tipo: self.abrir_cuentas(t))
+        accion("quien-impulso", lambda: self.accion_interacciones("reblog"))
+        accion("quien-favorito", lambda: self.accion_interacciones("favourite"))
+        accion("historial", self.accion_historial)
+        accion("silenciar-conversacion", lambda: self.accion_conversacion_silencio(True))
+        accion("reactivar-conversacion", lambda: self.accion_conversacion_silencio(False))
+        accion("fijar", lambda: self.accion_fijar(True))
+        accion("desfijar", lambda: self.accion_fijar(False))
+        accion("borradores", self.accion_borradores, ["<Ctrl><Alt>b"])
+        accion("programadas", self.accion_programadas)
+        accion("filtros", self.accion_filtros)
+        accion("mi-perfil", self.accion_mi_perfil)
+        accion("tendencias", lambda: self.abrir_hashtags("tendencia"))
+        accion("hashtags-seguidos", lambda: self.abrir_hashtags("seguidos"))
+        accion("seguir-hashtag", lambda: self.accion_seguir_hashtag(True))
+        accion("dejar-hashtag", lambda: self.accion_seguir_hashtag(False))
+        accion("descartar-notificacion", self.accion_descartar_notificacion)
+        accion("limpiar-notificaciones", self.accion_limpiar_notificaciones)
         accion("mas-tarde", self.accion_alternar_mas_tarde, ["<Ctrl>l"])
         accion("papelera", self.accion_papelera)
         accion("siguiente-no-leido", lambda: self.accion_saltar_no_leido(True), ["<Ctrl>k"])
@@ -1328,6 +1347,157 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         DialogoTexto(self, _("Buscar en Mastodon"), _("_Buscar:"), _buscar,
                      _("Busca publicaciones en tu instancia. Empieza por # para un hashtag."), _("_Buscar")).present()
 
+    # ------------------------------------------------------------------ cuentas, borradores, filtros...
+    def _cuenta_o_aviso(self):
+        acc = self._cuenta_activa()
+        if acc is None:
+            self.avisar(_("Selecciona una cuenta de Mastodon"))
+        return acc
+
+    def abrir_cuentas(self, tipo: str):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoCuentas
+            DialogoCuentas(self, acc, tipo).present()
+
+    def accion_interacciones(self, tipo: str):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+        from .dialogos_mastodon import DialogoCuentas
+        DialogoCuentas(self, obj.fila.extra["account_id"], tipo, self._estado_db_id(obj)).present()
+
+    def accion_historial(self):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+        x = obj.fila.extra
+
+        def _fin(versiones, err):
+            if err:
+                self.avisar(_("No se pudo leer el historial: {e}").format(e=err))
+                return
+            from .dialogos_mastodon import DialogoHistorial
+            DialogoHistorial(self, versiones or []).present()
+        mastodon_service.obtener_historial_async(x["account_id"], self._estado_db_id(obj), callback=_fin)
+
+    def accion_conversacion_silencio(self, silenciar: bool):
+        obj = self._contexto_mastodon()
+        if not obj or not obj.fila.extra.get("status_id"):
+            return
+
+        def _fin(res, err):
+            if err:
+                self.avisar(_("No se pudo: {e}").format(e=err))
+                return
+            self.avisar(_("Conversación silenciada") if silenciar else _("Conversación reactivada"))
+        mastodon_service.silenciar_conversacion_async(obj.fila.extra["account_id"], self._estado_db_id(obj),
+                                                      silenciar, callback=_fin)
+
+    def accion_fijar(self, fijar: bool):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        x = obj.fila.extra
+        if not x.get("propio") or x.get("impulsado_por"):
+            self.avisar(_("Solo puedes fijar tus propias publicaciones"))
+            return
+
+        def _fin(res, err):
+            self.avisar(_("No se pudo: {e}").format(e=err) if err else
+                        (_("Publicación fijada en tu perfil") if fijar else _("Publicación desfijada")))
+        mastodon_service.ejecutar_accion_toot_async(x["account_id"], self._estado_db_id(obj),
+                                                    "pin" if fijar else "unpin", callback=_fin)
+
+    def accion_borradores(self):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoBorradores
+            DialogoBorradores(self, acc).present()
+
+    def abrir_borrador(self, draft_id: int):
+        from app.services.mastodon import mastodon_borradores as mb
+        from .dialogos import DialogoPublicar
+        d = mb.obtener_borrador(draft_id)
+        if not d:
+            self.avisar(_("El borrador ya no existe"))
+            return
+        ctx = d["contexto"]
+        DialogoPublicar(self, d["account_id"], responde_a=ctx.get("in_reply_to_id"), cita_id=ctx.get("cita_id"),
+                        borrador=d["borrador"], borrador_id=draft_id).present()
+
+    def accion_programadas(self):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoProgramadas
+            DialogoProgramadas(self, acc).present()
+
+    def accion_filtros(self):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoFiltros
+            DialogoFiltros(self, acc).present()
+
+    def accion_mi_perfil(self):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoMiPerfil
+            DialogoMiPerfil(self, acc).present()
+
+    def abrir_hashtags(self, tipo: str):
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from .dialogos_mastodon import DialogoHashtags
+            DialogoHashtags(self, acc, tipo).present()
+
+    def abrir_hashtag(self, account_id: int, nombre: str):
+        self._abrir_buffer(account_id, f"search:#{nombre.lstrip('#')}", f"#{nombre.lstrip('#')}")
+
+    def accion_seguir_hashtag(self, seguir: bool):
+        n = self.nodo_actual
+        if n is None or n.servicio != "mastodon" or not n.timeline.startswith("search:#"):
+            self.avisar(_("Abre antes un hashtag"))
+            return
+        tag = n.timeline.split("#", 1)[1]
+
+        def _fin(res, err):
+            self.avisar(_("No se pudo: {e}").format(e=err) if err else
+                        (_("Sigues #{t}: sus publicaciones llegarán a Inicio").format(t=tag) if seguir
+                         else _("Has dejado de seguir #{t}").format(t=tag)))
+        mastodon_service.seguir_hashtag_async(n.account_id, tag, seguir=seguir, callback=_fin)
+
+    def accion_descartar_notificacion(self):
+        obj = self._contexto_mastodon()
+        if not obj or obj.fila.extra.get("tipo") != "notificacion":
+            self.avisar(_("Selecciona una notificación"))
+            return
+        x = obj.fila.extra
+
+        def _fin(res, err):
+            if err:
+                self.avisar(_("No se pudo: {e}").format(e=err))
+                return
+            self.cargar_lista(incremental=True)
+            self.avisar(_("Notificación descartada"))
+        mastodon_service.descartar_notificacion_async(x["account_id"], x["notificacion_id"], callback=_fin)
+
+    def accion_limpiar_notificaciones(self):
+        n = self.nodo_actual
+        if n is None or n.servicio != "mastodon" or n.timeline not in ("notifications", "mentions"):
+            self.avisar(_("Abre antes las notificaciones"))
+            return
+        from .dialogos import confirmar_async
+
+        def _hacer():
+            def _fin(res, err):
+                if err:
+                    self.avisar(_("No se pudo: {e}").format(e=err))
+                    return
+                self.cargar_lista()
+                self.avisar(_("Notificaciones borradas"))
+            mastodon_service.limpiar_notificaciones_async(n.account_id, callback=_fin)
+        confirmar_async(self, _("¿Borrar todas las notificaciones de esta cuenta?"), _hacer, etiqueta_si=_("Borrar"))
+
     # ------------------------------------------------------------------ menú contextual
     def mostrar_menu_contextual(self, x=None, y=None):
         obj = self._fila_actual()
@@ -1350,12 +1520,24 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                            (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace")):
                 b.append(et, ac)
             m.append_section(None, b)
+            m2 = Gio.Menu()
+            for et, ac in ((_("Quién la ha impulsado"), "win.quien-impulso"),
+                           (_("Quién la ha marcado como favorita"), "win.quien-favorito"),
+                           (_("Historial de ediciones"), "win.historial"),
+                           (_("Silenciar la conversación"), "win.silenciar-conversacion"),
+                           (_("Reactivar la conversación"), "win.reactivar-conversacion")):
+                m2.append(et, ac)
+            m.append_section(None, m2)
             c = Gio.Menu()
             if obj.fila.extra.get("propio"):
                 c.append(_("Editar mi publicación"), "win.editar")
+                c.append(_("Fijar en mi perfil"), "win.fijar")
+                c.append(_("Desfijar de mi perfil"), "win.desfijar")
                 c.append(_("Borrar mi publicación"), "win.papelera")
             else:
                 c.append(_("Reportar"), "win.reportar")
+            if obj.fila.extra.get("tipo") == "notificacion":
+                c.append(_("Descartar la notificación"), "win.descartar-notificacion")
             m.append_section(None, c)
         else:
             a = Gio.Menu()
