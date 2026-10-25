@@ -205,6 +205,10 @@ class GStreamerPlayerBackend(BasePlayerBackend):
         self._pipe.seek(self._velocidad, Gst.Format.TIME,
                         Gst.SeekFlags.FLUSH | Gst.SeekFlags.ACCURATE,
                         Gst.SeekType.SET, pos_ns, Gst.SeekType.NONE, -1)
+        if not self._es_directo:
+            # El salto es asíncrono: se espera (poco) a que termine para que obtener_posicion() ya
+            # devuelva la posición nueva y no la anterior.
+            self._pipe.get_state(_SEG // 2)
 
     def obtener_posicion(self) -> float:
         p = self._pipe
