@@ -43617,3 +43617,1080 @@ msgstr ""
 #: app/ui/telegram_conv_acciones.py:138
 msgid "⬆ Subiendo {0} — {1} %"
 msgstr ""
+
+msgid "(sin contenido)"
+msgstr ""
+
+msgid "A la _papelera"
+msgstr ""
+
+msgid "A_rtículo"
+msgstr ""
+
+msgid "A_yuda"
+msgstr ""
+
+msgid "Abierto en el navegador"
+msgstr ""
+
+msgid "Abrir en el _navegador"
+msgstr ""
+
+msgid "Actualizando todos los feeds…"
+msgstr ""
+
+msgid "Actualizando {t}…"
+msgstr ""
+
+msgid "Actualizar _todos"
+msgstr ""
+
+msgid "Actualizar el _feed seleccionado"
+msgstr ""
+
+msgid "Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto del artículo"
+msgstr ""
+
+msgid "Alt+A: descargar el artículo completo"
+msgstr ""
+
+msgid "Anterior sin leer"
+msgstr ""
+
+msgid "Artículo completo descargado"
+msgstr ""
+
+msgid "Avanzar"
+msgstr ""
+
+msgid "Añadir feed o podcast"
+msgstr ""
+
+msgid "Bajar velocidad"
+msgstr ""
+
+msgid "Bajar volumen"
+msgstr ""
+
+msgid "Buscar en los artículos"
+msgstr ""
+
+msgid "Buscar en los artículos del panel actual"
+msgstr ""
+
+msgid "Cargando"
+msgstr ""
+
+msgid "Cargando el audio…"
+msgstr ""
+
+msgid "Contenido del artículo"
+msgstr ""
+
+msgid "Copiar el _enlace"
+msgstr ""
+
+msgid "Copiar el t_ítulo"
+msgstr ""
+
+msgid "Ctrl+D: destacar"
+msgstr ""
+
+msgid "Ctrl+F: buscar en los artículos"
+msgstr ""
+
+msgid "Ctrl+Intro: abrir en el navegador"
+msgstr ""
+
+msgid "Ctrl+K / Ctrl+Mayús+K: siguiente / anterior sin leer"
+msgstr ""
+
+msgid "Ctrl+L: leer más tarde"
+msgstr ""
+
+msgid "Ctrl+M: leído / no leído"
+msgstr ""
+
+msgid "Ctrl+Mayús+B: repetir la barra de estado"
+msgstr ""
+
+msgid "Ctrl+Mayús+C: copiar el título"
+msgstr ""
+
+msgid "Ctrl+Mayús+R: actualizar todos"
+msgstr ""
+
+msgid "Ctrl+N: añadir feed"
+msgstr ""
+
+msgid "Ctrl+P: preferencias"
+msgstr ""
+
+msgid "Ctrl+Q: salir"
+msgstr ""
+
+msgid "Descargando el artículo completo…"
+msgstr ""
+
+msgid "Descargar el artículo _completo"
+msgstr ""
+
+msgid "Descargar el artículo completo al a_brirlo:"
+msgstr ""
+
+msgid "Descargas si_multáneas al actualizar:"
+msgstr ""
+
+msgid "Dirección del feed o de la web. Si es una web, se busca el feed."
+msgstr ""
+
+msgid "Enlace copiado"
+msgstr ""
+
+msgid "Error al actualizar: {e}"
+msgstr ""
+
+msgid "Error al añadir el feed: {e}"
+msgstr ""
+
+msgid "Error al exportar: {e}"
+msgstr ""
+
+msgid "Error al importar: {e}"
+msgstr ""
+
+msgid "Escribe y pulsa Intro. Escape borra la búsqueda."
+msgstr ""
+
+msgid "Este artículo no tiene enlace"
+msgstr ""
+
+msgid "Exportar OPML"
+msgstr ""
+
+msgid "F1 / F3: retroceder / avanzar"
+msgstr ""
+
+msgid "F2: reproducir o pausar (sobre un podcast, lo empieza)"
+msgstr ""
+
+msgid "F4: detener"
+msgstr ""
+
+msgid "F5 / F6: bajar / subir volumen"
+msgstr ""
+
+msgid "F6: siguiente panel"
+msgstr ""
+
+msgid "F7 / F8: bajar / subir velocidad"
+msgstr ""
+
+msgid "Feed añadido: {t}"
+msgstr ""
+
+msgid "Feeds exportados"
+msgstr ""
+
+msgid "Importando feeds…"
+msgstr ""
+
+msgid "Importar OPML"
+msgstr ""
+
+msgid "Intro: abrir el artículo (lo marca leído y pasa al texto)"
+msgstr ""
+
+msgid "Ir a la lista de artículos"
+msgstr ""
+
+msgid "Ir al texto del artículo"
+msgstr ""
+
+msgid "Ir al árbol"
+msgstr ""
+
+msgid "Leer más _tarde"
+msgstr ""
+
+msgid "Lista de teclas"
+msgstr ""
+
+msgid "Mostrar solo no _leídos en carpetas y feeds:"
+msgstr ""
+
+msgid "Moverse"
+msgstr ""
+
+msgid "Movido a la papelera"
+msgstr ""
+
+msgid "Navegación"
+msgstr ""
+
+msgid "No hay artículos nuevos"
+msgstr ""
+
+msgid "No hay artículos."
+msgstr ""
+
+msgid "No hay más artículos sin leer"
+msgstr ""
+
+msgid "No hay nada mejor que lo que ya tienes"
+msgstr ""
+
+msgid "No hay nada reproduciéndose"
+msgstr ""
+
+msgid "No se pudo descargar el artículo completo"
+msgstr ""
+
+msgid "No se pudo reproducir"
+msgstr ""
+
+msgid "Preferencias"
+msgstr ""
+
+msgid "Preferencias guardadas"
+msgstr ""
+
+msgid "Quitado de leer más tarde"
+msgstr ""
+
+msgid "RSS y podcasts"
+msgstr ""
+
+msgid "Reproduciendo"
+msgstr ""
+
+msgid "Reproduciendo: {t}"
+msgstr ""
+
+msgid "Reproducir / pausar"
+msgstr ""
+
+msgid "Reproducir el audio del artículo"
+msgstr ""
+
+msgid "Retroceder"
+msgstr ""
+
+msgid "Salto del _reproductor (segundos):"
+msgstr ""
+
+msgid "Selecciona un feed en el árbol"
+msgstr ""
+
+msgid "Siguiente sin leer"
+msgstr ""
+
+msgid "Sin resultados"
+msgstr ""
+
+msgid "SocialRSS listo."
+msgstr ""
+
+msgid "Subir velocidad"
+msgstr ""
+
+msgid "Subir volumen"
+msgstr ""
+
+msgid "Supr: a la papelera"
+msgstr ""
+
+msgid "Todo marcado como leído"
+msgstr ""
+
+msgid "Título copiado"
+msgstr ""
+
+msgid "Validando y descargando el feed…"
+msgstr ""
+
+msgid "Velocidad {v}"
+msgstr ""
+
+msgid "Volumen {n} por ciento"
+msgstr ""
+
+msgid "Ya no está destacado"
+msgstr ""
+
+msgid "Ya se está actualizando"
+msgstr ""
+
+msgid "_Aceptar"
+msgstr ""
+
+msgid "_Acerca de"
+msgstr ""
+
+msgid "_Archivo"
+msgstr ""
+
+msgid "_Avisos al lector de pantalla:"
+msgstr ""
+
+msgid "_Añadir"
+msgstr ""
+
+msgid "_Añadir feed…"
+msgstr ""
+
+msgid "_Buscar"
+msgstr ""
+
+msgid "_Buscar:"
+msgstr ""
+
+msgid "_Cancelar"
+msgstr ""
+
+msgid "_Carpeta:"
+msgstr ""
+
+msgid "_Destacar"
+msgstr ""
+
+msgid "_Dirección (URL):"
+msgstr ""
+
+msgid "_Exportar OPML…"
+msgstr ""
+
+msgid "_Feeds"
+msgstr ""
+
+msgid "_Guardar"
+msgstr ""
+
+msgid "_Importar OPML…"
+msgstr ""
+
+msgid "_Leído / no leído"
+msgstr ""
+
+msgid "_Marcar todo como leído"
+msgstr ""
+
+msgid "_Preferencias"
+msgstr ""
+
+msgid "_Reproductor"
+msgstr ""
+
+msgid "_Salir"
+msgstr ""
+
+msgid "_Sonidos de la aplicación:"
+msgstr ""
+
+msgid "_Teclas de la aplicación"
+msgstr ""
+
+msgid "_Título (opcional):"
+msgstr ""
+
+msgid "_Ver"
+msgstr ""
+
+msgid "ayer"
+msgstr ""
+
+msgid "carpeta"
+msgstr ""
+
+msgid "con audio"
+msgstr ""
+
+msgid "con errores"
+msgstr ""
+
+msgid "hace un momento"
+msgstr ""
+
+msgid "hace {n} h"
+msgstr ""
+
+msgid "hace {n} min"
+msgstr ""
+
+msgid "{a} de {b}"
+msgstr ""
+
+msgid "{n} artículos nuevos"
+msgstr ""
+
+msgid "{n} feeds importados"
+msgstr ""
+
+msgid "{n} sin leer"
+msgstr ""
+
+msgid "{t}: {n} artículos"
+msgstr ""
+
+msgid "Árbol de carpetas y feeds. Flecha derecha expande."
+msgstr ""
+
+msgid "Impulsado por {n}"
+msgstr ""
+
+msgid "{n} adjuntos"
+msgstr ""
+
+msgid "con encuesta"
+msgstr ""
+
+msgid "{n} respuestas"
+msgstr ""
+
+msgid "{n} impulsos"
+msgstr ""
+
+msgid "{n} favoritos"
+msgstr ""
+
+msgid "Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto"
+msgstr ""
+
+msgid "Ctrl+F: buscar en la lista"
+msgstr ""
+
+msgid "Intro: abrir el elemento (en RSS lo marca leído; pasa al texto)"
+msgstr ""
+
+msgid "Menú o Mayús+F10: menú de acciones del elemento"
+msgstr ""
+
+msgid "Ctrl+Alt+N: añadir feed"
+msgstr ""
+
+msgid "Ctrl+O: importar OPML"
+msgstr ""
+
+msgid "Ctrl+N: nueva publicación (en RSS, añade un feed)"
+msgstr ""
+
+msgid "Ctrl+R: responder"
+msgstr ""
+
+msgid "Ctrl+B: me gusta"
+msgstr ""
+
+msgid "Ctrl+Mayús+P: impulsar"
+msgstr ""
+
+msgid "Ctrl+Mayús+J: marcador"
+msgstr ""
+
+msgid "Ctrl+Mayús+V: ver la conversación como buffer"
+msgstr ""
+
+msgid "Ctrl+Mayús+G: publicaciones del autor"
+msgstr ""
+
+msgid "Ctrl+Mayús+M: cargar publicaciones anteriores"
+msgstr ""
+
+msgid "Ctrl+W: cerrar el buffer abierto"
+msgstr ""
+
+msgid "Supr: borrar tu publicación"
+msgstr ""
+
+msgid "En el editor: Ctrl+Intro publica"
+msgstr ""
+
+msgid "Actualizar y reproductor"
+msgstr ""
+
+msgid "Ctrl+Mayús+R: actualizar (todos los feeds o el buffer actual)"
+msgstr ""
+
+msgid "Añadir cuenta de Mastodon"
+msgstr ""
+
+msgid "_Continuar"
+msgstr ""
+
+msgid "_Instancia:"
+msgstr ""
+
+msgid "Por ejemplo mastodon.social. Se abrirá el navegador para autorizar."
+msgstr ""
+
+msgid "C_ódigo de autorización:"
+msgstr ""
+
+msgid "Pega aquí el código que te da la instancia tras autorizar."
+msgstr ""
+
+msgid "Conectando con la instancia…"
+msgstr ""
+
+msgid "No se pudo conectar: {e}"
+msgstr ""
+
+msgid "_Iniciar sesión"
+msgstr ""
+
+msgid "Autoriza la aplicación en el navegador, copia el código y pégalo aquí."
+msgstr ""
+
+msgid "No se pudo iniciar sesión: {e}"
+msgstr ""
+
+msgid "Cuenta añadida: {n}"
+msgstr ""
+
+msgid "_Publicar"
+msgstr ""
+
+msgid "_Texto:"
+msgstr ""
+
+msgid "_Aviso de contenido (opcional):"
+msgstr ""
+
+msgid "_Visibilidad:"
+msgstr ""
+
+msgid "_Idioma (código, opcional):"
+msgstr ""
+
+msgid "_Encuesta: opciones, una por línea (vacío = sin encuesta)"
+msgstr ""
+
+msgid "Sin adjuntos"
+msgstr ""
+
+msgid "Añadir _adjunto…"
+msgstr ""
+
+msgid "_Quitar el último adjunto"
+msgstr ""
+
+msgid "Caracteres restantes: {n}"
+msgstr ""
+
+msgid "Añadir adjunto"
+msgstr ""
+
+msgid "Descripción del adjunto"
+msgstr ""
+
+msgid "_Descripción para quien no lo ve:"
+msgstr ""
+
+msgid "Describe la imagen o el audio. Se recomienda siempre."
+msgstr ""
+
+msgid "Escribe algo o añade un adjunto"
+msgstr ""
+
+msgid "El texto supera el límite de {n} caracteres"
+msgstr ""
+
+msgid "Una encuesta necesita al menos dos opciones y no admite adjuntos"
+msgstr ""
+
+msgid "Publicando…"
+msgstr ""
+
+msgid "No se pudo publicar: {e}"
+msgstr ""
+
+msgid "Publicado"
+msgstr ""
+
+msgid "{t}: {n} elementos"
+msgstr ""
+
+msgid "Usa Archivo, Añadir cuenta de Mastodon para empezar."
+msgstr ""
+
+msgid "Esta acción es solo de RSS"
+msgstr ""
+
+msgid "Marcado como favorito"
+msgstr ""
+
+msgid "Quitado de favoritos"
+msgstr ""
+
+msgid "{t}: actualizado"
+msgstr ""
+
+msgid "{n} notificaciones nuevas"
+msgstr ""
+
+msgid "{n} nuevas"
+msgstr ""
+
+msgid "Esta acción es de Mastodon"
+msgstr ""
+
+msgid "Esta notificación no tiene publicación"
+msgstr ""
+
+msgid "No se pudo: {e}"
+msgstr ""
+
+msgid "Impulso quitado"
+msgstr ""
+
+msgid "Añadido a marcadores"
+msgstr ""
+
+msgid "Quitado de marcadores"
+msgstr ""
+
+msgid "Selecciona una cuenta de Mastodon"
+msgstr ""
+
+msgid "Solo puedes borrar tus propias publicaciones"
+msgstr ""
+
+msgid "No se pudo borrar: {e}"
+msgstr ""
+
+msgid "Publicación borrada"
+msgstr ""
+
+msgid "¿Borrar esta publicación? No se puede deshacer."
+msgstr ""
+
+msgid "Abriendo {t}…"
+msgstr ""
+
+msgid "Conversación de {n}"
+msgstr ""
+
+msgid "Publicaciones de {u}"
+msgstr ""
+
+msgid "Este buffer no se puede cerrar"
+msgstr ""
+
+msgid "Buffer cerrado"
+msgstr ""
+
+msgid "Cargando publicaciones anteriores…"
+msgstr ""
+
+msgid "Error al cargar: {e}"
+msgstr ""
+
+msgid "{n} cargadas"
+msgstr ""
+
+msgid "Cuenta eliminada"
+msgstr ""
+
+msgid "¿Eliminar la cuenta {n} y sus datos de este equipo?"
+msgstr ""
+
+msgid "Cargando {t}…"
+msgstr ""
+
+msgid "Me gusta / quitar me gusta"
+msgstr ""
+
+msgid "Impulsar / quitar impulso"
+msgstr ""
+
+msgid "Marcador / quitar marcador"
+msgstr ""
+
+msgid "Publicaciones del autor"
+msgstr ""
+
+msgid "Copiar el enlace"
+msgstr ""
+
+msgid "Borrar mi publicación"
+msgstr ""
+
+msgid "Leído / no leído"
+msgstr ""
+
+msgid "A la papelera"
+msgstr ""
+
+msgid "Reproducir el audio"
+msgstr ""
+
+msgid "Añadir _cuenta de Mastodon…"
+msgstr ""
+
+msgid "_Eliminar la cuenta seleccionada…"
+msgstr ""
+
+msgid "_Nueva publicación"
+msgstr ""
+
+msgid "_Responder"
+msgstr ""
+
+msgid "Me _gusta"
+msgstr ""
+
+msgid "_Impulsar"
+msgstr ""
+
+msgid "_Marcador"
+msgstr ""
+
+msgid "Ver la _conversación"
+msgstr ""
+
+msgid "Publicaciones del _autor"
+msgstr ""
+
+msgid "Cargar publicaciones _anteriores"
+msgstr ""
+
+msgid "C_errar el buffer"
+msgstr ""
+
+msgid "_Mastodon"
+msgstr ""
+
+msgid "editado"
+msgstr ""
+
+msgid "Aviso de contenido: {t}"
+msgstr ""
+
+msgid "Adjunto {i} ({t}): {d}"
+msgstr ""
+
+msgid "Esta publicación contiene una encuesta."
+msgstr ""
+
+msgid "Citando a {n} (@{a}): {t}"
+msgstr ""
+
+msgid "Enlaces:"
+msgstr ""
+
+msgid "{r} respuestas · {i} impulsos · {f} favoritos"
+msgstr ""
+
+msgid "te ha mencionado"
+msgstr ""
+
+msgid "ha publicado"
+msgstr ""
+
+msgid "ha impulsado tu publicación"
+msgstr ""
+
+msgid "te ha seguido"
+msgstr ""
+
+msgid "quiere seguirte"
+msgstr ""
+
+msgid "ha marcado como favorita tu publicación"
+msgstr ""
+
+msgid "ha terminado una encuesta"
+msgstr ""
+
+msgid "ha editado una publicación"
+msgstr ""
+
+msgid "se ha registrado"
+msgstr ""
+
+msgid "ha enviado un informe"
+msgstr ""
+
+msgid "ha citado tu publicación"
+msgstr ""
+
+msgid "ha editado una publicación que citaste"
+msgstr ""
+
+msgid "aviso de moderación"
+msgstr ""
+
+msgid "relaciones cortadas"
+msgstr ""
+
+msgid "público"
+msgstr ""
+
+msgid "no listado"
+msgstr ""
+
+msgid "solo seguidores"
+msgstr ""
+
+msgid "mensaje directo"
+msgstr ""
+
+msgid "_Tiempo real en Mastodon:"
+msgstr ""
+
+msgid "Ctrl+Alt+V: votar en la encuesta"
+msgstr ""
+
+msgid "Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"
+msgstr ""
+
+msgid "Ctrl+Alt+E: editar tu publicación"
+msgstr ""
+
+msgid "Ctrl+Mayús+U: citar la publicación"
+msgstr ""
+
+msgid "Ctrl+Alt+L: abrir una lista"
+msgstr ""
+
+msgid "Ctrl+Alt+H: abrir un hashtag"
+msgstr ""
+
+msgid "Ctrl+Mayús+F: buscar en Mastodon"
+msgstr ""
+
+msgid "Editar publicación"
+msgstr ""
+
+msgid "No se pudo guardar: {e}"
+msgstr ""
+
+msgid "Publicación editada"
+msgstr ""
+
+msgid "_Votar"
+msgstr ""
+
+msgid "Elige varias opciones"
+msgstr ""
+
+msgid "Elige una opción"
+msgstr ""
+
+msgid "Elige al menos una opción"
+msgstr ""
+
+msgid "Perfil de {u}"
+msgstr ""
+
+msgid "Cargando el perfil…"
+msgstr ""
+
+msgid "_Seguir"
+msgstr ""
+
+msgid "Sile_nciar"
+msgstr ""
+
+msgid "_Bloquear"
+msgstr ""
+
+msgid "Ver _publicaciones"
+msgstr ""
+
+msgid "_Cerrar"
+msgstr ""
+
+msgid "No se pudo cargar el perfil: {e}"
+msgstr ""
+
+msgid "cuenta automatizada"
+msgstr ""
+
+msgid "eres tú"
+msgstr ""
+
+msgid "solicitud de seguimiento pendiente"
+msgstr ""
+
+msgid "silenciada"
+msgstr ""
+
+msgid "bloqueada"
+msgstr ""
+
+msgid "te ha bloqueado"
+msgstr ""
+
+msgid "{p} publicaciones · {s} seguidores · {g} siguiendo"
+msgstr ""
+
+msgid "Cuenta creada: {f}"
+msgstr ""
+
+msgid "Dejar de _seguir"
+msgstr ""
+
+msgid "Quitar sile_nciar"
+msgstr ""
+
+msgid "Desb_loquear"
+msgstr ""
+
+msgid "¿Bloquear a @{u}?"
+msgstr ""
+
+msgid "Siguiendo a @{u}"
+msgstr ""
+
+msgid "Has dejado de seguir a @{u}"
+msgstr ""
+
+msgid "Silenciada @{u}"
+msgstr ""
+
+msgid "Silencio quitado a @{u}"
+msgstr ""
+
+msgid "Bloqueada @{u}"
+msgstr ""
+
+msgid "Desbloqueada @{u}"
+msgstr ""
+
+msgid "Reportar a {u}"
+msgstr ""
+
+msgid "_Enviar informe"
+msgstr ""
+
+msgid "Incumple las normas"
+msgstr ""
+
+msgid "_Motivo:"
+msgstr ""
+
+msgid "_Comentario (opcional):"
+msgstr ""
+
+msgid "_Reenviar también al servidor del autor:"
+msgstr ""
+
+msgid "No se pudo enviar el informe: {e}"
+msgstr ""
+
+msgid "Informe enviado"
+msgstr ""
+
+msgid "{n} notificaciones más"
+msgstr ""
+
+msgid "Mensaje directo nuevo"
+msgstr ""
+
+msgid "No se pudo leer la encuesta"
+msgstr ""
+
+msgid "Esta publicación no tiene encuesta"
+msgstr ""
+
+msgid "Encuesta ({s}):"
+msgstr ""
+
+msgid "cerrada"
+msgstr ""
+
+msgid "abierta"
+msgstr ""
+
+msgid "- {t}: {v} votos ({p} %)"
+msgstr ""
+
+msgid "{n} votos en total"
+msgstr ""
+
+msgid "No se pudo votar: {e}"
+msgstr ""
+
+msgid "Voto registrado"
+msgstr ""
+
+msgid "Publicaciones de @{u}"
+msgstr ""
+
+msgid "Solo puedes editar tus propias publicaciones"
+msgstr ""
+
+msgid "Leyendo la publicación original…"
+msgstr ""
+
+msgid "No se pudo leer la publicación: {e}"
+msgstr ""
+
+msgid "Leyendo tus listas…"
+msgstr ""
+
+msgid "No se pudieron leer las listas: {e}"
+msgstr ""
+
+msgid "No tienes listas en esta cuenta"
+msgstr ""
+
+msgid "Lista {t}"
+msgstr ""
+
+msgid "Abrir una lista"
+msgstr ""
+
+msgid "_Lista:"
+msgstr ""
+
+msgid "_Abrir"
+msgstr ""
+
+msgid "Abrir un hashtag"
+msgstr ""
+
+msgid "_Hashtag:"
+msgstr ""
+
+msgid "Sin la almohadilla, por ejemplo accesibilidad."
+msgstr ""
+
+msgid "Búsqueda: {t}"
+msgstr ""
+
+msgid "Buscar en Mastodon"
+msgstr ""
+
+msgid "Busca publicaciones en tu instancia. Empieza por # para un hashtag."
+msgstr ""
+
+msgid "Perfil del autor"
+msgstr ""
+
+msgid "Editar mi publicación"
+msgstr ""
+
+msgid "C_itar"
+msgstr ""
+
+msgid "_Editar mi publicación"
+msgstr ""
+
+msgid "_Perfil del autor"
+msgstr ""
+
+msgid "_Votar en la encuesta"
+msgstr ""
+
+msgid "Re_portar la publicación"
+msgstr ""
+
+msgid "Abrir una _lista…"
+msgstr ""
+
+msgid "Abrir un _hashtag…"
+msgstr ""
+
+msgid "_Buscar en Mastodon…"
+msgstr ""

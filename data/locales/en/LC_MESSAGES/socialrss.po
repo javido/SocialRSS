@@ -45030,3 +45030,1080 @@ msgstr "⬆ Uploading {0} — 0 %"
 #: app/ui/telegram_conv_acciones.py:138
 msgid "⬆ Subiendo {0} — {1} %"
 msgstr "⬆ Uploading {0} — {1} %"
+
+msgid "(sin contenido)"
+msgstr "(no content)"
+
+msgid "A la _papelera"
+msgstr "Move to _trash"
+
+msgid "A_rtículo"
+msgstr "A_rticle"
+
+msgid "A_yuda"
+msgstr "_Help"
+
+msgid "Abierto en el navegador"
+msgstr "Opened in the browser"
+
+msgid "Abrir en el _navegador"
+msgstr "Open in the _browser"
+
+msgid "Actualizando todos los feeds…"
+msgstr "Updating all feeds…"
+
+msgid "Actualizando {t}…"
+msgstr "Updating {t}…"
+
+msgid "Actualizar _todos"
+msgstr "Update _all"
+
+msgid "Actualizar el _feed seleccionado"
+msgstr "Update the selected _feed"
+
+msgid "Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto del artículo"
+msgstr "Alt+1 / Alt+2 / Alt+3: go to the tree, the list or the article text"
+
+msgid "Alt+A: descargar el artículo completo"
+msgstr "Alt+A: download the full article"
+
+msgid "Anterior sin leer"
+msgstr "Previous unread"
+
+msgid "Artículo completo descargado"
+msgstr "Full article downloaded"
+
+msgid "Avanzar"
+msgstr "Fast-forward"
+
+msgid "Añadir feed o podcast"
+msgstr "Add feed or podcast"
+
+msgid "Bajar velocidad"
+msgstr "Speed down"
+
+msgid "Bajar volumen"
+msgstr "Volume down"
+
+msgid "Buscar en los artículos"
+msgstr "Search the articles"
+
+msgid "Buscar en los artículos del panel actual"
+msgstr "Search the articles in the current pane"
+
+msgid "Cargando"
+msgstr "Loading"
+
+msgid "Cargando el audio…"
+msgstr "Loading the audio…"
+
+msgid "Contenido del artículo"
+msgstr "Article content"
+
+msgid "Copiar el _enlace"
+msgstr "Copy the _link"
+
+msgid "Copiar el t_ítulo"
+msgstr "Copy the t_itle"
+
+msgid "Ctrl+D: destacar"
+msgstr "Ctrl+D: star"
+
+msgid "Ctrl+F: buscar en los artículos"
+msgstr "Ctrl+F: search the articles"
+
+msgid "Ctrl+Intro: abrir en el navegador"
+msgstr "Ctrl+Enter: open in the browser"
+
+msgid "Ctrl+K / Ctrl+Mayús+K: siguiente / anterior sin leer"
+msgstr "Ctrl+K / Ctrl+Shift+K: next / previous unread"
+
+msgid "Ctrl+L: leer más tarde"
+msgstr "Ctrl+L: read later"
+
+msgid "Ctrl+M: leído / no leído"
+msgstr "Ctrl+M: read / unread"
+
+msgid "Ctrl+Mayús+B: repetir la barra de estado"
+msgstr "Ctrl+Shift+B: repeat the status bar"
+
+msgid "Ctrl+Mayús+C: copiar el título"
+msgstr "Ctrl+Shift+C: copy the title"
+
+msgid "Ctrl+Mayús+R: actualizar todos"
+msgstr "Ctrl+Shift+R: update all"
+
+msgid "Ctrl+N: añadir feed"
+msgstr "Ctrl+N: add feed"
+
+msgid "Ctrl+P: preferencias"
+msgstr "Ctrl+P: preferences"
+
+msgid "Ctrl+Q: salir"
+msgstr "Ctrl+Q: quit"
+
+msgid "Descargando el artículo completo…"
+msgstr "Downloading the full article…"
+
+msgid "Descargar el artículo _completo"
+msgstr "Download the _full article"
+
+msgid "Descargar el artículo completo al a_brirlo:"
+msgstr "Download the full article when _opening it:"
+
+msgid "Descargas si_multáneas al actualizar:"
+msgstr "_Simultaneous downloads when updating:"
+
+msgid "Dirección del feed o de la web. Si es una web, se busca el feed."
+msgstr "Address of the feed or of the website. If it is a website, its feed is looked up."
+
+msgid "Enlace copiado"
+msgstr "Link copied"
+
+msgid "Error al actualizar: {e}"
+msgstr "Error updating: {e}"
+
+msgid "Error al añadir el feed: {e}"
+msgstr "Error adding the feed: {e}"
+
+msgid "Error al exportar: {e}"
+msgstr "Error exporting: {e}"
+
+msgid "Error al importar: {e}"
+msgstr "Error importing: {e}"
+
+msgid "Escribe y pulsa Intro. Escape borra la búsqueda."
+msgstr "Type and press Enter. Escape clears the search."
+
+msgid "Este artículo no tiene enlace"
+msgstr "This article has no link"
+
+msgid "Exportar OPML"
+msgstr "Export OPML"
+
+msgid "F1 / F3: retroceder / avanzar"
+msgstr "F1 / F3: rewind / fast-forward"
+
+msgid "F2: reproducir o pausar (sobre un podcast, lo empieza)"
+msgstr "F2: play or pause (on a podcast, it starts it)"
+
+msgid "F4: detener"
+msgstr "F4: stop"
+
+msgid "F5 / F6: bajar / subir volumen"
+msgstr "F5 / F6: volume down / up"
+
+msgid "F6: siguiente panel"
+msgstr "F6: next pane"
+
+msgid "F7 / F8: bajar / subir velocidad"
+msgstr "F7 / F8: speed down / up"
+
+msgid "Feed añadido: {t}"
+msgstr "Feed added: {t}"
+
+msgid "Feeds exportados"
+msgstr "Feeds exported"
+
+msgid "Importando feeds…"
+msgstr "Importing feeds…"
+
+msgid "Importar OPML"
+msgstr "Import OPML"
+
+msgid "Intro: abrir el artículo (lo marca leído y pasa al texto)"
+msgstr "Enter: open the article (marks it read and moves to the text)"
+
+msgid "Ir a la lista de artículos"
+msgstr "Go to the article list"
+
+msgid "Ir al texto del artículo"
+msgstr "Go to the article text"
+
+msgid "Ir al árbol"
+msgstr "Go to the tree"
+
+msgid "Leer más _tarde"
+msgstr "Read _later"
+
+msgid "Lista de teclas"
+msgstr "List of keys"
+
+msgid "Mostrar solo no _leídos en carpetas y feeds:"
+msgstr "Show only _unread in folders and feeds:"
+
+msgid "Moverse"
+msgstr "Moving around"
+
+msgid "Movido a la papelera"
+msgstr "Moved to the trash"
+
+msgid "Navegación"
+msgstr "Navigation"
+
+msgid "No hay artículos nuevos"
+msgstr "No new articles"
+
+msgid "No hay artículos."
+msgstr "There are no articles."
+
+msgid "No hay más artículos sin leer"
+msgstr "No more unread articles"
+
+msgid "No hay nada mejor que lo que ya tienes"
+msgstr "There is nothing better than what you already have"
+
+msgid "No hay nada reproduciéndose"
+msgstr "Nothing is playing"
+
+msgid "No se pudo descargar el artículo completo"
+msgstr "The full article could not be downloaded"
+
+msgid "No se pudo reproducir"
+msgstr "It could not be played"
+
+msgid "Preferencias"
+msgstr "Preferences"
+
+msgid "Preferencias guardadas"
+msgstr "Preferences saved"
+
+msgid "Quitado de leer más tarde"
+msgstr "Removed from read later"
+
+msgid "RSS y podcasts"
+msgstr "RSS and podcasts"
+
+msgid "Reproduciendo"
+msgstr "Playing"
+
+msgid "Reproduciendo: {t}"
+msgstr "Playing: {t}"
+
+msgid "Reproducir / pausar"
+msgstr "Play / pause"
+
+msgid "Reproducir el audio del artículo"
+msgstr "Play the article audio"
+
+msgid "Retroceder"
+msgstr "Rewind"
+
+msgid "Salto del _reproductor (segundos):"
+msgstr "_Player skip (seconds):"
+
+msgid "Selecciona un feed en el árbol"
+msgstr "Select a feed in the tree"
+
+msgid "Siguiente sin leer"
+msgstr "Next unread"
+
+msgid "Sin resultados"
+msgstr "No results"
+
+msgid "SocialRSS listo."
+msgstr "SocialRSS ready."
+
+msgid "Subir velocidad"
+msgstr "Speed up"
+
+msgid "Subir volumen"
+msgstr "Volume up"
+
+msgid "Supr: a la papelera"
+msgstr "Delete: move to the trash"
+
+msgid "Todo marcado como leído"
+msgstr "Everything marked as read"
+
+msgid "Título copiado"
+msgstr "Title copied"
+
+msgid "Validando y descargando el feed…"
+msgstr "Validating and downloading the feed…"
+
+msgid "Velocidad {v}"
+msgstr "Speed {v}"
+
+msgid "Volumen {n} por ciento"
+msgstr "Volume {n} percent"
+
+msgid "Ya no está destacado"
+msgstr "No longer starred"
+
+msgid "Ya se está actualizando"
+msgstr "Already updating"
+
+msgid "_Aceptar"
+msgstr "_OK"
+
+msgid "_Acerca de"
+msgstr "_About"
+
+msgid "_Archivo"
+msgstr "_File"
+
+msgid "_Avisos al lector de pantalla:"
+msgstr "Screen reader _announcements:"
+
+msgid "_Añadir"
+msgstr "_Add"
+
+msgid "_Añadir feed…"
+msgstr "_Add feed…"
+
+msgid "_Buscar"
+msgstr "_Search"
+
+msgid "_Buscar:"
+msgstr "_Search:"
+
+msgid "_Cancelar"
+msgstr "_Cancel"
+
+msgid "_Carpeta:"
+msgstr "_Folder:"
+
+msgid "_Destacar"
+msgstr "_Star"
+
+msgid "_Dirección (URL):"
+msgstr "_Address (URL):"
+
+msgid "_Exportar OPML…"
+msgstr "_Export OPML…"
+
+msgid "_Feeds"
+msgstr "_Feeds"
+
+msgid "_Guardar"
+msgstr "_Save"
+
+msgid "_Importar OPML…"
+msgstr "_Import OPML…"
+
+msgid "_Leído / no leído"
+msgstr "_Read / unread"
+
+msgid "_Marcar todo como leído"
+msgstr "_Mark all as read"
+
+msgid "_Preferencias"
+msgstr "_Preferences"
+
+msgid "_Reproductor"
+msgstr "_Player"
+
+msgid "_Salir"
+msgstr "_Quit"
+
+msgid "_Sonidos de la aplicación:"
+msgstr "Application _sounds:"
+
+msgid "_Teclas de la aplicación"
+msgstr "_Keys of the application"
+
+msgid "_Título (opcional):"
+msgstr "_Title (optional):"
+
+msgid "_Ver"
+msgstr "_View"
+
+msgid "ayer"
+msgstr "yesterday"
+
+msgid "carpeta"
+msgstr "folder"
+
+msgid "con audio"
+msgstr "with audio"
+
+msgid "con errores"
+msgstr "with errors"
+
+msgid "hace un momento"
+msgstr "just now"
+
+msgid "hace {n} h"
+msgstr "{n} h ago"
+
+msgid "hace {n} min"
+msgstr "{n} min ago"
+
+msgid "{a} de {b}"
+msgstr "{a} of {b}"
+
+msgid "{n} artículos nuevos"
+msgstr "{n} new articles"
+
+msgid "{n} feeds importados"
+msgstr "{n} feeds imported"
+
+msgid "{n} sin leer"
+msgstr "{n} unread"
+
+msgid "{t}: {n} artículos"
+msgstr "{t}: {n} articles"
+
+msgid "Árbol de carpetas y feeds. Flecha derecha expande."
+msgstr "Tree of folders and feeds. Right arrow expands."
+
+msgid "Impulsado por {n}"
+msgstr "Boosted by {n}"
+
+msgid "{n} adjuntos"
+msgstr "{n} attachments"
+
+msgid "con encuesta"
+msgstr "with a poll"
+
+msgid "{n} respuestas"
+msgstr "{n} replies"
+
+msgid "{n} impulsos"
+msgstr "{n} boosts"
+
+msgid "{n} favoritos"
+msgstr "{n} favourites"
+
+msgid "Alt+1 / Alt+2 / Alt+3: ir al árbol, a la lista o al texto"
+msgstr "Alt+1 / Alt+2 / Alt+3: go to the tree, the list or the text"
+
+msgid "Ctrl+F: buscar en la lista"
+msgstr "Ctrl+F: search the list"
+
+msgid "Intro: abrir el elemento (en RSS lo marca leído; pasa al texto)"
+msgstr "Enter: open the item (in RSS it marks it read; moves to the text)"
+
+msgid "Menú o Mayús+F10: menú de acciones del elemento"
+msgstr "Menu or Shift+F10: actions menu for the item"
+
+msgid "Ctrl+Alt+N: añadir feed"
+msgstr "Ctrl+Alt+N: add feed"
+
+msgid "Ctrl+O: importar OPML"
+msgstr "Ctrl+O: import OPML"
+
+msgid "Ctrl+N: nueva publicación (en RSS, añade un feed)"
+msgstr "Ctrl+N: new post (in RSS, adds a feed)"
+
+msgid "Ctrl+R: responder"
+msgstr "Ctrl+R: reply"
+
+msgid "Ctrl+B: me gusta"
+msgstr "Ctrl+B: favourite"
+
+msgid "Ctrl+Mayús+P: impulsar"
+msgstr "Ctrl+Shift+P: boost"
+
+msgid "Ctrl+Mayús+J: marcador"
+msgstr "Ctrl+Shift+J: bookmark"
+
+msgid "Ctrl+Mayús+V: ver la conversación como buffer"
+msgstr "Ctrl+Shift+V: open the conversation as a buffer"
+
+msgid "Ctrl+Mayús+G: publicaciones del autor"
+msgstr "Ctrl+Shift+G: the author's posts"
+
+msgid "Ctrl+Mayús+M: cargar publicaciones anteriores"
+msgstr "Ctrl+Shift+M: load older posts"
+
+msgid "Ctrl+W: cerrar el buffer abierto"
+msgstr "Ctrl+W: close the opened buffer"
+
+msgid "Supr: borrar tu publicación"
+msgstr "Delete: delete your post"
+
+msgid "En el editor: Ctrl+Intro publica"
+msgstr "In the editor: Ctrl+Enter posts"
+
+msgid "Actualizar y reproductor"
+msgstr "Update and player"
+
+msgid "Ctrl+Mayús+R: actualizar (todos los feeds o el buffer actual)"
+msgstr "Ctrl+Shift+R: update (all feeds or the current buffer)"
+
+msgid "Añadir cuenta de Mastodon"
+msgstr "Add Mastodon account"
+
+msgid "_Continuar"
+msgstr "_Continue"
+
+msgid "_Instancia:"
+msgstr "_Instance:"
+
+msgid "Por ejemplo mastodon.social. Se abrirá el navegador para autorizar."
+msgstr "For example mastodon.social. The browser will open to authorize."
+
+msgid "C_ódigo de autorización:"
+msgstr "Authorization c_ode:"
+
+msgid "Pega aquí el código que te da la instancia tras autorizar."
+msgstr "Paste here the code the instance gives you after authorizing."
+
+msgid "Conectando con la instancia…"
+msgstr "Connecting to the instance…"
+
+msgid "No se pudo conectar: {e}"
+msgstr "Could not connect: {e}"
+
+msgid "_Iniciar sesión"
+msgstr "_Log in"
+
+msgid "Autoriza la aplicación en el navegador, copia el código y pégalo aquí."
+msgstr "Authorize the application in the browser, copy the code and paste it here."
+
+msgid "No se pudo iniciar sesión: {e}"
+msgstr "Could not log in: {e}"
+
+msgid "Cuenta añadida: {n}"
+msgstr "Account added: {n}"
+
+msgid "_Publicar"
+msgstr "_Post"
+
+msgid "_Texto:"
+msgstr "_Text:"
+
+msgid "_Aviso de contenido (opcional):"
+msgstr "_Content warning (optional):"
+
+msgid "_Visibilidad:"
+msgstr "_Visibility:"
+
+msgid "_Idioma (código, opcional):"
+msgstr "_Language (code, optional):"
+
+msgid "_Encuesta: opciones, una por línea (vacío = sin encuesta)"
+msgstr "_Poll: options, one per line (empty = no poll)"
+
+msgid "Sin adjuntos"
+msgstr "No attachments"
+
+msgid "Añadir _adjunto…"
+msgstr "Add _attachment…"
+
+msgid "_Quitar el último adjunto"
+msgstr "_Remove the last attachment"
+
+msgid "Caracteres restantes: {n}"
+msgstr "Characters left: {n}"
+
+msgid "Añadir adjunto"
+msgstr "Add attachment"
+
+msgid "Descripción del adjunto"
+msgstr "Attachment description"
+
+msgid "_Descripción para quien no lo ve:"
+msgstr "_Description for those who cannot see it:"
+
+msgid "Describe la imagen o el audio. Se recomienda siempre."
+msgstr "Describe the image or the audio. Always recommended."
+
+msgid "Escribe algo o añade un adjunto"
+msgstr "Write something or add an attachment"
+
+msgid "El texto supera el límite de {n} caracteres"
+msgstr "The text exceeds the limit of {n} characters"
+
+msgid "Una encuesta necesita al menos dos opciones y no admite adjuntos"
+msgstr "A poll needs at least two options and cannot have attachments"
+
+msgid "Publicando…"
+msgstr "Posting…"
+
+msgid "No se pudo publicar: {e}"
+msgstr "Could not post: {e}"
+
+msgid "Publicado"
+msgstr "Posted"
+
+msgid "{t}: {n} elementos"
+msgstr "{t}: {n} items"
+
+msgid "Usa Archivo, Añadir cuenta de Mastodon para empezar."
+msgstr "Use File, Add Mastodon account to get started."
+
+msgid "Esta acción es solo de RSS"
+msgstr "This action is only for RSS"
+
+msgid "Marcado como favorito"
+msgstr "Marked as favourite"
+
+msgid "Quitado de favoritos"
+msgstr "Removed from favourites"
+
+msgid "{t}: actualizado"
+msgstr "{t}: updated"
+
+msgid "{n} notificaciones nuevas"
+msgstr "{n} new notifications"
+
+msgid "{n} nuevas"
+msgstr "{n} new"
+
+msgid "Esta acción es de Mastodon"
+msgstr "This action is for Mastodon"
+
+msgid "Esta notificación no tiene publicación"
+msgstr "This notification has no post"
+
+msgid "No se pudo: {e}"
+msgstr "It could not be done: {e}"
+
+msgid "Impulso quitado"
+msgstr "Boost removed"
+
+msgid "Añadido a marcadores"
+msgstr "Added to bookmarks"
+
+msgid "Quitado de marcadores"
+msgstr "Removed from bookmarks"
+
+msgid "Selecciona una cuenta de Mastodon"
+msgstr "Select a Mastodon account"
+
+msgid "Solo puedes borrar tus propias publicaciones"
+msgstr "You can only delete your own posts"
+
+msgid "No se pudo borrar: {e}"
+msgstr "Could not delete: {e}"
+
+msgid "Publicación borrada"
+msgstr "Post deleted"
+
+msgid "¿Borrar esta publicación? No se puede deshacer."
+msgstr "Delete this post? This cannot be undone."
+
+msgid "Abriendo {t}…"
+msgstr "Opening {t}…"
+
+msgid "Conversación de {n}"
+msgstr "Conversation of {n}"
+
+msgid "Publicaciones de {u}"
+msgstr "Posts by {u}"
+
+msgid "Este buffer no se puede cerrar"
+msgstr "This buffer cannot be closed"
+
+msgid "Buffer cerrado"
+msgstr "Buffer closed"
+
+msgid "Cargando publicaciones anteriores…"
+msgstr "Loading older posts…"
+
+msgid "Error al cargar: {e}"
+msgstr "Error loading: {e}"
+
+msgid "{n} cargadas"
+msgstr "{n} loaded"
+
+msgid "Cuenta eliminada"
+msgstr "Account removed"
+
+msgid "¿Eliminar la cuenta {n} y sus datos de este equipo?"
+msgstr "Remove the account {n} and its data from this computer?"
+
+msgid "Cargando {t}…"
+msgstr "Loading {t}…"
+
+msgid "Me gusta / quitar me gusta"
+msgstr "Favourite / unfavourite"
+
+msgid "Impulsar / quitar impulso"
+msgstr "Boost / unboost"
+
+msgid "Marcador / quitar marcador"
+msgstr "Bookmark / remove bookmark"
+
+msgid "Publicaciones del autor"
+msgstr "Author's posts"
+
+msgid "Copiar el enlace"
+msgstr "Copy the link"
+
+msgid "Borrar mi publicación"
+msgstr "Delete my post"
+
+msgid "Leído / no leído"
+msgstr "Read / unread"
+
+msgid "A la papelera"
+msgstr "Move to trash"
+
+msgid "Reproducir el audio"
+msgstr "Play the audio"
+
+msgid "Añadir _cuenta de Mastodon…"
+msgstr "Add Mastodon _account…"
+
+msgid "_Eliminar la cuenta seleccionada…"
+msgstr "_Remove the selected account…"
+
+msgid "_Nueva publicación"
+msgstr "_New post"
+
+msgid "_Responder"
+msgstr "_Reply"
+
+msgid "Me _gusta"
+msgstr "_Favourite"
+
+msgid "_Impulsar"
+msgstr "_Boost"
+
+msgid "_Marcador"
+msgstr "_Bookmark"
+
+msgid "Ver la _conversación"
+msgstr "View the _conversation"
+
+msgid "Publicaciones del _autor"
+msgstr "Author's _posts"
+
+msgid "Cargar publicaciones _anteriores"
+msgstr "Load _older posts"
+
+msgid "C_errar el buffer"
+msgstr "C_lose the buffer"
+
+msgid "_Mastodon"
+msgstr "_Mastodon"
+
+msgid "editado"
+msgstr "edited"
+
+msgid "Aviso de contenido: {t}"
+msgstr "Content warning: {t}"
+
+msgid "Adjunto {i} ({t}): {d}"
+msgstr "Attachment {i} ({t}): {d}"
+
+msgid "Esta publicación contiene una encuesta."
+msgstr "This post contains a poll."
+
+msgid "Citando a {n} (@{a}): {t}"
+msgstr "Quoting {n} (@{a}): {t}"
+
+msgid "Enlaces:"
+msgstr "Links:"
+
+msgid "{r} respuestas · {i} impulsos · {f} favoritos"
+msgstr "{r} replies · {i} boosts · {f} favourites"
+
+msgid "te ha mencionado"
+msgstr "mentioned you"
+
+msgid "ha publicado"
+msgstr "posted"
+
+msgid "ha impulsado tu publicación"
+msgstr "boosted your post"
+
+msgid "te ha seguido"
+msgstr "followed you"
+
+msgid "quiere seguirte"
+msgstr "wants to follow you"
+
+msgid "ha marcado como favorita tu publicación"
+msgstr "favourited your post"
+
+msgid "ha terminado una encuesta"
+msgstr "a poll has ended"
+
+msgid "ha editado una publicación"
+msgstr "edited a post"
+
+msgid "se ha registrado"
+msgstr "signed up"
+
+msgid "ha enviado un informe"
+msgstr "sent a report"
+
+msgid "ha citado tu publicación"
+msgstr "quoted your post"
+
+msgid "ha editado una publicación que citaste"
+msgstr "edited a post you quoted"
+
+msgid "aviso de moderación"
+msgstr "moderation warning"
+
+msgid "relaciones cortadas"
+msgstr "severed relationships"
+
+msgid "público"
+msgstr "public"
+
+msgid "no listado"
+msgstr "unlisted"
+
+msgid "solo seguidores"
+msgstr "followers only"
+
+msgid "mensaje directo"
+msgstr "direct message"
+
+msgid "_Tiempo real en Mastodon:"
+msgstr "_Real time in Mastodon:"
+
+msgid "Ctrl+Alt+V: votar en la encuesta"
+msgstr "Ctrl+Alt+V: vote in the poll"
+
+msgid "Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"
+msgstr "Ctrl+Alt+P: author's profile (follow, mute, block)"
+
+msgid "Ctrl+Alt+E: editar tu publicación"
+msgstr "Ctrl+Alt+E: edit your post"
+
+msgid "Ctrl+Mayús+U: citar la publicación"
+msgstr "Ctrl+Shift+U: quote the post"
+
+msgid "Ctrl+Alt+L: abrir una lista"
+msgstr "Ctrl+Alt+L: open a list"
+
+msgid "Ctrl+Alt+H: abrir un hashtag"
+msgstr "Ctrl+Alt+H: open a hashtag"
+
+msgid "Ctrl+Mayús+F: buscar en Mastodon"
+msgstr "Ctrl+Shift+F: search Mastodon"
+
+msgid "Editar publicación"
+msgstr "Edit post"
+
+msgid "No se pudo guardar: {e}"
+msgstr "Could not save: {e}"
+
+msgid "Publicación editada"
+msgstr "Post edited"
+
+msgid "_Votar"
+msgstr "_Vote"
+
+msgid "Elige varias opciones"
+msgstr "Choose several options"
+
+msgid "Elige una opción"
+msgstr "Choose one option"
+
+msgid "Elige al menos una opción"
+msgstr "Choose at least one option"
+
+msgid "Perfil de {u}"
+msgstr "Profile of {u}"
+
+msgid "Cargando el perfil…"
+msgstr "Loading the profile…"
+
+msgid "_Seguir"
+msgstr "_Follow"
+
+msgid "Sile_nciar"
+msgstr "Mu_te"
+
+msgid "_Bloquear"
+msgstr "_Block"
+
+msgid "Ver _publicaciones"
+msgstr "View _posts"
+
+msgid "_Cerrar"
+msgstr "_Close"
+
+msgid "No se pudo cargar el perfil: {e}"
+msgstr "Could not load the profile: {e}"
+
+msgid "cuenta automatizada"
+msgstr "automated account"
+
+msgid "eres tú"
+msgstr "it is you"
+
+msgid "solicitud de seguimiento pendiente"
+msgstr "follow request pending"
+
+msgid "silenciada"
+msgstr "muted"
+
+msgid "bloqueada"
+msgstr "blocked"
+
+msgid "te ha bloqueado"
+msgstr "has blocked you"
+
+msgid "{p} publicaciones · {s} seguidores · {g} siguiendo"
+msgstr "{p} posts · {s} followers · {g} following"
+
+msgid "Cuenta creada: {f}"
+msgstr "Account created: {f}"
+
+msgid "Dejar de _seguir"
+msgstr "Un_follow"
+
+msgid "Quitar sile_nciar"
+msgstr "Un_mute"
+
+msgid "Desb_loquear"
+msgstr "Unb_lock"
+
+msgid "¿Bloquear a @{u}?"
+msgstr "Block @{u}?"
+
+msgid "Siguiendo a @{u}"
+msgstr "Following @{u}"
+
+msgid "Has dejado de seguir a @{u}"
+msgstr "You stopped following @{u}"
+
+msgid "Silenciada @{u}"
+msgstr "Muted @{u}"
+
+msgid "Silencio quitado a @{u}"
+msgstr "Unmuted @{u}"
+
+msgid "Bloqueada @{u}"
+msgstr "Blocked @{u}"
+
+msgid "Desbloqueada @{u}"
+msgstr "Unblocked @{u}"
+
+msgid "Reportar a {u}"
+msgstr "Report {u}"
+
+msgid "_Enviar informe"
+msgstr "_Send report"
+
+msgid "Incumple las normas"
+msgstr "Breaks the rules"
+
+msgid "_Motivo:"
+msgstr "_Reason:"
+
+msgid "_Comentario (opcional):"
+msgstr "_Comment (optional):"
+
+msgid "_Reenviar también al servidor del autor:"
+msgstr "_Also forward to the author's server:"
+
+msgid "No se pudo enviar el informe: {e}"
+msgstr "Could not send the report: {e}"
+
+msgid "Informe enviado"
+msgstr "Report sent"
+
+msgid "{n} notificaciones más"
+msgstr "{n} more notifications"
+
+msgid "Mensaje directo nuevo"
+msgstr "New direct message"
+
+msgid "No se pudo leer la encuesta"
+msgstr "The poll could not be read"
+
+msgid "Esta publicación no tiene encuesta"
+msgstr "This post has no poll"
+
+msgid "Encuesta ({s}):"
+msgstr "Poll ({s}):"
+
+msgid "cerrada"
+msgstr "closed"
+
+msgid "abierta"
+msgstr "open"
+
+msgid "- {t}: {v} votos ({p} %)"
+msgstr "- {t}: {v} votes ({p} %)"
+
+msgid "{n} votos en total"
+msgstr "{n} votes in total"
+
+msgid "No se pudo votar: {e}"
+msgstr "Could not vote: {e}"
+
+msgid "Voto registrado"
+msgstr "Vote registered"
+
+msgid "Publicaciones de @{u}"
+msgstr "Posts by @{u}"
+
+msgid "Solo puedes editar tus propias publicaciones"
+msgstr "You can only edit your own posts"
+
+msgid "Leyendo la publicación original…"
+msgstr "Reading the original post…"
+
+msgid "No se pudo leer la publicación: {e}"
+msgstr "Could not read the post: {e}"
+
+msgid "Leyendo tus listas…"
+msgstr "Reading your lists…"
+
+msgid "No se pudieron leer las listas: {e}"
+msgstr "Could not read the lists: {e}"
+
+msgid "No tienes listas en esta cuenta"
+msgstr "You have no lists in this account"
+
+msgid "Lista {t}"
+msgstr "List {t}"
+
+msgid "Abrir una lista"
+msgstr "Open a list"
+
+msgid "_Lista:"
+msgstr "_List:"
+
+msgid "_Abrir"
+msgstr "_Open"
+
+msgid "Abrir un hashtag"
+msgstr "Open a hashtag"
+
+msgid "_Hashtag:"
+msgstr "_Hashtag:"
+
+msgid "Sin la almohadilla, por ejemplo accesibilidad."
+msgstr "Without the hash sign, for example accessibility."
+
+msgid "Búsqueda: {t}"
+msgstr "Search: {t}"
+
+msgid "Buscar en Mastodon"
+msgstr "Search Mastodon"
+
+msgid "Busca publicaciones en tu instancia. Empieza por # para un hashtag."
+msgstr "Search posts on your instance. Start with # for a hashtag."
+
+msgid "Perfil del autor"
+msgstr "Author's profile"
+
+msgid "Editar mi publicación"
+msgstr "Edit my post"
+
+msgid "C_itar"
+msgstr "_Quote"
+
+msgid "_Editar mi publicación"
+msgstr "_Edit my post"
+
+msgid "_Perfil del autor"
+msgstr "Author's _profile"
+
+msgid "_Votar en la encuesta"
+msgstr "_Vote in the poll"
+
+msgid "Re_portar la publicación"
+msgstr "Re_port the post"
+
+msgid "Abrir una _lista…"
+msgstr "Open a _list…"
+
+msgid "Abrir un _hashtag…"
+msgstr "Open a _hashtag…"
+
+msgid "_Buscar en Mastodon…"
+msgstr "_Search Mastodon…"
