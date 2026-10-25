@@ -34953,3 +34953,312 @@ msgstr "suspender"
 
 msgid "silenciar"
 msgstr "silenciar"
+
+msgid "La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia artificial."
+msgstr "La IA está desactivada. Actívala en Preferencias, pestaña Inteligencia artificial."
+
+msgid "Selecciona un elemento para traducir"
+msgstr "Selecciona un elemento para traducir"
+
+msgid "No hay texto para traducir"
+msgstr "No hay texto para traducir"
+
+msgid "Traduciendo…"
+msgstr "Traduciendo…"
+
+msgid "Error de traducción: {e}"
+msgstr "Error de traducción: {e}"
+
+msgid "Ya está en tu idioma ({i})"
+msgstr "Ya está en tu idioma ({i})"
+
+msgid "Traducido desde {i}"
+msgstr "Traducido desde {i}"
+
+msgid "Traducción lista. {c}"
+msgstr "Traducción lista. {c}"
+
+msgid "Traducción copiada al portapapeles"
+msgstr "Traducción copiada al portapapeles"
+
+msgid "No hay texto para resumir"
+msgstr "No hay texto para resumir"
+
+msgid "Resumiendo con IA…"
+msgstr "Resumiendo con IA…"
+
+msgid "Error de la IA: {e}"
+msgstr "Error de la IA: {e}"
+
+msgid "Resumen listo"
+msgstr "Resumen listo"
+
+msgid "La publicación seleccionada no tiene imágenes"
+msgstr "La publicación seleccionada no tiene imágenes"
+
+msgid "Imagen {i}: {d}"
+msgstr "Imagen {i}: {d}"
+
+msgid "_Imagen:"
+msgstr "_Imagen:"
+
+msgid "_Analizar"
+msgstr "_Analizar"
+
+msgid "Extrayendo el texto de la imagen…"
+msgstr "Extrayendo el texto de la imagen…"
+
+msgid "Describiendo la imagen con IA…"
+msgstr "Describiendo la imagen con IA…"
+
+msgid "No se reconoció ningún texto en la imagen"
+msgstr "No se reconoció ningún texto en la imagen"
+
+msgid "Resultado listo"
+msgstr "Resultado listo"
+
+msgid "Texto de la imagen"
+msgstr "Texto de la imagen"
+
+msgid "Generando el texto alternativo…"
+msgstr "Generando el texto alternativo…"
+
+msgid "Texto alternativo generado"
+msgstr "Texto alternativo generado"
+
+msgid "Escribe antes el texto"
+msgstr "Escribe antes el texto"
+
+msgid "Consultando a la IA…"
+msgstr "Consultando a la IA…"
+
+msgid "Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
+msgstr "Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"
+
+msgid "Ctrl+Alt+R: resumir con IA"
+msgstr "Ctrl+Alt+R: resumir con IA"
+
+msgid "Ctrl+I: describir con IA la imagen de la publicación"
+msgstr "Ctrl+I: describir con IA la imagen de la publicación"
+
+msgid "Ctrl+Mayús+O: extraer con IA el texto de la imagen"
+msgstr "Ctrl+Mayús+O: extraer con IA el texto de la imagen"
+
+msgid "_Mejorar la redacción con IA"
+msgstr "_Mejorar la redacción con IA"
+
+msgid "Sugerir _hashtags con IA"
+msgstr "Sugerir _hashtags con IA"
+
+msgid "La IA no devolvió nada"
+msgstr "La IA no devolvió nada"
+
+msgid "Redacción mejorada. Ctrl+Z deshace el cambio."
+msgstr "Redacción mejorada. Ctrl+Z deshace el cambio."
+
+msgid "Hashtags añadidos al final: {h}"
+msgstr "Hashtags añadidos al final: {h}"
+
+msgid "_Generar con IA"
+msgstr "_Generar con IA"
+
+msgid "Categorías de preferencias"
+msgstr "Categorías de preferencias"
+
+msgid "_General"
+msgstr "_General"
+
+msgid "_Proveedor de IA:"
+msgstr "_Proveedor de IA:"
+
+msgid "Servicio que describe imágenes, resume y mejora textos. Desactivada apaga todas las funciones de IA."
+msgstr "Servicio que describe imágenes, resume y mejora textos. Desactivada apaga todas las funciones de IA."
+
+msgid "_Claves API (una por línea):"
+msgstr "_Claves API (una por línea):"
+
+msgid "Si indicas varias, cuando una agote su cuota se usa la siguiente."
+msgstr "Si indicas varias, cuando una agote su cuota se usa la siguiente."
+
+msgid "_Modelo:"
+msgstr "_Modelo:"
+
+msgid "Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
+msgstr "Nombre del modelo. Usa Obtener modelos para ver los que ofrece el proveedor."
+
+msgid "_URL del servidor local:"
+msgstr "_URL del servidor local:"
+
+msgid "Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
+msgstr "Dirección compatible con la API de chat de OpenAI (llama.cpp, Ollama...)."
+
+msgid "Guardar en ca_ché las respuestas:"
+msgstr "Guardar en ca_ché las respuestas:"
+
+msgid "_Obtener modelos…"
+msgstr "_Obtener modelos…"
+
+msgid "_Gestor de prompts…"
+msgstr "_Gestor de prompts…"
+
+msgid "_Probar el proveedor"
+msgstr "_Probar el proveedor"
+
+msgid "_Historial de IA…"
+msgstr "_Historial de IA…"
+
+msgid "_Inteligencia artificial"
+msgstr "_Inteligencia artificial"
+
+msgid "Obteniendo modelos de {p}…"
+msgstr "Obteniendo modelos de {p}…"
+
+msgid "No se pudieron obtener los modelos: {e}"
+msgstr "No se pudieron obtener los modelos: {e}"
+
+msgid "El proveedor no devolvió modelos"
+msgstr "El proveedor no devolvió modelos"
+
+msgid "Modelo elegido: {m}"
+msgstr "Modelo elegido: {m}"
+
+msgid "Modelos de {p}"
+msgstr "Modelos de {p}"
+
+msgid "_Elegir"
+msgstr "_Elegir"
+
+msgid "{n} modelos disponibles"
+msgstr "{n} modelos disponibles"
+
+msgid "La IA está desactivada"
+msgstr "La IA está desactivada"
+
+msgid "Probando {p}…"
+msgstr "Probando {p}…"
+
+msgid "La prueba falló: {e}"
+msgstr "La prueba falló: {e}"
+
+msgid "El proveedor responde: {r}"
+msgstr "El proveedor responde: {r}"
+
+msgid "_Motor de traducción:"
+msgstr "_Motor de traducción:"
+
+msgid "Todos son gratuitos y no necesitan clave. Si uno falla por límites del servidor, prueba con otro."
+msgstr "Todos son gratuitos y no necesitan clave. Si uno falla por límites del servidor, prueba con otro."
+
+msgid "En Mastodon, usar _primero la traducción de tu servidor:"
+msgstr "En Mastodon, usar _primero la traducción de tu servidor:"
+
+msgid "Si tu instancia ofrece traducción se usa antes que el motor externo, que queda de respaldo."
+msgstr "Si tu instancia ofrece traducción se usa antes que el motor externo, que queda de respaldo."
+
+msgid "_Idioma de destino:"
+msgstr "_Idioma de destino:"
+
+msgid "Idioma de _origen:"
+msgstr "Idioma de _origen:"
+
+msgid "_Copiar la traducción al portapapeles:"
+msgstr "_Copiar la traducción al portapapeles:"
+
+msgid "Guardar las traducciones en el _historial:"
+msgstr "Guardar las traducciones en el _historial:"
+
+msgid "Historial de _traducciones…"
+msgstr "Historial de _traducciones…"
+
+msgid "_Probar la traducción"
+msgstr "_Probar la traducción"
+
+msgid "_Traducción"
+msgstr "_Traducción"
+
+msgid "Probando la traducción…"
+msgstr "Probando la traducción…"
+
+msgid "Traducción de prueba: {t}"
+msgstr "Traducción de prueba: {t}"
+
+msgid "Extraer el texto de la imagen"
+msgstr "Extraer el texto de la imagen"
+
+msgid "_Traducir el elemento"
+msgstr "_Traducir el elemento"
+
+msgid "_Resumir con IA"
+msgstr "_Resumir con IA"
+
+msgid "_Describir la imagen con IA"
+msgstr "_Describir la imagen con IA"
+
+msgid "_Extraer el texto de la imagen (OCR con IA)"
+msgstr "_Extraer el texto de la imagen (OCR con IA)"
+
+msgid "Historial de _IA…"
+msgstr "Historial de _IA…"
+
+msgid "_Herramientas"
+msgstr "_Herramientas"
+
+msgid "Prompts de IA"
+msgstr "Prompts de IA"
+
+msgid "Prompt de {t}"
+msgstr "Prompt de {t}"
+
+msgid "Prompts guardados"
+msgstr "Prompts guardados"
+
+msgid "Lista de operaciones de IA"
+msgstr "Lista de operaciones de IA"
+
+msgid "{n} operaciones"
+msgstr "{n} operaciones"
+
+msgid "El historial está vacío"
+msgstr "El historial está vacío"
+
+msgid "_Vaciar el historial"
+msgstr "_Vaciar el historial"
+
+msgid "Entrada:"
+msgstr "Entrada:"
+
+msgid "Respuesta:"
+msgstr "Respuesta:"
+
+msgid "¿Vaciar el historial de IA?"
+msgstr "¿Vaciar el historial de IA?"
+
+msgid "Vaciar"
+msgstr "Vaciar"
+
+msgid "Historial de traducciones"
+msgstr "Historial de traducciones"
+
+msgid "Lista de traducciones"
+msgstr "Lista de traducciones"
+
+msgid "{n} traducciones"
+msgstr "{n} traducciones"
+
+msgid "_Copiar la traducción"
+msgstr "_Copiar la traducción"
+
+msgid "Traducción copiada"
+msgstr "Traducción copiada"
+
+msgid "¿Vaciar el historial de traducciones?"
+msgstr "¿Vaciar el historial de traducciones?"
+
+msgid "Polaco"
+msgstr "Polaco"
+
+msgid "Descripción de imágenes"
+msgstr "Descripción de imágenes"
+
+msgid "Resúmenes"
+msgstr "Resúmenes"

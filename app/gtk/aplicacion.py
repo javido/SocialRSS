@@ -12,7 +12,8 @@ from app.core.version import APP_VERSION
 from app.services.rss.rss_service import rss_service
 
 from . import datos, plataforma_gtk
-from .dialogos import DialogoAnadirFeed, DialogoPreferencias, DialogoTeclas
+from .dialogos import DialogoAnadirFeed, DialogoTeclas
+from .preferencias import DialogoPreferencias
 from .ventana import VentanaPrincipal
 
 log = logging.getLogger(__name__)
@@ -122,6 +123,15 @@ def _menu() -> Gio.Menu:
                                  (_("Bajar velocidad"), "win.velocidad-menos"),
                                  (_("Subir velocidad"), "win.velocidad-mas")))
     barra.append_submenu(_("_Reproductor"), rep)
+
+    herr = Gio.Menu()
+    herr.append_section(None, sec((_("_Traducir el elemento"), "win.traducir"),
+                                  (_("_Resumir con IA"), "win.resumir-ia"),
+                                  (_("_Describir la imagen con IA"), "win.describir-imagen"),
+                                  (_("_Extraer el texto de la imagen (OCR con IA)"), "win.ocr-imagen")))
+    herr.append_section(None, sec((_("Historial de _traducciones…"), "win.historial-traducciones"),
+                                  (_("Historial de _IA…"), "win.historial-ia")))
+    barra.append_submenu(_("_Herramientas"), herr)
 
     ver = Gio.Menu()
     ver.append_section(None, sec((_("Ir al árbol"), "win.ir-arbol"),

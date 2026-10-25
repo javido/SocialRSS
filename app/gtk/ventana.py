@@ -475,6 +475,13 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         accion("hashtags-seguidos", lambda: self.abrir_hashtags("seguidos"))
         accion("seguir-hashtag", lambda: self.accion_seguir_hashtag(True))
         accion("dejar-hashtag", lambda: self.accion_seguir_hashtag(False))
+        from . import acciones_ia
+        accion("traducir", lambda: acciones_ia.traducir(self), ["<Ctrl>t"])
+        accion("resumir-ia", lambda: acciones_ia.resumir(self), ["<Ctrl><Alt>r"])
+        accion("describir-imagen", lambda: acciones_ia.analizar_imagen(self, "describir"), ["<Ctrl>i"])
+        accion("ocr-imagen", lambda: acciones_ia.analizar_imagen(self, "ocr"), ["<Ctrl><Shift>o"])
+        accion("historial-traducciones", lambda: self._historial("DialogoHistorialTraducciones"))
+        accion("historial-ia", lambda: self._historial("DialogoHistorialIA"))
         accion("nuevo-hilo", lambda: self._dialogo_extra("DialogoHilo"), ["<Ctrl><Shift>n"])
         accion("hilos-guardados", lambda: self._dialogo_extra("DialogoHilos"))
         accion("notif-agrupadas", lambda: self._dialogo_extra("DialogoNotifAgrupadas"))
@@ -1474,6 +1481,10 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
             self.avisar(_("Selecciona una cuenta de Mastodon"))
         return acc
 
+    def _historial(self, nombre: str):
+        from . import dialogos_ia
+        getattr(dialogos_ia, nombre)(self).present()
+
     def _dialogo_extra(self, nombre: str):
         """Abre uno de los diálogos de dialogos_mastodon_extra para la cuenta activa."""
         acc = self._cuenta_o_aviso()
@@ -1634,6 +1645,9 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if obj.fila.servicio == "mastodon":
             a = Gio.Menu()
             for et, ac in ((_("Responder"), "win.responder"), (_("Citar"), "win.citar"),
+                           (_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia"),
+                           (_("Describir la imagen con IA"), "win.describir-imagen"),
+                           (_("Extraer el texto de la imagen"), "win.ocr-imagen"),
                            (_("Me gusta / quitar me gusta"), "win.me-gusta"),
                            (_("Impulsar / quitar impulso"), "win.impulsar"),
                            (_("Marcador / quitar marcador"), "win.marcador")):
@@ -1668,7 +1682,8 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
             m.append_section(None, c)
         else:
             a = Gio.Menu()
-            for et, ac in ((_("Leído / no leído"), "win.leido"), (_("Destacar"), "win.favorito"),
+            for et, ac in ((_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia"),
+                           (_("Leído / no leído"), "win.leido"), (_("Destacar"), "win.favorito"),
                            (_("Leer más tarde"), "win.mas-tarde"), (_("A la papelera"), "win.papelera"),
                            (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace"),
                            (_("Reproducir el audio"), "win.reproducir-articulo")):

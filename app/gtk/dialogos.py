@@ -9,7 +9,6 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk  # noqa: E402
 
-from app.core.config_manager import config
 from app.core.speech import notificar
 from app.core.task_manager import task_manager
 from app.services.rss.rss_service import rss_service
@@ -102,45 +101,6 @@ class DialogoAnadirFeed(DialogoBase):
         task_manager.start_task(_bg, callback=_fin, pass_context=True)
 
 
-class DialogoPreferencias(DialogoBase):
-    """Preferencias básicas que ya entiende el núcleo (las mismas claves que en Windows)."""
-
-    def __init__(self, padre):
-        super().__init__(padre, _("Preferencias"), _("_Guardar"))
-        self.sonidos = self.campo(_("_Sonidos de la aplicación:"), Gtk.Switch(halign=Gtk.Align.START))
-        self.sonidos.set_active(config.get("accessibility", "enable_sounds", True))
-        self.voz = self.campo(_("_Avisos al lector de pantalla:"), Gtk.Switch(halign=Gtk.Align.START))
-        self.voz.set_active(config.get("accessibility", "speech_announcements", True))
-        self.completo = self.campo(_("Descargar el artículo completo al a_brirlo:"), Gtk.Switch(halign=Gtk.Align.START))
-        self.completo.set_active(config.get("rss", "fulltext_auto", True))
-        self.solo_no_leidos = self.campo(_("Mostrar solo no _leídos en carpetas y feeds:"),
-                                         Gtk.Switch(halign=Gtk.Align.START))
-        self.solo_no_leidos.set_active(config.get("rss", "show_only_unread", False))
-        self.tiempo_real = self.campo(_("_Tiempo real en Mastodon:"), Gtk.Switch(halign=Gtk.Align.START))
-        self.tiempo_real.set_active(config.get("gtk", "mastodon_realtime", True))
-        self.paralelas = self.campo(_("Descargas si_multáneas al actualizar:"),
-                                    Gtk.SpinButton.new_with_range(1, 50, 1))
-        self.paralelas.set_value(int(config.get("rss", "max_parallel_updates", 5)))
-        self.paso = self.campo(_("Salto del _reproductor (segundos):"), Gtk.SpinButton.new_with_range(5, 120, 5))
-        self.paso.set_value(float(config.get("media_player", "default_step_forward2", 15.0)))
-
-    def aceptar(self):
-        config.set("accessibility", "enable_sounds", self.sonidos.get_active())
-        config.set("accessibility", "speech_announcements", self.voz.get_active())
-        config.set("rss", "fulltext_auto", self.completo.get_active())
-        config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
-        config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
-        config.set("gtk", "mastodon_realtime", self.tiempo_real.get_active())
-        paso = float(self.paso.get_value())
-        config.set("media_player", "default_step_forward2", paso)
-        config.set("media_player", "default_step_backward2", paso)
-        config.save()
-        notificar(_("Preferencias guardadas"))
-        self.close()
-        self.padre.cargar_lista()
-        self.padre.iniciar_tiempo_real()
-
-
 class DialogoTeclas(Gtk.Window):
     """Lista de teclas, en un cuadro de texto de solo lectura (se lee con las flechas)."""
 
@@ -191,6 +151,10 @@ def _teclas() -> str:
         _("Ctrl+W: cerrar el buffer abierto"),
         _("Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"),
         _("Ctrl+Alt+B: borradores"),
+        _("Ctrl+T: traducir el elemento (usa el idioma de destino de Preferencias)"),
+        _("Ctrl+Alt+R: resumir con IA"),
+        _("Ctrl+I: describir con IA la imagen de la publicación"),
+        _("Ctrl+Mayús+O: extraer con IA el texto de la imagen"),
         _("Ctrl+Alt+V: votar en la encuesta"),
         _("Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"),
         _("Ctrl+Alt+E: editar tu publicación"),
@@ -374,6 +338,13 @@ class DialogoPublicar(DialogoBase):
         self._actualizar_contador()
         self.set_focus(self.texto)
         self.buffer.place_cursor(self.buffer.get_end_iter())
+        fila_ia = Gtk.Box(spacing=8)
+        for etiqueta, que in ((_("_Mejorar la redacción con IA"), "mejorar"), (_("Sugerir _hashtags con IA"), "hashtags")):
+            b = Gtk.Button(label=etiqueta, use_underline=True)
+            b.connect("clicked", lambda *_a, q=que: self._ia_texto(q))
+            fila_ia.append(b)
+        self.rejilla.attach(fila_ia, 1, self._fila, 1, 1)
+        self._fila += 1
         if not editar_db_id:
             guardar = Gtk.Button(label=_("Guardar _borrador"), use_underline=True)
             guardar.connect("clicked", lambda *_a: self._guardar_borrador())
@@ -388,6 +359,26 @@ class DialogoPublicar(DialogoBase):
 
     def _texto(self) -> str:
         return self.buffer.get_text(self.buffer.get_start_iter(), self.buffer.get_end_iter(), False)
+
+    # --- IA ---
+    def _ia_texto(self, que: str):
+        from .acciones_ia import transformar_texto
+
+        def _aplicar(resultado):
+            if not resultado:
+                notificar(_("La IA no devolvió nada"))
+                return
+            b = self.buffer
+            b.begin_user_action()          # un solo paso de deshacer (Ctrl+Z)
+            if que == "mejorar":
+                b.delete(b.get_start_iter(), b.get_end_iter())
+                b.insert(b.get_end_iter(), resultado)
+                notificar(_("Redacción mejorada. Ctrl+Z deshace el cambio."))
+            else:
+                b.insert(b.get_end_iter(), ("\n" if self._texto() and not self._texto().endswith("\n") else "") + resultado)
+                notificar(_("Hashtags añadidos al final: {h}").format(h=resultado))
+            b.end_user_action()
+        transformar_texto(self._texto(), que, _aplicar)
 
     # --- borradores ---
     def _capturar_borrador(self) -> dict:
@@ -464,6 +455,15 @@ class DialogoPublicar(DialogoBase):
         d = DialogoBase(self, _("Descripción del adjunto"), _("_Aceptar"))
         entrada = d.campo(_("_Descripción para quien no lo ve:"), Gtk.Entry(activates_default=True, width_chars=50),
                           _("Describe la imagen o el audio. Se recomienda siempre."))
+        if ruta.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".webp", ".bmp")):
+            ia = Gtk.Button(label=_("_Generar con IA"), use_underline=True)
+
+            def _generar():
+                from .acciones_ia import texto_alternativo
+                texto_alternativo(ruta, lambda t: (entrada.set_text(t), entrada.grab_focus()))
+            ia.connect("clicked", lambda *_a: _generar())
+            d.rejilla.attach(ia, 1, d._fila, 1, 1)
+            d._fila += 1
         d.aceptar = lambda: (self._guardar_adjunto(ruta, entrada.get_text().strip()), d.close())
         d.set_focus(entrada)
         d.present()

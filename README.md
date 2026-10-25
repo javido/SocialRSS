@@ -101,8 +101,11 @@ perfil, descartar notificaciones, notificaciones agrupadas con su política y so
 propios (un texto largo dividido en mensajes, con hilos guardados) y administración básica de la
 instancia (informes, cuentas y dominios bloqueados). Las novedades de Inicio, Notificaciones,
 Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en Preferencias) y se
-anuncian sin interrumpir a Orca. Todavía faltan en esta interfaz: traducción e IA (necesitan
-configurar un proveedor), colecciones, anuncios de la instancia, el directorio, y la
+anuncian sin interrumpir a Orca. **Preferencias** en pestañas (General, Inteligencia artificial y Traducción): proveedor de IA con
+sus claves y modelo, prompts, motor y idiomas de traducción, historiales y pruebas. Con ellas, Ctrl+T
+traduce (primero con el servidor de Mastodon si lo ofrece), Ctrl+Alt+R resume, Ctrl+I describe
+imágenes, Ctrl+Mayús+O extrae su texto y el editor puede mejorar la redacción, sugerir hashtags y
+escribir el texto alternativo. Todavía faltan en esta interfaz: colecciones, anuncios de la instancia, el directorio, y la
 administración avanzada (bloqueos de IP y de correo, estadísticas). El resto de redes (Bluesky,
 Telegram...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 

@@ -88,3 +88,39 @@ def test_buffers_extra_se_crean_una_vez_y_se_cierran(cuenta):
     assert n1 in next(c for c in dm.construir_nodos().hijos if c.account_id == cuenta).hijos
     dm.cerrar_extra(n1)
     assert n1 not in next(c for c in dm.construir_nodos().hijos if c.account_id == cuenta).hijos
+
+
+# --------------------------------------------------------------------------- IA y traducción (solo la parte de datos)
+class _Obj:
+    def __init__(self, fila):
+        self.fila = fila
+
+
+def test_texto_para_traducir_incluye_el_aviso_y_los_ids(cuenta):
+    from app.gtk import acciones_ia
+    cw = next(f for f in dm.listar(cuenta, "home") if f.extra["status_id"] == "903")
+    texto, idioma, status_id, acc = acciones_ia.texto_de(None, _Obj(cw))
+    assert texto.startswith("Spoiler") and "oculto" in texto
+    assert status_id == "903" and acc == cuenta
+
+
+def test_imagenes_de_una_publicacion(cuenta):
+    from app.gtk import acciones_ia
+    foto = next(f for f in dm.listar(cuenta, "home") if f.extra["status_id"] == "904")
+    imgs = acciones_ia._imagenes_de(_Obj(foto))
+    assert [i["description"] for i in imgs] == ["Un gato"]
+    sin = next(f for f in dm.listar(cuenta, "home") if f.extra["status_id"] == "901")
+    assert acciones_ia._imagenes_de(_Obj(sin)) == []
+
+
+def test_con_la_ia_desactivada_no_se_ofrece(monkeypatch):
+    from app.core.config_manager import config
+    from app.gtk import acciones_ia
+    avisos = []
+    monkeypatch.setattr(acciones_ia, "notificar", avisos.append)
+    config.set("ai", "provider", "off")
+    try:
+        assert acciones_ia.ia_activa() is False and avisos
+    finally:
+        config.set("ai", "provider", "gemini")
+    assert acciones_ia.ia_activa() is True
