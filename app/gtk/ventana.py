@@ -475,6 +475,14 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         accion("hashtags-seguidos", lambda: self.abrir_hashtags("seguidos"))
         accion("seguir-hashtag", lambda: self.accion_seguir_hashtag(True))
         accion("dejar-hashtag", lambda: self.accion_seguir_hashtag(False))
+        accion("nuevo-hilo", lambda: self._dialogo_extra("DialogoHilo"), ["<Ctrl><Shift>n"])
+        accion("hilos-guardados", lambda: self._dialogo_extra("DialogoHilos"))
+        accion("notif-agrupadas", lambda: self._dialogo_extra("DialogoNotifAgrupadas"))
+        accion("notif-politica", lambda: self._dialogo_extra("DialogoPoliticaNotif"))
+        accion("notif-solicitudes", lambda: self._dialogo_extra("DialogoSolicitudesNotif"))
+        accion("admin-informes", lambda: self._dialogo_extra("DialogoInformes"))
+        accion("admin-cuentas", lambda: self._dialogo_extra("DialogoCuentasAdmin"))
+        accion("admin-dominios", lambda: self._dialogo_extra("DialogoDominios"))
         accion("descartar-notificacion", self.accion_descartar_notificacion)
         accion("limpiar-notificaciones", self.accion_limpiar_notificaciones)
         accion("mas-tarde", self.accion_alternar_mas_tarde, ["<Ctrl>l"])
@@ -1465,6 +1473,13 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
         return acc
+
+    def _dialogo_extra(self, nombre: str):
+        """Abre uno de los diálogos de dialogos_mastodon_extra para la cuenta activa."""
+        acc = self._cuenta_o_aviso()
+        if acc is not None:
+            from . import dialogos_mastodon_extra as extra
+            getattr(extra, nombre)(self, acc).present()
 
     def abrir_cuentas(self, tipo: str):
         acc = self._cuenta_o_aviso()

@@ -189,6 +189,7 @@ def _teclas() -> str:
         _("Ctrl+Mayús+G: publicaciones del autor"),
         _("Ctrl+Mayús+M: cargar publicaciones anteriores"),
         _("Ctrl+W: cerrar el buffer abierto"),
+        _("Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"),
         _("Ctrl+Alt+B: borradores"),
         _("Ctrl+Alt+V: votar en la encuesta"),
         _("Ctrl+Alt+P: perfil del autor (seguir, silenciar, bloquear)"),

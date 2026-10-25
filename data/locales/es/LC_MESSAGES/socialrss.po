@@ -34650,3 +34650,306 @@ msgstr "Lista de cuentas que marcaron favorito"
 
 msgid "Avisar y ocultar tras un aviso"
 msgstr "Avisar y ocultar tras un aviso"
+
+msgid "Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"
+msgstr "Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"
+
+msgid "Nuevo _hilo…"
+msgstr "Nuevo _hilo…"
+
+msgid "Hilos _guardados…"
+msgstr "Hilos _guardados…"
+
+msgid "Notificaciones a_grupadas…"
+msgstr "Notificaciones a_grupadas…"
+
+msgid "_Política de notificaciones…"
+msgstr "_Política de notificaciones…"
+
+msgid "Solicitudes de _notificaciones…"
+msgstr "Solicitudes de _notificaciones…"
+
+msgid "_Informes de moderación…"
+msgstr "_Informes de moderación…"
+
+msgid "_Cuentas de la instancia…"
+msgstr "_Cuentas de la instancia…"
+
+msgid "_Dominios bloqueados…"
+msgstr "_Dominios bloqueados…"
+
+msgid "Adminis_tración de la instancia"
+msgstr "Adminis_tración de la instancia"
+
+msgid "Nuevo hilo"
+msgstr "Nuevo hilo"
+
+msgid "_Publicar el hilo"
+msgstr "_Publicar el hilo"
+
+msgid "_Texto del hilo:"
+msgstr "_Texto del hilo:"
+
+msgid "_Numeración:"
+msgstr "_Numeración:"
+
+msgid "_Ver las partes"
+msgstr "_Ver las partes"
+
+msgid "_Guardar sin publicar"
+msgstr "_Guardar sin publicar"
+
+msgid "{n} caracteres; límite por mensaje {l}"
+msgstr "{n} caracteres; límite por mensaje {l}"
+
+msgid "Escribe el texto del hilo"
+msgstr "Escribe el texto del hilo"
+
+msgid "{n} mensajes"
+msgstr "{n} mensajes"
+
+msgid "Mensaje {i}:"
+msgstr "Mensaje {i}:"
+
+msgid "Hilo guardado: {n} mensajes"
+msgstr "Hilo guardado: {n} mensajes"
+
+msgid "Publicando el hilo de {n} mensajes…"
+msgstr "Publicando el hilo de {n} mensajes…"
+
+msgid "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
+msgstr "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
+
+msgid "Hilos guardados"
+msgstr "Hilos guardados"
+
+msgid "Lista de hilos guardados"
+msgstr "Lista de hilos guardados"
+
+msgid "_Publicar o reanudar"
+msgstr "_Publicar o reanudar"
+
+msgid ". Publicado"
+msgstr ". Publicado"
+
+msgid ". Sin publicar"
+msgstr ". Sin publicar"
+
+msgid "{n} hilos"
+msgstr "{n} hilos"
+
+msgid "No hay hilos guardados"
+msgstr "No hay hilos guardados"
+
+msgid "Publicando el hilo…"
+msgstr "Publicando el hilo…"
+
+msgid "Hilo borrado"
+msgstr "Hilo borrado"
+
+msgid "¿Borrar el hilo «{t}»?"
+msgstr "¿Borrar el hilo «{t}»?"
+
+msgid "Lista de grupos de notificaciones"
+msgstr "Lista de grupos de notificaciones"
+
+msgid "_Ver las cuentas"
+msgstr "_Ver las cuentas"
+
+msgid "_Descartar el grupo"
+msgstr "_Descartar el grupo"
+
+msgid "{n} {tipo} de {a}"
+msgstr "{n} {tipo} de {a}"
+
+msgid "{n} grupos"
+msgstr "{n} grupos"
+
+msgid "No hay notificaciones"
+msgstr "No hay notificaciones"
+
+msgid "Este servidor no permite ver las cuentas de un grupo"
+msgstr "Este servidor no permite ver las cuentas de un grupo"
+
+msgid "Este servidor no permite descartar un grupo"
+msgstr "Este servidor no permite descartar un grupo"
+
+msgid "Grupo descartado"
+msgstr "Grupo descartado"
+
+msgid "Política guardada"
+msgstr "Política guardada"
+
+msgid "Solicitudes de notificaciones"
+msgstr "Solicitudes de notificaciones"
+
+msgid "Lista de solicitudes de notificaciones"
+msgstr "Lista de solicitudes de notificaciones"
+
+msgid "_Descartar"
+msgstr "_Descartar"
+
+msgid "{n} (@{a}): {c} notificaciones"
+msgstr "{n} (@{a}): {c} notificaciones"
+
+msgid "{n} solicitudes"
+msgstr "{n} solicitudes"
+
+msgid "No hay solicitudes"
+msgstr "No hay solicitudes"
+
+msgid "Solicitud descartada"
+msgstr "Solicitud descartada"
+
+msgid "Tu cuenta no tiene permisos de administración en esta instancia."
+msgstr "Tu cuenta no tiene permisos de administración en esta instancia."
+
+msgid "Lista de informes"
+msgstr "Lista de informes"
+
+msgid "_Resolver"
+msgstr "_Resolver"
+
+msgid "_Asignármelo"
+msgstr "_Asignármelo"
+
+msgid "Re_abrir"
+msgstr "Re_abrir"
+
+msgid "Ver r_esueltos"
+msgstr "Ver r_esueltos"
+
+msgid "{n} informes resueltos"
+msgstr "{n} informes resueltos"
+
+msgid "{n} informes abiertos"
+msgstr "{n} informes abiertos"
+
+msgid "Ver a_biertos"
+msgstr "Ver a_biertos"
+
+msgid "Hecho"
+msgstr "Hecho"
+
+msgid "Lista de cuentas de la instancia"
+msgstr "Lista de cuentas de la instancia"
+
+msgid "Estado de las cuentas"
+msgstr "Estado de las cuentas"
+
+msgid "_Aprobar"
+msgstr "_Aprobar"
+
+msgid "_Silenciar"
+msgstr "_Silenciar"
+
+msgid "Quitar _silencio"
+msgstr "Quitar _silencio"
+
+msgid "S_uspender"
+msgstr "S_uspender"
+
+msgid "Quitar susp_ensión"
+msgstr "Quitar susp_ensión"
+
+msgid "No hay cuentas en este estado"
+msgstr "No hay cuentas en este estado"
+
+msgid "¿Seguro que quieres {a} a @{u}?"
+msgstr "¿Seguro que quieres {a} a @{u}?"
+
+msgid "Sí, continuar"
+msgstr "Sí, continuar"
+
+msgid "_Bloquear un dominio…"
+msgstr "_Bloquear un dominio…"
+
+msgid "_Quitar el bloqueo"
+msgstr "_Quitar el bloqueo"
+
+msgid "{n} dominios"
+msgstr "{n} dominios"
+
+msgid "No hay dominios bloqueados"
+msgstr "No hay dominios bloqueados"
+
+msgid "Bloquear un dominio"
+msgstr "Bloquear un dominio"
+
+msgid "_Dominio:"
+msgstr "_Dominio:"
+
+msgid "_Severidad:"
+msgstr "_Severidad:"
+
+msgid "Dominio bloqueado"
+msgstr "Dominio bloqueado"
+
+msgid "Bloqueo quitado"
+msgstr "Bloqueo quitado"
+
+msgid "¿Quitar el bloqueo de {d}?"
+msgstr "¿Quitar el bloqueo de {d}?"
+
+msgid "Sin numerar"
+msgstr "Sin numerar"
+
+msgid "favoritos"
+msgstr "favoritos"
+
+msgid "impulsos"
+msgstr "impulsos"
+
+msgid "seguidores nuevos"
+msgstr "seguidores nuevos"
+
+msgid "menciones"
+msgstr "menciones"
+
+msgid "encuestas terminadas"
+msgstr "encuestas terminadas"
+
+msgid "publicaciones"
+msgstr "publicaciones"
+
+msgid "ediciones"
+msgstr "ediciones"
+
+msgid "solicitudes de seguimiento"
+msgstr "solicitudes de seguimiento"
+
+msgid "citas"
+msgstr "citas"
+
+msgid "Personas a las que no sigues"
+msgstr "Personas a las que no sigues"
+
+msgid "Cuentas nuevas"
+msgstr "Cuentas nuevas"
+
+msgid "Menciones privadas que no pediste"
+msgstr "Menciones privadas que no pediste"
+
+msgid "Cuentas limitadas por moderación"
+msgstr "Cuentas limitadas por moderación"
+
+msgid "Filtrar a solicitudes"
+msgstr "Filtrar a solicitudes"
+
+msgid "Ignorar"
+msgstr "Ignorar"
+
+msgid "Solo registrar"
+msgstr "Solo registrar"
+
+msgid "aprobar"
+msgstr "aprobar"
+
+msgid "rechazar"
+msgstr "rechazar"
+
+msgid "suspender"
+msgstr "suspender"
+
+msgid "silenciar"
+msgstr "silenciar"

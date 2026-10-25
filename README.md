@@ -97,11 +97,14 @@ gusta, impulsar, marcadores, borrar, conversaciones y cronologías de usuario co
 publicación, historial de ediciones, silenciar conversaciones, fijar, seguidores, siguiendo,
 solicitudes de seguimiento, bloqueados y silenciados, filtros del servidor, borradores (con
 aviso al cerrar el editor), publicaciones programadas, hashtags en tendencia y seguidos, editar tu
-perfil y descartar notificaciones. Las novedades de Inicio, Notificaciones, Menciones y Mensajes
-directos llegan en **tiempo real** (se puede apagar en Preferencias) y se anuncian sin interrumpir
-a Orca. Todavía faltan en esta interfaz: moderación de la instancia (administración), hilos
-propios, traducción e IA, y las notificaciones agrupadas. El resto de redes (Bluesky, Telegram...)
-se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+perfil, descartar notificaciones, notificaciones agrupadas con su política y solicitudes, hilos
+propios (un texto largo dividido en mensajes, con hilos guardados) y administración básica de la
+instancia (informes, cuentas y dominios bloqueados). Las novedades de Inicio, Notificaciones,
+Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en Preferencias) y se
+anuncian sin interrumpir a Orca. Todavía faltan en esta interfaz: traducción e IA (necesitan
+configurar un proveedor), colecciones, anuncios de la instancia, el directorio, y la
+administración avanzada (bloqueos de IP y de correo, estadísticas). El resto de redes (Bluesky,
+Telegram...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
 

@@ -46488,3 +46488,306 @@ msgstr "List of accounts that favourited"
 
 msgid "Avisar y ocultar tras un aviso"
 msgstr "Warn and hide behind a notice"
+
+msgid "Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"
+msgstr "Ctrl+Shift+N: new thread (a long text split into messages)"
+
+msgid "Nuevo _hilo…"
+msgstr "New _thread…"
+
+msgid "Hilos _guardados…"
+msgstr "Saved _threads…"
+
+msgid "Notificaciones a_grupadas…"
+msgstr "Grou_ped notifications…"
+
+msgid "_Política de notificaciones…"
+msgstr "_Notification policy…"
+
+msgid "Solicitudes de _notificaciones…"
+msgstr "_Notification requests…"
+
+msgid "_Informes de moderación…"
+msgstr "_Moderation reports…"
+
+msgid "_Cuentas de la instancia…"
+msgstr "_Instance accounts…"
+
+msgid "_Dominios bloqueados…"
+msgstr "_Blocked domains…"
+
+msgid "Adminis_tración de la instancia"
+msgstr "Instance adminis_tration"
+
+msgid "Nuevo hilo"
+msgstr "New thread"
+
+msgid "_Publicar el hilo"
+msgstr "_Post the thread"
+
+msgid "_Texto del hilo:"
+msgstr "_Thread text:"
+
+msgid "_Numeración:"
+msgstr "_Numbering:"
+
+msgid "_Ver las partes"
+msgstr "_View the parts"
+
+msgid "_Guardar sin publicar"
+msgstr "_Save without posting"
+
+msgid "{n} caracteres; límite por mensaje {l}"
+msgstr "{n} characters; limit per message {l}"
+
+msgid "Escribe el texto del hilo"
+msgstr "Write the thread text"
+
+msgid "{n} mensajes"
+msgstr "{n} messages"
+
+msgid "Mensaje {i}:"
+msgstr "Message {i}:"
+
+msgid "Hilo guardado: {n} mensajes"
+msgstr "Thread saved: {n} messages"
+
+msgid "Publicando el hilo de {n} mensajes…"
+msgstr "Posting the thread of {n} messages…"
+
+msgid "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
+msgstr "The thread could not be posted in full: {e}. You can resume it from Saved threads."
+
+msgid "Hilos guardados"
+msgstr "Saved threads"
+
+msgid "Lista de hilos guardados"
+msgstr "List of saved threads"
+
+msgid "_Publicar o reanudar"
+msgstr "_Post or resume"
+
+msgid ". Publicado"
+msgstr ". Posted"
+
+msgid ". Sin publicar"
+msgstr ". Not posted"
+
+msgid "{n} hilos"
+msgstr "{n} threads"
+
+msgid "No hay hilos guardados"
+msgstr "There are no saved threads"
+
+msgid "Publicando el hilo…"
+msgstr "Posting the thread…"
+
+msgid "Hilo borrado"
+msgstr "Thread deleted"
+
+msgid "¿Borrar el hilo «{t}»?"
+msgstr "Delete the thread “{t}”?"
+
+msgid "Lista de grupos de notificaciones"
+msgstr "List of notification groups"
+
+msgid "_Ver las cuentas"
+msgstr "_View the accounts"
+
+msgid "_Descartar el grupo"
+msgstr "_Dismiss the group"
+
+msgid "{n} {tipo} de {a}"
+msgstr "{n} {tipo} from {a}"
+
+msgid "{n} grupos"
+msgstr "{n} groups"
+
+msgid "No hay notificaciones"
+msgstr "There are no notifications"
+
+msgid "Este servidor no permite ver las cuentas de un grupo"
+msgstr "This server does not allow viewing the accounts of a group"
+
+msgid "Este servidor no permite descartar un grupo"
+msgstr "This server does not allow dismissing a group"
+
+msgid "Grupo descartado"
+msgstr "Group dismissed"
+
+msgid "Política guardada"
+msgstr "Policy saved"
+
+msgid "Solicitudes de notificaciones"
+msgstr "Notification requests"
+
+msgid "Lista de solicitudes de notificaciones"
+msgstr "List of notification requests"
+
+msgid "_Descartar"
+msgstr "_Dismiss"
+
+msgid "{n} (@{a}): {c} notificaciones"
+msgstr "{n} (@{a}): {c} notifications"
+
+msgid "{n} solicitudes"
+msgstr "{n} requests"
+
+msgid "No hay solicitudes"
+msgstr "There are no requests"
+
+msgid "Solicitud descartada"
+msgstr "Request dismissed"
+
+msgid "Tu cuenta no tiene permisos de administración en esta instancia."
+msgstr "Your account has no administration permissions on this instance."
+
+msgid "Lista de informes"
+msgstr "List of reports"
+
+msgid "_Resolver"
+msgstr "_Resolve"
+
+msgid "_Asignármelo"
+msgstr "_Assign to me"
+
+msgid "Re_abrir"
+msgstr "Re_open"
+
+msgid "Ver r_esueltos"
+msgstr "View r_esolved"
+
+msgid "{n} informes resueltos"
+msgstr "{n} resolved reports"
+
+msgid "{n} informes abiertos"
+msgstr "{n} open reports"
+
+msgid "Ver a_biertos"
+msgstr "View _open"
+
+msgid "Hecho"
+msgstr "Done"
+
+msgid "Lista de cuentas de la instancia"
+msgstr "List of instance accounts"
+
+msgid "Estado de las cuentas"
+msgstr "Account status"
+
+msgid "_Aprobar"
+msgstr "_Approve"
+
+msgid "_Silenciar"
+msgstr "_Silence"
+
+msgid "Quitar _silencio"
+msgstr "Remove _silence"
+
+msgid "S_uspender"
+msgstr "S_uspend"
+
+msgid "Quitar susp_ensión"
+msgstr "Remove susp_ension"
+
+msgid "No hay cuentas en este estado"
+msgstr "There are no accounts in this state"
+
+msgid "¿Seguro que quieres {a} a @{u}?"
+msgstr "Are you sure you want to {a} @{u}?"
+
+msgid "Sí, continuar"
+msgstr "Yes, continue"
+
+msgid "_Bloquear un dominio…"
+msgstr "_Block a domain…"
+
+msgid "_Quitar el bloqueo"
+msgstr "_Remove the block"
+
+msgid "{n} dominios"
+msgstr "{n} domains"
+
+msgid "No hay dominios bloqueados"
+msgstr "There are no blocked domains"
+
+msgid "Bloquear un dominio"
+msgstr "Block a domain"
+
+msgid "_Dominio:"
+msgstr "_Domain:"
+
+msgid "_Severidad:"
+msgstr "_Severity:"
+
+msgid "Dominio bloqueado"
+msgstr "Domain blocked"
+
+msgid "Bloqueo quitado"
+msgstr "Block removed"
+
+msgid "¿Quitar el bloqueo de {d}?"
+msgstr "Remove the block of {d}?"
+
+msgid "Sin numerar"
+msgstr "Unnumbered"
+
+msgid "favoritos"
+msgstr "favourites"
+
+msgid "impulsos"
+msgstr "boosts"
+
+msgid "seguidores nuevos"
+msgstr "new followers"
+
+msgid "menciones"
+msgstr "mentions"
+
+msgid "encuestas terminadas"
+msgstr "finished polls"
+
+msgid "publicaciones"
+msgstr "posts"
+
+msgid "ediciones"
+msgstr "edits"
+
+msgid "solicitudes de seguimiento"
+msgstr "follow requests"
+
+msgid "citas"
+msgstr "quotes"
+
+msgid "Personas a las que no sigues"
+msgstr "People you don't follow"
+
+msgid "Cuentas nuevas"
+msgstr "New accounts"
+
+msgid "Menciones privadas que no pediste"
+msgstr "Private mentions you didn't ask for"
+
+msgid "Cuentas limitadas por moderación"
+msgstr "Accounts limited by moderation"
+
+msgid "Filtrar a solicitudes"
+msgstr "Filter to requests"
+
+msgid "Ignorar"
+msgstr "Ignore"
+
+msgid "Solo registrar"
+msgstr "Only log"
+
+msgid "aprobar"
+msgstr "approve"
+
+msgid "rechazar"
+msgstr "reject"
+
+msgid "suspender"
+msgstr "suspend"
+
+msgid "silenciar"
+msgstr "silence"

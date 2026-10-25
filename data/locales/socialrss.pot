@@ -45075,3 +45075,306 @@ msgstr ""
 
 msgid "Avisar y ocultar tras un aviso"
 msgstr ""
+
+msgid "Ctrl+Mayús+N: nuevo hilo (un texto largo dividido en mensajes)"
+msgstr ""
+
+msgid "Nuevo _hilo…"
+msgstr ""
+
+msgid "Hilos _guardados…"
+msgstr ""
+
+msgid "Notificaciones a_grupadas…"
+msgstr ""
+
+msgid "_Política de notificaciones…"
+msgstr ""
+
+msgid "Solicitudes de _notificaciones…"
+msgstr ""
+
+msgid "_Informes de moderación…"
+msgstr ""
+
+msgid "_Cuentas de la instancia…"
+msgstr ""
+
+msgid "_Dominios bloqueados…"
+msgstr ""
+
+msgid "Adminis_tración de la instancia"
+msgstr ""
+
+msgid "Nuevo hilo"
+msgstr ""
+
+msgid "_Publicar el hilo"
+msgstr ""
+
+msgid "_Texto del hilo:"
+msgstr ""
+
+msgid "_Numeración:"
+msgstr ""
+
+msgid "_Ver las partes"
+msgstr ""
+
+msgid "_Guardar sin publicar"
+msgstr ""
+
+msgid "{n} caracteres; límite por mensaje {l}"
+msgstr ""
+
+msgid "Escribe el texto del hilo"
+msgstr ""
+
+msgid "{n} mensajes"
+msgstr ""
+
+msgid "Mensaje {i}:"
+msgstr ""
+
+msgid "Hilo guardado: {n} mensajes"
+msgstr ""
+
+msgid "Publicando el hilo de {n} mensajes…"
+msgstr ""
+
+msgid "El hilo no se pudo publicar entero: {e}. Puedes reanudarlo desde Hilos guardados."
+msgstr ""
+
+msgid "Hilos guardados"
+msgstr ""
+
+msgid "Lista de hilos guardados"
+msgstr ""
+
+msgid "_Publicar o reanudar"
+msgstr ""
+
+msgid ". Publicado"
+msgstr ""
+
+msgid ". Sin publicar"
+msgstr ""
+
+msgid "{n} hilos"
+msgstr ""
+
+msgid "No hay hilos guardados"
+msgstr ""
+
+msgid "Publicando el hilo…"
+msgstr ""
+
+msgid "Hilo borrado"
+msgstr ""
+
+msgid "¿Borrar el hilo «{t}»?"
+msgstr ""
+
+msgid "Lista de grupos de notificaciones"
+msgstr ""
+
+msgid "_Ver las cuentas"
+msgstr ""
+
+msgid "_Descartar el grupo"
+msgstr ""
+
+msgid "{n} {tipo} de {a}"
+msgstr ""
+
+msgid "{n} grupos"
+msgstr ""
+
+msgid "No hay notificaciones"
+msgstr ""
+
+msgid "Este servidor no permite ver las cuentas de un grupo"
+msgstr ""
+
+msgid "Este servidor no permite descartar un grupo"
+msgstr ""
+
+msgid "Grupo descartado"
+msgstr ""
+
+msgid "Política guardada"
+msgstr ""
+
+msgid "Solicitudes de notificaciones"
+msgstr ""
+
+msgid "Lista de solicitudes de notificaciones"
+msgstr ""
+
+msgid "_Descartar"
+msgstr ""
+
+msgid "{n} (@{a}): {c} notificaciones"
+msgstr ""
+
+msgid "{n} solicitudes"
+msgstr ""
+
+msgid "No hay solicitudes"
+msgstr ""
+
+msgid "Solicitud descartada"
+msgstr ""
+
+msgid "Tu cuenta no tiene permisos de administración en esta instancia."
+msgstr ""
+
+msgid "Lista de informes"
+msgstr ""
+
+msgid "_Resolver"
+msgstr ""
+
+msgid "_Asignármelo"
+msgstr ""
+
+msgid "Re_abrir"
+msgstr ""
+
+msgid "Ver r_esueltos"
+msgstr ""
+
+msgid "{n} informes resueltos"
+msgstr ""
+
+msgid "{n} informes abiertos"
+msgstr ""
+
+msgid "Ver a_biertos"
+msgstr ""
+
+msgid "Hecho"
+msgstr ""
+
+msgid "Lista de cuentas de la instancia"
+msgstr ""
+
+msgid "Estado de las cuentas"
+msgstr ""
+
+msgid "_Aprobar"
+msgstr ""
+
+msgid "_Silenciar"
+msgstr ""
+
+msgid "Quitar _silencio"
+msgstr ""
+
+msgid "S_uspender"
+msgstr ""
+
+msgid "Quitar susp_ensión"
+msgstr ""
+
+msgid "No hay cuentas en este estado"
+msgstr ""
+
+msgid "¿Seguro que quieres {a} a @{u}?"
+msgstr ""
+
+msgid "Sí, continuar"
+msgstr ""
+
+msgid "_Bloquear un dominio…"
+msgstr ""
+
+msgid "_Quitar el bloqueo"
+msgstr ""
+
+msgid "{n} dominios"
+msgstr ""
+
+msgid "No hay dominios bloqueados"
+msgstr ""
+
+msgid "Bloquear un dominio"
+msgstr ""
+
+msgid "_Dominio:"
+msgstr ""
+
+msgid "_Severidad:"
+msgstr ""
+
+msgid "Dominio bloqueado"
+msgstr ""
+
+msgid "Bloqueo quitado"
+msgstr ""
+
+msgid "¿Quitar el bloqueo de {d}?"
+msgstr ""
+
+msgid "Sin numerar"
+msgstr ""
+
+msgid "favoritos"
+msgstr ""
+
+msgid "impulsos"
+msgstr ""
+
+msgid "seguidores nuevos"
+msgstr ""
+
+msgid "menciones"
+msgstr ""
+
+msgid "encuestas terminadas"
+msgstr ""
+
+msgid "publicaciones"
+msgstr ""
+
+msgid "ediciones"
+msgstr ""
+
+msgid "solicitudes de seguimiento"
+msgstr ""
+
+msgid "citas"
+msgstr ""
+
+msgid "Personas a las que no sigues"
+msgstr ""
+
+msgid "Cuentas nuevas"
+msgstr ""
+
+msgid "Menciones privadas que no pediste"
+msgstr ""
+
+msgid "Cuentas limitadas por moderación"
+msgstr ""
+
+msgid "Filtrar a solicitudes"
+msgstr ""
+
+msgid "Ignorar"
+msgstr ""
+
+msgid "Solo registrar"
+msgstr ""
+
+msgid "aprobar"
+msgstr ""
+
+msgid "rechazar"
+msgstr ""
+
+msgid "suspender"
+msgstr ""
+
+msgid "silenciar"
+msgstr ""

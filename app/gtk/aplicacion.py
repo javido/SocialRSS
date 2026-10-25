@@ -61,7 +61,9 @@ def _menu() -> Gio.Menu:
     pub.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
                                  (_("_Responder"), "win.responder"),
                                  (_("C_itar"), "win.citar"),
-                                 (_("_Editar mi publicación"), "win.editar")))
+                                 (_("_Editar mi publicación"), "win.editar"),
+                                 (_("Nuevo _hilo…"), "win.nuevo-hilo"),
+                                 (_("Hilos _guardados…"), "win.hilos-guardados")))
     pub.append_section(None, sec((_("Me _gusta"), "win.me-gusta"),
                                  (_("_Impulsar"), "win.impulsar"),
                                  (_("_Marcador"), "win.marcador")))
@@ -98,6 +100,14 @@ def _menu() -> Gio.Menu:
                                      (_("Cuentas s_ilenciadas…"), "win.cuentas-muted")))
     cuentas.append_section(None, sec((_("Filtros del _servidor…"), "win.filtros"),
                                      (_("Editar _mi perfil…"), "win.mi-perfil")))
+    cuentas.append_section(None, sec((_("Notificaciones a_grupadas…"), "win.notif-agrupadas"),
+                                     (_("_Política de notificaciones…"), "win.notif-politica"),
+                                     (_("Solicitudes de _notificaciones…"), "win.notif-solicitudes")))
+    admin = Gio.Menu()
+    admin.append_section(None, sec((_("_Informes de moderación…"), "win.admin-informes"),
+                                   (_("_Cuentas de la instancia…"), "win.admin-cuentas"),
+                                   (_("_Dominios bloqueados…"), "win.admin-dominios")))
+    cuentas.append_submenu(_("Adminis_tración de la instancia"), admin)
     pub.append_submenu(_("Mi _cuenta"), cuentas)
     barra.append_submenu(_("_Mastodon"), pub)
 
