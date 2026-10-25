@@ -77,6 +77,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
 
         self._construir_interfaz()
         self._configurar_tabulador()
+        self._configurar_menu()
         self._registrar_acciones()
         self.cargar_arbol()
         self.connect("close-request", self._al_cerrar)
@@ -299,6 +300,117 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
             return False        # fuera de los paneles: el recorrido normal de GTK
         self.enfocar_panel(orden[j])
         return True
+
+    # ------------------------------------------------------------------ foco y barra de menús
+    def _barra_menu(self):
+        """El Gtk.PopoverMenuBar que crea set_show_menubar (si ya existe)."""
+        def buscar(w):
+            c = w.get_first_child()
+            while c is not None:
+                if isinstance(c, Gtk.PopoverMenuBar):
+                    return c
+                r = buscar(c)
+                if r is not None:
+                    return r
+                c = c.get_next_sibling()
+            return None
+        if getattr(self, "_barra_cache", None) is None:
+            self._barra_cache = buscar(self)
+        return self._barra_cache
+
+    def _en_barra(self, widget) -> bool:
+        barra = self._barra_menu()
+        return bool(widget is not None and barra is not None and (widget is barra or widget.is_ancestor(barra)))
+
+    def _hay_menu_abierto(self) -> bool:
+        barra = self._barra_menu()
+        if barra is None:
+            return False
+
+        def visible(w):
+            c = w.get_first_child()
+            while c is not None:
+                if isinstance(c, Gtk.Popover) and c.is_visible():
+                    return True
+                if visible(c):
+                    return True
+                c = c.get_next_sibling()
+            return False
+        return visible(barra)
+
+    def _configurar_menu(self):
+        """Escape en el menú lo cierra y devuelve el foco a donde estaba antes de entrar en la barra."""
+        self._foco_antes_menu = None
+        self._menu_estuvo_abierto = False
+        self._revision_menu = 0
+        self.connect("notify::focus-widget", self._on_foco_ventana)
+        ctl = Gtk.EventControllerKey()
+        ctl.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
+        ctl.connect("key-pressed", self._on_escape_menu)
+        self.add_controller(ctl)
+
+    def _on_foco_ventana(self, *_a):
+        foco = self.get_focus()
+        if foco is None:
+            return
+        if self._en_barra(foco):
+            # Se entró (o se sigue) en la barra de menús: se mira, ya con la interfaz asentada, si hay
+            # un menú abierto, y si acaba de cerrarse se devuelve el foco.
+            if not self._revision_menu:
+                self._revision_menu = GLib.idle_add(self._revisar_menu)
+        else:
+            self._foco_antes_menu = foco
+
+    def _revisar_menu(self):
+        self._revision_menu = 0
+        if not self._en_barra(self.get_focus()):
+            self._menu_estuvo_abierto = False
+            return GLib.SOURCE_REMOVE
+        if self._hay_menu_abierto():
+            self._menu_estuvo_abierto = True
+            # Cuando ese menú se cierre, GTK deja el foco en la barra: se vuelve a mirar.
+            self._vigilar_cierre_menus()
+        elif self._menu_estuvo_abierto:
+            self._menu_estuvo_abierto = False
+            self.devolver_foco_tras_menu()
+        return GLib.SOURCE_REMOVE
+
+    def _vigilar_cierre_menus(self):
+        barra = self._barra_menu()
+        vistos = getattr(self, "_popovers_vigilados", set())
+        self._popovers_vigilados = vistos
+
+        def recorrer(w):
+            c = w.get_first_child()
+            while c is not None:
+                if isinstance(c, Gtk.Popover) and id(c) not in vistos:
+                    vistos.add(id(c))
+                    c.connect("closed", lambda *_a: self._programar_revision())
+                recorrer(c)
+                c = c.get_next_sibling()
+        recorrer(barra)
+
+    def _programar_revision(self):
+        if not self._revision_menu:
+            self._revision_menu = GLib.idle_add(self._revisar_menu)
+
+    def _on_escape_menu(self, ctl, keyval, keycode, estado):
+        """Escape con el foco en la barra y sin menú desplegado: se sale de la barra."""
+        if keyval == Gdk.KEY_Escape and self._en_barra(self.get_focus()) and not self._hay_menu_abierto():
+            self.devolver_foco_tras_menu()
+            return True
+        return False
+
+    def devolver_foco_tras_menu(self):
+        destino = self._foco_antes_menu
+        for panel in (self.vista_arbol, self.vista_lista, self.texto, self.entrada_busqueda):
+            if destino is not None and (destino is panel or destino.is_ancestor(panel)):
+                self.enfocar_panel(panel)
+                return
+        if destino is not None and destino.get_mapped() and not self._en_barra(destino):
+            destino.grab_focus()
+        else:
+            self.enfocar_panel(self.vista_lista)
 
     def enfocar_panel(self, panel):
         """Lleva el foco a un panel. En una lista cae en la fila que estaba seleccionada (la última enfocada),
