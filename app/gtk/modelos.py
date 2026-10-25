@@ -69,7 +69,15 @@ class FilaObj(GObject.Object):
         self.marcador = bool(fila.extra.get("marcador"))
 
     def descripcion(self) -> str:
-        """Texto completo de la fila, tal como debe leerlo el lector de pantalla."""
+        """Texto completo de la fila para el lector de pantalla. Se calcula una vez por estado: pintar una fila
+        la pide varias veces y cada llamada de más es tiempo del hilo de la interfaz."""
+        clave = (self.leido, self.favorito, self.mas_tarde, self.impulsado, self.marcador, id(self.fila))
+        if getattr(self, "_desc_clave", None) != clave:
+            self._desc_clave = clave
+            self._desc = self._construir_descripcion()
+        return self._desc
+
+    def _construir_descripcion(self) -> str:
         from .datos import fecha_legible
         f = self.fila
         if f.servicio == "mastodon":

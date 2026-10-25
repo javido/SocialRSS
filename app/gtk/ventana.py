@@ -13,6 +13,7 @@ Decisiones de accesibilidad:
 
 import logging
 import webbrowser
+from concurrent.futures import ThreadPoolExecutor
 
 import gi
 gi.require_version("Gtk", "4.0")
@@ -25,12 +26,19 @@ from app.services.rss.rss_service import rss_service
 from app.services.mastodon.mastodon_service import mastodon_service
 
 from app.core.event_bus import event_bus
+from app.core.plataforma import llamar_en_ui
 
 from . import datos, datos_mastodon
 from .datos import Nodo
 from .modelos import NodoObj, FilaObj
 
 log = logging.getLogger(__name__)
+
+# Espera, en milisegundos, desde que el usuario se detiene en un nodo (o en una fila) hasta que se trabaja:
+# al recorrer el árbol o la lista con las flechas no se lee ni se descarga nada en cada paso.
+PAUSA_LISTA_MS = 120
+PAUSA_TEXTO_MS = 150
+PAUSA_RED_MS = 700
 
 # Intervalo del sondeo automático de feeds (los que ya vencieron según su propio intervalo).
 SONDEO_SEGUNDOS = 300
@@ -56,6 +64,15 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         self._eventos_pendientes = {}
         self._encuestas = {}        # db id del toot -> última encuesta descargada
         self._tiempo_real = None
+        # Todo lo que lee la base de datos para pintar (listas y texto) va a un hilo propio: el hilo de la
+        # interfaz solo aplica resultados. Cada petición lleva un número de generación; si el usuario ya
+        # se movió a otra cosa, el resultado viejo se descarta.
+        self._lector = ThreadPoolExecutor(max_workers=1, thread_name_prefix="LectorUI")
+        self._gen_lista = 0
+        self._gen_texto = 0
+        self._timer_lista = 0
+        self._timer_red = 0
+        self._timer_texto = 0
         self.set_default_size(1180, 760)
 
         self._construir_interfaz()
@@ -381,36 +398,87 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                 obj.sincronizar()
 
     def _on_nodo_seleccionado(self, *_a):
+        """Cambio de nodo: lo barato (título y estado) es inmediato; la lista se lee cuando el usuario se
+        detiene un instante, para no trabajar en cada paso mientras recorre el árbol con las flechas."""
         obj = self._nodo_obj_actual()
         if obj is None:
             return
         self.nodo_actual = obj.nodo
         self.busqueda = ""
+        n = obj.nodo
+        self.set_title(f"{n.titulo} — SocialRSS")
+        self.estado.set_text(_("Cargando {t}…").format(t=n.titulo) if n.listable else n.titulo)
+        self._cancelar_timer("_timer_lista")
+        self._cancelar_timer("_timer_red")
+        self._timer_lista = GLib.timeout_add(PAUSA_LISTA_MS, self._tras_pausa_lista, n)
+
+    def _cancelar_timer(self, nombre: str):
+        id_ = getattr(self, nombre)
+        if id_:
+            GLib.source_remove(id_)
+            setattr(self, nombre, 0)
+
+    def _tras_pausa_lista(self, nodo):
+        self._timer_lista = 0
+        if nodo is not self.nodo_actual:
+            return GLib.SOURCE_REMOVE
         self.cargar_lista()
-        self._actualizar_acciones()
+        # La descarga de red se retrasa más: solo si el usuario se queda en el buffer.
+        if nodo.servicio == "mastodon" and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
+            self._timer_red = GLib.timeout_add(PAUSA_RED_MS, self._descarga_tras_pausa, nodo)
+        return GLib.SOURCE_REMOVE
+
+    def _descarga_tras_pausa(self, nodo):
+        self._timer_red = 0
+        if nodo is self.nodo_actual and (nodo.account_id, nodo.timeline) not in self._cargados:
+            self._actualizar_mastodon(nodo, silencioso=True)
+        return GLib.SOURCE_REMOVE
 
     # ------------------------------------------------------------------ lista
-    def cargar_lista(self, conservar_id: str = None, incremental: bool = False):
-        """Rellena la lista. Con `incremental`, si es el mismo buffer que ya se ve, solo se insertan, quitan
-        y repintan las filas que cambian: las demás (y el foco) no se tocan."""
+    def _leer_filas(self, nodo, busqueda: str):
+        """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
+        if not nodo.listable:
+            return []
+        if nodo.servicio == "mastodon":
+            filas = datos_mastodon.listar(nodo.account_id, nodo.timeline)
+            if busqueda:
+                q = busqueda.lower()
+                filas = [f for f in filas if q in f.titulo.lower()]
+            return filas
+        return datos.listar(self.account_id, nodo, busqueda=busqueda)
+
+    def cargar_lista(self, conservar_id: str = None, incremental: bool = False, despues=None):
+        """Rellena la lista SIN bloquear la interfaz: lee en un hilo y aplica el resultado en el de la UI.
+        Con `incremental`, si es el mismo buffer que ya se ve, solo se insertan, quitan y repintan las filas
+        que cambian (el resto y el foco no se tocan). `despues(filas)` se llama al terminar."""
         if self.nodo_actual is None:
             return
-        n = self.nodo_actual
-        if not n.listable:
-            filas = []
-        elif n.servicio == "mastodon":
-            filas = datos_mastodon.listar(n.account_id, n.timeline)
-            if self.busqueda:
-                q = self.busqueda.lower()
-                filas = [f for f in filas if q in f.titulo.lower()]
-        else:
-            filas = datos.listar(self.account_id, n, busqueda=self.busqueda)
+        self._gen_lista += 1
+        gen, nodo, busqueda = self._gen_lista, self.nodo_actual, self.busqueda
+
+        def _trabajo():
+            try:
+                filas = self._leer_filas(nodo, busqueda)
+            except Exception:
+                log.exception("Error al leer la lista")
+                filas = []
+            llamar_en_ui(self._aplicar_lista, gen, nodo, busqueda, filas, conservar_id, incremental, despues)
+        self._lector.submit(_trabajo)
+
+    def _aplicar_lista(self, gen, n, busqueda, filas, conservar_id, incremental, despues):
+        if gen != self._gen_lista or n is not self.nodo_actual:
+            return      # el usuario ya está en otra cosa
+        titulo = n.titulo + (f" — {_('búsqueda')}: {busqueda}" if busqueda else "")
         if incremental and self._nodo_listado is n and self._sincronizar_lista(filas):
             self.estado.set_text(_("{t}: {n} elementos").format(t=n.titulo, n=len(filas)))
+            if despues:
+                despues(filas)
             return
         self._nodo_listado = n
-        self.almacen_lista.remove_all()
-        self.almacen_lista.splice(0, 0, [FilaObj(f) for f in filas])
+        nuevos = [FilaObj(f) for f in filas]
+        # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
+        # eventos de accesibilidad que remove_all() seguido de splice().
+        self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), nuevos)
         seleccionar = 0
         if conservar_id:
             for i, f in enumerate(filas):
@@ -419,16 +487,16 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                     break
         if filas:
             self.seleccion_lista.set_selected(seleccionar)
-        n = len(filas)
-        titulo = self.nodo_actual.titulo + (f" — {_('búsqueda')}: {self.busqueda}" if self.busqueda else "")
-        self.estado.set_text(_("{t}: {n} elementos").format(t=titulo, n=n) if self.nodo_actual.listable else titulo)
+        self.estado.set_text(_("{t}: {n} elementos").format(t=titulo, n=len(filas)) if n.listable else n.titulo)
         if not filas:
-            if not self.nodo_actual.listable:
+            if not n.listable:
                 vacio = (_("Usa Archivo, Añadir cuenta de Mastodon para empezar.")
-                         if self.nodo_actual.servicio == "mastodon" and not self.nodo_actual.hijos else "")
+                         if n.servicio == "mastodon" and not n.hijos else "")
                 self._mostrar_texto("", vacio, "", "")
             else:
                 self._mostrar_texto("", _("No hay elementos."), "", "")
+        if despues:
+            despues(filas)
 
     def _sincronizar_lista(self, filas) -> bool:
         """Actualiza la lista en su sitio. False si el orden relativo cambió y hay que rehacerla."""
@@ -459,23 +527,52 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         if obj is not None:
             self._vista_previa(obj)
 
-    def _vista_previa(self, obj):
-        """Carga el texto en el panel de lectura sin marcar como leído ni mover el foco."""
-        if obj.fila.servicio == "mastodon":
-            titulo, meta, enlace, cuerpo = datos_mastodon.detalle(obj.fila)
-            self._mostrar_texto(titulo, meta, enlace, cuerpo)
-            self._articulo_abierto = obj.fila.id
-            if obj.fila.extra.get("encuesta"):
-                self._anadir_encuesta_a_lectura(obj)
-            return
-        art = rss_service.obtener_articulo(obj.fila.id)
+    def _preparar_texto(self, fila):
+        """Hilo lector: arma (título, meta, enlace, cuerpo) de una fila; None si no hay nada que mostrar."""
+        if fila.servicio == "mastodon":
+            return datos_mastodon.detalle(fila)
+        art = rss_service.obtener_articulo(fila.id)
         if art is None:
-            return
+            return None
         from app.core.html_utils import html_a_texto
         cuerpo = html_a_texto(art.translated_content or art.content or "") or _("(sin contenido)")
-        meta = " · ".join(p for p in (obj.fila.feed_titulo, obj.fila.autor, datos.fecha_legible(obj.fila.fecha)) if p)
-        self._mostrar_texto(obj.fila.titulo, meta, obj.fila.enlace, cuerpo)
-        self._articulo_abierto = obj.fila.id
+        meta = " · ".join(p for p in (fila.feed_titulo, fila.autor, datos.fecha_legible(fila.fecha)) if p)
+        return (fila.titulo, meta, fila.enlace, cuerpo)
+
+    def _vista_previa(self, obj, ahora: bool = False, despues=None):
+        """Carga el texto en el panel de lectura sin marcar como leído ni mover el foco. Al recorrer la lista
+        con las flechas espera a que el usuario se detenga; la lectura se hace fuera del hilo de la UI."""
+        self._gen_texto += 1
+        self._cancelar_timer("_timer_texto")
+        gen = self._gen_texto
+
+        def _lanzar():
+            self._timer_texto = 0
+
+            def _trabajo():
+                try:
+                    texto = self._preparar_texto(obj.fila)
+                except Exception:
+                    log.exception("Error al preparar el texto")
+                    texto = None
+                llamar_en_ui(self._aplicar_texto, gen, obj, texto, despues)
+            self._lector.submit(_trabajo)
+            return GLib.SOURCE_REMOVE
+        if ahora:
+            _lanzar()
+        else:
+            self._timer_texto = GLib.timeout_add(PAUSA_TEXTO_MS, _lanzar)
+
+    def _aplicar_texto(self, gen, obj, texto, despues):
+        if gen != self._gen_texto:
+            return
+        if texto is not None:
+            self._mostrar_texto(*texto)
+            self._articulo_abierto = obj.fila.id
+            if obj.fila.servicio == "mastodon" and obj.fila.extra.get("encuesta"):
+                self._anadir_encuesta_a_lectura(obj)
+        if despues:
+            despues()
 
     def _mostrar_texto(self, titulo, meta, enlace, cuerpo):
         self.buffer.set_text("")
@@ -495,13 +592,13 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         obj = self.almacen_lista.get_item(posicion)
         if obj is None:
             return
-        self._vista_previa(obj)
+        # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
+        self._vista_previa(obj, ahora=True, despues=self.texto.grab_focus)
         if obj.fila.servicio == "rss":
             self._marcar_leido(obj, True)
             rss_service.registrar_lectura(obj.fila.id)
             if rss_service.texto_completo_pendiente(obj.fila.id) and config.get("rss", "fulltext_auto", True):
                 self._descargar_completo(obj, silencioso=True)
-        self.texto.grab_focus()
 
     def _marcar_leido(self, obj, leido: bool):
         if obj.leido == leido:
@@ -643,7 +740,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
                     self.avisar(_("No hay nada mejor que lo que ya tienes"))
                 return
             if self._articulo_abierto == obj.fila.id:
-                self._vista_previa(obj)
+                self._vista_previa(obj, ahora=True)
             if not silencioso:
                 self.avisar(_("Artículo completo descargado"))
         rss_service.descargar_articulo_completo_async(obj.fila.id, _fin)
@@ -651,11 +748,13 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
     # ------------------------------------------------------------------ búsqueda
     def _on_buscar(self, entrada):
         self.busqueda = entrada.get_text().strip()
-        self.cargar_lista()
-        if self.almacen_lista.get_n_items():
-            self.vista_lista.grab_focus()
-        else:
-            self.avisar(_("Sin resultados"))
+
+        def _listo(filas):
+            if filas:
+                self.vista_lista.grab_focus()
+            else:
+                self.avisar(_("Sin resultados"))
+        self.cargar_lista(despues=_listo)
 
     def _on_limpiar_busqueda(self, entrada):
         entrada.set_text("")
@@ -944,16 +1043,6 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
         confirmar_async(self, _("¿Eliminar la cuenta {n} y sus datos de este equipo?").format(n=nombre), _hacer,
                         etiqueta_si=_("Eliminar"))
 
-    def _actualizar_acciones(self):
-        """Pone el nombre del buffer en el título de la ventana (lo anuncia el lector al cambiar de ventana)."""
-        n = self.nodo_actual
-        if n is not None:
-            self.set_title(f"{n.titulo} — SocialRSS")
-        # Al entrar por primera vez en un buffer de Mastodon, se descarga en segundo plano.
-        if n is not None and n.servicio == "mastodon" and n.listable and (n.account_id, n.timeline) not in self._cargados:
-            self.estado.set_text(_("Cargando {t}…").format(t=n.titulo))
-            self._actualizar_mastodon(n, silencioso=True)
-
     # ------------------------------------------------------------------ tiempo real
     def iniciar_tiempo_real(self):
         """Arranca (o detiene) el streaming de Mastodon según la preferencia."""
@@ -970,6 +1059,7 @@ class VentanaPrincipal(Gtk.ApplicationWindow):
     def _al_cerrar(self, *_a):
         if self._tiempo_real is not None:
             self._tiempo_real.detener()
+        self._lector.shutdown(wait=False, cancel_futures=True)
         return False
 
     def _reconectado_mastodon(self, account_id: int):
