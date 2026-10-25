@@ -3,6 +3,7 @@
 
 Mixin de TelegramService (parte de la refactorización modular).
 """
+from app.core.plataforma import llamar_en_ui
 from app.services.telegram.telegram_common import (
     time, Optional, Callable, db, get_data_path, log, TelegramError)
 
@@ -249,8 +250,7 @@ class _MensajesMixin:
 
             async def _prog(current, total):
                 if progreso:
-                    import wx
-                    wx.CallAfter(progreso, current, total)
+                    llamar_en_ui(progreso, current, total)
 
             # Organiza en subcarpetas: <chat>/<tipo>
             nombre_chat = ""
@@ -401,8 +401,7 @@ class _MensajesMixin:
 
             total = len(candidatos)
             if progreso:
-                import wx
-                wx.CallAfter(progreso, 0, total)
+                llamar_en_ui(progreso, 0, total)
             descargados = 0
             for i, m in enumerate(candidatos, 1):
                 destino = self._download_dir([nombre_chat, self._tipo_media(m)])
@@ -416,8 +415,7 @@ class _MensajesMixin:
                 except Exception as e:
                     log.debug(f"Descarga masiva: falló el mensaje {getattr(m, 'id', None)}: {e}")
                 if progreso:
-                    import wx
-                    wx.CallAfter(progreso, i, total)
+                    llamar_en_ui(progreso, i, total)
             return {"descargados": descargados, "total": total,
                     "carpeta": self._download_dir([nombre_chat])}
 
