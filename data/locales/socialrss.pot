@@ -46402,3 +46402,432 @@ msgstr ""
 
 msgid "desnudos"
 msgstr ""
+
+msgid "(F2 para reproducir)"
+msgstr ""
+
+msgid "Abriendo el archivo"
+msgstr ""
+
+msgid "Abriendo los mensajes guardados…"
+msgstr ""
+
+msgid "Abrir la conversación"
+msgstr ""
+
+msgid "Anunciar los _mensajes nuevos de Telegram por voz:"
+msgstr ""
+
+msgid "Archi_var el chat"
+msgstr ""
+
+msgid "Archivo enviado"
+msgstr ""
+
+msgid "Añadir cuenta de Tele_gram…"
+msgstr ""
+
+msgid "Añadir cuenta de Telegram"
+msgstr ""
+
+msgid "Borrar el mensaje"
+msgstr ""
+
+msgid "Buscando {u}…"
+msgstr ""
+
+msgid "C_ódigo recibido:"
+msgstr ""
+
+msgid "Cadena de 32 caracteres hexadecimales."
+msgstr ""
+
+msgid "Cargando mensajes anteriores…"
+msgstr ""
+
+msgid "Cargando más chats…"
+msgstr ""
+
+msgid "Cargar mensajes _anteriores"
+msgstr ""
+
+msgid "Cerrar la _sesión y eliminar la cuenta…"
+msgstr ""
+
+msgid "Cerrar sesión"
+msgstr ""
+
+msgid "Chat desfijado"
+msgstr ""
+
+msgid "Chat eliminado de tu lista"
+msgstr ""
+
+msgid "Chat fijado"
+msgstr ""
+
+msgid "Chat marcado como leído"
+msgstr ""
+
+msgid "Chat marcado como no leído"
+msgstr ""
+
+msgid "Chat silenciado"
+msgstr ""
+
+msgid "Consultando…"
+msgstr ""
+
+msgid "Contraseña de _verificación en dos pasos:"
+msgstr ""
+
+msgid "Contraseña incorrecta: {e}"
+msgstr ""
+
+msgid "Credenciales de la API de Telegram"
+msgstr ""
+
+msgid "Credenciales de la _API…"
+msgstr ""
+
+msgid "Credenciales guardadas"
+msgstr ""
+
+msgid "Cuenta de Telegram añadida"
+msgstr ""
+
+msgid "Cuenta quitada de este equipo, pero hubo un error: {e}"
+msgstr ""
+
+msgid ""
+"Cuenta quitada de este equipo. La sesión sigue abierta en Telegram: ciérrala"
+" desde Ajustes, Dispositivos."
+msgstr ""
+
+msgid "Código enviado a {d}. Escríbelo aquí."
+msgstr ""
+
+msgid "Código reenviado a {d}"
+msgstr ""
+
+msgid "Descargado en {r}"
+msgstr ""
+
+msgid "Descargando: {p}%"
+msgstr ""
+
+msgid "Descargando…"
+msgstr ""
+
+msgid "Descargar el adjunto"
+msgstr ""
+
+msgid "Editar el mensaje"
+msgstr ""
+
+msgid "Editar mensaje en {t}"
+msgstr ""
+
+msgid "El api_hash debe tener 32 caracteres hexadecimales"
+msgstr ""
+
+msgid "El api_id debe ser un número"
+msgstr ""
+
+msgid "En respuesta a {n}: {t}"
+msgstr ""
+
+msgid "Enviando {f}…"
+msgstr ""
+
+msgid "Enviando: {p}%"
+msgstr ""
+
+msgid "Enviar archivo a {t}"
+msgstr ""
+
+msgid "Enviar un a_rchivo…"
+msgstr ""
+
+msgid "Es una respuesta a otro mensaje."
+msgstr ""
+
+msgid "Escribe el número de teléfono"
+msgstr ""
+
+msgid "Esta cuenta tiene verificación en dos pasos. Escribe tu contraseña."
+msgstr ""
+
+msgid "Este mensaje no tiene texto"
+msgstr ""
+
+msgid "Este mensaje no tiene texto que editar"
+msgstr ""
+
+msgid "Este mensaje no tiene un archivo que descargar"
+msgstr ""
+
+msgid "Este mensaje tiene botones de bot."
+msgstr ""
+
+msgid "Falta Kurigram. Instálalo con: pip install kurigram tgcrypto"
+msgstr ""
+
+msgid ""
+"Faltan las credenciales de la API. Indícalas en el menú Telegram, "
+"Credenciales de la API."
+msgstr ""
+
+msgid "Llega a la aplicación de Telegram de otro dispositivo o por SMS."
+msgstr ""
+
+msgid "Marcar _todos como leídos"
+msgstr ""
+
+msgid "Marcar el chat como _leído"
+msgstr ""
+
+msgid "Marcar el chat como _no leído"
+msgstr ""
+
+msgid "Mensaje borrado"
+msgstr ""
+
+msgid "Mensaje editado"
+msgstr ""
+
+msgid "Mensaje reenviado"
+msgstr ""
+
+msgid "Mensajes _guardados"
+msgstr ""
+
+msgid "Nadie ha reaccionado a este mensaje"
+msgstr ""
+
+msgid "No hay más"
+msgstr ""
+
+msgid "No se encontró: {e}"
+msgstr ""
+
+msgid "No se pudo abrir el archivo: {e}"
+msgstr ""
+
+msgid "No se pudo abrir: {e}"
+msgstr ""
+
+msgid "No se pudo consultar: {e}"
+msgstr ""
+
+msgid "No se pudo descargar: {e}"
+msgstr ""
+
+msgid "No se pudo enviar el código: {e}"
+msgstr ""
+
+msgid "No se pudo marcar: {e}"
+msgstr ""
+
+msgid "No se pudo reenviar: {e}"
+msgstr ""
+
+msgid "Notificaciones del chat reactivadas"
+msgstr ""
+
+msgid "Nuevo _chat con un usuario…"
+msgstr ""
+
+msgid "Nuevo chat"
+msgstr ""
+
+msgid "Nuevo mensaje"
+msgstr ""
+
+msgid "Nuevo. "
+msgstr ""
+
+msgid "Número que muestra my.telegram.org al crear una aplicación."
+msgstr ""
+
+msgid "Pidiendo el código a Telegram…"
+msgstr ""
+
+msgid "Primero carga la lista de chats"
+msgstr ""
+
+msgid "Primero hay que indicar las credenciales de la API de Telegram"
+msgstr ""
+
+msgid "Quién ha reaccionado"
+msgstr ""
+
+msgid "Quién ha reaccionado…"
+msgstr ""
+
+msgid "Re_accionar…"
+msgstr ""
+
+msgid "Re_enviar a otro chat…"
+msgstr ""
+
+msgid "Reacciones: {r}"
+msgstr ""
+
+msgid "Reenviado de {n}"
+msgstr ""
+
+msgid "Reenviar mensaje"
+msgstr ""
+
+msgid "Reenviar…"
+msgstr ""
+
+msgid "Reproducir la nota de _voz o el audio"
+msgstr ""
+
+msgid "Responder en {t}"
+msgstr ""
+
+msgid "Respondiendo a: {c}"
+msgstr ""
+
+msgid "Salir del chat"
+msgstr ""
+
+msgid "Selecciona un chat de Telegram"
+msgstr ""
+
+msgid "Selecciona un chat de la lista"
+msgstr ""
+
+msgid "Selecciona un mensaje de Telegram"
+msgstr ""
+
+msgid "Selecciona una cuenta de Telegram"
+msgstr ""
+
+msgid "Sesión cerrada y cuenta eliminada"
+msgstr ""
+
+msgid "Silenciar o reactivar"
+msgstr ""
+
+msgid ""
+"Solo de la conversación abierta y de chats privados, nunca de grupos ni "
+"canales."
+msgstr ""
+
+msgid "Solo puedes hacer esto con tus propios mensajes"
+msgstr ""
+
+msgid "Teléfono: {t}"
+msgstr ""
+
+msgid "Texto copiado"
+msgstr ""
+
+msgid "Tiempo real en Tele_gram:"
+msgstr ""
+
+msgid "Ya está descargado: {r}"
+msgstr ""
+
+msgid "_Abrir el adjunto"
+msgstr ""
+
+msgid "_Abrir my.telegram.org"
+msgstr ""
+
+msgid "_Borrar el mensaje o salir del chat"
+msgstr ""
+
+msgid "_Copiar el texto"
+msgstr ""
+
+msgid "_Descargar el adjunto"
+msgstr ""
+
+msgid "_Editar mi mensaje"
+msgstr ""
+
+msgid "_Fijar o desfijar el chat"
+msgstr ""
+
+msgid "_Información del chat"
+msgstr ""
+
+msgid "_Nuevo mensaje"
+msgstr ""
+
+msgid "_Reacción:"
+msgstr ""
+
+msgid "_Reenviar"
+msgstr ""
+
+msgid "_Reenviar a:"
+msgstr ""
+
+msgid "_Reenviar el código"
+msgstr ""
+
+msgid "_Reenviar el código por {d}"
+msgstr ""
+
+msgid "_Silenciar o reactivar el chat"
+msgstr ""
+
+msgid "_Telegram"
+msgstr ""
+
+msgid "_Teléfono (con prefijo, por ejemplo +34600112233):"
+msgstr ""
+
+msgid "_Usuario (por ejemplo @ana):"
+msgstr ""
+
+msgid "_api_id:"
+msgstr ""
+
+msgid "api_ha_sh:"
+msgstr ""
+
+msgid "con botones"
+msgstr ""
+
+msgid "descargado"
+msgstr ""
+
+msgid "sin archivo"
+msgstr ""
+
+msgid "sin descargar"
+msgstr ""
+
+msgid "{n} cargados"
+msgstr ""
+
+msgid "{n} chats marcados como leídos"
+msgstr ""
+
+msgid "{n} en línea"
+msgstr ""
+
+msgid "{n} vistas"
+msgstr ""
+
+msgid "¿Borrar este mensaje para todos los participantes del chat?"
+msgstr ""
+
+msgid "¿Cerrar la sesión de {n} y eliminar la cuenta de este equipo?"
+msgstr ""
+
+msgid "¿Salir de {t} y quitarlo de tu lista de chats?"
+msgstr ""
+
+msgid "Chats"
+msgstr ""
+
+msgid "Chats sin leer"
+msgstr ""

@@ -32,6 +32,7 @@ def _menu() -> Gio.Menu:
     archivo = Gio.Menu()
     archivo.append_section(None, sec((_("Añadir _cuenta de Mastodon…"), "app.anadir-cuenta-mastodon"),
                                      (_("Añadir cuenta de _Bluesky…"), "app.anadir-cuenta-bluesky"),
+                                     (_("Añadir cuenta de Tele_gram…"), "app.anadir-cuenta-telegram"),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -159,6 +160,33 @@ def _menu() -> Gio.Menu:
     bsky.append_submenu(_("Mi _cuenta"), cta)
     barra.append_submenu(_("Blues_ky"), bsky)
 
+    tg = Gio.Menu()
+    tg.append_section(None, sec((_("_Nuevo mensaje"), "win.nuevo"),
+                                (_("_Responder"), "win.responder"),
+                                (_("_Editar mi mensaje"), "win.editar"),
+                                (_("_Borrar el mensaje o salir del chat"), "win.papelera"),
+                                (_("Re_accionar…"), "win.tg-reaccionar"),
+                                (_("Quién ha reaccionado…"), "win.tg-quien-reacciono"),
+                                (_("Re_enviar a otro chat…"), "win.tg-reenviar"),
+                                (_("_Copiar el texto"), "win.tg-copiar")))
+    tg.append_section(None, sec((_("Reproducir la nota de _voz o el audio"), "win.reproducir"),
+                                (_("_Descargar el adjunto"), "win.tg-descargar"),
+                                (_("_Abrir el adjunto"), "win.tg-abrir-adjunto"),
+                                (_("Enviar un a_rchivo…"), "win.tg-enviar-archivo")))
+    tg.append_section(None, sec((_("Nuevo _chat con un usuario…"), "win.tg-chat-nuevo"),
+                                (_("Mensajes _guardados"), "win.tg-guardados"),
+                                (_("_Silenciar o reactivar el chat"), "win.tg-silenciar"),
+                                (_("_Fijar o desfijar el chat"), "win.tg-fijar"),
+                                (_("Archi_var el chat"), "win.tg-archivar"),
+                                (_("Marcar el chat como _leído"), "win.tg-leido"),
+                                (_("Marcar el chat como _no leído"), "win.tg-no-leido"),
+                                (_("Marcar _todos como leídos"), "win.tg-todo-leido"),
+                                (_("_Información del chat"), "win.perfil"),
+                                (_("Cargar mensajes _anteriores"), "win.cargar-mas")))
+    tg.append_section(None, sec((_("Credenciales de la _API…"), "win.tg-credenciales"),
+                                (_("Cerrar la _sesión y eliminar la cuenta…"), "win.tg-eliminar-cuenta")))
+    barra.append_submenu(_("_Telegram"), tg)
+
     rep = Gio.Menu()
     rep.append_section(None, sec((_("Reproducir el audio del artículo"), "win.reproducir-articulo"),
                                  (_("Reproducir / pausar"), "win.reproducir"),
@@ -214,6 +242,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-feed", self.anadir_feed, ["<Ctrl><Alt>n"])
         accion("anadir-cuenta-mastodon", self.anadir_cuenta_mastodon)
         accion("anadir-cuenta-bluesky", self.anadir_cuenta_bluesky)
+        accion("anadir-cuenta-telegram", self.anadir_cuenta_telegram)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -301,6 +330,14 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("bluesky", account_id, "timeline", None, None, "home"))
             self.ventana.iniciar_tiempo_real_bluesky()
         DialogoCuentaBluesky(self.ventana, _hecha).present()
+
+    def anadir_cuenta_telegram(self):
+        from .dialogos_telegram import DialogoCuentaTelegram
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("telegram", account_id, "timeline", None, None, "chats"))
+            self.ventana.iniciar_tiempo_real_telegram()
+        DialogoCuentaTelegram(self.ventana, _hecha).present()
 
     def acerca(self):
         dlg = Gtk.AboutDialog(transient_for=self.ventana, modal=True, program_name="SocialRSS Accessible Suite",

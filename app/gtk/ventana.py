@@ -28,8 +28,9 @@ from app.services.mastodon.mastodon_service import mastodon_service
 from app.core.event_bus import event_bus
 from app.core.plataforma import llamar_en_ui
 
-from . import datos, datos_bluesky, datos_mastodon
+from . import datos, datos_bluesky, datos_mastodon, datos_telegram
 from .ventana_bluesky import _BlueskyMixin
+from .ventana_telegram import _TelegramMixin
 from .datos import Nodo
 from .modelos import NodoObj, FilaObj
 
@@ -51,7 +52,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_BlueskyMixin, _TelegramMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -460,6 +461,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         accion("abrir-lista", self.accion_abrir_lista, ["<Ctrl><Alt>l"])
         accion("abrir-feed", self.bsky_abrir_feed, ["<Ctrl><Alt>f"])
         self._registrar_acciones_bluesky(accion)
+        self._registrar_acciones_telegram(accion)
         accion("abrir-hashtag", self.accion_abrir_hashtag, ["<Ctrl><Alt>h"])
         accion("buscar-mastodon", self.accion_buscar_mastodon, ["<Ctrl><Shift>f"])
         for tipo in ("followers", "following", "blocked", "muted", "solicitudes"):
@@ -543,7 +545,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def _arbol_completo(self):
         """RSS y Mastodon como dos servicios en la raíz del árbol."""
         rss = Nodo(_("RSS y podcasts"), "servicio", servicio="rss", hijos=datos.construir_arbol(self.account_id))
-        return [rss, datos_mastodon.construir_nodos(), datos_bluesky.construir_nodos()]
+        return [rss, datos_mastodon.construir_nodos(), datos_bluesky.construir_nodos(), datos_telegram.construir_nodos()]
 
     def cargar_arbol(self, conservar=True, seleccionar=None):
         """Reconstruye el árbol. `seleccionar` es la clave de un nodo a enfocar (si no, se conserva el actual)."""
@@ -602,6 +604,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         obj = self._nodo_obj_actual()
         if obj is None:
             return
+        self._tg_al_cambiar_nodo(self.nodo_actual, obj.nodo)
         self.nodo_actual = obj.nodo
         self.busqueda = ""
         n = obj.nodo
@@ -623,7 +626,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
             return GLib.SOURCE_REMOVE
         self.cargar_lista()
         # La descarga de red se retrasa más: solo si el usuario se queda en el buffer.
-        if nodo.servicio in ("mastodon", "bluesky") and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
+        if nodo.servicio in ("mastodon", "bluesky", "telegram") and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
             self._timer_red = GLib.timeout_add(PAUSA_RED_MS, self._descarga_tras_pausa, nodo)
         return GLib.SOURCE_REMOVE
 
@@ -632,6 +635,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         if nodo is self.nodo_actual and (nodo.account_id, nodo.timeline) not in self._cargados:
             if nodo.servicio == "bluesky":
                 self.bsky_actualizar_nodo(nodo, silencioso=True)
+            elif nodo.servicio == "telegram":
+                self.tg_actualizar_nodo(nodo, silencioso=True)
             else:
                 self._actualizar_mastodon(nodo, silencioso=True)
         return GLib.SOURCE_REMOVE
@@ -641,8 +646,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
         if not nodo.listable:
             return []
-        if nodo.servicio in ("mastodon", "bluesky"):
-            modulo = datos_mastodon if nodo.servicio == "mastodon" else datos_bluesky
+        if nodo.servicio in ("mastodon", "bluesky", "telegram"):
+            modulo = {"mastodon": datos_mastodon, "bluesky": datos_bluesky, "telegram": datos_telegram}[nodo.servicio]
             filas = modulo.listar(nodo.account_id, nodo.timeline)
             if busqueda:
                 q = busqueda.lower()
@@ -682,7 +687,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
         # eventos de accesibilidad que remove_all() seguido de splice().
         self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), nuevos)
-        seleccionar = 0
+        seleccionar = datos_telegram.seleccion_inicial(filas) if self._es_conversacion(n) else 0
         if conservar_id:
             for i, f in enumerate(filas):
                 if f.id == conservar_id:
@@ -736,6 +741,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
             return datos_mastodon.detalle(fila)
         if fila.servicio == "bluesky":
             return datos_bluesky.detalle(fila)
+        if fila.servicio == "telegram":
+            return datos_telegram.detalle(fila)
         art = rss_service.obtener_articulo(fila.id)
         if art is None:
             return None
@@ -799,6 +806,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
             return
         if obj.fila.servicio == "bluesky" and obj.fila.extra.get("tipo") == "convo":
             return self.bsky_abrir_convo(obj)
+        if obj.fila.servicio == "telegram" and obj.fila.extra.get("tipo") == "chat":
+            return self.tg_abrir_chat(obj)
         # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
@@ -863,6 +872,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def accion_papelera(self):
         if self._bsky_ctx():
             return self.bsky_borrar()
+        if self._tg_ctx():
+            return self.tg_borrar()
         obj = self._fila_actual()
         if obj is None:
             return
@@ -897,6 +908,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         self.avisar(_("No hay más artículos sin leer"))
 
     def accion_marcar_todo_leido(self):
+        if self.nodo_actual is not None and self.nodo_actual.servicio == "telegram":
+            return self.tg_marcar_todo_leido()
         if self.nodo_actual is None or self.nodo_actual.servicio != "rss":
             self.avisar(_("Esta acción es solo de RSS"))
             return
@@ -977,6 +990,11 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     # ------------------------------------------------------------------ actualización
     def accion_actualizar(self):
         n0 = self.nodo_actual
+        if n0 is not None and n0.servicio == "telegram":
+            if n0.listable:
+                self.avisar(_("Actualizando {t}…").format(t=n0.titulo))
+                self.tg_actualizar_nodo(n0)
+            return
         if n0 is not None and n0.servicio == "bluesky":
             if n0.listable:
                 self.avisar(_("Actualizando {t}…").format(t=n0.titulo))
@@ -1036,6 +1054,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
                                                solo_vencidos=True)
         self._sondeo_mastodon()
         self._sondeo_bluesky()
+        self._sondeo_telegram()
         return GLib.SOURCE_CONTINUE
 
     # ------------------------------------------------------------------ Mastodon
@@ -1135,6 +1154,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def accion_nuevo(self):
         if self._bsky_ctx():
             return self.bsky_nuevo()
+        if self._tg_ctx():
+            return self.tg_nuevo()
         n = self.nodo_actual
         if n is None or n.servicio == "rss":
             self.get_application().anadir_feed()
@@ -1149,6 +1170,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def accion_responder(self):
         if self._bsky_ctx():
             return self.bsky_responder()
+        if self._tg_ctx():
+            return self.tg_responder()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1191,10 +1214,19 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
             mastodon_service.ejecutar_accion_toot_async(x["account_id"], self._estado_db_id(obj), "delete", callback=_fin)
         confirmar_async(self, _("¿Borrar esta publicación? No se puede deshacer."), _hacer, etiqueta_si=_("Borrar"))
 
+    @staticmethod
+    def _modulo_datos(servicio: str):
+        return {"bluesky": datos_bluesky, "telegram": datos_telegram}.get(servicio, datos_mastodon)
+
+    @staticmethod
+    def _es_conversacion(nodo) -> bool:
+        """Buffers que se leen como una conversación: lo último, abajo (mensajes directos y chats)."""
+        return (nodo.servicio == "telegram" and nodo.timeline.startswith("chat:")) or (
+            nodo.servicio == "bluesky" and nodo.timeline.startswith("dm:"))
+
     def _abrir_buffer(self, account_id: int, timeline: str, titulo: str, servicio: str = "mastodon"):
         """Abre un hilo o una cronología como buffer del árbol (bajo su cuenta) y pasa a la lista."""
-        modulo = datos_bluesky if servicio == "bluesky" else datos_mastodon
-        nodo = modulo.nodo_extra(account_id, timeline, titulo)
+        nodo = self._modulo_datos(servicio).nodo_extra(account_id, timeline, titulo)
         self.cargar_arbol(seleccionar=NodoObj(nodo).clave())
         self.enfocar_panel(self.vista_lista)
         self.avisar(_("Abriendo {t}…").format(t=titulo))
@@ -1225,13 +1257,16 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         if n is None or not n.cerrable:
             self.avisar(_("Este buffer no se puede cerrar"))
             return
-        (datos_bluesky if n.servicio == "bluesky" else datos_mastodon).cerrar_extra(n)
-        self.cargar_arbol(seleccionar=(n.servicio, n.account_id, "timeline", None, None, "home"))
+        self._modulo_datos(n.servicio).cerrar_extra(n)
+        inicio = "chats" if n.servicio == "telegram" else "home"
+        self.cargar_arbol(seleccionar=(n.servicio, n.account_id, "timeline", None, None, inicio))
         self.avisar(_("Buffer cerrado"))
 
     def accion_cargar_mas(self):
         if self._bsky_ctx():
             return self.bsky_cargar_mas()
+        if self._tg_ctx():
+            return self.tg_cargar_mas()
         n = self.nodo_actual
         if n is None or n.servicio != "mastodon" or not n.listable:
             self.avisar(_("Esta acción es de Mastodon"))
@@ -1262,6 +1297,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def accion_eliminar_cuenta(self):
         if self.nodo_actual is not None and self.nodo_actual.servicio == "bluesky":
             return self.bsky_eliminar_cuenta()
+        if self.nodo_actual is not None and self.nodo_actual.servicio == "telegram":
+            return self.tg_eliminar_cuenta()
         n = self.nodo_actual
         if n is None or n.servicio != "mastodon" or not n.account_id:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1283,6 +1320,7 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         """Arranca (o detiene) el streaming de Mastodon según la preferencia."""
         from .tiempo_real import TiempoReal
         self.iniciar_tiempo_real_bluesky()
+        self.iniciar_tiempo_real_telegram()
         activo = config.get("gtk", "mastodon_realtime", True)
         if not activo:
             if self._tiempo_real is not None:
@@ -1293,6 +1331,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         self._tiempo_real.sincronizar([a for a, _n in datos_mastodon.cuentas()])
 
     def _al_cerrar(self, *_a):
+        self._tg_al_cambiar_nodo(self.nodo_actual, None)
+        self.detener_tiempo_real_telegram()
         if self._tiempo_real is not None:
             self._tiempo_real.detener()
         if self._tiempo_real_bsky is not None:
@@ -1423,6 +1463,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
     def accion_perfil(self):
         if self._bsky_ctx():
             return self.bsky_perfil()
+        if self._tg_ctx():
+            return self.tg_info()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1436,6 +1478,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         self._abrir_buffer(account_id, f"user:{acct.lstrip('@')}", _("Publicaciones de @{u}").format(u=acct.lstrip("@")))
 
     def accion_editar(self):
+        if self._tg_ctx():
+            return self.tg_editar()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1716,6 +1760,34 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
                 c = Gio.Menu()
                 c.append(_("Borrar mi publicación"), "win.papelera")
                 m.append_section(None, c)
+        elif obj.fila.servicio == "telegram":
+            if obj.fila.extra.get("tipo") == "chat":
+                a = Gio.Menu()
+                for et, ac in ((_("Abrir la conversación"), "win.abrir-chat"), (_("Nuevo mensaje"), "win.nuevo"),
+                               (_("Silenciar o reactivar"), "win.tg-silenciar"), (_("Fijar o desfijar"), "win.tg-fijar"),
+                               (_("Archivar"), "win.tg-archivar"), (_("Marcar como leído"), "win.tg-leido"),
+                               (_("Marcar como no leído"), "win.tg-no-leido"), (_("Información del chat"), "win.perfil"),
+                               (_("Salir del chat"), "win.papelera")):
+                    a.append(et, ac)
+                m.append_section(None, a)
+            else:
+                a = Gio.Menu()
+                for et, ac in ((_("Responder"), "win.responder"), (_("Reaccionar…"), "win.tg-reaccionar"),
+                               (_("Reenviar…"), "win.tg-reenviar"), (_("Copiar el texto"), "win.tg-copiar"),
+                               (_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia")):
+                    a.append(et, ac)
+                m.append_section(None, a)
+                b = Gio.Menu()
+                for et, ac in ((_("Reproducir"), "win.reproducir"), (_("Descargar el adjunto"), "win.tg-descargar"),
+                               (_("Abrir el adjunto"), "win.tg-abrir-adjunto"),
+                               (_("Quién ha reaccionado"), "win.tg-quien-reacciono")):
+                    b.append(et, ac)
+                m.append_section(None, b)
+                if obj.fila.extra.get("propio"):
+                    c = Gio.Menu()
+                    c.append(_("Editar el mensaje"), "win.editar")
+                    c.append(_("Borrar el mensaje"), "win.papelera")
+                    m.append_section(None, c)
         elif obj.fila.servicio == "mastodon":
             a = Gio.Menu()
             for et, ac in ((_("Responder"), "win.responder"), (_("Citar"), "win.citar"),
@@ -1791,6 +1863,8 @@ class VentanaPrincipal(_BlueskyMixin, Gtk.ApplicationWindow):
         rss_service.reproducir_articulo_audio(obj.fila.id, callback=_fin)
 
     def accion_reproducir_pausa(self):
+        if self.tg_reproducir():
+            return
         p = self._player()
         if p.esta_activo():
             p.alternar_pausa()

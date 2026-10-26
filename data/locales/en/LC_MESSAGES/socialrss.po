@@ -47842,3 +47842,437 @@ msgstr "graphic content"
 
 msgid "desnudos"
 msgstr "nudity"
+
+msgid "(F2 para reproducir)"
+msgstr "(F2 to play)"
+
+msgid "Abriendo el archivo"
+msgstr "Opening the file"
+
+msgid "Abriendo los mensajes guardados…"
+msgstr "Opening saved messages…"
+
+msgid "Abrir la conversación"
+msgstr "Open the conversation"
+
+msgid "Anunciar los _mensajes nuevos de Telegram por voz:"
+msgstr "Announce new Telegram _messages by voice:"
+
+msgid "Archi_var el chat"
+msgstr "Archi_ve the chat"
+
+msgid "Archivo enviado"
+msgstr "File sent"
+
+msgid "Añadir cuenta de Tele_gram…"
+msgstr "Add Tele_gram account…"
+
+msgid "Añadir cuenta de Telegram"
+msgstr "Add Telegram account"
+
+msgid "Borrar el mensaje"
+msgstr "Delete the message"
+
+msgid "Buscando {u}…"
+msgstr "Looking for {u}…"
+
+msgid "C_ódigo recibido:"
+msgstr "Received c_ode:"
+
+msgid "Cadena de 32 caracteres hexadecimales."
+msgstr "A string of 32 hexadecimal characters."
+
+msgid "Cargando mensajes anteriores…"
+msgstr "Loading earlier messages…"
+
+msgid "Cargando más chats…"
+msgstr "Loading more chats…"
+
+msgid "Cargar mensajes _anteriores"
+msgstr "Load _earlier messages"
+
+msgid "Cerrar la _sesión y eliminar la cuenta…"
+msgstr "Log _out and remove the account…"
+
+msgid "Cerrar sesión"
+msgstr "Log out"
+
+msgid "Chat desfijado"
+msgstr "Chat unpinned"
+
+msgid "Chat eliminado de tu lista"
+msgstr "Chat removed from your list"
+
+msgid "Chat fijado"
+msgstr "Chat pinned"
+
+msgid "Chat marcado como leído"
+msgstr "Chat marked as read"
+
+msgid "Chat marcado como no leído"
+msgstr "Chat marked as unread"
+
+msgid "Chat silenciado"
+msgstr "Chat muted"
+
+msgid "Consultando…"
+msgstr "Checking…"
+
+msgid "Contraseña de _verificación en dos pasos:"
+msgstr "Two-step _verification password:"
+
+msgid "Contraseña incorrecta: {e}"
+msgstr "Wrong password: {e}"
+
+msgid "Credenciales de la API de Telegram"
+msgstr "Telegram API credentials"
+
+msgid "Credenciales de la _API…"
+msgstr "_API credentials…"
+
+msgid "Credenciales guardadas"
+msgstr "Credentials saved"
+
+msgid "Cuenta de Telegram añadida"
+msgstr "Telegram account added"
+
+msgid "Cuenta quitada de este equipo, pero hubo un error: {e}"
+msgstr "Account removed from this computer, but there was an error: {e}"
+
+msgid ""
+"Cuenta quitada de este equipo. La sesión sigue abierta en Telegram: ciérrala"
+" desde Ajustes, Dispositivos."
+msgstr ""
+"Account removed from this computer. The session is still open on Telegram: "
+"close it from Settings, Devices."
+
+msgid "Código enviado a {d}. Escríbelo aquí."
+msgstr "Code sent to {d}. Type it here."
+
+msgid "Código reenviado a {d}"
+msgstr "Code resent to {d}"
+
+msgid "Descargado en {r}"
+msgstr "Downloaded to {r}"
+
+msgid "Descargando: {p}%"
+msgstr "Downloading: {p}%"
+
+msgid "Descargando…"
+msgstr "Downloading…"
+
+msgid "Descargar el adjunto"
+msgstr "Download the attachment"
+
+msgid "Editar el mensaje"
+msgstr "Edit the message"
+
+msgid "Editar mensaje en {t}"
+msgstr "Edit message in {t}"
+
+msgid "El api_hash debe tener 32 caracteres hexadecimales"
+msgstr "The api_hash must have 32 hexadecimal characters"
+
+msgid "El api_id debe ser un número"
+msgstr "The api_id must be a number"
+
+msgid "En respuesta a {n}: {t}"
+msgstr "In reply to {n}: {t}"
+
+msgid "Enviando {f}…"
+msgstr "Sending {f}…"
+
+msgid "Enviando: {p}%"
+msgstr "Sending: {p}%"
+
+msgid "Enviar archivo a {t}"
+msgstr "Send file to {t}"
+
+msgid "Enviar un a_rchivo…"
+msgstr "Send a f_ile…"
+
+msgid "Es una respuesta a otro mensaje."
+msgstr "It is a reply to another message."
+
+msgid "Escribe el número de teléfono"
+msgstr "Type the phone number"
+
+msgid "Esta cuenta tiene verificación en dos pasos. Escribe tu contraseña."
+msgstr "This account has two-step verification. Type your password."
+
+msgid "Este mensaje no tiene texto"
+msgstr "This message has no text"
+
+msgid "Este mensaje no tiene texto que editar"
+msgstr "This message has no text to edit"
+
+msgid "Este mensaje no tiene un archivo que descargar"
+msgstr "This message has no file to download"
+
+msgid "Este mensaje tiene botones de bot."
+msgstr "This message has bot buttons."
+
+msgid "Falta Kurigram. Instálalo con: pip install kurigram tgcrypto"
+msgstr "Kurigram is missing. Install it with: pip install kurigram tgcrypto"
+
+msgid ""
+"Faltan las credenciales de la API. Indícalas en el menú Telegram, "
+"Credenciales de la API."
+msgstr ""
+"The API credentials are missing. Set them in the Telegram menu, API "
+"credentials."
+
+msgid "Llega a la aplicación de Telegram de otro dispositivo o por SMS."
+msgstr "It arrives in the Telegram app on another device or by SMS."
+
+msgid "Marcar _todos como leídos"
+msgstr "Mark _all as read"
+
+msgid "Marcar el chat como _leído"
+msgstr "Mark the chat as _read"
+
+msgid "Marcar el chat como _no leído"
+msgstr "Mark the chat as _unread"
+
+msgid "Mensaje borrado"
+msgstr "Message deleted"
+
+msgid "Mensaje editado"
+msgstr "Message edited"
+
+msgid "Mensaje reenviado"
+msgstr "Message forwarded"
+
+msgid "Mensajes _guardados"
+msgstr "_Saved messages"
+
+msgid "Nadie ha reaccionado a este mensaje"
+msgstr "Nobody has reacted to this message"
+
+msgid "No hay más"
+msgstr "There is no more"
+
+msgid "No se encontró: {e}"
+msgstr "Not found: {e}"
+
+msgid "No se pudo abrir el archivo: {e}"
+msgstr "Could not open the file: {e}"
+
+msgid "No se pudo abrir: {e}"
+msgstr "Could not open: {e}"
+
+msgid "No se pudo consultar: {e}"
+msgstr "Could not check: {e}"
+
+msgid "No se pudo descargar: {e}"
+msgstr "Could not download: {e}"
+
+msgid "No se pudo enviar el código: {e}"
+msgstr "Could not send the code: {e}"
+
+msgid "No se pudo marcar: {e}"
+msgstr "Could not mark: {e}"
+
+msgid "No se pudo reenviar: {e}"
+msgstr "Could not forward: {e}"
+
+msgid "Notificaciones del chat reactivadas"
+msgstr "Chat notifications turned back on"
+
+msgid "Nuevo _chat con un usuario…"
+msgstr "New _chat with a user…"
+
+msgid "Nuevo chat"
+msgstr "New chat"
+
+msgid "Nuevo mensaje"
+msgstr "New message"
+
+msgid "Nuevo. "
+msgstr "New. "
+
+msgid "Número que muestra my.telegram.org al crear una aplicación."
+msgstr "The number my.telegram.org shows when you create an application."
+
+msgid "Pidiendo el código a Telegram…"
+msgstr "Asking Telegram for the code…"
+
+msgid "Primero carga la lista de chats"
+msgstr "Load the chat list first"
+
+msgid "Primero hay que indicar las credenciales de la API de Telegram"
+msgstr "First set the Telegram API credentials"
+
+msgid "Quién ha reaccionado"
+msgstr "Who reacted"
+
+msgid "Quién ha reaccionado…"
+msgstr "Who reacted…"
+
+msgid "Re_accionar…"
+msgstr "Re_act…"
+
+msgid "Re_enviar a otro chat…"
+msgstr "For_ward to another chat…"
+
+msgid "Reacciones: {r}"
+msgstr "Reactions: {r}"
+
+msgid "Reenviado de {n}"
+msgstr "Forwarded from {n}"
+
+msgid "Reenviar mensaje"
+msgstr "Forward message"
+
+msgid "Reenviar…"
+msgstr "Forward…"
+
+msgid "Reproducir la nota de _voz o el audio"
+msgstr "Play the _voice note or audio"
+
+msgid "Responder en {t}"
+msgstr "Reply in {t}"
+
+msgid "Respondiendo a: {c}"
+msgstr "Replying to: {c}"
+
+msgid "Salir del chat"
+msgstr "Leave the chat"
+
+msgid "Selecciona un chat de Telegram"
+msgstr "Select a Telegram chat"
+
+msgid "Selecciona un chat de la lista"
+msgstr "Select a chat from the list"
+
+msgid "Selecciona un mensaje de Telegram"
+msgstr "Select a Telegram message"
+
+msgid "Selecciona una cuenta de Telegram"
+msgstr "Select a Telegram account"
+
+msgid "Sesión cerrada y cuenta eliminada"
+msgstr "Logged out and account removed"
+
+msgid "Silenciar o reactivar"
+msgstr "Mute or unmute"
+
+msgid ""
+"Solo de la conversación abierta y de chats privados, nunca de grupos ni "
+"canales."
+msgstr ""
+"Only from the open conversation and private chats, never groups or channels."
+
+msgid "Solo puedes hacer esto con tus propios mensajes"
+msgstr "You can only do this with your own messages"
+
+msgid "Teléfono: {t}"
+msgstr "Phone: {t}"
+
+msgid "Texto copiado"
+msgstr "Text copied"
+
+msgid "Tiempo real en Tele_gram:"
+msgstr "Real time on Tele_gram:"
+
+msgid "Ya está descargado: {r}"
+msgstr "Already downloaded: {r}"
+
+msgid "_Abrir el adjunto"
+msgstr "_Open the attachment"
+
+msgid "_Abrir my.telegram.org"
+msgstr "_Open my.telegram.org"
+
+msgid "_Borrar el mensaje o salir del chat"
+msgstr "_Delete the message or leave the chat"
+
+msgid "_Copiar el texto"
+msgstr "_Copy the text"
+
+msgid "_Descargar el adjunto"
+msgstr "_Download the attachment"
+
+msgid "_Editar mi mensaje"
+msgstr "_Edit my message"
+
+msgid "_Fijar o desfijar el chat"
+msgstr "_Pin or unpin the chat"
+
+msgid "_Información del chat"
+msgstr "Chat _information"
+
+msgid "_Nuevo mensaje"
+msgstr "_New message"
+
+msgid "_Reacción:"
+msgstr "_Reaction:"
+
+msgid "_Reenviar"
+msgstr "_Forward"
+
+msgid "_Reenviar a:"
+msgstr "_Forward to:"
+
+msgid "_Reenviar el código"
+msgstr "_Resend the code"
+
+msgid "_Reenviar el código por {d}"
+msgstr "_Resend the code by {d}"
+
+msgid "_Silenciar o reactivar el chat"
+msgstr "_Mute or unmute the chat"
+
+msgid "_Telegram"
+msgstr "_Telegram"
+
+msgid "_Teléfono (con prefijo, por ejemplo +34600112233):"
+msgstr "_Phone (with country code, for example +34600112233):"
+
+msgid "_Usuario (por ejemplo @ana):"
+msgstr "_User (for example @ana):"
+
+msgid "_api_id:"
+msgstr "_api_id:"
+
+msgid "api_ha_sh:"
+msgstr "api_ha_sh:"
+
+msgid "con botones"
+msgstr "with buttons"
+
+msgid "descargado"
+msgstr "downloaded"
+
+msgid "sin archivo"
+msgstr "no file"
+
+msgid "sin descargar"
+msgstr "not downloaded"
+
+msgid "{n} cargados"
+msgstr "{n} loaded"
+
+msgid "{n} chats marcados como leídos"
+msgstr "{n} chats marked as read"
+
+msgid "{n} en línea"
+msgstr "{n} online"
+
+msgid "{n} vistas"
+msgstr "{n} views"
+
+msgid "¿Borrar este mensaje para todos los participantes del chat?"
+msgstr "Delete this message for everyone in the chat?"
+
+msgid "¿Cerrar la sesión de {n} y eliminar la cuenta de este equipo?"
+msgstr "Log out of {n} and remove the account from this computer?"
+
+msgid "¿Salir de {t} y quitarlo de tu lista de chats?"
+msgstr "Leave {t} and remove it from your chat list?"
+
+msgid "Chats"
+msgstr "Chats"
+
+msgid "Chats sin leer"
+msgstr "Unread chats"

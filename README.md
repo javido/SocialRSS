@@ -106,12 +106,20 @@ sus claves y modelo, prompts, motor y idiomas de traducción, historiales y prue
 traduce (primero con el servidor de Mastodon si lo ofrece), Ctrl+Alt+R resume, Ctrl+I describe
 imágenes, Ctrl+Mayús+O extrae su texto y el editor puede mejorar la redacción, sugerir hashtags y
 escribir el texto alternativo. Todavía faltan en esta interfaz: colecciones, anuncios de la instancia, el directorio, y la
-administración avanzada (bloqueos de IP y de correo, estadísticas). **Bluesky** (primera fase): cuentas con contraseña de aplicación, Inicio, Notificaciones, Menciones,
+administración avanzada (bloqueos de IP y de correo, estadísticas). **Bluesky**: cuentas con contraseña de aplicación, Inicio, Notificaciones, Menciones,
 Mis publicaciones, Me gusta y Marcadores; publicar con imágenes o vídeo y texto alternativo,
 responder (con control de quién puede responder), citar, me gusta, republicar, marcadores, borrar,
 conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
-listas, además de traducir, resumir y describir imágenes con IA. Aún sin tiempo real, gestión de listas,
-moderación, mensajes privados ni palabras silenciadas. El resto de redes (Telegram, IRC, Matrix...)
+listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
+contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
+traducir, resumir y describir imágenes con IA. Aún faltan paquetes de inicio, tendencias y grupos de chat.
+**Telegram** (necesita `kurigram`, ver más abajo): alta con teléfono, código y verificación en dos pasos
+(las credenciales `api_id` y `api_hash` se piden en my.telegram.org y se indican desde el menú Telegram);
+lista de chats y de chats sin leer, cada conversación como un buffer del árbol, enviar, responder, editar,
+borrar, reaccionar, reenviar, copiar, descargar y abrir adjuntos, reproducir notas de voz y audios, enviar
+archivos, mensajes guardados, silenciar, fijar, archivar, marcar leído, información del chat y avisos de mensajes nuevos en
+**tiempo real** (por voz solo de la conversación abierta y de chats privados). Aún faltan carpetas, foros con
+temas, encuestas, historias, administración de grupos, bots y llamadas. El resto de redes (IRC, Matrix, XMPP...)
 se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
