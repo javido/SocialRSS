@@ -36442,3 +36442,38 @@ msgstr "Chats"
 
 msgid "Chats sin leer"
 msgstr "Chats sin leer"
+
+msgid ""
+"Intro sobre un chat: abrir la conversación como buffer (Ctrl+W la cierra)"
+msgstr ""
+"Intro sobre un chat: abrir la conversación como buffer (Ctrl+W la cierra)"
+
+msgid ""
+"Ctrl+N: nuevo mensaje en el chat; Ctrl+R: responder; Ctrl+Alt+E: editar tu "
+"mensaje"
+msgstr ""
+"Ctrl+N: nuevo mensaje en el chat; Ctrl+R: responder; Ctrl+Alt+E: editar tu "
+"mensaje"
+
+msgid ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+T: reenviar; Ctrl+Alt+C: copiar el texto"
+msgstr ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+T: reenviar; Ctrl+Alt+C: copiar el texto"
+
+msgid ""
+"Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un"
+" archivo"
+msgstr ""
+"Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un"
+" archivo"
+
+msgid "F2: reproducir la nota de voz o el audio"
+msgstr "F2: reproducir la nota de voz o el audio"
+
+msgid ""
+"Ctrl+Alt+P: información del chat; Supr: borrar el mensaje o salir del chat"
+msgstr ""
+"Ctrl+Alt+P: información del chat; Supr: borrar el mensaje o salir del chat"
+
+msgid "Ctrl+Mayús+M: cargar mensajes anteriores"
+msgstr "Ctrl+Mayús+M: cargar mensajes anteriores"

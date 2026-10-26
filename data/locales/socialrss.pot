@@ -46831,3 +46831,31 @@ msgstr ""
 
 msgid "Chats sin leer"
 msgstr ""
+
+msgid ""
+"Intro sobre un chat: abrir la conversación como buffer (Ctrl+W la cierra)"
+msgstr ""
+
+msgid ""
+"Ctrl+N: nuevo mensaje en el chat; Ctrl+R: responder; Ctrl+Alt+E: editar tu "
+"mensaje"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+T: reenviar; Ctrl+Alt+C: copiar el texto"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un"
+" archivo"
+msgstr ""
+
+msgid "F2: reproducir la nota de voz o el audio"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+P: información del chat; Supr: borrar el mensaje o salir del chat"
+msgstr ""
+
+msgid "Ctrl+Mayús+M: cargar mensajes anteriores"
+msgstr ""
