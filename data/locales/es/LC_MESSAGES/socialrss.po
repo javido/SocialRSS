@@ -36477,3 +36477,678 @@ msgstr ""
 
 msgid "Ctrl+Mayús+M: cargar mensajes anteriores"
 msgstr "Ctrl+Mayús+M: cargar mensajes anteriores"
+
+msgid ""
+"(se muestran los {m} con más usuarios; escribe en el filtro para acotar)"
+msgstr ""
+"(se muestran los {m} con más usuarios; escribe en el filtro para acotar)"
+
+msgid "A_migos (avisos de conexión)…"
+msgstr "A_migos (avisos de conexión)…"
+
+msgid "Acciones de _operador…"
+msgstr "Acciones de _operador…"
+
+msgid "Acciones sobre {n}"
+msgstr "Acciones sobre {n}"
+
+msgid "Anunciar los mensajes de _IRC por voz:"
+msgstr "Anunciar los mensajes de _IRC por voz:"
+
+msgid "Apodos a_lternativos (separados por comas):"
+msgstr "Apodos a_lternativos (separados por comas):"
+
+msgid "Aviso de {n}: {t}"
+msgstr "Aviso de {n}: {t}"
+
+msgid "Añadir red de _IRC…"
+msgstr "Añadir red de _IRC…"
+
+msgid "Banear y expulsar…"
+msgstr "Banear y expulsar…"
+
+msgid "Baneos de {c}"
+msgstr "Baneos de {c}"
+
+msgid "C_onectar automáticamente al abrir la aplicación"
+msgstr "C_onectar automáticamente al abrir la aplicación"
+
+msgid "Cambiar de _apodo…"
+msgstr "Cambiar de _apodo…"
+
+msgid "Cambiar de apodo"
+msgstr "Cambiar de apodo"
+
+msgid "Cambiar el _tema…"
+msgstr "Cambiar el _tema…"
+
+msgid "Canales del s_ervidor…"
+msgstr "Canales del s_ervidor…"
+
+msgid "Chat eliminado"
+msgstr "Chat eliminado"
+
+msgid "Co_piar el texto"
+msgstr "Co_piar el texto"
+
+msgid "Comando no reconocido: /{c}. Escribe /help."
+msgstr "Comando no reconocido: /{c}. Escribe /help."
+
+msgid ""
+"Comandos disponibles:\n"
+"/me <texto> — acción (\"* apodo hace algo\")\n"
+"/msg <destino> <texto> — mensaje a un canal o apodo\n"
+"/query <apodo> — abrir un chat privado\n"
+"/notice <destino> <texto> — enviar un aviso (notice)\n"
+"/join <#canal> — unirte a un canal\n"
+"/part [#canal] — salir del canal\n"
+"/cycle [#canal] — salir y volver a entrar\n"
+"/nick <apodo> — cambiar tu apodo\n"
+"/topic <texto> — cambiar el tema del canal\n"
+"/away [mensaje] — marcarte como ausente\n"
+"/back — volver a estar disponible\n"
+"/invite <apodo> [#canal] — invitar a alguien al canal\n"
+"/knock <#canal> [motivo] — pedir entrar en un canal de solo invitación\n"
+"/whowas <apodo> — datos de un apodo ya desconectado\n"
+"/ping <apodo> — medir la latencia con alguien (CTCP PING)\n"
+"/ctcp <apodo> <consulta> — CTCP a alguien (TIME, VERSION, CLIENTINFO...)\n"
+"/mode [#canal] <modos> [arg] — cambiar modos del canal (+m, +i, +k clave, +l 50...)\n"
+"/kick <apodo> [motivo] — expulsar del canal\n"
+"/ban <máscara> — banear por máscara (ej: *!*@host)\n"
+"/unban <máscara> — quitar un baneo\n"
+"/oper <usuario> <contraseña> — hacerte operador de la red\n"
+"/wallops <texto> — mensaje a quienes reciben wallops\n"
+"/umode <modos> — cambiar tus modos de usuario (+i invisible, +w wallops...)\n"
+"/metadata [clave valor|ver] — publicar/ver tu metadata (si el servidor lo admite)\n"
+"/clear — vaciar la vista (el historial local no se borra)\n"
+"/events [on|off] — mostrar u ocultar las entradas y salidas (fulano entró/salió) de este canal\n"
+"/quote <línea> — enviar una orden cruda al servidor\n"
+"/help — esta ayuda"
+msgstr ""
+"Comandos disponibles:\n"
+"/me <texto> — acción (\"* apodo hace algo\")\n"
+"/msg <destino> <texto> — mensaje a un canal o apodo\n"
+"/query <apodo> — abrir un chat privado\n"
+"/notice <destino> <texto> — enviar un aviso (notice)\n"
+"/join <#canal> — unirte a un canal\n"
+"/part [#canal] — salir del canal\n"
+"/cycle [#canal] — salir y volver a entrar\n"
+"/nick <apodo> — cambiar tu apodo\n"
+"/topic <texto> — cambiar el tema del canal\n"
+"/away [mensaje] — marcarte como ausente\n"
+"/back — volver a estar disponible\n"
+"/invite <apodo> [#canal] — invitar a alguien al canal\n"
+"/knock <#canal> [motivo] — pedir entrar en un canal de solo invitación\n"
+"/whowas <apodo> — datos de un apodo ya desconectado\n"
+"/ping <apodo> — medir la latencia con alguien (CTCP PING)\n"
+"/ctcp <apodo> <consulta> — CTCP a alguien (TIME, VERSION, CLIENTINFO...)\n"
+"/mode [#canal] <modos> [arg] — cambiar modos del canal (+m, +i, +k clave, +l 50...)\n"
+"/kick <apodo> [motivo] — expulsar del canal\n"
+"/ban <máscara> — banear por máscara (ej: *!*@host)\n"
+"/unban <máscara> — quitar un baneo\n"
+"/oper <usuario> <contraseña> — hacerte operador de la red\n"
+"/wallops <texto> — mensaje a quienes reciben wallops\n"
+"/umode <modos> — cambiar tus modos de usuario (+i invisible, +w wallops...)\n"
+"/metadata [clave valor|ver] — publicar/ver tu metadata (si el servidor lo admite)\n"
+"/clear — vaciar la vista (el historial local no se borra)\n"
+"/events [on|off] — mostrar u ocultar las entradas y salidas (fulano entró/salió) de este canal\n"
+"/quote <línea> — enviar una orden cruda al servidor\n"
+"/help — esta ayuda"
+
+msgid "Conectado a {r} como {n}."
+msgstr "Conectado a {r} como {n}."
+
+msgid "Conectando a la red…"
+msgstr "Conectando a la red…"
+
+msgid "Consola del _servidor…"
+msgstr "Consola del _servidor…"
+
+msgid "Consola del servidor"
+msgstr "Consola del servidor"
+
+msgid "Consultando a {n}…"
+msgstr "Consultando a {n}…"
+
+msgid "Contraseña de Nick_Serv (para redes sin SASL):"
+msgstr "Contraseña de Nick_Serv (para redes sin SASL):"
+
+msgid "Contraseña del ser_vidor (opcional):"
+msgstr "Contraseña del ser_vidor (opcional):"
+
+msgid "Conversación exportada ({n} líneas)"
+msgstr "Conversación exportada ({n} líneas)"
+
+msgid "Ctrl+Alt+G: consola del servidor"
+msgstr "Ctrl+Alt+G: consola del servidor"
+
+msgid ""
+"Ctrl+Alt+I: usuarios del canal; Ctrl+Alt+P: datos del usuario o del chat"
+msgstr ""
+"Ctrl+Alt+I: usuarios del canal; Ctrl+Alt+P: datos del usuario o del chat"
+
+msgid ""
+"Ctrl+Alt+J: unirse a un canal; Supr: eliminar el chat de la lista (y salir "
+"del canal)"
+msgstr ""
+"Ctrl+Alt+J: unirse a un canal; Supr: eliminar el chat de la lista (y salir "
+"del canal)"
+
+msgid ""
+"Ctrl+N: escribir en el chat (en Avisos, en la consola del servidor); Ctrl+R:"
+" responder mencionando"
+msgstr ""
+"Ctrl+N: escribir en el chat (en Avisos, en la consola del servidor); Ctrl+R:"
+" responder mencionando"
+
+msgid "Datos anteriores de {n}"
+msgstr "Datos anteriores de {n}"
+
+msgid "Datos de un apodo desconectado"
+msgstr "Datos de un apodo desconectado"
+
+msgid "Datos de un apodo desconectado…"
+msgstr "Datos de un apodo desconectado…"
+
+msgid "Datos de un usuario (_whois)…"
+msgstr "Datos de un usuario (_whois)…"
+
+msgid "Datos de {n}"
+msgstr "Datos de {n}"
+
+msgid "Datos del usuario"
+msgstr "Datos del usuario"
+
+msgid ""
+"De la conversación abierta, de privados y de menciones, según el nivel de "
+"aviso de cada canal."
+msgstr ""
+"De la conversación abierta, de privados y de menciones, según el nivel de "
+"aviso de cada canal."
+
+msgid "Dentro de {c}"
+msgstr "Dentro de {c}"
+
+msgid "Desconectado de la red"
+msgstr "Desconectado de la red"
+
+msgid "E_xportar la conversación…"
+msgstr "E_xportar la conversación…"
+
+msgid "Editar la _red…"
+msgstr "Editar la _red…"
+
+msgid "El puerto debe ser un número"
+msgstr "El puerto debe ser un número"
+
+msgid "Eliminar el chat"
+msgstr "Eliminar el chat"
+
+msgid "Eliminar la red…"
+msgstr "Eliminar la red…"
+
+msgid "Entradas y salidas ocultas en {c}"
+msgstr "Entradas y salidas ocultas en {c}"
+
+msgid "Entradas y salidas visibles en {c}"
+msgstr "Entradas y salidas visibles en {c}"
+
+msgid "Escribe la dirección del servidor"
+msgstr "Escribe la dirección del servidor"
+
+msgid "Escribe tu apodo"
+msgstr "Escribe tu apodo"
+
+msgid "Escribir en el chat"
+msgstr "Escribir en el chat"
+
+msgid "Esta acción es de canales"
+msgstr "Esta acción es de canales"
+
+msgid "Esta red no está conectada"
+msgstr "Esta red no está conectada"
+
+msgid "Esta red ya está conectada"
+msgstr "Esta red ya está conectada"
+
+msgid "Estás marcado como ausente"
+msgstr "Estás marcado como ausente"
+
+msgid "Expulsar del canal…"
+msgstr "Expulsar del canal…"
+
+msgid "Falta pydle. Instálalo con: pip install pydle"
+msgstr "Falta pydle. Instálalo con: pip install pydle"
+
+msgid "Has entrado en el canal"
+msgstr "Has entrado en el canal"
+
+msgid "Has salido de {c}"
+msgstr "Has salido de {c}"
+
+msgid "Has salido del canal"
+msgstr "Has salido del canal"
+
+msgid "Iniciar sesión con SAS_L (recomendado si la red lo admite)"
+msgstr "Iniciar sesión con SAS_L (recomendado si la red lo admite)"
+
+msgid "Intro envía. Los comandos empiezan por barra; /help los enseña."
+msgstr "Intro envía. Los comandos empiezan por barra; /help los enseña."
+
+msgid "La red no está conectada. Conéctala desde el menú IRC."
+msgstr "La red no está conectada. Conéctala desde el menú IRC."
+
+msgid "La red te avisará cuando se conecten o se desconecten."
+msgstr "La red te avisará cuando se conecten o se desconecten."
+
+msgid "La vista no acumula pantalla: el historial se conserva"
+msgstr "La vista no acumula pantalla: el historial se conserva"
+
+msgid "Lista de amigos guardada ({n})"
+msgstr "Lista de amigos guardada ({n})"
+
+msgid "Lista de usuarios ignorados"
+msgstr "Lista de usuarios ignorados"
+
+msgid "Lo que empieza por barra es un comando: /help los enseña"
+msgstr "Lo que empieza por barra es un comando: /help los enseña"
+
+msgid "Marcado como leído"
+msgstr "Marcado como leído"
+
+msgid "Marcar _todo como leído"
+msgstr "Marcar _todo como leído"
+
+msgid "Marcarme como _ausente…"
+msgstr "Marcarme como _ausente…"
+
+msgid "Mensaje en {c}"
+msgstr "Mensaje en {c}"
+
+msgid "Metadata"
+msgstr "Metadata"
+
+msgid "Modos aplicados"
+msgstr "Modos aplicados"
+
+msgid "Modos del canal {c}"
+msgstr "Modos del canal {c}"
+
+msgid "Mostrar u ocultar entradas y _salidas"
+msgstr "Mostrar u ocultar entradas y _salidas"
+
+msgid "Nivel de aviso de {c}: {n}"
+msgstr "Nivel de aviso de {c}: {n}"
+
+msgid "Nivel de aviso: {n}"
+msgstr "Nivel de aviso: {n}"
+
+msgid "No hay baneos"
+msgstr "No hay baneos"
+
+msgid "No hay usuarios que mostrar. ¿Estás dentro del canal?"
+msgstr "No hay usuarios que mostrar. ¿Estás dentro del canal?"
+
+msgid "No se pudo (¿eres operador del canal?): {e}"
+msgstr "No se pudo (¿eres operador del canal?): {e}"
+
+msgid "No se pudo cambiar el apodo: {e}"
+msgstr "No se pudo cambiar el apodo: {e}"
+
+msgid "No se pudo cambiar el tema: {e}"
+msgstr "No se pudo cambiar el tema: {e}"
+
+msgid "No se pudo desconectar: {e}"
+msgstr "No se pudo desconectar: {e}"
+
+msgid "No se pudo entrar en {c}: {e}"
+msgstr "No se pudo entrar en {c}: {e}"
+
+msgid "No se pudo entrar: {e}"
+msgstr "No se pudo entrar: {e}"
+
+msgid "No se pudo exportar: {e}"
+msgstr "No se pudo exportar: {e}"
+
+msgid "No se pudo obtener la lista: {e}"
+msgstr "No se pudo obtener la lista: {e}"
+
+msgid "No se pudo salir de {c}: {e}"
+msgstr "No se pudo salir de {c}: {e}"
+
+msgid "No tienes usuarios ignorados en esta red"
+msgstr "No tienes usuarios ignorados en esta red"
+
+msgid "No unido"
+msgstr "No unido"
+
+msgid "Nombre _real (opcional):"
+msgstr "Nombre _real (opcional):"
+
+msgid "Pidiendo la lista de canales (puede tardar en redes grandes)…"
+msgstr "Pidiendo la lista de canales (puede tardar en redes grandes)…"
+
+msgid "Por ejemplo #nvda, #accesibilidad."
+msgstr "Por ejemplo #nvda, #accesibilidad."
+
+msgid "Reconectado a {r}."
+msgstr "Reconectado a {r}."
+
+msgid "Red eliminada"
+msgstr "Red eliminada"
+
+msgid "Red guardada"
+msgstr "Red guardada"
+
+msgid "Responder mencionando"
+msgstr "Responder mencionando"
+
+msgid "Salir del _canal"
+msgstr "Salir del _canal"
+
+msgid "Se perdió la conexión con {r}; reintentando en segundo plano."
+msgstr "Se perdió la conexión con {r}; reintentando en segundo plano."
+
+msgid "Selecciona un chat de IRC"
+msgstr "Selecciona un chat de IRC"
+
+msgid "Selecciona un mensaje de IRC"
+msgstr "Selecciona un mensaje de IRC"
+
+msgid "Selecciona una red de IRC"
+msgstr "Selecciona una red de IRC"
+
+msgid "Tema cambiado"
+msgstr "Tema cambiado"
+
+msgid "Tema de {c}"
+msgstr "Tema de {c}"
+
+msgid "Tema: {t}"
+msgstr "Tema: {t}"
+
+msgid "Tu rango: {r}"
+msgstr "Tu rango: {r}"
+
+msgid "Unido"
+msgstr "Unido"
+
+msgid "Unirme"
+msgstr "Unirme"
+
+msgid "Usar conexión segura (_TLS)"
+msgstr "Usar conexión segura (_TLS)"
+
+msgid "Uso: /{c} {f}"
+msgstr "Uso: /{c} {f}"
+
+msgid "Usuario SASL (vacío = el apodo):"
+msgstr "Usuario SASL (vacío = el apodo):"
+
+msgid "Usuarios _ignorados…"
+msgstr "Usuarios _ignorados…"
+
+msgid "Usuarios de {c}"
+msgstr "Usuarios de {c}"
+
+msgid "Usuarios ignorados"
+msgstr "Usuarios ignorados"
+
+msgid "Volver a estar d_isponible"
+msgstr "Volver a estar d_isponible"
+
+msgid "Vuelves a estar disponible"
+msgstr "Vuelves a estar disponible"
+
+msgid "[#canal] modos [argumento]"
+msgstr "[#canal] modos [argumento]"
+
+msgid "_Acción:"
+msgstr "_Acción:"
+
+msgid "_Actualizar"
+msgstr "_Actualizar"
+
+msgid "_Apodo:"
+msgstr "_Apodo:"
+
+msgid "_Apodos separados por comas:"
+msgstr "_Apodos separados por comas:"
+
+msgid "_Avisar:"
+msgstr "_Avisar:"
+
+msgid "_Añadir baneo…"
+msgstr "_Añadir baneo…"
+
+msgid "_Banear"
+msgstr "_Banear"
+
+msgid "_Baneos del canal…"
+msgstr "_Baneos del canal…"
+
+msgid "_Canal (por ejemplo #nvda):"
+msgstr "_Canal (por ejemplo #nvda):"
+
+msgid "_Canales al conectar (separados por comas):"
+msgstr "_Canales al conectar (separados por comas):"
+
+msgid "_Clave del canal (vacío = sin clave):"
+msgstr "_Clave del canal (vacío = sin clave):"
+
+msgid "_Conectar a la red"
+msgstr "_Conectar a la red"
+
+msgid "_Consultar"
+msgstr "_Consultar"
+
+msgid "_Datos (whois)"
+msgstr "_Datos (whois)"
+
+msgid "_Dejar de ignorar"
+msgstr "_Dejar de ignorar"
+
+msgid "_Desconectar de la red"
+msgstr "_Desconectar de la red"
+
+msgid "_Escribir en el chat"
+msgstr "_Escribir en el chat"
+
+msgid "_Filtrar por nombre o tema:"
+msgstr "_Filtrar por nombre o tema:"
+
+msgid "_Hacerlo"
+msgstr "_Hacerlo"
+
+msgid "_IRC"
+msgstr "_IRC"
+
+msgid "_Ignorar o dejar de ignorar"
+msgstr "_Ignorar o dejar de ignorar"
+
+msgid "_Límite de usuarios (0 = sin límite):"
+msgstr "_Límite de usuarios (0 = sin límite):"
+
+msgid "_Marcar"
+msgstr "_Marcar"
+
+msgid "_Mensaje de ausencia:"
+msgstr "_Mensaje de ausencia:"
+
+msgid "_Modos del canal…"
+msgstr "_Modos del canal…"
+
+msgid "_Motivo (opcional):"
+msgstr "_Motivo (opcional):"
+
+msgid "_Máscara (por ejemplo *!*@host.com):"
+msgstr "_Máscara (por ejemplo *!*@host.com):"
+
+msgid "_Nivel de aviso del canal…"
+msgstr "_Nivel de aviso del canal…"
+
+msgid "_Nombre de la red (por ejemplo Libera.Chat):"
+msgstr "_Nombre de la red (por ejemplo Libera.Chat):"
+
+msgid "_Nuevo apodo:"
+msgstr "_Nuevo apodo:"
+
+msgid "_Privado"
+msgstr "_Privado"
+
+msgid "_Puerto:"
+msgstr "_Puerto:"
+
+msgid "_Quitar baneo"
+msgstr "_Quitar baneo"
+
+msgid "_Responder mencionando"
+msgstr "_Responder mencionando"
+
+msgid "_Servidor (por ejemplo irc.libera.chat):"
+msgstr "_Servidor (por ejemplo irc.libera.chat):"
+
+msgid "_Tema:"
+msgstr "_Tema:"
+
+msgid "_Unirse"
+msgstr "_Unirse"
+
+msgid "_Unirse a un canal…"
+msgstr "_Unirse a un canal…"
+
+msgid "_Unirse al canal"
+msgstr "_Unirse al canal"
+
+msgid "_Usuario (ident, opcional):"
+msgstr "_Usuario (ident, opcional):"
+
+msgid "_Usuarios del canal…"
+msgstr "_Usuarios del canal…"
+
+msgid "_Verificar el certificado del servidor (recomendado)"
+msgstr "_Verificar el certificado del servidor (recomendado)"
+
+msgid "apodo"
+msgstr "apodo"
+
+msgid "apodo [#canal]"
+msgstr "apodo [#canal]"
+
+msgid "apodo [motivo]"
+msgstr "apodo [motivo]"
+
+msgid "destino texto"
+msgstr "destino texto"
+
+msgid "el servidor"
+msgstr "el servidor"
+
+msgid "línea"
+msgstr "línea"
+
+msgid "modos"
+msgstr "modos"
+
+msgid "máscara"
+msgstr "máscara"
+
+msgid "no unido"
+msgstr "no unido"
+
+msgid "te mencionan"
+msgstr "te mencionan"
+
+msgid "unido"
+msgstr "unido"
+
+msgid "{c}, {u} usuarios. {t}"
+msgstr "{c}, {u} usuarios. {t}"
+
+msgid "{m}, puesto por {p}"
+msgstr "{m}, puesto por {p}"
+
+msgid "{n} (desconectada)"
+msgstr "{n} (desconectada)"
+
+msgid "{n} (no unido)"
+msgstr "{n} (no unido)"
+
+msgid "{n} baneos"
+msgstr "{n} baneos"
+
+msgid "{n} canales"
+msgstr "{n} canales"
+
+msgid "{n} ha cambiado el tema a: {t}"
+msgstr "{n} ha cambiado el tema a: {t}"
+
+msgid "{n} ha cambiado los modos: {t}"
+msgstr "{n} ha cambiado los modos: {t}"
+
+msgid "{n} ha entrado en el canal"
+msgstr "{n} ha entrado en el canal"
+
+msgid "{n} ha expulsado a {t}"
+msgstr "{n} ha expulsado a {t}"
+
+msgid "{n} ha salido"
+msgstr "{n} ha salido"
+
+msgid "{n} ignorado. No verás sus mensajes."
+msgstr "{n} ignorado. No verás sus mensajes."
+
+msgid "{n} ignorados"
+msgstr "{n} ignorados"
+
+msgid "{n} te invita al canal {c}. ¿Unirte ahora?"
+msgstr "{n} te invita al canal {c}. ¿Unirte ahora?"
+
+msgid "{n} te menciona en {c}: {t}"
+msgstr "{n} te menciona en {c}: {t}"
+
+msgid "{n} usuarios"
+msgstr "{n} usuarios"
+
+msgid "{n} ya no está ignorado"
+msgstr "{n} ya no está ignorado"
+
+msgid "{r}: ahora eres {n}."
+msgstr "{r}: ahora eres {n}."
+
+msgid ""
+"{r}: la red exige conexión segura; se usará TLS (puerto {p}) a partir de la "
+"próxima conexión."
+msgstr ""
+"{r}: la red exige conexión segura; se usará TLS (puerto {p}) a partir de la "
+"próxima conexión."
+
+msgid "{r}: te han desconectado de la red ({p}: {m})."
+msgstr "{r}: te han desconectado de la red ({p}: {m})."
+
+msgid "{r}: tus modos han cambiado ({m})."
+msgstr "{r}: tus modos han cambiado ({m})."
+
+msgid "{r}: ya eres operador de la red."
+msgstr "{r}: ya eres operador de la red."
+
+msgid "{r}: {n} se ha conectado."
+msgstr "{r}: {n} se ha conectado."
+
+msgid "{r}: {n} se ha desconectado."
+msgstr "{r}: {n} se ha desconectado."
+
+msgid "¿Eliminar el chat {c} y su historial local?"
+msgstr "¿Eliminar el chat {c} y su historial local?"
+
+msgid "¿Eliminar la red {n} y todo su historial de este equipo?"
+msgstr "¿Eliminar la red {n} y todo su historial de este equipo?"
+
+msgid "¿Seguro que quieres {a} a {n} de {c}?"
+msgstr "¿Seguro que quieres {a} a {n} de {c}?"
+
+msgid "Has cambiado el tema a: {t}"
+msgstr "Has cambiado el tema a: {t}"
+
+msgid "Has cambiado los modos: {t}"
+msgstr "Has cambiado los modos: {t}"

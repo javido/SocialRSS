@@ -33,6 +33,7 @@ def _menu() -> Gio.Menu:
     archivo.append_section(None, sec((_("Añadir _cuenta de Mastodon…"), "app.anadir-cuenta-mastodon"),
                                      (_("Añadir cuenta de _Bluesky…"), "app.anadir-cuenta-bluesky"),
                                      (_("Añadir cuenta de Tele_gram…"), "app.anadir-cuenta-telegram"),
+                                     (_("Añadir red de _IRC…"), "app.anadir-red-irc"),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -187,6 +188,37 @@ def _menu() -> Gio.Menu:
                                 (_("Cerrar la _sesión y eliminar la cuenta…"), "win.tg-eliminar-cuenta")))
     barra.append_submenu(_("_Telegram"), tg)
 
+    irc = Gio.Menu()
+    irc.append_section(None, sec((_("_Conectar a la red"), "win.irc-conectar"),
+                                 (_("_Desconectar de la red"), "win.irc-desconectar"),
+                                 (_("Consola del _servidor…"), "win.irc-consola")))
+    irc.append_section(None, sec((_("_Escribir en el chat"), "win.nuevo"),
+                                 (_("_Responder mencionando"), "win.responder"),
+                                 (_("_Unirse a un canal…"), "win.irc-unirse"),
+                                 (_("Salir del _canal"), "win.irc-salir"),
+                                 (_("Canales del s_ervidor…"), "win.irc-canales-servidor")))
+    irc.append_section(None, sec((_("_Usuarios del canal…"), "win.irc-usuarios"),
+                                 (_("Datos de un usuario (_whois)…"), "win.irc-whois"),
+                                 (_("_Información del chat"), "win.irc-info-canal"),
+                                 (_("Cambiar el _tema…"), "win.irc-tema"),
+                                 (_("_Modos del canal…"), "win.irc-modos"),
+                                 (_("_Baneos del canal…"), "win.irc-baneos")))
+    irc.append_section(None, sec((_("_Nivel de aviso del canal…"), "win.irc-nivel-aviso"),
+                                 (_("Mostrar u ocultar entradas y _salidas"), "win.irc-eventos"),
+                                 (_("Marcar el chat como _leído"), "win.irc-leido"),
+                                 (_("Marcar _todo como leído"), "win.marcar-todo-leido"),
+                                 (_("E_xportar la conversación…"), "win.irc-exportar"),
+                                 (_("Co_piar el texto"), "win.irc-copiar")))
+    irc.append_section(None, sec((_("Marcarme como _ausente…"), "win.irc-ausente"),
+                                 (_("Volver a estar d_isponible"), "win.irc-disponible"),
+                                 (_("Cambiar de _apodo…"), "win.irc-nick"),
+                                 (_("Datos de un apodo desconectado…"), "win.irc-whowas"),
+                                 (_("Usuarios _ignorados…"), "win.irc-ignorados"),
+                                 (_("A_migos (avisos de conexión)…"), "win.irc-amigos")))
+    irc.append_section(None, sec((_("Editar la _red…"), "win.irc-editar-red"),
+                                 (_("Eliminar la red…"), "win.irc-eliminar-red")))
+    barra.append_submenu(_("_IRC"), irc)
+
     rep = Gio.Menu()
     rep.append_section(None, sec((_("Reproducir el audio del artículo"), "win.reproducir-articulo"),
                                  (_("Reproducir / pausar"), "win.reproducir"),
@@ -243,6 +275,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-cuenta-mastodon", self.anadir_cuenta_mastodon)
         accion("anadir-cuenta-bluesky", self.anadir_cuenta_bluesky)
         accion("anadir-cuenta-telegram", self.anadir_cuenta_telegram)
+        accion("anadir-red-irc", self.anadir_red_irc)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -338,6 +371,14 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("telegram", account_id, "timeline", None, None, "chats"))
             self.ventana.iniciar_tiempo_real_telegram()
         DialogoCuentaTelegram(self.ventana, _hecha).present()
+
+    def anadir_red_irc(self):
+        from .dialogos_irc import DialogoRedIRC
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("irc", account_id, "timeline", None, None, "channels"))
+            self.ventana.iniciar_tiempo_real_irc()
+        DialogoRedIRC(self.ventana, None, _hecha).present()
 
     def acerca(self):
         dlg = Gtk.AboutDialog(transient_for=self.ventana, modal=True, program_name="SocialRSS Accessible Suite",

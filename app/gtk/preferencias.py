@@ -130,6 +130,9 @@ class DialogoPreferencias(Gtk.Window):
         self.anunciar_tg = p.interruptor(config.get("telegram", "announce_new", True))
         p.campo(_("Anunciar los _mensajes nuevos de Telegram por voz:"), self.anunciar_tg,
                 _("Solo de la conversación abierta y de chats privados, nunca de grupos ni canales."))
+        self.anunciar_irc = p.interruptor(config.get("irc", "announce_new", True))
+        p.campo(_("Anunciar los mensajes de _IRC por voz:"), self.anunciar_irc,
+                _("De la conversación abierta, de privados y de menciones, según el nivel de aviso de cada canal."))
         self.paralelas = Gtk.SpinButton.new_with_range(1, 50, 1)
         self.paralelas.set_value(int(config.get("rss", "max_parallel_updates", 5)))
         p.campo(_("Descargas si_multáneas al actualizar:"), self.paralelas)
@@ -330,6 +333,7 @@ class DialogoPreferencias(Gtk.Window):
         config.set("gtk", "bluesky_realtime", self.tiempo_real_bsky.get_active())
         config.set("gtk", "telegram_realtime", self.tiempo_real_tg.get_active())
         config.set("telegram", "announce_new", self.anunciar_tg.get_active())
+        config.set("irc", "announce_new", self.anunciar_irc.get_active())
         paso = float(self.paso.get_value())
         config.set("media_player", "default_step_forward2", paso)
         config.set("media_player", "default_step_backward2", paso)

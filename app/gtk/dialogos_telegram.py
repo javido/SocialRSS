@@ -9,21 +9,15 @@ gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk  # noqa: E402
 
 from app.core.speech import notificar
-from app.core.task_manager import task_manager
 from app.services.telegram.telegram_service import telegram_service
 
-from .dialogos import DialogoBase
+from .dialogos import DialogoBase, ejecutar  # noqa: F401  (ejecutar se reexporta a ventana_telegram)
 
 log = logging.getLogger(__name__)
 
 LIMITE_MENSAJE = 4096
 LIMITE_PIE = 1024
 REACCIONES = ["👍", "❤️", "😂", "😮", "😢", "🙏", "👎", "🔥", "🎉", "🤔"]
-
-
-def ejecutar(fn, callback):
-    """Ejecuta `fn()` (que bloquea hablando con Telegram) en segundo plano; `callback(res, err)` va al hilo de la UI."""
-    task_manager.start_task(lambda ctx: fn(), callback=callback, pass_context=True)
 
 
 class DialogoCredencialesTelegram(DialogoBase):

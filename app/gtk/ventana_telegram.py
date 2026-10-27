@@ -700,7 +700,6 @@ class _TelegramMixin:
     def _registrar_acciones_telegram(self, accion):
         def a(nombre, fn, teclas=()):
             accion(nombre, fn, teclas)
-        a("abrir-chat", self.tg_abrir_fila)
         a("tg-chat-nuevo", self.tg_chat_nuevo)
         a("tg-guardados", self.tg_guardados)
         a("tg-enviar-archivo", self.tg_enviar_archivo, ["<Ctrl><Alt>u"])

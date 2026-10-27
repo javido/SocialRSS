@@ -119,8 +119,15 @@ lista de chats y de chats sin leer, cada conversación como un buffer del árbol
 borrar, reaccionar, reenviar, copiar, descargar y abrir adjuntos, reproducir notas de voz y audios, enviar
 archivos, mensajes guardados, silenciar, fijar, archivar, marcar leído, información del chat y avisos de mensajes nuevos en
 **tiempo real** (por voz solo de la conversación abierta y de chats privados). Aún faltan carpetas, foros con
-temas, encuestas, historias, administración de grupos, bots y llamadas. El resto de redes (IRC, Matrix, XMPP...)
-se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+temas, encuestas, historias, administración de grupos, bots y llamadas.
+**IRC** (necesita `pydle`): redes con TLS, SASL y NickServ; cada red es una cuenta con los buffers Canales,
+Privados y Avisos del servidor, y cada conversación se abre como un buffer del árbol. Se escribe con Ctrl+N
+(Ctrl+R responde mencionando) y todo lo que empieza por barra es un comando (`/help` los enseña: `/me`, `/join`,
+`/mode`, `/kick`, `/whois`...). Incluye usuarios del canal con sus rangos, canales del servidor con filtro,
+tema, modos y baneos, nivel de aviso por canal, entradas y salidas ocultables, ignorados, amigos, ausente,
+consola del servidor, exportar la conversación y reconexión automática. Los mensajes llegan en **tiempo real**
+(por voz: la conversación abierta, los privados y las menciones, según el nivel de aviso). El resto de redes
+(Matrix, XMPP...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
 

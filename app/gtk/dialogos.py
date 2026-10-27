@@ -16,6 +16,11 @@ from app.services.rss.rss_service import rss_service
 log = logging.getLogger(__name__)
 
 
+def ejecutar(fn, callback):
+    """Ejecuta `fn()` (que bloquea hablando con la red) en segundo plano; `callback(res, err)` va al hilo de la UI."""
+    task_manager.start_task(lambda ctx: fn(), callback=callback, pass_context=True)
+
+
 class DialogoBase(Gtk.Window):
     """Ventana modal con rejilla etiqueta/campo, botones Aceptar/Cancelar y Escape para cerrar."""
 
@@ -173,6 +178,14 @@ def _teclas() -> str:
         _("F2: reproducir la nota de voz o el audio"),
         _("Ctrl+Alt+P: información del chat; Supr: borrar el mensaje o salir del chat"),
         _("Ctrl+Mayús+M: cargar mensajes anteriores"),
+        "",
+        _("IRC"),
+        _("Intro sobre un chat: abrir la conversación como buffer (Ctrl+W la cierra)"),
+        _("Ctrl+N: escribir en el chat (en Avisos, en la consola del servidor); Ctrl+R: responder mencionando"),
+        _("Lo que empieza por barra es un comando: /help los enseña"),
+        _("Ctrl+Alt+J: unirse a un canal; Supr: eliminar el chat de la lista (y salir del canal)"),
+        _("Ctrl+Alt+I: usuarios del canal; Ctrl+Alt+P: datos del usuario o del chat"),
+        _("Ctrl+Alt+G: consola del servidor"),
         "",
         _("Actualizar y reproductor"),
         _("Ctrl+Mayús+R: actualizar (todos los feeds o el buffer actual)"),
