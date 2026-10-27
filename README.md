@@ -127,7 +127,16 @@ Privados y Avisos del servidor, y cada conversación se abre como un buffer del 
 tema, modos y baneos, nivel de aviso por canal, entradas y salidas ocultables, ignorados, amigos, ausente,
 consola del servidor, exportar la conversación y reconexión automática. Los mensajes llegan en **tiempo real**
 (por voz: la conversación abierta, los privados y las menciones, según el nivel de aviso). El resto de redes
-(Matrix, XMPP...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+**XMPP / Jabber** (necesita `slixmpp`; `slixmpp-omemo` para cifrar): alta con JID y contraseña, cuentas con
+Conversaciones, Contactos, Grupos, Solicitudes y Archivados, y una rama propia por cada pasarela (WhatsApp, Discord...).
+Cada conversación es un buffer del árbol. Escribir, responder citando, corregir tu último mensaje, retirarlo,
+reaccionar, destacar, enviar y descargar archivos, reproducir notas de voz y audios, aceptar o rechazar
+solicitudes, agregar, renombrar, bloquear y quitar contactos, ficha (vCard) e información técnica, zumbidos,
+salas (unirse, directorio, ocupantes con moderación, tema, salir), fijar, silenciar, archivar, nivel de aviso,
+vaciar y exportar conversaciones, cifrado OMEMO con verificación de huellas, y tu presencia, ánimo y actividad.
+Los mensajes, la presencia y las solicitudes llegan en **tiempo real**. Aún faltan la grabación de notas de voz,
+el registro y la baja de pasarelas, los comandos del servidor y la búsqueda de usuarios. El resto de redes
+(Matrix...) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
 

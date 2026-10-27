@@ -707,9 +707,9 @@ class _IRCMixin:
     def _registrar_acciones_irc(self, accion):
         def a(nombre, fn, teclas=()):
             accion(nombre, fn, teclas)
-        a("irc-unirse", self.irc_unirse, ["<Ctrl><Alt>j"])
+        a("irc-unirse", self.irc_unirse)
         a("irc-salir", self.irc_salir)
-        a("irc-usuarios", self.irc_usuarios, ["<Ctrl><Alt>i"])
+        a("irc-usuarios", self.irc_usuarios)
         a("irc-whois", self.irc_whois)
         a("irc-info-canal", self.irc_info_canal)
         a("irc-tema", self.irc_tema)

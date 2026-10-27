@@ -47495,3 +47495,745 @@ msgstr ""
 
 msgid "Has cambiado los modos: {t}"
 msgstr ""
+
+msgid "(Ctrl+Alt+D para descargar)"
+msgstr ""
+
+msgid "(bloqueado)"
+msgstr ""
+
+msgid "(en respuesta a: {c})"
+msgstr ""
+
+msgid "(pendiente)"
+msgstr ""
+
+msgid "(reproducido)"
+msgstr ""
+
+msgid "(te mencionan)"
+msgstr ""
+
+msgid "A_gregar un contacto…"
+msgstr ""
+
+msgid "Abre antes una conversación"
+msgstr ""
+
+msgid "Acciones de _moderación…"
+msgstr ""
+
+msgid "Aceptar la solicitud o abrir el chat"
+msgstr ""
+
+msgid "Activar o quitar el cifrado _OMEMO"
+msgstr ""
+
+msgid "Ahora eres invisible"
+msgstr ""
+
+msgid "Anunciar los mensajes de _XMPP por voz:"
+msgstr ""
+
+msgid "Archi_var o desarchivar"
+msgstr ""
+
+msgid "Archivar o desarchivar"
+msgstr ""
+
+msgid "Archivo adjunto"
+msgstr ""
+
+msgid "Añadir cuenta de _XMPP…"
+msgstr ""
+
+msgid "Cambiar el _tema de la sala…"
+msgstr ""
+
+msgid "Chat desarchivado"
+msgstr ""
+
+msgid "Chat fijado arriba"
+msgstr ""
+
+msgid "Chat silenciado: {t}"
+msgstr ""
+
+msgid "Cifrado OMEMO activado"
+msgstr ""
+
+msgid ""
+"Cifrado OMEMO activado: los mensajes de esta conversación se enviarán "
+"cifrados de extremo a extremo"
+msgstr ""
+
+msgid "Cifrado OMEMO desactivado"
+msgstr ""
+
+msgid "Conectado a XMPP"
+msgstr ""
+
+msgid "Conectando con XMPP…"
+msgstr ""
+
+msgid "Consultando el servidor…"
+msgstr ""
+
+msgid "Consultando los dispositivos…"
+msgstr ""
+
+msgid "Contacto agregado; espera a que acepte tu solicitud"
+msgstr ""
+
+msgid "Conversación exportada ({n} mensajes)"
+msgstr ""
+
+msgid "Corregir mi _último mensaje"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un"
+" archivo; F2: reproducir"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+E: corregir tu último mensaje; Supr: retirar tu mensaje, quitar el "
+"contacto o salir del grupo"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: ocupantes de la sala; Ctrl+Alt+P:"
+" información del contacto"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+C: copiar; Ctrl+D: destacar el mensaje"
+msgstr ""
+
+msgid "Ctrl+Intro envía el mensaje"
+msgstr ""
+
+msgid ""
+"Ctrl+N: escribir en el chat (Ctrl+Intro envía) o agregar un contacto; "
+"Ctrl+R: responder al mensaje"
+msgstr ""
+
+msgid "Cuenta de XMPP añadida"
+msgstr ""
+
+msgid "Cuenta eliminada de este equipo"
+msgstr ""
+
+msgid ""
+"De la conversación abierta, de chats privados y de menciones en grupos, "
+"según el nivel de aviso."
+msgstr ""
+
+msgid "Dentro de la sala"
+msgstr ""
+
+msgid "Descargado en {r}, pero no se pudo abrir: {e}"
+msgstr ""
+
+msgid "Desconectado de XMPP"
+msgstr ""
+
+msgid "Destacar el mensaje"
+msgstr ""
+
+msgid "Directorio de _salas…"
+msgstr ""
+
+msgid "Dispositivo marcado como no fiable"
+msgstr ""
+
+msgid "Dispositivo verificado"
+msgstr ""
+
+msgid ""
+"Dispositivo {d}\n"
+"Huella: {h}\n"
+"Confianza: {c}"
+msgstr ""
+
+msgid "Dispositivo {d}, confianza {c}. Huella {h}"
+msgstr ""
+
+msgid "El mensaje es demasiado largo"
+msgstr ""
+
+msgid "Eliminar la cuenta de este equipo…"
+msgstr ""
+
+msgid "En respuesta a {c}"
+msgstr ""
+
+msgid "Entrando en {s}…"
+msgstr ""
+
+msgid "Entrar"
+msgstr ""
+
+msgid "Enviar un _zumbido"
+msgstr ""
+
+msgid "Escribe el JID completo (usuario@servidor) y la contraseña"
+msgstr ""
+
+msgid "Escribe el JID de la sala (sala@conference.servidor)"
+msgstr ""
+
+msgid "Escribe un JID válido (usuario@servidor)"
+msgstr ""
+
+msgid "Escribir"
+msgstr ""
+
+msgid "Esta acción es de grupos"
+msgstr ""
+
+msgid "Esta cuenta no está conectada"
+msgstr ""
+
+msgid "Esta cuenta ya está conectada"
+msgstr ""
+
+msgid "Estado publicado"
+msgstr ""
+
+msgid "Estado retirado"
+msgstr ""
+
+msgid "Estado: {e}"
+msgstr ""
+
+msgid "Este contacto no ha publicado claves OMEMO"
+msgstr ""
+
+msgid "Este mensaje no se puede responder"
+msgstr ""
+
+msgid "Este mensaje no se puede retirar"
+msgstr ""
+
+msgid "Este mensaje no tiene un archivo"
+msgstr ""
+
+msgid "Falta el cifrado OMEMO. Instálalo con: pip install slixmpp-omemo"
+msgstr ""
+
+msgid "Falta slixmpp. Instálalo con: pip install slixmpp"
+msgstr ""
+
+msgid "Ficha de {n}"
+msgstr ""
+
+msgid "Has salido de {n}"
+msgstr ""
+
+msgid "Huellas de cifrado OMEMO — {n}"
+msgstr ""
+
+msgid "Información _técnica"
+msgstr ""
+
+msgid "Información de {n}"
+msgstr ""
+
+msgid "Información técnica de {n}"
+msgstr ""
+
+msgid "Iniciar _sesión"
+msgstr ""
+
+msgid ""
+"Intro sobre un chat: abrir la conversación; sobre una solicitud: aceptarla o"
+" rechazarla"
+msgstr ""
+
+msgid "Invitación a la sala {n} ({j})"
+msgstr ""
+
+msgid "Invitación enviada"
+msgstr ""
+
+msgid "Invitación rechazada"
+msgstr ""
+
+msgid "JID: {j}"
+msgstr ""
+
+msgid "La cuenta no está conectada. Conéctala desde el menú XMPP."
+msgstr ""
+
+msgid "Lista de salas"
+msgstr ""
+
+msgid "Los mensajes de una sala no se pueden corregir"
+msgstr ""
+
+msgid "Marcado como no leído"
+msgstr ""
+
+msgid "Marcar como _leído"
+msgstr ""
+
+msgid "Mensaje a {n}"
+msgstr ""
+
+msgid "Mensaje corregido"
+msgstr ""
+
+msgid "Mensaje destacado"
+msgstr ""
+
+msgid "Mensaje retirado"
+msgstr ""
+
+msgid "Mi _huella"
+msgstr ""
+
+msgid "Mi _presencia…"
+msgstr ""
+
+msgid "Mi activi_dad…"
+msgstr ""
+
+msgid "Mi estado de á_nimo…"
+msgstr ""
+
+msgid "Mi huella OMEMO"
+msgstr ""
+
+msgid "No has enviado ningún mensaje que corregir"
+msgstr ""
+
+msgid "No hay más mensajes anteriores (o el servidor no guarda historial)"
+msgstr ""
+
+msgid "No hay ocupantes que mostrar. ¿Estás dentro de la sala?"
+msgstr ""
+
+msgid "No hay salas que mostrar"
+msgstr ""
+
+msgid "No se pudo (¿eres moderador/a?): {e}"
+msgstr ""
+
+msgid "No se pudo añadir la cuenta: {e}"
+msgstr ""
+
+msgid "No se pudo cambiar el cifrado: {e}"
+msgstr ""
+
+msgid "No se pudo cambiar la confianza"
+msgstr ""
+
+msgid "No se pudo corregir: {e}"
+msgstr ""
+
+msgid "No se pudo invitar: {e}"
+msgstr ""
+
+msgid "No se pudo obtener el directorio: {e}"
+msgstr ""
+
+msgid "No se pudo obtener tu huella"
+msgstr ""
+
+msgid "No se pudo reproducir: {e}"
+msgstr ""
+
+msgid "Nombre: {n}"
+msgstr ""
+
+msgid "Ocupantes de {s}"
+msgstr ""
+
+msgid ""
+"Por seguridad, «{n}» no se abre desde la aplicación. Se descargará a tu "
+"carpeta de descargas."
+msgstr ""
+
+msgid "Presencia actualizada"
+msgstr ""
+
+msgid "Presencia: {p}"
+msgstr ""
+
+msgid "Pulsa Intro para aceptar o rechazar."
+msgstr ""
+
+msgid "Quitar o salir"
+msgstr ""
+
+msgid "Re_nombrar el contacto…"
+msgstr ""
+
+msgid "Re_producir el audio"
+msgstr ""
+
+msgid "Re_tirar el mensaje o quitar el chat"
+msgstr ""
+
+msgid "Reacción quitada"
+msgstr ""
+
+msgid "Rechazar la solicitud"
+msgstr ""
+
+msgid "Retirar"
+msgstr ""
+
+msgid "Retirar el mensaje"
+msgstr ""
+
+msgid "Salir del _grupo"
+msgstr ""
+
+msgid "Salir y olvidar el grupo"
+msgstr ""
+
+msgid "Se guarda cifrada en este equipo; XMPP la usa en cada conexión."
+msgstr ""
+
+msgid "Se perdió la conexión con XMPP; reintentando"
+msgstr ""
+
+msgid "Selecciona un chat de XMPP"
+msgstr ""
+
+msgid "Selecciona un mensaje de XMPP"
+msgstr ""
+
+msgid "Selecciona una cuenta de XMPP"
+msgstr ""
+
+msgid "Selecciona una solicitud"
+msgstr ""
+
+msgid "Ser invisible"
+msgstr ""
+
+msgid "Silenciar o reactivar el chat"
+msgstr ""
+
+msgid "Silencio quitado"
+msgstr ""
+
+msgid ""
+"Solo para servidores con certificado caducado o autofirmado en los que "
+"confías. La conexión sigue cifrada."
+msgstr ""
+
+msgid "Solo puedes retirar tus propios mensajes"
+msgstr ""
+
+msgid "Subiendo {f}…"
+msgstr ""
+
+msgid "Suscripción: {s}"
+msgstr ""
+
+msgid "Te han invitado a la sala {j}"
+msgstr ""
+
+msgid "Te han invitado a la sala {j}. ¿Entrar?"
+msgstr ""
+
+msgid "Tu apodo: {n}"
+msgstr ""
+
+msgid "Tu dirección de Jabber completa, por ejemplo nombre@jabber.org."
+msgstr ""
+
+msgid "Una frase corta que verán tus contactos."
+msgstr ""
+
+msgid "Vaciar la conversación…"
+msgstr ""
+
+msgid "Verificando la cuenta de XMPP…"
+msgstr ""
+
+msgid "Volver a ser visible"
+msgstr ""
+
+msgid "Vuelves a ser visible"
+msgstr ""
+
+msgid "Zumbido enviado"
+msgstr ""
+
+msgid "[Reacciones: {r}]"
+msgstr ""
+
+msgid "_Agregar"
+msgstr ""
+
+msgid "_Apodo (vacío = tu usuario):"
+msgstr ""
+
+msgid "_Bloquear o desbloquear"
+msgstr ""
+
+msgid "_Conectar la cuenta"
+msgstr ""
+
+msgid "_Contraseña de la sala (si la pide):"
+msgstr ""
+
+msgid "_Contraseña:"
+msgstr ""
+
+msgid "_Corregir"
+msgstr ""
+
+msgid "_Desconectar la cuenta"
+msgstr ""
+
+msgid "_Desconfiar"
+msgstr ""
+
+msgid "_Durante:"
+msgstr ""
+
+msgid "_Emoji (si ya lo pusiste, se quita):"
+msgstr ""
+
+msgid "_Entrar"
+msgstr ""
+
+msgid "_Entrar en la sala"
+msgstr ""
+
+msgid "_Estado:"
+msgstr ""
+
+msgid "_Ficha (vCard)"
+msgstr ""
+
+msgid "_Filtrar por nombre:"
+msgstr ""
+
+msgid "_Guardar la sala y entrar automáticamente al conectar"
+msgstr ""
+
+msgid "_Huellas de cifrado OMEMO…"
+msgstr ""
+
+msgid "_Invitar"
+msgstr ""
+
+msgid "_Invitar a alguien…"
+msgstr ""
+
+msgid "_JID (usuario@servidor):"
+msgstr ""
+
+msgid "_JID de quien invitas:"
+msgstr ""
+
+msgid "_JID del contacto (usuario@servidor):"
+msgstr ""
+
+msgid "_Mensaje (opcional):"
+msgstr ""
+
+msgid "_Nivel de aviso…"
+msgstr ""
+
+msgid "_No verificar el certificado del servidor (menos seguro)"
+msgstr ""
+
+msgid "_Nombre (opcional):"
+msgstr ""
+
+msgid "_Nuevo nombre:"
+msgstr ""
+
+msgid "_Ocupantes de la sala…"
+msgstr ""
+
+msgid "_Quitar el contacto"
+msgstr ""
+
+msgid "_Quitar mi estado"
+msgstr ""
+
+msgid "_Recurso (identifica este dispositivo):"
+msgstr ""
+
+msgid "_Renombrar"
+msgstr ""
+
+msgid "_Responder al mensaje"
+msgstr ""
+
+msgid "_Sala (sala@conference.servidor):"
+msgstr ""
+
+msgid "_Texto opcional:"
+msgstr ""
+
+msgid "_Unirse a una sala…"
+msgstr ""
+
+msgid "_Verificar (confiar)"
+msgstr ""
+
+msgid "_XMPP"
+msgstr ""
+
+msgid "cifrado"
+msgstr ""
+
+msgid "{j} quiere agregarte a sus contactos"
+msgstr ""
+
+msgid "{n} ({j})"
+msgstr ""
+
+msgid "{n} ({j}) quiere agregarte"
+msgstr ""
+
+msgid "{n} ({j}) quiere agregarte a sus contactos. ¿Aceptar?"
+msgstr ""
+
+msgid "{n} dispositivos"
+msgstr ""
+
+msgid "{n} está escribiendo…"
+msgstr ""
+
+msgid "{n} mensajes anteriores añadidos"
+msgstr ""
+
+msgid "{n} mensajes borrados"
+msgstr ""
+
+msgid "{n} ocupantes"
+msgstr ""
+
+msgid "{n} salas"
+msgstr ""
+
+msgid "{n} te ha enviado un zumbido"
+msgstr ""
+
+msgid ""
+"¿Borrar todos los mensajes de {n} de este equipo? El contacto se conserva."
+msgstr ""
+
+msgid ""
+"¿Eliminar la cuenta {n} y sus datos de este equipo? La cuenta del servidor "
+"no se toca."
+msgstr ""
+
+msgid "¿Quitar a {n} de tus contactos?"
+msgstr ""
+
+msgid "¿Retirar este mensaje de la sala? Necesitas ser moderador/a."
+msgstr ""
+
+msgid "¿Salir de {n} y olvidarlo (no volver a entrar solo)?"
+msgstr ""
+
+msgid "¿Salir de {n}?"
+msgstr ""
+
+msgid "¿Seguro que quieres hacerlo con {n}?"
+msgstr ""
+
+msgid "Ánimo o actividad: {e}"
+msgstr ""
+
+msgid "Feliz"
+msgstr ""
+
+msgid "Triste"
+msgstr ""
+
+msgid "Enfadado/a"
+msgstr ""
+
+msgid "Emocionado/a"
+msgstr ""
+
+msgid "Relajado/a"
+msgstr ""
+
+msgid "Aburrido/a"
+msgstr ""
+
+msgid "Cansado/a"
+msgstr ""
+
+msgid "Enfermo/a"
+msgstr ""
+
+msgid "Enamorado/a"
+msgstr ""
+
+msgid "Nervioso/a"
+msgstr ""
+
+msgid "Con hambre"
+msgstr ""
+
+msgid "Descansando"
+msgstr ""
+
+msgid "Trabajando"
+msgstr ""
+
+msgid "Comiendo"
+msgstr ""
+
+msgid "De viaje"
+msgstr ""
+
+msgid "Haciendo ejercicio"
+msgstr ""
+
+msgid "En una cita"
+msgstr ""
+
+msgid "Arreglándome"
+msgstr ""
+
+msgid "Inactivo/a"
+msgstr ""
+
+msgid "Hablando"
+msgstr ""
+
+msgid "Hacer miembro"
+msgstr ""
+
+msgid "Hacer administrador/a"
+msgstr ""
+
+msgid "Expulsar de la sala…"
+msgstr ""
+
+msgid "Banear…"
+msgstr ""
+
+msgid "Tranquilo/a"
+msgstr ""
+
+msgid "Preocupado/a"
+msgstr ""
+
+msgid "De mal humor"
+msgstr ""
+
+msgid "Con curiosidad"
+msgstr ""
+
+msgid "Sorprendido/a"
+msgstr ""
+
+msgid "Bebiendo algo"
+msgstr ""

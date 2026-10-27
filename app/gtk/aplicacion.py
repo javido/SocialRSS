@@ -34,6 +34,7 @@ def _menu() -> Gio.Menu:
                                      (_("Añadir cuenta de _Bluesky…"), "app.anadir-cuenta-bluesky"),
                                      (_("Añadir cuenta de Tele_gram…"), "app.anadir-cuenta-telegram"),
                                      (_("Añadir red de _IRC…"), "app.anadir-red-irc"),
+                                     (_("Añadir cuenta de _XMPP…"), "app.anadir-cuenta-xmpp"),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -219,6 +220,56 @@ def _menu() -> Gio.Menu:
                                  (_("Eliminar la red…"), "win.irc-eliminar-red")))
     barra.append_submenu(_("_IRC"), irc)
 
+    xm = Gio.Menu()
+    xm.append_section(None, sec((_("_Conectar la cuenta"), "win.x-conectar"),
+                                (_("_Desconectar la cuenta"), "win.x-desconectar")))
+    xm.append_section(None, sec((_("_Escribir en el chat"), "win.nuevo"),
+                                (_("_Responder al mensaje"), "win.responder"),
+                                (_("Corregir mi _último mensaje"), "win.editar"),
+                                (_("Re_tirar el mensaje o quitar el chat"), "win.papelera"),
+                                (_("Re_accionar…"), "win.x-reaccionar"),
+                                (_("Co_piar el texto"), "win.x-copiar"),
+                                (_("Destacar el mensaje"), "win.favorito")))
+    xm.append_section(None, sec((_("Enviar un a_rchivo…"), "win.x-enviar-archivo"),
+                                (_("Re_producir el audio"), "win.reproducir"),
+                                (_("_Descargar el adjunto"), "win.x-descargar"),
+                                (_("_Abrir el adjunto"), "win.x-abrir-adjunto")))
+    xm.append_section(None, sec((_("A_gregar un contacto…"), "win.x-agregar-contacto"),
+                                (_("Aceptar la solicitud o abrir el chat"), "win.abrir-chat"),
+                                (_("Rechazar la solicitud"), "win.x-rechazar"),
+                                (_("Re_nombrar el contacto…"), "win.x-renombrar"),
+                                (_("_Bloquear o desbloquear"), "win.x-bloquear"),
+                                (_("_Quitar el contacto"), "win.x-quitar-contacto")))
+    xm.append_section(None, sec((_("_Información del chat"), "win.perfil"),
+                                (_("_Ficha (vCard)"), "win.x-vcard"),
+                                (_("Información _técnica"), "win.x-info-tecnica"),
+                                (_("Enviar un _zumbido"), "win.x-zumbido")))
+    xm.append_section(None, sec((_("_Unirse a una sala…"), "win.unirse-canal"),
+                                (_("Directorio de _salas…"), "win.x-directorio-salas"),
+                                (_("_Ocupantes de la sala…"), "win.usuarios-canal"),
+                                (_("Cambiar el _tema de la sala…"), "win.x-tema"),
+                                (_("Salir del _grupo"), "win.x-salir-grupo"),
+                                (_("Salir y olvidar el grupo"), "win.x-olvidar-grupo")))
+    xm.append_section(None, sec((_("_Fijar o desfijar el chat"), "win.x-fijar"),
+                                (_("Silenciar o reactivar el chat"), "win.x-silenciar"),
+                                (_("Archi_var o desarchivar"), "win.x-archivar"),
+                                (_("_Nivel de aviso…"), "win.x-nivel-aviso"),
+                                (_("Marcar como _leído"), "win.x-leido"),
+                                (_("Marcar como no leído"), "win.x-no-leido"),
+                                (_("Marcar _todo como leído"), "win.marcar-todo-leido"),
+                                (_("Cargar mensajes _anteriores"), "win.cargar-mas"),
+                                (_("Vaciar la conversación…"), "win.x-vaciar"),
+                                (_("E_xportar la conversación…"), "win.x-exportar")))
+    xm.append_section(None, sec((_("Activar o quitar el cifrado _OMEMO"), "win.x-cifrado"),
+                                (_("_Huellas de cifrado OMEMO…"), "win.x-huellas")))
+    xm.append_section(None, sec((_("Mi _presencia…"), "win.x-presencia"),
+                                (_("Mi estado de á_nimo…"), "win.x-animo"),
+                                (_("Mi activi_dad…"), "win.x-actividad"),
+                                (_("Ser invisible"), "win.x-invisible"),
+                                (_("Volver a ser visible"), "win.x-visible"),
+                                (_("Eliminar la cuenta de este equipo…"), "win.x-eliminar-cuenta")))
+    barra.append_submenu(_("_XMPP"), xm)
+
     rep = Gio.Menu()
     rep.append_section(None, sec((_("Reproducir el audio del artículo"), "win.reproducir-articulo"),
                                  (_("Reproducir / pausar"), "win.reproducir"),
@@ -276,6 +327,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-cuenta-bluesky", self.anadir_cuenta_bluesky)
         accion("anadir-cuenta-telegram", self.anadir_cuenta_telegram)
         accion("anadir-red-irc", self.anadir_red_irc)
+        accion("anadir-cuenta-xmpp", self.anadir_cuenta_xmpp)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -371,6 +423,14 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("telegram", account_id, "timeline", None, None, "chats"))
             self.ventana.iniciar_tiempo_real_telegram()
         DialogoCuentaTelegram(self.ventana, _hecha).present()
+
+    def anadir_cuenta_xmpp(self):
+        from .dialogos_xmpp import DialogoCuentaXMPP
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("xmpp", account_id, "timeline", None, None, "conversaciones"))
+            self.ventana.iniciar_tiempo_real_xmpp()
+        DialogoCuentaXMPP(self.ventana, _hecha).present()
 
     def anadir_red_irc(self):
         from .dialogos_irc import DialogoRedIRC
