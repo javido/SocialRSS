@@ -35,6 +35,8 @@ def _menu() -> Gio.Menu:
                                      (_("Añadir cuenta de Tele_gram…"), "app.anadir-cuenta-telegram"),
                                      (_("Añadir red de _IRC…"), "app.anadir-red-irc"),
                                      (_("Añadir cuenta de _XMPP…"), "app.anadir-cuenta-xmpp"),
+                                     (_("Añadir cuenta de _Matrix…"), "app.anadir-cuenta-matrix"),
+                                     (_("Registrar una cuenta nueva de Matri_x…"), "win.mx-registrar"),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -270,6 +272,66 @@ def _menu() -> Gio.Menu:
                                 (_("Eliminar la cuenta de este equipo…"), "win.x-eliminar-cuenta")))
     barra.append_submenu(_("_XMPP"), xm)
 
+    mx = Gio.Menu()
+    mx.append_section(None, sec((_("_Conectar la cuenta"), "win.mx-conectar"),
+                                (_("_Desconectar la cuenta"), "win.mx-desconectar")))
+    mx.append_section(None, sec((_("_Escribir en la sala"), "win.nuevo"),
+                                (_("_Responder al mensaje"), "win.responder"),
+                                (_("Responder en un _hilo o ver el hilo…"), "win.mx-hilo"),
+                                (_("_Editar mi mensaje"), "win.editar"),
+                                (_("_Borrar el mensaje o salir de la sala"), "win.papelera"),
+                                (_("Re_accionar…"), "win.mx-reaccionar"),
+                                (_("Quitar mi reacción…"), "win.mx-quitar-reaccion"),
+                                (_("¿_Quién ha leído este mensaje?"), "win.mx-quien-leyo"),
+                                (_("Co_piar el texto"), "win.mx-copiar"),
+                                (_("Fijar o desfijar el mensaje"), "win.mx-fijar-mensaje"),
+                                (_("Abrir el enlace o la ubicación"), "win.abrir-chat")))
+    mx.append_section(None, sec((_("Enviar un a_rchivo…"), "win.mx-enviar-archivo"),
+                                (_("Crear una en_cuesta…"), "win.mx-crear-encuesta"),
+                                (_("Votar en la encuesta…"), "win.votar"),
+                                (_("Cerrar mi encuesta…"), "win.mx-cerrar-encuesta"),
+                                (_("Compartir una _ubicación…"), "win.mx-enviar-ubicacion"),
+                                (_("Re_producir el audio"), "win.reproducir"),
+                                (_("_Descargar el adjunto"), "win.mx-descargar"),
+                                (_("_Abrir el adjunto"), "win.mx-abrir-adjunto")))
+    mx.append_section(None, sec((_("_Unirse a una sala…"), "win.unirse-canal"),
+                                (_("C_rear una sala…"), "win.mx-crear-sala"),
+                                (_("_Mensaje directo a un usuario…"), "win.mx-mensaje-directo"),
+                                (_("Directorio de _salas…"), "win.mx-directorio"),
+                                (_("Llamar a la puerta de una sala…"), "win.mx-llamar-puerta"),
+                                (_("Crear un espa_cio…"), "win.mx-crear-espacio"),
+                                (_("Aceptar la invitación o abrir la sala"), "win.abrir-chat"),
+                                (_("Rechazar la invitación"), "win.mx-rechazar")))
+    mx.append_section(None, sec((_("_Información de la sala"), "win.perfil"),
+                                (_("Mi_embros y moderación…"), "win.usuarios-canal"),
+                                (_("Hilos de la sala…"), "win.mx-hilos"),
+                                (_("Mensajes fi_jados…"), "win.mx-fijados"),
+                                (_("Aju_stes de la sala…"), "win.mx-ajustes"),
+                                (_("Permitir llamar a la puerta"), "win.mx-permitir-llamar"),
+                                (_("Cambiar el avatar de la sala…"), "win.mx-avatar-sala"),
+                                (_("Añadir la sala a un espacio…"), "win.mx-a-espacio"),
+                                (_("Ver las salas del espacio…"), "win.mx-ver-espacio"),
+                                (_("Re_portar la sala…"), "win.mx-reportar-sala"),
+                                (_("Dispositivos cifrados de la sala…"), "win.mx-dispositivos-sala")))
+    mx.append_section(None, sec((_("_Nivel de aviso…"), "win.mx-nivel-aviso"),
+                                (_("Etiqueta de la sala (favorita…)"), "win.mx-etiqueta"),
+                                (_("Marcar como _leída"), "win.mx-leido"),
+                                (_("Marcar como no leída"), "win.mx-no-leido"),
+                                (_("Marcar _todo como leído"), "win.marcar-todo-leido"),
+                                (_("Cargar mensajes _anteriores"), "win.cargar-mas"),
+                                (_("Buscar en los mensajes guardados…"), "win.mx-buscar"),
+                                (_("E_xportar la conversación…"), "win.mx-exportar"),
+                                (_("Salir y olvidar la sala"), "win.mx-olvidar")))
+    mx.append_section(None, sec((_("Mi _perfil y estado…"), "win.mx-perfil"),
+                                (_("Mis _dispositivos…"), "win.mx-dispositivos"),
+                                (_("Palabras que me avisan…"), "win.mx-palabras"),
+                                (_("Configurar la verificación cru_zada…"), "win.mx-cross-signing"),
+                                (_("E_xportar las claves de cifrado…"), "win.mx-exportar-claves"),
+                                (_("_Importar claves de cifrado…"), "win.mx-importar-claves"),
+                                (_("Volver a descifrar los mensajes pendientes"), "win.mx-redescifrar"),
+                                (_("Eliminar la cuenta de este equipo…"), "win.mx-eliminar-cuenta")))
+    barra.append_submenu(_("Ma_trix"), mx)
+
     rep = Gio.Menu()
     rep.append_section(None, sec((_("Reproducir el audio del artículo"), "win.reproducir-articulo"),
                                  (_("Reproducir / pausar"), "win.reproducir"),
@@ -328,6 +390,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-cuenta-telegram", self.anadir_cuenta_telegram)
         accion("anadir-red-irc", self.anadir_red_irc)
         accion("anadir-cuenta-xmpp", self.anadir_cuenta_xmpp)
+        accion("anadir-cuenta-matrix", self.anadir_cuenta_matrix)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -431,6 +494,14 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("xmpp", account_id, "timeline", None, None, "conversaciones"))
             self.ventana.iniciar_tiempo_real_xmpp()
         DialogoCuentaXMPP(self.ventana, _hecha).present()
+
+    def anadir_cuenta_matrix(self):
+        from .dialogos_matrix import DialogoCuentaMatrix
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("matrix", account_id, "timeline", None, None, "rooms"))
+            self.ventana.iniciar_tiempo_real_matrix()
+        DialogoCuentaMatrix(self.ventana, _hecha).present()
 
     def anadir_red_irc(self):
         from .dialogos_irc import DialogoRedIRC

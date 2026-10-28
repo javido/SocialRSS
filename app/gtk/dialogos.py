@@ -196,6 +196,15 @@ def _teclas() -> str:
         _("Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: ocupantes de la sala; Ctrl+Alt+P: información del contacto"),
         _("Ctrl+Mayús+M: cargar mensajes anteriores"),
         "",
+        _("Matrix"),
+        _("Intro sobre una sala: abrir la conversación; sobre una invitación: aceptarla; sobre un mensaje: abrir su enlace"),
+        _("Ctrl+N: escribir en la sala (Ctrl+Intro envía; «/me texto» es una acción); Ctrl+R: responder"),
+        _("Ctrl+Alt+E: editar tu mensaje; Supr: borrar el mensaje, rechazar la invitación o salir de la sala"),
+        _("Ctrl+Alt+X: reaccionar; Ctrl+Alt+C: copiar; Ctrl+D: fijar o desfijar el mensaje; Ctrl+Alt+V: votar en la encuesta"),
+        _("Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un archivo; F2: reproducir"),
+        _("Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: miembros y moderación; Ctrl+Alt+P: datos de la sala o del usuario"),
+        _("Ctrl+Mayús+M: cargar mensajes anteriores; el menú Matrix tiene hilos, fijados, ajustes, cifrado y más"),
+        "",
         _("Actualizar y reproductor"),
         _("Ctrl+Mayús+R: actualizar (todos los feeds o el buffer actual)"),
         _("F1 / F3: retroceder / avanzar"),
@@ -211,8 +220,8 @@ def _teclas() -> str:
     ])
 
 
-def confirmar_async(padre, texto: str, si, titulo: str = "", etiqueta_si: str = None):
-    """Pregunta Sí/No sin bloquear; llama a `si()` solo si la respuesta es afirmativa."""
+def confirmar_async(padre, texto: str, si, titulo: str = "", etiqueta_si: str = None, al_no=None):
+    """Pregunta Sí/No sin bloquear; llama a `si()` si la respuesta es afirmativa (y a `al_no()`, si lo hay, si no)."""
     dlg = Gtk.AlertDialog()
     dlg.set_message(titulo or "SocialRSS")
     dlg.set_detail(texto)
@@ -222,10 +231,13 @@ def confirmar_async(padre, texto: str, si, titulo: str = "", etiqueta_si: str = 
 
     def _fin(origen, res):
         try:
-            if origen.choose_finish(res) == 1:
-                si()
+            elegido = origen.choose_finish(res)
         except Exception:
-            pass
+            elegido = 0
+        if elegido == 1:
+            si()
+        elif al_no is not None:
+            al_no()
     dlg.choose(padre, None, _fin)
 
 

@@ -49750,3 +49750,1142 @@ msgstr "Surprised"
 
 msgid "Bebiendo algo"
 msgstr "Drinking"
+
+msgid " (este dispositivo)"
+msgstr " (this device)"
+
+msgid "(Ctrl+Alt+V para votar)"
+msgstr "(Ctrl+Alt+V to vote)"
+
+msgid "(SIN ENVIAR: usa el menú para reintentar)"
+msgstr "(NOT SENT: use the menu to retry)"
+
+msgid "(invitación)"
+msgstr "(invitation)"
+
+msgid "(sin huella)"
+msgstr "(no fingerprint)"
+
+msgid ", {m} miembros"
+msgstr ", {m} members"
+
+msgid "Abriendo el enlace"
+msgstr "Opening the link"
+
+msgid "Abrir el enlace o la ubicación"
+msgstr "Open the link or the location"
+
+msgid "Abrir un enlace"
+msgstr "Open a link"
+
+msgid "Aceptar la invitación o abrir la sala"
+msgstr "Accept the invitation or open the room"
+
+msgid "Activar"
+msgstr "Turn on"
+
+msgid "Activar el ci_frado (irreversible)…"
+msgstr "Turn on en_cryption (irreversible)…"
+
+msgid ""
+"Activar el cifrado es irreversible: la sala no podrá volver a ser pública "
+"sin cifrar. ¿Continuar?"
+msgstr ""
+"Turning on encryption is irreversible: the room can no longer be public "
+"without encryption. Continue?"
+
+msgid "Actualizar la _versión de la sala…"
+msgstr "Upgrade the room _version…"
+
+msgid "Actualizar la versión de la sala"
+msgstr "Upgrade the room version"
+
+msgid "Ahora ignoras a {n}"
+msgstr "You now ignore {n}"
+
+msgid "Ahora se puede llamar a la puerta de esta sala"
+msgstr "Now people can knock on this room"
+
+msgid "Aju_stes de la sala…"
+msgstr "Room _settings…"
+
+msgid "Ajustes de la sala…"
+msgstr "Room settings…"
+
+msgid "Ajustes de {s}"
+msgstr "Settings of {s}"
+
+msgid "Ajustes guardados"
+msgstr "Settings saved"
+
+msgid "Anunciar los mensajes de _Matrix por voz:"
+msgstr "Announce _Matrix messages by voice:"
+
+msgid "Aparece en el _directorio público del servidor"
+msgstr "Appears in the server's public _directory"
+
+msgid "Avatar cambiado"
+msgstr "Avatar changed"
+
+msgid "Avatar de la sala cambiado"
+msgstr "Room avatar changed"
+
+msgid ""
+"Aviso: el motor de cifrado (python-olm) no está instalado, así que las salas"
+" cifradas no se podrán leer."
+msgstr ""
+"Warning: the encryption engine (python-olm) is not installed, so encrypted "
+"rooms cannot be read."
+
+msgid "Añadir cuenta de _Matrix…"
+msgstr "Add a _Matrix account…"
+
+msgid "Añadir la sala a un espacio"
+msgstr "Add the room to a space"
+
+msgid "Añadir la sala a un espacio…"
+msgstr "Add the room to a space…"
+
+msgid "Añadir un campo del perfil"
+msgstr "Add a profile field"
+
+msgid "Borrar mi mensaje"
+msgstr "Delete my message"
+
+msgid "Buscar en los mensajes guardados"
+msgstr "Search the saved messages"
+
+msgid "Buscar en los mensajes guardados…"
+msgstr "Search the saved messages…"
+
+msgid "C_rear una sala…"
+msgstr "C_reate a room…"
+
+msgid "Cambiar _avatar…"
+msgstr "Change _avatar…"
+
+msgid "Cambiar el avatar de la sala…"
+msgstr "Change the room avatar…"
+
+msgid "Cambiar el rango de {n}"
+msgstr "Change the rank of {n}"
+
+msgid "Campo actualizado"
+msgstr "Field updated"
+
+msgid "Campo añadido"
+msgstr "Field added"
+
+msgid "Campo borrado"
+msgstr "Field deleted"
+
+msgid "Cargando el hilo…"
+msgstr "Loading the thread…"
+
+msgid "Cerrar la _sesión del dispositivo…"
+msgstr "Sign out the _device…"
+
+msgid "Cerrar la encuesta…"
+msgstr "Close the poll…"
+
+msgid "Cerrar la sesión de otro dispositivo"
+msgstr "Sign out another device"
+
+msgid "Cerrar mi encuesta…"
+msgstr "Close my poll…"
+
+msgid "Cifrada de extremo a extremo"
+msgstr "End-to-end encrypted"
+
+msgid "Cifrado activado"
+msgstr "Encryption on"
+
+msgid "Claves exportadas"
+msgstr "Keys exported"
+
+msgid "Claves importadas. Se han descifrado {n} mensajes que estaban cifrados"
+msgstr "Keys imported. {n} messages that were encrypted have been decrypted"
+
+msgid "Claves importadas. Ya puedes leer el historial cifrado de esas salas"
+msgstr "Keys imported. You can now read the encrypted history of those rooms"
+
+msgid "Coinciden"
+msgstr "They match"
+
+msgid ""
+"Compara esta huella con la que muestra el otro cliente antes de confiar:\n"
+"{h}\n"
+"\n"
+"¿Marcarlo como de confianza?"
+msgstr ""
+"Compare this fingerprint with the one the other client shows before trusting:\n"
+"{h}\n"
+"\n"
+"Mark it as trusted?"
+
+msgid "Compartir una _ubicación…"
+msgstr "Share a _location…"
+
+msgid "Compartir una ubicación"
+msgstr "Share a location"
+
+msgid "Conectado a Matrix; sincronizando en segundo plano"
+msgstr "Connected to Matrix; syncing in the background"
+
+msgid "Conectado a {c}"
+msgstr "Connected to {c}"
+
+msgid "Conectando con Matrix…"
+msgstr "Connecting to Matrix…"
+
+msgid "Conectando con el servidor de Matrix…"
+msgstr "Connecting to the Matrix server…"
+
+msgid "Confiar"
+msgstr "Trust"
+
+msgid "Configurando la verificación cruzada…"
+msgstr "Setting up cross-signing…"
+
+msgid "Configurar la verificación cru_zada…"
+msgstr "Set up cross-_signing…"
+
+msgid "Configurar la verificación cruzada"
+msgstr "Set up cross-signing"
+
+msgid "Consultando los hilos…"
+msgstr "Querying the threads…"
+
+msgid "Crear un espa_cio…"
+msgstr "Create a _space…"
+
+msgid "Crear un espacio"
+msgstr "Create a space"
+
+msgid "Crear una en_cuesta…"
+msgstr "Create a _poll…"
+
+msgid "Crear una encuesta"
+msgstr "Create a poll"
+
+msgid "Crear una sala de Matrix"
+msgstr "Create a Matrix room"
+
+msgid ""
+"Ctrl+Alt+E: editar tu mensaje; Supr: borrar el mensaje, rechazar la "
+"invitación o salir de la sala"
+msgstr ""
+"Ctrl+Alt+E: edit your message; Delete: delete the message, decline the "
+"invitation or leave the room"
+
+msgid ""
+"Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: miembros y moderación; "
+"Ctrl+Alt+P: datos de la sala o del usuario"
+msgstr ""
+"Ctrl+Alt+J: join a room; Ctrl+Alt+I: members and moderation; Ctrl+Alt+P: "
+"details of the room or the user"
+
+msgid ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+C: copiar; Ctrl+D: fijar o desfijar el "
+"mensaje; Ctrl+Alt+V: votar en la encuesta"
+msgstr ""
+"Ctrl+Alt+X: react; Ctrl+Alt+C: copy; Ctrl+D: pin or unpin the message; "
+"Ctrl+Alt+V: vote in the poll"
+
+msgid ""
+"Ctrl+Mayús+M: cargar mensajes anteriores; el menú Matrix tiene hilos, "
+"fijados, ajustes, cifrado y más"
+msgstr ""
+"Ctrl+Shift+M: load earlier messages; the Matrix menu has threads, pinned "
+"messages, settings, encryption and more"
+
+msgid ""
+"Ctrl+N: escribir en la sala (Ctrl+Intro envía; «/me texto» es una acción); "
+"Ctrl+R: responder"
+msgstr ""
+"Ctrl+N: write in the room (Ctrl+Enter sends; \"/me text\" is an action); "
+"Ctrl+R: reply"
+
+msgid "Cuenta de Matrix añadida"
+msgstr "Matrix account added"
+
+msgid "Cuenta registrada y añadida"
+msgstr "Account registered and added"
+
+msgid ""
+"De la conversación abierta, de mensajes directos y de menciones, según el "
+"nivel de aviso de cada sala."
+msgstr ""
+"Of the open conversation, direct messages and mentions, according to each "
+"room's notification level."
+
+msgid "Desconectado de Matrix"
+msgstr "Disconnected from Matrix"
+
+msgid "Dispositivo bloqueado"
+msgstr "Device blocked"
+
+msgid "Dispositivo de confianza"
+msgstr "Trusted device"
+
+msgid "Dispositivo renombrado"
+msgstr "Device renamed"
+
+msgid "Dispositivos cifrados de la sala…"
+msgstr "Encrypted devices of the room…"
+
+msgid "Dispositivos cifrados de {s}"
+msgstr "Encrypted devices of {s}"
+
+msgid "E_xportar las claves de cifrado…"
+msgstr "E_xport the encryption keys…"
+
+msgid ""
+"El cifrado de extremo a extremo está activo: las salas cifradas funcionan. "
+"Para leer tu historial cifrado anterior, importa las claves desde el menú "
+"Matrix."
+msgstr ""
+"End-to-end encryption is on: encrypted rooms work. To read your earlier "
+"encrypted history, import the keys from the Matrix menu."
+
+msgid "El servidor no indicó la página de aprobación"
+msgstr "The server did not give the approval page"
+
+msgid "Elige otro dispositivo tuyo: este es el que estás usando"
+msgstr "Choose another device of yours: this is the one you are using"
+
+msgid "Encuesta enviada"
+msgstr "Poll sent"
+
+msgid "Escribe al menos el servidor"
+msgstr "Enter at least the server"
+
+msgid "Escribe el nombre de la sala"
+msgstr "Enter the room name"
+
+msgid "Escribe la latitud y la longitud como números"
+msgstr "Enter the latitude and longitude as numbers"
+
+msgid "Escribe la pregunta y al menos dos opciones"
+msgstr "Enter the question and at least two options"
+
+msgid "Ese campo se edita en la pantalla del perfil, no aquí"
+msgstr "That field is edited on the profile screen, not here"
+
+msgid "Espacio"
+msgstr "Space"
+
+msgid "Espacio creado. Añade salas con «Añadir la sala a un espacio»"
+msgstr "Space created. Add rooms with \"Add the room to a space\""
+
+msgid "Esta sala no es un espacio"
+msgstr "This room is not a space"
+
+msgid "Esta sala no tiene hilos"
+msgstr "This room has no threads"
+
+msgid "Esta sala no tiene mensajes fijados"
+msgstr "This room has no pinned messages"
+
+msgid "Este espacio no tiene salas"
+msgstr "This space has no rooms"
+
+msgid "Este mensaje no es una encuesta"
+msgstr "This message is not a poll"
+
+msgid "Este mensaje no es uno sin enviar"
+msgstr "This message is not an unsent one"
+
+msgid "Este mensaje no está en el servidor"
+msgstr "This message is not on the server"
+
+msgid "Este mensaje no tiene ningún enlace"
+msgstr "This message has no link"
+
+msgid "Este mensaje no tiene un envío fallido"
+msgstr "This message has no failed delivery"
+
+msgid "Este mensaje no tiene una ubicación"
+msgstr "This message has no location"
+
+msgid "Etiqueta de la sala (favorita…)"
+msgstr "Room tag (favorite…)"
+
+msgid "Etiqueta de la sala…"
+msgstr "Room tag…"
+
+msgid "Etiqueta guardada"
+msgstr "Tag saved"
+
+msgid "Etiqueta: {e}"
+msgstr "Tag: {e}"
+
+msgid "Exportar la conversación…"
+msgstr "Export the conversation…"
+
+msgid "Falta matrix-nio. Instálalo con: pip install matrix-nio"
+msgstr "matrix-nio is missing. Install it with: pip install matrix-nio"
+
+msgid ""
+"Faltaban las claves de {n} conversaciones. Las he pedido a tus otros "
+"dispositivos: si alguno está en línea, los mensajes se descifrarán solos en "
+"unos segundos"
+msgstr ""
+"The keys of {n} conversations were missing. I asked your other devices for "
+"them: if one is online, the messages will decrypt by themselves in a few "
+"seconds"
+
+msgid "Fijar o desfijar el mensaje"
+msgstr "Pin or unpin the message"
+
+msgid "Firmar"
+msgstr "Sign"
+
+msgid ""
+"Hacer administrador/a a {n} no se puede deshacer (tendrá tu mismo poder). "
+"¿Continuar?"
+msgstr ""
+"Making {n} an administrator cannot be undone (they will have your same "
+"power). Continue?"
+
+msgid ""
+"He pedido las claves a tus otros dispositivos; si alguno está en línea, el "
+"mensaje se descifrará solo en unos segundos"
+msgstr ""
+"I asked your other devices for the keys; if one is online, the message will "
+"decrypt by itself in a few seconds"
+
+msgid "Hecho: ahora confías en {n} por verificación cruzada"
+msgstr "Done: you now trust {n} through cross-signing"
+
+msgid "Hilo en {s}"
+msgstr "Thread in {s}"
+
+msgid "Hilos de la sala…"
+msgstr "Threads of the room…"
+
+msgid "Hilos de {s}"
+msgstr "Threads of {s}"
+
+msgid "Identificador: {i}"
+msgstr "Identifier: {i}"
+
+msgid "Ignorar al usuario…"
+msgstr "Ignore the user…"
+
+msgid "Iniciando la verificación; compara los emojis cuando aparezcan"
+msgstr "Starting verification; compare the emojis when they appear"
+
+msgid ""
+"Iniciando la verificación; compara los emojis cuando aparezcan en los dos "
+"dispositivos"
+msgstr ""
+"Starting verification; compare the emojis when they appear on both devices"
+
+msgid ""
+"Intro sobre una sala: abrir la conversación; sobre una invitación: "
+"aceptarla; sobre un mensaje: abrir su enlace"
+msgstr ""
+"Enter on a room: open the conversation; on an invitation: accept it; on a "
+"message: open its link"
+
+msgid "L_ongitud (por ejemplo -3.7038):"
+msgstr "L_ongitude (for example -3.7038):"
+
+msgid "La cuenta no está conectada. Conéctala desde el menú Matrix."
+msgstr "The account is not connected. Connect it from the Matrix menu."
+
+msgid "La encuesta está cerrada"
+msgstr "The poll is closed"
+
+msgid ""
+"La verificación cruzada de esta aplicación es experimental: la biblioteca base (matrix-nio) no la soporta de forma oficial, así que no sustituye a la copia de seguridad de claves y puede que Element no la reconozca por completo. Guarda tus claves con «Exportar claves» como respaldo fiable.\n"
+"\n"
+"Se creará tu identidad de cifrado en el servidor y hará falta tu contraseña. ¿Continuar?"
+msgstr ""
+"Cross-signing in this application is experimental: the base library (matrix-nio) does not officially support it, so it does not replace the key backup and Element may not fully recognise it. Save your keys with \"Export keys\" as a reliable backup.\n"
+"\n"
+"Your encryption identity will be created on the server and your password will be needed. Continue?"
+
+msgid "Las coordenadas están fuera de rango"
+msgstr "The coordinates are out of range"
+
+msgid "Leído por {c} personas: {n}…"
+msgstr "Read by {c} people: {n}…"
+
+msgid "Leído por: {n}"
+msgstr "Read by: {n}"
+
+msgid "Lista de mensajes encontrados"
+msgstr "List of messages found"
+
+msgid "Lista de mensajes fijados"
+msgstr "List of pinned messages"
+
+msgid "Lista de palabras de aviso"
+msgstr "List of alert words"
+
+msgid "Lista de salas del espacio"
+msgstr "List of rooms in the space"
+
+msgid "Llamar a la puerta de una sala"
+msgstr "Knock on a room"
+
+msgid "Llamar a la puerta de una sala…"
+msgstr "Knock on a room…"
+
+msgid "Ma_trix"
+msgstr "Ma_trix"
+
+msgid "Marcada como leída"
+msgstr "Marked as read"
+
+msgid "Marcada como no leída"
+msgstr "Marked as unread"
+
+msgid "Marcar como _leída"
+msgstr "Mark as _read"
+
+msgid "Marcar como no leída"
+msgstr "Mark as unread"
+
+msgid "Marcar de _confianza (experto)…"
+msgstr "Mark as _trusted (expert)…"
+
+msgid "Mencionar a {n}"
+msgstr "Mention {n}"
+
+msgid "Mensaje _directo"
+msgstr "_Direct message"
+
+msgid "Mensaje descartado"
+msgstr "Message discarded"
+
+msgid "Mensaje desfijado"
+msgstr "Message unpinned"
+
+msgid "Mensaje reportado a los administradores"
+msgstr "Message reported to the administrators"
+
+msgid "Mensajes fi_jados…"
+msgstr "_Pinned messages…"
+
+msgid "Mensajes fijados de {s}"
+msgstr "Pinned messages of {s}"
+
+msgid "Mensajes fijados…"
+msgstr "Pinned messages…"
+
+msgid "Mi _perfil y estado…"
+msgstr "My _profile and status…"
+
+msgid "Mi_embros y moderación…"
+msgstr "Mem_bers and moderation…"
+
+msgid "Miembros de {s}"
+msgstr "Members of {s}"
+
+msgid "Miembros y moderación…"
+msgstr "Members and moderation…"
+
+msgid "Mis _dispositivos…"
+msgstr "My _devices…"
+
+msgid ""
+"Modo experto. Vas a firmar la identidad de {n} ({u}) sin comparar emojis. "
+"Solo hazlo si has comprobado por otra vía que es quien dice ser. Para "
+"confiar en una persona lo normal es verificarla por emojis. ¿Continuar?"
+msgstr ""
+"Expert mode. You are about to sign the identity of {n} ({u}) without "
+"comparing emojis. Only do it if you have checked by other means that they "
+"are who they say they are. To trust a person you would normally verify them "
+"by emojis. Continue?"
+
+msgid "Motivo para los moderadores"
+msgstr "Reason for the moderators"
+
+msgid "Más _campos del perfil…"
+msgstr "More profile _fields…"
+
+msgid "Nivel de aviso…"
+msgstr "Notification level…"
+
+msgid "No había mensajes cifrados pendientes"
+msgstr "There were no pending encrypted messages"
+
+msgid "No has enviado ningún mensaje que editar"
+msgstr "You have not sent any message to edit"
+
+msgid "No hay campos extra"
+msgstr "There are no extra fields"
+
+msgid "No hay dispositivos que mostrar (¿la sala es cifrada?)"
+msgstr "No devices to show (is the room encrypted?)"
+
+msgid "No hay mensajes que coincidan"
+msgstr "No messages match"
+
+msgid "No hay más mensajes anteriores"
+msgstr "There are no more earlier messages"
+
+msgid "No hay nada que mostrar"
+msgstr "There is nothing to show"
+
+msgid "No hay palabras de aviso"
+msgstr "There are no alert words"
+
+msgid "No puedes cerrar la sesión que estás usando desde aquí"
+msgstr "You cannot sign out the session you are using from here"
+
+msgid "No se encontraron miembros. ¿Está conectada la cuenta?"
+msgstr "No members found. Is the account connected?"
+
+msgid "No se pudieron cargar los miembros: {e}"
+msgstr "The members could not be loaded: {e}"
+
+msgid "No se pudieron leer los ajustes: {e}"
+msgstr "The settings could not be read: {e}"
+
+msgid "No se pudieron leer los dispositivos: {e}"
+msgstr "The devices could not be read: {e}"
+
+msgid "No se pudieron leer los hilos: {e}"
+msgstr "The threads could not be read: {e}"
+
+msgid "No se pudieron leer: {e}"
+msgstr "They could not be read: {e}"
+
+msgid "No se pudo (¿eres administrador/a?): {e}"
+msgstr "It could not be done (are you an administrator?): {e}"
+
+msgid "No se pudo (¿tienes permiso en el espacio?): {e}"
+msgstr "It could not be done (do you have permission in the space?): {e}"
+
+msgid "No se pudo (¿tienes permiso?): {e}"
+msgstr "It could not be done (do you have permission?): {e}"
+
+msgid "No se pudo abrir el directo: {e}"
+msgstr "The direct message could not be opened: {e}"
+
+msgid "No se pudo buscar: {e}"
+msgstr "The search failed: {e}"
+
+msgid "No se pudo cambiar el rango: {e}"
+msgstr "The rank could not be changed: {e}"
+
+msgid "No se pudo configurar: {e}"
+msgstr "It could not be set up: {e}"
+
+msgid "No se pudo consultar el estado: {e}"
+msgstr "The state could not be queried: {e}"
+
+msgid "No se pudo crear el espacio: {e}"
+msgstr "The space could not be created: {e}"
+
+msgid "No se pudo etiquetar: {e}"
+msgstr "The tag could not be set: {e}"
+
+msgid "No se pudo finalizar: {e}"
+msgstr "It could not be finished: {e}"
+
+msgid "No se pudo guardar (¿tienes permiso?): {e}"
+msgstr "It could not be saved (do you have permission?): {e}"
+
+msgid "No se pudo leer el hilo: {e}"
+msgstr "The thread could not be read: {e}"
+
+msgid "No se pudo leer el perfil: {e}"
+msgstr "The profile could not be read: {e}"
+
+msgid "No se pudo registrar: {e}"
+msgstr "It could not be registered: {e}"
+
+msgid "No tienes ningún espacio. Crea uno desde el menú Matrix."
+msgstr "You have no spaces. Create one from the Matrix menu."
+
+msgid "No tienes permiso para cambiar los ajustes de esta sala"
+msgstr "You do not have permission to change this room's settings"
+
+msgid "Nombre visible: {n}"
+msgstr "Display name: {n}"
+
+msgid "Ocultar los votos hasta cerrar la encuesta"
+msgstr "Hide the votes until the poll is closed"
+
+msgid "Palabra añadida: te avisará en todas tus sesiones"
+msgstr "Word added: it will alert you in all your sessions"
+
+msgid "Palabras que me avisan…"
+msgstr "Words that alert me…"
+
+msgid "Perfil de {n}"
+msgstr "Profile of {n}"
+
+msgid "Perfil y estado guardados"
+msgstr "Profile and status saved"
+
+msgid "Permitir llamar a la puerta"
+msgstr "Allow knocking"
+
+msgid "Por ejemplo Europe/Madrid. Vacío para no indicarla."
+msgstr "For example Europe/Madrid. Empty to not set it."
+
+msgid "Pulsa Intro para aceptar o rechazar la invitación."
+msgstr "Press Enter to accept or decline the invitation."
+
+msgid "Quitar mi reacción…"
+msgstr "Remove my reaction…"
+
+msgid "Rango cambiado"
+msgstr "Rank changed"
+
+msgid "Re_portar la sala…"
+msgstr "Re_port the room…"
+
+msgid "Reconectado a {c}"
+msgstr "Reconnected to {c}"
+
+msgid "Registrando la cuenta…"
+msgstr "Registering the account…"
+
+msgid "Registrar una cuenta nueva de Matri_x…"
+msgstr "Register a new Matri_x account…"
+
+msgid "Registrar una cuenta nueva de Matrix"
+msgstr "Register a new Matrix account"
+
+msgid "Regla de _acceso:"
+msgstr "_Access rule:"
+
+msgid "Reintentando descifrar los mensajes pendientes…"
+msgstr "Retrying to decrypt the pending messages…"
+
+msgid "Rellena el servidor, el usuario y la contraseña"
+msgstr "Fill in the server, the user and the password"
+
+msgid "Renombrar el dispositivo"
+msgstr "Rename the device"
+
+msgid "Reportar el mensaje"
+msgstr "Report the message"
+
+msgid "Reportar el mensaje…"
+msgstr "Report the message…"
+
+msgid "Reportar la sala"
+msgstr "Report the room"
+
+msgid "Reportar la sala…"
+msgstr "Report the room…"
+
+msgid "Responder en el hilo"
+msgstr "Reply in the thread"
+
+msgid "Responder en un _hilo o ver el hilo…"
+msgstr "Reply in a _thread or view the thread…"
+
+msgid "Responder en un hilo o ver el hilo…"
+msgstr "Reply in a thread or view the thread…"
+
+msgid "Sala _pública (aparece en el directorio y cualquiera puede entrar)"
+msgstr "_Public room (appears in the directory and anyone can join)"
+
+msgid "Sala actualizada: {r}"
+msgstr "Room upgraded: {r}"
+
+msgid "Sala añadida al espacio"
+msgstr "Room added to the space"
+
+msgid "Sala cifrada de extremo a extremo."
+msgstr "End-to-end encrypted room."
+
+msgid "Sala cifrada. "
+msgstr "Encrypted room. "
+
+msgid "Sala creada"
+msgstr "Room created"
+
+msgid "Sala reportada a los administradores"
+msgstr "Room reported to the administrators"
+
+msgid "Sala sin cifrar. "
+msgstr "Unencrypted room. "
+
+msgid "Salas del espacio"
+msgstr "Rooms of the space"
+
+msgid "Salir y olvidar la sala"
+msgstr "Leave and forget the room"
+
+msgid ""
+"Se creará una sala nueva con la versión {v} y se invitará a los miembros. "
+"¿Continuar?"
+msgstr ""
+"A new room with version {v} will be created and the members will be invited."
+" Continue?"
+
+msgid "Se han descifrado {n} mensajes"
+msgstr "{n} messages have been decrypted"
+
+msgid "Se perdió la conexión con {c}; reintentando en segundo plano"
+msgstr "The connection to {c} was lost; retrying in the background"
+
+msgid "Selecciona un mensaje de Matrix"
+msgstr "Select a Matrix message"
+
+msgid "Selecciona un mensaje de otra persona"
+msgstr "Select a message from someone else"
+
+msgid "Selecciona una cuenta de Matrix"
+msgstr "Select a Matrix account"
+
+msgid "Selecciona una invitación"
+msgstr "Select an invitation"
+
+msgid "Selecciona una sala de Matrix"
+msgstr "Select a Matrix room"
+
+msgid "Selecciona una sala de la lista"
+msgstr "Select a room from the list"
+
+msgid "Sesión cerrada"
+msgstr "Session signed out"
+
+msgid "Sin cifrar"
+msgstr "Unencrypted"
+
+msgid "Solicitud enviada: cuando te acepten, la sala aparecerá en la lista"
+msgstr "Request sent: when they accept you, the room will appear in the list"
+
+msgid ""
+"Solo para servidores con inicio de sesión por navegador. El servidor solo "
+"concede los permisos si de verdad lo eres."
+msgstr ""
+"Only for servers with browser sign-in. The server only grants the "
+"permissions if you really are one."
+
+msgid "Soy _administrador del servidor (pedir permisos de administración)"
+msgstr "I am a server _administrator (ask for administration permissions)"
+
+msgid "Subiendo el avatar…"
+msgstr "Uploading the avatar…"
+
+msgid "Te han invitado a {n}. ¿Aceptar?"
+msgstr "You have been invited to {n}. Accept?"
+
+msgid "Todavía nadie ha marcado como leído hasta aquí"
+msgstr "Nobody has marked as read up to here yet"
+
+msgid ""
+"Tu servidor pide aprobar la verificación cruzada en el navegador (se acaba de abrir la página; si no, la dirección es {u}).\n"
+"\n"
+"Inicia sesión si hace falta, aprueba, y cuando termines vuelve aquí. ¿Ya lo has aprobado?"
+msgstr ""
+"Your server asks you to approve cross-signing in the browser (the page has just opened; if not, the address is {u}).\n"
+"\n"
+"Sign in if needed, approve, and when you finish come back here. Have you approved it?"
+
+msgid "Ubicación enviada"
+msgstr "Location sent"
+
+msgid "Unirse a una sala de Matrix"
+msgstr "Join a Matrix room"
+
+msgid "Usar la zona horaria de e_ste equipo"
+msgstr "Use this computer's _time zone"
+
+msgid "Usuario: {u}"
+msgstr "User: {u}"
+
+msgid "Ver las salas del espacio…"
+msgstr "View the rooms of the space…"
+
+msgid "Verificación cruzada configurada"
+msgstr "Cross-signing set up"
+
+msgid ""
+"Verificación cruzada configurada. Ahora verifícate por emojis con quien "
+"quieras que confíe en ti"
+msgstr ""
+"Cross-signing set up. Now verify yourself by emojis with whoever you want to"
+" trust you"
+
+msgid ""
+"Verificación de Matrix por emojis.\n"
+"\n"
+"Comprueba que estos emojis coinciden exactamente con los que ve la otra persona (o tu otro dispositivo):\n"
+"\n"
+"{e}\n"
+"\n"
+"¿Coinciden?"
+msgstr ""
+"Matrix verification by emojis.\n"
+"\n"
+"Check that these emojis match exactly the ones the other person (or your other device) sees:\n"
+"\n"
+"{e}\n"
+"\n"
+"Do they match?"
+
+msgid "Versión {v}."
+msgstr "Version {v}."
+
+msgid "Volver a descifrar los mensajes pendientes"
+msgstr "Decrypt the pending messages again"
+
+msgid "Votar en la encuesta…"
+msgstr "Vote in the poll…"
+
+msgid "Votar: {p}"
+msgstr "Vote: {p}"
+
+msgid "Voto enviado"
+msgstr "Vote sent"
+
+msgid "Ya está aprobado"
+msgstr "It is approved"
+
+msgid ""
+"Ya la tenías en el servidor pero este equipo no tiene las claves privadas: al continuar se reemplaza por una nueva y tendrás que re-verificarte con quienes ya lo hubieran hecho.\n"
+"\n"
+msgstr ""
+"You already had it on the server but this computer does not have the private keys: continuing replaces it with a new one and you will have to verify again with those who had already done so.\n"
+"\n"
+
+msgid "[Imagen:"
+msgstr "[Image:"
+
+msgid "[Vídeo:"
+msgstr "[Video:"
+
+msgid "_Abrir el hilo"
+msgstr "_Open the thread"
+
+msgid "_Alias público (#sala:servidor; vacío = no tocar):"
+msgstr "Public _alias (#room:server; empty = leave as is):"
+
+msgid "_Añadir…"
+msgstr "_Add…"
+
+msgid "_Borrar el mensaje o salir de la sala"
+msgstr "_Delete the message or leave the room"
+
+msgid "_Borrar…"
+msgstr "_Delete…"
+
+msgid "_Contraseña de tu cuenta de Matrix:"
+msgstr "_Password of your Matrix account:"
+
+msgid "_Contraseña de tu cuenta:"
+msgstr "_Password of your account:"
+
+msgid "_Contraseña del archivo de claves:"
+msgstr "_Password of the key file:"
+
+msgid "_Editar valor…"
+msgstr "_Edit value…"
+
+msgid "_Emoji que pusiste:"
+msgstr "_Emoji you added:"
+
+msgid "_Enlace:"
+msgstr "_Link:"
+
+msgid "_Escribir en la sala"
+msgstr "_Write in the room"
+
+msgid "_Espacio:"
+msgstr "_Space:"
+
+msgid "_Etiqueta:"
+msgstr "_Tag:"
+
+msgid "_Historial visible:"
+msgstr "_Visible history:"
+
+msgid "_Importar claves de cifrado…"
+msgstr "_Import encryption keys…"
+
+msgid "_Información de la sala"
+msgstr "_Room information"
+
+msgid "_Invitar…"
+msgstr "_Invite…"
+
+msgid "_Latitud (por ejemplo 40.4168):"
+msgstr "_Latitude (for example 40.4168):"
+
+msgid "_Mensaje de estado (opcional):"
+msgstr "Status _message (optional):"
+
+msgid "_Mensaje directo a un usuario…"
+msgstr "_Direct message to a user…"
+
+msgid "_Moderación…"
+msgstr "_Moderation…"
+
+msgid "_Nombre de la sala:"
+msgstr "Room _name:"
+
+msgid "_Nombre del campo (por ejemplo m.pronouns o web):"
+msgstr "Field _name (for example m.pronouns or web):"
+
+msgid "_Nombre del espacio:"
+msgstr "Space _name:"
+
+msgid "_Nombre visible:"
+msgstr "Display _name:"
+
+msgid "_Nuevo rango:"
+msgstr "_New rank:"
+
+msgid "_Nuevo valor de «{c}»:"
+msgstr "_New value of \"{c}\":"
+
+msgid "_Opciones (una por línea):"
+msgstr "_Options (one per line):"
+
+msgid "_Opción:"
+msgstr "_Option:"
+
+msgid "_Pregunta:"
+msgstr "_Question:"
+
+msgid "_Presencia:"
+msgstr "_Presence:"
+
+msgid "_Quitar"
+msgstr "_Remove"
+
+msgid "_Quitar de fijados"
+msgstr "_Unpin"
+
+msgid "_Registrar"
+msgstr "_Register"
+
+msgid "_Renombrar…"
+msgstr "_Rename…"
+
+msgid "_Responder en el hilo…"
+msgstr "_Reply in the thread…"
+
+msgid "_Sala (#sala:servidor):"
+msgstr "_Room (#room:server):"
+
+msgid "_Servidor (por ejemplo matrix.org):"
+msgstr "_Server (for example matrix.org):"
+
+msgid "_Servidor (vacío = el tuyo):"
+msgstr "_Server (empty = yours):"
+
+msgid "_Servidor:"
+msgstr "_Server:"
+
+msgid "_Tema (opcional):"
+msgstr "_Topic (optional):"
+
+msgid "_Token de registro (si el servidor lo pide):"
+msgstr "Registration _token (if the server asks for it):"
+
+msgid "_Unirme"
+msgstr "_Join"
+
+msgid "_Usuario (@nombre:servidor o solo nombre):"
+msgstr "_User (@name:server or just the name):"
+
+msgid "_Usuario (@nombre:servidor):"
+msgstr "_User (@name:server):"
+
+msgid "_Usuario deseado:"
+msgstr "Desired _username:"
+
+msgid "_Valor de «{c}»:"
+msgstr "_Value of \"{c}\":"
+
+msgid "_Verificar por emojis…"
+msgstr "_Verify by emojis…"
+
+msgid "_Versión nueva (por ejemplo 11):"
+msgstr "New _version (for example 11):"
+
+msgid "_Zona horaria (así otros ven bien tu hora):"
+msgstr "_Time zone (so others see your time correctly):"
+
+msgid "baja prioridad"
+msgstr "low priority"
+
+msgid "cifrada"
+msgstr "encrypted"
+
+msgid "espacio"
+msgstr "space"
+
+msgid "favorita"
+msgstr "favorite"
+
+msgid "visto {f}"
+msgstr "seen {f}"
+
+msgid "{c}: invitación a {n}"
+msgstr "{c}: invitation to {n}"
+
+msgid "{c}: sesión verificada. Este dispositivo ya es de confianza"
+msgstr "{c}: session verified. This device is now trusted"
+
+msgid "{c}: verificación cancelada. {m}"
+msgstr "{c}: verification cancelled. {m}"
+
+msgid ""
+"{c}: verificación iniciada desde otro dispositivo; enseguida aparecerán los "
+"emojis para comparar"
+msgstr ""
+"{c}: verification started from another device; the emojis to compare will "
+"appear shortly"
+
+msgid "{n} campos"
+msgstr "{n} fields"
+
+msgid "{n} mensajes fijados"
+msgstr "{n} pinned messages"
+
+msgid "{n} resultados"
+msgstr "{n} results"
+
+msgid "{n}, {m} miembros. {t}"
+msgstr "{n}, {m} members. {t}"
+
+msgid "¿Borrar el campo «{c}» del perfil?"
+msgstr "Delete the field \"{c}\" from the profile?"
+
+msgid "¿Borrar este mensaje de la sala? Necesitas ser moderador/a."
+msgstr "Delete this message from the room? You need to be a moderator."
+
+msgid "¿Cerrar la sesión de «{n}»? Hará falta tu contraseña."
+msgstr "Sign out \"{n}\"? Your password will be needed."
+
+msgid ""
+"¿Eliminar la cuenta {n} y sus datos de este equipo? Se cerrará su sesión en "
+"el servidor."
+msgstr ""
+"Remove the account {n} and its data from this computer? Its session on the "
+"server will be closed."
+
+msgid ""
+"¿Ignorar a {n}? No volverás a ver sus mensajes en ninguno de tus clientes."
+msgstr ""
+"Ignore {n}? You will no longer see their messages in any of your clients."
+
+msgid "¿Rechazar la invitación a {n}?"
+msgstr "Decline the invitation to {n}?"
+
+msgid "¿Salir de {n} y olvidarla (se borra su historial de aquí)?"
+msgstr "Leave {n} and forget it (its history is deleted from here)?"
+
+msgid "¿_Quién ha leído este mensaje?"
+msgstr "Who _has read this message?"
+
+msgid "Cambiar el rango…"
+msgstr "Change the rank…"
+
+msgid "Firmar su identidad (experto)…"
+msgstr "Sign their identity (expert)…"

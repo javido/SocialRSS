@@ -48237,3 +48237,1080 @@ msgstr ""
 
 msgid "Bebiendo algo"
 msgstr ""
+
+msgid " (este dispositivo)"
+msgstr ""
+
+msgid "(Ctrl+Alt+V para votar)"
+msgstr ""
+
+msgid "(SIN ENVIAR: usa el menú para reintentar)"
+msgstr ""
+
+msgid "(invitación)"
+msgstr ""
+
+msgid "(sin huella)"
+msgstr ""
+
+msgid ", {m} miembros"
+msgstr ""
+
+msgid "Abriendo el enlace"
+msgstr ""
+
+msgid "Abrir el enlace o la ubicación"
+msgstr ""
+
+msgid "Abrir un enlace"
+msgstr ""
+
+msgid "Aceptar la invitación o abrir la sala"
+msgstr ""
+
+msgid "Activar"
+msgstr ""
+
+msgid "Activar el ci_frado (irreversible)…"
+msgstr ""
+
+msgid ""
+"Activar el cifrado es irreversible: la sala no podrá volver a ser pública "
+"sin cifrar. ¿Continuar?"
+msgstr ""
+
+msgid "Actualizar la _versión de la sala…"
+msgstr ""
+
+msgid "Actualizar la versión de la sala"
+msgstr ""
+
+msgid "Ahora ignoras a {n}"
+msgstr ""
+
+msgid "Ahora se puede llamar a la puerta de esta sala"
+msgstr ""
+
+msgid "Aju_stes de la sala…"
+msgstr ""
+
+msgid "Ajustes de la sala…"
+msgstr ""
+
+msgid "Ajustes de {s}"
+msgstr ""
+
+msgid "Ajustes guardados"
+msgstr ""
+
+msgid "Anunciar los mensajes de _Matrix por voz:"
+msgstr ""
+
+msgid "Aparece en el _directorio público del servidor"
+msgstr ""
+
+msgid "Avatar cambiado"
+msgstr ""
+
+msgid "Avatar de la sala cambiado"
+msgstr ""
+
+msgid ""
+"Aviso: el motor de cifrado (python-olm) no está instalado, así que las salas"
+" cifradas no se podrán leer."
+msgstr ""
+
+msgid "Añadir cuenta de _Matrix…"
+msgstr ""
+
+msgid "Añadir la sala a un espacio"
+msgstr ""
+
+msgid "Añadir la sala a un espacio…"
+msgstr ""
+
+msgid "Añadir un campo del perfil"
+msgstr ""
+
+msgid "Borrar mi mensaje"
+msgstr ""
+
+msgid "Buscar en los mensajes guardados"
+msgstr ""
+
+msgid "Buscar en los mensajes guardados…"
+msgstr ""
+
+msgid "C_rear una sala…"
+msgstr ""
+
+msgid "Cambiar _avatar…"
+msgstr ""
+
+msgid "Cambiar el avatar de la sala…"
+msgstr ""
+
+msgid "Cambiar el rango de {n}"
+msgstr ""
+
+msgid "Campo actualizado"
+msgstr ""
+
+msgid "Campo añadido"
+msgstr ""
+
+msgid "Campo borrado"
+msgstr ""
+
+msgid "Cargando el hilo…"
+msgstr ""
+
+msgid "Cerrar la _sesión del dispositivo…"
+msgstr ""
+
+msgid "Cerrar la encuesta…"
+msgstr ""
+
+msgid "Cerrar la sesión de otro dispositivo"
+msgstr ""
+
+msgid "Cerrar mi encuesta…"
+msgstr ""
+
+msgid "Cifrada de extremo a extremo"
+msgstr ""
+
+msgid "Cifrado activado"
+msgstr ""
+
+msgid "Claves exportadas"
+msgstr ""
+
+msgid "Claves importadas. Se han descifrado {n} mensajes que estaban cifrados"
+msgstr ""
+
+msgid "Claves importadas. Ya puedes leer el historial cifrado de esas salas"
+msgstr ""
+
+msgid "Coinciden"
+msgstr ""
+
+msgid ""
+"Compara esta huella con la que muestra el otro cliente antes de confiar:\n"
+"{h}\n"
+"\n"
+"¿Marcarlo como de confianza?"
+msgstr ""
+
+msgid "Compartir una _ubicación…"
+msgstr ""
+
+msgid "Compartir una ubicación"
+msgstr ""
+
+msgid "Conectado a Matrix; sincronizando en segundo plano"
+msgstr ""
+
+msgid "Conectado a {c}"
+msgstr ""
+
+msgid "Conectando con Matrix…"
+msgstr ""
+
+msgid "Conectando con el servidor de Matrix…"
+msgstr ""
+
+msgid "Confiar"
+msgstr ""
+
+msgid "Configurando la verificación cruzada…"
+msgstr ""
+
+msgid "Configurar la verificación cru_zada…"
+msgstr ""
+
+msgid "Configurar la verificación cruzada"
+msgstr ""
+
+msgid "Consultando los hilos…"
+msgstr ""
+
+msgid "Crear un espa_cio…"
+msgstr ""
+
+msgid "Crear un espacio"
+msgstr ""
+
+msgid "Crear una en_cuesta…"
+msgstr ""
+
+msgid "Crear una encuesta"
+msgstr ""
+
+msgid "Crear una sala de Matrix"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+E: editar tu mensaje; Supr: borrar el mensaje, rechazar la "
+"invitación o salir de la sala"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: miembros y moderación; "
+"Ctrl+Alt+P: datos de la sala o del usuario"
+msgstr ""
+
+msgid ""
+"Ctrl+Alt+X: reaccionar; Ctrl+Alt+C: copiar; Ctrl+D: fijar o desfijar el "
+"mensaje; Ctrl+Alt+V: votar en la encuesta"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+M: cargar mensajes anteriores; el menú Matrix tiene hilos, "
+"fijados, ajustes, cifrado y más"
+msgstr ""
+
+msgid ""
+"Ctrl+N: escribir en la sala (Ctrl+Intro envía; «/me texto» es una acción); "
+"Ctrl+R: responder"
+msgstr ""
+
+msgid "Cuenta de Matrix añadida"
+msgstr ""
+
+msgid "Cuenta registrada y añadida"
+msgstr ""
+
+msgid ""
+"De la conversación abierta, de mensajes directos y de menciones, según el "
+"nivel de aviso de cada sala."
+msgstr ""
+
+msgid "Desconectado de Matrix"
+msgstr ""
+
+msgid "Dispositivo bloqueado"
+msgstr ""
+
+msgid "Dispositivo de confianza"
+msgstr ""
+
+msgid "Dispositivo renombrado"
+msgstr ""
+
+msgid "Dispositivos cifrados de la sala…"
+msgstr ""
+
+msgid "Dispositivos cifrados de {s}"
+msgstr ""
+
+msgid "E_xportar las claves de cifrado…"
+msgstr ""
+
+msgid ""
+"El cifrado de extremo a extremo está activo: las salas cifradas funcionan. "
+"Para leer tu historial cifrado anterior, importa las claves desde el menú "
+"Matrix."
+msgstr ""
+
+msgid "El servidor no indicó la página de aprobación"
+msgstr ""
+
+msgid "Elige otro dispositivo tuyo: este es el que estás usando"
+msgstr ""
+
+msgid "Encuesta enviada"
+msgstr ""
+
+msgid "Escribe al menos el servidor"
+msgstr ""
+
+msgid "Escribe el nombre de la sala"
+msgstr ""
+
+msgid "Escribe la latitud y la longitud como números"
+msgstr ""
+
+msgid "Escribe la pregunta y al menos dos opciones"
+msgstr ""
+
+msgid "Ese campo se edita en la pantalla del perfil, no aquí"
+msgstr ""
+
+msgid "Espacio"
+msgstr ""
+
+msgid "Espacio creado. Añade salas con «Añadir la sala a un espacio»"
+msgstr ""
+
+msgid "Esta sala no es un espacio"
+msgstr ""
+
+msgid "Esta sala no tiene hilos"
+msgstr ""
+
+msgid "Esta sala no tiene mensajes fijados"
+msgstr ""
+
+msgid "Este espacio no tiene salas"
+msgstr ""
+
+msgid "Este mensaje no es una encuesta"
+msgstr ""
+
+msgid "Este mensaje no es uno sin enviar"
+msgstr ""
+
+msgid "Este mensaje no está en el servidor"
+msgstr ""
+
+msgid "Este mensaje no tiene ningún enlace"
+msgstr ""
+
+msgid "Este mensaje no tiene un envío fallido"
+msgstr ""
+
+msgid "Este mensaje no tiene una ubicación"
+msgstr ""
+
+msgid "Etiqueta de la sala (favorita…)"
+msgstr ""
+
+msgid "Etiqueta de la sala…"
+msgstr ""
+
+msgid "Etiqueta guardada"
+msgstr ""
+
+msgid "Etiqueta: {e}"
+msgstr ""
+
+msgid "Exportar la conversación…"
+msgstr ""
+
+msgid "Falta matrix-nio. Instálalo con: pip install matrix-nio"
+msgstr ""
+
+msgid ""
+"Faltaban las claves de {n} conversaciones. Las he pedido a tus otros "
+"dispositivos: si alguno está en línea, los mensajes se descifrarán solos en "
+"unos segundos"
+msgstr ""
+
+msgid "Fijar o desfijar el mensaje"
+msgstr ""
+
+msgid "Firmar"
+msgstr ""
+
+msgid ""
+"Hacer administrador/a a {n} no se puede deshacer (tendrá tu mismo poder). "
+"¿Continuar?"
+msgstr ""
+
+msgid ""
+"He pedido las claves a tus otros dispositivos; si alguno está en línea, el "
+"mensaje se descifrará solo en unos segundos"
+msgstr ""
+
+msgid "Hecho: ahora confías en {n} por verificación cruzada"
+msgstr ""
+
+msgid "Hilo en {s}"
+msgstr ""
+
+msgid "Hilos de la sala…"
+msgstr ""
+
+msgid "Hilos de {s}"
+msgstr ""
+
+msgid "Identificador: {i}"
+msgstr ""
+
+msgid "Ignorar al usuario…"
+msgstr ""
+
+msgid "Iniciando la verificación; compara los emojis cuando aparezcan"
+msgstr ""
+
+msgid ""
+"Iniciando la verificación; compara los emojis cuando aparezcan en los dos "
+"dispositivos"
+msgstr ""
+
+msgid ""
+"Intro sobre una sala: abrir la conversación; sobre una invitación: "
+"aceptarla; sobre un mensaje: abrir su enlace"
+msgstr ""
+
+msgid "L_ongitud (por ejemplo -3.7038):"
+msgstr ""
+
+msgid "La cuenta no está conectada. Conéctala desde el menú Matrix."
+msgstr ""
+
+msgid "La encuesta está cerrada"
+msgstr ""
+
+msgid ""
+"La verificación cruzada de esta aplicación es experimental: la biblioteca base (matrix-nio) no la soporta de forma oficial, así que no sustituye a la copia de seguridad de claves y puede que Element no la reconozca por completo. Guarda tus claves con «Exportar claves» como respaldo fiable.\n"
+"\n"
+"Se creará tu identidad de cifrado en el servidor y hará falta tu contraseña. ¿Continuar?"
+msgstr ""
+
+msgid "Las coordenadas están fuera de rango"
+msgstr ""
+
+msgid "Leído por {c} personas: {n}…"
+msgstr ""
+
+msgid "Leído por: {n}"
+msgstr ""
+
+msgid "Lista de mensajes encontrados"
+msgstr ""
+
+msgid "Lista de mensajes fijados"
+msgstr ""
+
+msgid "Lista de palabras de aviso"
+msgstr ""
+
+msgid "Lista de salas del espacio"
+msgstr ""
+
+msgid "Llamar a la puerta de una sala"
+msgstr ""
+
+msgid "Llamar a la puerta de una sala…"
+msgstr ""
+
+msgid "Ma_trix"
+msgstr ""
+
+msgid "Marcada como leída"
+msgstr ""
+
+msgid "Marcada como no leída"
+msgstr ""
+
+msgid "Marcar como _leída"
+msgstr ""
+
+msgid "Marcar como no leída"
+msgstr ""
+
+msgid "Marcar de _confianza (experto)…"
+msgstr ""
+
+msgid "Mencionar a {n}"
+msgstr ""
+
+msgid "Mensaje _directo"
+msgstr ""
+
+msgid "Mensaje descartado"
+msgstr ""
+
+msgid "Mensaje desfijado"
+msgstr ""
+
+msgid "Mensaje reportado a los administradores"
+msgstr ""
+
+msgid "Mensajes fi_jados…"
+msgstr ""
+
+msgid "Mensajes fijados de {s}"
+msgstr ""
+
+msgid "Mensajes fijados…"
+msgstr ""
+
+msgid "Mi _perfil y estado…"
+msgstr ""
+
+msgid "Mi_embros y moderación…"
+msgstr ""
+
+msgid "Miembros de {s}"
+msgstr ""
+
+msgid "Miembros y moderación…"
+msgstr ""
+
+msgid "Mis _dispositivos…"
+msgstr ""
+
+msgid ""
+"Modo experto. Vas a firmar la identidad de {n} ({u}) sin comparar emojis. "
+"Solo hazlo si has comprobado por otra vía que es quien dice ser. Para "
+"confiar en una persona lo normal es verificarla por emojis. ¿Continuar?"
+msgstr ""
+
+msgid "Motivo para los moderadores"
+msgstr ""
+
+msgid "Más _campos del perfil…"
+msgstr ""
+
+msgid "Nivel de aviso…"
+msgstr ""
+
+msgid "No había mensajes cifrados pendientes"
+msgstr ""
+
+msgid "No has enviado ningún mensaje que editar"
+msgstr ""
+
+msgid "No hay campos extra"
+msgstr ""
+
+msgid "No hay dispositivos que mostrar (¿la sala es cifrada?)"
+msgstr ""
+
+msgid "No hay mensajes que coincidan"
+msgstr ""
+
+msgid "No hay más mensajes anteriores"
+msgstr ""
+
+msgid "No hay nada que mostrar"
+msgstr ""
+
+msgid "No hay palabras de aviso"
+msgstr ""
+
+msgid "No puedes cerrar la sesión que estás usando desde aquí"
+msgstr ""
+
+msgid "No se encontraron miembros. ¿Está conectada la cuenta?"
+msgstr ""
+
+msgid "No se pudieron cargar los miembros: {e}"
+msgstr ""
+
+msgid "No se pudieron leer los ajustes: {e}"
+msgstr ""
+
+msgid "No se pudieron leer los dispositivos: {e}"
+msgstr ""
+
+msgid "No se pudieron leer los hilos: {e}"
+msgstr ""
+
+msgid "No se pudieron leer: {e}"
+msgstr ""
+
+msgid "No se pudo (¿eres administrador/a?): {e}"
+msgstr ""
+
+msgid "No se pudo (¿tienes permiso en el espacio?): {e}"
+msgstr ""
+
+msgid "No se pudo (¿tienes permiso?): {e}"
+msgstr ""
+
+msgid "No se pudo abrir el directo: {e}"
+msgstr ""
+
+msgid "No se pudo buscar: {e}"
+msgstr ""
+
+msgid "No se pudo cambiar el rango: {e}"
+msgstr ""
+
+msgid "No se pudo configurar: {e}"
+msgstr ""
+
+msgid "No se pudo consultar el estado: {e}"
+msgstr ""
+
+msgid "No se pudo crear el espacio: {e}"
+msgstr ""
+
+msgid "No se pudo etiquetar: {e}"
+msgstr ""
+
+msgid "No se pudo finalizar: {e}"
+msgstr ""
+
+msgid "No se pudo guardar (¿tienes permiso?): {e}"
+msgstr ""
+
+msgid "No se pudo leer el hilo: {e}"
+msgstr ""
+
+msgid "No se pudo leer el perfil: {e}"
+msgstr ""
+
+msgid "No se pudo registrar: {e}"
+msgstr ""
+
+msgid "No tienes ningún espacio. Crea uno desde el menú Matrix."
+msgstr ""
+
+msgid "No tienes permiso para cambiar los ajustes de esta sala"
+msgstr ""
+
+msgid "Nombre visible: {n}"
+msgstr ""
+
+msgid "Ocultar los votos hasta cerrar la encuesta"
+msgstr ""
+
+msgid "Palabra añadida: te avisará en todas tus sesiones"
+msgstr ""
+
+msgid "Palabras que me avisan…"
+msgstr ""
+
+msgid "Perfil de {n}"
+msgstr ""
+
+msgid "Perfil y estado guardados"
+msgstr ""
+
+msgid "Permitir llamar a la puerta"
+msgstr ""
+
+msgid "Por ejemplo Europe/Madrid. Vacío para no indicarla."
+msgstr ""
+
+msgid "Pulsa Intro para aceptar o rechazar la invitación."
+msgstr ""
+
+msgid "Quitar mi reacción…"
+msgstr ""
+
+msgid "Rango cambiado"
+msgstr ""
+
+msgid "Re_portar la sala…"
+msgstr ""
+
+msgid "Reconectado a {c}"
+msgstr ""
+
+msgid "Registrando la cuenta…"
+msgstr ""
+
+msgid "Registrar una cuenta nueva de Matri_x…"
+msgstr ""
+
+msgid "Registrar una cuenta nueva de Matrix"
+msgstr ""
+
+msgid "Regla de _acceso:"
+msgstr ""
+
+msgid "Reintentando descifrar los mensajes pendientes…"
+msgstr ""
+
+msgid "Rellena el servidor, el usuario y la contraseña"
+msgstr ""
+
+msgid "Renombrar el dispositivo"
+msgstr ""
+
+msgid "Reportar el mensaje"
+msgstr ""
+
+msgid "Reportar el mensaje…"
+msgstr ""
+
+msgid "Reportar la sala"
+msgstr ""
+
+msgid "Reportar la sala…"
+msgstr ""
+
+msgid "Responder en el hilo"
+msgstr ""
+
+msgid "Responder en un _hilo o ver el hilo…"
+msgstr ""
+
+msgid "Responder en un hilo o ver el hilo…"
+msgstr ""
+
+msgid "Sala _pública (aparece en el directorio y cualquiera puede entrar)"
+msgstr ""
+
+msgid "Sala actualizada: {r}"
+msgstr ""
+
+msgid "Sala añadida al espacio"
+msgstr ""
+
+msgid "Sala cifrada de extremo a extremo."
+msgstr ""
+
+msgid "Sala cifrada. "
+msgstr ""
+
+msgid "Sala creada"
+msgstr ""
+
+msgid "Sala reportada a los administradores"
+msgstr ""
+
+msgid "Sala sin cifrar. "
+msgstr ""
+
+msgid "Salas del espacio"
+msgstr ""
+
+msgid "Salir y olvidar la sala"
+msgstr ""
+
+msgid ""
+"Se creará una sala nueva con la versión {v} y se invitará a los miembros. "
+"¿Continuar?"
+msgstr ""
+
+msgid "Se han descifrado {n} mensajes"
+msgstr ""
+
+msgid "Se perdió la conexión con {c}; reintentando en segundo plano"
+msgstr ""
+
+msgid "Selecciona un mensaje de Matrix"
+msgstr ""
+
+msgid "Selecciona un mensaje de otra persona"
+msgstr ""
+
+msgid "Selecciona una cuenta de Matrix"
+msgstr ""
+
+msgid "Selecciona una invitación"
+msgstr ""
+
+msgid "Selecciona una sala de Matrix"
+msgstr ""
+
+msgid "Selecciona una sala de la lista"
+msgstr ""
+
+msgid "Sesión cerrada"
+msgstr ""
+
+msgid "Sin cifrar"
+msgstr ""
+
+msgid "Solicitud enviada: cuando te acepten, la sala aparecerá en la lista"
+msgstr ""
+
+msgid ""
+"Solo para servidores con inicio de sesión por navegador. El servidor solo "
+"concede los permisos si de verdad lo eres."
+msgstr ""
+
+msgid "Soy _administrador del servidor (pedir permisos de administración)"
+msgstr ""
+
+msgid "Subiendo el avatar…"
+msgstr ""
+
+msgid "Te han invitado a {n}. ¿Aceptar?"
+msgstr ""
+
+msgid "Todavía nadie ha marcado como leído hasta aquí"
+msgstr ""
+
+msgid ""
+"Tu servidor pide aprobar la verificación cruzada en el navegador (se acaba de abrir la página; si no, la dirección es {u}).\n"
+"\n"
+"Inicia sesión si hace falta, aprueba, y cuando termines vuelve aquí. ¿Ya lo has aprobado?"
+msgstr ""
+
+msgid "Ubicación enviada"
+msgstr ""
+
+msgid "Unirse a una sala de Matrix"
+msgstr ""
+
+msgid "Usar la zona horaria de e_ste equipo"
+msgstr ""
+
+msgid "Usuario: {u}"
+msgstr ""
+
+msgid "Ver las salas del espacio…"
+msgstr ""
+
+msgid "Verificación cruzada configurada"
+msgstr ""
+
+msgid ""
+"Verificación cruzada configurada. Ahora verifícate por emojis con quien "
+"quieras que confíe en ti"
+msgstr ""
+
+msgid ""
+"Verificación de Matrix por emojis.\n"
+"\n"
+"Comprueba que estos emojis coinciden exactamente con los que ve la otra persona (o tu otro dispositivo):\n"
+"\n"
+"{e}\n"
+"\n"
+"¿Coinciden?"
+msgstr ""
+
+msgid "Versión {v}."
+msgstr ""
+
+msgid "Volver a descifrar los mensajes pendientes"
+msgstr ""
+
+msgid "Votar en la encuesta…"
+msgstr ""
+
+msgid "Votar: {p}"
+msgstr ""
+
+msgid "Voto enviado"
+msgstr ""
+
+msgid "Ya está aprobado"
+msgstr ""
+
+msgid ""
+"Ya la tenías en el servidor pero este equipo no tiene las claves privadas: al continuar se reemplaza por una nueva y tendrás que re-verificarte con quienes ya lo hubieran hecho.\n"
+"\n"
+msgstr ""
+
+msgid "[Imagen:"
+msgstr ""
+
+msgid "[Vídeo:"
+msgstr ""
+
+msgid "_Abrir el hilo"
+msgstr ""
+
+msgid "_Alias público (#sala:servidor; vacío = no tocar):"
+msgstr ""
+
+msgid "_Añadir…"
+msgstr ""
+
+msgid "_Borrar el mensaje o salir de la sala"
+msgstr ""
+
+msgid "_Borrar…"
+msgstr ""
+
+msgid "_Contraseña de tu cuenta de Matrix:"
+msgstr ""
+
+msgid "_Contraseña de tu cuenta:"
+msgstr ""
+
+msgid "_Contraseña del archivo de claves:"
+msgstr ""
+
+msgid "_Editar valor…"
+msgstr ""
+
+msgid "_Emoji que pusiste:"
+msgstr ""
+
+msgid "_Enlace:"
+msgstr ""
+
+msgid "_Escribir en la sala"
+msgstr ""
+
+msgid "_Espacio:"
+msgstr ""
+
+msgid "_Etiqueta:"
+msgstr ""
+
+msgid "_Historial visible:"
+msgstr ""
+
+msgid "_Importar claves de cifrado…"
+msgstr ""
+
+msgid "_Información de la sala"
+msgstr ""
+
+msgid "_Invitar…"
+msgstr ""
+
+msgid "_Latitud (por ejemplo 40.4168):"
+msgstr ""
+
+msgid "_Mensaje de estado (opcional):"
+msgstr ""
+
+msgid "_Mensaje directo a un usuario…"
+msgstr ""
+
+msgid "_Moderación…"
+msgstr ""
+
+msgid "_Nombre de la sala:"
+msgstr ""
+
+msgid "_Nombre del campo (por ejemplo m.pronouns o web):"
+msgstr ""
+
+msgid "_Nombre del espacio:"
+msgstr ""
+
+msgid "_Nombre visible:"
+msgstr ""
+
+msgid "_Nuevo rango:"
+msgstr ""
+
+msgid "_Nuevo valor de «{c}»:"
+msgstr ""
+
+msgid "_Opciones (una por línea):"
+msgstr ""
+
+msgid "_Opción:"
+msgstr ""
+
+msgid "_Pregunta:"
+msgstr ""
+
+msgid "_Presencia:"
+msgstr ""
+
+msgid "_Quitar"
+msgstr ""
+
+msgid "_Quitar de fijados"
+msgstr ""
+
+msgid "_Registrar"
+msgstr ""
+
+msgid "_Renombrar…"
+msgstr ""
+
+msgid "_Responder en el hilo…"
+msgstr ""
+
+msgid "_Sala (#sala:servidor):"
+msgstr ""
+
+msgid "_Servidor (por ejemplo matrix.org):"
+msgstr ""
+
+msgid "_Servidor (vacío = el tuyo):"
+msgstr ""
+
+msgid "_Servidor:"
+msgstr ""
+
+msgid "_Tema (opcional):"
+msgstr ""
+
+msgid "_Token de registro (si el servidor lo pide):"
+msgstr ""
+
+msgid "_Unirme"
+msgstr ""
+
+msgid "_Usuario (@nombre:servidor o solo nombre):"
+msgstr ""
+
+msgid "_Usuario (@nombre:servidor):"
+msgstr ""
+
+msgid "_Usuario deseado:"
+msgstr ""
+
+msgid "_Valor de «{c}»:"
+msgstr ""
+
+msgid "_Verificar por emojis…"
+msgstr ""
+
+msgid "_Versión nueva (por ejemplo 11):"
+msgstr ""
+
+msgid "_Zona horaria (así otros ven bien tu hora):"
+msgstr ""
+
+msgid "baja prioridad"
+msgstr ""
+
+msgid "cifrada"
+msgstr ""
+
+msgid "espacio"
+msgstr ""
+
+msgid "favorita"
+msgstr ""
+
+msgid "visto {f}"
+msgstr ""
+
+msgid "{c}: invitación a {n}"
+msgstr ""
+
+msgid "{c}: sesión verificada. Este dispositivo ya es de confianza"
+msgstr ""
+
+msgid "{c}: verificación cancelada. {m}"
+msgstr ""
+
+msgid ""
+"{c}: verificación iniciada desde otro dispositivo; enseguida aparecerán los "
+"emojis para comparar"
+msgstr ""
+
+msgid "{n} campos"
+msgstr ""
+
+msgid "{n} mensajes fijados"
+msgstr ""
+
+msgid "{n} resultados"
+msgstr ""
+
+msgid "{n}, {m} miembros. {t}"
+msgstr ""
+
+msgid "¿Borrar el campo «{c}» del perfil?"
+msgstr ""
+
+msgid "¿Borrar este mensaje de la sala? Necesitas ser moderador/a."
+msgstr ""
+
+msgid "¿Cerrar la sesión de «{n}»? Hará falta tu contraseña."
+msgstr ""
+
+msgid ""
+"¿Eliminar la cuenta {n} y sus datos de este equipo? Se cerrará su sesión en "
+"el servidor."
+msgstr ""
+
+msgid ""
+"¿Ignorar a {n}? No volverás a ver sus mensajes en ninguno de tus clientes."
+msgstr ""
+
+msgid "¿Rechazar la invitación a {n}?"
+msgstr ""
+
+msgid "¿Salir de {n} y olvidarla (se borra su historial de aquí)?"
+msgstr ""
+
+msgid "¿_Quién ha leído este mensaje?"
+msgstr ""
+
+msgid "Cambiar el rango…"
+msgstr ""
+
+msgid "Firmar su identidad (experto)…"
+msgstr ""

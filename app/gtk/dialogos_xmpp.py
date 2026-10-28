@@ -248,8 +248,10 @@ class DialogoMensajeXMPP(DialogoBase):
         self.set_resizable(True)
         self.set_default_size(580, -1)
         if cita:
-            quien = Gtk.Label(label=_("Respondiendo a: {c}").format(c=cita), xalign=0, wrap=True, selectable=True)
-            self.rejilla.attach(quien, 0, self._fila, 2, 1)
+            # En una sola columna: una etiqueta con ajuste de línea que abarca dos columnas de la rejilla desquicia el cálculo de altura.
+            self.rejilla.attach(Gtk.Label(label=_("Respondiendo a:"), xalign=0, yalign=0), 0, self._fila, 1, 1)
+            self.rejilla.attach(Gtk.Label(label=cita, xalign=0, wrap=True, selectable=True, hexpand=True,
+                                          width_chars=40, max_width_chars=70), 1, self._fila, 1, 1)
             self._fila += 1
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
