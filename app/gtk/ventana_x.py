@@ -521,6 +521,51 @@ class _TwitterMixin:
                           _("_Abrir")).present()
         x_service.obtener_listas_async(acc, callback=_fin)
 
+    def tw_listas(self):
+        acc = self._tw_cuenta()
+        if acc is not None:
+            from .dialogos_x_gestion import DialogoListasX
+            DialogoListasX(self, acc).present()
+
+    def tw_buscar_comunidades(self):
+        acc = self._tw_cuenta()
+        if acc is None:
+            return
+
+        def _buscar(texto):
+            self.avisar(_("Buscando comunidades…"))
+
+            def _fin(res, err):
+                if err:
+                    self._tw_error(err, acc, lambda: _buscar(texto))
+                    return
+                if not res:
+                    self.avisar(_("No se encontraron comunidades"))
+                    return
+                from .dialogos_x_gestion import DialogoComunidadesX
+                DialogoComunidadesX(self, acc, res, texto).present()
+            x_service.buscar_comunidades_async(acc, texto, callback=_fin)
+        DialogoTexto(self, _("Buscar comunidades"), _("_Buscar:"), _buscar, aceptar=_("_Buscar")).present()
+
+    def tw_abrir_comunidad(self, account_id: int, community_id: str, nombre: str):
+        self._abrir_buffer(account_id, f"community:{community_id}", nombre, servicio="x")
+
+    def tw_salir_comunidad(self):
+        n = self.nodo_actual
+        if n is None or n.servicio != "x" or not n.timeline.startswith("community:"):
+            self.avisar(_("Abre antes el buffer de una comunidad"))
+            return
+        cid = n.timeline.split(":", 1)[1]
+
+        def _hacer():
+            def _fin(res, err):
+                if err:
+                    self.avisar(_("No se pudo: {e}").format(e=err))
+                    return
+                self.avisar(_("Has salido de la comunidad"))
+            x_service.comunidad_async(n.account_id, cid, "leave", callback=_fin)
+        confirmar_async(self, _("¿Salir de esta comunidad?"), _hacer, etiqueta_si=_("Salir"))
+
     def tw_anadir_a_lista(self):
         obj = self._tw_obj(("estado", "notificacion", "usuario"))
         x = obj.fila.extra if obj else {}
@@ -788,6 +833,9 @@ class _TwitterMixin:
         a("tw-buscar-usuarios", self.tw_buscar_usuarios)
         a("tw-tendencias", self.tw_tendencias)
         a("tw-abrir-lista", self.tw_abrir_lista)
+        a("tw-listas", self.tw_listas)
+        a("tw-buscar-comunidades", self.tw_buscar_comunidades)
+        a("tw-salir-comunidad", self.tw_salir_comunidad)
         a("tw-anadir-lista", self.tw_anadir_a_lista)
         a("tw-programados", self.tw_programados)
         a("tw-ocultar-buffers", self.tw_ocultar_buffers)

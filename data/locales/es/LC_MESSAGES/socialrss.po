@@ -40041,3 +40041,72 @@ msgstr "Bloquear la cuenta"
 
 msgid "Escribirle un mensaje directo"
 msgstr "Escribirle un mensaje directo"
+
+msgid "Abre antes el buffer de una comunidad"
+msgstr "Abre antes el buffer de una comunidad"
+
+msgid "Al editar, déjalo vacío para no cambiarla."
+msgstr "Al editar, déjalo vacío para no cambiarla."
+
+msgid "Buscando comunidades…"
+msgstr "Buscando comunidades…"
+
+msgid "Buscar c_omunidades…"
+msgstr "Buscar c_omunidades…"
+
+msgid "Comunidades de X: {q}"
+msgstr "Comunidades de X: {q}"
+
+msgid "Editar la lista"
+msgstr "Editar la lista"
+
+msgid "Has salido de la comunidad"
+msgstr "Has salido de la comunidad"
+
+msgid "Lista _privada (solo la ves tú):"
+msgstr "Lista _privada (solo la ves tú):"
+
+msgid "Lista actualizada"
+msgstr "Lista actualizada"
+
+msgid "Lista de comunidades"
+msgstr "Lista de comunidades"
+
+msgid "No se encontraron comunidades"
+msgstr "No se encontraron comunidades"
+
+msgid "Salir de la comunidad de este buffer"
+msgstr "Salir de la comunidad de este buffer"
+
+msgid "Te has unido a la comunidad"
+msgstr "Te has unido a la comunidad"
+
+msgid "Tus listas de X"
+msgstr "Tus listas de X"
+
+msgid "_Abrir como buffer"
+msgstr "_Abrir como buffer"
+
+msgid "_Descripción"
+msgstr "_Descripción"
+
+msgid "_Editar…"
+msgstr "_Editar…"
+
+msgid "_Gestionar mis listas…"
+msgstr "_Gestionar mis listas…"
+
+msgid "{m} miembros. {d}"
+msgstr "{m} miembros. {d}"
+
+msgid "{n} comunidades"
+msgstr "{n} comunidades"
+
+msgid "{n}. {m} miembros{s}"
+msgstr "{n}. {m} miembros{s}"
+
+msgid "¿Borrar la lista «{n}»? No se puede deshacer."
+msgstr "¿Borrar la lista «{n}»? No se puede deshacer."
+
+msgid "¿Quitar a @{u} de la lista?"
+msgstr "¿Quitar a @{u} de la lista?"

@@ -188,6 +188,9 @@ def _menu() -> Gio.Menu:
                                     (_("Cronología de un _usuario…"), "win.tw-cronologia-de"),
                                     (_("Perfil de un usuario…"), "win.tw-perfil-de"),
                                     (_("Abrir una _lista…"), "win.abrir-lista"),
+                                    (_("_Gestionar mis listas…"), "win.tw-listas"),
+                                    (_("Buscar c_omunidades…"), "win.tw-buscar-comunidades"),
+                                    (_("Salir de la comunidad de este buffer"), "win.tw-salir-comunidad"),
                                     (_("_Tendencias…"), "win.tw-tendencias"),
                                     (_("Publicaciones pro_gramadas…"), "win.tw-programados")))
         tw.append_section(None, sec((_("Quién ha dado me gusta…"), "win.tw-quien-gusta"),

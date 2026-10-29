@@ -50256,3 +50256,72 @@ msgstr ""
 
 msgid "Escribirle un mensaje directo"
 msgstr ""
+
+msgid "Abre antes el buffer de una comunidad"
+msgstr ""
+
+msgid "Al editar, déjalo vacío para no cambiarla."
+msgstr ""
+
+msgid "Buscando comunidades…"
+msgstr ""
+
+msgid "Buscar c_omunidades…"
+msgstr ""
+
+msgid "Comunidades de X: {q}"
+msgstr ""
+
+msgid "Editar la lista"
+msgstr ""
+
+msgid "Has salido de la comunidad"
+msgstr ""
+
+msgid "Lista _privada (solo la ves tú):"
+msgstr ""
+
+msgid "Lista actualizada"
+msgstr ""
+
+msgid "Lista de comunidades"
+msgstr ""
+
+msgid "No se encontraron comunidades"
+msgstr ""
+
+msgid "Salir de la comunidad de este buffer"
+msgstr ""
+
+msgid "Te has unido a la comunidad"
+msgstr ""
+
+msgid "Tus listas de X"
+msgstr ""
+
+msgid "_Abrir como buffer"
+msgstr ""
+
+msgid "_Descripción"
+msgstr ""
+
+msgid "_Editar…"
+msgstr ""
+
+msgid "_Gestionar mis listas…"
+msgstr ""
+
+msgid "{m} miembros. {d}"
+msgstr ""
+
+msgid "{n} comunidades"
+msgstr ""
+
+msgid "{n}. {m} miembros{s}"
+msgstr ""
+
+msgid "¿Borrar la lista «{n}»? No se puede deshacer."
+msgstr ""
+
+msgid "¿Quitar a @{u} de la lista?"
+msgstr ""

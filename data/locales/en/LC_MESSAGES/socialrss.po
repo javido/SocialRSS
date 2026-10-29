@@ -51867,3 +51867,72 @@ msgstr "Block the account"
 
 msgid "Escribirle un mensaje directo"
 msgstr "Write them a direct message"
+
+msgid "Abre antes el buffer de una comunidad"
+msgstr "Open a community buffer first"
+
+msgid "Al editar, déjalo vacío para no cambiarla."
+msgstr "When editing, leave it empty to keep it."
+
+msgid "Buscando comunidades…"
+msgstr "Searching communities…"
+
+msgid "Buscar c_omunidades…"
+msgstr "Search c_ommunities…"
+
+msgid "Comunidades de X: {q}"
+msgstr "X communities: {q}"
+
+msgid "Editar la lista"
+msgstr "Edit the list"
+
+msgid "Has salido de la comunidad"
+msgstr "You have left the community"
+
+msgid "Lista _privada (solo la ves tú):"
+msgstr "_Private list (only you see it):"
+
+msgid "Lista actualizada"
+msgstr "List updated"
+
+msgid "Lista de comunidades"
+msgstr "List of communities"
+
+msgid "No se encontraron comunidades"
+msgstr "No communities found"
+
+msgid "Salir de la comunidad de este buffer"
+msgstr "Leave the community of this buffer"
+
+msgid "Te has unido a la comunidad"
+msgstr "You have joined the community"
+
+msgid "Tus listas de X"
+msgstr "Your X lists"
+
+msgid "_Abrir como buffer"
+msgstr "_Open as a buffer"
+
+msgid "_Descripción"
+msgstr "_Description"
+
+msgid "_Editar…"
+msgstr "_Edit…"
+
+msgid "_Gestionar mis listas…"
+msgstr "_Manage my lists…"
+
+msgid "{m} miembros. {d}"
+msgstr "{m} members. {d}"
+
+msgid "{n} comunidades"
+msgstr "{n} communities"
+
+msgid "{n}. {m} miembros{s}"
+msgstr "{n}. {m} members{s}"
+
+msgid "¿Borrar la lista «{n}»? No se puede deshacer."
+msgstr "Delete the list «{n}»? This cannot be undone."
+
+msgid "¿Quitar a @{u} de la lista?"
+msgstr "Remove @{u} from the list?"
