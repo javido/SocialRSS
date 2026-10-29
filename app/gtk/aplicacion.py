@@ -225,7 +225,9 @@ def _menu() -> Gio.Menu:
     tg.append_section(None, sec((_("Reproducir la nota de _voz o el audio"), "win.reproducir"),
                                 (_("_Descargar el adjunto"), "win.tg-descargar"),
                                 (_("_Abrir el adjunto"), "win.tg-abrir-adjunto"),
-                                (_("Enviar un a_rchivo…"), "win.tg-enviar-archivo")))
+                                (_("Enviar un a_rchivo…"), "win.tg-enviar-archivo"),
+                                (_("_Grabar y enviar una nota de voz"), "win.grabar-voz"),
+                                (_("Cancelar la grabación de voz"), "win.cancelar-voz")))
     tg.append_section(None, sec((_("Nuevo _chat con un usuario…"), "win.tg-chat-nuevo"),
                                 (_("Mensajes _guardados"), "win.tg-guardados"),
                                 (_("_Silenciar o reactivar el chat"), "win.tg-silenciar"),
@@ -282,6 +284,8 @@ def _menu() -> Gio.Menu:
                                 (_("Co_piar el texto"), "win.x-copiar"),
                                 (_("Destacar el mensaje"), "win.favorito")))
     xm.append_section(None, sec((_("Enviar un a_rchivo…"), "win.x-enviar-archivo"),
+                                (_("_Grabar y enviar una nota de voz"), "win.grabar-voz"),
+                                (_("Cancelar la grabación de voz"), "win.cancelar-voz"),
                                 (_("Re_producir el audio"), "win.reproducir"),
                                 (_("_Descargar el adjunto"), "win.x-descargar"),
                                 (_("_Abrir el adjunto"), "win.x-abrir-adjunto")))
@@ -336,6 +340,8 @@ def _menu() -> Gio.Menu:
                                 (_("Fijar o desfijar el mensaje"), "win.mx-fijar-mensaje"),
                                 (_("Abrir el enlace o la ubicación"), "win.abrir-chat")))
     mx.append_section(None, sec((_("Enviar un a_rchivo…"), "win.mx-enviar-archivo"),
+                                (_("_Grabar y enviar una nota de voz"), "win.grabar-voz"),
+                                (_("Cancelar la grabación de voz"), "win.cancelar-voz"),
                                 (_("Crear una en_cuesta…"), "win.mx-crear-encuesta"),
                                 (_("Votar en la encuesta…"), "win.votar"),
                                 (_("Cerrar mi encuesta…"), "win.mx-cerrar-encuesta"),

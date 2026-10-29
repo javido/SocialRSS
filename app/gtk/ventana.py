@@ -30,6 +30,7 @@ from app.core.plataforma import llamar_en_ui
 
 from . import datos, datos_bluesky, datos_irc, datos_mastodon, datos_matrix, datos_telegram, datos_x, datos_xmpp
 from .ventana_bluesky import _BlueskyMixin
+from .ventana_voz import _VozMixin
 from .ventana_x import _TwitterMixin
 from .ventana_irc import _IRCMixin
 from .ventana_telegram import _TelegramMixin
@@ -56,7 +57,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -470,6 +471,7 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _TelegramMixin, _IRCMixin, 
         self._registrar_acciones_xmpp(accion)
         self._registrar_acciones_matrix(accion)
         self._registrar_acciones_x(accion)
+        self._registrar_acciones_voz(accion)
         accion("unirse-canal", self.accion_unirse, ["<Ctrl><Alt>j"])
         accion("usuarios-canal", self.accion_usuarios, ["<Ctrl><Alt>i"])
         accion("abrir-chat", self.accion_abrir_chat, [])
@@ -1482,6 +1484,7 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _TelegramMixin, _IRCMixin, 
         self._tiempo_real.sincronizar([a for a, _n in datos_mastodon.cuentas()])
 
     def _al_cerrar(self, *_a):
+        self.voz_cancelar(avisar=False)
         self._tg_al_cambiar_nodo(self.nodo_actual, None)
         self.detener_tiempo_real_telegram()
         self._irc_al_cambiar_nodo(self.nodo_actual, None)

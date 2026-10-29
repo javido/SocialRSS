@@ -152,7 +152,56 @@ class DialogoPreferencias(Gtk.Window):
         self.paso = Gtk.SpinButton.new_with_range(5, 120, 5)
         self.paso.set_value(float(config.get("media_player", "default_step_forward2", 15.0)))
         p.campo(_("Salto del _reproductor (segundos):"), self.paso)
+        self._crear_microfono(p)
         self._pestana(_("_General"), p)
+
+    # ------------------------------------------------------------------ Micrófono
+    def _crear_microfono(self, p: _Pagina):
+        """Micrófono de las notas de voz de Telegram, XMPP y Matrix (mismas claves que la versión de Windows)."""
+        from app.services.audio import microphone
+        self._mic_nombres = []
+        self.mic = Gtk.DropDown.new_from_strings([_("(Predeterminado del sistema)")])
+        p.campo(_("_Micrófono para las notas de voz:"), self.mic,
+                _("Se usa al grabar con Ctrl+Alt+A en Telegram, XMPP y Matrix."))
+        self.mic_volumen = Gtk.SpinButton.new_with_range(0, 200, 5)
+        self.mic_volumen.set_value(int(float(microphone.config_microfono()[1]) * 100))
+        p.campo(_("_Volumen del micrófono (%):"), self.mic_volumen)
+        self.mic_botones = p.botones((_("A_ctualizar la lista de micrófonos"), self._cargar_microfonos),
+                                     (_("Pro_bar el micrófono"), self._probar_microfono))
+        self._cargar_microfonos()
+
+    def _cargar_microfonos(self):
+        from app.services.audio import microphone
+        try:
+            self._mic_nombres = microphone.listar_microfonos()
+        except Exception:
+            self._mic_nombres = []
+        self.mic.set_model(Gtk.StringList.new([_("(Predeterminado del sistema)")] + self._mic_nombres))
+        guardado = microphone.config_microfono()[0]
+        self.mic.set_selected(self._mic_nombres.index(guardado) + 1 if guardado in self._mic_nombres else 0)
+        if not self._mic_nombres:
+            notificar(_("No se detectaron micrófonos"))
+
+    def _mic_elegido(self) -> str:
+        i = self.mic.get_selected()
+        return self._mic_nombres[i - 1] if 0 < i <= len(self._mic_nombres) else ""
+
+    def _probar_microfono(self):
+        """Graba 4 segundos con lo elegido y los reproduce."""
+        from app.services.audio import microphone
+        from app.services.media_player.player2_service import KIND_PODCAST, player2_service
+        dispositivo, volumen = self._mic_elegido(), self.mic_volumen.get_value() / 100.0
+        notificar(_("Grabando 4 segundos de prueba. Habla ahora…"))
+
+        def _fin(ruta, err):
+            if err:
+                notificar(_("Falló la prueba: {e}").format(e=err))
+                return
+            notificar(_("Reproduciendo la prueba grabada"))
+            player2_service.cargar_y_reproducir(ruta, _("Prueba de micrófono"), KIND_PODCAST, resume=False,
+                                                callback=lambda ok: None)
+        task_manager.start_task(lambda ctx: microphone.grabar_prueba(dispositivo or None, volumen, segundos=4),
+                                callback=_fin, pass_context=True)
 
     # ------------------------------------------------------------------ Inteligencia artificial
     def _crear_ia(self):
@@ -351,6 +400,8 @@ class DialogoPreferencias(Gtk.Window):
         config.set("matrix", "announce_new", self.anunciar_mx.get_active())
         config.set("matrix", "admin_tools", self.admin_mx.get_active())
         config.set("x", "auto_update", self.auto_x.get_active())
+        config.set("audio", "mic_device", self._mic_elegido())
+        config.set("audio", "mic_volume", self.mic_volumen.get_value() / 100.0)
         paso = float(self.paso.get_value())
         config.set("media_player", "default_step_forward2", paso)
         config.set("media_player", "default_step_backward2", paso)

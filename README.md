@@ -163,6 +163,10 @@ Ctrl+Mayús+R; la actualización automática es opcional en Preferencias. Gesti�
 miembros) y de comunidades (buscarlas, abrirlas como buffer, unirse y salir). El resto de redes
 (Reddit, PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
+**Notas de voz** (Telegram, XMPP y Matrix): Ctrl+Alt+A empieza a grabar en el chat enfocado y, pulsado otra vez, la envía;
+Ctrl+Alt+Mayús+A la cancela. En Linux se graba con GStreamer (en Windows sigue siendo BASS), con el micrófono y el volumen
+que se eligen en Preferencias, y se codifica a Opus con ffmpeg o, si no lo hay, con el propio GStreamer (`opusenc`).
+
 ### Qué necesitas
 
 Paquetes del sistema (nombres de Arch; en Debian/Ubuntu y Fedora son los equivalentes):

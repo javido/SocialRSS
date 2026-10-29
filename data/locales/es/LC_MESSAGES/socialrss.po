@@ -40134,3 +40134,78 @@ msgstr "_País o ciudad:"
 
 msgid "no hay lugares"
 msgstr "no hay lugares"
+
+msgid "A_ctualizar la lista de micrófonos"
+msgstr "A_ctualizar la lista de micrófonos"
+
+msgid "Cancelar la grabación de voz"
+msgstr "Cancelar la grabación de voz"
+
+msgid ""
+"Ctrl+Alt+A: grabar una nota de voz y, pulsado otra vez, enviarla (Telegram, "
+"XMPP y Matrix); Ctrl+Alt+Mayús+A: cancelar"
+msgstr ""
+"Ctrl+Alt+A: grabar una nota de voz y, pulsado otra vez, enviarla (Telegram, "
+"XMPP y Matrix); Ctrl+Alt+Mayús+A: cancelar"
+
+msgid "Enviando la nota de voz…"
+msgstr "Enviando la nota de voz…"
+
+msgid ""
+"Estás grabando una nota de voz para {t}. Vuelve a ese chat para enviarla o "
+"cancélala con Ctrl+Alt+Mayús+A."
+msgstr ""
+"Estás grabando una nota de voz para {t}. Vuelve a ese chat para enviarla o "
+"cancélala con Ctrl+Alt+Mayús+A."
+
+msgid "Falló la prueba: {e}"
+msgstr "Falló la prueba: {e}"
+
+msgid "Grabación cancelada"
+msgstr "Grabación cancelada"
+
+msgid "Grabando 4 segundos de prueba. Habla ahora…"
+msgstr "Grabando 4 segundos de prueba. Habla ahora…"
+
+msgid ""
+"Grabando para {t}. Ctrl+Alt+A envía la nota de voz y Ctrl+Alt+Mayús+A la "
+"cancela."
+msgstr ""
+"Grabando para {t}. Ctrl+Alt+A envía la nota de voz y Ctrl+Alt+Mayús+A la "
+"cancela."
+
+msgid "La grabación pasó de 10 minutos y se canceló"
+msgstr "La grabación pasó de 10 minutos y se canceló"
+
+msgid "No hay ninguna grabación en curso"
+msgstr "No hay ninguna grabación en curso"
+
+msgid "No se detectaron micrófonos"
+msgstr "No se detectaron micrófonos"
+
+msgid "No se pudo empezar a grabar: {e}"
+msgstr "No se pudo empezar a grabar: {e}"
+
+msgid "No se pudo enviar la nota de voz: {e}"
+msgstr "No se pudo enviar la nota de voz: {e}"
+
+msgid "Nota de voz enviada"
+msgstr "Nota de voz enviada"
+
+msgid "Pro_bar el micrófono"
+msgstr "Pro_bar el micrófono"
+
+msgid "Reproduciendo la prueba grabada"
+msgstr "Reproduciendo la prueba grabada"
+
+msgid "Se usa al grabar con Ctrl+Alt+A en Telegram, XMPP y Matrix."
+msgstr "Se usa al grabar con Ctrl+Alt+A en Telegram, XMPP y Matrix."
+
+msgid "_Grabar y enviar una nota de voz"
+msgstr "_Grabar y enviar una nota de voz"
+
+msgid "_Micrófono para las notas de voz:"
+msgstr "_Micrófono para las notas de voz:"
+
+msgid "_Volumen del micrófono (%):"
+msgstr "_Volumen del micrófono (%):"

@@ -195,6 +195,7 @@ def _teclas() -> str:
         _("Ctrl+Alt+D: descargar el adjunto; Ctrl+Alt+O: abrirlo; Ctrl+Alt+U: enviar un archivo; F2: reproducir"),
         _("Ctrl+Alt+J: unirse a una sala; Ctrl+Alt+I: ocupantes de la sala; Ctrl+Alt+P: información del contacto"),
         _("Ctrl+Mayús+M: cargar mensajes anteriores"),
+        _("Ctrl+Alt+A: grabar una nota de voz y, pulsado otra vez, enviarla (Telegram, XMPP y Matrix); Ctrl+Alt+Mayús+A: cancelar"),
         "",
         _("Matrix"),
         _("Intro sobre una sala: abrir la conversación; sobre una invitación: aceptarla; sobre un mensaje: abrir su enlace"),
