@@ -83,7 +83,7 @@ class FilaObj(GObject.Object):
         if f.servicio in ("reddit", "peertube"):
             # La lectura ya sale de las plantillas del usuario (fecha, puntos e indicadores incluidos).
             return f.titulo
-        if f.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix", "x"):
+        if f.servicio in ("mastodon", "bluesky", "wsocial", "telegram", "irc", "xmpp", "matrix", "x"):
             return self._descripcion_mastodon()
         partes = []
         if not self.leido:

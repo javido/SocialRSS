@@ -113,6 +113,15 @@ conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), b
 listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
 contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
 traducir, resumir y describir imágenes con IA. Aún faltan paquetes de inicio, tendencias y grupos de chat.
+**W Social**: alta con usuario y contraseña de aplicación (con «Comprobar el servidor» para ver dónde vive la cuenta
+antes de enviar nada, y «Volver a autorizar»), Inicio, Notificaciones, Menciones, Mis publicaciones, Me gusta, Marcadores y
+mensajes directos; publicar con imágenes o vídeo, responder (con control de quién puede responder), citar, me gusta,
+republicar, marcadores, borrar, conversaciones, citas, cronologías de usuario, perfil (seguir, silenciar, bloquear),
+búsqueda, feeds, listas (crear y gestionar sus miembros), quién ha dado me gusta o republicado, silenciar hilos, denuncias,
+seguidores, seguidos, bloqueadas y silenciadas, editar el perfil, contraseñas de aplicación y avisos de notificaciones y
+mensajes nuevos. Comparte las teclas de Mastodon y Bluesky. Todavía faltan en esta interfaz: hilos largos, borradores,
+publicaciones pendientes de envío, palabras silenciadas, moderación de contenido, servicios de etiquetado, grupos de chat,
+paquetes de inicio, tendencias y contactos. No se ha probado con una cuenta real de W Social.
 **Telegram** (necesita `kurigram`, ver más abajo): alta con teléfono, código y verificación en dos pasos
 (las credenciales `api_id` y `api_hash` se piden en my.telegram.org y se indican desde el menú Telegram);
 lista de chats y de chats sin leer, cada conversación como un buffer del árbol, enviar, responder, editar,

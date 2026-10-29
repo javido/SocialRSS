@@ -561,7 +561,8 @@ class _BlueskyMixin:
         def a(nombre, fn, teclas=()):
             accion(nombre, fn, teclas)
         a("bsky-mensaje-nuevo", self.bsky_mensaje_nuevo)
-        a("bsky-mensaje-autor", self.bsky_mensaje_a_autor, ["<Ctrl><Alt>m"])
+        a("bsky-mensaje-autor", lambda: self.ws_mensaje_a_autor() if self._ws_ctx() else self.bsky_mensaje_a_autor(),
+          ["<Ctrl><Alt>m"])
         a("bsky-convo-silenciar", self.bsky_convo_silenciar)
         a("bsky-reaccionar", self.bsky_reaccionar)
         a("bsky-quien-gusta", lambda: self.bsky_interacciones("likes"))

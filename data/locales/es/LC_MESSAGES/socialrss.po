@@ -41424,3 +41424,131 @@ msgstr "Mostrarlo difuminado"
 
 msgid "Mostrarlo"
 msgstr "Mostrarlo"
+
+msgid "(dominios: {d})"
+msgstr "(dominios: {d})"
+
+msgid "Avisar de los mensajes directos de W Social:"
+msgstr "Avisar de los mensajes directos de W Social:"
+
+msgid "Avisos de novedades en _W Social:"
+msgstr "Avisos de novedades en _W Social:"
+
+msgid "Añadir cuenta de W Social"
+msgstr "Añadir cuenta de W Social"
+
+msgid "Añadir cuenta de _W Social…"
+msgstr "Añadir cuenta de _W Social…"
+
+msgid "Buscando tu cuenta…"
+msgstr "Buscando tu cuenta…"
+
+msgid ""
+"Cada cuánto se pregunta por notificaciones y mensajes directos nuevos. "
+"Mínimo 20 segundos."
+msgstr ""
+"Cada cuánto se pregunta por notificaciones y mensajes directos nuevos. "
+"Mínimo 20 segundos."
+
+msgid "Citas de {n}"
+msgstr "Citas de {n}"
+
+msgid "Contraseña de _aplicación:"
+msgstr "Contraseña de _aplicación:"
+
+msgid "Contraseñas de aplicación de W Social"
+msgstr "Contraseñas de aplicación de W Social"
+
+msgid ""
+"Créala en los ajustes de W Social, en la web. No uses tu contraseña normal. "
+"Para usar los mensajes directos, márcala con acceso a mensajes."
+msgstr ""
+"Créala en los ajustes de W Social, en la web. No uses tu contraseña normal. "
+"Para usar los mensajes directos, márcala con acceso a mensajes."
+
+msgid "Cuenta @{h} lista en {s}"
+msgstr "Cuenta @{h} lista en {s}"
+
+msgid "Cuenta autorizada de nuevo"
+msgstr "Cuenta autorizada de nuevo"
+
+msgid "Esa publicación no está en la caché: ábrela primero"
+msgstr "Esa publicación no está en la caché: ábrela primero"
+
+msgid "Escribe primero tu nombre de usuario"
+msgstr "Escribe primero tu nombre de usuario"
+
+msgid "Mensaje directo en W Social"
+msgstr "Mensaje directo en W Social"
+
+msgid "Mi perfil de W Social"
+msgstr "Mi perfil de W Social"
+
+msgid "Notificaciones nuevas en W Social"
+msgstr "Notificaciones nuevas en W Social"
+
+msgid "Segundos entre las comprobaciones de W Social:"
+msgstr "Segundos entre las comprobaciones de W Social:"
+
+msgid "Selecciona una cuenta de W Social"
+msgstr "Selecciona una cuenta de W Social"
+
+msgid "Selecciona una publicación de W Social"
+msgstr "Selecciona una publicación de W Social"
+
+msgid "Servidor de la cuenta:"
+msgstr "Servidor de la cuenta:"
+
+msgid "Servidor: {s}"
+msgstr "Servidor: {s}"
+
+msgid "También vale un DID completo."
+msgstr "También vale un DID completo."
+
+msgid "Tus listas de W Social"
+msgstr "Tus listas de W Social"
+
+msgid "Una publicación admite hasta cuatro imágenes"
+msgstr "Una publicación admite hasta cuatro imágenes"
+
+msgid "_Buscar en W Social…"
+msgstr "_Buscar en W Social…"
+
+msgid "_Comprobar el servidor"
+msgstr "_Comprobar el servidor"
+
+msgid "_Usuario (por ejemplo nombre.wsocial.eu):"
+msgstr "_Usuario (por ejemplo nombre.wsocial.eu):"
+
+msgid "_Volver a autorizar la cuenta…"
+msgstr "_Volver a autorizar la cuenta…"
+
+msgid "_W Social"
+msgstr "_W Social"
+
+msgid "lista de bloqueo"
+msgstr "lista de bloqueo"
+
+msgid "lista de silencio"
+msgstr "lista de silencio"
+
+msgid ""
+"Ctrl+Mayús+F: buscar; Ctrl+Alt+F: abrir un feed; Ctrl+Alt+L: abrir una "
+"lista; Ctrl+Alt+M: mensaje directo al autor"
+msgstr ""
+"Ctrl+Mayús+F: buscar; Ctrl+Alt+F: abrir un feed; Ctrl+Alt+L: abrir una "
+"lista; Ctrl+Alt+M: mensaje directo al autor"
+
+msgid ""
+"Ctrl+Mayús+J: marcador; Supr: borrar la tuya; Ctrl+Mayús+V: conversación; "
+"Ctrl+Mayús+G: publicaciones del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+"Ctrl+Mayús+J: marcador; Supr: borrar la tuya; Ctrl+Mayús+V: conversación; "
+"Ctrl+Mayús+G: publicaciones del autor; Ctrl+Alt+P: perfil"
+
+msgid ""
+"Mismas teclas que Mastodon y Bluesky: Ctrl+N publicar, Ctrl+R responder, "
+"Ctrl+Mayús+U citar, Ctrl+B me gusta, Ctrl+Mayús+P republicar"
+msgstr ""
+"Mismas teclas que Mastodon y Bluesky: Ctrl+N publicar, Ctrl+R responder, "
+"Ctrl+Mayús+U citar, Ctrl+B me gusta, Ctrl+Mayús+P republicar"

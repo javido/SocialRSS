@@ -44,9 +44,9 @@ def texto_de(v, obj):
     if f.servicio == "reddit":
         from . import datos_reddit
         return datos_reddit.texto_plano(f), "", None, None
-    if f.servicio == "bluesky":
+    if f.servicio in ("bluesky", "wsocial"):
         uri = f.extra.get("uri") or ""
-        r = db.query_one("SELECT COALESCE(content, ''), COALESCE(langs, '') FROM bluesky_posts WHERE account_id = ? AND uri = ?",
+        r = db.query_one(f"SELECT COALESCE(content, ''), COALESCE(langs, '') FROM {f.servicio}_posts WHERE account_id = ? AND uri = ?",
                          (f.extra.get("account_id"), uri))
         if not r:
             return None
@@ -158,8 +158,8 @@ def resumir(v):
 # --------------------------------------------------------------------------- imágenes
 def _imagenes_de(obj) -> list:
     f = obj.fila
-    if f.servicio == "bluesky":
-        r = db.query_one("SELECT media_json FROM bluesky_posts WHERE account_id = ? AND uri = ?",
+    if f.servicio in ("bluesky", "wsocial"):
+        r = db.query_one(f"SELECT media_json FROM {f.servicio}_posts WHERE account_id = ? AND uri = ?",
                          (f.extra.get("account_id"), f.extra.get("uri") or ""))
         try:
             adj = json.loads(r[0]) if r and r[0] else []

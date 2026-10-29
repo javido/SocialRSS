@@ -51591,3 +51591,121 @@ msgstr ""
 
 msgid "Mostrarlo"
 msgstr ""
+
+msgid "(dominios: {d})"
+msgstr ""
+
+msgid "Avisar de los mensajes directos de W Social:"
+msgstr ""
+
+msgid "Avisos de novedades en _W Social:"
+msgstr ""
+
+msgid "Añadir cuenta de W Social"
+msgstr ""
+
+msgid "Añadir cuenta de _W Social…"
+msgstr ""
+
+msgid "Buscando tu cuenta…"
+msgstr ""
+
+msgid ""
+"Cada cuánto se pregunta por notificaciones y mensajes directos nuevos. "
+"Mínimo 20 segundos."
+msgstr ""
+
+msgid "Citas de {n}"
+msgstr ""
+
+msgid "Contraseña de _aplicación:"
+msgstr ""
+
+msgid "Contraseñas de aplicación de W Social"
+msgstr ""
+
+msgid ""
+"Créala en los ajustes de W Social, en la web. No uses tu contraseña normal. "
+"Para usar los mensajes directos, márcala con acceso a mensajes."
+msgstr ""
+
+msgid "Cuenta @{h} lista en {s}"
+msgstr ""
+
+msgid "Cuenta autorizada de nuevo"
+msgstr ""
+
+msgid "Esa publicación no está en la caché: ábrela primero"
+msgstr ""
+
+msgid "Escribe primero tu nombre de usuario"
+msgstr ""
+
+msgid "Mensaje directo en W Social"
+msgstr ""
+
+msgid "Mi perfil de W Social"
+msgstr ""
+
+msgid "Notificaciones nuevas en W Social"
+msgstr ""
+
+msgid "Segundos entre las comprobaciones de W Social:"
+msgstr ""
+
+msgid "Selecciona una cuenta de W Social"
+msgstr ""
+
+msgid "Selecciona una publicación de W Social"
+msgstr ""
+
+msgid "Servidor de la cuenta:"
+msgstr ""
+
+msgid "Servidor: {s}"
+msgstr ""
+
+msgid "También vale un DID completo."
+msgstr ""
+
+msgid "Tus listas de W Social"
+msgstr ""
+
+msgid "Una publicación admite hasta cuatro imágenes"
+msgstr ""
+
+msgid "_Buscar en W Social…"
+msgstr ""
+
+msgid "_Comprobar el servidor"
+msgstr ""
+
+msgid "_Usuario (por ejemplo nombre.wsocial.eu):"
+msgstr ""
+
+msgid "_Volver a autorizar la cuenta…"
+msgstr ""
+
+msgid "_W Social"
+msgstr ""
+
+msgid "lista de bloqueo"
+msgstr ""
+
+msgid "lista de silencio"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+F: buscar; Ctrl+Alt+F: abrir un feed; Ctrl+Alt+L: abrir una "
+"lista; Ctrl+Alt+M: mensaje directo al autor"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+J: marcador; Supr: borrar la tuya; Ctrl+Mayús+V: conversación; "
+"Ctrl+Mayús+G: publicaciones del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+
+msgid ""
+"Mismas teclas que Mastodon y Bluesky: Ctrl+N publicar, Ctrl+R responder, "
+"Ctrl+Mayús+U citar, Ctrl+B me gusta, Ctrl+Mayús+P republicar"
+msgstr ""

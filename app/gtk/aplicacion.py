@@ -33,6 +33,7 @@ def _menu() -> Gio.Menu:
     archivo = Gio.Menu()
     archivo.append_section(None, sec((_("Añadir _cuenta de Mastodon…"), "app.anadir-cuenta-mastodon"),
                                      (_("Añadir cuenta de _Bluesky…"), "app.anadir-cuenta-bluesky"),
+                                     (_("Añadir cuenta de _W Social…"), "app.anadir-cuenta-wsocial"),
                                      (_("Añadir cuenta de Tele_gram…"), "app.anadir-cuenta-telegram"),
                                      (_("Añadir red de _IRC…"), "app.anadir-red-irc"),
                                      (_("Añadir cuenta de _XMPP…"), "app.anadir-cuenta-xmpp"),
@@ -167,6 +168,48 @@ def _menu() -> Gio.Menu:
                                  (_("_Eliminar la cuenta…"), "win.bsky-eliminar-cuenta")))
     bsky.append_submenu(_("Mi _cuenta"), cta)
     barra.append_submenu(_("Blues_ky"), bsky)
+
+    ws = Gio.Menu()
+    ws.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
+                                (_("_Responder"), "win.responder"),
+                                (_("C_itar"), "win.citar"),
+                                (_("Borrar mi publicación"), "win.papelera")))
+    ws.append_section(None, sec((_("Me _gusta"), "win.me-gusta"),
+                                (_("Re_publicar"), "win.impulsar"),
+                                (_("_Marcador"), "win.marcador")))
+    ws.append_section(None, sec((_("Ver la _conversación"), "win.conversacion"),
+                                (_("_Perfil del autor"), "win.perfil"),
+                                (_("Publicaciones del _autor"), "win.cronologia-usuario"),
+                                (_("Cargar publicaciones a_nteriores"), "win.cargar-mas"),
+                                (_("C_errar el buffer"), "win.cerrar-buffer")))
+    ws.append_section(None, sec((_("_Buscar en W Social…"), "win.buscar-mastodon"),
+                                (_("Abrir un _feed…"), "win.abrir-feed"),
+                                (_("Abrir una _lista…"), "win.abrir-lista")))
+    ws.append_section(None, sec((_("Quién ha dado me gusta…"), "win.ws-quien-gusta"),
+                                (_("Quién ha republicado…"), "win.ws-quien-republico"),
+                                (_("Quién ha citado…"), "win.ws-quien-cito"),
+                                (_("Silenciar el hilo"), "win.ws-silenciar-hilo"),
+                                (_("Reactivar el hilo"), "win.ws-reactivar-hilo"),
+                                (_("Denunciar la publicación…"), "win.ws-reportar"),
+                                (_("Denunciar la cuenta…"), "win.ws-reportar-cuenta")))
+    wdm = Gio.Menu()
+    wdm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.ws-mensaje-nuevo"),
+                                 (_("Mensaje directo al _autor"), "win.ws-mensaje-autor"),
+                                 (_("_Reaccionar al mensaje…"), "win.ws-reaccionar"),
+                                 (_("_Silenciar o reactivar la conversación"), "win.ws-convo-silenciar")))
+    ws.append_submenu(_("Mensajes _directos"), wdm)
+    wcta = Gio.Menu()
+    wcta.append_section(None, sec((_("_Seguidores…"), "win.ws-seguidores"),
+                                  (_("S_iguiendo…"), "win.ws-siguiendo"),
+                                  (_("Cuentas _bloqueadas…"), "win.ws-bloqueadas"),
+                                  (_("Cuentas s_ilenciadas…"), "win.ws-silenciadas")))
+    wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),))
+    wcta.append_section(None, sec((_("Editar mi _perfil…"), "win.ws-mi-perfil"),
+                                  (_("_Contraseñas de aplicación…"), "win.ws-claves"),
+                                  (_("_Volver a autorizar la cuenta…"), "win.ws-reautorizar"),
+                                  (_("_Eliminar la cuenta…"), "win.ws-eliminar-cuenta")))
+    ws.append_submenu(_("Mi _cuenta"), wcta)
+    barra.append_submenu(_("_W Social"), ws)
 
     if datos_x.disponible():
         tw = Gio.Menu()
@@ -529,6 +572,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-feed", self.anadir_feed, ["<Ctrl><Alt>n"])
         accion("anadir-cuenta-mastodon", self.anadir_cuenta_mastodon)
         accion("anadir-cuenta-bluesky", self.anadir_cuenta_bluesky)
+        accion("anadir-cuenta-wsocial", self.anadir_cuenta_wsocial)
         accion("anadir-cuenta-telegram", self.anadir_cuenta_telegram)
         accion("anadir-red-irc", self.anadir_red_irc)
         accion("anadir-cuenta-xmpp", self.anadir_cuenta_xmpp)
@@ -623,6 +667,14 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("bluesky", account_id, "timeline", None, None, "home"))
             self.ventana.iniciar_tiempo_real_bluesky()
         DialogoCuentaBluesky(self.ventana, _hecha).present()
+
+    def anadir_cuenta_wsocial(self):
+        from .dialogos_wsocial import DialogoCuentaWSocial
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("wsocial", account_id, "timeline", None, None, "home"))
+            self.ventana.iniciar_tiempo_real_wsocial()
+        DialogoCuentaWSocial(self.ventana, _hecha).present()
 
     def anadir_cuenta_telegram(self):
         from .dialogos_telegram import DialogoCuentaTelegram

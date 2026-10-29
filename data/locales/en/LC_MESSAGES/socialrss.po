@@ -53251,3 +53251,131 @@ msgstr "Show it blurred"
 
 msgid "Mostrarlo"
 msgstr "Show it"
+
+msgid "(dominios: {d})"
+msgstr "(domains: {d})"
+
+msgid "Avisar de los mensajes directos de W Social:"
+msgstr "Announce W Social direct messages:"
+
+msgid "Avisos de novedades en _W Social:"
+msgstr "_W Social news alerts:"
+
+msgid "Añadir cuenta de W Social"
+msgstr "Add a W Social account"
+
+msgid "Añadir cuenta de _W Social…"
+msgstr "Add a _W Social account…"
+
+msgid "Buscando tu cuenta…"
+msgstr "Looking for your account…"
+
+msgid ""
+"Cada cuánto se pregunta por notificaciones y mensajes directos nuevos. "
+"Mínimo 20 segundos."
+msgstr ""
+"How often to ask for new notifications and direct messages. Minimum 20 "
+"seconds."
+
+msgid "Citas de {n}"
+msgstr "Quotes of {n}"
+
+msgid "Contraseña de _aplicación:"
+msgstr "_App password:"
+
+msgid "Contraseñas de aplicación de W Social"
+msgstr "W Social app passwords"
+
+msgid ""
+"Créala en los ajustes de W Social, en la web. No uses tu contraseña normal. "
+"Para usar los mensajes directos, márcala con acceso a mensajes."
+msgstr ""
+"Create it in the W Social settings on the web. Don't use your normal "
+"password. To use direct messages, give it access to messages."
+
+msgid "Cuenta @{h} lista en {s}"
+msgstr "Account @{h} ready on {s}"
+
+msgid "Cuenta autorizada de nuevo"
+msgstr "Account authorized again"
+
+msgid "Esa publicación no está en la caché: ábrela primero"
+msgstr "That post isn't in the cache: open it first"
+
+msgid "Escribe primero tu nombre de usuario"
+msgstr "Enter your username first"
+
+msgid "Mensaje directo en W Social"
+msgstr "Direct message on W Social"
+
+msgid "Mi perfil de W Social"
+msgstr "My W Social profile"
+
+msgid "Notificaciones nuevas en W Social"
+msgstr "New notifications on W Social"
+
+msgid "Segundos entre las comprobaciones de W Social:"
+msgstr "Seconds between W Social checks:"
+
+msgid "Selecciona una cuenta de W Social"
+msgstr "Select a W Social account"
+
+msgid "Selecciona una publicación de W Social"
+msgstr "Select a W Social post"
+
+msgid "Servidor de la cuenta:"
+msgstr "Account server:"
+
+msgid "Servidor: {s}"
+msgstr "Server: {s}"
+
+msgid "También vale un DID completo."
+msgstr "A full DID works too."
+
+msgid "Tus listas de W Social"
+msgstr "Your W Social lists"
+
+msgid "Una publicación admite hasta cuatro imágenes"
+msgstr "A post accepts up to four images"
+
+msgid "_Buscar en W Social…"
+msgstr "_Search W Social…"
+
+msgid "_Comprobar el servidor"
+msgstr "_Check the server"
+
+msgid "_Usuario (por ejemplo nombre.wsocial.eu):"
+msgstr "_Username (for example name.wsocial.eu):"
+
+msgid "_Volver a autorizar la cuenta…"
+msgstr "_Authorize the account again…"
+
+msgid "_W Social"
+msgstr "_W Social"
+
+msgid "lista de bloqueo"
+msgstr "block list"
+
+msgid "lista de silencio"
+msgstr "mute list"
+
+msgid ""
+"Ctrl+Mayús+F: buscar; Ctrl+Alt+F: abrir un feed; Ctrl+Alt+L: abrir una "
+"lista; Ctrl+Alt+M: mensaje directo al autor"
+msgstr ""
+"Ctrl+Shift+F: search; Ctrl+Alt+F: open a feed; Ctrl+Alt+L: open a list; "
+"Ctrl+Alt+M: direct message to the author"
+
+msgid ""
+"Ctrl+Mayús+J: marcador; Supr: borrar la tuya; Ctrl+Mayús+V: conversación; "
+"Ctrl+Mayús+G: publicaciones del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+"Ctrl+Shift+J: bookmark; Del: delete yours; Ctrl+Shift+V: conversation; "
+"Ctrl+Shift+G: the author's posts; Ctrl+Alt+P: profile"
+
+msgid ""
+"Mismas teclas que Mastodon y Bluesky: Ctrl+N publicar, Ctrl+R responder, "
+"Ctrl+Mayús+U citar, Ctrl+B me gusta, Ctrl+Mayús+P republicar"
+msgstr ""
+"Same keys as Mastodon and Bluesky: Ctrl+N post, Ctrl+R reply, Ctrl+Shift+U "
+"quote, Ctrl+B like, Ctrl+Shift+P repost"
