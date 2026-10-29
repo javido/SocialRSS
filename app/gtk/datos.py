@@ -32,8 +32,8 @@ class Nodo:
 
     @property
     def listable(self) -> bool:
-        """Los nodos de servicio y de cuenta solo agrupan; el resto muestra una lista."""
-        return self.tipo not in ("servicio", "cuenta")
+        """Los nodos de servicio, de cuenta y de grupo solo agrupan; el resto muestra una lista."""
+        return self.tipo not in ("servicio", "cuenta", "grupo")
 
 
 @dataclass

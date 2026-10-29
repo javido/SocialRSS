@@ -40827,3 +40827,600 @@ msgid ""
 msgstr ""
 "Intro sobre una publicación: abrir sus comentarios; Ctrl+N: publicar (o "
 "mensaje privado en la bandeja); Ctrl+R: responder"
+
+msgid " (oculta)"
+msgstr " (oculta)"
+
+msgid "Abrir el c_anal"
+msgstr "Abrir el c_anal"
+
+msgid "Abrir la c_uenta"
+msgstr "Abrir la c_uenta"
+
+msgid "Abrir la lista"
+msgstr "Abrir la lista"
+
+msgid "Apoyo: {0}"
+msgstr "Apoyo: {0}"
+
+msgid "Aquí no se pueden cargar vídeos más antiguos"
+msgstr "Aquí no se pueden cargar vídeos más antiguos"
+
+msgid "Añadido a la lista"
+msgstr "Añadido a la lista"
+
+msgid "Añadido a «ver más tarde»"
+msgstr "Añadido a «ver más tarde»"
+
+msgid "Añadir a una _lista…"
+msgstr "Añadir a una _lista…"
+
+msgid "Añadir a una lista…"
+msgstr "Añadir a una lista…"
+
+msgid "Añadir a «ver más _tarde»"
+msgstr "Añadir a «ver más _tarde»"
+
+msgid "Añadir a «ver más tarde»"
+msgstr "Añadir a «ver más tarde»"
+
+msgid "Añadir cuenta de _PeerTube…"
+msgstr "Añadir cuenta de _PeerTube…"
+
+msgid ""
+"Busca vídeos en toda la red PeerTube. La búsqueda queda guardada; ciérrala "
+"con Ctrl+W."
+msgstr ""
+"Busca vídeos en toda la red PeerTube. La búsqueda queda guardada; ciérrala "
+"con Ctrl+W."
+
+msgid "Buscando canales…"
+msgstr "Buscando canales…"
+
+msgid "Buscando subtítulos…"
+msgstr "Buscando subtítulos…"
+
+msgid "Buscar canal_es…"
+msgstr "Buscar canal_es…"
+
+msgid "Buscar en PeerTube"
+msgstr "Buscar en PeerTube"
+
+msgid "Calidad de reproducción…"
+msgstr "Calidad de reproducción…"
+
+msgid "Calidad guardada"
+msgstr "Calidad guardada"
+
+msgid "Canal actualizado"
+msgstr "Canal actualizado"
+
+msgid "Canal borrado"
+msgstr "Canal borrado"
+
+msgid "Canal creado"
+msgstr "Canal creado"
+
+msgid "Canal {0}"
+msgstr "Canal {0}"
+
+msgid "Cancelar la suscripción al canal"
+msgstr "Cancelar la suscripción al canal"
+
+msgid "Cargando canales…"
+msgstr "Cargando canales…"
+
+msgid "Cargando el vídeo…"
+msgstr "Cargando el vídeo…"
+
+msgid "Cargando más vídeos…"
+msgstr "Cargando más vídeos…"
+
+msgid "Cargando tus listas…"
+msgstr "Cargando tus listas…"
+
+msgid "Cargar vídeos a_nteriores"
+msgstr "Cargar vídeos a_nteriores"
+
+msgid "Co_mentar"
+msgstr "Co_mentar"
+
+msgid "Comentario borrado"
+msgstr "Comentario borrado"
+
+msgid "Comentario publicado"
+msgstr "Comentario publicado"
+
+msgid "Comentarios del vídeo"
+msgstr "Comentarios del vídeo"
+
+msgid "Comentarios: {t}"
+msgstr "Comentarios: {t}"
+
+msgid "Conectando…"
+msgstr "Conectando…"
+
+msgid "Contenido +18 en Peer_Tube:"
+msgstr "Contenido +18 en Peer_Tube:"
+
+msgid "Contenido +_18:"
+msgstr "Contenido +_18:"
+
+msgid "Crear una lista o un canal (en su sección)"
+msgstr "Crear una lista o un canal (en su sección)"
+
+msgid ""
+"Ctrl+Alt+E: editar lo tuyo; Supr: borrarlo o quitarlo del historial; Ctrl+M:"
+" marcar una notificación como leída"
+msgstr ""
+"Ctrl+Alt+E: editar lo tuyo; Supr: borrarlo o quitarlo del historial; Ctrl+M:"
+" marcar una notificación como leída"
+
+msgid ""
+"Ctrl+B: me gusta; Ctrl+Mayús+D: no me gusta (pulsado otra vez, lo quita); "
+"Ctrl+Mayús+J: añadir a ver más tarde"
+msgstr ""
+"Ctrl+B: me gusta; Ctrl+Mayús+D: no me gusta (pulsado otra vez, lo quita); "
+"Ctrl+Mayús+J: añadir a ver más tarde"
+
+msgid ""
+"Ctrl+Mayús+F: buscar vídeos; Ctrl+Alt+H: buscar canales; Ctrl+Alt+L: ir a un"
+" canal; Ctrl+Mayús+M: cargar anteriores"
+msgstr ""
+"Ctrl+Mayús+F: buscar vídeos; Ctrl+Alt+H: buscar canales; Ctrl+Alt+L: ir a un"
+" canal; Ctrl+Mayús+M: cargar anteriores"
+
+msgid ""
+"Ctrl+Mayús+V: comentarios; Ctrl+R: comentar; Ctrl+Alt+P: datos del canal; "
+"Ctrl+Mayús+G: abrir el canal"
+msgstr ""
+"Ctrl+Mayús+V: comentarios; Ctrl+R: comentar; Ctrl+Alt+P: datos del canal; "
+"Ctrl+Mayús+G: abrir el canal"
+
+msgid "Cuenta silenciada"
+msgstr "Cuenta silenciada"
+
+msgid "Código de doble factor (si lo tienes _activado):"
+msgstr "Código de doble factor (si lo tienes _activado):"
+
+msgid "Datos del _canal"
+msgstr "Datos del _canal"
+
+msgid "Datos del canal"
+msgstr "Datos del canal"
+
+msgid "Descargado: {f}"
+msgstr "Descargado: {f}"
+
+msgid "Descargando subtítulos…"
+msgstr "Descargando subtítulos…"
+
+msgid "Descargar…"
+msgstr "Descargar…"
+
+msgid "Editar el canal"
+msgstr "Editar el canal"
+
+msgid "Editar mi vídeo"
+msgstr "Editar mi vídeo"
+
+msgid "El archivo, el título y el canal son obligatorios"
+msgstr "El archivo, el título y el canal son obligatorios"
+
+msgid "El motivo es demasiado corto"
+msgstr "El motivo es demasiado corto"
+
+msgid "El título es obligatorio"
+msgstr "El título es obligatorio"
+
+msgid "Elegir el vídeo"
+msgstr "Elegir el vídeo"
+
+msgid "Es tu lista de ver más tarde"
+msgstr "Es tu lista de ver más tarde"
+
+msgid "Escribe el nombre y el identificador"
+msgstr "Escribe el nombre y el identificador"
+
+msgid "Escribe la instancia, el usuario y la contraseña"
+msgstr "Escribe la instancia, el usuario y la contraseña"
+
+msgid "Esta acción es de Reddit y PeerTube"
+msgstr "Esta acción es de Reddit y PeerTube"
+
+msgid "Esta acción no se puede hacer con este elemento de PeerTube"
+msgstr "Esta acción no se puede hacer con este elemento de PeerTube"
+
+msgid "Esta notificación no tiene vídeo"
+msgstr "Esta notificación no tiene vídeo"
+
+msgid "Este formato puede no reproducirse; intentándolo…"
+msgstr "Este formato puede no reproducirse; intentándolo…"
+
+msgid "Este vídeo no tiene comentarios"
+msgstr "Este vídeo no tiene comentarios"
+
+msgid "Este vídeo no tiene subtítulos"
+msgstr "Este vídeo no tiene subtítulos"
+
+msgid "Este vídeo no tiene una fuente de audio reproducible disponible"
+msgstr "Este vídeo no tiene una fuente de audio reproducible disponible"
+
+msgid "Hilo con {n} comentarios"
+msgstr "Hilo con {n} comentarios"
+
+msgid "Historial vaciado"
+msgstr "Historial vaciado"
+
+msgid ""
+"Importa solo contenido del que tengas derechos o con una licencia que lo "
+"permita."
+msgstr ""
+"Importa solo contenido del que tengas derechos o con una licencia que lo "
+"permita."
+
+msgid "Importación iniciada. El servidor la irá procesando"
+msgstr "Importación iniciada. El servidor la irá procesando"
+
+msgid "Importar vídeo por dirección"
+msgstr "Importar vídeo por dirección"
+
+msgid "Iniciando la importación…"
+msgstr "Iniciando la importación…"
+
+msgid "Instancia silenciada"
+msgstr "Instancia silenciada"
+
+msgid "Intro abre la lista de reproducción."
+msgstr "Intro abre la lista de reproducción."
+
+msgid "Intro abre las publicaciones del canal."
+msgstr "Intro abre las publicaciones del canal."
+
+msgid ""
+"Intro sobre un vídeo: reproducirlo (suena el audio); F2: pausar o reanudar; "
+"Ctrl+N: subir un vídeo (o crear una lista o un canal)"
+msgstr ""
+"Intro sobre un vídeo: reproducirlo (suena el audio); F2: pausar o reanudar; "
+"Ctrl+N: subir un vídeo (o crear una lista o un canal)"
+
+msgid "La dirección y el canal son obligatorios"
+msgstr "La dirección y el canal son obligatorios"
+
+msgid "La lista de ver más tarde no se puede borrar"
+msgstr "La lista de ver más tarde no se puede borrar"
+
+msgid ""
+"Letras minúsculas, números y guiones bajos. No se puede cambiar después."
+msgstr ""
+"Letras minúsculas, números y guiones bajos. No se puede cambiar después."
+
+msgid "Marcar la notificación como leída"
+msgstr "Marcar la notificación como leída"
+
+msgid "Marcar todas las notificaciones como leídas"
+msgstr "Marcar todas las notificaciones como leídas"
+
+msgid "Mostrar u ocultar secciones"
+msgstr "Mostrar u ocultar secciones"
+
+msgid "Mostrar u ocultar secciones…"
+msgstr "Mostrar u ocultar secciones…"
+
+msgid "No hay más vídeos"
+msgstr "No hay más vídeos"
+
+msgid "No se encontraron canales"
+msgstr "No se encontraron canales"
+
+msgid "No se pudieron cargar las listas: {e}"
+msgstr "No se pudieron cargar las listas: {e}"
+
+msgid "No se pudieron cargar los subtítulos: {e}"
+msgstr "No se pudieron cargar los subtítulos: {e}"
+
+msgid "No se pudieron cargar más vídeos: {e}"
+msgstr "No se pudieron cargar más vídeos: {e}"
+
+msgid "No se pudieron descargar los subtítulos: {e}"
+msgstr "No se pudieron descargar los subtítulos: {e}"
+
+msgid "No se pudo actualizar PeerTube: {e}"
+msgstr "No se pudo actualizar PeerTube: {e}"
+
+msgid "No se pudo cargar el canal: {e}"
+msgstr "No se pudo cargar el canal: {e}"
+
+msgid "No se pudo cargar el hilo: {e}"
+msgstr "No se pudo cargar el hilo: {e}"
+
+msgid "No se pudo cargar el vídeo: {e}"
+msgstr "No se pudo cargar el vídeo: {e}"
+
+msgid "No se pudo completar la acción: {e}"
+msgstr "No se pudo completar la acción: {e}"
+
+msgid "No se pudo identificar el canal"
+msgstr "No se pudo identificar el canal"
+
+msgid "No se pudo iniciar la importación: {e}"
+msgstr "No se pudo iniciar la importación: {e}"
+
+msgid "No se pudo obtener el texto de los subtítulos"
+msgstr "No se pudo obtener el texto de los subtítulos"
+
+msgid "No se pudo preparar el vídeo: {e}"
+msgstr "No se pudo preparar el vídeo: {e}"
+
+msgid "No se pudo registrar tu voto: {e}"
+msgstr "No se pudo registrar tu voto: {e}"
+
+msgid "No se pudo reproducir el vídeo"
+msgstr "No se pudo reproducir el vídeo"
+
+msgid "No se pudo reproducir el vídeo (formato no compatible)"
+msgstr "No se pudo reproducir el vídeo (formato no compatible)"
+
+msgid "No se pudo subir el vídeo: {e}"
+msgstr "No se pudo subir el vídeo: {e}"
+
+msgid "No tienes listas. Crea una primero"
+msgstr "No tienes listas. Crea una primero"
+
+msgid "Nueva lista de reproducción"
+msgstr "Nueva lista de reproducción"
+
+msgid ""
+"PeerTube no está disponible: falta la librería httpx o está desactivado"
+msgstr ""
+"PeerTube no está disponible: falta la librería httpx o está desactivado"
+
+msgid "Peer_Tube"
+msgstr "Peer_Tube"
+
+msgid ""
+"Por ejemplo canal@framatube.org. Para un canal de tu propia instancia basta "
+"el nombre."
+msgstr ""
+"Por ejemplo canal@framatube.org. Para un canal de tu propia instancia basta "
+"el nombre."
+
+msgid ""
+"Por ejemplo framatube.org. La cuenta tiene que existir ya en esa instancia."
+msgstr ""
+"Por ejemplo framatube.org. La cuenta tiene que existir ya en esa instancia."
+
+msgid "Preparando la reproducción…"
+msgstr "Preparando la reproducción…"
+
+msgid "Privacidad por defecto al subir un vídeo a PeerTu_be:"
+msgstr "Privacidad por defecto al subir un vídeo a PeerTu_be:"
+
+msgid "Propietario: {0}"
+msgstr "Propietario: {0}"
+
+msgid "Quitado del historial"
+msgstr "Quitado del historial"
+
+msgid "Reportar el vídeo…"
+msgstr "Reportar el vídeo…"
+
+msgid "Reporte enviado a los moderadores"
+msgstr "Reporte enviado a los moderadores"
+
+msgid "Reproducir el vídeo"
+msgstr "Reproducir el vídeo"
+
+msgid "Respuesta publicada"
+msgstr "Respuesta publicada"
+
+msgid "S_uscribirse al canal"
+msgstr "S_uscribirse al canal"
+
+msgid ""
+"Se actualiza la sección de PeerTube que tienes abierta. PeerTube no avisa de"
+" lo nuevo: se pregunta cada tanto."
+msgstr ""
+"Se actualiza la sección de PeerTube que tienes abierta. PeerTube no avisa de"
+" lo nuevo: se pregunta cada tanto."
+
+msgid "Sección {b} {e}"
+msgstr "Sección {b} {e}"
+
+msgid "Segundos entre las actualizaciones de Peer_Tube:"
+msgstr "Segundos entre las actualizaciones de Peer_Tube:"
+
+msgid "Selecciona un elemento de PeerTube"
+msgstr "Selecciona un elemento de PeerTube"
+
+msgid "Selecciona una cuenta de PeerTube"
+msgstr "Selecciona una cuenta de PeerTube"
+
+msgid "Sesión iniciada: {u}"
+msgstr "Sesión iniciada: {u}"
+
+msgid "Silenciar la cuenta del autor"
+msgstr "Silenciar la cuenta del autor"
+
+msgid "Silenciar la instancia del autor"
+msgstr "Silenciar la instancia del autor"
+
+msgid "Solo puedes borrar tus propios vídeos"
+msgstr "Solo puedes borrar tus propios vídeos"
+
+msgid "Solo puedes editar tus propios vídeos"
+msgstr "Solo puedes editar tus propios vídeos"
+
+msgid "Subiendo vídeo…"
+msgstr "Subiendo vídeo…"
+
+msgid "Suscripción cancelada"
+msgstr "Suscripción cancelada"
+
+msgid "Suscrito al canal {c}"
+msgstr "Suscrito al canal {c}"
+
+msgid "Todas marcadas como leídas"
+msgstr "Todas marcadas como leídas"
+
+msgid "Vaciar el _historial…"
+msgstr "Vaciar el _historial…"
+
+msgid "Ver _detalles"
+msgstr "Ver _detalles"
+
+msgid "Ver _subtítulos…"
+msgstr "Ver _subtítulos…"
+
+msgid "Ver subtítulos"
+msgstr "Ver subtítulos"
+
+msgid "Volver a iniciar sesión en PeerTube"
+msgstr "Volver a iniciar sesión en PeerTube"
+
+msgid "Volver a iniciar sesión…"
+msgstr "Volver a iniciar sesión…"
+
+msgid "Vídeo actualizado"
+msgstr "Vídeo actualizado"
+
+msgid "Vídeo borrado"
+msgstr "Vídeo borrado"
+
+msgid "Vídeo subido. Puede tardar en procesarse en el servidor"
+msgstr "Vídeo subido. Puede tardar en procesarse en el servidor"
+
+msgid "Vídeos de PeerTube por d_escarga:"
+msgstr "Vídeos de PeerTube por d_escarga:"
+
+msgid "_Borrar o quitar…"
+msgstr "_Borrar o quitar…"
+
+msgid "_Buscar vídeos…"
+msgstr "_Buscar vídeos…"
+
+msgid "_Calidad de reproducción…"
+msgstr "_Calidad de reproducción…"
+
+msgid "_Calidad preferida de reproducción:"
+msgstr "_Calidad preferida de reproducción:"
+
+msgid "_Canal (nombre@instancia):"
+msgstr "_Canal (nombre@instancia):"
+
+msgid "_Canal:"
+msgstr "_Canal:"
+
+msgid "_Comentario:"
+msgstr "_Comentario:"
+
+msgid "_Descargar…"
+msgstr "_Descargar…"
+
+msgid "_Descripción:"
+msgstr "_Descripción:"
+
+msgid "_Dirección del vídeo (web o enlace magnet):"
+msgstr "_Dirección del vídeo (web o enlace magnet):"
+
+msgid "_Editar mi vídeo, lista o canal…"
+msgstr "_Editar mi vídeo, lista o canal…"
+
+msgid "_Elegir el vídeo…"
+msgstr "_Elegir el vídeo…"
+
+msgid "_Etiquetas (separadas por comas, máximo 5):"
+msgstr "_Etiquetas (separadas por comas, máximo 5):"
+
+msgid "_Identificador (sin espacios):"
+msgstr "_Identificador (sin espacios):"
+
+msgid "_Idioma:"
+msgstr "_Idioma:"
+
+msgid "_Importar"
+msgstr "_Importar"
+
+msgid "_Importar un vídeo por dirección…"
+msgstr "_Importar un vídeo por dirección…"
+
+msgid "_Instancia (dirección de la web):"
+msgstr "_Instancia (dirección de la web):"
+
+msgid "_Ir a un canal…"
+msgstr "_Ir a un canal…"
+
+msgid "_Motivo (para los moderadores):"
+msgstr "_Motivo (para los moderadores):"
+
+msgid "_No me gusta"
+msgstr "_No me gusta"
+
+msgid "_Nuevo comentario"
+msgstr "_Nuevo comentario"
+
+msgid "_Privacidad:"
+msgstr "_Privacidad:"
+
+msgid "_Reportar el vídeo…"
+msgstr "_Reportar el vídeo…"
+
+msgid "_Reproducir"
+msgstr "_Reproducir"
+
+msgid "_Sección:"
+msgstr "_Sección:"
+
+msgid "_Subir"
+msgstr "_Subir"
+
+msgid "_Subir un vídeo…"
+msgstr "_Subir un vídeo…"
+
+msgid "_Usuario o correo:"
+msgstr "_Usuario o correo:"
+
+msgid "_Volver a los hilos"
+msgstr "_Volver a los hilos"
+
+msgid "{0} ({1}): {2} seguidores"
+msgstr "{0} ({1}): {2} seguidores"
+
+msgid "{0} respuestas."
+msgstr "{0} respuestas."
+
+msgid "{0} seguidores"
+msgstr "{0} seguidores"
+
+msgid "{0} visualizaciones, {1} me gusta, {2} no me gusta"
+msgstr "{0} visualizaciones, {1} me gusta, {2} no me gusta"
+
+msgid "{0} vídeos"
+msgstr "{0} vídeos"
+
+msgid "{0}: {1} %"
+msgstr "{0}: {1} %"
+
+msgid "{0}: {1} seguidores"
+msgstr "{0}: {1} seguidores"
+
+msgid "{0}: {1} vídeos"
+msgstr "{0}: {1} vídeos"
+
+msgid "{n} nuevos"
+msgstr "{n} nuevos"
+
+msgid "{n} vídeos más"
+msgstr "{n} vídeos más"
+
+msgid "¿Borrar el canal «{0}» y sus vídeos? No se puede deshacer."
+msgstr "¿Borrar el canal «{0}» y sus vídeos? No se puede deshacer."
+
+msgid "No mostrarlo"
+msgstr "No mostrarlo"
+
+msgid "Mostrarlo difuminado"
+msgstr "Mostrarlo difuminado"
+
+msgid "Mostrarlo"
+msgstr "Mostrarlo"

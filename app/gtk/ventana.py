@@ -28,10 +28,11 @@ from app.services.mastodon.mastodon_service import mastodon_service
 from app.core.event_bus import event_bus
 from app.core.plataforma import llamar_en_ui
 
-from . import (datos, datos_bluesky, datos_irc, datos_mastodon, datos_matrix, datos_reddit, datos_telegram, datos_x,
+from . import (datos, datos_bluesky, datos_irc, datos_mastodon, datos_matrix, datos_peertube, datos_reddit, datos_telegram, datos_x,
                datos_xmpp)
 from .ventana_bluesky import _BlueskyMixin
 from .ventana_voz import _VozMixin
+from .ventana_peertube import _PeerTubeMixin
 from .ventana_reddit import _RedditMixin
 from .ventana_x import _TwitterMixin
 from .ventana_irc import _IRCMixin
@@ -59,7 +60,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -474,6 +475,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         self._registrar_acciones_matrix(accion)
         self._registrar_acciones_x(accion)
         self._registrar_acciones_reddit(accion)
+        self._registrar_acciones_peertube(accion)
+        accion("voto-negativo", self.accion_voto_negativo, ["<Ctrl><Shift>d"])
         self._registrar_acciones_voz(accion)
         accion("unirse-canal", self.accion_unirse, ["<Ctrl><Alt>j"])
         accion("usuarios-canal", self.accion_usuarios, ["<Ctrl><Alt>i"])
@@ -567,11 +570,16 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             arbol.insert(3, datos_x.construir_nodos())
         if datos_reddit.disponible():
             arbol.append(datos_reddit.construir_nodos())
+        if datos_peertube.disponible():
+            arbol.append(datos_peertube.construir_nodos())
         return arbol
 
     def cargar_arbol(self, conservar=True, seleccionar=None):
         """Reconstruye el árbol. `seleccionar` es la clave de un nodo a enfocar (si no, se conserva el actual)."""
         previo = seleccionar or (self._nodo_obj_actual().clave() if (conservar and self._nodo_obj_actual()) else None)
+        # Los grupos que el usuario tenía desplegados siguen así tras reconstruir el árbol.
+        abiertos = {self.modelo_arbol.get_row(i).get_item().clave() for i in range(self.modelo_arbol.get_n_items())
+                    if self.modelo_arbol.get_row(i).get_item().nodo.tipo == "grupo" and self.modelo_arbol.get_row(i).get_expanded()}
         self.arbol = self._arbol_completo()
         self.raiz_arbol.remove_all()
         for n in self.arbol:
@@ -580,7 +588,11 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         i = 0
         while i < self.modelo_arbol.get_n_items():
             row = self.modelo_arbol.get_row(i)
-            if row.get_item().nodo.tipo in ("servicio", "cuenta"):
+            nodo_fila = row.get_item().nodo
+            # Los grupos (Mi biblioteca, Búsquedas guardadas) se quedan plegados salvo que contengan el nodo a enfocar.
+            if nodo_fila.tipo in ("servicio", "cuenta") or (
+                    nodo_fila.tipo == "grupo" and (row.get_item().clave() in abiertos or (
+                        previo and any(NodoObj(h).clave() == previo for h in nodo_fila.hijos)))):
                 row.set_expanded(True)
             i += 1
         destino = None
@@ -652,7 +664,7 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return GLib.SOURCE_REMOVE
         self.cargar_lista()
         # La descarga de red se retrasa más: solo si el usuario se queda en el buffer.
-        if nodo.servicio in ("mastodon", "bluesky", "telegram", "x", "reddit") and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
+        if nodo.servicio in ("mastodon", "bluesky", "telegram", "x", "reddit", "peertube") and nodo.listable and (nodo.account_id, nodo.timeline) not in self._cargados:
             self._timer_red = GLib.timeout_add(PAUSA_RED_MS, self._descarga_tras_pausa, nodo)
         return GLib.SOURCE_REMOVE
 
@@ -665,6 +677,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
                 self.tg_actualizar_nodo(nodo, silencioso=True)
             elif nodo.servicio == "reddit":
                 self.rd_actualizar_nodo(nodo, silencioso=True)
+            elif nodo.servicio == "peertube":
+                self.pt_actualizar_nodo(nodo, silencioso=True)
             elif nodo.servicio == "x":
                 # X limita con dureza: solo se descarga al entrar si el buffer no tiene nada en caché
                 # (o con la actualización automática activada); lo demás va con Ctrl+Mayús+R.
@@ -680,10 +694,10 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
         if not nodo.listable:
             return []
-        if nodo.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix", "x", "reddit"):
+        if nodo.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix", "x", "reddit", "peertube"):
             modulo = {"mastodon": datos_mastodon, "bluesky": datos_bluesky, "telegram": datos_telegram,
                       "irc": datos_irc, "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x,
-                      "reddit": datos_reddit}[nodo.servicio]
+                      "reddit": datos_reddit, "peertube": datos_peertube}[nodo.servicio]
             filas = modulo.listar(nodo.account_id, nodo.timeline)
             if busqueda:
                 q = busqueda.lower()
@@ -781,6 +795,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return datos_x.detalle(fila)
         if fila.servicio == "reddit":
             return datos_reddit.detalle(fila)
+        if fila.servicio == "peertube":
+            return datos_peertube.detalle(fila)
         if fila.servicio == "telegram":
             return datos_telegram.detalle(fila)
         if fila.servicio == "irc":
@@ -864,6 +880,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             if obj.fila.extra.get("tipo") in ("post", "comentario"):
                 return self.rd_abrir_hilo(obj)
             return self.rd_abrir_fila(obj)
+        if obj.fila.servicio == "peertube":
+            return self.pt_abrir_fila(obj)
         # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
@@ -896,6 +914,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return
         if obj.fila.servicio == "reddit":
             return self.rd_leido()
+        if obj.fila.servicio == "peertube":
+            return self.pt_leida()
         if obj.fila.servicio != "rss":
             self.avisar(_("Esta acción es solo de RSS"))
             return
@@ -909,6 +929,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_me_gusta()
         if self._rd_ctx():
             return self.rd_me_gusta()
+        if self._pt_ctx():
+            return self.pt_me_gusta()
         obj = self._fila_actual()
         if obj is None:
             return
@@ -944,6 +966,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_borrar()
         if self._rd_ctx():
             return self.rd_borrar()
+        if self._pt_ctx():
+            return self.pt_borrar()
         if self._tg_ctx():
             return self.tg_borrar()
         if self._irc_ctx():
@@ -988,6 +1012,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
     def accion_marcar_todo_leido(self):
         if self.nodo_actual is not None and self.nodo_actual.servicio == "reddit":
             return self.rd_marcar_todo_leido()
+        if self.nodo_actual is not None and self.nodo_actual.servicio == "peertube":
+            return self.pt_marcar_todo_leido()
         if self.nodo_actual is not None and self.nodo_actual.servicio == "telegram":
             return self.tg_marcar_todo_leido()
         if self.nodo_actual is not None and self.nodo_actual.servicio == "irc":
@@ -1110,6 +1136,11 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
                 self.avisar(_("Actualizando {t}…").format(t=n0.titulo))
                 self.rd_actualizar_nodo(n0)
             return
+        if n0 is not None and n0.servicio == "peertube":
+            if n0.listable:
+                self.avisar(_("Actualizando {t}…").format(t=n0.titulo))
+                self.pt_actualizar_nodo(n0)
+            return
         n = self.nodo_actual
         if n is not None and n.servicio == "mastodon":
             if n.listable:
@@ -1167,6 +1198,7 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         self._sondeo_telegram()
         self._sondeo_x()
         self._sondeo_reddit()
+        self._sondeo_peertube()
         return GLib.SOURCE_CONTINUE
 
     # ------------------------------------------------------------------ Mastodon
@@ -1259,6 +1291,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_marcador()
         if self._rd_ctx():
             return self.rd_guardar()
+        if self._pt_ctx():
+            return self.pt_ver_mas_tarde()
         obj = self._contexto_mastodon()
         if obj:
             self._accion_estado(obj, "bookmark", "unbookmark", "marcador",
@@ -1278,6 +1312,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_nuevo()
         if self._rd_ctx():
             return self.rd_nuevo()
+        if self._pt_ctx():
+            return self.pt_nuevo()
         if self._tg_ctx():
             return self.tg_nuevo()
         if self._irc_ctx():
@@ -1304,6 +1340,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_responder()
         if self._rd_ctx():
             return self.rd_responder()
+        if self._pt_ctx():
+            return self.pt_comentar()
         if self._tg_ctx():
             return self.tg_responder()
         if self._irc_ctx():
@@ -1364,7 +1402,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
     @staticmethod
     def _modulo_datos(servicio: str):
         return {"bluesky": datos_bluesky, "telegram": datos_telegram, "irc": datos_irc,
-                "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x, "reddit": datos_reddit}.get(servicio, datos_mastodon)
+                "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x, "reddit": datos_reddit,
+                "peertube": datos_peertube}.get(servicio, datos_mastodon)
 
     @staticmethod
     def _es_conversacion(nodo) -> bool:
@@ -1387,6 +1426,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_conversacion()
         if self._rd_ctx():
             return self.rd_abrir_hilo()
+        if self._pt_ctx():
+            return self.pt_comentarios()
         obj = self._contexto_mastodon()
         if not obj or not obj.fila.extra.get("status_id"):
             return
@@ -1400,6 +1441,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_cronologia_usuario()
         if self._rd_ctx():
             return self.rd_cronologia_autor()
+        if self._pt_ctx():
+            return self.pt_abrir_canal()
         obj = self._contexto_mastodon()
         if not obj:
             return
@@ -1408,6 +1451,13 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         if not usuario:
             return
         self._abrir_buffer(x["account_id"], f"user:{usuario.lstrip('@')}", _("Publicaciones de {u}").format(u=usuario))
+
+    def accion_voto_negativo(self):
+        if self._rd_ctx():
+            return self.rd_voto_negativo()
+        if self._pt_ctx():
+            return self.pt_no_me_gusta()
+        self.avisar(_("Esta acción es de Reddit y PeerTube"))
 
     def accion_unirse(self):
         if self._mx_ctx():
@@ -1434,7 +1484,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             self.avisar(_("Este buffer no se puede cerrar"))
             return
         self._modulo_datos(n.servicio).cerrar_extra(n)
-        inicio = {"telegram": "chats", "irc": "channels", "xmpp": "conversaciones", "matrix": "rooms"}.get(n.servicio, "home")
+        inicio = {"telegram": "chats", "irc": "channels", "xmpp": "conversaciones", "matrix": "rooms",
+                  "peertube": "recientes"}.get(n.servicio, "home")
         self.cargar_arbol(seleccionar=(n.servicio, n.account_id, "timeline", None, None, inicio))
         self.avisar(_("Buffer cerrado"))
 
@@ -1445,6 +1496,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_cargar_mas()
         if self._rd_ctx():
             return self.rd_cargar_mas()
+        if self._pt_ctx():
+            return self.pt_cargar_mas()
         if self._tg_ctx():
             return self.tg_cargar_mas()
         if self._x_ctx():
@@ -1485,6 +1538,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_eliminar_cuenta()
         if self.nodo_actual is not None and self.nodo_actual.servicio == "reddit":
             return self.rd_eliminar_cuenta()
+        if self.nodo_actual is not None and self.nodo_actual.servicio == "peertube":
+            return self.pt_eliminar_cuenta()
         if self.nodo_actual is not None and self.nodo_actual.servicio == "telegram":
             return self.tg_eliminar_cuenta()
         if self.nodo_actual is not None and self.nodo_actual.servicio == "irc":
@@ -1676,6 +1731,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_perfil()
         if self._rd_ctx():
             return self.rd_perfil()
+        if self._pt_ctx():
+            return self.pt_info_canal()
         if self._tg_ctx():
             return self.tg_info()
         if self._irc_ctx():
@@ -1699,6 +1756,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
     def accion_editar(self):
         if self._rd_ctx():
             return self.rd_editar()
+        if self._pt_ctx():
+            return self.pt_editar()
         if self._tg_ctx():
             return self.tg_editar()
         if self._x_ctx():
@@ -1750,6 +1809,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_abrir_lista()
         if self._rd_ctx():
             return self.rd_ir_subreddit()
+        if self._pt_ctx():
+            return self.pt_ir_canal()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1779,6 +1840,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_buscar()
         if self._rd_ctx():
             return self.rd_buscar_subreddits()
+        if self._pt_ctx():
+            return self.pt_buscar_canales()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -1799,6 +1862,8 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             return self.tw_buscar()
         if self._rd_ctx():
             return self.rd_buscar()
+        if self._pt_ctx():
+            return self.pt_buscar()
         acc = self._cuenta_activa()
         if acc is None:
             self.avisar(_("Selecciona una cuenta de Mastodon"))
@@ -2070,6 +2135,11 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
             for et, ac in self.rd_menu_contextual(obj):
                 a.append(et, ac)
             m.append_section(None, a)
+        elif obj.fila.servicio == "peertube":
+            a = Gio.Menu()
+            for et, ac in self.pt_menu_contextual(obj):
+                a.append(et, ac)
+            m.append_section(None, a)
         elif obj.fila.servicio == "matrix":
             a = Gio.Menu()
             for et, ac in self.mx_menu_contextual(obj):
@@ -2150,7 +2220,7 @@ class VentanaPrincipal(_BlueskyMixin, _TwitterMixin, _RedditMixin, _VozMixin, _T
         rss_service.reproducir_articulo_audio(obj.fila.id, callback=_fin)
 
     def accion_reproducir_pausa(self):
-        if self.tg_reproducir() or self.x_reproducir() or self.mx_reproducir():
+        if self.tg_reproducir() or self.x_reproducir() or self.mx_reproducir() or self.pt_reproducir_f2():
             return
         p = self._player()
         if p.esta_activo():

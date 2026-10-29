@@ -21,6 +21,8 @@ from .dialogos_ia import DialogoHistorialIA, DialogoHistorialTraducciones, Dialo
 log = logging.getLogger(__name__)
 
 IDIOMAS = list(NOMBRES_IDIOMA.keys())      # códigos ISO de 2 letras
+PT_NSFW = [("do_not_list", "No mostrarlo"), ("blur", "Mostrarlo difuminado"), ("display", "Mostrarlo")]
+PT_PRIVACIDAD = [(1, "Público"), (2, "No listado"), (3, "Privado"), (4, "Interno")]
 RD_ORDEN_COMENTARIOS = [("confidence", "Mejores (confianza)"), ("top", "Más votados"), ("new", "Nuevos"),
                         ("controversial", "Controvertidos"), ("old", "Antiguos"), ("qa", "Preguntas y respuestas")]
 RD_PERIODOS = [("hour", "Última hora"), ("day", "Hoy"), ("week", "Esta semana"), ("month", "Este mes"),
@@ -162,6 +164,21 @@ class DialogoPreferencias(Gtk.Window):
         actual = config.get("reddit", "time_filter", "day")
         self.rd_periodo.set_selected(next((i for i, (v, _n) in enumerate(RD_PERIODOS) if v == actual), 1))
         p.campo(_("Periodo de «Los mejores» y «Controvertidos» en Reddi_t:"), self.rd_periodo)
+        self.pt_intervalo = Gtk.SpinButton.new_with_range(60, 3600, 30)
+        self.pt_intervalo.set_value(int(config.get("peertube", "update_interval", 180) or 180))
+        p.campo(_("Segundos entre las actualizaciones de Peer_Tube:"), self.pt_intervalo,
+                _("Se actualiza la sección de PeerTube que tienes abierta. PeerTube no avisa de lo nuevo: se pregunta cada tanto."))
+        self.pt_limite = Gtk.SpinButton.new_with_range(5, 100, 5)
+        self.pt_limite.set_value(int(config.get("peertube", "limit_per_load", 25) or 25))
+        p.campo(_("Vídeos de PeerTube por d_escarga:"), self.pt_limite)
+        self.pt_nsfw = Gtk.DropDown.new_from_strings([_(n) for _v, n in PT_NSFW])
+        actual = config.get("peertube", "nsfw_policy", "do_not_list")
+        self.pt_nsfw.set_selected(next((i for i, (v, _n) in enumerate(PT_NSFW) if v == actual), 0))
+        p.campo(_("Contenido +18 en Peer_Tube:"), self.pt_nsfw)
+        self.pt_privacidad = Gtk.DropDown.new_from_strings([_(n) for _v, n in PT_PRIVACIDAD])
+        actual = int(config.get("peertube", "default_privacy", 1) or 1)
+        self.pt_privacidad.set_selected(next((i for i, (v, _n) in enumerate(PT_PRIVACIDAD) if v == actual), 0))
+        p.campo(_("Privacidad por defecto al subir un vídeo a PeerTu_be:"), self.pt_privacidad)
         self.admin_mx = p.interruptor(config.get("matrix", "admin_tools", False))
         p.campo(_("Herramientas de _administración de Matrix:"), self.admin_mx,
                 _("Añade al menú Matrix la administración del servidor Synapse. Hay que reiniciar la aplicación para verlo."))
@@ -419,6 +436,10 @@ class DialogoPreferencias(Gtk.Window):
         config.set("matrix", "announce_new", self.anunciar_mx.get_active())
         config.set("matrix", "admin_tools", self.admin_mx.get_active())
         config.set("x", "auto_update", self.auto_x.get_active())
+        config.set("peertube", "update_interval", int(self.pt_intervalo.get_value()))
+        config.set("peertube", "limit_per_load", int(self.pt_limite.get_value()))
+        config.set("peertube", "nsfw_policy", PT_NSFW[self.pt_nsfw.get_selected()][0])
+        config.set("peertube", "default_privacy", PT_PRIVACIDAD[self.pt_privacidad.get_selected()][0])
         config.set("reddit", "update_interval", int(self.rd_intervalo.get_value()))
         config.set("reddit", "limit_per_load", int(self.rd_limite.get_value()))
         config.set("reddit", "comment_sort", RD_ORDEN_COMENTARIOS[self.rd_orden_com.get_selected()][0])

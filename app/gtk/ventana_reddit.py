@@ -612,7 +612,7 @@ class _RedditMixin:
         if tipo in ("multi", "busqueda"):
             return ((_("Abrir"), "win.rd-abrir-fila"),)
         lista = [(_("Ver los comentarios"), "win.conversacion"), (_("Responder"), "win.responder"),
-                 (_("Voto positivo / quitar voto"), "win.me-gusta"), (_("Voto negativo / quitar voto"), "win.rd-voto-negativo"),
+                 (_("Voto positivo / quitar voto"), "win.me-gusta"), (_("Voto negativo / quitar voto"), "win.voto-negativo"),
                  (_("Guardar / quitar de guardados"), "win.marcador")]
         if tipo == "post":
             lista += [(_("Ocultar / mostrar"), "win.rd-ocultar"), (_("Crosspost a otra comunidad…"), "win.impulsar")]
@@ -633,7 +633,6 @@ class _RedditMixin:
     def _registrar_acciones_reddit(self, accion):
         def a(nombre, fn, teclas=()):
             accion(nombre, fn, teclas)
-        a("rd-voto-negativo", self.rd_voto_negativo, ["<Ctrl><Shift>d"])
         a("rd-ocultar", self.rd_ocultar)
         a("rd-nsfw", lambda: self.rd_marca("nsfw"))
         a("rd-spoiler", lambda: self.rd_marca("spoiler"))

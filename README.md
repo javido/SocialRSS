@@ -173,7 +173,17 @@ anidados, donde se puede responder, votar, guardar, editar, borrar y traducir. A
 galería o encuesta con etiqueta, +18 y spoiler, crosspost, votos, guardados, ocultar, perfiles (seguir, bloquear, mensaje), mensajes
 privados, buscar publicaciones, subreddits y usuarios, y cambiar el orden de un buffer. La lectura de cada elemento usa tus
 plantillas de lectura. Aún no están la moderación, el wiki, el modmail, los directos, las colecciones ni los borradores.
-El resto de redes (PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+**PeerTube** (necesita `httpx`): el alta pide la instancia, el usuario y la contraseña (y el código de doble factor si lo tienes).
+Cada cuenta tiene Vídeos recientes, Populares, Tendencias, Locales, Federados, Suscripciones, Directos, Notificaciones, la
+rama Mi biblioteca (Mis vídeos, Mis canales, Listas de reproducción, Ver más tarde, Me gusta e Historial) y las búsquedas
+guardadas (las mismas claves de configuración que la versión de Windows); los canales, cuentas y listas que abres quedan como
+buffers. Intro reproduce el vídeo (suena el audio) y F2 lo pausa. Además: me gusta y no me gusta, suscribirse a canales,
+comentarios con respuestas anidadas, subtítulos como texto, calidad, descargar, ver más tarde, añadir a listas, subir (con
+subida reanudable) e importar vídeos, editar y borrar los tuyos, crear y gestionar listas y canales, notificaciones, silenciar
+cuentas e instancias, reportar y buscar vídeos y canales. Aún faltan los directos propios, las estadísticas, la moderación y la
+administración de la instancia. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
+aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.
+W Social se irá añadiendo después; su servicio ya funciona en Linux.
 
 **Notas de voz** (Telegram, XMPP y Matrix): Ctrl+Alt+A empieza a grabar en el chat enfocado y, pulsado otra vez, la envía;
 Ctrl+Alt+Mayús+A la cancela. En Linux se graba con GStreamer (en Windows sigue siendo BASS), con el micrófono y el volumen

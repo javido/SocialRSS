@@ -12,7 +12,7 @@ from app.core.speech import notificar
 from app.core.version import APP_VERSION
 from app.services.rss.rss_service import rss_service
 
-from . import datos, datos_reddit, datos_x, plataforma_gtk
+from . import datos, datos_peertube, datos_reddit, datos_x, plataforma_gtk
 from .dialogos import DialogoAnadirFeed, DialogoTeclas
 from .preferencias import DialogoPreferencias
 from .ventana import VentanaPrincipal
@@ -40,6 +40,7 @@ def _menu() -> Gio.Menu:
                                      (_("Registrar una cuenta nueva de Matri_x…"), "win.mx-registrar"),
                                      *(((_("Añadir cuenta de X (_Twitter)…"), "app.anadir-cuenta-x"),) if datos_x.disponible() else ()),
                                      *(((_("Añadir cuenta de Re_ddit…"), "app.anadir-cuenta-reddit"),) if datos_reddit.disponible() else ()),
+                                     *(((_("Añadir cuenta de _PeerTube…"), "app.anadir-cuenta-peertube"),) if datos_peertube.disponible() else ()),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -222,7 +223,7 @@ def _menu() -> Gio.Menu:
                                     (_("_Borrar lo mío"), "win.papelera"),
                                     (_("Crosspost a otra _comunidad…"), "win.impulsar")))
         rd.append_section(None, sec((_("Voto _positivo"), "win.me-gusta"),
-                                    (_("Voto _negativo"), "win.rd-voto-negativo"),
+                                    (_("Voto _negativo"), "win.voto-negativo"),
                                     (_("_Guardar o quitar de guardados"), "win.marcador"),
                                     (_("_Ocultar o mostrar la publicación"), "win.rd-ocultar")))
         rd.append_section(None, sec((_("Ver los co_mentarios"), "win.conversacion"),
@@ -246,6 +247,45 @@ def _menu() -> Gio.Menu:
                                     (_("Volver a autorizar la cuenta…"), "win.rd-reautorizar"),
                                     (_("Eliminar la cuenta…"), "win.eliminar-cuenta")))
         barra.append_submenu(_("Re_ddit"), rd)
+
+    if datos_peertube.disponible():
+        pt = Gio.Menu()
+        pt.append_section(None, sec((_("_Reproducir"), "win.reproducir"),
+                                    (_("Ver _detalles"), "win.pt-detalles"),
+                                    (_("Ver _subtítulos…"), "win.pt-subtitulos"),
+                                    (_("_Calidad de reproducción…"), "win.pt-calidad")))
+        pt.append_section(None, sec((_("Me _gusta"), "win.me-gusta"),
+                                    (_("_No me gusta"), "win.voto-negativo"),
+                                    (_("Ver los co_mentarios"), "win.conversacion"),
+                                    (_("Co_mentar"), "win.responder"),
+                                    (_("S_uscribirse al canal"), "win.pt-suscribir"),
+                                    (_("Cancelar la suscripción al canal"), "win.pt-cancelar-suscripcion")))
+        pt.append_section(None, sec((_("Datos del _canal"), "win.perfil"),
+                                    (_("Abrir el c_anal"), "win.cronologia-usuario"),
+                                    (_("Abrir la c_uenta"), "win.pt-abrir-cuenta"),
+                                    (_("Añadir a «ver más _tarde»"), "win.marcador"),
+                                    (_("Añadir a una _lista…"), "win.pt-anadir-lista"),
+                                    (_("_Descargar…"), "win.pt-descargar")))
+        pt.append_section(None, sec((_("_Buscar vídeos…"), "win.buscar-mastodon"),
+                                    (_("Buscar canal_es…"), "win.abrir-hashtag"),
+                                    (_("_Ir a un canal…"), "win.abrir-lista"),
+                                    (_("Cargar vídeos a_nteriores"), "win.cargar-mas"),
+                                    (_("C_errar el buffer"), "win.cerrar-buffer")))
+        pt.append_section(None, sec((_("_Subir un vídeo…"), "win.pt-subir"),
+                                    (_("_Importar un vídeo por dirección…"), "win.pt-importar"),
+                                    (_("_Editar mi vídeo, lista o canal…"), "win.editar"),
+                                    (_("_Borrar o quitar…"), "win.papelera"),
+                                    (_("Crear una lista o un canal (en su sección)"), "win.nuevo"),
+                                    (_("Vaciar el _historial…"), "win.pt-vaciar-historial")))
+        pt.append_section(None, sec((_("Silenciar la cuenta del autor"), "win.pt-silenciar"),
+                                    (_("Silenciar la instancia del autor"), "win.pt-silenciar-instancia"),
+                                    (_("_Reportar el vídeo…"), "win.pt-reportar"),
+                                    (_("Marcar la notificación como leída"), "win.leido"),
+                                    (_("Marcar todas las notificaciones como leídas"), "win.marcar-todo-leido")))
+        pt.append_section(None, sec((_("Mostrar u ocultar secciones…"), "win.pt-ocultar-secciones"),
+                                    (_("Volver a iniciar sesión…"), "win.pt-reautorizar"),
+                                    (_("Eliminar la cuenta…"), "win.eliminar-cuenta")))
+        barra.append_submenu(_("Peer_Tube"), pt)
 
     tg = Gio.Menu()
     tg.append_section(None, sec((_("_Nuevo mensaje"), "win.nuevo"),
@@ -495,6 +535,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-cuenta-matrix", self.anadir_cuenta_matrix)
         accion("anadir-cuenta-x", self.anadir_cuenta_x)
         accion("anadir-cuenta-reddit", self.anadir_cuenta_reddit)
+        accion("anadir-cuenta-peertube", self.anadir_cuenta_peertube)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -626,6 +667,16 @@ class Aplicacion(Gtk.Application):
         def _hecha(account_id):
             self.ventana.cargar_arbol(seleccionar=("reddit", account_id, "timeline", None, None, "home"))
         DialogoCuentaReddit(self.ventana, _hecha).present()
+
+    def anadir_cuenta_peertube(self):
+        if not datos_peertube.disponible():
+            notificar(_("PeerTube no está disponible: falta la librería httpx o está desactivado"))
+            return
+        from .dialogos_peertube import DialogoCuentaPeerTube
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("peertube", account_id, "timeline", None, None, "recientes"))
+        DialogoCuentaPeerTube(self.ventana, _hecha).present()
 
     def anadir_red_irc(self):
         from .dialogos_irc import DialogoRedIRC
