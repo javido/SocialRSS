@@ -80,6 +80,9 @@ class FilaObj(GObject.Object):
     def _construir_descripcion(self) -> str:
         from .datos import fecha_legible
         f = self.fila
+        if f.servicio == "reddit":
+            # La lectura ya sale de las plantillas del usuario (fecha, puntos e indicadores incluidos).
+            return f.titulo
         if f.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix", "x"):
             return self._descripcion_mastodon()
         partes = []

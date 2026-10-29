@@ -21,6 +21,10 @@ from .dialogos_ia import DialogoHistorialIA, DialogoHistorialTraducciones, Dialo
 log = logging.getLogger(__name__)
 
 IDIOMAS = list(NOMBRES_IDIOMA.keys())      # códigos ISO de 2 letras
+RD_ORDEN_COMENTARIOS = [("confidence", "Mejores (confianza)"), ("top", "Más votados"), ("new", "Nuevos"),
+                        ("controversial", "Controvertidos"), ("old", "Antiguos"), ("qa", "Preguntas y respuestas")]
+RD_PERIODOS = [("hour", "Última hora"), ("day", "Hoy"), ("week", "Esta semana"), ("month", "Este mes"),
+               ("year", "Este año"), ("all", "Siempre")]
 
 
 def _nombre_idioma(codigo: str) -> str:
@@ -143,6 +147,21 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Actualización automática de _X:"), self.auto_x,
                 _("Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. Desactivada por defecto: X limita "
                   "este cliente no oficial y un exceso de peticiones puede acabar en el bloqueo de la cuenta."))
+        self.rd_intervalo = Gtk.SpinButton.new_with_range(30, 3600, 30)
+        self.rd_intervalo.set_value(int(config.get("reddit", "update_interval", 120) or 120))
+        p.campo(_("Segundos entre las actualizaciones de _Reddit:"), self.rd_intervalo,
+                _("Se actualiza el buffer de Reddit que tienes abierto. Mínimo 30 segundos: Reddit limita las peticiones."))
+        self.rd_limite = Gtk.SpinButton.new_with_range(1, 100, 5)
+        self.rd_limite.set_value(int(config.get("reddit", "limit_per_load", 25) or 25))
+        p.campo(_("Publicaciones de Reddit por _descarga:"), self.rd_limite)
+        self.rd_orden_com = Gtk.DropDown.new_from_strings([_(n) for _v, n in RD_ORDEN_COMENTARIOS])
+        actual = config.get("reddit", "comment_sort", "confidence")
+        self.rd_orden_com.set_selected(next((i for i, (v, _n) in enumerate(RD_ORDEN_COMENTARIOS) if v == actual), 0))
+        p.campo(_("_Orden de los comentarios de Reddit:"), self.rd_orden_com)
+        self.rd_periodo = Gtk.DropDown.new_from_strings([_(n) for _v, n in RD_PERIODOS])
+        actual = config.get("reddit", "time_filter", "day")
+        self.rd_periodo.set_selected(next((i for i, (v, _n) in enumerate(RD_PERIODOS) if v == actual), 1))
+        p.campo(_("Periodo de «Los mejores» y «Controvertidos» en Reddi_t:"), self.rd_periodo)
         self.admin_mx = p.interruptor(config.get("matrix", "admin_tools", False))
         p.campo(_("Herramientas de _administración de Matrix:"), self.admin_mx,
                 _("Añade al menú Matrix la administración del servidor Synapse. Hay que reiniciar la aplicación para verlo."))
@@ -400,6 +419,10 @@ class DialogoPreferencias(Gtk.Window):
         config.set("matrix", "announce_new", self.anunciar_mx.get_active())
         config.set("matrix", "admin_tools", self.admin_mx.get_active())
         config.set("x", "auto_update", self.auto_x.get_active())
+        config.set("reddit", "update_interval", int(self.rd_intervalo.get_value()))
+        config.set("reddit", "limit_per_load", int(self.rd_limite.get_value()))
+        config.set("reddit", "comment_sort", RD_ORDEN_COMENTARIOS[self.rd_orden_com.get_selected()][0])
+        config.set("reddit", "time_filter", RD_PERIODOS[self.rd_periodo.get_selected()][0])
         config.set("audio", "mic_device", self._mic_elegido())
         config.set("audio", "mic_volume", self.mic_volumen.get_value() / 100.0)
         paso = float(self.paso.get_value())

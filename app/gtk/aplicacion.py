@@ -12,7 +12,7 @@ from app.core.speech import notificar
 from app.core.version import APP_VERSION
 from app.services.rss.rss_service import rss_service
 
-from . import datos, datos_x, plataforma_gtk
+from . import datos, datos_reddit, datos_x, plataforma_gtk
 from .dialogos import DialogoAnadirFeed, DialogoTeclas
 from .preferencias import DialogoPreferencias
 from .ventana import VentanaPrincipal
@@ -39,6 +39,7 @@ def _menu() -> Gio.Menu:
                                      (_("Añadir cuenta de _Matrix…"), "app.anadir-cuenta-matrix"),
                                      (_("Registrar una cuenta nueva de Matri_x…"), "win.mx-registrar"),
                                      *(((_("Añadir cuenta de X (_Twitter)…"), "app.anadir-cuenta-x"),) if datos_x.disponible() else ()),
+                                     *(((_("Añadir cuenta de Re_ddit…"), "app.anadir-cuenta-reddit"),) if datos_reddit.disponible() else ()),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -212,6 +213,39 @@ def _menu() -> Gio.Menu:
                                     (_("_Reimportar las cookies de la cuenta…"), "win.tw-reimportar"),
                                     (_("_Eliminar la cuenta…"), "win.eliminar-cuenta")))
         barra.append_submenu(_("X (Twitt_er)"), tw)
+
+    if datos_reddit.disponible():
+        rd = Gio.Menu()
+        rd.append_section(None, sec((_("_Nueva publicación o mensaje"), "win.nuevo"),
+                                    (_("_Responder"), "win.responder"),
+                                    (_("_Editar lo mío"), "win.editar"),
+                                    (_("_Borrar lo mío"), "win.papelera"),
+                                    (_("Crosspost a otra _comunidad…"), "win.impulsar")))
+        rd.append_section(None, sec((_("Voto _positivo"), "win.me-gusta"),
+                                    (_("Voto _negativo"), "win.rd-voto-negativo"),
+                                    (_("_Guardar o quitar de guardados"), "win.marcador"),
+                                    (_("_Ocultar o mostrar la publicación"), "win.rd-ocultar")))
+        rd.append_section(None, sec((_("Ver los co_mentarios"), "win.conversacion"),
+                                    (_("Perfil del _autor"), "win.perfil"),
+                                    (_("Publicaciones del a_utor"), "win.cronologia-usuario"),
+                                    (_("Abrir el su_breddit de la publicación"), "win.rd-subreddit-fila"),
+                                    (_("Cargar elementos a_nteriores"), "win.cargar-mas"),
+                                    (_("C_errar el buffer"), "win.cerrar-buffer")))
+        rd.append_section(None, sec((_("_Ir a un subreddit…"), "win.abrir-lista"),
+                                    (_("_Buscar publicaciones…"), "win.buscar-mastodon"),
+                                    (_("Buscar _subreddits…"), "win.abrir-hashtag"),
+                                    (_("Buscar _usuarios…"), "win.rd-buscar-usuarios"),
+                                    (_("Perfil de un usuario…"), "win.rd-perfil-de"),
+                                    (_("Cambiar el or_den de este buffer…"), "win.rd-orden")))
+        rd.append_section(None, sec((_("S_uscribirse al subreddit"), "win.rd-suscribirse"),
+                                    (_("Cancelar la suscripción"), "win.rd-cancelar-suscripcion"),
+                                    (_("_Fijar el subreddit en el árbol"), "win.rd-fijar"),
+                                    (_("Mensaje privado al autor…"), "win.rd-mensaje-autor"),
+                                    (_("Marcar la bandeja como _leída"), "win.marcar-todo-leido")))
+        rd.append_section(None, sec((_("Mostrar u ocultar bu_ffers…"), "win.rd-ocultar-buffers"),
+                                    (_("Volver a autorizar la cuenta…"), "win.rd-reautorizar"),
+                                    (_("Eliminar la cuenta…"), "win.eliminar-cuenta")))
+        barra.append_submenu(_("Re_ddit"), rd)
 
     tg = Gio.Menu()
     tg.append_section(None, sec((_("_Nuevo mensaje"), "win.nuevo"),
@@ -460,6 +494,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-cuenta-xmpp", self.anadir_cuenta_xmpp)
         accion("anadir-cuenta-matrix", self.anadir_cuenta_matrix)
         accion("anadir-cuenta-x", self.anadir_cuenta_x)
+        accion("anadir-cuenta-reddit", self.anadir_cuenta_reddit)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -581,6 +616,16 @@ class Aplicacion(Gtk.Application):
         def _hecha(account_id):
             self.ventana.cargar_arbol(seleccionar=("x", account_id, "timeline", None, None, "home"))
         DialogoCuentaX(self.ventana, _hecha).present()
+
+    def anadir_cuenta_reddit(self):
+        if not datos_reddit.disponible():
+            notificar(_("Reddit no está disponible: falta la librería praw o está desactivado"))
+            return
+        from .dialogos_reddit import DialogoCuentaReddit
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("reddit", account_id, "timeline", None, None, "home"))
+        DialogoCuentaReddit(self.ventana, _hecha).present()
 
     def anadir_red_irc(self):
         from .dialogos_irc import DialogoRedIRC

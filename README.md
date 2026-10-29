@@ -163,8 +163,17 @@ marcadores, borrar, votar en encuestas, abrir la conversación, perfil (seguir, 
 hecho retweet, buscar publicaciones y cuentas, tendencias (también de un país o ciudad), publicaciones programadas, añadir cuentas a listas y mensajes
 directos con tiempo real (por streaming, con un sonido cuando la otra persona escribe). **X no se actualiza solo**: se descarga al entrar en un buffer vacío y con
 Ctrl+Mayús+R; la actualización automática es opcional en Preferencias. Gestión de tus listas (crear, editar, borrar y sus
-miembros) y de comunidades (buscarlas, abrirlas como buffer, unirse y salir). El resto de redes
-(Reddit, PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+miembros) y de comunidades (buscarlas, abrirlas como buffer, unirse y salir).
+**Reddit** (necesita `praw`): el alta pide el identificador de una aplicación que registras tú en reddit.com/prefs/apps
+(tipo «installed app», redirección `http://localhost:8080`) y abre el navegador para autorizar; la sesión se guarda cifrada. Cada
+cuenta tiene Página principal, Populares, r/all, Bandeja de entrada (con sin leer, menciones y enviados), Mis publicaciones,
+Mis comentarios, Guardados, Votados, Ocultos, Mis subreddits y Multireddits, más los subreddits y búsquedas que fijas (las
+mismas claves que usa la versión de Windows) y los perfiles y órdenes que abres. Intro sobre una publicación abre sus comentarios
+anidados, donde se puede responder, votar, guardar, editar, borrar y traducir. Además: publicar texto, enlace, imagen, vídeo,
+galería o encuesta con etiqueta, +18 y spoiler, crosspost, votos, guardados, ocultar, perfiles (seguir, bloquear, mensaje), mensajes
+privados, buscar publicaciones, subreddits y usuarios, y cambiar el orden de un buffer. La lectura de cada elemento usa tus
+plantillas de lectura. Aún no están la moderación, el wiki, el modmail, los directos, las colecciones ni los borradores.
+El resto de redes (PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 **Notas de voz** (Telegram, XMPP y Matrix): Ctrl+Alt+A empieza a grabar en el chat enfocado y, pulsado otra vez, la envía;
 Ctrl+Alt+Mayús+A la cancela. En Linux se graba con GStreamer (en Windows sigue siendo BASS), con el micrófono y el volumen

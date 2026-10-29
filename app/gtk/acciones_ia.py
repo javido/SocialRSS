@@ -41,6 +41,9 @@ def texto_de(v, obj):
             return None
         texto = (r[0] + "\n" if r[0] else "") + r[1]
         return texto.strip(), r[2], r[3], f.extra.get("account_id")
+    if f.servicio == "reddit":
+        from . import datos_reddit
+        return datos_reddit.texto_plano(f), "", None, None
     if f.servicio == "bluesky":
         uri = f.extra.get("uri") or ""
         r = db.query_one("SELECT COALESCE(content, ''), COALESCE(langs, '') FROM bluesky_posts WHERE account_id = ? AND uri = ?",
@@ -67,6 +70,11 @@ def traducir(v):
         v.avisar(_("No hay texto para traducir"))
         return
     texto, declarado, status_id, account_id = datos
+    traducir_texto(v, texto, declarado, status_id, account_id)
+
+
+def traducir_texto(v, texto: str, declarado: str = "", status_id=None, account_id=None):
+    """Traduce `texto` y lo muestra. `v` es la ventana (o diálogo) que avisa y de la que cuelga el resultado."""
     v.avisar(_("Traduciendo…"))
 
     def _bg(ctx):

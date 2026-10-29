@@ -52035,3 +52035,622 @@ msgstr "_Microphone for voice notes:"
 
 msgid "_Volumen del micrófono (%):"
 msgstr "Microphone _volume (%):"
+
+msgid "A_sunto:"
+msgstr "_Subject:"
+
+msgid "Abriendo el navegador…"
+msgstr "Opening the browser…"
+
+msgid "Abrir el su_breddit de la publicación"
+msgstr "Open the post's su_breddit"
+
+msgid "Abrir el subreddit"
+msgstr "Open the subreddit"
+
+msgid "Abrir en el na_vegador"
+msgstr "Open in the _browser"
+
+msgid "Abrir {u} en el _navegador"
+msgstr "Open {u} in the _browser"
+
+msgid "Ahora sigues a u/{0}"
+msgstr "You now follow u/{0}"
+
+msgid "Aquí no se pueden cargar elementos más antiguos"
+msgstr "Older items can't be loaded here"
+
+msgid "Autor original."
+msgstr "Original poster."
+
+msgid "Añade al menos 2 imágenes a la galería"
+msgstr "Add at least 2 images to the gallery"
+
+msgid "Añadir cuenta de Re_ddit…"
+msgstr "Add a Re_ddit account…"
+
+msgid "Añadir cuenta de Reddit"
+msgstr "Add a Reddit account"
+
+msgid "Añadir imágenes"
+msgstr "Add images"
+
+msgid "Bandeja marcada como leída"
+msgstr "Inbox marked as read"
+
+msgid "Borrado"
+msgstr "Deleted"
+
+msgid ""
+"Busca publicaciones en todo Reddit. La búsqueda queda guardada como buffer; "
+"ciérrala con Ctrl+W."
+msgstr ""
+"Searches posts across Reddit. The search is kept as a buffer; close it with "
+"Ctrl+W."
+
+msgid "Buscando subreddits…"
+msgstr "Searching subreddits…"
+
+msgid "Buscando usuarios…"
+msgstr "Searching users…"
+
+msgid "Buscar _subreddits…"
+msgstr "Search _subreddits…"
+
+msgid "Buscar _usuarios…"
+msgstr "Search _users…"
+
+msgid "Buscar en Reddit"
+msgstr "Search Reddit"
+
+msgid "Cambiar el or_den de este buffer…"
+msgstr "Change this buffer's or_der…"
+
+msgid "Cancelar la suscripción"
+msgstr "Unsubscribe"
+
+msgid "Cargando comentarios…"
+msgstr "Loading comments…"
+
+msgid "Cargando elementos más antiguos…"
+msgstr "Loading older items…"
+
+msgid "Cargando etiquetas…"
+msgstr "Loading flairs…"
+
+msgid "Cargar elementos a_nteriores"
+msgstr "Load older ite_ms"
+
+msgid "Cargar las etiquetas del su_breddit"
+msgstr "Load the su_breddit's flairs"
+
+msgid "Comentario de u/{0}"
+msgstr "Comment by u/{0}"
+
+msgid "Copiar en_lace"
+msgstr "Copy _link"
+
+msgid "Crosspost a otra _comunidad…"
+msgstr "Crosspost to another _community…"
+
+msgid "Crosspost a otra comunidad…"
+msgstr "Crosspost to another community…"
+
+msgid "Cuenta de Reddit lista: u/{u}"
+msgstr "Reddit account ready: u/{u}"
+
+msgid "Cómo conseguir el identificador de aplicación"
+msgstr "How to get the application identifier"
+
+msgid "Du_ración de la encuesta (días):"
+msgstr "Poll du_ration (days):"
+
+msgid "El destinatario y el mensaje son obligatorios"
+msgstr "The recipient and the message are required"
+
+msgid "Elegir un vídeo"
+msgstr "Choose a video"
+
+msgid "Elegir una imagen"
+msgstr "Choose an image"
+
+msgid "Elige un archivo para publicar"
+msgstr "Choose a file to post"
+
+msgid "Eliminar la cuenta…"
+msgstr "Delete the account…"
+
+msgid "Empleado de Reddit"
+msgstr "Reddit employee"
+
+msgid "Enfoca primero un elemento del hilo"
+msgstr "Focus an item in the thread first"
+
+msgid "Enviando respuesta…"
+msgstr "Sending reply…"
+
+msgid "Error al actualizar Reddit: {e}"
+msgstr "Error updating Reddit: {e}"
+
+msgid "Error al cargar más: {e}"
+msgstr "Error loading more: {e}"
+
+msgid "Error en la búsqueda: {e}"
+msgstr "Search error: {e}"
+
+msgid "Es un mensaje enviado por ti"
+msgstr "This is a message you sent"
+
+msgid "Escribe algo primero"
+msgstr "Write something first"
+
+msgid "Escribe el identificador de la aplicación"
+msgstr "Enter the application identifier"
+
+msgid "Escribe la dirección (URL) del enlace"
+msgstr "Enter the link's address (URL)"
+
+msgid "Escribe primero la comunidad (subreddit)"
+msgstr "Enter the community (subreddit) first"
+
+msgid "Esta acción no se puede hacer con este elemento de Reddit"
+msgstr "This action can't be done with this Reddit item"
+
+msgid "Esta comunidad no ofrece etiquetas para las publicaciones"
+msgstr "This community offers no post flairs"
+
+msgid "Este buffer no se descarga: son tus búsquedas guardadas"
+msgstr "This buffer isn't downloaded: it lists your saved searches"
+
+msgid "Este buffer no se puede ordenar"
+msgstr "This buffer can't be sorted"
+
+msgid "Etiqueta (_flair):"
+msgstr "(_Flair):"
+
+msgid "Etiqueta (flair)…"
+msgstr "Flair…"
+
+msgid "Etiqueta aplicada"
+msgstr "Flair applied"
+
+msgid "Fijar el subreddit en el árbol"
+msgstr "Pin the subreddit in the tree"
+
+msgid "Guardar / quitar de guardados"
+msgstr "Save / unsave"
+
+msgid "Has dejado de seguir a u/{0}"
+msgstr "You no longer follow u/{0}"
+
+msgid "Hilo cargado: {n} comentarios"
+msgstr "Thread loaded: {n} comments"
+
+msgid "La comunidad y el título son obligatorios"
+msgstr "The community and the title are required"
+
+msgid "La encuesta necesita entre 2 y 6 opciones"
+msgstr "A poll needs between 2 and 6 options"
+
+msgid "Los mejores"
+msgstr "Top"
+
+msgid "En auge"
+msgstr "Rising"
+
+msgid "Marca +18 quitada"
+msgstr "+18 mark removed"
+
+msgid "Marca de spoiler quitada"
+msgstr "Spoiler mark removed"
+
+msgid "Marcada como +18"
+msgstr "Marked as +18"
+
+msgid "Marcada como spoiler"
+msgstr "Marked as spoiler"
+
+msgid "Marcar como _+18:"
+msgstr "Mark as _+18:"
+
+msgid "Marcar como leído o no leído"
+msgstr "Mark as read or unread"
+
+msgid "Marcar como s_poiler:"
+msgstr "Mark as s_poiler:"
+
+msgid "Marcar la bandeja como _leída"
+msgstr "Mark the inbox as _read"
+
+msgid "Marcar o quitar +18"
+msgstr "Mark or unmark +18"
+
+msgid "Marcar o quitar spoiler"
+msgstr "Mark or unmark spoiler"
+
+msgid "Mensaje enviado a u/{0}"
+msgstr "Message sent to u/{0}"
+
+msgid "Mensaje privado al autor"
+msgstr "Private message to the author"
+
+msgid "Mensaje privado al autor…"
+msgstr "Private message to the author…"
+
+msgid "Moderador de algún subreddit"
+msgstr "Moderator of some subreddit"
+
+msgid "Mostrar u ocultar bu_ffers…"
+msgstr "Show or hide bu_ffers…"
+
+msgid "Ningún archivo elegido"
+msgstr "No file chosen"
+
+msgid "Nivel {0}."
+msgstr "Level {0}."
+
+msgid "No hay más elementos anteriores"
+msgstr "There are no more older items"
+
+msgid "No hay texto que traducir"
+msgstr "There is no text to translate"
+
+msgid "No se encontraron subreddits"
+msgstr "No subreddits found"
+
+msgid "No se encontraron usuarios"
+msgstr "No users found"
+
+msgid "No se pudieron cargar las etiquetas: {e}"
+msgstr "Could not load the flairs: {e}"
+
+msgid "No se pudieron cargar los comentarios: {e}"
+msgstr "Could not load the comments: {e}"
+
+msgid "No se pudieron obtener las etiquetas: {e}"
+msgstr "Could not get the flairs: {e}"
+
+msgid "No se pudo bloquear: {e}"
+msgstr "Could not block: {e}"
+
+msgid "No se pudo completar la acción en Reddit: {e}"
+msgstr "Could not complete the action on Reddit: {e}"
+
+msgid "No se pudo completar: {e}"
+msgstr "Could not complete: {e}"
+
+msgid "No se pudo editar: {e}"
+msgstr "Could not edit: {e}"
+
+msgid "No se pudo localizar la publicación"
+msgstr "Could not find the post"
+
+msgid "No se pudo localizar la publicación de este comentario"
+msgstr "Could not find this comment's post"
+
+msgid "No se pudo publicar en Reddit: {e}"
+msgstr "Could not post to Reddit: {e}"
+
+msgid "No se pudo responder: {e}"
+msgstr "Could not reply: {e}"
+
+msgid "Ocultar / mostrar"
+msgstr "Hide / show"
+
+msgid "Orden de las publicaciones"
+msgstr "Post order"
+
+msgid "Perfil del _autor"
+msgstr "_Author's profile"
+
+msgid "Periodo de «Los mejores» y «Controvertidos» en Reddi_t:"
+msgstr "Time period for «Top» and «Controversial» on Reddi_t:"
+
+msgid "Publicaciones de Reddit por _descarga:"
+msgstr "Reddit posts per _download:"
+
+msgid "Publicaciones de u/{0}"
+msgstr "Posts by u/{0}"
+
+msgid "Publicaciones del a_utor"
+msgstr "Posts by the a_uthor"
+
+msgid "Publicación oculta"
+msgstr "Post hidden"
+
+msgid "Publicación visible"
+msgstr "Post visible"
+
+msgid "Publicación."
+msgstr "Post."
+
+msgid "Publicado en r/{0}"
+msgstr "Posted to r/{0}"
+
+msgid "Publicando en Reddit…"
+msgstr "Posting to Reddit…"
+
+msgid "Quitado de guardados"
+msgstr "Removed from saved"
+
+msgid "Re_ddit"
+msgstr "Re_ddit"
+
+msgid "Recibir las _respuestas en la bandeja de entrada:"
+msgstr "Get _replies in the inbox:"
+
+msgid ""
+"Reddit no deja usar una aplicación sin que la registres tú.\n"
+"\n"
+"1. Entra en {url} con tu cuenta y pulsa «Crear otra aplicación».\n"
+"2. Ponle un nombre cualquiera, elige el tipo «installed app» y como dirección de redirección escribe {red}\n"
+"3. Copia el identificador que aparece bajo el nombre de la aplicación (una cadena corta de letras y números) y pégalo aquí.\n"
+"\n"
+"Al continuar se abre el navegador para que inicies sesión y apruebes el acceso. SocialRSS espera la respuesta en el puerto 8080 de este equipo; si otro programa lo usa, ciérralo antes."
+msgstr ""
+"Reddit doesn't let you use an application you haven't registered yourself.\n"
+"\n"
+"1. Go to {url} with your account and press «Create another app».\n"
+"2. Give it any name, choose the type «installed app» and enter {red} as the redirect address.\n"
+"3. Copy the identifier shown under the application's name (a short string of letters and numbers) and paste it here.\n"
+"\n"
+"When you continue, the browser opens so you can sign in and approve access. SocialRSS waits for the reply on port 8080 of this computer; if another program uses it, close it first."
+
+msgid "Reddit no está disponible: falta la librería praw o está desactivado"
+msgstr ""
+"Reddit isn't available: the praw library is missing or it is turned off"
+
+msgid "Respuesta enviada"
+msgstr "Reply sent"
+
+msgid "S_uscribirse al subreddit"
+msgstr "S_ubscribe to the subreddit"
+
+msgid ""
+"Se actualiza el buffer de Reddit que tienes abierto. Mínimo 30 segundos: "
+"Reddit limita las peticiones."
+msgstr ""
+"The Reddit buffer you have open is refreshed. Minimum 30 seconds: Reddit "
+"limits requests."
+
+msgid "Segundos entre las actualizaciones de _Reddit:"
+msgstr "Seconds between _Reddit updates:"
+
+msgid "Selecciona un buffer de Reddit"
+msgstr "Select a Reddit buffer"
+
+msgid "Selecciona un elemento de Reddit"
+msgstr "Select a Reddit item"
+
+msgid "Selecciona un subreddit o una publicación"
+msgstr "Select a subreddit or a post"
+
+msgid "Selecciona una cuenta de Reddit"
+msgstr "Select a Reddit account"
+
+msgid "Solo puedes borrar lo tuyo"
+msgstr "You can only delete your own"
+
+msgid "Solo puedes cambiar la etiqueta de tus publicaciones"
+msgstr "You can only change the flair of your own posts"
+
+msgid "Solo puedes cambiarlo en tus propias publicaciones"
+msgstr "You can only change it on your own posts"
+
+msgid "Solo puedes editar lo tuyo"
+msgstr "You can only edit your own"
+
+msgid "Solo se puede editar el texto de una publicación de texto"
+msgstr "Only the text of a text post can be edited"
+
+msgid "Suscribirse al subreddit"
+msgstr "Subscribe to the subreddit"
+
+msgid "Suscripción a r/{0} cancelada"
+msgstr "Unsubscribed from r/{0}"
+
+msgid "Suscrito a r/{0}"
+msgstr "Subscribed to r/{0}"
+
+msgid "Te_xto (opcional):"
+msgstr "Te_xt (optional):"
+
+msgid "Te_xto:"
+msgstr "Te_xt:"
+
+msgid "Tipo de _publicación:"
+msgstr "_Post type:"
+
+msgid "Tu voto: negativo."
+msgstr "Your vote: downvote."
+
+msgid "Tu voto: positivo."
+msgstr "Your vote: upvote."
+
+msgid "Ver los co_mentarios"
+msgstr "View the co_mments"
+
+msgid "Ver los comentarios"
+msgstr "View the comments"
+
+msgid "Volver a autorizar la cuenta de Reddit"
+msgstr "Reauthorize the Reddit account"
+
+msgid "Volver a autorizar la cuenta…"
+msgstr "Reauthorize the account…"
+
+msgid "Voto _negativo"
+msgstr "_Downvote"
+
+msgid "Voto _positivo"
+msgstr "_Upvote"
+
+msgid "Voto negativo / quitar voto"
+msgstr "Downvote / remove vote"
+
+msgid "Voto positivo / quitar voto"
+msgstr "Upvote / remove vote"
+
+msgid "Voto retirado"
+msgstr "Vote removed"
+
+msgid "_Abrir el navegador y autorizar"
+msgstr "_Open the browser and authorize"
+
+msgid "_Añadir imágenes…"
+msgstr "_Add images…"
+
+msgid "_Borrar lo mío"
+msgstr "_Delete mine"
+
+msgid "_Buscar publicaciones…"
+msgstr "_Search posts…"
+
+msgid "_Comunidad (subreddit, sin r/):"
+msgstr "_Community (subreddit, without r/):"
+
+msgid "_Destinatario (usuario, sin u/):"
+msgstr "_Recipient (user, without u/):"
+
+msgid "_Editar"
+msgstr "_Edit"
+
+msgid "_Editar lo mío"
+msgstr "_Edit mine"
+
+msgid "_Elegir archivo…"
+msgstr "_Choose file…"
+
+msgid "_Etiqueta (flair):"
+msgstr "_Flair:"
+
+msgid "_Fijar el subreddit en el árbol"
+msgstr "_Pin the subreddit in the tree"
+
+msgid "_Guardar o quitar"
+msgstr "_Save or unsave"
+
+msgid "_Guardar o quitar de guardados"
+msgstr "_Save or unsave"
+
+msgid "_Identificador de la aplicación (client id):"
+msgstr "Application _identifier (client id):"
+
+msgid "_Ir a un subreddit…"
+msgstr "_Go to a subreddit…"
+
+msgid "_Nombre de usuario:"
+msgstr "_Username:"
+
+msgid "_Nombre o tema:"
+msgstr "_Name or topic:"
+
+msgid "_Nueva publicación o mensaje"
+msgstr "_New post or message"
+
+msgid "_Ocultar o mostrar la publicación"
+msgstr "_Hide or show the post"
+
+msgid "_Opciones de la encuesta (una por línea, de 2 a 6):"
+msgstr "Poll _options (one per line, 2 to 6):"
+
+msgid "_Orden de los comentarios de Reddit:"
+msgstr "Reddit comment _order:"
+
+msgid "_Ordenar por:"
+msgstr "_Sort by:"
+
+msgid "_Quitar el voto"
+msgstr "_Remove vote"
+
+msgid "_Quitar la imagen"
+msgstr "_Remove the image"
+
+msgid "_Respuesta:"
+msgstr "_Reply:"
+
+msgid "_Subreddit (sin r/):"
+msgstr "_Subreddit (without r/):"
+
+msgid "_Subreddit:"
+msgstr "_Subreddit:"
+
+msgid "_Traducir"
+msgstr "_Translate"
+
+msgid "_Título:"
+msgstr "_Title:"
+
+msgid "_Usuario de Reddit (sin u/):"
+msgstr "Reddit _user (without u/):"
+
+msgid "_Ver el perfil"
+msgstr "_View the profile"
+
+msgid "guardada"
+msgstr "saved"
+
+msgid "r/{0} fijado en el árbol"
+msgstr "r/{0} pinned in the tree"
+
+msgid "spoiler"
+msgstr "spoiler"
+
+msgid "u/{0} bloqueado"
+msgstr "u/{0} blocked"
+
+msgid "voto negativo"
+msgstr "downvote"
+
+msgid "voto positivo"
+msgstr "upvote"
+
+msgid "{0} puntos."
+msgstr "{0} points."
+
+msgid "{0}% de votos positivos"
+msgstr "{0}% upvoted"
+
+msgid "{n} etiquetas disponibles"
+msgstr "{n} flairs available"
+
+msgid "{n} imágenes en la galería"
+msgstr "{n} images in the gallery"
+
+msgid "¿Bloquear a u/{0}?"
+msgstr "Block u/{0}?"
+
+msgid ""
+"Ctrl+Alt+E: editar lo tuyo; Supr: borrarlo; Ctrl+Mayús+V: comentarios; "
+"Ctrl+Mayús+G: publicaciones del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+"Ctrl+Alt+E: edit your own; Del: delete it; Ctrl+Shift+V: comments; "
+"Ctrl+Shift+G: the author's posts; Ctrl+Alt+P: profile"
+
+msgid ""
+"Ctrl+Alt+L: ir a un subreddit; Ctrl+Mayús+F: buscar publicaciones; "
+"Ctrl+Alt+H: buscar subreddits; Ctrl+Mayús+M: cargar anteriores"
+msgstr ""
+"Ctrl+Alt+L: go to a subreddit; Ctrl+Shift+F: search posts; Ctrl+Alt+H: "
+"search subreddits; Ctrl+Shift+M: load older items"
+
+msgid ""
+"Ctrl+B: voto positivo; Ctrl+Mayús+D: voto negativo (pulsado otra vez, lo "
+"quita); Ctrl+Mayús+J: guardar; Ctrl+Mayús+P: crosspost"
+msgstr ""
+"Ctrl+B: upvote; Ctrl+Shift+D: downvote (pressed again, removes it); "
+"Ctrl+Shift+J: save; Ctrl+Shift+P: crosspost"
+
+msgid ""
+"Ctrl+M: marcar un mensaje como leído o no leído; Ctrl+Mayús+R: actualizar "
+"(el buffer abierto se actualiza solo cada pocos minutos)"
+msgstr ""
+"Ctrl+M: mark a message as read or unread; Ctrl+Shift+R: refresh (the open "
+"buffer refreshes itself every few minutes)"
+
+msgid ""
+"Intro sobre una publicación: abrir sus comentarios; Ctrl+N: publicar (o "
+"mensaje privado en la bandeja); Ctrl+R: responder"
+msgstr ""
+"Enter on a post: open its comments; Ctrl+N: post (or private message in the "
+"inbox); Ctrl+R: reply"
