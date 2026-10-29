@@ -7,6 +7,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gtk, Gio, GLib  # noqa: E402
 
+from app.core.config_manager import config
 from app.core.speech import notificar
 from app.core.version import APP_VERSION
 from app.services.rss.rss_service import rss_service
@@ -330,6 +331,19 @@ def _menu() -> Gio.Menu:
                                 (_("_Importar claves de cifrado…"), "win.mx-importar-claves"),
                                 (_("Volver a descifrar los mensajes pendientes"), "win.mx-redescifrar"),
                                 (_("Eliminar la cuenta de este equipo…"), "win.mx-eliminar-cuenta")))
+    if config.get("matrix", "admin_tools", False):
+        adm = Gio.Menu()
+        adm.append_section(None, sec((_("¿Soy administrador del servidor?"), "win.mx-admin-comprobar"),
+                                     (_("_Usuarios del servidor…"), "win.mx-admin-usuarios"),
+                                     (_("_Salas del servidor…"), "win.mx-admin-salas"),
+                                     (_("Mensajes _reportados…"), "win.mx-admin-informes"),
+                                     (_("Enviar un _aviso del servidor…"), "win.mx-admin-aviso"),
+                                     (_("_Tokens de registro…"), "win.mx-admin-tokens"),
+                                     (_("_Federación…"), "win.mx-admin-federacion"),
+                                     (_("Mantenimiento de _archivos…"), "win.mx-admin-media"),
+                                     (_("Actualizaciones en segundo plano"), "win.mx-admin-actualizaciones"),
+                                     (_("_Estadísticas del servidor…"), "win.mx-admin-estadisticas")))
+        mx.append_submenu(_("_Administración del servidor"), adm)
     barra.append_submenu(_("Ma_trix"), mx)
 
     rep = Gio.Menu()

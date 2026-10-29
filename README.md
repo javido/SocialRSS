@@ -147,7 +147,9 @@ directorio, cifrado, versión), etiquetas favorita y baja prioridad, nivel de av
 conversaciones, tu perfil y presencia, tus dispositivos, palabras que te avisan, verificación de dispositivos por emojis,
 verificación cruzada, y exportar e importar claves. Los mensajes llegan en **tiempo real** (por voz: la conversación abierta,
 los mensajes directos y las menciones, según el nivel de aviso de cada sala). El cifrado de extremo a extremo no se ha
-probado en Linux. Aún faltan la grabación de notas de voz y la administración del servidor (Synapse). El resto de redes
+probado en Linux. La administración del servidor Synapse (usuarios, salas, mensajes reportados, tokens de registro, federación,
+mantenimiento de archivos y estadísticas) se activa en Preferencias y exige una cuenta administradora. Aún falta la
+grabación de notas de voz. El resto de redes
 (Reddit, PeerTube, X y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas

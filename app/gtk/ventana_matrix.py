@@ -7,6 +7,7 @@ el bus de eventos del servicio."""
 
 import logging
 import os
+import time
 
 import gi
 gi.require_version("Gtk", "4.0")
@@ -1132,6 +1133,87 @@ class _MatrixMixin:
         confirmar_async(self, _("¿Eliminar la cuenta {n} y sus datos de este equipo? Se cerrará su sesión en el servidor.")
                         .format(n=nombre), _hacer, etiqueta_si=_("Eliminar"))
 
+    # ------------------------------------------------------------------ administración del servidor (Synapse)
+    def _mx_admin_cuenta(self):
+        acc = self._mx_cuenta()
+        if acc is None or not self._mx_conectada(acc):
+            return None
+        return acc
+
+    def mx_admin_comprobar(self):
+        acc = self._mx_admin_cuenta()
+        if acc is None:
+            return
+        self.avisar(_("Comprobando…"))
+        ejecutar(lambda: _servicio().es_admin_servidor(acc),
+                 lambda es, e: self.avisar(_("No se pudo comprobar: {e}").format(e=e) if e
+                                           else (_("Sí: tu cuenta es administradora del servidor") if es
+                                                 else _("No: tu cuenta no es administradora del servidor (o no es Synapse)"))))
+
+    def mx_admin_dialogo(self, nombre: str):
+        acc = self._mx_admin_cuenta()
+        if acc is None:
+            return
+        from . import dialogos_matrix_admin as adm
+        if nombre == "usuarios":
+            return adm.DialogoAdminUsuarios(self, acc, al_directo=lambda uid: self.mx_dm_con(acc, uid)).present()
+        clase = {"salas": adm.DialogoAdminSalas, "informes": adm.DialogoAdminInformes, "tokens": adm.DialogoAdminTokens,
+                 "federacion": adm.DialogoAdminFederacion, "aviso": adm.DialogoAvisoServidor}[nombre]
+        clase(self, acc).present()
+
+    def mx_admin_estadisticas(self):
+        acc = self._mx_admin_cuenta()
+        if acc is None:
+            return
+        self.avisar(_("Consultando el servidor…"))
+
+        def _fin(d, err):
+            if err:
+                self.avisar(_("No se pudo (¿eres administrador del servidor?): {e}").format(e=err))
+                return
+            d = d or {}
+
+            def num(v):
+                return str(v) if v is not None else _("(no disponible)")
+            mostrar_aviso_dialogo("\n".join([_("Versión de Synapse: {v}").format(v=d.get("version") or _("(desconocida)")),
+                                             _("Usuarios en el servidor: {n}").format(n=num(d.get("usuarios_total"))),
+                                             _("Salas en el servidor: {n}").format(n=num(d.get("salas_total")))]),
+                                  _("Estadísticas del servidor"))
+        ejecutar(lambda: _servicio().admin_estadisticas(acc), _fin)
+
+    def mx_admin_actualizaciones(self):
+        acc = self._mx_admin_cuenta()
+        if acc is None:
+            return
+        ejecutar(lambda: _servicio().admin_actualizaciones_fondo(acc),
+                 lambda d, e: self.avisar(_("No se pudo: {e}").format(e=e) if e
+                                          else (_("El servidor está migrando la base de datos en segundo plano; puede ir más lento")
+                                                if (d or {}).get("en_curso") else _("La base de datos del servidor está al día"))))
+
+    def mx_admin_media(self):
+        """Borra los archivos locales no usados desde hace X días para liberar disco."""
+        acc = self._mx_admin_cuenta()
+        if acc is None:
+            return
+
+        def _dias(texto):
+            try:
+                dias = max(1, int(float(texto)))
+            except ValueError:
+                self.avisar(_("Escribe un número de días"))
+                return
+            antes = int((time.time() - dias * 86400) * 1000)
+            confirmar_async(self, _("Se borrarán del disco los archivos locales no vistos desde hace más de {d} días. ¿Continuar?")
+                            .format(d=dias),
+                            lambda: ejecutar(lambda: _servicio().admin_borrar_media_antiguos(acc, antes),
+                                             lambda n, e: self.avisar(_("No se pudo: {e}").format(e=e) if e
+                                                                      else _("{n} archivos borrados").format(n=n or 0))),
+                            etiqueta_si=_("Borrar"))
+        d = DialogoTexto(self, _("Mantenimiento de archivos"), _("Borrar lo no usado desde hace más de cuántos _días:"), _dias,
+                         aceptar=_("_Continuar"))
+        d.entrada.set_text("90")
+        d.present()
+
     # ------------------------------------------------------------------ refrescos y lectura
     def _mx_refrescar_arbol(self):
         """Reconstruye el árbol (el nombre dice si está desconectada) sin perder dónde se está."""
@@ -1405,3 +1487,9 @@ class _MatrixMixin:
         a("mx-redescifrar", self.mx_redescifrar)
         a("mx-cross-signing", self.mx_cross_signing)
         a("mx-eliminar-cuenta", self.mx_eliminar_cuenta)
+        a("mx-admin-comprobar", self.mx_admin_comprobar)
+        for nombre in ("usuarios", "salas", "informes", "tokens", "federacion", "aviso"):
+            a("mx-admin-" + nombre, lambda n=nombre: self.mx_admin_dialogo(n))
+        a("mx-admin-estadisticas", self.mx_admin_estadisticas)
+        a("mx-admin-actualizaciones", self.mx_admin_actualizaciones)
+        a("mx-admin-media", self.mx_admin_media)

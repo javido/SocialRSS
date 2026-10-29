@@ -50889,3 +50889,507 @@ msgstr "Change the rank…"
 
 msgid "Firmar su identidad (experto)…"
 msgstr "Sign their identity (expert)…"
+
+msgid " (en cuarentena)"
+msgstr " (in quarantine)"
+
+msgid " y borrará sus datos"
+msgstr " and will delete their data"
+
+msgid ", caduca {f}"
+msgstr ", expires {f}"
+
+msgid ", con fallos desde {f}"
+msgstr ", failing since {f}"
+
+msgid ", sin problemas"
+msgstr ", no problems"
+
+msgid ", y se impedirá que vuelva a crearse"
+msgstr ", and it will be prevented from being created again"
+
+msgid "Acciones sobre {u}"
+msgstr "Actions on {u}"
+
+msgid "Actualizaciones en segundo plano"
+msgstr "Background updates"
+
+msgid "Administrador del servidor: {s}"
+msgstr "Server administrator: {s}"
+
+msgid "Ahora usa el límite del servidor."
+msgstr "It now uses the server's limit."
+
+msgid "Ahora: {m} mensajes por segundo y ráfaga de {b}."
+msgstr "Now: {m} messages per second and a burst of {b}."
+
+msgid "Alias: {a}"
+msgstr "Alias: {a}"
+
+msgid "Aplicar el sombra-baneo"
+msgstr "Apply the shadow ban"
+
+msgid "Archivos de {u}"
+msgstr "Files of {u}"
+
+msgid "Autor: {a}"
+msgstr "Author: {a}"
+
+msgid "Aviso del servidor enviado a {u}"
+msgstr "Server notice sent to {u}"
+
+msgid ""
+"Añade al menú Matrix la administración del servidor Synapse. Hay que "
+"reiniciar la aplicación para verlo."
+msgstr ""
+"Adds Synapse server administration to the Matrix menu. The application must "
+"be restarted to see it."
+
+msgid "Borrar la sala"
+msgstr "Delete the room"
+
+msgid "Borrar lo anterior a hace cuántos _días:"
+msgstr "Delete what is older than how many _days:"
+
+msgid "Borrar lo no usado desde hace más de cuántos _días:"
+msgstr "Delete what has not been used for more than how many _days:"
+
+msgid "Borrar y bloquear que vuelva a crearse"
+msgstr "Delete and block it from being created again"
+
+msgid "Borrar {n}"
+msgstr "Delete {n}"
+
+msgid "Cambiar la contraseña de {u}"
+msgstr "Change the password of {u}"
+
+msgid "Cambio hecho"
+msgstr "Change made"
+
+msgid "Cifrada: {s}"
+msgstr "Encrypted: {s}"
+
+msgid "Comprobando…"
+msgstr "Checking…"
+
+msgid "Conexiones de {u}"
+msgstr "Connections of {u}"
+
+msgid "Contraseña cambiada; se han cerrado sus sesiones"
+msgstr "Password changed; their sessions have been signed out"
+
+msgid "Correos o teléfonos: {c}"
+msgstr "Emails or phones: {c}"
+
+msgid "Creado: {f}"
+msgstr "Created: {f}"
+
+msgid "Creador: {c}"
+msgstr "Creator: {c}"
+
+msgid "Crear un token de registro"
+msgstr "Create a registration token"
+
+msgid "Cuenta bloqueada"
+msgstr "Account locked"
+
+msgid "Cuenta desactivada"
+msgstr "Account deactivated"
+
+msgid "Cuenta desbloqueada"
+msgstr "Account unlocked"
+
+msgid "Desactivado: {s}"
+msgstr "Deactivated: {s}"
+
+msgid "Desactivar la cuenta {u} no se puede deshacer{b}. ¿Continuar?"
+msgstr "Deactivating the account {u} cannot be undone{b}. Continue?"
+
+msgid "Desactivar y borrar sus datos"
+msgstr "Deactivate and delete their data"
+
+msgid "Desactivar {u}"
+msgstr "Deactivate {u}"
+
+msgid "Detalles de {n}"
+msgstr "Details of {n}"
+
+msgid "Detalles de {u}"
+msgstr "Details of {u}"
+
+msgid "Dispositivo {d}, IP {i}, {f}, {n}"
+msgstr "Device {d}, IP {i}, {f}, {n}"
+
+msgid "Dispositivos de {u}"
+msgstr "Devices of {u}"
+
+msgid ""
+"El servidor está migrando la base de datos en segundo plano; puede ir más "
+"lento"
+msgstr ""
+"The server is migrating the database in the background; it may be slower"
+
+msgid "Enviar un _aviso del servidor…"
+msgstr "Send a server _notice…"
+
+msgid "Escribe el usuario y el mensaje"
+msgstr "Enter the user and the message"
+
+msgid "Escribe un número de días"
+msgstr "Enter a number of days"
+
+msgid "Escribe un número o déjalo vacío"
+msgstr "Enter a number or leave it empty"
+
+msgid "Este servidor no federa con ninguno"
+msgstr "This server federates with none"
+
+msgid "Fijar un límite…"
+msgstr "Set a limit…"
+
+msgid "Herramientas de _administración de Matrix:"
+msgstr "Matrix _administration tools:"
+
+msgid "La base de datos del servidor está al día"
+msgstr "The server's database is up to date"
+
+msgid "Lista de archivos"
+msgstr "List of files"
+
+msgid "Lista de conexiones"
+msgstr "List of connections"
+
+msgid ""
+"Los archivos de «{n}» dejarán de servirse a los usuarios (sin borrarse del "
+"disco). ¿Continuar?"
+msgstr ""
+"The files of \"{n}\" will stop being served to users (without being deleted "
+"from disk). Continue?"
+
+msgid "Límite de mensajes de {u}"
+msgstr "Message limit of {u}"
+
+msgid "Límite fijado"
+msgstr "Limit set"
+
+msgid "Límite propio quitado"
+msgstr "Own limit removed"
+
+msgid "Mantenimiento de _archivos…"
+msgstr "_File maintenance…"
+
+msgid "Mensaje: {t}"
+msgstr "Message: {t}"
+
+msgid "Mensajes _reportados…"
+msgstr "_Reported messages…"
+
+msgid "Miembros: {m} (locales {l})"
+msgstr "Members: {m} (local {l})"
+
+msgid "Motivo: {m}"
+msgstr "Reason: {m}"
+
+msgid "No ha subido archivos"
+msgstr "They have not uploaded files"
+
+msgid "No hay reportes"
+msgstr "There are no reports"
+
+msgid "No hay tokens"
+msgstr "There are no tokens"
+
+msgid "No participa en ninguna sala"
+msgstr "They are not in any room"
+
+msgid "No se pudo (¿eres administrador del servidor?): {e}"
+msgstr "It could not be done (are you a server administrator?): {e}"
+
+msgid "No se pudo comprobar: {e}"
+msgstr "It could not be checked: {e}"
+
+msgid ""
+"No se pudo enviar (¿no eres administrador o el servidor no tiene avisos de "
+"servidor?): {e}"
+msgstr ""
+"It could not be sent (are you not an administrator, or does the server have "
+"no server notices?): {e}"
+
+msgid "No: tu cuenta no es administradora del servidor (o no es Synapse)"
+msgstr "No: your account is not a server administrator (or it is not Synapse)"
+
+msgid "Purga iniciada en el servidor"
+msgstr "Purge started on the server"
+
+msgid "Purgar"
+msgstr "Purge"
+
+msgid "Purgar el historial"
+msgstr "Purge the history"
+
+msgid "Pública: {s}"
+msgstr "Public: {s}"
+
+msgid "Quitar el límite propio"
+msgstr "Remove the own limit"
+
+msgid "Quitar el sombra-baneo"
+msgstr "Remove the shadow ban"
+
+msgid "Reintentando la conexión con {d}"
+msgstr "Retrying the connection with {d}"
+
+msgid "Reportado por: {q}"
+msgstr "Reported by: {q}"
+
+msgid "Sala bloqueada"
+msgstr "Room blocked"
+
+msgid "Sala borrada"
+msgstr "Room deleted"
+
+msgid "Sala desbloqueada"
+msgstr "Room unblocked"
+
+msgid "Sala: {n}"
+msgstr "Room: {n}"
+
+msgid "Sala: {s}"
+msgstr "Room: {s}"
+
+msgid "Salas de {u}"
+msgstr "Rooms of {u}"
+
+msgid "Salas en el servidor: {n}"
+msgstr "Rooms on the server: {n}"
+
+msgid ""
+"Se borrará de forma definitiva el historial de «{n}» anterior a hace {d} "
+"días. ¿Continuar?"
+msgstr ""
+"The history of \"{n}\" older than {d} days will be permanently deleted. "
+"Continue?"
+
+msgid ""
+"Se borrarán del disco los archivos locales no vistos desde hace más de {d} "
+"días. ¿Continuar?"
+msgstr ""
+"The local files not seen for more than {d} days will be deleted from disk. "
+"Continue?"
+
+msgid ""
+"Se echará a todos de «{n}» y se borrará su historia{b}. No se puede "
+"deshacer. ¿Continuar?"
+msgstr ""
+"Everyone will be removed from \"{n}\" and its history deleted{b}. This "
+"cannot be undone. Continue?"
+
+msgid "Sin conexiones registradas"
+msgstr "No connections recorded"
+
+msgid "Sin dispositivos"
+msgstr "No devices"
+
+msgid "Sin límite para este usuario"
+msgstr "No limit for this user"
+
+msgid "Sin ningún límite"
+msgstr "No limit at all"
+
+msgid "Solo desactivar la cuenta"
+msgstr "Just deactivate the account"
+
+msgid "Sombra-baneo de {u}"
+msgstr "Shadow ban of {u}"
+
+msgid "Sombra-baneo puesto"
+msgstr "Shadow ban applied"
+
+msgid "Sombra-baneo quitado"
+msgstr "Shadow ban removed"
+
+msgid "Sí: tu cuenta es administradora del servidor"
+msgstr "Yes: your account is a server administrator"
+
+msgid "Token borrado"
+msgstr "Token deleted"
+
+msgid "Token creado: {t}"
+msgstr "Token created: {t}"
+
+msgid "Usuarios en el servidor: {n}"
+msgstr "Users on the server: {n}"
+
+msgid "Versión de Synapse: {v}"
+msgstr "Synapse version: {v}"
+
+msgid "Versión: {v}"
+msgstr "Version: {v}"
+
+msgid "Ya eres administrador de la sala"
+msgstr "You are now an administrator of the room"
+
+msgid "_Acciones…"
+msgstr "_Actions…"
+
+msgid "_Administración del servidor"
+msgstr "_Server administration"
+
+msgid "_Aplicar"
+msgstr "_Apply"
+
+msgid "_Borrar el token"
+msgstr "_Delete the token"
+
+msgid "_Buscar cuenta:"
+msgstr "_Search account:"
+
+msgid "_Buscar sala:"
+msgstr "_Search room:"
+
+msgid "_Cerrar la sesión"
+msgstr "_Sign out"
+
+msgid "_Contraseña nueva:"
+msgstr "_New password:"
+
+msgid "_Crear un token…"
+msgstr "_Create a token…"
+
+msgid "_Detalle"
+msgstr "_Detail"
+
+msgid "_Detalles"
+msgstr "_Details"
+
+msgid "_Estadísticas del servidor…"
+msgstr "_Server statistics…"
+
+msgid "_Federación…"
+msgstr "_Federation…"
+
+msgid "_Mensaje del aviso:"
+msgstr "_Notice message:"
+
+msgid "_Mensajes por segundo (por ejemplo 2):"
+msgstr "_Messages per second (for example 2):"
+
+msgid "_Reintentar la conexión ahora"
+msgstr "_Retry the connection now"
+
+msgid "_Salas del servidor…"
+msgstr "_Server rooms…"
+
+msgid "_Tokens de registro…"
+msgstr "Registration _tokens…"
+
+msgid "_Usos permitidos (vacío = ilimitados):"
+msgstr "Allowed _uses (empty = unlimited):"
+
+msgid "_Usuario destino (@usuario:servidor):"
+msgstr "Target _user (@user:server):"
+
+msgid "_Usuarios del servidor…"
+msgstr "_Server users…"
+
+msgid "administrador"
+msgstr "administrator"
+
+msgid "desactivado"
+msgstr "deactivated"
+
+msgid "ilimitados"
+msgstr "unlimited"
+
+msgid "invitado"
+msgstr "guest"
+
+msgid "pública"
+msgstr "public"
+
+msgid "{f}: {q} reportó un mensaje de {a} en {s}. Motivo: {m}"
+msgstr "{f}: {q} reported a message from {a} in {s}. Reason: {m}"
+
+msgid "{i}, {n}, IP {ip}, {f}"
+msgstr "{i}, {n}, IP {ip}, {f}"
+
+msgid "{n} archivos borrados"
+msgstr "{n} files deleted"
+
+msgid "{n} archivos en cuarentena"
+msgstr "{n} files quarantined"
+
+msgid "{n} elementos"
+msgstr "{n} items"
+
+msgid "{n} reportes"
+msgstr "{n} reports"
+
+msgid "{n} servidores"
+msgstr "{n} servers"
+
+msgid "{n} tokens"
+msgstr "{n} tokens"
+
+msgid "{n}, {m} miembros"
+msgstr "{n}, {m} members"
+
+msgid "{n}, {t}, {k} KB, {f}{q}"
+msgstr "{n}, {t}, {k} KB, {f}{q}"
+
+msgid "{t}, usos {h} de {p}{c}"
+msgstr "{t}, uses {h} of {p}{c}"
+
+msgid "¿Bloquear la sala {n}? Nadie nuevo podrá entrar."
+msgstr "Block the room {n}? Nobody new will be able to join."
+
+msgid "¿Borrar el token {t}?"
+msgstr "Delete the token {t}?"
+
+msgid "¿Cerrar la sesión {i} de {u}?"
+msgstr "Sign out session {i} of {u}?"
+
+msgid "¿Desbloquear la sala {n}?"
+msgstr "Unblock the room {n}?"
+
+msgid "¿Hacer a {u} administrador del servidor? Tendrá poder total sobre él."
+msgstr "Make {u} a server administrator? They will have full power over it."
+
+msgid "¿Quitar a {u} el rol de administrador del servidor?"
+msgstr "Remove the server administrator role from {u}?"
+
+msgid "Ver sus conexiones (IP y sesiones)"
+msgstr "View their connections (IP and sessions)"
+
+msgid "Ver y cerrar sus dispositivos"
+msgstr "View and sign out their devices"
+
+msgid "Ver sus archivos subidos"
+msgstr "View their uploaded files"
+
+msgid "Límite de mensajes…"
+msgstr "Message limit…"
+
+msgid "Sombra-baneo (parece que envía, pero no llega)…"
+msgstr "Shadow ban (it looks like they send, but nothing arrives)…"
+
+msgid "Hacer o quitar administrador del servidor"
+msgstr "Make or remove server administrator"
+
+msgid "Bloquear o desbloquear la cuenta"
+msgstr "Lock or unlock the account"
+
+msgid "Cambiar la contraseña…"
+msgstr "Change the password…"
+
+msgid "Desactivar la cuenta…"
+msgstr "Deactivate the account…"
+
+msgid "Purgar el historial antiguo…"
+msgstr "Purge the old history…"
+
+msgid "Poner sus archivos en cuarentena…"
+msgstr "Quarantine its files…"
+
+msgid "Borrar la sala del servidor…"
+msgstr "Delete the room from the server…"

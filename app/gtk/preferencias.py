@@ -139,6 +139,9 @@ class DialogoPreferencias(Gtk.Window):
         self.anunciar_mx = p.interruptor(config.get("matrix", "announce_new", True))
         p.campo(_("Anunciar los mensajes de _Matrix por voz:"), self.anunciar_mx,
                 _("De la conversación abierta, de mensajes directos y de menciones, según el nivel de aviso de cada sala."))
+        self.admin_mx = p.interruptor(config.get("matrix", "admin_tools", False))
+        p.campo(_("Herramientas de _administración de Matrix:"), self.admin_mx,
+                _("Añade al menú Matrix la administración del servidor Synapse. Hay que reiniciar la aplicación para verlo."))
         self.paralelas = Gtk.SpinButton.new_with_range(1, 50, 1)
         self.paralelas.set_value(int(config.get("rss", "max_parallel_updates", 5)))
         p.campo(_("Descargas si_multáneas al actualizar:"), self.paralelas)
@@ -342,6 +345,7 @@ class DialogoPreferencias(Gtk.Window):
         config.set("irc", "announce_new", self.anunciar_irc.get_active())
         config.set("xmpp", "announce_new", self.anunciar_x.get_active())
         config.set("matrix", "announce_new", self.anunciar_mx.get_active())
+        config.set("matrix", "admin_tools", self.admin_mx.get_active())
         paso = float(self.paso.get_value())
         config.set("media_player", "default_step_forward2", paso)
         config.set("media_player", "default_step_backward2", paso)

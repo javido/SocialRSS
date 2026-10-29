@@ -49314,3 +49314,494 @@ msgstr ""
 
 msgid "Firmar su identidad (experto)…"
 msgstr ""
+
+msgid " (en cuarentena)"
+msgstr ""
+
+msgid " y borrará sus datos"
+msgstr ""
+
+msgid ", caduca {f}"
+msgstr ""
+
+msgid ", con fallos desde {f}"
+msgstr ""
+
+msgid ", sin problemas"
+msgstr ""
+
+msgid ", y se impedirá que vuelva a crearse"
+msgstr ""
+
+msgid "Acciones sobre {u}"
+msgstr ""
+
+msgid "Actualizaciones en segundo plano"
+msgstr ""
+
+msgid "Administrador del servidor: {s}"
+msgstr ""
+
+msgid "Ahora usa el límite del servidor."
+msgstr ""
+
+msgid "Ahora: {m} mensajes por segundo y ráfaga de {b}."
+msgstr ""
+
+msgid "Alias: {a}"
+msgstr ""
+
+msgid "Aplicar el sombra-baneo"
+msgstr ""
+
+msgid "Archivos de {u}"
+msgstr ""
+
+msgid "Autor: {a}"
+msgstr ""
+
+msgid "Aviso del servidor enviado a {u}"
+msgstr ""
+
+msgid ""
+"Añade al menú Matrix la administración del servidor Synapse. Hay que "
+"reiniciar la aplicación para verlo."
+msgstr ""
+
+msgid "Borrar la sala"
+msgstr ""
+
+msgid "Borrar lo anterior a hace cuántos _días:"
+msgstr ""
+
+msgid "Borrar lo no usado desde hace más de cuántos _días:"
+msgstr ""
+
+msgid "Borrar y bloquear que vuelva a crearse"
+msgstr ""
+
+msgid "Borrar {n}"
+msgstr ""
+
+msgid "Cambiar la contraseña de {u}"
+msgstr ""
+
+msgid "Cambio hecho"
+msgstr ""
+
+msgid "Cifrada: {s}"
+msgstr ""
+
+msgid "Comprobando…"
+msgstr ""
+
+msgid "Conexiones de {u}"
+msgstr ""
+
+msgid "Contraseña cambiada; se han cerrado sus sesiones"
+msgstr ""
+
+msgid "Correos o teléfonos: {c}"
+msgstr ""
+
+msgid "Creado: {f}"
+msgstr ""
+
+msgid "Creador: {c}"
+msgstr ""
+
+msgid "Crear un token de registro"
+msgstr ""
+
+msgid "Cuenta bloqueada"
+msgstr ""
+
+msgid "Cuenta desactivada"
+msgstr ""
+
+msgid "Cuenta desbloqueada"
+msgstr ""
+
+msgid "Desactivado: {s}"
+msgstr ""
+
+msgid "Desactivar la cuenta {u} no se puede deshacer{b}. ¿Continuar?"
+msgstr ""
+
+msgid "Desactivar y borrar sus datos"
+msgstr ""
+
+msgid "Desactivar {u}"
+msgstr ""
+
+msgid "Detalles de {n}"
+msgstr ""
+
+msgid "Detalles de {u}"
+msgstr ""
+
+msgid "Dispositivo {d}, IP {i}, {f}, {n}"
+msgstr ""
+
+msgid "Dispositivos de {u}"
+msgstr ""
+
+msgid ""
+"El servidor está migrando la base de datos en segundo plano; puede ir más "
+"lento"
+msgstr ""
+
+msgid "Enviar un _aviso del servidor…"
+msgstr ""
+
+msgid "Escribe el usuario y el mensaje"
+msgstr ""
+
+msgid "Escribe un número de días"
+msgstr ""
+
+msgid "Escribe un número o déjalo vacío"
+msgstr ""
+
+msgid "Este servidor no federa con ninguno"
+msgstr ""
+
+msgid "Fijar un límite…"
+msgstr ""
+
+msgid "Herramientas de _administración de Matrix:"
+msgstr ""
+
+msgid "La base de datos del servidor está al día"
+msgstr ""
+
+msgid "Lista de archivos"
+msgstr ""
+
+msgid "Lista de conexiones"
+msgstr ""
+
+msgid ""
+"Los archivos de «{n}» dejarán de servirse a los usuarios (sin borrarse del "
+"disco). ¿Continuar?"
+msgstr ""
+
+msgid "Límite de mensajes de {u}"
+msgstr ""
+
+msgid "Límite fijado"
+msgstr ""
+
+msgid "Límite propio quitado"
+msgstr ""
+
+msgid "Mantenimiento de _archivos…"
+msgstr ""
+
+msgid "Mensaje: {t}"
+msgstr ""
+
+msgid "Mensajes _reportados…"
+msgstr ""
+
+msgid "Miembros: {m} (locales {l})"
+msgstr ""
+
+msgid "Motivo: {m}"
+msgstr ""
+
+msgid "No ha subido archivos"
+msgstr ""
+
+msgid "No hay reportes"
+msgstr ""
+
+msgid "No hay tokens"
+msgstr ""
+
+msgid "No participa en ninguna sala"
+msgstr ""
+
+msgid "No se pudo (¿eres administrador del servidor?): {e}"
+msgstr ""
+
+msgid "No se pudo comprobar: {e}"
+msgstr ""
+
+msgid ""
+"No se pudo enviar (¿no eres administrador o el servidor no tiene avisos de "
+"servidor?): {e}"
+msgstr ""
+
+msgid "No: tu cuenta no es administradora del servidor (o no es Synapse)"
+msgstr ""
+
+msgid "Purga iniciada en el servidor"
+msgstr ""
+
+msgid "Purgar"
+msgstr ""
+
+msgid "Purgar el historial"
+msgstr ""
+
+msgid "Pública: {s}"
+msgstr ""
+
+msgid "Quitar el límite propio"
+msgstr ""
+
+msgid "Quitar el sombra-baneo"
+msgstr ""
+
+msgid "Reintentando la conexión con {d}"
+msgstr ""
+
+msgid "Reportado por: {q}"
+msgstr ""
+
+msgid "Sala bloqueada"
+msgstr ""
+
+msgid "Sala borrada"
+msgstr ""
+
+msgid "Sala desbloqueada"
+msgstr ""
+
+msgid "Sala: {n}"
+msgstr ""
+
+msgid "Sala: {s}"
+msgstr ""
+
+msgid "Salas de {u}"
+msgstr ""
+
+msgid "Salas en el servidor: {n}"
+msgstr ""
+
+msgid ""
+"Se borrará de forma definitiva el historial de «{n}» anterior a hace {d} "
+"días. ¿Continuar?"
+msgstr ""
+
+msgid ""
+"Se borrarán del disco los archivos locales no vistos desde hace más de {d} "
+"días. ¿Continuar?"
+msgstr ""
+
+msgid ""
+"Se echará a todos de «{n}» y se borrará su historia{b}. No se puede "
+"deshacer. ¿Continuar?"
+msgstr ""
+
+msgid "Sin conexiones registradas"
+msgstr ""
+
+msgid "Sin dispositivos"
+msgstr ""
+
+msgid "Sin límite para este usuario"
+msgstr ""
+
+msgid "Sin ningún límite"
+msgstr ""
+
+msgid "Solo desactivar la cuenta"
+msgstr ""
+
+msgid "Sombra-baneo de {u}"
+msgstr ""
+
+msgid "Sombra-baneo puesto"
+msgstr ""
+
+msgid "Sombra-baneo quitado"
+msgstr ""
+
+msgid "Sí: tu cuenta es administradora del servidor"
+msgstr ""
+
+msgid "Token borrado"
+msgstr ""
+
+msgid "Token creado: {t}"
+msgstr ""
+
+msgid "Usuarios en el servidor: {n}"
+msgstr ""
+
+msgid "Versión de Synapse: {v}"
+msgstr ""
+
+msgid "Versión: {v}"
+msgstr ""
+
+msgid "Ya eres administrador de la sala"
+msgstr ""
+
+msgid "_Acciones…"
+msgstr ""
+
+msgid "_Administración del servidor"
+msgstr ""
+
+msgid "_Aplicar"
+msgstr ""
+
+msgid "_Borrar el token"
+msgstr ""
+
+msgid "_Buscar cuenta:"
+msgstr ""
+
+msgid "_Buscar sala:"
+msgstr ""
+
+msgid "_Cerrar la sesión"
+msgstr ""
+
+msgid "_Contraseña nueva:"
+msgstr ""
+
+msgid "_Crear un token…"
+msgstr ""
+
+msgid "_Detalle"
+msgstr ""
+
+msgid "_Detalles"
+msgstr ""
+
+msgid "_Estadísticas del servidor…"
+msgstr ""
+
+msgid "_Federación…"
+msgstr ""
+
+msgid "_Mensaje del aviso:"
+msgstr ""
+
+msgid "_Mensajes por segundo (por ejemplo 2):"
+msgstr ""
+
+msgid "_Reintentar la conexión ahora"
+msgstr ""
+
+msgid "_Salas del servidor…"
+msgstr ""
+
+msgid "_Tokens de registro…"
+msgstr ""
+
+msgid "_Usos permitidos (vacío = ilimitados):"
+msgstr ""
+
+msgid "_Usuario destino (@usuario:servidor):"
+msgstr ""
+
+msgid "_Usuarios del servidor…"
+msgstr ""
+
+msgid "administrador"
+msgstr ""
+
+msgid "desactivado"
+msgstr ""
+
+msgid "ilimitados"
+msgstr ""
+
+msgid "invitado"
+msgstr ""
+
+msgid "pública"
+msgstr ""
+
+msgid "{f}: {q} reportó un mensaje de {a} en {s}. Motivo: {m}"
+msgstr ""
+
+msgid "{i}, {n}, IP {ip}, {f}"
+msgstr ""
+
+msgid "{n} archivos borrados"
+msgstr ""
+
+msgid "{n} archivos en cuarentena"
+msgstr ""
+
+msgid "{n} elementos"
+msgstr ""
+
+msgid "{n} reportes"
+msgstr ""
+
+msgid "{n} servidores"
+msgstr ""
+
+msgid "{n} tokens"
+msgstr ""
+
+msgid "{n}, {m} miembros"
+msgstr ""
+
+msgid "{n}, {t}, {k} KB, {f}{q}"
+msgstr ""
+
+msgid "{t}, usos {h} de {p}{c}"
+msgstr ""
+
+msgid "¿Bloquear la sala {n}? Nadie nuevo podrá entrar."
+msgstr ""
+
+msgid "¿Borrar el token {t}?"
+msgstr ""
+
+msgid "¿Cerrar la sesión {i} de {u}?"
+msgstr ""
+
+msgid "¿Desbloquear la sala {n}?"
+msgstr ""
+
+msgid "¿Hacer a {u} administrador del servidor? Tendrá poder total sobre él."
+msgstr ""
+
+msgid "¿Quitar a {u} el rol de administrador del servidor?"
+msgstr ""
+
+msgid "Ver sus conexiones (IP y sesiones)"
+msgstr ""
+
+msgid "Ver y cerrar sus dispositivos"
+msgstr ""
+
+msgid "Ver sus archivos subidos"
+msgstr ""
+
+msgid "Límite de mensajes…"
+msgstr ""
+
+msgid "Sombra-baneo (parece que envía, pero no llega)…"
+msgstr ""
+
+msgid "Hacer o quitar administrador del servidor"
+msgstr ""
+
+msgid "Bloquear o desbloquear la cuenta"
+msgstr ""
+
+msgid "Cambiar la contraseña…"
+msgstr ""
+
+msgid "Desactivar la cuenta…"
+msgstr ""
+
+msgid "Purgar el historial antiguo…"
+msgstr ""
+
+msgid "Poner sus archivos en cuarentena…"
+msgstr ""
+
+msgid "Borrar la sala del servidor…"
+msgstr ""
