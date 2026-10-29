@@ -49805,3 +49805,454 @@ msgstr ""
 
 msgid "Borrar la sala del servidor…"
 msgstr ""
+
+msgid " (oculto)"
+msgstr ""
+
+msgid "@{u} añadido a {l}"
+msgstr ""
+
+msgid "@{u} bloqueada"
+msgstr ""
+
+msgid "@{u} desbloqueada"
+msgstr ""
+
+msgid "@{u} silenciada"
+msgstr ""
+
+msgid "Actualización automática de _X:"
+msgstr ""
+
+msgid "Adjunto {i}: {d}"
+msgstr ""
+
+msgid "Ahora sigues a @{u}"
+msgstr ""
+
+msgid "Aquí no se pueden cargar publicaciones más antiguas"
+msgstr ""
+
+msgid "Añadir al autor a una lista…"
+msgstr ""
+
+msgid "Añadir cuenta de X"
+msgstr ""
+
+msgid "Añadir cuenta de X (_Twitter)…"
+msgstr ""
+
+msgid "Buffer {b} {e}"
+msgstr ""
+
+msgid ""
+"Busca publicaciones. Puedes usar #hashtags, from:usuario y otros operadores "
+"de X."
+msgstr ""
+
+msgid "Buscando a @{u}…"
+msgstr ""
+
+msgid "Buscando cuentas…"
+msgstr ""
+
+msgid "Buscar _cuentas…"
+msgstr ""
+
+msgid "Búsqueda: {n}"
+msgstr ""
+
+msgid "Caracteres: {n} (280 en cuentas normales; las Premium admiten más)"
+msgstr ""
+
+msgid "Cargando tendencias…"
+msgstr ""
+
+msgid "Clave _TOTP de 2FA (opcional):"
+msgstr ""
+
+msgid "Comunidad: {n}"
+msgstr ""
+
+msgid "Conversación: {n}"
+msgstr ""
+
+msgid "Cookies de X recargadas. Reintentando…"
+msgstr ""
+
+msgid "Cookies de X reimportadas: @{u}"
+msgstr ""
+
+msgid "Cronología de un _usuario…"
+msgstr ""
+
+msgid "Cronología de un usuario"
+msgstr ""
+
+msgid "Cronología de un usuario mencionado…"
+msgstr ""
+
+msgid "Cronología: @{u}{s}"
+msgstr ""
+
+msgid ""
+"Ctrl+B: me gusta; Ctrl+Mayús+P: retweet; Ctrl+Mayús+J: marcador; Ctrl+Alt+V:"
+" votar en la encuesta"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+F / Ctrl+Alt+H: buscar; Ctrl+Alt+L: abrir una lista; "
+"Ctrl+Mayús+M: cargar publicaciones anteriores"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+R: actualizar el buffer (X no se actualiza solo salvo que lo "
+"actives en Preferencias)"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+V: abrir la conversación como buffer; Ctrl+Mayús+G: publicaciones"
+" del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+
+msgid ""
+"Ctrl+N: nueva publicación (o mensaje, en una conversación); Ctrl+R: "
+"responder; Ctrl+Mayús+U: citar; Supr: borrar la tuya"
+msgstr ""
+
+msgid "Cuenta de X añadida: @{u}"
+msgstr ""
+
+msgid "Debes indicar usuario y contraseña"
+msgstr ""
+
+msgid "Debes pegar auth_token y ct0"
+msgstr ""
+
+msgid "Desbloquear al autor"
+msgstr ""
+
+msgid ""
+"Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. "
+"Desactivada por defecto: X limita este cliente no oficial y un exceso de "
+"peticiones puede acabar en el bloqueo de la cuenta."
+msgstr ""
+
+msgid ""
+"Déjalo vacío si no quieres encuesta. No se puede combinar con adjuntos."
+msgstr ""
+
+msgid ""
+"El cliente de X no está disponible: falta la librería twikit o está "
+"desactivado"
+msgstr ""
+
+msgid ""
+"En el navegador: herramientas de desarrollo, almacenamiento, cookies de "
+"x.com."
+msgstr ""
+
+msgid "Error: {e}"
+msgstr ""
+
+msgid "Escribe algo, adjunta un archivo o crea una encuesta"
+msgstr ""
+
+msgid "Esta acción no se puede hacer con este elemento de X"
+msgstr ""
+
+msgid "Esta publicación no menciona a nadie más"
+msgstr ""
+
+msgid "Firefox es el que mejor funciona en Linux."
+msgstr ""
+
+msgid "Formato de fecha no válido. Usa AAAA-MM-DD HH:MM"
+msgstr ""
+
+msgid ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov)"
+msgstr ""
+
+msgid ""
+"Hay adjuntos sin descripción. Pulsa Publicar de nuevo para enviarlos así."
+msgstr ""
+
+msgid "Importar las cookies de mi navegador (recomendado, sin contraseña)"
+msgstr ""
+
+msgid "Iniciando sesión en X…"
+msgstr ""
+
+msgid "La encuesta necesita al menos 2 opciones"
+msgstr ""
+
+msgid "La fecha programada ya ha pasado"
+msgstr ""
+
+msgid "La sesión de X parece caducada; recargando las cookies del navegador…"
+msgstr ""
+
+msgid "Leyendo tus publicaciones programadas…"
+msgstr ""
+
+msgid "Lista: {n}"
+msgstr ""
+
+msgid "Mensajes con {n}"
+msgstr ""
+
+msgid "Mostrar u o_cultar buffers…"
+msgstr ""
+
+msgid "Máximo 4 adjuntos"
+msgstr ""
+
+msgid "Nadie todavía"
+msgstr ""
+
+msgid "No hay tendencias ahora"
+msgstr ""
+
+msgid "No se encontraron cuentas"
+msgstr ""
+
+msgid "No se encontró a @{u}"
+msgstr ""
+
+msgid ""
+"No se pudieron recargar las cookies: {e}. Usa Reimportar las cookies en el "
+"menú X."
+msgstr ""
+
+msgid "No se pudo iniciar sesión en X: {e}"
+msgstr ""
+
+msgid "No se sabe de qué cuenta se trata"
+msgstr ""
+
+msgid "Nueva publicación en X"
+msgstr ""
+
+msgid "Pegar las cookies a mano (auth_token y ct0)"
+msgstr ""
+
+msgid "Perfil"
+msgstr ""
+
+msgid "Perfil de @{u}"
+msgstr ""
+
+msgid "Perfil de un usuario"
+msgstr ""
+
+msgid "Perfil de un usuario _mencionado…"
+msgstr ""
+
+msgid "Perfil de un usuario mencionado…"
+msgstr ""
+
+msgid "Perfil de un usuario…"
+msgstr ""
+
+msgid "Publicaciones de la cuenta"
+msgstr ""
+
+msgid "Publicación programada cancelada"
+msgstr ""
+
+msgid "Publicado en X"
+msgstr ""
+
+msgid "Quitar el silencio al autor"
+msgstr ""
+
+msgid "Quién ha dado me gusta"
+msgstr ""
+
+msgid "Quién ha hecho retweet"
+msgstr ""
+
+msgid "Quién ha hecho retweet…"
+msgstr ""
+
+msgid "Reimportar las cookies de X"
+msgstr ""
+
+msgid "Retuiteado por @{u}"
+msgstr ""
+
+msgid "Retweet / deshacer retweet"
+msgstr ""
+
+msgid "Retweet deshecho"
+msgstr ""
+
+msgid "Selecciona una cuenta de X"
+msgstr ""
+
+msgid "Selecciona una publicación de X"
+msgstr ""
+
+msgid "Sin biografía"
+msgstr ""
+
+msgid "Una encuesta no se puede combinar con adjuntos"
+msgstr ""
+
+msgid "Una publicación programada solo puede llevar texto"
+msgstr ""
+
+msgid "Usuarios mencionados"
+msgstr ""
+
+msgid "X (Twitt_er)"
+msgstr ""
+
+msgid "Ya puedes usar la cuenta"
+msgstr ""
+
+msgid "_Buffer:"
+msgstr ""
+
+msgid "_Buscar en X…"
+msgstr ""
+
+msgid "_Cancelar esa"
+msgstr ""
+
+msgid "_Cuenta ({n}):"
+msgstr ""
+
+msgid "_Cuenta:"
+msgstr ""
+
+msgid "_Duración de la encuesta en minutos:"
+msgstr ""
+
+msgid "_Encuesta, una opción por línea (de 2 a 4):"
+msgstr ""
+
+msgid "_Entiendo los riesgos y continúo"
+msgstr ""
+
+msgid "_Mostrar:"
+msgstr ""
+
+msgid "_Método de inicio de sesión:"
+msgstr ""
+
+msgid "_Navegador con la sesión de X abierta:"
+msgstr ""
+
+msgid "_Nombre o @usuario:"
+msgstr ""
+
+msgid "_Programada (elige una para cancelarla):"
+msgstr ""
+
+msgid "_Reimportar las cookies de la cuenta…"
+msgstr ""
+
+msgid "_Retweet"
+msgstr ""
+
+msgid "_Tendencia:"
+msgstr ""
+
+msgid "_Tendencias…"
+msgstr ""
+
+msgid "_Usuario de X (con o sin @):"
+msgstr ""
+
+msgid "_Usuario, correo o teléfono:"
+msgstr ""
+
+msgid "_Votar en la encuesta…"
+msgstr ""
+
+msgid "_auth_token:"
+msgstr ""
+
+msgid "_ct0:"
+msgstr ""
+
+msgid "oculto"
+msgstr ""
+
+msgid "retuiteada"
+msgstr ""
+
+msgid "retuiteado"
+msgstr ""
+
+msgid "te gusta"
+msgstr ""
+
+msgid "visible"
+msgstr ""
+
+msgid "vistas"
+msgstr ""
+
+msgid "{n} (@{u}), {s} seguidores. {b}"
+msgstr ""
+
+msgid "{n} retweets y citas"
+msgstr ""
+
+msgid "{r} respuestas · {t} retweets · {c} citas · {f} me gusta"
+msgstr ""
+
+msgid "{s} seguidores · {g} siguiendo"
+msgstr ""
+
+msgid "{t}: está escribiendo…"
+msgstr ""
+
+msgid "¿Cancelar la publicación programada?"
+msgstr ""
+
+msgid "¿Qué mostrar?"
+msgstr ""
+
+msgid "¿Silenciar a @{u}?"
+msgstr ""
+
+msgid "ha dado me gusta a tu publicación"
+msgstr ""
+
+msgid "ha hecho retweet de tu publicación"
+msgstr ""
+
+msgid "te recomienda algo"
+msgstr ""
+
+msgid "ha enviado una notificación"
+msgstr ""
+
+msgid "Lo que le ha gustado"
+msgstr ""
+
+msgid "Dejar de s_eguir"
+msgstr ""
+
+msgid "_Quitar el silencio"
+msgstr ""
+
+msgid "_Desbloquear"
+msgstr ""
+
+msgid "Seguir a la cuenta"
+msgstr ""
+
+msgid "Dejar de seguir a la cuenta"
+msgstr ""
+
+msgid "Bloquear la cuenta"
+msgstr ""
+
+msgid "Escribirle un mensaje directo"
+msgstr ""

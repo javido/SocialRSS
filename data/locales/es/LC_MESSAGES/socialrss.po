@@ -39565,3 +39565,479 @@ msgstr "Poner sus archivos en cuarentena…"
 
 msgid "Borrar la sala del servidor…"
 msgstr "Borrar la sala del servidor…"
+
+msgid " (oculto)"
+msgstr " (oculto)"
+
+msgid "@{u} añadido a {l}"
+msgstr "@{u} añadido a {l}"
+
+msgid "@{u} bloqueada"
+msgstr "@{u} bloqueada"
+
+msgid "@{u} desbloqueada"
+msgstr "@{u} desbloqueada"
+
+msgid "@{u} silenciada"
+msgstr "@{u} silenciada"
+
+msgid "Actualización automática de _X:"
+msgstr "Actualización automática de _X:"
+
+msgid "Adjunto {i}: {d}"
+msgstr "Adjunto {i}: {d}"
+
+msgid "Ahora sigues a @{u}"
+msgstr "Ahora sigues a @{u}"
+
+msgid "Aquí no se pueden cargar publicaciones más antiguas"
+msgstr "Aquí no se pueden cargar publicaciones más antiguas"
+
+msgid "Añadir al autor a una lista…"
+msgstr "Añadir al autor a una lista…"
+
+msgid "Añadir cuenta de X"
+msgstr "Añadir cuenta de X"
+
+msgid "Añadir cuenta de X (_Twitter)…"
+msgstr "Añadir cuenta de X (_Twitter)…"
+
+msgid "Buffer {b} {e}"
+msgstr "Buffer {b} {e}"
+
+msgid ""
+"Busca publicaciones. Puedes usar #hashtags, from:usuario y otros operadores "
+"de X."
+msgstr ""
+"Busca publicaciones. Puedes usar #hashtags, from:usuario y otros operadores "
+"de X."
+
+msgid "Buscando a @{u}…"
+msgstr "Buscando a @{u}…"
+
+msgid "Buscando cuentas…"
+msgstr "Buscando cuentas…"
+
+msgid "Buscar _cuentas…"
+msgstr "Buscar _cuentas…"
+
+msgid "Búsqueda: {n}"
+msgstr "Búsqueda: {n}"
+
+msgid "Caracteres: {n} (280 en cuentas normales; las Premium admiten más)"
+msgstr "Caracteres: {n} (280 en cuentas normales; las Premium admiten más)"
+
+msgid "Cargando tendencias…"
+msgstr "Cargando tendencias…"
+
+msgid "Clave _TOTP de 2FA (opcional):"
+msgstr "Clave _TOTP de 2FA (opcional):"
+
+msgid "Comunidad: {n}"
+msgstr "Comunidad: {n}"
+
+msgid "Conversación: {n}"
+msgstr "Conversación: {n}"
+
+msgid "Cookies de X recargadas. Reintentando…"
+msgstr "Cookies de X recargadas. Reintentando…"
+
+msgid "Cookies de X reimportadas: @{u}"
+msgstr "Cookies de X reimportadas: @{u}"
+
+msgid "Cronología de un _usuario…"
+msgstr "Cronología de un _usuario…"
+
+msgid "Cronología de un usuario"
+msgstr "Cronología de un usuario"
+
+msgid "Cronología de un usuario mencionado…"
+msgstr "Cronología de un usuario mencionado…"
+
+msgid "Cronología: @{u}{s}"
+msgstr "Cronología: @{u}{s}"
+
+msgid ""
+"Ctrl+B: me gusta; Ctrl+Mayús+P: retweet; Ctrl+Mayús+J: marcador; Ctrl+Alt+V:"
+" votar en la encuesta"
+msgstr ""
+"Ctrl+B: me gusta; Ctrl+Mayús+P: retweet; Ctrl+Mayús+J: marcador; Ctrl+Alt+V:"
+" votar en la encuesta"
+
+msgid ""
+"Ctrl+Mayús+F / Ctrl+Alt+H: buscar; Ctrl+Alt+L: abrir una lista; "
+"Ctrl+Mayús+M: cargar publicaciones anteriores"
+msgstr ""
+"Ctrl+Mayús+F / Ctrl+Alt+H: buscar; Ctrl+Alt+L: abrir una lista; "
+"Ctrl+Mayús+M: cargar publicaciones anteriores"
+
+msgid ""
+"Ctrl+Mayús+R: actualizar el buffer (X no se actualiza solo salvo que lo "
+"actives en Preferencias)"
+msgstr ""
+"Ctrl+Mayús+R: actualizar el buffer (X no se actualiza solo salvo que lo "
+"actives en Preferencias)"
+
+msgid ""
+"Ctrl+Mayús+V: abrir la conversación como buffer; Ctrl+Mayús+G: publicaciones"
+" del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+"Ctrl+Mayús+V: abrir la conversación como buffer; Ctrl+Mayús+G: publicaciones"
+" del autor; Ctrl+Alt+P: perfil"
+
+msgid ""
+"Ctrl+N: nueva publicación (o mensaje, en una conversación); Ctrl+R: "
+"responder; Ctrl+Mayús+U: citar; Supr: borrar la tuya"
+msgstr ""
+"Ctrl+N: nueva publicación (o mensaje, en una conversación); Ctrl+R: "
+"responder; Ctrl+Mayús+U: citar; Supr: borrar la tuya"
+
+msgid "Cuenta de X añadida: @{u}"
+msgstr "Cuenta de X añadida: @{u}"
+
+msgid "Debes indicar usuario y contraseña"
+msgstr "Debes indicar usuario y contraseña"
+
+msgid "Debes pegar auth_token y ct0"
+msgstr "Debes pegar auth_token y ct0"
+
+msgid "Desbloquear al autor"
+msgstr "Desbloquear al autor"
+
+msgid ""
+"Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. "
+"Desactivada por defecto: X limita este cliente no oficial y un exceso de "
+"peticiones puede acabar en el bloqueo de la cuenta."
+msgstr ""
+"Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. "
+"Desactivada por defecto: X limita este cliente no oficial y un exceso de "
+"peticiones puede acabar en el bloqueo de la cuenta."
+
+msgid ""
+"Déjalo vacío si no quieres encuesta. No se puede combinar con adjuntos."
+msgstr ""
+"Déjalo vacío si no quieres encuesta. No se puede combinar con adjuntos."
+
+msgid ""
+"El cliente de X no está disponible: falta la librería twikit o está "
+"desactivado"
+msgstr ""
+"El cliente de X no está disponible: falta la librería twikit o está "
+"desactivado"
+
+msgid ""
+"En el navegador: herramientas de desarrollo, almacenamiento, cookies de "
+"x.com."
+msgstr ""
+"En el navegador: herramientas de desarrollo, almacenamiento, cookies de "
+"x.com."
+
+msgid "Error: {e}"
+msgstr "Error: {e}"
+
+msgid "Escribe algo, adjunta un archivo o crea una encuesta"
+msgstr "Escribe algo, adjunta un archivo o crea una encuesta"
+
+msgid "Esta acción no se puede hacer con este elemento de X"
+msgstr "Esta acción no se puede hacer con este elemento de X"
+
+msgid "Esta publicación no menciona a nadie más"
+msgstr "Esta publicación no menciona a nadie más"
+
+msgid "Firefox es el que mejor funciona en Linux."
+msgstr "Firefox es el que mejor funciona en Linux."
+
+msgid "Formato de fecha no válido. Usa AAAA-MM-DD HH:MM"
+msgstr "Formato de fecha no válido. Usa AAAA-MM-DD HH:MM"
+
+msgid ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov)"
+msgstr ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov)"
+
+msgid ""
+"Hay adjuntos sin descripción. Pulsa Publicar de nuevo para enviarlos así."
+msgstr ""
+"Hay adjuntos sin descripción. Pulsa Publicar de nuevo para enviarlos así."
+
+msgid "Importar las cookies de mi navegador (recomendado, sin contraseña)"
+msgstr "Importar las cookies de mi navegador (recomendado, sin contraseña)"
+
+msgid "Iniciando sesión en X…"
+msgstr "Iniciando sesión en X…"
+
+msgid "La encuesta necesita al menos 2 opciones"
+msgstr "La encuesta necesita al menos 2 opciones"
+
+msgid "La fecha programada ya ha pasado"
+msgstr "La fecha programada ya ha pasado"
+
+msgid "La sesión de X parece caducada; recargando las cookies del navegador…"
+msgstr "La sesión de X parece caducada; recargando las cookies del navegador…"
+
+msgid "Leyendo tus publicaciones programadas…"
+msgstr "Leyendo tus publicaciones programadas…"
+
+msgid "Lista: {n}"
+msgstr "Lista: {n}"
+
+msgid "Mensajes con {n}"
+msgstr "Mensajes con {n}"
+
+msgid "Mostrar u o_cultar buffers…"
+msgstr "Mostrar u o_cultar buffers…"
+
+msgid "Máximo 4 adjuntos"
+msgstr "Máximo 4 adjuntos"
+
+msgid "Nadie todavía"
+msgstr "Nadie todavía"
+
+msgid "No hay tendencias ahora"
+msgstr "No hay tendencias ahora"
+
+msgid "No se encontraron cuentas"
+msgstr "No se encontraron cuentas"
+
+msgid "No se encontró a @{u}"
+msgstr "No se encontró a @{u}"
+
+msgid ""
+"No se pudieron recargar las cookies: {e}. Usa Reimportar las cookies en el "
+"menú X."
+msgstr ""
+"No se pudieron recargar las cookies: {e}. Usa Reimportar las cookies en el "
+"menú X."
+
+msgid "No se pudo iniciar sesión en X: {e}"
+msgstr "No se pudo iniciar sesión en X: {e}"
+
+msgid "No se sabe de qué cuenta se trata"
+msgstr "No se sabe de qué cuenta se trata"
+
+msgid "Nueva publicación en X"
+msgstr "Nueva publicación en X"
+
+msgid "Pegar las cookies a mano (auth_token y ct0)"
+msgstr "Pegar las cookies a mano (auth_token y ct0)"
+
+msgid "Perfil"
+msgstr "Perfil"
+
+msgid "Perfil de @{u}"
+msgstr "Perfil de @{u}"
+
+msgid "Perfil de un usuario"
+msgstr "Perfil de un usuario"
+
+msgid "Perfil de un usuario _mencionado…"
+msgstr "Perfil de un usuario _mencionado…"
+
+msgid "Perfil de un usuario mencionado…"
+msgstr "Perfil de un usuario mencionado…"
+
+msgid "Perfil de un usuario…"
+msgstr "Perfil de un usuario…"
+
+msgid "Publicaciones de la cuenta"
+msgstr "Publicaciones de la cuenta"
+
+msgid "Publicación programada cancelada"
+msgstr "Publicación programada cancelada"
+
+msgid "Publicado en X"
+msgstr "Publicado en X"
+
+msgid "Quitar el silencio al autor"
+msgstr "Quitar el silencio al autor"
+
+msgid "Quién ha dado me gusta"
+msgstr "Quién ha dado me gusta"
+
+msgid "Quién ha hecho retweet"
+msgstr "Quién ha hecho retweet"
+
+msgid "Quién ha hecho retweet…"
+msgstr "Quién ha hecho retweet…"
+
+msgid "Reimportar las cookies de X"
+msgstr "Reimportar las cookies de X"
+
+msgid "Retuiteado por @{u}"
+msgstr "Retuiteado por @{u}"
+
+msgid "Retweet / deshacer retweet"
+msgstr "Retweet / deshacer retweet"
+
+msgid "Retweet deshecho"
+msgstr "Retweet deshecho"
+
+msgid "Selecciona una cuenta de X"
+msgstr "Selecciona una cuenta de X"
+
+msgid "Selecciona una publicación de X"
+msgstr "Selecciona una publicación de X"
+
+msgid "Sin biografía"
+msgstr "Sin biografía"
+
+msgid "Una encuesta no se puede combinar con adjuntos"
+msgstr "Una encuesta no se puede combinar con adjuntos"
+
+msgid "Una publicación programada solo puede llevar texto"
+msgstr "Una publicación programada solo puede llevar texto"
+
+msgid "Usuarios mencionados"
+msgstr "Usuarios mencionados"
+
+msgid "X (Twitt_er)"
+msgstr "X (Twitt_er)"
+
+msgid "Ya puedes usar la cuenta"
+msgstr "Ya puedes usar la cuenta"
+
+msgid "_Buffer:"
+msgstr "_Buffer:"
+
+msgid "_Buscar en X…"
+msgstr "_Buscar en X…"
+
+msgid "_Cancelar esa"
+msgstr "_Cancelar esa"
+
+msgid "_Cuenta ({n}):"
+msgstr "_Cuenta ({n}):"
+
+msgid "_Cuenta:"
+msgstr "_Cuenta:"
+
+msgid "_Duración de la encuesta en minutos:"
+msgstr "_Duración de la encuesta en minutos:"
+
+msgid "_Encuesta, una opción por línea (de 2 a 4):"
+msgstr "_Encuesta, una opción por línea (de 2 a 4):"
+
+msgid "_Entiendo los riesgos y continúo"
+msgstr "_Entiendo los riesgos y continúo"
+
+msgid "_Mostrar:"
+msgstr "_Mostrar:"
+
+msgid "_Método de inicio de sesión:"
+msgstr "_Método de inicio de sesión:"
+
+msgid "_Navegador con la sesión de X abierta:"
+msgstr "_Navegador con la sesión de X abierta:"
+
+msgid "_Nombre o @usuario:"
+msgstr "_Nombre o @usuario:"
+
+msgid "_Programada (elige una para cancelarla):"
+msgstr "_Programada (elige una para cancelarla):"
+
+msgid "_Reimportar las cookies de la cuenta…"
+msgstr "_Reimportar las cookies de la cuenta…"
+
+msgid "_Retweet"
+msgstr "_Retweet"
+
+msgid "_Tendencia:"
+msgstr "_Tendencia:"
+
+msgid "_Tendencias…"
+msgstr "_Tendencias…"
+
+msgid "_Usuario de X (con o sin @):"
+msgstr "_Usuario de X (con o sin @):"
+
+msgid "_Usuario, correo o teléfono:"
+msgstr "_Usuario, correo o teléfono:"
+
+msgid "_Votar en la encuesta…"
+msgstr "_Votar en la encuesta…"
+
+msgid "_auth_token:"
+msgstr "_auth_token:"
+
+msgid "_ct0:"
+msgstr "_ct0:"
+
+msgid "oculto"
+msgstr "oculto"
+
+msgid "retuiteada"
+msgstr "retuiteada"
+
+msgid "retuiteado"
+msgstr "retuiteado"
+
+msgid "te gusta"
+msgstr "te gusta"
+
+msgid "visible"
+msgstr "visible"
+
+msgid "vistas"
+msgstr "vistas"
+
+msgid "{n} (@{u}), {s} seguidores. {b}"
+msgstr "{n} (@{u}), {s} seguidores. {b}"
+
+msgid "{n} retweets y citas"
+msgstr "{n} retweets y citas"
+
+msgid "{r} respuestas · {t} retweets · {c} citas · {f} me gusta"
+msgstr "{r} respuestas · {t} retweets · {c} citas · {f} me gusta"
+
+msgid "{s} seguidores · {g} siguiendo"
+msgstr "{s} seguidores · {g} siguiendo"
+
+msgid "{t}: está escribiendo…"
+msgstr "{t}: está escribiendo…"
+
+msgid "¿Cancelar la publicación programada?"
+msgstr "¿Cancelar la publicación programada?"
+
+msgid "¿Qué mostrar?"
+msgstr "¿Qué mostrar?"
+
+msgid "¿Silenciar a @{u}?"
+msgstr "¿Silenciar a @{u}?"
+
+msgid "ha dado me gusta a tu publicación"
+msgstr "ha dado me gusta a tu publicación"
+
+msgid "ha hecho retweet de tu publicación"
+msgstr "ha hecho retweet de tu publicación"
+
+msgid "te recomienda algo"
+msgstr "te recomienda algo"
+
+msgid "ha enviado una notificación"
+msgstr "ha enviado una notificación"
+
+msgid "Lo que le ha gustado"
+msgstr "Lo que le ha gustado"
+
+msgid "Dejar de s_eguir"
+msgstr "Dejar de s_eguir"
+
+msgid "_Quitar el silencio"
+msgstr "_Quitar el silencio"
+
+msgid "_Desbloquear"
+msgstr "_Desbloquear"
+
+msgid "Seguir a la cuenta"
+msgstr "Seguir a la cuenta"
+
+msgid "Dejar de seguir a la cuenta"
+msgstr "Dejar de seguir a la cuenta"
+
+msgid "Bloquear la cuenta"
+msgstr "Bloquear la cuenta"
+
+msgid "Escribirle un mensaje directo"
+msgstr "Escribirle un mensaje directo"

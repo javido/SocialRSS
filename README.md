@@ -149,8 +149,19 @@ verificación cruzada, y exportar e importar claves. Los mensajes llegan en **ti
 los mensajes directos y las menciones, según el nivel de aviso de cada sala). El cifrado de extremo a extremo no se ha
 probado en Linux. La administración del servidor Synapse (usuarios, salas, mensajes reportados, tokens de registro, federación,
 mantenimiento de archivos y estadísticas) se activa en Preferencias y exige una cuenta administradora. Aún falta la
-grabación de notas de voz. El resto de redes
-(Reddit, PeerTube, X y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
+grabación de notas de voz.
+**X (Twitter)** (cliente no oficial, necesita `twifork`, que se importa como `twikit`; riesgo real de limitación o bloqueo
+de la cuenta, que el alta te recuerda): alta leyendo las cookies del navegador (en Linux funciona Firefox), pegándolas
+(`auth_token` y `ct0`) o con usuario y contraseña, y reimportarlas si la sesión caduca (se intenta sola una vez).
+Cada cuenta tiene Inicio, Siguiendo, Menciones, Notificaciones, Marcadores, Seguidores, Seguidores verificados, Cuentas que
+sigo y Comunidades, más sus listas, búsquedas, cronologías de usuario, conversaciones y mensajes directos como buffers del
+árbol. Publicar con imágenes o vídeo y texto alternativo, con encuesta o programada, responder, citar, me gusta, retweet,
+marcadores, borrar, votar en encuestas, abrir la conversación, perfil (seguir, silenciar, bloquear), quién ha dado me gusta o
+hecho retweet, buscar publicaciones y cuentas, tendencias, publicaciones programadas, añadir cuentas a listas y mensajes
+directos con tiempo real (por streaming). **X no se actualiza solo**: se descarga al entrar en un buffer vacío y con
+Ctrl+Mayús+R; la actualización automática es opcional en Preferencias. Aún faltan la gestión de listas (crear, editar y sus
+miembros) y de comunidades (buscarlas y unirse). El resto de redes
+(Reddit, PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.
 
 ### Qué necesitas
 

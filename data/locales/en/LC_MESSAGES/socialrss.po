@@ -51393,3 +51393,477 @@ msgstr "Quarantine its files…"
 
 msgid "Borrar la sala del servidor…"
 msgstr "Delete the room from the server…"
+
+msgid " (oculto)"
+msgstr " (hidden)"
+
+msgid "@{u} añadido a {l}"
+msgstr "@{u} added to {l}"
+
+msgid "@{u} bloqueada"
+msgstr "@{u} blocked"
+
+msgid "@{u} desbloqueada"
+msgstr "@{u} unblocked"
+
+msgid "@{u} silenciada"
+msgstr "@{u} muted"
+
+msgid "Actualización automática de _X:"
+msgstr "Automatic update of _X:"
+
+msgid "Adjunto {i}: {d}"
+msgstr "Attachment {i}: {d}"
+
+msgid "Ahora sigues a @{u}"
+msgstr "You now follow @{u}"
+
+msgid "Aquí no se pueden cargar publicaciones más antiguas"
+msgstr "Older posts cannot be loaded here"
+
+msgid "Añadir al autor a una lista…"
+msgstr "Add the author to a list…"
+
+msgid "Añadir cuenta de X"
+msgstr "Add an X account"
+
+msgid "Añadir cuenta de X (_Twitter)…"
+msgstr "Add an X (_Twitter) account…"
+
+msgid "Buffer {b} {e}"
+msgstr "Buffer {b} {e}"
+
+msgid ""
+"Busca publicaciones. Puedes usar #hashtags, from:usuario y otros operadores "
+"de X."
+msgstr ""
+"Searches posts. You can use #hashtags, from:user and other X operators."
+
+msgid "Buscando a @{u}…"
+msgstr "Looking for @{u}…"
+
+msgid "Buscando cuentas…"
+msgstr "Searching accounts…"
+
+msgid "Buscar _cuentas…"
+msgstr "Search _accounts…"
+
+msgid "Búsqueda: {n}"
+msgstr "Search: {n}"
+
+msgid "Caracteres: {n} (280 en cuentas normales; las Premium admiten más)"
+msgstr "Characters: {n} (280 on normal accounts; Premium accounts allow more)"
+
+msgid "Cargando tendencias…"
+msgstr "Loading trends…"
+
+msgid "Clave _TOTP de 2FA (opcional):"
+msgstr "2FA _TOTP key (optional):"
+
+msgid "Comunidad: {n}"
+msgstr "Community: {n}"
+
+msgid "Conversación: {n}"
+msgstr "Conversation: {n}"
+
+msgid "Cookies de X recargadas. Reintentando…"
+msgstr "X cookies reloaded. Trying again…"
+
+msgid "Cookies de X reimportadas: @{u}"
+msgstr "X cookies reimported: @{u}"
+
+msgid "Cronología de un _usuario…"
+msgstr "Timeline of a _user…"
+
+msgid "Cronología de un usuario"
+msgstr "Timeline of a user"
+
+msgid "Cronología de un usuario mencionado…"
+msgstr "Timeline of a mentioned user…"
+
+msgid "Cronología: @{u}{s}"
+msgstr "Timeline: @{u}{s}"
+
+msgid ""
+"Ctrl+B: me gusta; Ctrl+Mayús+P: retweet; Ctrl+Mayús+J: marcador; Ctrl+Alt+V:"
+" votar en la encuesta"
+msgstr ""
+"Ctrl+B: like; Ctrl+Shift+P: retweet; Ctrl+Shift+J: bookmark; Ctrl+Alt+V: "
+"vote in the poll"
+
+msgid ""
+"Ctrl+Mayús+F / Ctrl+Alt+H: buscar; Ctrl+Alt+L: abrir una lista; "
+"Ctrl+Mayús+M: cargar publicaciones anteriores"
+msgstr ""
+"Ctrl+Shift+F / Ctrl+Alt+H: search; Ctrl+Alt+L: open a list; Ctrl+Shift+M: "
+"load older posts"
+
+msgid ""
+"Ctrl+Mayús+R: actualizar el buffer (X no se actualiza solo salvo que lo "
+"actives en Preferencias)"
+msgstr ""
+"Ctrl+Shift+R: update the buffer (X does not update by itself unless you "
+"enable it in Preferences)"
+
+msgid ""
+"Ctrl+Mayús+V: abrir la conversación como buffer; Ctrl+Mayús+G: publicaciones"
+" del autor; Ctrl+Alt+P: perfil"
+msgstr ""
+"Ctrl+Shift+V: open the conversation as a buffer; Ctrl+Shift+G: the author's "
+"posts; Ctrl+Alt+P: profile"
+
+msgid ""
+"Ctrl+N: nueva publicación (o mensaje, en una conversación); Ctrl+R: "
+"responder; Ctrl+Mayús+U: citar; Supr: borrar la tuya"
+msgstr ""
+"Ctrl+N: new post (or message, in a conversation); Ctrl+R: reply; "
+"Ctrl+Shift+U: quote; Delete: delete yours"
+
+msgid "Cuenta de X añadida: @{u}"
+msgstr "X account added: @{u}"
+
+msgid "Debes indicar usuario y contraseña"
+msgstr "You must enter a username and password"
+
+msgid "Debes pegar auth_token y ct0"
+msgstr "You must paste auth_token and ct0"
+
+msgid "Desbloquear al autor"
+msgstr "Unblock the author"
+
+msgid ""
+"Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. "
+"Desactivada por defecto: X limita este cliente no oficial y un exceso de "
+"peticiones puede acabar en el bloqueo de la cuenta."
+msgstr ""
+"Download X Home, Mentions and Notifications every few minutes. Off by "
+"default: X limits this unofficial client and too many requests can get the "
+"account blocked."
+
+msgid ""
+"Déjalo vacío si no quieres encuesta. No se puede combinar con adjuntos."
+msgstr ""
+"Leave it empty if you do not want a poll. It cannot be combined with "
+"attachments."
+
+msgid ""
+"El cliente de X no está disponible: falta la librería twikit o está "
+"desactivado"
+msgstr ""
+"The X client is not available: the twikit library is missing or it is turned"
+" off"
+
+msgid ""
+"En el navegador: herramientas de desarrollo, almacenamiento, cookies de "
+"x.com."
+msgstr "In the browser: developer tools, storage, x.com cookies."
+
+msgid "Error: {e}"
+msgstr "Error: {e}"
+
+msgid "Escribe algo, adjunta un archivo o crea una encuesta"
+msgstr "Write something, attach a file or create a poll"
+
+msgid "Esta acción no se puede hacer con este elemento de X"
+msgstr "This action cannot be done with this X item"
+
+msgid "Esta publicación no menciona a nadie más"
+msgstr "This post does not mention anyone else"
+
+msgid "Firefox es el que mejor funciona en Linux."
+msgstr "Firefox is the one that works best on Linux."
+
+msgid "Formato de fecha no válido. Usa AAAA-MM-DD HH:MM"
+msgstr "Invalid date format. Use YYYY-MM-DD HH:MM"
+
+msgid ""
+"Formato no admitido: usa imágenes (png, jpg, gif, webp) o un vídeo (mp4, "
+"mov)"
+msgstr ""
+"Unsupported format: use images (png, jpg, gif, webp) or a video (mp4, mov)"
+
+msgid ""
+"Hay adjuntos sin descripción. Pulsa Publicar de nuevo para enviarlos así."
+msgstr ""
+"Some attachments have no description. Press Post again to send them like "
+"that."
+
+msgid "Importar las cookies de mi navegador (recomendado, sin contraseña)"
+msgstr "Import the cookies from my browser (recommended, no password)"
+
+msgid "Iniciando sesión en X…"
+msgstr "Signing in to X…"
+
+msgid "La encuesta necesita al menos 2 opciones"
+msgstr "The poll needs at least 2 options"
+
+msgid "La fecha programada ya ha pasado"
+msgstr "The scheduled date has already passed"
+
+msgid "La sesión de X parece caducada; recargando las cookies del navegador…"
+msgstr "The X session seems to have expired; reloading the browser cookies…"
+
+msgid "Leyendo tus publicaciones programadas…"
+msgstr "Reading your scheduled posts…"
+
+msgid "Lista: {n}"
+msgstr "List: {n}"
+
+msgid "Mensajes con {n}"
+msgstr "Messages with {n}"
+
+msgid "Mostrar u o_cultar buffers…"
+msgstr "Show or hi_de buffers…"
+
+msgid "Máximo 4 adjuntos"
+msgstr "At most 4 attachments"
+
+msgid "Nadie todavía"
+msgstr "Nobody yet"
+
+msgid "No hay tendencias ahora"
+msgstr "There are no trends right now"
+
+msgid "No se encontraron cuentas"
+msgstr "No accounts found"
+
+msgid "No se encontró a @{u}"
+msgstr "@{u} was not found"
+
+msgid ""
+"No se pudieron recargar las cookies: {e}. Usa Reimportar las cookies en el "
+"menú X."
+msgstr ""
+"The cookies could not be reloaded: {e}. Use Reimport the cookies in the X "
+"menu."
+
+msgid "No se pudo iniciar sesión en X: {e}"
+msgstr "Could not sign in to X: {e}"
+
+msgid "No se sabe de qué cuenta se trata"
+msgstr "It is not known which account this is"
+
+msgid "Nueva publicación en X"
+msgstr "New post on X"
+
+msgid "Pegar las cookies a mano (auth_token y ct0)"
+msgstr "Paste the cookies by hand (auth_token and ct0)"
+
+msgid "Perfil"
+msgstr "Profile"
+
+msgid "Perfil de @{u}"
+msgstr "Profile of @{u}"
+
+msgid "Perfil de un usuario"
+msgstr "Profile of a user"
+
+msgid "Perfil de un usuario _mencionado…"
+msgstr "Profile of a _mentioned user…"
+
+msgid "Perfil de un usuario mencionado…"
+msgstr "Profile of a mentioned user…"
+
+msgid "Perfil de un usuario…"
+msgstr "Profile of a user…"
+
+msgid "Publicaciones de la cuenta"
+msgstr "The account's posts"
+
+msgid "Publicación programada cancelada"
+msgstr "Scheduled post cancelled"
+
+msgid "Publicado en X"
+msgstr "Posted on X"
+
+msgid "Quitar el silencio al autor"
+msgstr "Unmute the author"
+
+msgid "Quién ha dado me gusta"
+msgstr "Who liked it"
+
+msgid "Quién ha hecho retweet"
+msgstr "Who retweeted it"
+
+msgid "Quién ha hecho retweet…"
+msgstr "Who retweeted it…"
+
+msgid "Reimportar las cookies de X"
+msgstr "Reimport the X cookies"
+
+msgid "Retuiteado por @{u}"
+msgstr "Retweeted by @{u}"
+
+msgid "Retweet / deshacer retweet"
+msgstr "Retweet / undo retweet"
+
+msgid "Retweet deshecho"
+msgstr "Retweet undone"
+
+msgid "Selecciona una cuenta de X"
+msgstr "Select an X account"
+
+msgid "Selecciona una publicación de X"
+msgstr "Select an X post"
+
+msgid "Sin biografía"
+msgstr "No bio"
+
+msgid "Una encuesta no se puede combinar con adjuntos"
+msgstr "A poll cannot be combined with attachments"
+
+msgid "Una publicación programada solo puede llevar texto"
+msgstr "A scheduled post can only carry text"
+
+msgid "Usuarios mencionados"
+msgstr "Mentioned users"
+
+msgid "X (Twitt_er)"
+msgstr "X (Twitt_er)"
+
+msgid "Ya puedes usar la cuenta"
+msgstr "You can now use the account"
+
+msgid "_Buffer:"
+msgstr "_Buffer:"
+
+msgid "_Buscar en X…"
+msgstr "_Search X…"
+
+msgid "_Cancelar esa"
+msgstr "_Cancel that one"
+
+msgid "_Cuenta ({n}):"
+msgstr "_Account ({n}):"
+
+msgid "_Cuenta:"
+msgstr "_Account:"
+
+msgid "_Duración de la encuesta en minutos:"
+msgstr "_Poll duration in minutes:"
+
+msgid "_Encuesta, una opción por línea (de 2 a 4):"
+msgstr "_Poll, one option per line (2 to 4):"
+
+msgid "_Entiendo los riesgos y continúo"
+msgstr "_I understand the risks and continue"
+
+msgid "_Mostrar:"
+msgstr "_Show:"
+
+msgid "_Método de inicio de sesión:"
+msgstr "Sign-in _method:"
+
+msgid "_Navegador con la sesión de X abierta:"
+msgstr "_Browser with the X session open:"
+
+msgid "_Nombre o @usuario:"
+msgstr "_Name or @user:"
+
+msgid "_Programada (elige una para cancelarla):"
+msgstr "_Scheduled (choose one to cancel it):"
+
+msgid "_Reimportar las cookies de la cuenta…"
+msgstr "_Reimport the account's cookies…"
+
+msgid "_Retweet"
+msgstr "_Retweet"
+
+msgid "_Tendencia:"
+msgstr "_Trend:"
+
+msgid "_Tendencias…"
+msgstr "_Trends…"
+
+msgid "_Usuario de X (con o sin @):"
+msgstr "X _user (with or without @):"
+
+msgid "_Usuario, correo o teléfono:"
+msgstr "_Username, email or phone:"
+
+msgid "_Votar en la encuesta…"
+msgstr "_Vote in the poll…"
+
+msgid "_auth_token:"
+msgstr "_auth_token:"
+
+msgid "_ct0:"
+msgstr "_ct0:"
+
+msgid "oculto"
+msgstr "hidden"
+
+msgid "retuiteada"
+msgstr "retweeted"
+
+msgid "retuiteado"
+msgstr "retweeted"
+
+msgid "te gusta"
+msgstr "liked"
+
+msgid "visible"
+msgstr "visible"
+
+msgid "vistas"
+msgstr "views"
+
+msgid "{n} (@{u}), {s} seguidores. {b}"
+msgstr "{n} (@{u}), {s} followers. {b}"
+
+msgid "{n} retweets y citas"
+msgstr "{n} retweets and quotes"
+
+msgid "{r} respuestas · {t} retweets · {c} citas · {f} me gusta"
+msgstr "{r} replies · {t} retweets · {c} quotes · {f} likes"
+
+msgid "{s} seguidores · {g} siguiendo"
+msgstr "{s} followers · {g} following"
+
+msgid "{t}: está escribiendo…"
+msgstr "{t}: is typing…"
+
+msgid "¿Cancelar la publicación programada?"
+msgstr "Cancel the scheduled post?"
+
+msgid "¿Qué mostrar?"
+msgstr "What to show?"
+
+msgid "¿Silenciar a @{u}?"
+msgstr "Mute @{u}?"
+
+msgid "ha dado me gusta a tu publicación"
+msgstr "liked your post"
+
+msgid "ha hecho retweet de tu publicación"
+msgstr "retweeted your post"
+
+msgid "te recomienda algo"
+msgstr "recommends something to you"
+
+msgid "ha enviado una notificación"
+msgstr "sent a notification"
+
+msgid "Lo que le ha gustado"
+msgstr "What they have liked"
+
+msgid "Dejar de s_eguir"
+msgstr "Un_follow"
+
+msgid "_Quitar el silencio"
+msgstr "_Unmute"
+
+msgid "_Desbloquear"
+msgstr "_Unblock"
+
+msgid "Seguir a la cuenta"
+msgstr "Follow the account"
+
+msgid "Dejar de seguir a la cuenta"
+msgstr "Unfollow the account"
+
+msgid "Bloquear la cuenta"
+msgstr "Block the account"
+
+msgid "Escribirle un mensaje directo"
+msgstr "Write them a direct message"

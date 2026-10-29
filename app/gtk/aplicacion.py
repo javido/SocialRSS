@@ -12,7 +12,7 @@ from app.core.speech import notificar
 from app.core.version import APP_VERSION
 from app.services.rss.rss_service import rss_service
 
-from . import datos, plataforma_gtk
+from . import datos, datos_x, plataforma_gtk
 from .dialogos import DialogoAnadirFeed, DialogoTeclas
 from .preferencias import DialogoPreferencias
 from .ventana import VentanaPrincipal
@@ -38,6 +38,7 @@ def _menu() -> Gio.Menu:
                                      (_("Añadir cuenta de _XMPP…"), "app.anadir-cuenta-xmpp"),
                                      (_("Añadir cuenta de _Matrix…"), "app.anadir-cuenta-matrix"),
                                      (_("Registrar una cuenta nueva de Matri_x…"), "win.mx-registrar"),
+                                     *(((_("Añadir cuenta de X (_Twitter)…"), "app.anadir-cuenta-x"),) if datos_x.disponible() else ()),
                                      (_("_Eliminar la cuenta seleccionada…"), "win.eliminar-cuenta"),
                                      (_("_Añadir feed…"), "app.anadir-feed"),
                                      (_("_Importar OPML…"), "app.importar-opml"),
@@ -164,6 +165,49 @@ def _menu() -> Gio.Menu:
                                  (_("_Eliminar la cuenta…"), "win.bsky-eliminar-cuenta")))
     bsky.append_submenu(_("Mi _cuenta"), cta)
     barra.append_submenu(_("Blues_ky"), bsky)
+
+    if datos_x.disponible():
+        tw = Gio.Menu()
+        tw.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
+                                    (_("_Responder"), "win.responder"),
+                                    (_("C_itar"), "win.citar"),
+                                    (_("Borrar mi publicación"), "win.papelera"),
+                                    (_("_Votar en la encuesta…"), "win.votar")))
+        tw.append_section(None, sec((_("Me _gusta"), "win.me-gusta"),
+                                    (_("_Retweet"), "win.impulsar"),
+                                    (_("_Marcador"), "win.marcador")))
+        tw.append_section(None, sec((_("Ver la _conversación"), "win.conversacion"),
+                                    (_("_Perfil del autor"), "win.perfil"),
+                                    (_("Publicaciones del _autor"), "win.cronologia-usuario"),
+                                    (_("Perfil de un usuario _mencionado…"), "win.tw-perfil-mencionado"),
+                                    (_("Cronología de un usuario mencionado…"), "win.tw-cronologia-mencionado"),
+                                    (_("Cargar publicaciones a_nteriores"), "win.cargar-mas"),
+                                    (_("C_errar el buffer"), "win.cerrar-buffer")))
+        tw.append_section(None, sec((_("_Buscar en X…"), "win.buscar-mastodon"),
+                                    (_("Buscar _cuentas…"), "win.tw-buscar-usuarios"),
+                                    (_("Cronología de un _usuario…"), "win.tw-cronologia-de"),
+                                    (_("Perfil de un usuario…"), "win.tw-perfil-de"),
+                                    (_("Abrir una _lista…"), "win.abrir-lista"),
+                                    (_("_Tendencias…"), "win.tw-tendencias"),
+                                    (_("Publicaciones pro_gramadas…"), "win.tw-programados")))
+        tw.append_section(None, sec((_("Quién ha dado me gusta…"), "win.tw-quien-gusta"),
+                                    (_("Quién ha hecho retweet…"), "win.tw-quien-rt"),
+                                    (_("Añadir al autor a una lista…"), "win.tw-anadir-lista"),
+                                    (_("Seguir al autor"), "win.tw-seguir"),
+                                    (_("Dejar de seguir al autor"), "win.tw-dejar-seguir"),
+                                    (_("Silenciar al autor"), "win.tw-silenciar"),
+                                    (_("Quitar el silencio al autor"), "win.tw-quitar-silencio"),
+                                    (_("Bloquear al autor"), "win.tw-bloquear"),
+                                    (_("Desbloquear al autor"), "win.tw-desbloquear")))
+        tdm = Gio.Menu()
+        tdm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.tw-mensaje-nuevo"),
+                                     (_("Mensaje directo al _autor"), "win.tw-mensaje-autor"),
+                                     (_("_Reaccionar al mensaje…"), "win.tw-reaccionar")))
+        tw.append_submenu(_("Mensajes _directos"), tdm)
+        tw.append_section(None, sec((_("Mostrar u o_cultar buffers…"), "win.tw-ocultar-buffers"),
+                                    (_("_Reimportar las cookies de la cuenta…"), "win.tw-reimportar"),
+                                    (_("_Eliminar la cuenta…"), "win.eliminar-cuenta")))
+        barra.append_submenu(_("X (Twitt_er)"), tw)
 
     tg = Gio.Menu()
     tg.append_section(None, sec((_("_Nuevo mensaje"), "win.nuevo"),
@@ -405,6 +449,7 @@ class Aplicacion(Gtk.Application):
         accion("anadir-red-irc", self.anadir_red_irc)
         accion("anadir-cuenta-xmpp", self.anadir_cuenta_xmpp)
         accion("anadir-cuenta-matrix", self.anadir_cuenta_matrix)
+        accion("anadir-cuenta-x", self.anadir_cuenta_x)
         accion("importar-opml", self.importar_opml, ["<Ctrl>o"])
         accion("exportar-opml", self.exportar_opml)
         accion("preferencias", lambda: DialogoPreferencias(self.ventana).present(), ["<Ctrl>p"])
@@ -516,6 +561,16 @@ class Aplicacion(Gtk.Application):
             self.ventana.cargar_arbol(seleccionar=("matrix", account_id, "timeline", None, None, "rooms"))
             self.ventana.iniciar_tiempo_real_matrix()
         DialogoCuentaMatrix(self.ventana, _hecha).present()
+
+    def anadir_cuenta_x(self):
+        if not datos_x.disponible():
+            notificar(_("El cliente de X no está disponible: falta la librería twikit o está desactivado"))
+            return
+        from .dialogos_x import DialogoCuentaX
+
+        def _hecha(account_id):
+            self.ventana.cargar_arbol(seleccionar=("x", account_id, "timeline", None, None, "home"))
+        DialogoCuentaX(self.ventana, _hecha).present()
 
     def anadir_red_irc(self):
         from .dialogos_irc import DialogoRedIRC

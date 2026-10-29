@@ -139,6 +139,10 @@ class DialogoPreferencias(Gtk.Window):
         self.anunciar_mx = p.interruptor(config.get("matrix", "announce_new", True))
         p.campo(_("Anunciar los mensajes de _Matrix por voz:"), self.anunciar_mx,
                 _("De la conversación abierta, de mensajes directos y de menciones, según el nivel de aviso de cada sala."))
+        self.auto_x = p.interruptor(config.get("x", "auto_update", False))
+        p.campo(_("Actualización automática de _X:"), self.auto_x,
+                _("Descargar Inicio, Menciones y Notificaciones de X cada pocos minutos. Desactivada por defecto: X limita "
+                  "este cliente no oficial y un exceso de peticiones puede acabar en el bloqueo de la cuenta."))
         self.admin_mx = p.interruptor(config.get("matrix", "admin_tools", False))
         p.campo(_("Herramientas de _administración de Matrix:"), self.admin_mx,
                 _("Añade al menú Matrix la administración del servidor Synapse. Hay que reiniciar la aplicación para verlo."))
@@ -346,6 +350,7 @@ class DialogoPreferencias(Gtk.Window):
         config.set("xmpp", "announce_new", self.anunciar_x.get_active())
         config.set("matrix", "announce_new", self.anunciar_mx.get_active())
         config.set("matrix", "admin_tools", self.admin_mx.get_active())
+        config.set("x", "auto_update", self.auto_x.get_active())
         paso = float(self.paso.get_value())
         config.set("media_player", "default_step_forward2", paso)
         config.set("media_player", "default_step_backward2", paso)

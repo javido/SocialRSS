@@ -80,7 +80,7 @@ class FilaObj(GObject.Object):
     def _construir_descripcion(self) -> str:
         from .datos import fecha_legible
         f = self.fila
-        if f.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix"):
+        if f.servicio in ("mastodon", "bluesky", "telegram", "irc", "xmpp", "matrix", "x"):
             return self._descripcion_mastodon()
         partes = []
         if not self.leido:
@@ -108,6 +108,8 @@ class FilaObj(GObject.Object):
         if x.get("impulsado_por"):
             partes.append(_("Impulsado por {n}").format(n=x["impulsado_por"]))
         partes.append(f.titulo)
+        if x.get("respuesta_a"):
+            partes.append(x["respuesta_a"])
         if x.get("adjuntos"):
             partes.append(_("{n} adjuntos").format(n=x["adjuntos"]))
         if x.get("encuesta"):
@@ -117,14 +119,15 @@ class FilaObj(GObject.Object):
             partes.append(fecha)
         if x.get("respuestas"):
             partes.append(_("{n} respuestas").format(n=x["respuestas"]))
+        en_x = f.servicio == "x"      # X no habla de impulsos ni de favoritos
         if x.get("n_impulsos"):
-            partes.append(_("{n} impulsos").format(n=x["n_impulsos"]))
+            partes.append((_("{n} retweets y citas") if en_x else _("{n} impulsos")).format(n=x["n_impulsos"]))
         if x.get("n_favoritos"):
-            partes.append(_("{n} favoritos").format(n=x["n_favoritos"]))
+            partes.append((_("{n} me gusta") if en_x else _("{n} favoritos")).format(n=x["n_favoritos"]))
         if self.favorito:
-            partes.append(_("favorito"))
+            partes.append(_("te gusta") if en_x else _("favorito"))
         if self.impulsado:
-            partes.append(_("impulsado"))
+            partes.append(_("retuiteado") if en_x else _("impulsado"))
         if self.marcador:
             partes.append(_("en marcadores"))
         return ". ".join(partes)
