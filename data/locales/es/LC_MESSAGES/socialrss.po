@@ -40110,3 +40110,27 @@ msgstr "¿Borrar la lista «{n}»? No se puede deshacer."
 
 msgid "¿Quitar a @{u} de la lista?"
 msgstr "¿Quitar a @{u} de la lista?"
+
+msgid "Cargando los lugares…"
+msgstr "Cargando los lugares…"
+
+msgid "Cargando tendencias de {l}…"
+msgstr "Cargando tendencias de {l}…"
+
+msgid "No hay tendencias para ese lugar"
+msgstr "No hay tendencias para ese lugar"
+
+msgid "No se pudieron cargar los lugares: {e}"
+msgstr "No se pudieron cargar los lugares: {e}"
+
+msgid "Tendencias de un _país…"
+msgstr "Tendencias de un _país…"
+
+msgid "Tendencias en {l}"
+msgstr "Tendencias en {l}"
+
+msgid "_País o ciudad:"
+msgstr "_País o ciudad:"
+
+msgid "no hay lugares"
+msgstr "no hay lugares"

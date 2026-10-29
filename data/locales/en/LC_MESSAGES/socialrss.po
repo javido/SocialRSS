@@ -51936,3 +51936,27 @@ msgstr "Delete the list «{n}»? This cannot be undone."
 
 msgid "¿Quitar a @{u} de la lista?"
 msgstr "Remove @{u} from the list?"
+
+msgid "Cargando los lugares…"
+msgstr "Loading the places…"
+
+msgid "Cargando tendencias de {l}…"
+msgstr "Loading trends in {l}…"
+
+msgid "No hay tendencias para ese lugar"
+msgstr "There are no trends for that place"
+
+msgid "No se pudieron cargar los lugares: {e}"
+msgstr "The places could not be loaded: {e}"
+
+msgid "Tendencias de un _país…"
+msgstr "Trends in a _country…"
+
+msgid "Tendencias en {l}"
+msgstr "Trends in {l}"
+
+msgid "_País o ciudad:"
+msgstr "_Country or city:"
+
+msgid "no hay lugares"
+msgstr "no places"

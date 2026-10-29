@@ -192,6 +192,7 @@ def _menu() -> Gio.Menu:
                                     (_("Buscar c_omunidades…"), "win.tw-buscar-comunidades"),
                                     (_("Salir de la comunidad de este buffer"), "win.tw-salir-comunidad"),
                                     (_("_Tendencias…"), "win.tw-tendencias"),
+                                    (_("Tendencias de un _país…"), "win.tw-tendencias-lugar"),
                                     (_("Publicaciones pro_gramadas…"), "win.tw-programados")))
         tw.append_section(None, sec((_("Quién ha dado me gusta…"), "win.tw-quien-gusta"),
                                     (_("Quién ha hecho retweet…"), "win.tw-quien-rt"),

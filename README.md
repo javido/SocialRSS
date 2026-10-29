@@ -157,8 +157,8 @@ Cada cuenta tiene Inicio, Siguiendo, Menciones, Notificaciones, Marcadores, Segu
 sigo y Comunidades, más sus listas, búsquedas, cronologías de usuario, conversaciones y mensajes directos como buffers del
 árbol. Publicar con imágenes o vídeo y texto alternativo, con encuesta o programada, responder, citar, me gusta, retweet,
 marcadores, borrar, votar en encuestas, abrir la conversación, perfil (seguir, silenciar, bloquear), quién ha dado me gusta o
-hecho retweet, buscar publicaciones y cuentas, tendencias, publicaciones programadas, añadir cuentas a listas y mensajes
-directos con tiempo real (por streaming). **X no se actualiza solo**: se descarga al entrar en un buffer vacío y con
+hecho retweet, buscar publicaciones y cuentas, tendencias (también de un país o ciudad), publicaciones programadas, añadir cuentas a listas y mensajes
+directos con tiempo real (por streaming, con un sonido cuando la otra persona escribe). **X no se actualiza solo**: se descarga al entrar en un buffer vacío y con
 Ctrl+Mayús+R; la actualización automática es opcional en Preferencias. Gestión de tus listas (crear, editar, borrar y sus
 miembros) y de comunidades (buscarlas, abrirlas como buffer, unirse y salir). El resto de redes
 (Reddit, PeerTube y W Social) se irán añadiendo por fases; sus servicios ya funcionan en Linux.

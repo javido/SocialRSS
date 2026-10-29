@@ -181,6 +181,8 @@ EVENT_TO_FILE = {
     "wsocial_new_notification": "notification.wav",
     "wsocial_new_dm": "direct.wav",
     "wsocial_error": "error.wav",
+    # X: la otra persona está escribiendo en un mensaje directo (el sonido más corto, para que no moleste)
+    "x_typing": "ready.wav",
     # Eventos de IRC (reutilizan wavs existentes)
     "irc_new_message": "new_item.wav",
     "irc_highlight": "notification.wav",

@@ -29,6 +29,8 @@ TIPOS_CON_PUBLICACION = ("estado", "notificacion")
 
 
 class _TwitterMixin:
+    _tw_ult_escribiendo: dict = {}
+
     # ------------------------------------------------------------------ contexto
     def _tw_ctx(self) -> bool:
         """True si lo que está enfocado (fila o, si no hay, nodo del árbol) es de X."""
@@ -502,6 +504,37 @@ class _TwitterMixin:
                           _("_Buscar")).present()
         x_service.obtener_tendencias_async(acc, callback=_fin)
 
+    def tw_tendencias_lugar(self):
+        """Tendencias de un país o una ciudad: se elige el lugar, luego la tendencia, que se abre como búsqueda."""
+        acc = self._tw_cuenta()
+        if acc is None:
+            return
+        self.avisar(_("Cargando los lugares…"))
+
+        def _lugares(lugares, err):
+            if err or not lugares:
+                self._tw_error(err or _("no hay lugares"), acc, self.tw_tendencias_lugar, False,
+                               _("No se pudieron cargar los lugares: {e}"))
+                return
+            nombres = [l["name"] if l["name"] == l["country"] or not l["country"] else f"{l['name']} ({l['country']})"
+                       for l in lugares]
+
+            def _lugar(i):
+                self.avisar(_("Cargando tendencias de {l}…").format(l=nombres[i]))
+
+                def _tendencias(res, err2):
+                    if err2 or not res:
+                        self.avisar(_("No hay tendencias para ese lugar"))
+                        return
+                    DialogoElegir(self, _("Tendencias en {l}").format(l=nombres[i]), _("_Tendencia:"),
+                                  [f"{t['name']} ({t['count']})" if t.get("count") else t["name"] for t in res],
+                                  lambda j: self._abrir_buffer(acc, f"search:{res[j]['name']}", res[j]["name"],
+                                                               servicio="x"),
+                                  _("_Buscar")).present()
+                x_service.tendencias_lugar_async(acc, lugares[i]["woeid"], callback=_tendencias)
+            DialogoElegir(self, _("Tendencias de un lugar"), _("_País o ciudad:"), nombres, _lugar, _("_Elegir")).present()
+        x_service.lugares_tendencias_async(acc, callback=_lugares)
+
     def tw_abrir_lista(self):
         acc = self._tw_cuenta()
         if acc is None:
@@ -736,6 +769,11 @@ class _TwitterMixin:
         if n is not None and n.servicio == "x" and n.account_id == account_id and n.timeline.startswith("dm:") \
                 and self._tw_convo_de(n) == conversation_id:
             self.estado.set_text(_("{t}: está escribiendo…").format(t=n.titulo))
+            # X repite el aviso mientras se escribe: un solo sonido cada 8 segundos por conversación.
+            ahora = time.monotonic()
+            if ahora - self._tw_ult_escribiendo.get(conversation_id, 0.0) >= 8.0:
+                self._tw_ult_escribiendo[conversation_id] = ahora
+                event_bus.emit("sound_trigger", "x_typing")
 
     def _tw_anunciar_dm(self, nuevos):
         recibidos = [f for f in nuevos if not f.extra.get("propio")]
@@ -832,6 +870,7 @@ class _TwitterMixin:
         a("tw-perfil-de", self.tw_perfil_de)
         a("tw-buscar-usuarios", self.tw_buscar_usuarios)
         a("tw-tendencias", self.tw_tendencias)
+        a("tw-tendencias-lugar", self.tw_tendencias_lugar)
         a("tw-abrir-lista", self.tw_abrir_lista)
         a("tw-listas", self.tw_listas)
         a("tw-buscar-comunidades", self.tw_buscar_comunidades)

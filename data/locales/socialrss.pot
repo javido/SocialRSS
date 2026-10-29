@@ -50325,3 +50325,27 @@ msgstr ""
 
 msgid "¿Quitar a @{u} de la lista?"
 msgstr ""
+
+msgid "Cargando los lugares…"
+msgstr ""
+
+msgid "Cargando tendencias de {l}…"
+msgstr ""
+
+msgid "No hay tendencias para ese lugar"
+msgstr ""
+
+msgid "No se pudieron cargar los lugares: {e}"
+msgstr ""
+
+msgid "Tendencias de un _país…"
+msgstr ""
+
+msgid "Tendencias en {l}"
+msgstr ""
+
+msgid "_País o ciudad:"
+msgstr ""
+
+msgid "no hay lugares"
+msgstr ""
