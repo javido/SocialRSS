@@ -146,8 +146,11 @@ moderación (invitar, expulsar, banear, cambiar el rango), ajustes de la sala (n
 directorio, cifrado, versión), etiquetas favorita y baja prioridad, nivel de aviso, búsqueda en lo guardado, exportar
 conversaciones, tu perfil y presencia, tus dispositivos, palabras que te avisan, verificación de dispositivos por emojis,
 verificación cruzada, y exportar e importar claves. Los mensajes llegan en **tiempo real** (por voz: la conversación abierta,
-los mensajes directos y las menciones, según el nivel de aviso de cada sala). El cifrado de extremo a extremo no se ha
-probado en Linux. La administración del servidor Synapse (usuarios, salas, mensajes reportados, tokens de registro, federación,
+los mensajes directos y las menciones, según el nivel de aviso de cada sala). El cifrado de extremo a extremo se probó en
+Linux contra un Synapse local (mensajes en los dos sentidos, adjuntos cifrados, verificación por emojis, verificación
+cruzada y exportar e importar claves para leer el historial desde otro usuario); en Linux se instala con
+`pip install matrix-nio[e2e]` (que trae `python-olm`) y, con CMake 4 o posterior, `CMAKE_POLICY_VERSION_MINIMUM=3.5` en
+el entorno, o con el `libolm` del sistema si tu distribución lo trae. La administración del servidor Synapse (usuarios, salas, mensajes reportados, tokens de registro, federación,
 mantenimiento de archivos y estadísticas) se activa en Preferencias y exige una cuenta administradora. Aún falta la
 grabación de notas de voz.
 **X (Twitter)** (cliente no oficial, necesita `twifork`, que se importa como `twikit`; riesgo real de limitación o bloqueo
