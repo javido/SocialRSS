@@ -58,6 +58,7 @@ log = logging.getLogger(__name__)
 PAUSA_LISTA_MS = 120
 PAUSA_TEXTO_MS = 150
 PAUSA_RED_MS = 700
+LISTA_DIRECTA, LISTA_VENTANA, LISTA_LOTE = 50, 20, 30     # filas que se ponen de golpe, a cada lado de la selección, y por tanda
 
 # Intervalo del sondeo automático de feeds (los que ya vencieron según su propio intervalo).
 SONDEO_SEGUNDOS = 300
@@ -95,6 +96,7 @@ class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixi
         # interfaz solo aplica resultados. Cada petición lleva un número de generación; si el usuario ya
         # se movió a otra cosa, el resultado viejo se descarta.
         self._lector = ThreadPoolExecutor(max_workers=1, thread_name_prefix="LectorUI")
+        self._relleno_id, self._relleno_despues = 0, None
         self._gen_lista = 0
         self._gen_texto = 0
         self._timer_lista = 0
@@ -823,22 +825,35 @@ class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixi
         titulo = n.titulo + (f" — {_('búsqueda')}: {busqueda}" if busqueda else "")
         if incremental and self._nodo_listado is n and self._sincronizar_lista(filas):
             self.estado.set_text(_("{t}: {n} elementos").format(t=n.titulo, n=len(filas)))
-            if despues:
-                despues(filas)
+            pendiente, self._relleno_despues = self._relleno_despues, None
+            self._cancelar_relleno()        # la sincronización ya ha completado la lista
+            for cb in (pendiente, despues):
+                if cb:
+                    cb(filas)
             return
         self._nodo_listado = n
-        nuevos = [FilaObj(f) for f in filas]
-        # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
-        # eventos de accesibilidad que remove_all() seguido de splice().
-        self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), nuevos)
+        self._cancelar_relleno()
+        self._relleno_despues = None
         seleccionar = datos_telegram.seleccion_inicial(filas) if self._es_conversacion(n) else 0
         if conservar_id:
             for i, f in enumerate(filas):
                 if f.id == conservar_id or f.extra.get("clave_lista") == conservar_id:
                     seleccionar = i
                     break
+        # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
+        # eventos de accesibilidad que remove_all() seguido de splice().
+        # Cada fila cuesta tiempo del hilo de la interfaz aunque no se vea, así que una lista larga se pone por
+        # tandas: primero la zona de la selección y luego, en los huecos, el resto (el foco no se mueve).
+        if len(filas) <= LISTA_DIRECTA:
+            tanda, resto = filas, None
+            primera = 0
+        else:
+            primera = max(0, seleccionar - LISTA_VENTANA)
+            fin = min(len(filas), seleccionar + LISTA_VENTANA + 1)
+            tanda, resto = filas[primera:fin], (primera, fin)
+        self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), [FilaObj(f) for f in tanda])
         if filas:
-            self.seleccion_lista.set_selected(seleccionar)
+            self.seleccion_lista.set_selected(seleccionar - primera)
         self.estado.set_text(_("{t}: {n} elementos").format(t=titulo, n=len(filas)) if n.listable else n.titulo)
         if not filas:
             if not n.listable:
@@ -847,8 +862,40 @@ class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixi
                 self._mostrar_texto("", vacio, "", "")
             else:
                 self._mostrar_texto("", self.bandeja_vacia() if n.servicio == "bandeja" else _("No hay elementos."), "", "")
-        if despues:
-            despues(filas)
+        if resto is None:
+            if despues:
+                despues(filas)
+            return
+        self._relleno_despues = despues
+        self._relleno_id = GLib.idle_add(self._rellenar_lista, gen, n, filas, resto[0], resto[1], True, despues,
+                                         priority=GLib.PRIORITY_DEFAULT_IDLE)
+
+    def _cancelar_relleno(self):
+        if getattr(self, "_relleno_id", 0):
+            GLib.source_remove(self._relleno_id)
+        self._relleno_id = 0
+
+    def _rellenar_lista(self, gen, n, filas, ini, fin, hacia_abajo, despues):
+        """Una tanda del resto de la lista: alterna entre añadir por debajo y por encima de lo que ya hay."""
+        self._relleno_id = 0
+        if gen != self._gen_lista or n is not self.nodo_actual:
+            return GLib.SOURCE_REMOVE
+        if (hacia_abajo and fin < len(filas)) or ini == 0:
+            nuevo = min(len(filas), fin + LISTA_LOTE)
+            self.almacen_lista.splice(self.almacen_lista.get_n_items(), 0, [FilaObj(f) for f in filas[fin:nuevo]])
+            fin = nuevo
+        elif ini > 0:
+            nuevo = max(0, ini - LISTA_LOTE)
+            self.almacen_lista.splice(0, 0, [FilaObj(f) for f in filas[nuevo:ini]])
+            ini = nuevo
+        if ini == 0 and fin >= len(filas):
+            self._relleno_despues = None
+            if despues:
+                despues(filas)
+            return GLib.SOURCE_REMOVE
+        self._relleno_id = GLib.idle_add(self._rellenar_lista, gen, n, filas, ini, fin, not hacia_abajo, despues,
+                                         priority=GLib.PRIORITY_DEFAULT_IDLE)
+        return GLib.SOURCE_REMOVE
 
     def _sincronizar_lista(self, filas) -> bool:
         """Actualiza la lista en su sitio. False si el orden relativo cambió y hay que rehacerla."""
