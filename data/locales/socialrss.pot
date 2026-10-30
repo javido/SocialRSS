@@ -53852,3 +53852,273 @@ msgstr ""
 
 msgid "¿Quitar a u/{u}?"
 msgstr ""
+
+msgid "  {p}: {n} espectadores"
+msgstr ""
+
+msgid "(con error)"
+msgstr ""
+
+msgid "Act_ivos"
+msgstr ""
+
+msgid "B_orrar"
+msgstr ""
+
+msgid "Bloquear el vídeo (moderadores)…"
+msgstr ""
+
+msgid "Cargando las denuncias…"
+msgstr ""
+
+msgid "Cola de denuncias…"
+msgstr ""
+
+msgid "Con_traseña:"
+msgstr ""
+
+msgid "Copiar la URL R_TMP"
+msgstr ""
+
+msgid "Copiar la _clave de emisión"
+msgstr ""
+
+msgid "Crear un _directo…"
+msgstr ""
+
+msgid "Datos de emisión del directo…"
+msgstr ""
+
+msgid "Desbloquear el vídeo (moderadores)"
+msgstr ""
+
+msgid "Desinstalar"
+msgstr ""
+
+msgid "Directo _permanente (puedes emitir varias veces):"
+msgstr ""
+
+msgid "El título y el canal son obligatorios"
+msgstr ""
+
+msgid "En _espera"
+msgstr ""
+
+msgid "Espectadores totales: {n}"
+msgstr ""
+
+msgid "Estadísticas de la instancia…"
+msgstr ""
+
+msgid "Estadísticas del _vídeo…"
+msgstr ""
+
+msgid "Estadísticas del vídeo…"
+msgstr ""
+
+msgid "Federación (instancias)…"
+msgstr ""
+
+msgid "Guardar la _repetición al terminar:"
+msgstr ""
+
+msgid "Latencia: {l}"
+msgstr ""
+
+msgid "Mis denuncias…"
+msgstr ""
+
+msgid "No se pudieron cargar las denuncias: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar las estadísticas: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar las sesiones: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los mensajes: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los vídeos bloqueados: {e}"
+msgstr ""
+
+msgid "No se pudieron obtener los datos de emisión: {e}"
+msgstr ""
+
+msgid "No se pudo crear el directo: {e}"
+msgstr ""
+
+msgid "Pico de espectadores: {n}"
+msgstr ""
+
+msgid "Plugins…"
+msgstr ""
+
+msgid "Rellena el usuario, el correo y la contraseña."
+msgstr ""
+
+msgid "Rol de {u}"
+msgstr ""
+
+msgid "Seguir _instancia…"
+msgstr ""
+
+msgid "Sesiones y repeticiones del directo…"
+msgstr ""
+
+msgid "Sesión del {f}{e}{r}"
+msgstr ""
+
+msgid "Solicitudes de registro…"
+msgstr ""
+
+msgid "Tiempo medio por espectador: {n} segundos"
+msgstr ""
+
+msgid "Tiempo total de reproducción: {n} minutos"
+msgstr ""
+
+msgid "Tokens de runners…"
+msgstr ""
+
+msgid "Trabajos del servidor…"
+msgstr ""
+
+msgid "URL RTMP_S (segura):"
+msgstr ""
+
+msgid "URL del servidor _RTMP:"
+msgstr ""
+
+msgid "Usuarios…"
+msgstr ""
+
+msgid "Ver _siguiendo"
+msgstr ""
+
+msgid "Ver se_guidores"
+msgstr ""
+
+msgid "Vídeos bloqueados…"
+msgstr ""
+
+msgid "_Aceptar seguidor"
+msgstr ""
+
+msgid "_Administración"
+msgstr ""
+
+msgid "_Añadir un mensaje (opcional):"
+msgstr ""
+
+msgid "_Comentario de moderación (opcional):"
+msgstr ""
+
+msgid "_Completados"
+msgstr ""
+
+msgid "_Copiar token"
+msgstr ""
+
+msgid "_Correo electrónico:"
+msgstr ""
+
+msgid "_Cuota de vídeo en GB (-1 = sin límite):"
+msgstr ""
+
+msgid "_Dejar o rechazar"
+msgstr ""
+
+msgid "_Desinstalar"
+msgstr ""
+
+msgid "_Fallidos"
+msgstr ""
+
+msgid "_Generar nuevo"
+msgstr ""
+
+msgid "_Instalar…"
+msgstr ""
+
+msgid "_Instancia a seguir (host):"
+msgstr ""
+
+msgid "_Latencia:"
+msgstr ""
+
+msgid "_Mensajes…"
+msgstr ""
+
+msgid "_Moderación"
+msgstr ""
+
+msgid "_Motivo del bloqueo (opcional):"
+msgstr ""
+
+msgid "_Nombre del paquete npm del plugin:"
+msgstr ""
+
+msgid "_Respuesta al solicitante (opcional):"
+msgstr ""
+
+msgid "_Rol y cuota…"
+msgstr ""
+
+msgid "_Rol:"
+msgstr ""
+
+msgid "_Título del directo:"
+msgstr ""
+
+msgid "activo"
+msgstr ""
+
+msgid "repetición: {t}"
+msgstr ""
+
+msgid "{h}, {e}"
+msgstr ""
+
+msgid "{m}. Estado: {s}. Contra {d}. {o}"
+msgstr ""
+
+msgid "{n} denuncias"
+msgstr ""
+
+msgid "{n} sesiones"
+msgstr ""
+
+msgid "{n} vídeos"
+msgstr ""
+
+msgid "{n}, versión {v}, {p}"
+msgstr ""
+
+msgid "{t}, creado {f}"
+msgstr ""
+
+msgid "{t}, {s}. {e}"
+msgstr ""
+
+msgid "{t}. Motivo: {m}"
+msgstr ""
+
+msgid "{u}, {c}, motivo: {m}"
+msgstr ""
+
+msgid "{u}, {c}, rol {r}, {e}"
+msgstr ""
+
+msgid "¿Borrar al usuario «{u}»? Se eliminan sus vídeos y datos."
+msgstr ""
+
+msgid "¿Dejar de seguir a {h}?"
+msgstr ""
+
+msgid "¿Desbloquear «{t}»? Volverá a estar disponible."
+msgstr ""
+
+msgid "¿Desinstalar «{n}»?"
+msgstr ""

@@ -357,6 +357,24 @@ def _menu() -> Gio.Menu:
                                     (_("_Borrar o quitar…"), "win.papelera"),
                                     (_("Crear una lista o un canal (en su sección)"), "win.nuevo"),
                                     (_("Vaciar el _historial…"), "win.pt-vaciar-historial")))
+        mod = Gio.Menu()
+        mod.append_section(None, sec((_("Cola de denuncias…"), "win.pt-mod-denuncias"),
+                                     (_("Vídeos bloqueados…"), "win.pt-mod-bloqueados")))
+        adm = Gio.Menu()
+        adm.append_section(None, sec((_("Usuarios…"), "win.pt-admin-usuarios"),
+                                     (_("Solicitudes de registro…"), "win.pt-admin-registros"),
+                                     (_("Federación (instancias)…"), "win.pt-admin-federacion"),
+                                     (_("Trabajos del servidor…"), "win.pt-admin-trabajos"),
+                                     (_("Plugins…"), "win.pt-admin-plugins"),
+                                     (_("Tokens de runners…"), "win.pt-admin-runners")))
+        pt.append_section(None, sec((_("Crear un _directo…"), "win.pt-crear-directo"),
+                                    (_("Estadísticas del _vídeo…"), "win.pt-estadisticas-video"),
+                                    (_("Datos de emisión del directo…"), "win.pt-datos-emision"),
+                                    (_("Sesiones y repeticiones del directo…"), "win.pt-sesiones-directo"),
+                                    (_("Estadísticas de la instancia…"), "win.pt-estadisticas-instancia"),
+                                    (_("Mis denuncias…"), "win.pt-mis-denuncias")))
+        pt.append_submenu(_("_Moderación"), mod)
+        pt.append_submenu(_("_Administración"), adm)
         pt.append_section(None, sec((_("Silenciar la cuenta del autor"), "win.pt-silenciar"),
                                     (_("Silenciar la instancia del autor"), "win.pt-silenciar-instancia"),
                                     (_("_Reportar el vídeo…"), "win.pt-reportar"),

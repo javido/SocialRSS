@@ -55606,3 +55606,273 @@ msgstr "Delete the reason “{t}”?"
 
 msgid "¿Quitar a u/{u}?"
 msgstr "Remove u/{u}?"
+
+msgid "  {p}: {n} espectadores"
+msgstr "  {p}: {n} viewers"
+
+msgid "(con error)"
+msgstr "(with error)"
+
+msgid "Act_ivos"
+msgstr "Act_ive"
+
+msgid "B_orrar"
+msgstr "_Delete"
+
+msgid "Bloquear el vídeo (moderadores)…"
+msgstr "Block the video (moderators)…"
+
+msgid "Cargando las denuncias…"
+msgstr "Loading the reports…"
+
+msgid "Cola de denuncias…"
+msgstr "Report queue…"
+
+msgid "Con_traseña:"
+msgstr "_Password:"
+
+msgid "Copiar la URL R_TMP"
+msgstr "Copy the R_TMP URL"
+
+msgid "Copiar la _clave de emisión"
+msgstr "Copy the stream _key"
+
+msgid "Crear un _directo…"
+msgstr "Create a _live stream…"
+
+msgid "Datos de emisión del directo…"
+msgstr "Live stream broadcast details…"
+
+msgid "Desbloquear el vídeo (moderadores)"
+msgstr "Unblock the video (moderators)"
+
+msgid "Desinstalar"
+msgstr "Uninstall"
+
+msgid "Directo _permanente (puedes emitir varias veces):"
+msgstr "_Permanent live (you can stream several times):"
+
+msgid "El título y el canal son obligatorios"
+msgstr "The title and the channel are required"
+
+msgid "En _espera"
+msgstr "_Waiting"
+
+msgid "Espectadores totales: {n}"
+msgstr "Total viewers: {n}"
+
+msgid "Estadísticas de la instancia…"
+msgstr "Instance statistics…"
+
+msgid "Estadísticas del _vídeo…"
+msgstr "_Video statistics…"
+
+msgid "Estadísticas del vídeo…"
+msgstr "Video statistics…"
+
+msgid "Federación (instancias)…"
+msgstr "Federation (instances)…"
+
+msgid "Guardar la _repetición al terminar:"
+msgstr "Save the _replay when it ends:"
+
+msgid "Latencia: {l}"
+msgstr "Latency: {l}"
+
+msgid "Mis denuncias…"
+msgstr "My reports…"
+
+msgid "No se pudieron cargar las denuncias: {e}"
+msgstr "The reports could not be loaded: {e}"
+
+msgid "No se pudieron cargar las estadísticas: {e}"
+msgstr "The statistics could not be loaded: {e}"
+
+msgid "No se pudieron cargar las sesiones: {e}"
+msgstr "The sessions could not be loaded: {e}"
+
+msgid "No se pudieron cargar los mensajes: {e}"
+msgstr "The messages could not be loaded: {e}"
+
+msgid "No se pudieron cargar los vídeos bloqueados: {e}"
+msgstr "The blocked videos could not be loaded: {e}"
+
+msgid "No se pudieron obtener los datos de emisión: {e}"
+msgstr "The broadcast details could not be obtained: {e}"
+
+msgid "No se pudo crear el directo: {e}"
+msgstr "The live stream could not be created: {e}"
+
+msgid "Pico de espectadores: {n}"
+msgstr "Peak viewers: {n}"
+
+msgid "Plugins…"
+msgstr "Plugins…"
+
+msgid "Rellena el usuario, el correo y la contraseña."
+msgstr "Fill in the user, the email and the password."
+
+msgid "Rol de {u}"
+msgstr "Role of {u}"
+
+msgid "Seguir _instancia…"
+msgstr "Follow _instance…"
+
+msgid "Sesiones y repeticiones del directo…"
+msgstr "Live stream sessions and replays…"
+
+msgid "Sesión del {f}{e}{r}"
+msgstr "Session of {f}{e}{r}"
+
+msgid "Solicitudes de registro…"
+msgstr "Registration requests…"
+
+msgid "Tiempo medio por espectador: {n} segundos"
+msgstr "Average time per viewer: {n} seconds"
+
+msgid "Tiempo total de reproducción: {n} minutos"
+msgstr "Total watch time: {n} minutes"
+
+msgid "Tokens de runners…"
+msgstr "Runner tokens…"
+
+msgid "Trabajos del servidor…"
+msgstr "Server jobs…"
+
+msgid "URL RTMP_S (segura):"
+msgstr "RTMP_S URL (secure):"
+
+msgid "URL del servidor _RTMP:"
+msgstr "_RTMP server URL:"
+
+msgid "Usuarios…"
+msgstr "Users…"
+
+msgid "Ver _siguiendo"
+msgstr "View _following"
+
+msgid "Ver se_guidores"
+msgstr "View fo_llowers"
+
+msgid "Vídeos bloqueados…"
+msgstr "Blocked videos…"
+
+msgid "_Aceptar seguidor"
+msgstr "_Accept follower"
+
+msgid "_Administración"
+msgstr "_Administration"
+
+msgid "_Añadir un mensaje (opcional):"
+msgstr "_Add a message (optional):"
+
+msgid "_Comentario de moderación (opcional):"
+msgstr "_Moderation comment (optional):"
+
+msgid "_Completados"
+msgstr "_Completed"
+
+msgid "_Copiar token"
+msgstr "_Copy token"
+
+msgid "_Correo electrónico:"
+msgstr "_Email:"
+
+msgid "_Cuota de vídeo en GB (-1 = sin límite):"
+msgstr "Video _quota in GB (-1 = unlimited):"
+
+msgid "_Dejar o rechazar"
+msgstr "_Unfollow or reject"
+
+msgid "_Desinstalar"
+msgstr "_Uninstall"
+
+msgid "_Fallidos"
+msgstr "_Failed"
+
+msgid "_Generar nuevo"
+msgstr "_Generate new"
+
+msgid "_Instalar…"
+msgstr "_Install…"
+
+msgid "_Instancia a seguir (host):"
+msgstr "_Instance to follow (host):"
+
+msgid "_Latencia:"
+msgstr "_Latency:"
+
+msgid "_Mensajes…"
+msgstr "_Messages…"
+
+msgid "_Moderación"
+msgstr "_Moderation"
+
+msgid "_Motivo del bloqueo (opcional):"
+msgstr "_Reason for the block (optional):"
+
+msgid "_Nombre del paquete npm del plugin:"
+msgstr "_npm package name of the plugin:"
+
+msgid "_Respuesta al solicitante (opcional):"
+msgstr "_Reply to the applicant (optional):"
+
+msgid "_Rol y cuota…"
+msgstr "_Role and quota…"
+
+msgid "_Rol:"
+msgstr "_Role:"
+
+msgid "_Título del directo:"
+msgstr "_Title of the live stream:"
+
+msgid "activo"
+msgstr "active"
+
+msgid "repetición: {t}"
+msgstr "replay: {t}"
+
+msgid "{h}, {e}"
+msgstr "{h}, {e}"
+
+msgid "{m}. Estado: {s}. Contra {d}. {o}"
+msgstr "{m}. Status: {s}. Against {d}. {o}"
+
+msgid "{n} denuncias"
+msgstr "{n} reports"
+
+msgid "{n} sesiones"
+msgstr "{n} sessions"
+
+msgid "{n} vídeos"
+msgstr "{n} videos"
+
+msgid "{n}, versión {v}, {p}"
+msgstr "{n}, version {v}, {p}"
+
+msgid "{t}, creado {f}"
+msgstr "{t}, created {f}"
+
+msgid "{t}, {s}. {e}"
+msgstr "{t}, {s}. {e}"
+
+msgid "{t}. Motivo: {m}"
+msgstr "{t}. Reason: {m}"
+
+msgid "{u}, {c}, motivo: {m}"
+msgstr "{u}, {c}, reason: {m}"
+
+msgid "{u}, {c}, rol {r}, {e}"
+msgstr "{u}, {c}, role {r}, {e}"
+
+msgid "¿Borrar al usuario «{u}»? Se eliminan sus vídeos y datos."
+msgstr "Delete the user “{u}”? Their videos and data are removed."
+
+msgid "¿Dejar de seguir a {h}?"
+msgstr "Unfollow {h}?"
+
+msgid "¿Desbloquear «{t}»? Volverá a estar disponible."
+msgstr "Unblock “{t}”? It will be available again."
+
+msgid "¿Desinstalar «{n}»?"
+msgstr "Uninstall “{n}”?"

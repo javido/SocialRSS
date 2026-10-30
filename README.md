@@ -199,8 +199,9 @@ guardadas (las mismas claves de configuración que la versión de Windows); los 
 buffers. Intro reproduce el vídeo (suena el audio) y F2 lo pausa. Además: me gusta y no me gusta, suscribirse a canales,
 comentarios con respuestas anidadas, subtítulos como texto, calidad, descargar, ver más tarde, añadir a listas, subir (con
 subida reanudable) e importar vídeos, editar y borrar los tuyos, crear y gestionar listas y canales, notificaciones, silenciar
-cuentas e instancias, reportar y buscar vídeos y canales. Aún faltan los directos propios, las estadísticas, la moderación y la
-administración de la instancia. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
+cuentas e instancias, reportar y buscar vídeos y canales. También: crear directos (con sus datos de emisión, la clave oculta y las sesiones), las estadísticas de un vídeo y de la
+instancia, mis denuncias, y para moderadores y administradores la cola de denuncias, los vídeos bloqueados, los usuarios, las
+solicitudes de registro, la federación, los trabajos, los plugins y los tokens de runners. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
 aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.
 
 **Gestión de feeds RSS** (los mismos servicios y datos que la versión de Windows): menú contextual del árbol (tecla Menú o
