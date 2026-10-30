@@ -124,6 +124,8 @@ def main():
     from app.core.speech import speak
 
     app = wx.App(False)
+    from app.ui.wx_plataforma import registrar as _registrar_wx
+    _registrar_wx()
 
     # 3 pre. Forzar la locale de wxWidgets a ESPAÑOL para que los botones de los
     # diálogos estándar (Aceptar, Cancelar, Sí, No, Guardar...) salgan SIEMPRE en
@@ -341,7 +343,18 @@ def main():
     except Exception:
         pass
 
+def _usar_gtk() -> bool:
+    """En Linux se usa la interfaz GTK 4 (accesible con Orca); SOCIALRSS_UI=wx fuerza wxPython."""
+    eleccion = os.environ.get("SOCIALRSS_UI", "").strip().lower()
+    if eleccion:
+        return eleccion == "gtk"
+    return sys.platform.startswith("linux")
+
+
 if __name__ == "__main__":
+    if _usar_gtk():
+        from app.gtk.main import main as _main_gtk
+        sys.exit(_main_gtk())
     try:
         main()
     except Exception as e:
