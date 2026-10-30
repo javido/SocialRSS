@@ -54245,3 +54245,101 @@ msgstr "What to do with _clickbait headlines?"
 
 msgid "¿Restablecer todas las teclas a sus valores por defecto?"
 msgstr "Reset all keys to their default values?"
+
+msgid "Abrir la página"
+msgstr "Open the page"
+
+msgid "Comprobando actualizaciones…"
+msgstr "Checking for updates…"
+
+msgid "D_estino del hilo:"
+msgstr "Thread _destination:"
+
+msgid "Destinata_rio (usuario o DID):"
+msgstr "Reci_pient (user or DID):"
+
+msgid "Editar la publicación {0}"
+msgstr "Edit post {0}"
+
+msgid "Enviando el hilo por mensaje directo…"
+msgstr "Sending the thread as a direct message…"
+
+msgid "Escribe la cuenta a la que enviar el hilo por mensaje directo."
+msgstr "Type the account to send the thread to by direct message."
+
+msgid "Este artículo no tiene versiones anteriores."
+msgstr "This article has no earlier versions."
+
+msgid ""
+"Hay una versión nueva: {r} (tienes la {l}). ¿Abrir la página de descargas?"
+msgstr "There is a new version: {r} (you have {l}). Open the downloads page?"
+
+msgid "Las publicaciones {0} superan los {1} caracteres. Edítalas."
+msgstr "Posts {0} exceed {1} characters. Edit them."
+
+msgid "Lista de sonidos"
+msgstr "List of sounds"
+
+msgid ""
+"No hay publicaciones privadas: el hilo se enviará como mensajes seguidos de "
+"vuestra conversación. Indica el destinatario."
+msgstr ""
+"There are no private posts: the thread will be sent as consecutive messages "
+"in your conversation. Enter the recipient."
+
+msgid "Nuevo hilo de {r}"
+msgstr "New {r} thread"
+
+msgid "Prueba de _sonidos identificativos…"
+msgstr "Identifying _sounds test…"
+
+msgid "Selecciona un artículo de RSS"
+msgstr "Select an RSS article"
+
+msgid "Versiones (la más reciente primero)"
+msgstr "Versions (most recent first)"
+
+msgid "Vista _previa:"
+msgstr "_Preview:"
+
+msgid "_Buscar actualizaciones…"
+msgstr "Check for _updates…"
+
+msgid "_Dividir en publicaciones"
+msgstr "_Split into posts"
+
+msgid "_Documento completo de teclas"
+msgstr "Full _keys document"
+
+msgid "_Editar la seleccionada"
+msgstr "_Edit the selected one"
+
+msgid "_Invítame a un café si te gusta mi trabajo"
+msgstr "_Buy me a coffee if you like my work"
+
+msgid "_Manual del usuario"
+msgstr "_User manual"
+
+msgid "_Paquete de sonidos:"
+msgstr "Sound _pack:"
+
+msgid "_Quién puede responder:"
+msgstr "_Who can reply:"
+
+msgid "_Texto del hilo (se dividirá en publicaciones de {n}):"
+msgstr "Thread _text (it will be split into posts of {n}):"
+
+msgid "_Versiones anteriores…"
+msgstr "Earlier _versions…"
+
+msgid "revisa tu conexión"
+msgstr "check your connection"
+
+msgid "{0} sonidos. Intro reproduce el elegido."
+msgstr "{0} sounds. Enter plays the chosen one."
+
+msgid "{0} versiones anteriores."
+msgstr "{0} earlier versions."
+
+msgid "Último _changelog"
+msgstr "Latest _changelog"

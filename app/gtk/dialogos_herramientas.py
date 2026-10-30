@@ -1648,3 +1648,78 @@ class DialogoPapelera(DialogoLista):
             notificar(_("Papelera vaciada. {0} artículos borrados.").format(n))
         confirmar_async(self, _("¿Borrar definitivamente todos los artículos de la papelera?"), _hacer,
                         etiqueta_si=_("Vaciar"))
+
+
+# --------------------------------------------------------------------------- versiones anteriores de un artículo
+class DialogoVersionesArticulo(DialogoLista):
+    """Versiones guardadas cuando el medio corrigió la noticia y, para la elegida, qué frases se quitaron y cuáles se
+    añadieron respecto a la versión actual."""
+
+    def __init__(self, padre, article_id: str):
+        from app.services.rss import rss_versiones
+        super().__init__(padre, _("Versiones anteriores del artículo"), _("Versiones (la más reciente primero)"))
+        self._rss_versiones = rss_versiones
+        self.article_id = article_id
+        self.versiones = rss_versiones.listar(article_id)
+        self.cambios = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
+                                    left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        self.cambios.update_property([Gtk.AccessibleProperty.LABEL], [_("Cambios respecto a la versión actual")])
+        marco = Gtk.ScrolledWindow(child=self.cambios, min_content_height=200, has_frame=True)
+        self.get_child().insert_child_after(marco, self.lista)
+        self.lista.poner([f"{fecha.replace('T', ' ')}. {titulo}" for _v, fecha, titulo in self.versiones])
+        self.lista.seleccion.connect("notify::selected", lambda *_a: self._mostrar())
+        self.cerrar_boton()
+        self.mostrar_estado(_("{0} versiones anteriores.").format(len(self.versiones)) if self.versiones
+                            else _("Este artículo no tiene versiones anteriores."))
+        self._mostrar()
+
+    def _mostrar(self):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.versiones):
+            self.cambios.get_buffer().set_text(self._rss_versiones.diferencias(self.article_id, self.versiones[p][0]))
+
+
+# --------------------------------------------------------------------------- prueba de sonidos
+class DialogoPruebaSonidos(DialogoLista):
+    """Elegir un paquete de sonidos y escuchar cada uno con su descripción (Intro lo reproduce)."""
+
+    def __init__(self, padre):
+        from app.services.audio.sound_manager import listar_paquetes_sonido, sonidos_del_paquete
+        super().__init__(padre, _("Prueba de sonidos identificativos"), _("Lista de sonidos"),
+                         al_activar=lambda pos: self._reproducir())
+        self._sonidos_del_paquete = sonidos_del_paquete
+        self.paquetes = listar_paquetes_sonido()
+        self.sonidos = []
+        if len(self.paquetes) > 1:
+            fila = Gtk.Box(spacing=8)
+            self.paquete = Gtk.DropDown.new_from_strings(self.paquetes)
+            actual = config.get("audio", "sound_pack", "default")
+            if actual in self.paquetes:
+                self.paquete.set_selected(self.paquetes.index(actual))
+            etiqueta = Gtk.Label(label=_("_Paquete de sonidos:"), use_underline=True)
+            etiqueta.set_mnemonic_widget(self.paquete)
+            fila.append(etiqueta)
+            fila.append(self.paquete)
+            self.get_child().insert_child_after(fila, None)
+            self.paquete.connect("notify::selected", lambda *_a: self._cargar())
+        else:
+            self.paquete = None
+        self.boton(_("_Reproducir"), self._reproducir)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        pack = self.paquetes[self.paquete.get_selected()] if self.paquete is not None else (
+            self.paquetes[0] if self.paquetes else "default")
+        self.sonidos = self._sonidos_del_paquete(pack)
+        self.lista.poner([f"{desc}. {fname}" for fname, desc, _r in self.sonidos])
+        self.mostrar_estado(_("{0} sonidos. Intro reproduce el elegido.").format(len(self.sonidos)) if self.sonidos
+                            else _("Este paquete no tiene sonidos."))
+
+    def _reproducir(self):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.sonidos):
+            from app.services.audio.sound_manager import sound_manager
+            if not sound_manager._initialized:
+                sound_manager.inicializar()
+            sound_manager.play_file(self.sonidos[p][2])

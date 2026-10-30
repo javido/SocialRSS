@@ -522,7 +522,7 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         accion("ocr-imagen", lambda: acciones_ia.analizar_imagen(self, "ocr"), ["<Ctrl><Shift>o"])
         accion("historial-traducciones", lambda: self._historial("DialogoHistorialTraducciones"))
         accion("historial-ia", lambda: self._historial("DialogoHistorialIA"))
-        accion("nuevo-hilo", lambda: self._dialogo_extra("DialogoHilo"), ["<Ctrl><Shift>n"])
+        accion("nuevo-hilo", self.accion_nuevo_hilo, ["<Ctrl><Shift>n"])
         accion("hilos-guardados", lambda: self._dialogo_extra("DialogoHilos"))
         accion("notif-agrupadas", lambda: self._dialogo_extra("DialogoNotifAgrupadas"))
         accion("notif-politica", lambda: self._dialogo_extra("DialogoPoliticaNotif"))
@@ -1973,6 +1973,17 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
     def _historial(self, nombre: str):
         from . import dialogos_ia
         getattr(dialogos_ia, nombre)(self).present()
+
+    def accion_nuevo_hilo(self):
+        """Un hilo largo: en Bluesky y W Social se divide en publicaciones encadenadas; en Mastodon, en mensajes."""
+        if self._bsky_ctx() or self._ws_ctx():
+            red = "bluesky" if self._bsky_ctx() else "wsocial"
+            acc = self._bsky_cuenta() if red == "bluesky" else self._ws_cuenta()
+            if acc is not None:
+                from .dialogos_hilo import DialogoHiloLargo
+                DialogoHiloLargo(self, acc, red).present()
+            return
+        self._dialogo_extra("DialogoHilo")
 
     def _dialogo_extra(self, nombre: str):
         """Abre uno de los diálogos de dialogos_mastodon_extra para la cuenta activa."""

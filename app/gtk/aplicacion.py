@@ -67,7 +67,8 @@ def _menu() -> Gio.Menu:
     art.append_section(None, sec((_("Descargar el artículo _completo"), "win.texto-completo"),
                                  (_("Abrir en el _navegador"), "win.navegador"),
                                  (_("Copiar el _enlace"), "win.copiar-enlace"),
-                                 (_("Copiar el t_ítulo"), "win.copiar-titulo")))
+                                 (_("Copiar el t_ítulo"), "win.copiar-titulo"),
+                                 (_("_Versiones anteriores…"), "win.rss-versiones")))
     barra.append_submenu(_("A_rtículo"), art)
 
     pub = Gio.Menu()
@@ -126,6 +127,7 @@ def _menu() -> Gio.Menu:
 
     bsky = Gio.Menu()
     bsky.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
+                                  (_("Nuevo _hilo…"), "win.nuevo-hilo"),
                                   (_("_Responder"), "win.responder"),
                                   (_("C_itar"), "win.citar"),
                                   (_("Borrar mi publicación"), "win.papelera")))
@@ -172,6 +174,7 @@ def _menu() -> Gio.Menu:
 
     ws = Gio.Menu()
     ws.append_section(None, sec((_("_Nueva publicación"), "win.nuevo"),
+                                (_("Nuevo _hilo…"), "win.nuevo-hilo"),
                                 (_("_Responder"), "win.responder"),
                                 (_("C_itar"), "win.citar"),
                                 (_("Borrar mi publicación"), "win.papelera")))
@@ -566,7 +569,13 @@ def _menu() -> Gio.Menu:
     barra.append_submenu(_("_Ver"), ver)
 
     ayuda = Gio.Menu()
-    ayuda.append_section(None, sec((_("_Teclas de la aplicación"), "app.teclas"),
+    ayuda.append_section(None, sec((_("_Manual del usuario"), "win.ayuda-manual"),
+                                   (_("_Teclas de la aplicación"), "app.teclas"),
+                                   (_("_Documento completo de teclas"), "win.ayuda-teclas-documento"),
+                                   (_("Último _changelog"), "win.ayuda-changelog"),
+                                   (_("Prueba de _sonidos identificativos…"), "win.ayuda-sonidos")))
+    ayuda.append_section(None, sec((_("_Buscar actualizaciones…"), "win.ayuda-actualizaciones"),
+                                   (_("_Invítame a un café si te gusta mi trabajo"), "win.ayuda-cafe"),
                                    (_("_Acerca de"), "app.acerca")))
     barra.append_submenu(_("A_yuda"), ayuda)
     return barra

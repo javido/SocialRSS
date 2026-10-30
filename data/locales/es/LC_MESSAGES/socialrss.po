@@ -42419,3 +42419,102 @@ msgstr "¿Qué hacer con los titulares _clickbait?"
 
 msgid "¿Restablecer todas las teclas a sus valores por defecto?"
 msgstr "¿Restablecer todas las teclas a sus valores por defecto?"
+
+msgid "Abrir la página"
+msgstr "Abrir la página"
+
+msgid "Comprobando actualizaciones…"
+msgstr "Comprobando actualizaciones…"
+
+msgid "D_estino del hilo:"
+msgstr "D_estino del hilo:"
+
+msgid "Destinata_rio (usuario o DID):"
+msgstr "Destinata_rio (usuario o DID):"
+
+msgid "Editar la publicación {0}"
+msgstr "Editar la publicación {0}"
+
+msgid "Enviando el hilo por mensaje directo…"
+msgstr "Enviando el hilo por mensaje directo…"
+
+msgid "Escribe la cuenta a la que enviar el hilo por mensaje directo."
+msgstr "Escribe la cuenta a la que enviar el hilo por mensaje directo."
+
+msgid "Este artículo no tiene versiones anteriores."
+msgstr "Este artículo no tiene versiones anteriores."
+
+msgid ""
+"Hay una versión nueva: {r} (tienes la {l}). ¿Abrir la página de descargas?"
+msgstr ""
+"Hay una versión nueva: {r} (tienes la {l}). ¿Abrir la página de descargas?"
+
+msgid "Las publicaciones {0} superan los {1} caracteres. Edítalas."
+msgstr "Las publicaciones {0} superan los {1} caracteres. Edítalas."
+
+msgid "Lista de sonidos"
+msgstr "Lista de sonidos"
+
+msgid ""
+"No hay publicaciones privadas: el hilo se enviará como mensajes seguidos de "
+"vuestra conversación. Indica el destinatario."
+msgstr ""
+"No hay publicaciones privadas: el hilo se enviará como mensajes seguidos de "
+"vuestra conversación. Indica el destinatario."
+
+msgid "Nuevo hilo de {r}"
+msgstr "Nuevo hilo de {r}"
+
+msgid "Prueba de _sonidos identificativos…"
+msgstr "Prueba de _sonidos identificativos…"
+
+msgid "Selecciona un artículo de RSS"
+msgstr "Selecciona un artículo de RSS"
+
+msgid "Versiones (la más reciente primero)"
+msgstr "Versiones (la más reciente primero)"
+
+msgid "Vista _previa:"
+msgstr "Vista _previa:"
+
+msgid "_Buscar actualizaciones…"
+msgstr "_Buscar actualizaciones…"
+
+msgid "_Dividir en publicaciones"
+msgstr "_Dividir en publicaciones"
+
+msgid "_Documento completo de teclas"
+msgstr "_Documento completo de teclas"
+
+msgid "_Editar la seleccionada"
+msgstr "_Editar la seleccionada"
+
+msgid "_Invítame a un café si te gusta mi trabajo"
+msgstr "_Invítame a un café si te gusta mi trabajo"
+
+msgid "_Manual del usuario"
+msgstr "_Manual del usuario"
+
+msgid "_Paquete de sonidos:"
+msgstr "_Paquete de sonidos:"
+
+msgid "_Quién puede responder:"
+msgstr "_Quién puede responder:"
+
+msgid "_Texto del hilo (se dividirá en publicaciones de {n}):"
+msgstr "_Texto del hilo (se dividirá en publicaciones de {n}):"
+
+msgid "_Versiones anteriores…"
+msgstr "_Versiones anteriores…"
+
+msgid "revisa tu conexión"
+msgstr "revisa tu conexión"
+
+msgid "{0} sonidos. Intro reproduce el elegido."
+msgstr "{0} sonidos. Intro reproduce el elegido."
+
+msgid "{0} versiones anteriores."
+msgstr "{0} versiones anteriores."
+
+msgid "Último _changelog"
+msgstr "Último _changelog"

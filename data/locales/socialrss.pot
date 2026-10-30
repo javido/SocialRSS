@@ -52537,3 +52537,99 @@ msgstr ""
 
 msgid "¿Restablecer todas las teclas a sus valores por defecto?"
 msgstr ""
+
+msgid "Abrir la página"
+msgstr ""
+
+msgid "Comprobando actualizaciones…"
+msgstr ""
+
+msgid "D_estino del hilo:"
+msgstr ""
+
+msgid "Destinata_rio (usuario o DID):"
+msgstr ""
+
+msgid "Editar la publicación {0}"
+msgstr ""
+
+msgid "Enviando el hilo por mensaje directo…"
+msgstr ""
+
+msgid "Escribe la cuenta a la que enviar el hilo por mensaje directo."
+msgstr ""
+
+msgid "Este artículo no tiene versiones anteriores."
+msgstr ""
+
+msgid ""
+"Hay una versión nueva: {r} (tienes la {l}). ¿Abrir la página de descargas?"
+msgstr ""
+
+msgid "Las publicaciones {0} superan los {1} caracteres. Edítalas."
+msgstr ""
+
+msgid "Lista de sonidos"
+msgstr ""
+
+msgid ""
+"No hay publicaciones privadas: el hilo se enviará como mensajes seguidos de "
+"vuestra conversación. Indica el destinatario."
+msgstr ""
+
+msgid "Nuevo hilo de {r}"
+msgstr ""
+
+msgid "Prueba de _sonidos identificativos…"
+msgstr ""
+
+msgid "Selecciona un artículo de RSS"
+msgstr ""
+
+msgid "Versiones (la más reciente primero)"
+msgstr ""
+
+msgid "Vista _previa:"
+msgstr ""
+
+msgid "_Buscar actualizaciones…"
+msgstr ""
+
+msgid "_Dividir en publicaciones"
+msgstr ""
+
+msgid "_Documento completo de teclas"
+msgstr ""
+
+msgid "_Editar la seleccionada"
+msgstr ""
+
+msgid "_Invítame a un café si te gusta mi trabajo"
+msgstr ""
+
+msgid "_Manual del usuario"
+msgstr ""
+
+msgid "_Paquete de sonidos:"
+msgstr ""
+
+msgid "_Quién puede responder:"
+msgstr ""
+
+msgid "_Texto del hilo (se dividirá en publicaciones de {n}):"
+msgstr ""
+
+msgid "_Versiones anteriores…"
+msgstr ""
+
+msgid "revisa tu conexión"
+msgstr ""
+
+msgid "{0} sonidos. Intro reproduce el elegido."
+msgstr ""
+
+msgid "{0} versiones anteriores."
+msgstr ""
+
+msgid "Último _changelog"
+msgstr ""

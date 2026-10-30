@@ -15,6 +15,13 @@ class _HerramientasMixin:
         accion("herr-migrar", self.herr_migrar)
         accion("herr-borrar", self.herr_borrar)
         accion("herr-registro", self.herr_registro)
+        accion("ayuda-manual", self.ayuda_manual)
+        accion("ayuda-teclas-documento", self.ayuda_teclas_documento)
+        accion("ayuda-changelog", self.ayuda_changelog)
+        accion("ayuda-sonidos", self.ayuda_sonidos)
+        accion("ayuda-actualizaciones", self.ayuda_actualizaciones)
+        accion("ayuda-cafe", self.ayuda_cafe)
+        accion("rss-versiones", self.rss_versiones)
         accion("herr-complementos", self.herr_complementos)
         accion("herr-atajos", self.herr_atajos)
         accion("herr-papelera", self.herr_papelera)
@@ -77,6 +84,14 @@ class _HerramientasMixin:
     def herr_complementos(self):
         from .plugins_ui import DialogoComplementos
         DialogoComplementos(self).present()
+
+    def rss_versiones(self):
+        obj = self._fila_actual()
+        if obj is None or obj.fila.servicio != "rss":
+            self.avisar(_("Selecciona un artículo de RSS"))
+            return
+        from .dialogos_herramientas import DialogoVersionesArticulo
+        DialogoVersionesArticulo(self, obj.fila.id).present()
 
     def herr_registro(self):
         from .dialogos_herramientas import DialogoRegistro
@@ -251,3 +266,64 @@ class _HerramientasMixin:
         texto = descripciones[0] if len(descripciones) == 1 else "\n\n".join(
             _("Imagen {0}: {1}").format(i + 1, d) for i, d in enumerate(descripciones))
         DialogoTextoLargo(self, _("Descripción de la multimedia"), texto).present()
+
+    # ------------------------------------------------------------------ ayuda
+    def ayuda_manual(self):
+        from app.core.documentos import abrir_documento_md
+        if abrir_documento_md("manual", "MANUAL", _("Manual de usuario - SocialRSS"), "manual.html",
+                              _("No se pudo abrir el manual.")):
+            self.avisar(_("Abriendo en el navegador."))
+
+    def ayuda_teclas_documento(self):
+        from app.core.documentos import abrir_documento_md
+        if abrir_documento_md("teclas", "TECLAS", _("Teclas de la aplicación - SocialRSS"), "teclas.html",
+                              _("No se pudo abrir el documento de teclas.")):
+            self.avisar(_("Abriendo en el navegador."))
+
+    def ayuda_changelog(self):
+        import os
+        from app.core.documentos import RAIZ
+        from app.core.paths import get_data_path
+        from .dialogos_mastodon_extra import DialogoTextoLargo
+        for ruta in (str(get_data_path("docs/changelog.txt")), os.path.join(RAIZ, "changelog.txt"),
+                     os.path.join(os.getcwd(), "changelog.txt")):
+            try:
+                if os.path.exists(ruta):
+                    with open(ruta, "r", encoding="utf-8") as fh:
+                        texto = fh.read().strip()
+                    if texto:
+                        DialogoTextoLargo(self, _("Novedades de esta versión"), texto).present()
+                        return
+            except OSError as e:
+                log.debug("No se pudo leer el changelog '%s': %s", ruta, e)
+        self.avisar(_("No se pudo abrir el changelog."))
+
+    def ayuda_sonidos(self):
+        from .dialogos_herramientas import DialogoPruebaSonidos
+        DialogoPruebaSonidos(self).present()
+
+    def ayuda_cafe(self):
+        from app.core.privacy import abrir_url
+        abrir_url("https://www.paypal.com/paypalme/hjbcdonaciones?country.x=ES&locale.x=es_ES")
+        self.avisar(_("Gracias. Se ha abierto la página de donaciones en el navegador."))
+
+    def ayuda_actualizaciones(self):
+        """Comprueba si hay una versión nueva. En Linux no se instala sola: se ofrece abrir la página de descargas."""
+        from app.core.task_manager import task_manager
+        from app.services.updater import update_service as upd
+        from .dialogos import confirmar_async
+        self.avisar(_("Comprobando actualizaciones…"))
+
+        def _fin(remota, err):
+            if err or not remota:
+                self.avisar(_("No se pudo comprobar si hay actualizaciones: {0}").format(err or _("revisa tu conexión")))
+            elif upd.hay_actualizacion(remota):
+                def _abrir():
+                    from app.core.privacy import abrir_url
+                    abrir_url("https://github.com/hxebolax/SocialRSS/releases")
+                confirmar_async(self, _("Hay una versión nueva: {r} (tienes la {l}). ¿Abrir la página de descargas?").format(
+                    r=remota, l=upd.version_local()), _abrir, titulo=_("Actualización disponible"),
+                    etiqueta_si=_("Abrir la página"))
+            else:
+                self.avisar(_("Ya tienes la última versión ({0}).").format(upd.version_local()))
+        task_manager.start_task(lambda ctx: upd.obtener_version_remota(), callback=_fin, pass_context=True)
