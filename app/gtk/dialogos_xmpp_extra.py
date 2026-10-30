@@ -121,6 +121,8 @@ class VentanaConScroll(Gtk.Window):
     def __init__(self, padre, titulo: str, ancho: int = 620, alto: int = 560):
         super().__init__(title=titulo, transient_for=padre, modal=True)
         self.padre = padre
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.set_default_size(ancho, alto)
         raiz = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8, margin_top=10, margin_bottom=10, margin_start=10,
                        margin_end=10)

@@ -351,6 +351,8 @@ class DialogoEstadisticasAdmin(Gtk.Window):
 
     def __init__(self, padre, account_id: int):
         super().__init__(title=_("Administración: estadísticas del servidor"), transient_for=padre, modal=True)
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.padre, self.account_id = padre, account_id
         self.set_default_size(820, 700)
         caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)

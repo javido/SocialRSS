@@ -84,6 +84,8 @@ class DialogoLista(Gtk.Window):
     def __init__(self, padre, titulo: str, nombre_lista: str, al_activar=None):
         super().__init__(title=titulo, transient_for=padre, modal=True)
         self.padre = padre
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.set_default_size(620, 460)
         caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
         for m in ("top", "bottom", "start", "end"):

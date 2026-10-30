@@ -49,6 +49,8 @@ class DialogoWikiReddit(Gtk.Window):
 
     def __init__(self, padre, account_id: int, subreddit: str):
         super().__init__(title=_("Wiki de r/{s}").format(s=subreddit), transient_for=padre, modal=True)
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.padre, self.account_id, self.subreddit = padre, account_id, subreddit
         self.paginas, self.actual = [], None
         self.set_default_size(760, 640)
@@ -271,6 +273,8 @@ class DialogoConversacionModmail(Gtk.Window):
 
     def __init__(self, padre, account_id: int, subreddit: str, conv_id: str, datos: dict):
         super().__init__(title=datos.get("subject") or _("Conversación"), transient_for=padre, modal=True)
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.account_id, self.subreddit, self.conv_id = account_id, subreddit, conv_id
         self.padre = padre
         self.set_default_size(680, 600)

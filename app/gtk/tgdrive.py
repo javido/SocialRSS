@@ -57,6 +57,8 @@ def abrir(padre, account_id: int):
 class VentanaTGDrive(Gtk.Window):
     def __init__(self, padre, account_id: int):
         super().__init__(title=_("Telegram Drive"), transient_for=padre)
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.padre, self.account_id = padre, account_id
         self.svc, self.repo = tgdrive_service, tgdrive_service.repo
         self.carpeta, self.historial, self.pos = None, [None], 0

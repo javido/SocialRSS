@@ -28,6 +28,8 @@ class DialogoBase(Gtk.Window):
     def __init__(self, padre, titulo: str, aceptar: str = None):
         super().__init__(title=titulo, transient_for=padre, modal=True, resizable=False)
         self.padre = padre
+        from .mnemonicos import vigilar
+        vigilar(self)
         caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(14)

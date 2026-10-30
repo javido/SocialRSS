@@ -362,6 +362,8 @@ class DialogoConfigSubreddit(Gtk.Window):
 
     def __init__(self, padre, account_id: int, subreddit: str):
         super().__init__(title=_("Configuración de r/{s}").format(s=subreddit), transient_for=padre, modal=True)
+        from .mnemonicos import vigilar
+        vigilar(self)
         self.padre, self.account_id, self.subreddit = padre, account_id, subreddit
         self.ajustes, self.campos = {}, {}
         self.set_default_size(680, 680)
