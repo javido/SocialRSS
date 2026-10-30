@@ -796,6 +796,77 @@ class _XMPPMixin:
         confirmar_async(self, _("¿Eliminar la cuenta {n} y sus datos de este equipo? La cuenta del servidor no se toca.").format(n=nombre),
                         _hacer, etiqueta_si=_("Eliminar"))
 
+    # ------------------------------------------------------------------ servidor, pasarelas, ficha y cuenta
+    def _x_lista(self):
+        """La cuenta de XMPP conectada sobre la que actuar, o None (avisa de lo que falte)."""
+        acc = self._x_cuenta()
+        if acc is None or not self._x_disponible() or not self._x_conectada(acc):
+            return None
+        return acc
+
+    def x_comandos_servidor(self):
+        acc = self._x_lista()
+        if acc is not None:
+            from .dialogos_xmpp_extra import DialogoComandosXMPP
+            DialogoComandosXMPP(self, acc).present()
+
+    def x_comandos_de(self):
+        acc = self._x_lista()
+        if acc is None:
+            return
+        from .dialogos_xmpp_extra import DialogoComandosXMPP
+        datos = self._x_chat_de_fila()
+        if datos:
+            return DialogoComandosXMPP(self, acc, datos[1], _("Comandos de {j}").format(j=datos[1])).present()
+        self.x_comandos_servidor()
+
+    def x_pasarelas(self):
+        acc = self._x_lista()
+        if acc is not None:
+            from .dialogos_xmpp_extra import DialogoPasarelasXMPP
+            DialogoPasarelasXMPP(self, acc).present()
+
+    def x_buscar_usuarios(self):
+        acc = self._x_lista()
+        if acc is None:
+            return
+
+        def _con(servicio):
+            from .dialogos_xmpp_extra import DialogoBuscarUsuariosXMPP
+            DialogoBuscarUsuariosXMPP(self, acc, servicio).present()
+        d = DialogoTexto(self, _("Buscar usuarios"), _("_Servicio de búsqueda del servidor:"), _con,
+                         _("Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."), _("_Buscar"))
+        d.entrada.set_text("search." + (_servicio().dominio_servidor(acc) or ""))
+        d.present()
+
+    def x_editar_ficha(self):
+        acc = self._x_lista()
+        if acc is None:
+            return
+
+        def _fin(valores, err):
+            from .dialogos_xmpp_extra import DialogoEditarFichaXMPP
+            DialogoEditarFichaXMPP(self, acc, valores or {}).present()
+        ejecutar(lambda: _servicio().mi_vcard_campos(acc), _fin)
+
+    def x_cambiar_contrasena(self):
+        acc = self._x_lista()
+        if acc is not None:
+            from .dialogos_xmpp_extra import cambiar_contrasena
+            cambiar_contrasena(self, acc)
+
+    def x_crear_cuenta_nueva(self):
+        if not self._x_disponible():
+            return
+        from .dialogos_xmpp_extra import crear_cuenta_nueva
+        crear_cuenta_nueva(self, lambda: (self.cargar_arbol(conservar=False), self.iniciar_tiempo_real_xmpp()))
+
+    def x_cancelar_cuenta_servidor(self):
+        acc = self._x_lista()
+        if acc is not None:
+            from .dialogos_xmpp_extra import cancelar_cuenta_servidor
+            cancelar_cuenta_servidor(self, acc, lambda: (datos_xmpp.EXTRA.pop(acc, None), self.cargar_arbol(conservar=False)))
+
     # ------------------------------------------------------------------ refrescos y lectura
     def _x_refrescar_arbol(self):
         """Reconstruye el árbol (el nombre dice si está desconectada y aparecen las pasarelas) sin perder dónde se está."""
@@ -980,3 +1051,11 @@ class _XMPPMixin:
         a("x-invisible", lambda: self.x_invisible(True))
         a("x-visible", lambda: self.x_invisible(False))
         a("x-eliminar-cuenta", self.x_eliminar_cuenta)
+        a("x-comandos-servidor", self.x_comandos_servidor)
+        a("x-comandos-de", self.x_comandos_de)
+        a("x-pasarelas", self.x_pasarelas)
+        a("x-buscar-usuarios", self.x_buscar_usuarios)
+        a("x-editar-ficha", self.x_editar_ficha)
+        a("x-cambiar-contrasena", self.x_cambiar_contrasena)
+        a("x-crear-cuenta-nueva", self.x_crear_cuenta_nueva)
+        a("x-cancelar-cuenta-servidor", self.x_cancelar_cuenta_servidor)

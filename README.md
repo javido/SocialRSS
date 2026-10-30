@@ -155,8 +155,9 @@ reaccionar, destacar, enviar y descargar archivos, reproducir notas de voz y aud
 solicitudes, agregar, renombrar, bloquear y quitar contactos, ficha (vCard) e información técnica, zumbidos,
 salas (unirse, directorio, ocupantes con moderación, tema, salir), fijar, silenciar, archivar, nivel de aviso,
 vaciar y exportar conversaciones, cifrado OMEMO con verificación de huellas, y tu presencia, ánimo y actividad.
-Los mensajes, la presencia y las solicitudes llegan en **tiempo real**. Aún faltan la grabación de notas de voz,
-el registro y la baja de pasarelas, los comandos del servidor y la búsqueda de usuarios.
+Los mensajes, la presencia y las solicitudes llegan en **tiempo real**. También: los comandos del servidor (formularios de
+administración y de bots), las pasarelas (registrarse, comandos, chat y cancelar el registro), la búsqueda de usuarios,
+editar tu ficha, cambiar la contraseña y crear o borrar cuentas en el servidor. Aún falta la grabación de notas de voz.
 **Matrix** (necesita `matrix-nio`; el cifrado necesita además `python-olm`, que hay que compilar con `libolm`): alta con
 usuario y contraseña, inicio de sesión por navegador (servidores con MAS/OAuth) y registro de cuentas nuevas. Cada cuenta
 tiene Salas, Mensajes directos e Invitaciones, y cada sala se abre como un buffer del árbol. Escribir, responder, editar,

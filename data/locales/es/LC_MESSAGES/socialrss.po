@@ -44688,3 +44688,182 @@ msgstr "{n} pendientes"
 
 msgid "¿Borrar este borrador?"
 msgstr "¿Borrar este borrador?"
+
+msgid "Abrir _chat con la pasarela"
+msgstr "Abrir _chat con la pasarela"
+
+msgid "Borrar la cuenta"
+msgstr "Borrar la cuenta"
+
+msgid "Borrar mi cuenta del _servidor…"
+msgstr "Borrar mi cuenta del _servidor…"
+
+msgid "Buscando pasarelas…"
+msgstr "Buscando pasarelas…"
+
+msgid "Buscar _usuarios en el servidor…"
+msgstr "Buscar _usuarios en el servidor…"
+
+msgid "Buscar usuarios en {s}"
+msgstr "Buscar usuarios en {s}"
+
+msgid "C_orreo (opcional, algunos servidores lo piden):"
+msgstr "C_orreo (opcional, algunos servidores lo piden):"
+
+msgid "Cambiar la _contraseña…"
+msgstr "Cambiar la _contraseña…"
+
+msgid "Cancelar el registro"
+msgstr "Cancelar el registro"
+
+msgid "Cancelar re_gistro…"
+msgstr "Cancelar re_gistro…"
+
+msgid "Ce_rrar"
+msgstr "Ce_rrar"
+
+msgid "Comandos de _otro JID…"
+msgstr "Comandos de _otro JID…"
+
+msgid "Comandos de {j}"
+msgstr "Comandos de {j}"
+
+msgid "Comandos de {n}"
+msgstr "Comandos de {n}"
+
+msgid "Comandos del _servidor…"
+msgstr "Comandos del _servidor…"
+
+msgid "Comandos del chat o la pasarela enfocados…"
+msgstr "Comandos del chat o la pasarela enfocados…"
+
+msgid "Consultando los comandos…"
+msgstr "Consultando los comandos…"
+
+msgid "Creando la cuenta…"
+msgstr "Creando la cuenta…"
+
+msgid "Crear una cuenta _nueva en un servidor…"
+msgstr "Crear una cuenta _nueva en un servidor…"
+
+msgid "Editar mi _ficha (vCard)…"
+msgstr "Editar mi _ficha (vCard)…"
+
+msgid "Editar registro en {n}"
+msgstr "Editar registro en {n}"
+
+msgid "El servidor devolvió un error: {e}"
+msgstr "El servidor devolvió un error: {e}"
+
+msgid "Escribe el JID y la contraseña."
+msgstr "Escribe el JID y la contraseña."
+
+msgid "No se pudieron buscar pasarelas: {e}"
+msgstr "No se pudieron buscar pasarelas: {e}"
+
+msgid "No se pudieron listar los comandos: {e}"
+msgstr "No se pudieron listar los comandos: {e}"
+
+msgid "No se pudo abrir la búsqueda: {e}"
+msgstr "No se pudo abrir la búsqueda: {e}"
+
+msgid "No se pudo cancelar la cuenta: {e}"
+msgstr "No se pudo cancelar la cuenta: {e}"
+
+msgid "No se pudo crear la cuenta: {e}"
+msgstr "No se pudo crear la cuenta: {e}"
+
+msgid "No se pudo ejecutar: {e}"
+msgstr "No se pudo ejecutar: {e}"
+
+msgid "No se pudo obtener el registro: {e}"
+msgstr "No se pudo obtener el registro: {e}"
+
+msgid ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+msgstr ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+
+msgid "Registrarse en {n}"
+msgstr "Registrarse en {n}"
+
+msgid ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+msgstr ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+
+msgid "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+msgstr "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+
+msgid "Solicitud enviada a {j}."
+msgstr "Solicitud enviada a {j}."
+
+msgid ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+msgstr ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+
+msgid "_Agregar a mis contactos"
+msgstr "_Agregar a mis contactos"
+
+msgid "_Comandos de la pasarela…"
+msgstr "_Comandos de la pasarela…"
+
+msgid "_Ejecutar"
+msgstr "_Ejecutar"
+
+msgid "_JID (servidor, componente o contacto):"
+msgstr "_JID (servidor, componente o contacto):"
+
+msgid "_JID de la cuenta nueva (usuario@servidor):"
+msgstr "_JID de la cuenta nueva (usuario@servidor):"
+
+msgid "_Pasarelas (WhatsApp, Telegram…)…"
+msgstr "_Pasarelas (WhatsApp, Telegram…)…"
+
+msgid "_Registrarse"
+msgstr "_Registrarse"
+
+msgid "_Registrarse…"
+msgstr "_Registrarse…"
+
+msgid "_Resultados (Intro agrega al contacto):"
+msgstr "_Resultados (Intro agrega al contacto):"
+
+msgid "_Servicio de búsqueda del servidor:"
+msgstr "_Servicio de búsqueda del servidor:"
+
+msgid "{n} comandos"
+msgstr "{n} comandos"
+
+msgid "{n} pasarelas"
+msgstr "{n} pasarelas"
+
+msgid "{n}, red {r}, {j}"
+msgstr "{n}, red {r}, {j}"
+
+msgid "_Siguiente"
+msgstr "_Siguiente"
+
+msgid "_Anterior"
+msgstr "_Anterior"
+
+msgid "_Completar"
+msgstr "_Completar"
+
+msgid "_Cancelar comando"
+msgstr "_Cancelar comando"

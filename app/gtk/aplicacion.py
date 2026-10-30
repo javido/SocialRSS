@@ -528,6 +528,14 @@ def _menu() -> Gio.Menu:
                                 (_("E_xportar la conversación…"), "win.x-exportar")))
     xm.append_section(None, sec((_("Activar o quitar el cifrado _OMEMO"), "win.x-cifrado"),
                                 (_("_Huellas de cifrado OMEMO…"), "win.x-huellas")))
+    xm.append_section(None, sec((_("Comandos del _servidor…"), "win.x-comandos-servidor"),
+                                (_("Comandos del chat o la pasarela enfocados…"), "win.x-comandos-de"),
+                                (_("_Pasarelas (WhatsApp, Telegram…)…"), "win.x-pasarelas"),
+                                (_("Buscar _usuarios en el servidor…"), "win.x-buscar-usuarios")))
+    xm.append_section(None, sec((_("Editar mi _ficha (vCard)…"), "win.x-editar-ficha"),
+                                (_("Cambiar la _contraseña…"), "win.x-cambiar-contrasena"),
+                                (_("Crear una cuenta _nueva en un servidor…"), "win.x-crear-cuenta-nueva"),
+                                (_("Borrar mi cuenta del _servidor…"), "win.x-cancelar-cuenta-servidor")))
     xm.append_section(None, sec((_("Mi _presencia…"), "win.x-presencia"),
                                 (_("Mi estado de á_nimo…"), "win.x-animo"),
                                 (_("Mi activi_dad…"), "win.x-actividad"),

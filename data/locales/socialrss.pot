@@ -54744,3 +54744,172 @@ msgstr ""
 
 msgid "¿Borrar este borrador?"
 msgstr ""
+
+msgid "Abrir _chat con la pasarela"
+msgstr ""
+
+msgid "Borrar la cuenta"
+msgstr ""
+
+msgid "Borrar mi cuenta del _servidor…"
+msgstr ""
+
+msgid "Buscando pasarelas…"
+msgstr ""
+
+msgid "Buscar _usuarios en el servidor…"
+msgstr ""
+
+msgid "Buscar usuarios en {s}"
+msgstr ""
+
+msgid "C_orreo (opcional, algunos servidores lo piden):"
+msgstr ""
+
+msgid "Cambiar la _contraseña…"
+msgstr ""
+
+msgid "Cancelar el registro"
+msgstr ""
+
+msgid "Cancelar re_gistro…"
+msgstr ""
+
+msgid "Ce_rrar"
+msgstr ""
+
+msgid "Comandos de _otro JID…"
+msgstr ""
+
+msgid "Comandos de {j}"
+msgstr ""
+
+msgid "Comandos de {n}"
+msgstr ""
+
+msgid "Comandos del _servidor…"
+msgstr ""
+
+msgid "Comandos del chat o la pasarela enfocados…"
+msgstr ""
+
+msgid "Consultando los comandos…"
+msgstr ""
+
+msgid "Creando la cuenta…"
+msgstr ""
+
+msgid "Crear una cuenta _nueva en un servidor…"
+msgstr ""
+
+msgid "Editar mi _ficha (vCard)…"
+msgstr ""
+
+msgid "Editar registro en {n}"
+msgstr ""
+
+msgid "El servidor devolvió un error: {e}"
+msgstr ""
+
+msgid "Escribe el JID y la contraseña."
+msgstr ""
+
+msgid "No se pudieron buscar pasarelas: {e}"
+msgstr ""
+
+msgid "No se pudieron listar los comandos: {e}"
+msgstr ""
+
+msgid "No se pudo abrir la búsqueda: {e}"
+msgstr ""
+
+msgid "No se pudo cancelar la cuenta: {e}"
+msgstr ""
+
+msgid "No se pudo crear la cuenta: {e}"
+msgstr ""
+
+msgid "No se pudo ejecutar: {e}"
+msgstr ""
+
+msgid "No se pudo obtener el registro: {e}"
+msgstr ""
+
+msgid ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+msgstr ""
+
+msgid "Registrarse en {n}"
+msgstr ""
+
+msgid ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+msgstr ""
+
+msgid "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+msgstr ""
+
+msgid "Solicitud enviada a {j}."
+msgstr ""
+
+msgid ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+msgstr ""
+
+msgid "_Agregar a mis contactos"
+msgstr ""
+
+msgid "_Comandos de la pasarela…"
+msgstr ""
+
+msgid "_Ejecutar"
+msgstr ""
+
+msgid "_JID (servidor, componente o contacto):"
+msgstr ""
+
+msgid "_JID de la cuenta nueva (usuario@servidor):"
+msgstr ""
+
+msgid "_Pasarelas (WhatsApp, Telegram…)…"
+msgstr ""
+
+msgid "_Registrarse"
+msgstr ""
+
+msgid "_Registrarse…"
+msgstr ""
+
+msgid "_Resultados (Intro agrega al contacto):"
+msgstr ""
+
+msgid "_Servicio de búsqueda del servidor:"
+msgstr ""
+
+msgid "{n} comandos"
+msgstr ""
+
+msgid "{n} pasarelas"
+msgstr ""
+
+msgid "{n}, red {r}, {j}"
+msgstr ""
+
+msgid "_Siguiente"
+msgstr ""
+
+msgid "_Anterior"
+msgstr ""
+
+msgid "_Completar"
+msgstr ""
+
+msgid "_Cancelar comando"
+msgstr ""

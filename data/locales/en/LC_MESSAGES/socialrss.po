@@ -56504,3 +56504,181 @@ msgstr "{n} pending"
 
 msgid "¿Borrar este borrador?"
 msgstr "Delete this draft?"
+
+msgid "Abrir _chat con la pasarela"
+msgstr "Open _chat with the gateway"
+
+msgid "Borrar la cuenta"
+msgstr "Delete the account"
+
+msgid "Borrar mi cuenta del _servidor…"
+msgstr "Delete my account from the _server…"
+
+msgid "Buscando pasarelas…"
+msgstr "Looking for gateways…"
+
+msgid "Buscar _usuarios en el servidor…"
+msgstr "Search _users on the server…"
+
+msgid "Buscar usuarios en {s}"
+msgstr "Search users on {s}"
+
+msgid "C_orreo (opcional, algunos servidores lo piden):"
+msgstr "_Email (optional, some servers ask for it):"
+
+msgid "Cambiar la _contraseña…"
+msgstr "Change the _password…"
+
+msgid "Cancelar el registro"
+msgstr "Cancel the registration"
+
+msgid "Cancelar re_gistro…"
+msgstr "Cancel re_gistration…"
+
+msgid "Ce_rrar"
+msgstr "C_lose"
+
+msgid "Comandos de _otro JID…"
+msgstr "Commands of _another JID…"
+
+msgid "Comandos de {j}"
+msgstr "Commands of {j}"
+
+msgid "Comandos de {n}"
+msgstr "Commands of {n}"
+
+msgid "Comandos del _servidor…"
+msgstr "_Server commands…"
+
+msgid "Comandos del chat o la pasarela enfocados…"
+msgstr "Commands of the focused chat or gateway…"
+
+msgid "Consultando los comandos…"
+msgstr "Checking the commands…"
+
+msgid "Creando la cuenta…"
+msgstr "Creating the account…"
+
+msgid "Crear una cuenta _nueva en un servidor…"
+msgstr "Create a _new account on a server…"
+
+msgid "Editar mi _ficha (vCard)…"
+msgstr "Edit my _card (vCard)…"
+
+msgid "Editar registro en {n}"
+msgstr "Edit registration on {n}"
+
+msgid "El servidor devolvió un error: {e}"
+msgstr "The server returned an error: {e}"
+
+msgid "Escribe el JID y la contraseña."
+msgstr "Write the JID and the password."
+
+msgid "No se pudieron buscar pasarelas: {e}"
+msgstr "Gateways could not be searched: {e}"
+
+msgid "No se pudieron listar los comandos: {e}"
+msgstr "The commands could not be listed: {e}"
+
+msgid "No se pudo abrir la búsqueda: {e}"
+msgstr "The search could not be opened: {e}"
+
+msgid "No se pudo cancelar la cuenta: {e}"
+msgstr "The account could not be cancelled: {e}"
+
+msgid "No se pudo crear la cuenta: {e}"
+msgstr "The account could not be created: {e}"
+
+msgid "No se pudo ejecutar: {e}"
+msgstr "It could not be run: {e}"
+
+msgid "No se pudo obtener el registro: {e}"
+msgstr "The registration could not be obtained: {e}"
+
+msgid ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+msgstr ""
+"To link your WhatsApp account: press “Register”; then open the chat with the"
+" gateway, where the QR code arrives (as text or image) and, on the phone, "
+"Settings, Linked devices, Link a device. You can also pair by number with "
+"the “pair-phone” command in “Gateway commands”."
+
+msgid "Registrarse en {n}"
+msgstr "Register on {n}"
+
+msgid ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+msgstr ""
+"Registration sent. If the gateway asks for pairing (for example the WhatsApp"
+" code), open it in “Gateway commands” or in the chat with the gateway: the "
+"code appears as text."
+
+msgid "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+msgstr "If you do not know it, try the suggested one or “vjud.your-server”."
+
+msgid "Solicitud enviada a {j}."
+msgstr "Request sent to {j}."
+
+msgid ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+msgstr ""
+"You are about to cancel your registration on {n}. You will stop using that "
+"gateway and its contacts will disappear from your list. Are you sure?"
+
+msgid "_Agregar a mis contactos"
+msgstr "_Add to my contacts"
+
+msgid "_Comandos de la pasarela…"
+msgstr "Gateway _commands…"
+
+msgid "_Ejecutar"
+msgstr "_Run"
+
+msgid "_JID (servidor, componente o contacto):"
+msgstr "_JID (server, component or contact):"
+
+msgid "_JID de la cuenta nueva (usuario@servidor):"
+msgstr "_JID of the new account (user@server):"
+
+msgid "_Pasarelas (WhatsApp, Telegram…)…"
+msgstr "_Gateways (WhatsApp, Telegram…)…"
+
+msgid "_Registrarse"
+msgstr "_Register"
+
+msgid "_Registrarse…"
+msgstr "_Register…"
+
+msgid "_Resultados (Intro agrega al contacto):"
+msgstr "_Results (Enter adds the contact):"
+
+msgid "_Servicio de búsqueda del servidor:"
+msgstr "Server _search service:"
+
+msgid "{n} comandos"
+msgstr "{n} commands"
+
+msgid "{n} pasarelas"
+msgstr "{n} gateways"
+
+msgid "{n}, red {r}, {j}"
+msgstr "{n}, network {r}, {j}"
+
+msgid "_Siguiente"
+msgstr "_Next"
+
+msgid "_Anterior"
+msgstr "_Previous"
+
+msgid "_Completar"
+msgstr "_Complete"
+
+msgid "_Cancelar comando"
+msgstr "_Cancel command"
