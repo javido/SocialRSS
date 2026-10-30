@@ -432,6 +432,57 @@ class _RedditMixin:
             from .dialogos_reddit_avanzado import DialogoBorradoresReddit
             DialogoBorradoresReddit(self, acc).present()
 
+    # ------------------------------------------------------------------ moderación
+    def _rd_elegir_subreddit_que_modero(self, titulo: str, fn):
+        """Carga los subreddits que modera la cuenta y entrega el elegido a `fn(cuenta, subreddit)` (si solo modera uno, ese)."""
+        acc = self._rd_cuenta()
+        if acc is None:
+            return
+        self.avisar(_("Cargando los subreddits que moderas…"))
+
+        def _fin(subs, err):
+            if err:
+                self.avisar(_("No se pudo obtener la lista de subreddits que moderas: {e}").format(e=err))
+                return
+            if not subs:
+                self.avisar(_("No moderas ningún subreddit con esta cuenta."))
+            elif len(subs) == 1:
+                fn(acc, subs[0])
+            else:
+                DialogoElegir(self, titulo, _("_Subreddit:"), subs, lambda i: fn(acc, subs[i])).present()
+        ejecutar(lambda: reddit_service.subreddits_que_modero(acc), _fin)
+
+    def rd_mod_cola(self):
+        from .dialogos_reddit_moderacion import DialogoColaModReddit
+        self._rd_elegir_subreddit_que_modero(_("Cola de moderación"), lambda a, s: DialogoColaModReddit(self, a, s).present())
+
+    def rd_mod_usuarios(self):
+        from .dialogos_reddit_moderacion import DialogoUsuariosModReddit
+        self._rd_elegir_subreddit_que_modero(_("Usuarios del subreddit"),
+                                             lambda a, s: DialogoUsuariosModReddit(self, a, s).present())
+
+    def rd_mod_motivos(self):
+        from .dialogos_reddit_moderacion import DialogoMotivosModReddit
+        self._rd_elegir_subreddit_que_modero(_("Motivos de eliminación"),
+                                             lambda a, s: DialogoMotivosModReddit(self, a, s).present())
+
+    def rd_mod_config(self):
+        from .dialogos_reddit_moderacion import DialogoConfigSubreddit
+        self._rd_elegir_subreddit_que_modero(_("Configuración del subreddit"),
+                                             lambda a, s: DialogoConfigSubreddit(self, a, s).present())
+
+    def rd_mod_registro(self):
+        from .dialogos_reddit_moderacion import ver_registro
+        self._rd_elegir_subreddit_que_modero(_("Registro de moderación"), lambda a, s: ver_registro(self, a, s))
+
+    def rd_moderar_fila(self):
+        """Acciones de moderación sobre la publicación o el comentario enfocado."""
+        obj = self._rd_obj(("post", "comentario"))
+        if obj:
+            from .dialogos_reddit_moderacion import moderar_elemento
+            x = obj.fila.extra
+            moderar_elemento(self, x["account_id"], x["fullname"], x["tipo"] == "comentario")
+
     def rd_abrir_usuario(self, account_id: int, usuario: str):
         self._abrir_buffer(account_id, f"user:{usuario}", datos_reddit.titulo_buffer(f"user:{usuario}"), servicio="reddit")
 
@@ -676,7 +727,8 @@ class _RedditMixin:
             if tipo == "post":
                 lista += [(_("Marcar o quitar +18"), "win.rd-nsfw"), (_("Marcar o quitar spoiler"), "win.rd-spoiler"),
                           (_("Etiqueta (flair)…"), "win.rd-flair")]
-        lista += [(_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace")]
+        lista += [(_("Moderar…"), "win.rd-moderar"), (_("Abrir en el navegador"), "win.navegador"),
+                  (_("Copiar el enlace"), "win.copiar-enlace")]
         return tuple(lista)
 
     def _registrar_acciones_reddit(self, accion):
@@ -692,6 +744,12 @@ class _RedditMixin:
         a("rd-wiki", self.rd_wiki)
         a("rd-modmail", self.rd_modmail)
         a("rd-live", self.rd_live)
+        a("rd-mod-cola", self.rd_mod_cola)
+        a("rd-mod-usuarios", self.rd_mod_usuarios)
+        a("rd-mod-motivos", self.rd_mod_motivos)
+        a("rd-mod-config", self.rd_mod_config)
+        a("rd-mod-registro", self.rd_mod_registro)
+        a("rd-moderar", self.rd_moderar_fila)
         a("rd-colecciones", self.rd_colecciones)
         a("rd-borradores", self.rd_borradores)
         a("rd-buscar", self.rd_buscar)

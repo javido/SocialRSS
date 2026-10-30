@@ -53729,3 +53729,126 @@ msgstr ""
 
 msgid "¿Publicar el borrador «{t}»?"
 msgstr ""
+
+msgid "A_brir en el navegador"
+msgstr ""
+
+msgid "Acciones de moderación"
+msgstr ""
+
+msgid "Banear en r/{s}"
+msgstr ""
+
+msgid "Cargando la configuración…"
+msgstr ""
+
+msgid "Cargando los subreddits que moderas…"
+msgstr ""
+
+msgid "Cola de moderación…"
+msgstr ""
+
+msgid "Configuración de r/{s}"
+msgstr ""
+
+msgid "Configuración del subreddit…"
+msgstr ""
+
+msgid "Elige un moderador"
+msgstr ""
+
+msgid "Enviar un mensaje de eliminación…"
+msgstr ""
+
+msgid "Me_nsaje para el usuario (opcional):"
+msgstr ""
+
+msgid "Moderación de r/{s}"
+msgstr ""
+
+msgid "Moderar el elemento enfo_cado…"
+msgstr ""
+
+msgid "Moderar…"
+msgstr ""
+
+msgid "Motivos de eliminación de r/{s}"
+msgstr ""
+
+msgid "Motivos de eliminación…"
+msgstr ""
+
+msgid "No se pudieron cargar los motivos: {e}"
+msgstr ""
+
+msgid "No se pudo cargar el registro: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la cola: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la configuración: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la lista: {e}"
+msgstr ""
+
+msgid "No se pudo obtener la lista de subreddits que moderas: {e}"
+msgstr ""
+
+msgid "Nota _interna (opcional):"
+msgstr ""
+
+msgid "Permisos de u/{u}"
+msgstr ""
+
+msgid "Registro de moderación…"
+msgstr ""
+
+msgid "Registro de r/{s}"
+msgstr ""
+
+msgid "Usuarios de r/{s}"
+msgstr ""
+
+msgid "Usuarios del subreddit…"
+msgstr ""
+
+msgid "_Duración en días (0 = permanente):"
+msgstr ""
+
+msgid "_Motivo que se enviará al autor:"
+msgstr ""
+
+msgid "_Más acciones…"
+msgstr ""
+
+msgid "_Permisos…"
+msgstr ""
+
+msgid "_Usuario (sin u/):"
+msgstr ""
+
+msgid "u/{u}. {d}"
+msgstr ""
+
+msgid "{f}, u/{m}: {a} {d}"
+msgstr ""
+
+msgid "{n} acciones"
+msgstr ""
+
+msgid "{n} motivos"
+msgstr ""
+
+msgid "{t} de u/{a}. {c}. {r} reportes. {f}"
+msgstr ""
+
+msgid "{t}. {m}"
+msgstr ""
+
+msgid "¿Borrar el motivo «{t}»?"
+msgstr ""
+
+msgid "¿Quitar a u/{u}?"
+msgstr ""

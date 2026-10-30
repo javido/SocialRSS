@@ -55483,3 +55483,126 @@ msgstr "Delete the collection “{t}”?"
 
 msgid "¿Publicar el borrador «{t}»?"
 msgstr "Post the draft “{t}”?"
+
+msgid "A_brir en el navegador"
+msgstr "Open in the _browser"
+
+msgid "Acciones de moderación"
+msgstr "Moderation actions"
+
+msgid "Banear en r/{s}"
+msgstr "Ban in r/{s}"
+
+msgid "Cargando la configuración…"
+msgstr "Loading the settings…"
+
+msgid "Cargando los subreddits que moderas…"
+msgstr "Loading the subreddits you moderate…"
+
+msgid "Cola de moderación…"
+msgstr "Moderation queue…"
+
+msgid "Configuración de r/{s}"
+msgstr "Settings of r/{s}"
+
+msgid "Configuración del subreddit…"
+msgstr "Subreddit settings…"
+
+msgid "Elige un moderador"
+msgstr "Choose a moderator"
+
+msgid "Enviar un mensaje de eliminación…"
+msgstr "Send a removal message…"
+
+msgid "Me_nsaje para el usuario (opcional):"
+msgstr "Me_ssage for the user (optional):"
+
+msgid "Moderación de r/{s}"
+msgstr "Moderation of r/{s}"
+
+msgid "Moderar el elemento enfo_cado…"
+msgstr "Moderate the _focused item…"
+
+msgid "Moderar…"
+msgstr "Moderate…"
+
+msgid "Motivos de eliminación de r/{s}"
+msgstr "Removal reasons of r/{s}"
+
+msgid "Motivos de eliminación…"
+msgstr "Removal reasons…"
+
+msgid "No se pudieron cargar los motivos: {e}"
+msgstr "The reasons could not be loaded: {e}"
+
+msgid "No se pudo cargar el registro: {e}"
+msgstr "The log could not be loaded: {e}"
+
+msgid "No se pudo cargar la cola: {e}"
+msgstr "The queue could not be loaded: {e}"
+
+msgid "No se pudo cargar la configuración: {e}"
+msgstr "The settings could not be loaded: {e}"
+
+msgid "No se pudo cargar la lista: {e}"
+msgstr "The list could not be loaded: {e}"
+
+msgid "No se pudo obtener la lista de subreddits que moderas: {e}"
+msgstr "The list of subreddits you moderate could not be obtained: {e}"
+
+msgid "Nota _interna (opcional):"
+msgstr "_Internal note (optional):"
+
+msgid "Permisos de u/{u}"
+msgstr "Permissions of u/{u}"
+
+msgid "Registro de moderación…"
+msgstr "Moderation log…"
+
+msgid "Registro de r/{s}"
+msgstr "Log of r/{s}"
+
+msgid "Usuarios de r/{s}"
+msgstr "Users of r/{s}"
+
+msgid "Usuarios del subreddit…"
+msgstr "Subreddit users…"
+
+msgid "_Duración en días (0 = permanente):"
+msgstr "_Duration in days (0 = permanent):"
+
+msgid "_Motivo que se enviará al autor:"
+msgstr "_Reason that will be sent to the author:"
+
+msgid "_Más acciones…"
+msgstr "_More actions…"
+
+msgid "_Permisos…"
+msgstr "_Permissions…"
+
+msgid "_Usuario (sin u/):"
+msgstr "_User (without u/):"
+
+msgid "u/{u}. {d}"
+msgstr "u/{u}. {d}"
+
+msgid "{f}, u/{m}: {a} {d}"
+msgstr "{f}, u/{m}: {a} {d}"
+
+msgid "{n} acciones"
+msgstr "{n} actions"
+
+msgid "{n} motivos"
+msgstr "{n} reasons"
+
+msgid "{t} de u/{a}. {c}. {r} reportes. {f}"
+msgstr "{t} by u/{a}. {c}. {r} reports. {f}"
+
+msgid "{t}. {m}"
+msgstr "{t}. {m}"
+
+msgid "¿Borrar el motivo «{t}»?"
+msgstr "Delete the reason “{t}”?"
+
+msgid "¿Quitar a u/{u}?"
+msgstr "Remove u/{u}?"

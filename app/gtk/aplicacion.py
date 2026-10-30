@@ -312,6 +312,12 @@ def _menu() -> Gio.Menu:
                                     (_("_Fijar el subreddit en el árbol"), "win.rd-fijar"),
                                     (_("Mensaje privado al autor…"), "win.rd-mensaje-autor"),
                                     (_("Marcar la bandeja como _leída"), "win.marcar-todo-leido")))
+        rd.append_section(None, sec((_("Moderar el elemento enfo_cado…"), "win.rd-moderar"),
+                                    (_("Cola de moderación…"), "win.rd-mod-cola"),
+                                    (_("Usuarios del subreddit…"), "win.rd-mod-usuarios"),
+                                    (_("Motivos de eliminación…"), "win.rd-mod-motivos"),
+                                    (_("Configuración del subreddit…"), "win.rd-mod-config"),
+                                    (_("Registro de moderación…"), "win.rd-mod-registro")))
         rd.append_section(None, sec((_("_Wiki de un subreddit…"), "win.rd-wiki"),
                                     (_("_Modmail…"), "win.rd-modmail"),
                                     (_("Hilos en _directo…"), "win.rd-live"),

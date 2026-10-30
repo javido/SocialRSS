@@ -43666,3 +43666,126 @@ msgstr "¿Borrar la colección «{t}»?"
 
 msgid "¿Publicar el borrador «{t}»?"
 msgstr "¿Publicar el borrador «{t}»?"
+
+msgid "A_brir en el navegador"
+msgstr "A_brir en el navegador"
+
+msgid "Acciones de moderación"
+msgstr "Acciones de moderación"
+
+msgid "Banear en r/{s}"
+msgstr "Banear en r/{s}"
+
+msgid "Cargando la configuración…"
+msgstr "Cargando la configuración…"
+
+msgid "Cargando los subreddits que moderas…"
+msgstr "Cargando los subreddits que moderas…"
+
+msgid "Cola de moderación…"
+msgstr "Cola de moderación…"
+
+msgid "Configuración de r/{s}"
+msgstr "Configuración de r/{s}"
+
+msgid "Configuración del subreddit…"
+msgstr "Configuración del subreddit…"
+
+msgid "Elige un moderador"
+msgstr "Elige un moderador"
+
+msgid "Enviar un mensaje de eliminación…"
+msgstr "Enviar un mensaje de eliminación…"
+
+msgid "Me_nsaje para el usuario (opcional):"
+msgstr "Me_nsaje para el usuario (opcional):"
+
+msgid "Moderación de r/{s}"
+msgstr "Moderación de r/{s}"
+
+msgid "Moderar el elemento enfo_cado…"
+msgstr "Moderar el elemento enfo_cado…"
+
+msgid "Moderar…"
+msgstr "Moderar…"
+
+msgid "Motivos de eliminación de r/{s}"
+msgstr "Motivos de eliminación de r/{s}"
+
+msgid "Motivos de eliminación…"
+msgstr "Motivos de eliminación…"
+
+msgid "No se pudieron cargar los motivos: {e}"
+msgstr "No se pudieron cargar los motivos: {e}"
+
+msgid "No se pudo cargar el registro: {e}"
+msgstr "No se pudo cargar el registro: {e}"
+
+msgid "No se pudo cargar la cola: {e}"
+msgstr "No se pudo cargar la cola: {e}"
+
+msgid "No se pudo cargar la configuración: {e}"
+msgstr "No se pudo cargar la configuración: {e}"
+
+msgid "No se pudo cargar la lista: {e}"
+msgstr "No se pudo cargar la lista: {e}"
+
+msgid "No se pudo obtener la lista de subreddits que moderas: {e}"
+msgstr "No se pudo obtener la lista de subreddits que moderas: {e}"
+
+msgid "Nota _interna (opcional):"
+msgstr "Nota _interna (opcional):"
+
+msgid "Permisos de u/{u}"
+msgstr "Permisos de u/{u}"
+
+msgid "Registro de moderación…"
+msgstr "Registro de moderación…"
+
+msgid "Registro de r/{s}"
+msgstr "Registro de r/{s}"
+
+msgid "Usuarios de r/{s}"
+msgstr "Usuarios de r/{s}"
+
+msgid "Usuarios del subreddit…"
+msgstr "Usuarios del subreddit…"
+
+msgid "_Duración en días (0 = permanente):"
+msgstr "_Duración en días (0 = permanente):"
+
+msgid "_Motivo que se enviará al autor:"
+msgstr "_Motivo que se enviará al autor:"
+
+msgid "_Más acciones…"
+msgstr "_Más acciones…"
+
+msgid "_Permisos…"
+msgstr "_Permisos…"
+
+msgid "_Usuario (sin u/):"
+msgstr "_Usuario (sin u/):"
+
+msgid "u/{u}. {d}"
+msgstr "u/{u}. {d}"
+
+msgid "{f}, u/{m}: {a} {d}"
+msgstr "{f}, u/{m}: {a} {d}"
+
+msgid "{n} acciones"
+msgstr "{n} acciones"
+
+msgid "{n} motivos"
+msgstr "{n} motivos"
+
+msgid "{t} de u/{a}. {c}. {r} reportes. {f}"
+msgstr "{t} de u/{a}. {c}. {r} reportes. {f}"
+
+msgid "{t}. {m}"
+msgstr "{t}. {m}"
+
+msgid "¿Borrar el motivo «{t}»?"
+msgstr "¿Borrar el motivo «{t}»?"
+
+msgid "¿Quitar a u/{u}?"
+msgstr "¿Quitar a u/{u}?"
