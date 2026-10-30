@@ -32,7 +32,7 @@ abre el menú completo. En la bandeja actúa sobre la red de origen de cada publ
 
 **Reordenar el árbol:** con el foco en el árbol, Ctrl+Arriba y Ctrl+Abajo mueven el elemento elegido: los servicios, las cuentas,
 los buffers de cada red (el orden vale para todas sus cuentas), los buffers fijos de RSS, las categorías y los feeds (los feeds
-fijados siempre van arriba) y los buffers abiertos en la sesión. El orden se guarda en la misma configuración que usa Windows.
+fijados siempre van arriba) y los buffers abiertos en la sesión (menos las conversaciones, cronologías y búsquedas de Mastodon, Bluesky y W Social, que se conservan entre sesiones y se reordenan dentro de su grupo). El orden se guarda en la misma configuración que usa Windows.
 
 **Bandeja de entrada unificada**: un único buffer con lo importante de varias redes.
 - **Cada red, completa**:

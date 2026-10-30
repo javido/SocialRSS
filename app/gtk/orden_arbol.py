@@ -212,6 +212,9 @@ class _OrdenMixin:
         return True
 
     def _mover_extra(self, n: Nodo, subir: bool) -> bool:
+        from . import buffers_guardados
+        if buffers_guardados.guarda(n.servicio, n.timeline):
+            return buffers_guardados.mover(n.servicio, n.account_id, n.timeline, subir)
         modulo = _MODULOS.get(n.servicio)
         lista = getattr(modulo, "EXTRA", {}).get(n.account_id) if modulo else None
         if not lista or n not in lista:

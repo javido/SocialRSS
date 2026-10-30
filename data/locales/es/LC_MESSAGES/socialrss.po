@@ -43441,3 +43441,6 @@ msgstr "[Reposteado por {0}] "
 
 msgid "_Editor de plantillas de lectura…"
 msgstr "_Editor de plantillas de lectura…"
+
+msgid "Conversación: {t}"
+msgstr "Conversación: {t}"

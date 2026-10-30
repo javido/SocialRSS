@@ -53504,3 +53504,6 @@ msgstr ""
 
 msgid "_Editor de plantillas de lectura…"
 msgstr ""
+
+msgid "Conversación: {t}"
+msgstr ""

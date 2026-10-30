@@ -10,6 +10,7 @@ import logging
 from typing import Dict, List, Optional
 
 from app.core.database import db
+from . import buffers_guardados
 from .datos import Nodo, Fila, buffer_oculto
 from .filtros_contenido import sin_ocultas
 from .lectura import campos_post_at, con_plantilla, describir_adjuntos_at, notificacion
@@ -59,12 +60,17 @@ def construir_nodos() -> Nodo:
             if buffer_oculto("wsocial", clave):
                 continue
             cuenta.hijos.append(Nodo(_(titulo), "timeline", servicio="wsocial", account_id=acc_id, timeline=clave))
+        cuenta.hijos.extend(buffers_guardados.nodos("wsocial", acc_id))
         cuenta.hijos.extend(EXTRA.get(acc_id, []))
         raiz.hijos.append(cuenta)
     return raiz
 
 
 def nodo_extra(account_id: int, timeline: str, titulo: str) -> Nodo:
+    """Crea (o recupera) un buffer abierto por el usuario; conversaciones, cronologías y búsquedas se guardan."""
+    if buffers_guardados.guarda("wsocial", timeline):
+        titulo = buffers_guardados.guardar("wsocial", account_id, timeline, titulo)
+        return next(n for n in buffers_guardados.nodos("wsocial", account_id) if n.timeline == timeline)
     for n in EXTRA.setdefault(account_id, []):
         if n.timeline == timeline:
             return n
@@ -74,6 +80,8 @@ def nodo_extra(account_id: int, timeline: str, titulo: str) -> Nodo:
 
 
 def cerrar_extra(nodo: Nodo):
+    if buffers_guardados.guarda("wsocial", nodo.timeline):
+        return buffers_guardados.quitar("wsocial", nodo.account_id, nodo.timeline)
     lista = EXTRA.get(nodo.account_id, [])
     if nodo in lista:
         lista.remove(nodo)

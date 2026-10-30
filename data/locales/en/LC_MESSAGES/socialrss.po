@@ -55258,3 +55258,6 @@ msgstr "[Reposted by {0}] "
 
 msgid "_Editor de plantillas de lectura…"
 msgstr "Reading _template editor…"
+
+msgid "Conversación: {t}"
+msgstr "Conversation: {t}"

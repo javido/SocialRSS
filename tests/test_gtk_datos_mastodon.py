@@ -83,11 +83,13 @@ def test_respuesta_menciona_al_autor_y_a_los_demas_sin_incluirte(cuenta):
 
 
 def test_buffers_extra_se_crean_una_vez_y_se_cierran(cuenta):
-    n1 = dm.nodo_extra(cuenta, "thread:901", "Hilo")
-    assert dm.nodo_extra(cuenta, "thread:901", "Hilo") is n1 and n1.cerrable
-    assert n1 in next(c for c in dm.construir_nodos().hijos if c.account_id == cuenta).hijos
+    def _hilos():
+        return [h.timeline for c in dm.construir_nodos().hijos if c.account_id == cuenta for h in c.hijos]
+    n1 = dm.nodo_extra(cuenta, "thread:901", "Hilo")      # los hilos se guardan: no se duplican y sobreviven al reabrir
+    assert dm.nodo_extra(cuenta, "thread:901", "Hilo").timeline == n1.timeline and n1.cerrable
+    assert _hilos().count("thread:901") == 1
     dm.cerrar_extra(n1)
-    assert n1 not in next(c for c in dm.construir_nodos().hijos if c.account_id == cuenta).hijos
+    assert "thread:901" not in _hilos()
 
 
 # --------------------------------------------------------------------------- IA y traducción (solo la parte de datos)

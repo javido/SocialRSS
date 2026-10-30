@@ -94,11 +94,12 @@ def test_detalle_de_publicacion(cuenta):
 
 def test_buffers_extra_se_abren_y_se_cierran(cuenta):
     n = dw.nodo_extra(ACC, "thread:" + URI_A, "Conversación")
-    assert n.cerrable and n in dw.EXTRA[ACC]
-    assert dw.nodo_extra(ACC, "thread:" + URI_A, "otro") is n
-    assert any(h is n for c in dw.construir_nodos().hijos if c.account_id == ACC for h in c.hijos)
+    def _hijos():
+        return [h.timeline for c in dw.construir_nodos().hijos if c.account_id == ACC for h in c.hijos]
+    assert n.cerrable and _hijos().count(n.timeline) == 1
+    assert dw.nodo_extra(ACC, "thread:" + URI_A, "otro").timeline == n.timeline and _hijos().count(n.timeline) == 1
     dw.cerrar_extra(n)
-    assert n not in dw.EXTRA[ACC]
+    assert n.timeline not in _hijos()
 
 
 def test_adaptar_convierte_ok_error_en_resultado_error():
