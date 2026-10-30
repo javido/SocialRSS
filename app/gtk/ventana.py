@@ -35,6 +35,7 @@ from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
 from .ventana_herramientas import _HerramientasMixin
+from .ventana_bandeja import _BandejaMixin
 from .ventana_rss import _RSSMixin
 from .ventana_peertube import _PeerTubeMixin
 from .ventana_reddit import _RedditMixin
@@ -64,7 +65,12 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+def _clave_fila(f) -> str:
+    """Identidad de una fila en la lista: en la bandeja los ids de redes distintas pueden coincidir."""
+    return f.extra.get("clave_lista") or f.id
+
+
+class VentanaPrincipal(_BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -74,6 +80,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._tick_reproductor = 0
         self._actualizando = False
         self._cargados = set()      # buffers de Mastodon ya descargados en esta sesión
+        self._id_pendiente = None   # fila a enfocar en la próxima carga de lista (ir al origen desde la bandeja)
         self._nodo_listado = None   # nodo cuya lista está en pantalla (para actualizar sin reconstruir)
         self._eventos_pendientes = {}
         self._encuestas = {}        # db id del toot -> última encuesta descargada
@@ -268,7 +275,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
             texto = ("★ " if obj.favorito else "") + f.titulo
             titulo.set_markup(f"<b>{GLib.markup_escape_text(texto)}</b>" if not obj.leido
                               else GLib.markup_escape_text(texto))
-            partes = [p for p in (f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
+            partes = [p for p in (f.extra.get("origen", ""), f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
                                   datos.fecha_legible(f.fecha)) if p]
             meta.set_text(" · ".join(partes))
             item.set_accessible_label(obj.descripcion())
@@ -459,7 +466,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
 
         def accion(nombre, fn, aceleradores=()):
             a = Gio.SimpleAction.new(nombre, None)
-            a.connect("activate", lambda *_a: fn())
+            envuelta = self._con_contexto_bandeja(nombre, fn)
+            a.connect("activate", lambda *_a: envuelta())
             self.add_action(a)
             self._atajos_defecto[nombre] = list(aceleradores)
             # Las teclas que el usuario cambió en el editor de atajos mandan sobre las de fábrica.
@@ -495,6 +503,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._registrar_acciones_wsocial(accion)
         self._registrar_acciones_herramientas(accion)
         self._registrar_acciones_rss(accion)
+        self._registrar_acciones_bandeja(accion)
         self._registrar_acciones_telegram(accion)
         self._registrar_acciones_irc(accion)
         self._registrar_acciones_xmpp(accion)
@@ -594,6 +603,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                  datos_irc.construir_nodos(), datos_xmpp.construir_nodos(), datos_matrix.construir_nodos()]
         if datos_x.disponible():
             arbol.insert(3, datos_x.construir_nodos())
+        if self.bandeja_habilitada():
+            arbol.insert(1, self.bandeja_nodo_raiz())
         if datos_reddit.disponible():
             arbol.append(datos_reddit.construir_nodos())
         if datos_peertube.disponible():
@@ -726,6 +737,12 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
         if not nodo.listable:
             return []
+        if nodo.servicio == "bandeja":
+            filas = self.bandeja_filas()
+            if busqueda:
+                q = busqueda.lower()
+                filas = [f for f in filas if q in f.titulo.lower() or q in f.autor.lower()]
+            return filas
         if nodo.servicio in ("mastodon", "bluesky", "wsocial", "telegram", "irc", "xmpp", "matrix", "x", "reddit", "peertube"):
             modulo = {"mastodon": datos_mastodon, "bluesky": datos_bluesky, "wsocial": datos_wsocial, "telegram": datos_telegram,
                       "irc": datos_irc, "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x,
@@ -745,6 +762,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
             return
         self._gen_lista += 1
         gen, nodo, busqueda = self._gen_lista, self.nodo_actual, self.busqueda
+        if conservar_id is None and self._id_pendiente is not None:
+            conservar_id, self._id_pendiente = self._id_pendiente, None
 
         def _trabajo():
             try:
@@ -772,7 +791,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         seleccionar = datos_telegram.seleccion_inicial(filas) if self._es_conversacion(n) else 0
         if conservar_id:
             for i, f in enumerate(filas):
-                if f.id == conservar_id:
+                if f.id == conservar_id or f.extra.get("clave_lista") == conservar_id:
                     seleccionar = i
                     break
         if filas:
@@ -784,23 +803,23 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                          if n.servicio == "mastodon" and not n.hijos else "")
                 self._mostrar_texto("", vacio, "", "")
             else:
-                self._mostrar_texto("", _("No hay elementos."), "", "")
+                self._mostrar_texto("", self.bandeja_vacia() if n.servicio == "bandeja" else _("No hay elementos."), "", "")
         if despues:
             despues(filas)
 
     def _sincronizar_lista(self, filas) -> bool:
         """Actualiza la lista en su sitio. False si el orden relativo cambió y hay que rehacerla."""
         almacen = self.almacen_lista
-        viejos = [almacen.get_item(i).fila.id for i in range(almacen.get_n_items())]
-        nuevos = {f.id for f in filas}
+        viejos = [_clave_fila(almacen.get_item(i).fila) for i in range(almacen.get_n_items())]
+        nuevos = {_clave_fila(f) for f in filas}
         viejos_set = set(viejos)
-        if [i for i in viejos if i in nuevos] != [f.id for f in filas if f.id in viejos_set]:
+        if [i for i in viejos if i in nuevos] != [_clave_fila(f) for f in filas if _clave_fila(f) in viejos_set]:
             return False
         for i in range(almacen.get_n_items() - 1, -1, -1):
-            if almacen.get_item(i).fila.id not in nuevos:
+            if _clave_fila(almacen.get_item(i).fila) not in nuevos:
                 almacen.remove(i)
         for i, f in enumerate(filas):
-            if i < almacen.get_n_items() and almacen.get_item(i).fila.id == f.id:
+            if i < almacen.get_n_items() and _clave_fila(almacen.get_item(i).fila) == _clave_fila(f):
                 obj = almacen.get_item(i)
                 obj.fila = f
                 obj.favorito, obj.leido = f.favorito, f.leido
@@ -1149,6 +1168,9 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
     # ------------------------------------------------------------------ actualización
     def accion_actualizar(self):
         n0 = self.nodo_actual
+        if n0 is not None and n0.servicio == "bandeja":
+            self.bandeja_actualizar()
+            return
         if n0 is not None and n0.servicio == "telegram":
             if n0.listable:
                 self.avisar(_("Actualizando {t}…").format(t=n0.titulo))

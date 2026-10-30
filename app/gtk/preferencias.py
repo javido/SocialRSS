@@ -173,6 +173,10 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Descargar el artículo completo al a_brirlo:"), self.completo)
         self.solo_no_leidos = p.interruptor(config.get("rss", "show_only_unread", False))
         p.campo(_("Mostrar solo no _leídos en carpetas y feeds:"), self.solo_no_leidos)
+        self.bandeja = p.interruptor(config.get("inbox", "enabled", False))
+        p.campo(_("Mostrar la _bandeja de entrada unificada:"), self.bandeja,
+                _("Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se añaden desde el menú Ver "
+                  "o con el menú del buffer en el árbol."))
         self.tiempo_real = p.interruptor(config.get("gtk", "mastodon_realtime", True))
         p.campo(_("_Tiempo real en Mastodon:"), self.tiempo_real)
         self.tiempo_real_bsky = p.interruptor(config.get("gtk", "bluesky_realtime", True))
@@ -480,6 +484,8 @@ class DialogoPreferencias(Gtk.Window):
         config.set("accessibility", "speech_announcements", self.voz.get_active())
         config.set("rss", "fulltext_auto", self.completo.get_active())
         config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
+        bandeja_cambiada = bool(config.get("inbox", "enabled", False)) != self.bandeja.get_active()
+        config.set("inbox", "enabled", self.bandeja.get_active())
         config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
         config.set("rss", "update_interval", int(self.rss_intervalo.get_value()))
         config.set("rss", "notifications_enabled", self.rss_notificar.get_active())
@@ -533,5 +539,7 @@ class DialogoPreferencias(Gtk.Window):
         config.save()
         notificar(_("Preferencias guardadas"))
         self.close()
+        if bandeja_cambiada:
+            self.padre.cargar_arbol()
         self.padre.cargar_lista()
         self.padre.iniciar_tiempo_real()

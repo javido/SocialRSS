@@ -74,7 +74,8 @@ class FilaObj(GObject.Object):
         clave = (self.leido, self.favorito, self.mas_tarde, self.impulsado, self.marcador, id(self.fila))
         if getattr(self, "_desc_clave", None) != clave:
             self._desc_clave = clave
-            self._desc = self._construir_descripcion()
+            origen = self.fila.extra.get("origen")      # en la bandeja, de qué buffer viene
+            self._desc = (f"{origen}. " if origen else "") + self._construir_descripcion()
         return self._desc
 
     def _construir_descripcion(self) -> str:

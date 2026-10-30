@@ -53332,3 +53332,96 @@ msgstr ""
 
 msgid "Árbol de feeds"
 msgstr ""
+
+msgid "Actualizando la bandeja…"
+msgstr ""
+
+msgid "Actualizar la bandeja"
+msgstr ""
+
+msgid "Añadir a la bandeja"
+msgstr ""
+
+msgid "Añadir buffers a la bandeja"
+msgstr ""
+
+msgid "Añadir buffers…"
+msgstr ""
+
+msgid "Bandeja de entrada mostrada."
+msgstr ""
+
+msgid "Bandeja de entrada oculta."
+msgstr ""
+
+msgid "Elige una publicación de la bandeja."
+msgstr ""
+
+msgid "Este buffer no está en la bandeja."
+msgstr ""
+
+msgid "Este buffer no se puede añadir a la bandeja."
+msgstr ""
+
+msgid "Ir al buffer de _origen de la publicación"
+msgstr ""
+
+msgid ""
+"La bandeja no tiene buffers. Usa Ver, Añadir buffers a la bandeja para "
+"elegirlos."
+msgstr ""
+
+msgid "Marca los buffers que quieres añadir a la bandeja de entrada:"
+msgstr ""
+
+msgid "Marca los buffers que quieres quitar de la bandeja de entrada:"
+msgstr ""
+
+msgid "Mostrar la _bandeja de entrada unificada:"
+msgstr ""
+
+msgid "Mostrar u ocultar la _bandeja de entrada"
+msgstr ""
+
+msgid "No hay más buffers que añadir."
+msgstr ""
+
+msgid "Quitar buffers…"
+msgstr ""
+
+msgid "Quitar de la bandeja"
+msgstr ""
+
+msgid ""
+"Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se "
+"añaden desde el menú Ver o con el menú del buffer en el árbol."
+msgstr ""
+
+msgid "Ya está en la bandeja."
+msgstr ""
+
+msgid "_Añadir buffers a la bandeja…"
+msgstr ""
+
+msgid "_Quitar buffers de la bandeja…"
+msgstr ""
+
+msgid "{n} buffers añadidos a la bandeja."
+msgstr ""
+
+msgid "{n} buffers quitados de la bandeja."
+msgstr ""
+
+msgid "{t} añadido a la bandeja."
+msgstr ""
+
+msgid "{t} quitado de la bandeja."
+msgstr ""
+
+msgid ""
+"Ver, Añadir buffers a la bandeja (o Añadir a la bandeja en el menú del "
+"buffer): reúne varias redes por fecha"
+msgstr ""
+
+msgid "Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"
+msgstr ""

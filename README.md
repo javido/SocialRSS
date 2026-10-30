@@ -205,6 +205,12 @@ palabra clave, salud de los feeds, descargas de podcast, sincronización con Fre
 estadísticas de lectura, resumen de lo no leído y exportar artículos en lote. En Artículo: etiquetas, imágenes con su texto
 alternativo y la cola de podcasts. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
 
+**Bandeja de entrada unificada** (la misma configuración que en Windows: se activa en Preferencias o en Ver): un buffer que
+mezcla por fecha las publicaciones de los buffers y redes que elijas (Mastodon, Bluesky, W Social, X, Reddit, PeerTube y los
+buffers de RSS). Se añaden desde Ver, Añadir buffers a la bandeja, o con la tecla Menú sobre cualquier buffer del árbol.
+Cada fila dice de dónde viene y todas las acciones (responder, me gusta, impulsar, conversación...) funcionan como en su buffer
+de origen; Ctrl+Alt+Z salta a él. Se actualiza con Ctrl+Mayús+R y se refresca sola con lo que llega por tiempo real.
+
 **Menú Herramientas** (las mismas funciones y los mismos datos que la versión de Windows): filtros de contenido (ocultan
 publicaciones por palabra clave en Mastodon, Bluesky, W Social, X y RSS), fragmentos de texto (Ctrl+Mayús+J al redactar),
 corrector ortográfico (F7 al redactar), copias de seguridad y migración a otro ordenador (la restauración y la importación se

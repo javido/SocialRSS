@@ -587,6 +587,10 @@ def _menu() -> Gio.Menu:
                                  (_("Ir a la lista de artículos"), "win.ir-lista"),
                                  (_("Ir al texto del artículo"), "win.ir-lectura"),
                                  (_("_Buscar"), "win.buscar")))
+    ver.append_section(None, sec((_("Mostrar u ocultar la _bandeja de entrada"), "win.bandeja-alternar"),
+                                 (_("_Añadir buffers a la bandeja…"), "win.bandeja-anadir"),
+                                 (_("_Quitar buffers de la bandeja…"), "win.bandeja-quitar"),
+                                 (_("Ir al buffer de _origen de la publicación"), "win.bandeja-origen")))
     barra.append_submenu(_("_Ver"), ver)
 
     ayuda = Gio.Menu()

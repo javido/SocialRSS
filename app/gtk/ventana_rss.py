@@ -115,6 +115,7 @@ class _RSSMixin:
         if n is None:
             return
         secciones = self._menu_nodo_rss(n) if n.servicio == "rss" else []
+        secciones = secciones + self.menu_bandeja_nodo(n)
         if not secciones:
             self.avisar(_("Este elemento no tiene menú"))
             return
