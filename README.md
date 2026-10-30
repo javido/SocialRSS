@@ -107,8 +107,10 @@ publicación, historial de ediciones, silenciar conversaciones, fijar, seguidore
 solicitudes de seguimiento, bloqueados y silenciados, filtros del servidor, borradores (con
 aviso al cerrar el editor), publicaciones programadas, hashtags en tendencia y seguidos, editar tu
 perfil, descartar notificaciones, notificaciones agrupadas con su política y solicitudes, hilos
-propios (un texto largo dividido en mensajes, con hilos guardados) y administración básica de la
-instancia (informes, cuentas y dominios bloqueados). Las novedades de Inicio, Notificaciones,
+propios (un texto largo dividido en mensajes, con hilos guardados), colecciones de cuentas (las tuyas, las de otra cuenta y
+aquellas en las que apareces), anuncios del servidor (con reacciones), enlaces en tendencia, directorio y cuentas sugeridas,
+información de la instancia y su administración (informes, cuentas, dominios bloqueados y permitidos, bloqueos de IP y de
+correo, tendencias y descubrimiento, y estadísticas del servidor). Las novedades de Inicio, Notificaciones,
 Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en Preferencias) y se
 anuncian sin interrumpir a Orca. **Preferencias** en pestañas (General, Inteligencia artificial y Traducción): proveedor de IA con
 sus claves y modelo, prompts, motor y idiomas de traducción, historiales y pruebas. Con ellas, Ctrl+T

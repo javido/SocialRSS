@@ -55876,3 +55876,335 @@ msgstr "Unblock “{t}”? It will be available again."
 
 msgid "¿Desinstalar «{n}»?"
 msgstr "Uninstall “{n}”?"
+
+msgid "    {f}: {v} personas, {t:.1f} %"
+msgstr "    {f}: {v} people, {t:.1f} %"
+
+msgid "  Cohorte {p} ({f}):"
+msgstr "  Cohort {p} ({f}):"
+
+msgid "  Periodo anterior: {v}"
+msgstr "  Previous period: {v}"
+
+msgid "  Semana {s}: {p} publicaciones, {r} registros, {a} activos"
+msgstr "  Week {s}: {p} posts, {r} sign-ups, {a} active"
+
+msgid "(sin leer) "
+msgstr "(unread) "
+
+msgid "@{a} añadida a la colección."
+msgstr "@{a} added to the collection."
+
+msgid "@{a} añadida a «{c}»."
+msgstr "@{a} added to “{c}”."
+
+msgid "@{a} añadida a «{c}». Queda pendiente de que acepte."
+msgstr "@{a} added to “{c}”. It is pending their acceptance."
+
+msgid "@{a} añadida. Queda pendiente de que acepte aparecer en la colección."
+msgstr ""
+"@{a} added. It is pending their acceptance to appear in the collection."
+
+msgid "Actividad reciente:"
+msgstr "Recent activity:"
+
+msgid "Administración: {t}"
+msgstr "Administration: {t}"
+
+msgid "Anuncio marcado como leído"
+msgstr "Announcement marked as read"
+
+msgid "Añadir _hash…"
+msgstr "Add _hash…"
+
+msgid "Añadir al autor a una de mis colecciones…"
+msgstr "Add the author to one of my collections…"
+
+msgid "Bloqueos de _IP…"
+msgstr "_IP blocks…"
+
+msgid "Caducar en _segundos (vacío = permanente):"
+msgstr "Expire in _seconds (empty = permanent):"
+
+msgid "Cargando las estadísticas…"
+msgstr "Loading the statistics…"
+
+msgid "Cargando los anuncios…"
+msgstr "Loading the announcements…"
+
+msgid "Cargando los enlaces…"
+msgstr "Loading the links…"
+
+msgid "Cargar _anteriores"
+msgstr "Load _older"
+
+msgid "Colecciones de @{a}"
+msgstr "Collections of @{a}"
+
+msgid "Colecciones de una cuenta"
+msgstr "Collections of an account"
+
+msgid "Colecciones de una cuenta…"
+msgstr "Collections of an account…"
+
+msgid "Colecciones en las que _apareces…"
+msgstr "Collections you _appear in…"
+
+msgid "Colección «{n}»"
+msgstr "Collection “{n}”"
+
+msgid "Colección «{n}» creada."
+msgstr "Collection “{n}” created."
+
+msgid "Con aprobación"
+msgstr "With approval"
+
+msgid "Configurar hashtag #{n}"
+msgstr "Configure hashtag #{n}"
+
+msgid "Correos canónicos bloqueados…"
+msgstr "Blocked canonical emails…"
+
+msgid "Creado: {c}"
+msgstr "Created: {c}"
+
+msgid "Cuentas _sugeridas…"
+msgstr "_Suggested accounts…"
+
+msgid "Dominios _permitidos…"
+msgstr "_Allowed domains…"
+
+msgid "Dominios de correo bloqueados…"
+msgstr "Blocked email domains…"
+
+msgid "El correo coincide con {n} bloqueo(s) canónico(s)."
+msgstr "The email matches {n} canonical block(s)."
+
+msgid "Enlaces en _tendencia…"
+msgstr "_Trending links…"
+
+msgid "ID numérico del _hashtag (para las métricas de hashtag):"
+msgstr "Numeric ID of the _hashtag (for the hashtag metrics):"
+
+msgid "Idiomas: {i}"
+msgstr "Languages: {i}"
+
+msgid "Información de la instancia"
+msgstr "Instance information"
+
+msgid "Instancias federadas conocidas: {n}"
+msgstr "Known federated instances: {n}"
+
+msgid "La colección necesita un nombre."
+msgstr "The collection needs a name."
+
+msgid "Lista de anuncios"
+msgstr "List of announcements"
+
+msgid "Lista de enlaces en tendencia"
+msgstr "List of trending links"
+
+msgid "Marcarla como contenido _sensible:"
+msgstr "Mark it as _sensitive content:"
+
+msgid "Mis co_lecciones…"
+msgstr "My co_llections…"
+
+msgid "Mostrarla en mi _perfil, en las búsquedas y en las recomendaciones:"
+msgstr "Show it on my _profile, in searches and in recommendations:"
+
+msgid "No hay anuncios"
+msgstr "There are no announcements"
+
+msgid "No hay elementos"
+msgstr "There are no items"
+
+msgid "No hay enlaces en tendencia"
+msgstr "There are no trending links"
+
+msgid "No se pudieron cargar los anuncios: {e}"
+msgstr "The announcements could not be loaded: {e}"
+
+msgid "No se pudieron cargar los enlaces: {e}"
+msgstr "The links could not be loaded: {e}"
+
+msgid "No se pudieron cargar tus colecciones: {e}"
+msgstr "Your collections could not be loaded: {e}"
+
+msgid "No se pudo cargar la colección: {e}"
+msgstr "The collection could not be loaded: {e}"
+
+msgid "No se pudo cargar la información de la instancia: {e}"
+msgstr "The instance information could not be loaded: {e}"
+
+msgid "No se pudo crear la colección: {e}"
+msgstr "The collection could not be created: {e}"
+
+msgid "Nombre para _mostrar:"
+msgstr "Display _name:"
+
+msgid "Normas:"
+msgstr "Rules:"
+
+msgid "Periodo: últimos {n} días"
+msgstr "Period: last {n} days"
+
+msgid "Permitir que aparezca como _tendencia:"
+msgstr "Allow it to appear as a _trend:"
+
+msgid "Permitir que aparezca en _búsquedas y directorios:"
+msgstr "Allow it to appear in _searches and directories:"
+
+msgid "Permitir su _uso en publicaciones locales:"
+msgstr "Allow its _use in local posts:"
+
+msgid "Sin información"
+msgstr "No information"
+
+msgid "Software: {s}"
+msgstr "Software: {s}"
+
+msgid "Sugerencia descartada"
+msgstr "Suggestion dismissed"
+
+msgid "Tiempo real disponible: {s}"
+msgstr "Real time available: {s}"
+
+msgid "Usuarios activos al mes: {n}"
+msgstr "Monthly active users: {n}"
+
+msgid "Valor: {v}"
+msgstr "Value: {v}"
+
+msgid "_Anuncios del servidor…"
+msgstr "Server _announcements…"
+
+msgid "_Colección:"
+msgstr "_Collection:"
+
+msgid "_Comentario interno:"
+msgstr "Internal _comment:"
+
+msgid "_Comprobar correo…"
+msgstr "_Check email…"
+
+msgid "_Configurar hashtag…"
+msgstr "_Configure hashtag…"
+
+msgid "_Correo que quieres comprobar:"
+msgstr "_Email you want to check:"
+
+msgid "_Cuenta (@usuario o @usuario@servidor):"
+msgstr "_Account (@user or @user@server):"
+
+msgid "_Cuenta que añadir (@usuario o @usuario@servidor):"
+msgstr "_Account to add (@user or @user@server):"
+
+msgid ""
+"_Cuentas que incluir desde el principio (opcional, @usuario separados por "
+"espacios):"
+msgstr ""
+"_Accounts to include from the start (optional, @users separated by spaces):"
+
+msgid "_Descartar la sugerencia"
+msgstr "_Dismiss the suggestion"
+
+msgid "_Descripción (máximo {n} caracteres):"
+msgstr "_Description (maximum {n} characters):"
+
+msgid "_Directorio de cuentas…"
+msgstr "Account _directory…"
+
+msgid "_Dominio remoto (para las métricas de dominio):"
+msgstr "Remote _domain (for the domain metrics):"
+
+msgid "_Días del periodo:"
+msgstr "_Days of the period:"
+
+msgid "_Emoji (o :atajo:):"
+msgstr "_Emoji (or :shortcode:):"
+
+msgid "_Etiqueta que la describe (opcional, sin #):"
+msgstr "_Tag that describes it (optional, without #):"
+
+msgid "_Hash SHA-256 canónico de 64 caracteres:"
+msgstr "Canonical SHA-256 _hash of 64 characters:"
+
+msgid "_IP o rango CIDR:"
+msgstr "_IP or CIDR range:"
+
+msgid "_Idioma (código, por ejemplo es):"
+msgstr "_Language (code, for example es):"
+
+msgid "_Información de la instancia…"
+msgstr "_Instance information…"
+
+msgid "_Métricas que se consultarán:"
+msgstr "_Metrics to query:"
+
+msgid "_Nombre (máximo {n} caracteres):"
+msgstr "_Name (maximum {n} characters):"
+
+msgid "_Quitar de la colección"
+msgstr "_Remove from the collection"
+
+msgid "_Quitar mi reacción…"
+msgstr "_Remove my reaction…"
+
+msgid "_Reaccionar…"
+msgstr "_React…"
+
+msgid "_Retención:"
+msgstr "_Retention:"
+
+msgid "_Retirarme de esta colección"
+msgstr "_Withdraw me from this collection"
+
+msgid "_Tendencias y descubrimiento…"
+msgstr "_Trends and discovery…"
+
+msgid "_Ver cuentas"
+msgstr "_View accounts"
+
+msgid "listable {a}, utilizable {b}, tendencia {c}, revisión {d}"
+msgstr "listable {a}, usable {b}, trending {c}, review {d}"
+
+msgid "tendencia {c}, revisión {d}"
+msgstr "trending {c}, review {d}"
+
+msgid "{d}: {c} cuentas, {u} direcciones IP"
+msgstr "{d}: {c} accounts, {u} IP addresses"
+
+msgid "{n} (@{a}), {e}"
+msgstr "{n} (@{a}), {e}"
+
+msgid "{n} anuncios"
+msgstr "{n} announcements"
+
+msgid "{n} enlaces"
+msgstr "{n} links"
+
+msgid "{n}, {c} cuentas. {d}"
+msgstr "{n}, {c} accounts. {d}"
+
+msgid "«{n}»: {c} cuentas."
+msgstr "“{n}”: {c} accounts."
+
+msgid "¿Borrar la colección «{n}»? No se puede deshacer."
+msgstr "Delete the collection “{n}”? This cannot be undone."
+
+msgid "¿Eliminar el bloqueo de {ip}?"
+msgstr "Remove the block of {ip}?"
+
+msgid ""
+"¿Permitir altas desde este dominio solo después de aprobación manual? Si "
+"dices que no, se bloquean por completo."
+msgstr ""
+"Allow sign-ups from this domain only after manual approval? If you say no, "
+"they are blocked completely."
+
+msgid "¿Quitar a @{a} de la colección?"
+msgstr "Remove @{a} from the collection?"
+
+msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+msgstr "Withdraw from the collection “{n}”? You will stop appearing in it."

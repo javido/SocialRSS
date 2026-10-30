@@ -136,6 +136,15 @@ def _menu() -> Gio.Menu:
                                      (_("Cuentas s_ilenciadas…"), "win.cuentas-muted")))
     cuentas.append_section(None, sec((_("Filtros del _servidor…"), "win.filtros"),
                                      (_("Editar _mi perfil…"), "win.mi-perfil")))
+    cuentas.append_section(None, sec((_("_Anuncios del servidor…"), "win.ms-anuncios"),
+                                     (_("Enlaces en _tendencia…"), "win.ms-enlaces-tendencia"),
+                                     (_("_Información de la instancia…"), "win.ms-info-instancia"),
+                                     (_("_Directorio de cuentas…"), "win.ms-directorio"),
+                                     (_("Cuentas _sugeridas…"), "win.ms-sugerencias")))
+    cuentas.append_section(None, sec((_("Mis co_lecciones…"), "win.ms-colecciones-mias"),
+                                     (_("Colecciones en las que _apareces…"), "win.ms-colecciones-donde-estoy"),
+                                     (_("Colecciones de una cuenta…"), "win.ms-colecciones-de"),
+                                     (_("Añadir al autor a una de mis colecciones…"), "win.ms-coleccion-anadir-autor")))
     cuentas.append_section(None, sec((_("Notificaciones a_grupadas…"), "win.notif-agrupadas"),
                                      (_("_Política de notificaciones…"), "win.notif-politica"),
                                      (_("Solicitudes de _notificaciones…"), "win.notif-solicitudes")))
@@ -143,6 +152,12 @@ def _menu() -> Gio.Menu:
     admin.append_section(None, sec((_("_Informes de moderación…"), "win.admin-informes"),
                                    (_("_Cuentas de la instancia…"), "win.admin-cuentas"),
                                    (_("_Dominios bloqueados…"), "win.admin-dominios")))
+    admin.append_section(None, sec((_("Bloqueos de _IP…"), "win.ms-admin-ip"),
+                                   (_("Dominios _permitidos…"), "win.ms-admin-permitidos"),
+                                   (_("Dominios de correo bloqueados…"), "win.ms-admin-correos"),
+                                   (_("Correos canónicos bloqueados…"), "win.ms-admin-canonicos"),
+                                   (_("_Tendencias y descubrimiento…"), "win.ms-admin-tendencias"),
+                                   (_("_Estadísticas del servidor…"), "win.ms-admin-estadisticas")))
     cuentas.append_submenu(_("Adminis_tración de la instancia"), admin)
     pub.append_submenu(_("Mi _cuenta"), cuentas)
     barra.append_submenu(_("_Mastodon"), pub)

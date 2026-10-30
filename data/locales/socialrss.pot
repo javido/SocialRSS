@@ -54122,3 +54122,331 @@ msgstr ""
 
 msgid "¿Desinstalar «{n}»?"
 msgstr ""
+
+msgid "    {f}: {v} personas, {t:.1f} %"
+msgstr ""
+
+msgid "  Cohorte {p} ({f}):"
+msgstr ""
+
+msgid "  Periodo anterior: {v}"
+msgstr ""
+
+msgid "  Semana {s}: {p} publicaciones, {r} registros, {a} activos"
+msgstr ""
+
+msgid "(sin leer) "
+msgstr ""
+
+msgid "@{a} añadida a la colección."
+msgstr ""
+
+msgid "@{a} añadida a «{c}»."
+msgstr ""
+
+msgid "@{a} añadida a «{c}». Queda pendiente de que acepte."
+msgstr ""
+
+msgid "@{a} añadida. Queda pendiente de que acepte aparecer en la colección."
+msgstr ""
+
+msgid "Actividad reciente:"
+msgstr ""
+
+msgid "Administración: {t}"
+msgstr ""
+
+msgid "Anuncio marcado como leído"
+msgstr ""
+
+msgid "Añadir _hash…"
+msgstr ""
+
+msgid "Añadir al autor a una de mis colecciones…"
+msgstr ""
+
+msgid "Bloqueos de _IP…"
+msgstr ""
+
+msgid "Caducar en _segundos (vacío = permanente):"
+msgstr ""
+
+msgid "Cargando las estadísticas…"
+msgstr ""
+
+msgid "Cargando los anuncios…"
+msgstr ""
+
+msgid "Cargando los enlaces…"
+msgstr ""
+
+msgid "Cargar _anteriores"
+msgstr ""
+
+msgid "Colecciones de @{a}"
+msgstr ""
+
+msgid "Colecciones de una cuenta"
+msgstr ""
+
+msgid "Colecciones de una cuenta…"
+msgstr ""
+
+msgid "Colecciones en las que _apareces…"
+msgstr ""
+
+msgid "Colección «{n}»"
+msgstr ""
+
+msgid "Colección «{n}» creada."
+msgstr ""
+
+msgid "Con aprobación"
+msgstr ""
+
+msgid "Configurar hashtag #{n}"
+msgstr ""
+
+msgid "Correos canónicos bloqueados…"
+msgstr ""
+
+msgid "Creado: {c}"
+msgstr ""
+
+msgid "Cuentas _sugeridas…"
+msgstr ""
+
+msgid "Dominios _permitidos…"
+msgstr ""
+
+msgid "Dominios de correo bloqueados…"
+msgstr ""
+
+msgid "El correo coincide con {n} bloqueo(s) canónico(s)."
+msgstr ""
+
+msgid "Enlaces en _tendencia…"
+msgstr ""
+
+msgid "ID numérico del _hashtag (para las métricas de hashtag):"
+msgstr ""
+
+msgid "Idiomas: {i}"
+msgstr ""
+
+msgid "Información de la instancia"
+msgstr ""
+
+msgid "Instancias federadas conocidas: {n}"
+msgstr ""
+
+msgid "La colección necesita un nombre."
+msgstr ""
+
+msgid "Lista de anuncios"
+msgstr ""
+
+msgid "Lista de enlaces en tendencia"
+msgstr ""
+
+msgid "Marcarla como contenido _sensible:"
+msgstr ""
+
+msgid "Mis co_lecciones…"
+msgstr ""
+
+msgid "Mostrarla en mi _perfil, en las búsquedas y en las recomendaciones:"
+msgstr ""
+
+msgid "No hay anuncios"
+msgstr ""
+
+msgid "No hay elementos"
+msgstr ""
+
+msgid "No hay enlaces en tendencia"
+msgstr ""
+
+msgid "No se pudieron cargar los anuncios: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los enlaces: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar tus colecciones: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la colección: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la información de la instancia: {e}"
+msgstr ""
+
+msgid "No se pudo crear la colección: {e}"
+msgstr ""
+
+msgid "Nombre para _mostrar:"
+msgstr ""
+
+msgid "Normas:"
+msgstr ""
+
+msgid "Periodo: últimos {n} días"
+msgstr ""
+
+msgid "Permitir que aparezca como _tendencia:"
+msgstr ""
+
+msgid "Permitir que aparezca en _búsquedas y directorios:"
+msgstr ""
+
+msgid "Permitir su _uso en publicaciones locales:"
+msgstr ""
+
+msgid "Sin información"
+msgstr ""
+
+msgid "Software: {s}"
+msgstr ""
+
+msgid "Sugerencia descartada"
+msgstr ""
+
+msgid "Tiempo real disponible: {s}"
+msgstr ""
+
+msgid "Usuarios activos al mes: {n}"
+msgstr ""
+
+msgid "Valor: {v}"
+msgstr ""
+
+msgid "_Anuncios del servidor…"
+msgstr ""
+
+msgid "_Colección:"
+msgstr ""
+
+msgid "_Comentario interno:"
+msgstr ""
+
+msgid "_Comprobar correo…"
+msgstr ""
+
+msgid "_Configurar hashtag…"
+msgstr ""
+
+msgid "_Correo que quieres comprobar:"
+msgstr ""
+
+msgid "_Cuenta (@usuario o @usuario@servidor):"
+msgstr ""
+
+msgid "_Cuenta que añadir (@usuario o @usuario@servidor):"
+msgstr ""
+
+msgid ""
+"_Cuentas que incluir desde el principio (opcional, @usuario separados por "
+"espacios):"
+msgstr ""
+
+msgid "_Descartar la sugerencia"
+msgstr ""
+
+msgid "_Descripción (máximo {n} caracteres):"
+msgstr ""
+
+msgid "_Directorio de cuentas…"
+msgstr ""
+
+msgid "_Dominio remoto (para las métricas de dominio):"
+msgstr ""
+
+msgid "_Días del periodo:"
+msgstr ""
+
+msgid "_Emoji (o :atajo:):"
+msgstr ""
+
+msgid "_Etiqueta que la describe (opcional, sin #):"
+msgstr ""
+
+msgid "_Hash SHA-256 canónico de 64 caracteres:"
+msgstr ""
+
+msgid "_IP o rango CIDR:"
+msgstr ""
+
+msgid "_Idioma (código, por ejemplo es):"
+msgstr ""
+
+msgid "_Información de la instancia…"
+msgstr ""
+
+msgid "_Métricas que se consultarán:"
+msgstr ""
+
+msgid "_Nombre (máximo {n} caracteres):"
+msgstr ""
+
+msgid "_Quitar de la colección"
+msgstr ""
+
+msgid "_Quitar mi reacción…"
+msgstr ""
+
+msgid "_Reaccionar…"
+msgstr ""
+
+msgid "_Retención:"
+msgstr ""
+
+msgid "_Retirarme de esta colección"
+msgstr ""
+
+msgid "_Tendencias y descubrimiento…"
+msgstr ""
+
+msgid "_Ver cuentas"
+msgstr ""
+
+msgid "listable {a}, utilizable {b}, tendencia {c}, revisión {d}"
+msgstr ""
+
+msgid "tendencia {c}, revisión {d}"
+msgstr ""
+
+msgid "{d}: {c} cuentas, {u} direcciones IP"
+msgstr ""
+
+msgid "{n} (@{a}), {e}"
+msgstr ""
+
+msgid "{n} anuncios"
+msgstr ""
+
+msgid "{n} enlaces"
+msgstr ""
+
+msgid "{n}, {c} cuentas. {d}"
+msgstr ""
+
+msgid "«{n}»: {c} cuentas."
+msgstr ""
+
+msgid "¿Borrar la colección «{n}»? No se puede deshacer."
+msgstr ""
+
+msgid "¿Eliminar el bloqueo de {ip}?"
+msgstr ""
+
+msgid ""
+"¿Permitir altas desde este dominio solo después de aprobación manual? Si "
+"dices que no, se bloquean por completo."
+msgstr ""
+
+msgid "¿Quitar a @{a} de la colección?"
+msgstr ""
+
+msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+msgstr ""

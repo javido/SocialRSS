@@ -131,6 +131,8 @@ TITULOS_CUENTAS = {
     "solicitudes": ("Solicitudes de seguimiento", "Lista de solicitudes de seguimiento"),
     "reblog": ("Quién ha impulsado la publicación", "Lista de cuentas que impulsaron"),
     "favourite": ("Quién ha marcado la publicación como favorita", "Lista de cuentas que marcaron favorito"),
+    "directorio": ("Directorio de cuentas", "Cuentas activas del directorio"),
+    "sugerencias": ("Cuentas sugeridas", "Cuentas que te sugiere el servidor"),
 }
 
 
@@ -149,6 +151,8 @@ class DialogoCuentas(DialogoLista):
             self.boton(_("_Rechazar"), lambda: self._responder(False))
         if tipo == "followers":
             self.boton(_("_Quitar seguidor"), self._quitar_seguidor)
+        if tipo == "sugerencias":
+            self.boton(_("_Descartar la sugerencia"), self._descartar_sugerencia)
         self.b_mas = self.boton(_("Cargar _más"), lambda: self._cargar(mas=True), sensible=False)
         self.cerrar_boton()
         self.mostrar_estado(_("Cargando…"))
@@ -174,7 +178,7 @@ class DialogoCuentas(DialogoLista):
                 nuevas, self.hay_mas = res.get("cuentas", []), bool(res.get("has_more"))
             else:
                 nuevas, self.hay_mas = res or [], False
-                if self.tipo in ("reblog", "favourite"):
+                if self.tipo in ("reblog", "favourite", "directorio", "sugerencias"):
                     from app.core.html_utils import html_a_texto
                     for c in nuevas:
                         c["bio"] = html_a_texto(c.get("note") or "")
@@ -188,6 +192,10 @@ class DialogoCuentas(DialogoLista):
             self.lista.enfocar()
         if self.tipo == "solicitudes":
             mastodon_service.obtener_solicitudes_seguimiento_async(self.account_id, callback=_fin)
+        elif self.tipo == "directorio":
+            mastodon_service.cargar_directorio_async(self.account_id, callback=_fin)
+        elif self.tipo == "sugerencias":
+            mastodon_service.cargar_sugerencias_async(self.account_id, callback=_fin)
         elif self.tipo in ("reblog", "favourite"):
             mastodon_service.obtener_interacciones_async(self.account_id, self.db_id, self.tipo, callback=_fin)
         else:
@@ -215,6 +223,19 @@ class DialogoCuentas(DialogoLista):
             notificar(_("Solicitud aceptada") if aceptar else _("Solicitud rechazada"))
             self._cargar()
         mastodon_service.responder_solicitud_seguimiento_async(self.account_id, c["id"], aceptar, callback=_fin)
+
+    def _descartar_sugerencia(self):
+        c = self._actual()
+        if not c:
+            return
+
+        def _fin(res, err):
+            if err:
+                notificar(_("No se pudo: {e}").format(e=err))
+                return
+            notificar(_("Sugerencia descartada"))
+            self._cargar()
+        mastodon_service.descartar_sugerencia_async(self.account_id, c["acct"], callback=_fin)
 
     def _quitar_seguidor(self):
         c = self._actual()
