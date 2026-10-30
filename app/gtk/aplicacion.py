@@ -188,6 +188,10 @@ def _menu() -> Gio.Menu:
                                   (_("Denunciar la publicación…"), "win.bsky-reportar"),
                                   (_("Denunciar la cuenta…"), "win.bsky-reportar-cuenta")))
     dm = Gio.Menu()
+    dm.append_section(None, sec((_("_Crear un grupo…"), "win.at-grupo-crear"),
+                                (_("_Entrar en un grupo con un enlace…"), "win.at-grupo-entrar"),
+                                (_("_Gestionar el grupo…"), "win.at-grupo-gestionar"),
+                                (_("Solicitudes de _mensajes…"), "win.at-solicitudes-mensajes")))
     dm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.bsky-mensaje-nuevo"),
                                 (_("Mensaje directo al _autor"), "win.bsky-mensaje-autor"),
                                 (_("_Reaccionar al mensaje…"), "win.bsky-reaccionar"),
@@ -198,6 +202,14 @@ def _menu() -> Gio.Menu:
                                  (_("S_iguiendo…"), "win.bsky-siguiendo"),
                                  (_("Cuentas _bloqueadas…"), "win.bsky-bloqueadas"),
                                  (_("Cuentas s_ilenciadas…"), "win.bsky-silenciadas")))
+    cta.append_section(None, sec((_("_Tendencias…"), "win.at-tendencias"),
+                                 (_("Paquetes de _inicio…"), "win.at-paquetes"),
+                                 (_("Buscar _cuentas…"), "win.at-buscar-cuentas"),
+                                 (_("Cuentas a cuya _actividad sigues…"), "win.at-actividad"),
+                                 (_("Cuentas _similares al autor…"), "win.at-cuentas-similares"),
+                                 (_("Seguidores _en común con el autor…"), "win.at-seguidores-conocidos"),
+                                 (_("_Feeds del autor…"), "win.at-feeds-de"),
+                                 (_("A_visarme cuando el autor publique"), "win.at-suscribir-actividad")))
     cta.append_section(None, sec((_("_Listas…"), "win.bsky-listas"),
                                  (_("_Feeds…"), "win.bsky-feeds"),
                                  (_("_Palabras silenciadas…"), "win.bsky-palabras"),
@@ -234,6 +246,9 @@ def _menu() -> Gio.Menu:
                                 (_("Denunciar la publicación…"), "win.ws-reportar"),
                                 (_("Denunciar la cuenta…"), "win.ws-reportar-cuenta")))
     wdm = Gio.Menu()
+    wdm.append_section(None, sec((_("_Crear un grupo…"), "win.at-grupo-crear"),
+                                 (_("_Entrar en un grupo con un enlace…"), "win.at-grupo-entrar"),
+                                 (_("_Gestionar el grupo…"), "win.at-grupo-gestionar")))
     wdm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.ws-mensaje-nuevo"),
                                  (_("Mensaje directo al _autor"), "win.ws-mensaje-autor"),
                                  (_("_Reaccionar al mensaje…"), "win.ws-reaccionar"),
@@ -244,6 +259,9 @@ def _menu() -> Gio.Menu:
                                   (_("S_iguiendo…"), "win.ws-siguiendo"),
                                   (_("Cuentas _bloqueadas…"), "win.ws-bloqueadas"),
                                   (_("Cuentas s_ilenciadas…"), "win.ws-silenciadas")))
+    wcta.append_section(None, sec((_("_Tendencias…"), "win.at-tendencias"),
+                                  (_("Paquetes de _inicio…"), "win.at-paquetes"),
+                                  (_("Buscar _cuentas…"), "win.at-buscar-cuentas")))
     wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),))
     wcta.append_section(None, sec((_("Editar mi _perfil…"), "win.ws-mi-perfil"),
                                   (_("_Contraseñas de aplicación…"), "win.ws-claves"),

@@ -47,6 +47,7 @@ from .ventana_telegram import _TelegramMixin
 from .ventana_matrix import _MatrixMixin
 from .ventana_xmpp import _XMPPMixin
 from .ventana_mastodon_extra import _MastodonExtraMixin
+from .ventana_at import _ATMixin
 from .datos import Nodo
 from .modelos import NodoObj, FilaObj
 
@@ -73,7 +74,7 @@ def _clave_fila(f) -> str:
     return f.extra.get("clave_lista") or f.id
 
 
-class VentanaPrincipal(_MastodonExtraMixin, _BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -535,6 +536,7 @@ class VentanaPrincipal(_MastodonExtraMixin, _BotoneraMixin, _OrdenMixin, _Bandej
         self._registrar_acciones_reddit(accion)
         self._registrar_acciones_peertube(accion)
         self._registrar_acciones_mastodon_extra(accion)
+        self._registrar_acciones_at(accion)
         accion("voto-negativo", self.accion_voto_negativo, ["<Ctrl><Shift>d"])
         self._registrar_acciones_voz(accion)
         accion("unirse-canal", self.accion_unirse, ["<Ctrl><Alt>j"])

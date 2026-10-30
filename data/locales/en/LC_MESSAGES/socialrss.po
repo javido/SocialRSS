@@ -56208,3 +56208,239 @@ msgstr "Remove @{a} from the collection?"
 
 msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
 msgstr "Withdraw from the collection “{n}”? You will stop appearing in it."
+
+msgid "A_visarme cuando el autor publique"
+msgstr "_Notify me when the author posts"
+
+msgid "Cargando las tendencias…"
+msgstr "Loading the trends…"
+
+msgid "Cargando los miembros…"
+msgstr "Loading the members…"
+
+msgid "Cargando los paquetes…"
+msgstr "Loading the packs…"
+
+msgid "Crear un paquete de inicio"
+msgstr "Create a starter pack"
+
+msgid "Cuentas _similares al autor…"
+msgstr "Accounts _similar to the author…"
+
+msgid "Cuentas a cuya _actividad sigues…"
+msgstr "Accounts whose _activity you follow…"
+
+msgid "Cuentas añadidas al grupo."
+msgstr "Accounts added to the group."
+
+msgid "Cuentas de {r}: {t}"
+msgstr "{r} accounts: {t}"
+
+msgid "Cuentas encontradas"
+msgstr "Accounts found"
+
+msgid "Cuentas suscritas"
+msgstr "Subscribed accounts"
+
+msgid "Dejarás de recibir avisos de esta cuenta."
+msgstr "You will stop receiving notices from this account."
+
+msgid "El servidor no ha devuelto ningún enlace."
+msgstr "The server did not return any link."
+
+msgid "Enlace de invitación copiado"
+msgstr "Invitation link copied"
+
+msgid "Error al cargar tus listas: {e}"
+msgstr "Error loading your lists: {e}"
+
+msgid "Escribe el nombre y al menos una cuenta."
+msgstr "Write the name and at least one account."
+
+msgid "Escribe el nombre y añade al menos una cuenta al grupo."
+msgstr "Write the name and add at least one account to the group."
+
+msgid "Esto solo está en Bluesky"
+msgstr "This is only in Bluesky"
+
+msgid "Feed: {n}"
+msgstr "Feed: {n}"
+
+msgid "Grupo: {t}"
+msgstr "Group: {t}"
+
+msgid "Miembros del grupo"
+msgstr "Group members"
+
+msgid ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+msgstr ""
+"You need at least one list. Create it in My account, Lists, and add accounts"
+" to it before making the pack."
+
+msgid "No hay tendencias"
+msgstr "There are no trends"
+
+msgid "No se encontró ninguna cuenta"
+msgstr "No account was found"
+
+msgid "No se pudieron cargar las tendencias: {e}"
+msgstr "The trends could not be loaded: {e}"
+
+msgid "No se pudieron cargar los paquetes sugeridos: {e}"
+msgstr "The suggested packs could not be loaded: {e}"
+
+msgid "No se pudieron cargar los paquetes: {e}"
+msgstr "The packs could not be loaded: {e}"
+
+msgid "No se pudieron consultar las solicitudes: {e}"
+msgstr "The requests could not be checked: {e}"
+
+msgid "No se pudo abrir el paquete: {e}"
+msgstr "The pack could not be opened: {e}"
+
+msgid "No se pudo aceptar: {e}"
+msgstr "It could not be accepted: {e}"
+
+msgid "No se pudo crear el paquete: {e}"
+msgstr "The pack could not be created: {e}"
+
+msgid "No se pudo obtener el enlace: {e}"
+msgstr "The link could not be obtained: {e}"
+
+msgid "No se pudo suscribir: {e}"
+msgstr "Could not subscribe: {e}"
+
+msgid "No tienes paquetes de inicio"
+msgstr "You have no starter packs"
+
+msgid "Paquete borrado."
+msgstr "Pack deleted."
+
+msgid "Paquete de inicio"
+msgstr "Starter pack"
+
+msgid "Paquete de inicio creado."
+msgstr "Starter pack created."
+
+msgid "Paquetes de _inicio…"
+msgstr "_Starter packs…"
+
+msgid "Paquetes de inicio de {r}"
+msgstr "{r} starter packs"
+
+msgid "Paquetes de inicio sugeridos"
+msgstr "Suggested starter packs"
+
+msgid "Paquetes sugeridos"
+msgstr "Suggested packs"
+
+msgid "S_alir del grupo"
+msgstr "_Leave the group"
+
+msgid "Seguidores _en común con el autor…"
+msgstr "Followers _in common with the author…"
+
+msgid "Selecciona un elemento de Bluesky o de W Social"
+msgstr "Select an item from Bluesky or W Social"
+
+msgid "Selecciona una conversación de grupo"
+msgstr "Select a group conversation"
+
+msgid "Solicitudes de _mensajes…"
+msgstr "Message _requests…"
+
+msgid "Temas en tendencia"
+msgstr "Trending topics"
+
+msgid "Tendencias de {r}"
+msgstr "{r} trends"
+
+msgid "Un nombre, un usuario o parte de la biografía."
+msgstr "A name, a username or part of the bio."
+
+msgid "Vas a expulsar a {u} del grupo. ¿Continuar?"
+msgstr "You are about to remove {u} from the group. Continue?"
+
+msgid "_Aceptar y abrir"
+msgstr "_Accept and open"
+
+msgid "_Añadir cuentas…"
+msgstr "_Add accounts…"
+
+msgid "_Buscar el tema"
+msgstr "_Search the topic"
+
+msgid "_Crear un grupo…"
+msgstr "_Create a group…"
+
+msgid "_Crear uno nuevo…"
+msgstr "_Create a new one…"
+
+msgid ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+msgstr "_Accounts to add, separated by commas (for example name.bsky.social):"
+
+msgid "_Cuentas a añadir, separadas por comas:"
+msgstr "_Accounts to add, separated by commas:"
+
+msgid "_Cuentas, separadas por comas:"
+msgstr "_Accounts, separated by commas:"
+
+msgid "_Dejar de recibir avisos"
+msgstr "_Stop receiving notices"
+
+msgid "_Enlace de invitación"
+msgstr "Invitation _link"
+
+msgid "_Enlace de invitación al grupo:"
+msgstr "Group invitation _link:"
+
+msgid "_Entrar en un grupo con un enlace…"
+msgstr "_Join a group with a link…"
+
+msgid "_Expulsar"
+msgstr "_Remove"
+
+msgid "_Feeds del autor…"
+msgstr "Author's _feeds…"
+
+msgid "_Gestionar el grupo…"
+msgstr "_Manage the group…"
+
+msgid "_Lista que incluirá el paquete:"
+msgstr "_List that the pack will include:"
+
+msgid "_Nombre del grupo:"
+msgstr "Group _name:"
+
+msgid "_Nombre del paquete:"
+msgstr "Pack _name:"
+
+msgid "_Nuevo nombre del grupo:"
+msgstr "_New group name:"
+
+msgid "_Solicitud:"
+msgstr "_Request:"
+
+msgid "_Solicitudes de entrada…"
+msgstr "_Join requests…"
+
+msgid "_Sugeridos…"
+msgstr "_Suggested…"
+
+msgid "{n} paquetes"
+msgstr "{n} packs"
+
+msgid "{n} temas"
+msgstr "{n} topics"
+
+msgid "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+msgstr "Accept {u} into the group? If you say no, it is rejected."
+
+msgid "¿Borrar el paquete «{n}»?"
+msgstr "Delete the pack “{n}”?"
+
+msgid "¿Salir de este grupo?"
+msgstr "Leave this group?"

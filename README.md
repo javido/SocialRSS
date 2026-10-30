@@ -123,7 +123,7 @@ responder (con control de quién puede responder), citar, me gusta, republicar, 
 conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
 listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
 contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
-traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). Aún faltan paquetes de inicio, tendencias y grupos de chat.
+traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). También en Bluesky y W Social: tendencias (Intro busca el tema), paquetes de inicio (ver, crear y borrar), buscar cuentas, grupos de chat (crear, entrar con un enlace, añadir y expulsar miembros, renombrar, enlace de invitación, solicitudes de entrada y salir), y en Bluesky las solicitudes de mensajes, las cuentas a cuya actividad sigues, las cuentas similares, los seguidores en común y los feeds del autor.
 **W Social**: alta con usuario y contraseña de aplicación (con «Comprobar el servidor» para ver dónde vive la cuenta
 antes de enviar nada, y «Volver a autorizar»), Inicio, Notificaciones, Menciones, Mis publicaciones, Me gusta, Marcadores y
 mensajes directos; publicar con imágenes o vídeo, responder (con control de quién puede responder), citar, me gusta,

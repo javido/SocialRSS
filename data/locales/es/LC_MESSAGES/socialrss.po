@@ -44391,3 +44391,240 @@ msgstr "¿Quitar a @{a} de la colección?"
 
 msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
 msgstr "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+
+msgid "A_visarme cuando el autor publique"
+msgstr "A_visarme cuando el autor publique"
+
+msgid "Cargando las tendencias…"
+msgstr "Cargando las tendencias…"
+
+msgid "Cargando los miembros…"
+msgstr "Cargando los miembros…"
+
+msgid "Cargando los paquetes…"
+msgstr "Cargando los paquetes…"
+
+msgid "Crear un paquete de inicio"
+msgstr "Crear un paquete de inicio"
+
+msgid "Cuentas _similares al autor…"
+msgstr "Cuentas _similares al autor…"
+
+msgid "Cuentas a cuya _actividad sigues…"
+msgstr "Cuentas a cuya _actividad sigues…"
+
+msgid "Cuentas añadidas al grupo."
+msgstr "Cuentas añadidas al grupo."
+
+msgid "Cuentas de {r}: {t}"
+msgstr "Cuentas de {r}: {t}"
+
+msgid "Cuentas encontradas"
+msgstr "Cuentas encontradas"
+
+msgid "Cuentas suscritas"
+msgstr "Cuentas suscritas"
+
+msgid "Dejarás de recibir avisos de esta cuenta."
+msgstr "Dejarás de recibir avisos de esta cuenta."
+
+msgid "El servidor no ha devuelto ningún enlace."
+msgstr "El servidor no ha devuelto ningún enlace."
+
+msgid "Enlace de invitación copiado"
+msgstr "Enlace de invitación copiado"
+
+msgid "Error al cargar tus listas: {e}"
+msgstr "Error al cargar tus listas: {e}"
+
+msgid "Escribe el nombre y al menos una cuenta."
+msgstr "Escribe el nombre y al menos una cuenta."
+
+msgid "Escribe el nombre y añade al menos una cuenta al grupo."
+msgstr "Escribe el nombre y añade al menos una cuenta al grupo."
+
+msgid "Esto solo está en Bluesky"
+msgstr "Esto solo está en Bluesky"
+
+msgid "Feed: {n}"
+msgstr "Feed: {n}"
+
+msgid "Grupo: {t}"
+msgstr "Grupo: {t}"
+
+msgid "Miembros del grupo"
+msgstr "Miembros del grupo"
+
+msgid ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+msgstr ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+
+msgid "No hay tendencias"
+msgstr "No hay tendencias"
+
+msgid "No se encontró ninguna cuenta"
+msgstr "No se encontró ninguna cuenta"
+
+msgid "No se pudieron cargar las tendencias: {e}"
+msgstr "No se pudieron cargar las tendencias: {e}"
+
+msgid "No se pudieron cargar los paquetes sugeridos: {e}"
+msgstr "No se pudieron cargar los paquetes sugeridos: {e}"
+
+msgid "No se pudieron cargar los paquetes: {e}"
+msgstr "No se pudieron cargar los paquetes: {e}"
+
+msgid "No se pudieron consultar las solicitudes: {e}"
+msgstr "No se pudieron consultar las solicitudes: {e}"
+
+msgid "No se pudo abrir el paquete: {e}"
+msgstr "No se pudo abrir el paquete: {e}"
+
+msgid "No se pudo aceptar: {e}"
+msgstr "No se pudo aceptar: {e}"
+
+msgid "No se pudo crear el paquete: {e}"
+msgstr "No se pudo crear el paquete: {e}"
+
+msgid "No se pudo obtener el enlace: {e}"
+msgstr "No se pudo obtener el enlace: {e}"
+
+msgid "No se pudo suscribir: {e}"
+msgstr "No se pudo suscribir: {e}"
+
+msgid "No tienes paquetes de inicio"
+msgstr "No tienes paquetes de inicio"
+
+msgid "Paquete borrado."
+msgstr "Paquete borrado."
+
+msgid "Paquete de inicio"
+msgstr "Paquete de inicio"
+
+msgid "Paquete de inicio creado."
+msgstr "Paquete de inicio creado."
+
+msgid "Paquetes de _inicio…"
+msgstr "Paquetes de _inicio…"
+
+msgid "Paquetes de inicio de {r}"
+msgstr "Paquetes de inicio de {r}"
+
+msgid "Paquetes de inicio sugeridos"
+msgstr "Paquetes de inicio sugeridos"
+
+msgid "Paquetes sugeridos"
+msgstr "Paquetes sugeridos"
+
+msgid "S_alir del grupo"
+msgstr "S_alir del grupo"
+
+msgid "Seguidores _en común con el autor…"
+msgstr "Seguidores _en común con el autor…"
+
+msgid "Selecciona un elemento de Bluesky o de W Social"
+msgstr "Selecciona un elemento de Bluesky o de W Social"
+
+msgid "Selecciona una conversación de grupo"
+msgstr "Selecciona una conversación de grupo"
+
+msgid "Solicitudes de _mensajes…"
+msgstr "Solicitudes de _mensajes…"
+
+msgid "Temas en tendencia"
+msgstr "Temas en tendencia"
+
+msgid "Tendencias de {r}"
+msgstr "Tendencias de {r}"
+
+msgid "Un nombre, un usuario o parte de la biografía."
+msgstr "Un nombre, un usuario o parte de la biografía."
+
+msgid "Vas a expulsar a {u} del grupo. ¿Continuar?"
+msgstr "Vas a expulsar a {u} del grupo. ¿Continuar?"
+
+msgid "_Aceptar y abrir"
+msgstr "_Aceptar y abrir"
+
+msgid "_Añadir cuentas…"
+msgstr "_Añadir cuentas…"
+
+msgid "_Buscar el tema"
+msgstr "_Buscar el tema"
+
+msgid "_Crear un grupo…"
+msgstr "_Crear un grupo…"
+
+msgid "_Crear uno nuevo…"
+msgstr "_Crear uno nuevo…"
+
+msgid ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+msgstr ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+
+msgid "_Cuentas a añadir, separadas por comas:"
+msgstr "_Cuentas a añadir, separadas por comas:"
+
+msgid "_Cuentas, separadas por comas:"
+msgstr "_Cuentas, separadas por comas:"
+
+msgid "_Dejar de recibir avisos"
+msgstr "_Dejar de recibir avisos"
+
+msgid "_Enlace de invitación"
+msgstr "_Enlace de invitación"
+
+msgid "_Enlace de invitación al grupo:"
+msgstr "_Enlace de invitación al grupo:"
+
+msgid "_Entrar en un grupo con un enlace…"
+msgstr "_Entrar en un grupo con un enlace…"
+
+msgid "_Expulsar"
+msgstr "_Expulsar"
+
+msgid "_Feeds del autor…"
+msgstr "_Feeds del autor…"
+
+msgid "_Gestionar el grupo…"
+msgstr "_Gestionar el grupo…"
+
+msgid "_Lista que incluirá el paquete:"
+msgstr "_Lista que incluirá el paquete:"
+
+msgid "_Nombre del grupo:"
+msgstr "_Nombre del grupo:"
+
+msgid "_Nombre del paquete:"
+msgstr "_Nombre del paquete:"
+
+msgid "_Nuevo nombre del grupo:"
+msgstr "_Nuevo nombre del grupo:"
+
+msgid "_Solicitud:"
+msgstr "_Solicitud:"
+
+msgid "_Solicitudes de entrada…"
+msgstr "_Solicitudes de entrada…"
+
+msgid "_Sugeridos…"
+msgstr "_Sugeridos…"
+
+msgid "{n} paquetes"
+msgstr "{n} paquetes"
+
+msgid "{n} temas"
+msgstr "{n} temas"
+
+msgid "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+msgstr "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+
+msgid "¿Borrar el paquete «{n}»?"
+msgstr "¿Borrar el paquete «{n}»?"
+
+msgid "¿Salir de este grupo?"
+msgstr "¿Salir de este grupo?"

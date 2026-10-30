@@ -54450,3 +54450,237 @@ msgstr ""
 
 msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
 msgstr ""
+
+msgid "A_visarme cuando el autor publique"
+msgstr ""
+
+msgid "Cargando las tendencias…"
+msgstr ""
+
+msgid "Cargando los miembros…"
+msgstr ""
+
+msgid "Cargando los paquetes…"
+msgstr ""
+
+msgid "Crear un paquete de inicio"
+msgstr ""
+
+msgid "Cuentas _similares al autor…"
+msgstr ""
+
+msgid "Cuentas a cuya _actividad sigues…"
+msgstr ""
+
+msgid "Cuentas añadidas al grupo."
+msgstr ""
+
+msgid "Cuentas de {r}: {t}"
+msgstr ""
+
+msgid "Cuentas encontradas"
+msgstr ""
+
+msgid "Cuentas suscritas"
+msgstr ""
+
+msgid "Dejarás de recibir avisos de esta cuenta."
+msgstr ""
+
+msgid "El servidor no ha devuelto ningún enlace."
+msgstr ""
+
+msgid "Enlace de invitación copiado"
+msgstr ""
+
+msgid "Error al cargar tus listas: {e}"
+msgstr ""
+
+msgid "Escribe el nombre y al menos una cuenta."
+msgstr ""
+
+msgid "Escribe el nombre y añade al menos una cuenta al grupo."
+msgstr ""
+
+msgid "Esto solo está en Bluesky"
+msgstr ""
+
+msgid "Feed: {n}"
+msgstr ""
+
+msgid "Grupo: {t}"
+msgstr ""
+
+msgid "Miembros del grupo"
+msgstr ""
+
+msgid ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+msgstr ""
+
+msgid "No hay tendencias"
+msgstr ""
+
+msgid "No se encontró ninguna cuenta"
+msgstr ""
+
+msgid "No se pudieron cargar las tendencias: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los paquetes sugeridos: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los paquetes: {e}"
+msgstr ""
+
+msgid "No se pudieron consultar las solicitudes: {e}"
+msgstr ""
+
+msgid "No se pudo abrir el paquete: {e}"
+msgstr ""
+
+msgid "No se pudo aceptar: {e}"
+msgstr ""
+
+msgid "No se pudo crear el paquete: {e}"
+msgstr ""
+
+msgid "No se pudo obtener el enlace: {e}"
+msgstr ""
+
+msgid "No se pudo suscribir: {e}"
+msgstr ""
+
+msgid "No tienes paquetes de inicio"
+msgstr ""
+
+msgid "Paquete borrado."
+msgstr ""
+
+msgid "Paquete de inicio"
+msgstr ""
+
+msgid "Paquete de inicio creado."
+msgstr ""
+
+msgid "Paquetes de _inicio…"
+msgstr ""
+
+msgid "Paquetes de inicio de {r}"
+msgstr ""
+
+msgid "Paquetes de inicio sugeridos"
+msgstr ""
+
+msgid "Paquetes sugeridos"
+msgstr ""
+
+msgid "S_alir del grupo"
+msgstr ""
+
+msgid "Seguidores _en común con el autor…"
+msgstr ""
+
+msgid "Selecciona un elemento de Bluesky o de W Social"
+msgstr ""
+
+msgid "Selecciona una conversación de grupo"
+msgstr ""
+
+msgid "Solicitudes de _mensajes…"
+msgstr ""
+
+msgid "Temas en tendencia"
+msgstr ""
+
+msgid "Tendencias de {r}"
+msgstr ""
+
+msgid "Un nombre, un usuario o parte de la biografía."
+msgstr ""
+
+msgid "Vas a expulsar a {u} del grupo. ¿Continuar?"
+msgstr ""
+
+msgid "_Aceptar y abrir"
+msgstr ""
+
+msgid "_Añadir cuentas…"
+msgstr ""
+
+msgid "_Buscar el tema"
+msgstr ""
+
+msgid "_Crear un grupo…"
+msgstr ""
+
+msgid "_Crear uno nuevo…"
+msgstr ""
+
+msgid ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+msgstr ""
+
+msgid "_Cuentas a añadir, separadas por comas:"
+msgstr ""
+
+msgid "_Cuentas, separadas por comas:"
+msgstr ""
+
+msgid "_Dejar de recibir avisos"
+msgstr ""
+
+msgid "_Enlace de invitación"
+msgstr ""
+
+msgid "_Enlace de invitación al grupo:"
+msgstr ""
+
+msgid "_Entrar en un grupo con un enlace…"
+msgstr ""
+
+msgid "_Expulsar"
+msgstr ""
+
+msgid "_Feeds del autor…"
+msgstr ""
+
+msgid "_Gestionar el grupo…"
+msgstr ""
+
+msgid "_Lista que incluirá el paquete:"
+msgstr ""
+
+msgid "_Nombre del grupo:"
+msgstr ""
+
+msgid "_Nombre del paquete:"
+msgstr ""
+
+msgid "_Nuevo nombre del grupo:"
+msgstr ""
+
+msgid "_Solicitud:"
+msgstr ""
+
+msgid "_Solicitudes de entrada…"
+msgstr ""
+
+msgid "_Sugeridos…"
+msgstr ""
+
+msgid "{n} paquetes"
+msgstr ""
+
+msgid "{n} temas"
+msgstr ""
+
+msgid "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+msgstr ""
+
+msgid "¿Borrar el paquete «{n}»?"
+msgstr ""
+
+msgid "¿Salir de este grupo?"
+msgstr ""
