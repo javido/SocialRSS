@@ -145,7 +145,10 @@ canales), chats frecuentes y canales parecidos, contenido compartido; administra
 administradores, enlaces de invitación, solicitudes de unión, ajustes, temas de foro, grupo de comentarios y registro de
 administración); encuestas, listas de tareas, mensajes fijados y programados, botones y comandos de bots, ubicación,
 contactos y dados; y la cuenta (perfil, contactos, bloqueados, sesiones, privacidad, verificación en dos pasos, historias y
-tus bots). Aún faltan TGDrive (la nube personal), los chats de voz y los álbumes, GIF, stickers y videomensajes.
+tus bots). También Telegram Drive, tu nube personal en un canal privado: una ventana por cuenta para navegar por carpetas virtuales,
+subir y descargar archivos y carpetas (con cola de transferencias, conflictos de nombre y reanudación), crear, renombrar,
+mover, copiar, papelera, búsqueda, propiedades y el mantenimiento del índice y del canal. Aún faltan los chats de voz y los
+álbumes, GIF, stickers y videomensajes.
 **IRC** (necesita `pydle`): redes con TLS, SASL y NickServ; cada red es una cuenta con los buffers Canales,
 Privados y Avisos del servidor, y cada conversación se abre como un buffer del árbol. Se escribe con Ctrl+N
 (Ctrl+R responde mencionando) y todo lo que empieza por barra es un comando (`/help` los enseña: `/me`, `/join`,

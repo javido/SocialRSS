@@ -55887,3 +55887,253 @@ msgstr ""
 
 msgid "¿Vaciar la conversación con {t}? Se borra el historial."
 msgstr ""
+
+msgid "  Parte {o}: {t}, mensaje {m}"
+msgstr ""
+
+msgid "Adelante"
+msgstr ""
+
+msgid "Archivos y carpetas"
+msgstr ""
+
+msgid "Atrás"
+msgstr ""
+
+msgid "Cambiar la descripción…"
+msgstr ""
+
+msgid "Carpeta añadida: {n} archivos en cola."
+msgstr ""
+
+msgid "Cifrado: {v}"
+msgstr ""
+
+msgid "Creado: {v}"
+msgstr ""
+
+msgid "Creando el canal privado…"
+msgstr ""
+
+msgid "Descripción de «{n}»"
+msgstr ""
+
+msgid "Descripción: {v}"
+msgstr ""
+
+msgid "Eliminar Telegram Drive por completo…"
+msgstr ""
+
+msgid "Eliminar para siempre"
+msgstr ""
+
+msgid "Enviar a la _papelera"
+msgstr ""
+
+msgid "Error al eliminar: {e}"
+msgstr ""
+
+msgid "Error al reparar: {e}"
+msgstr ""
+
+msgid "Estado: {v}"
+msgstr ""
+
+msgid "Fallida: {e}"
+msgstr ""
+
+msgid "Marcar o desmarcar"
+msgstr ""
+
+msgid "Modificado: {v}"
+msgstr ""
+
+msgid "Más _acciones…"
+msgstr ""
+
+msgid "Más acciones"
+msgstr ""
+
+msgid "No hay transferencias."
+msgstr ""
+
+msgid "No se pudo eliminar la nube: {e}"
+msgstr ""
+
+msgid "Nombre: {v}"
+msgstr ""
+
+msgid "Omitir este archivo"
+msgstr ""
+
+msgid "Partes: {v}"
+msgstr ""
+
+msgid "R_eintentar"
+msgstr ""
+
+msgid "Reanudando {n} transferencias pendientes."
+msgstr ""
+
+msgid "Reconstruir"
+msgstr ""
+
+msgid "Reconstruir el índice desde el canal"
+msgstr ""
+
+msgid "Reemplazar (quedan ambos hasta que borres el viejo)"
+msgstr ""
+
+msgid "Reintentar las eliminaciones pendientes"
+msgstr ""
+
+msgid ""
+"Reparado: {o} huérfanos borrados del canal, {b} archivos rotos quitados del "
+"índice."
+msgstr ""
+
+msgid "Reparar"
+msgstr ""
+
+msgid "Revisar el canal…"
+msgstr ""
+
+msgid "Ruta: {v}"
+msgstr ""
+
+msgid "SHA-256: {v}"
+msgstr ""
+
+msgid "Se vaciaron {n} elementos caducados de la papelera."
+msgstr ""
+
+msgid "Solo las canceladas"
+msgstr ""
+
+msgid "Solo las completadas"
+msgstr ""
+
+msgid "Solo las fallidas"
+msgstr ""
+
+msgid "Subir _carpeta…"
+msgstr ""
+
+msgid "Subir un nivel"
+msgstr ""
+
+msgid "Tamaño: {v}"
+msgstr ""
+
+msgid "Telegram Drive eliminado."
+msgstr ""
+
+msgid ""
+"Telegram Drive necesita un canal privado donde guardar tus archivos. Solo tú"
+" tendrás acceso. ¿Qué quieres hacer?"
+msgstr ""
+
+msgid "Telegram Drive — {u}"
+msgstr ""
+
+msgid "Telegram _Drive (tu nube personal)…"
+msgstr ""
+
+msgid "Tipo de contenido: {v}"
+msgstr ""
+
+msgid "Tipo: {v}"
+msgstr ""
+
+msgid "Todas las terminadas"
+msgstr ""
+
+msgid "Transferencias…"
+msgstr ""
+
+msgid "Ubicación: {u}"
+msgstr ""
+
+msgid ""
+"Vas a ELIMINAR por completo tu Telegram Drive.\n"
+"\n"
+"Se borrará el canal privado de Telegram y con él TODOS tus archivos ({a} archivos, {c} carpetas, {t}). Esto NO se puede deshacer.\n"
+"\n"
+"¿Seguro?"
+msgstr ""
+
+msgid "Ver la papelera"
+msgstr ""
+
+msgid "Volver a mis archivos"
+msgstr ""
+
+msgid "Ya existe «{n}» en esta carpeta. ¿_Qué quieres hacer?"
+msgstr ""
+
+msgid "_Buscar por nombre:"
+msgstr ""
+
+msgid "_Limpiar terminadas…"
+msgstr ""
+
+msgid "_Nueva carpeta…"
+msgstr ""
+
+msgid "_Qué transferencias terminadas quitar:"
+msgstr ""
+
+msgid "_Subir archivos…"
+msgstr ""
+
+msgid ""
+"{a} archivos, {c} carpetas, {t}. Marcados: {m}. Transferencias activas: {n}."
+msgstr ""
+
+msgid "{n} archivos añadidos a la cola de descarga."
+msgstr ""
+
+msgid "{n} archivos añadidos a la cola de subida."
+msgstr ""
+
+msgid "{n} elementos copiados."
+msgstr ""
+
+msgid "{n} elementos cortados."
+msgstr ""
+
+msgid "{n} elementos pegados."
+msgstr ""
+
+msgid "{n} eliminaciones pendientes resueltas."
+msgstr ""
+
+msgid "{n} subidas no se pueden reanudar: su archivo de origen ya no existe."
+msgstr ""
+
+msgid "{n} transferencias"
+msgstr ""
+
+msgid "{n} transferencias quitadas de la lista."
+msgstr ""
+
+msgid "¿Eliminar DEFINITIVAMENTE {n} elementos? No se puede deshacer."
+msgstr ""
+
+msgid "¿Enviar {n} elementos a la papelera?"
+msgstr ""
+
+msgid ""
+"¿Reparar? Se borran del canal los huérfanos y se quitan del índice los "
+"rotos."
+msgstr ""
+
+msgid "Índice reconstruido: {n} elementos."
+msgstr ""
+
+msgid ""
+"El canal tiene {t} documentos; {r} coinciden con tu índice.\n"
+"\n"
+"Documentos huérfanos: {o}\n"
+"Archivos con partes que faltan en el canal: {b}"
+msgstr ""

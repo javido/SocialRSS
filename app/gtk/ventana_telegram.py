@@ -824,7 +824,14 @@ class _TelegramMixin:
             from . import dialogos_telegram_cuenta as c
             (c.potenciar_canal if potenciar else c.estado_boosts)(self, *datos)
 
+    def tg_drive(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .tgdrive import abrir
+            abrir(self, acc)
+
     def _registrar_acciones_telegram(self, accion):
+        accion("tg-drive", self.tg_drive)
         for nombre, clase, kw in (("tg-mi-perfil", "DialogoMiPerfilTG", {}), ("tg-bloqueados", "DialogoBloqueadosTG", {}),
                                   ("tg-sesiones", "DialogoSesionesTG", {}), ("tg-privacidad", "DialogoPrivacidadTG", {}),
                                   ("tg-seguridad", "DialogoSeguridadTG", {}), ("tg-historias", "DialogoHistoriasTG", {}),

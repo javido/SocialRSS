@@ -505,6 +505,7 @@ def _menu() -> Gio.Menu:
                                  (_("Estado de la potenciación del _canal…"), "win.tg-boosts"),
                                  (_("Potenciar el canal"), "win.tg-potenciar")))
     tg.append_submenu(_("Mi c_uenta"), tgc)
+    tg.append_section(None, sec((_("Telegram _Drive (tu nube personal)…"), "win.tg-drive"),))
     tg.append_section(None, sec((_("Credenciales de la _API…"), "win.tg-credenciales"),
                                 (_("Cerrar la _sesión y eliminar la cuenta…"), "win.tg-eliminar-cuenta")))
     barra.append_submenu(_("_Telegram"), tg)
