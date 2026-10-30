@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-import pytest
-
-pytest.importorskip("gi")
-
-from app.gtk.datos import Nodo  # noqa: E402
-from app.gtk.orden_arbol import _intercambiar, _reordenar_en_sitio  # noqa: E402
+from app.gtk.datos import Nodo
+from app.gtk.orden_arbol import _intercambiar, _reordenar_en_sitio
 
 
 def test_intercambiar_con_el_vecino_visible():

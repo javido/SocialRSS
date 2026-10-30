@@ -9,10 +9,6 @@ Se guarda donde lo guarda la versión de Windows, así que el orden elegido vale
 
 import logging
 
-import gi
-gi.require_version("Gtk", "4.0")
-from gi.repository import Gdk  # noqa: E402
-
 from app.core.config_manager import config
 from app.core.database import db
 
@@ -23,8 +19,6 @@ log = logging.getLogger(__name__)
 
 _MODULOS = {"mastodon": datos_mastodon, "bluesky": datos_bluesky, "wsocial": datos_wsocial, "telegram": datos_telegram,
             "irc": datos_irc, "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x, "reddit": datos_reddit}
-_MODIFICADORES = (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK | Gdk.ModifierType.ALT_MASK
-                  | Gdk.ModifierType.SUPER_MASK)
 _RSS_FIJOS = ["all", "unread", "favorites", "read_later", "today"]
 
 
@@ -110,14 +104,17 @@ def _reasignar_posiciones(tabla: str, ids: list):
 
 class _OrdenMixin:
     def _configurar_orden_arbol(self):
-        from gi.repository import Gtk
+        from gi.repository import Gtk       # no se importa arriba: así el módulo se puede probar sin cargar GTK 4
         ctl = Gtk.EventControllerKey()
         ctl.set_propagation_phase(Gtk.PropagationPhase.CAPTURE)
         ctl.connect("key-pressed", self._on_tecla_arbol_orden)
         self.vista_arbol.add_controller(ctl)
 
     def _on_tecla_arbol_orden(self, ctl, keyval, keycode, estado):
-        if keyval not in (Gdk.KEY_Up, Gdk.KEY_Down) or (estado & _MODIFICADORES) != Gdk.ModifierType.CONTROL_MASK:
+        from gi.repository import Gdk
+        modificadores = (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK | Gdk.ModifierType.ALT_MASK
+                         | Gdk.ModifierType.SUPER_MASK)
+        if keyval not in (Gdk.KEY_Up, Gdk.KEY_Down) or (estado & modificadores) != Gdk.ModifierType.CONTROL_MASK:
             return False
         self.mover_nodo_arbol(keyval == Gdk.KEY_Up)
         return True
