@@ -53425,3 +53425,20 @@ msgstr ""
 
 msgid "Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"
 msgstr ""
+
+msgid "Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"
+msgstr ""
+
+msgid "Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"
+msgstr ""
+
+msgid "No se puede mover más abajo."
+msgstr ""
+
+msgid "No se puede mover más arriba."
+msgstr ""
+
+msgid ""
+"Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, "
+"buffers, feeds y categorías)"
+msgstr ""

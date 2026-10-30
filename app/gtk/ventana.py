@@ -35,6 +35,7 @@ from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
 from .ventana_herramientas import _HerramientasMixin
+from .orden_arbol import _OrdenMixin, aplicar_orden
 from .ventana_bandeja import _BandejaMixin
 from .ventana_rss import _RSSMixin
 from .ventana_peertube import _PeerTubeMixin
@@ -70,7 +71,7 @@ def _clave_fila(f) -> str:
     return f.extra.get("clave_lista") or f.id
 
 
-class VentanaPrincipal(_BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -101,6 +102,7 @@ class VentanaPrincipal(_BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMix
         self._iniciar_complementos()
         self._construir_interfaz()
         self._configurar_tabulador()
+        self._configurar_orden_arbol()
         self._configurar_menu()
         self._registrar_acciones()
         self.cargar_arbol()
@@ -476,6 +478,8 @@ class VentanaPrincipal(_BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMix
                 self.get_application().set_accels_for_action(f"win.{nombre}", list(teclas))
         self._accion = accion
         accion("actualizar", self.accion_actualizar, ["<Ctrl><Shift>r"])
+        accion("arbol-subir", lambda: self.mover_nodo_arbol(True))
+        accion("arbol-bajar", lambda: self.mover_nodo_arbol(False))
         accion("actualizar-feed", self.accion_actualizar_feed)
         accion("buscar", lambda: self.entrada_busqueda.grab_focus(), ["<Ctrl>f"])
         accion("leido", self.accion_alternar_leido, ["<Ctrl>m"])
@@ -609,6 +613,7 @@ class VentanaPrincipal(_BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMix
             arbol.append(datos_reddit.construir_nodos())
         if datos_peertube.disponible():
             arbol.append(datos_peertube.construir_nodos())
+        aplicar_orden(arbol)
         return arbol
 
     def cargar_arbol(self, conservar=True, seleccionar=None):

@@ -591,6 +591,8 @@ def _menu() -> Gio.Menu:
                                  (_("_Añadir buffers a la bandeja…"), "win.bandeja-anadir"),
                                  (_("_Quitar buffers de la bandeja…"), "win.bandeja-quitar"),
                                  (_("Ir al buffer de _origen de la publicación"), "win.bandeja-origen")))
+    ver.append_section(None, sec((_("Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"), "win.arbol-subir"),
+                                 (_("Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"), "win.arbol-bajar")))
     barra.append_submenu(_("_Ver"), ver)
 
     ayuda = Gio.Menu()

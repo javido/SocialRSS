@@ -25,7 +25,11 @@ haga perder el foco.
   quieres, un panel de detalles para leer el contenido con las flechas.
 - **Listas que se actualizan solas sin moverte el foco**: lo nuevo aparece en su sitio y el lector
   no te vuelve a leer nada. Las redes que lo admiten funcionan en **tiempo real**.
-- **Bandeja de entrada unificada**: un único buffer con lo importante de varias redes.
+- **Reordenar el árbol:** con el foco en el árbol, Ctrl+Arriba y Ctrl+Abajo mueven el elemento elegido: los servicios, las cuentas,
+los buffers de cada red (el orden vale para todas sus cuentas), los buffers fijos de RSS, las categorías y los feeds (los feeds
+fijados siempre van arriba) y los buffers abiertos en la sesión. El orden se guarda en la misma configuración que usa Windows.
+
+**Bandeja de entrada unificada**: un único buffer con lo importante de varias redes.
 - **Cada red, completa**:
   - Mastodon: publicar (con encuestas, avisos de contenido, adjuntos con descripción, programado,
     hilos), citas, filtros del servidor, listas, hashtags, notificaciones agrupadas, borradores,
