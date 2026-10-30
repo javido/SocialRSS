@@ -9,7 +9,7 @@ import logging
 
 import gi
 gi.require_version("Gtk", "4.0")
-from gi.repository import Gtk  # noqa: E402
+from gi.repository import GLib, Gtk  # noqa: E402
 
 from app.core.config_manager import config
 from app.core.i18n import NOMBRES_IDIOMA
@@ -138,6 +138,9 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Ocultar los artículos anclados con fecha _futura:"), self.rss_ocultar_futuros)
         self.rss_busquedas_arbol = p.interruptor(config.get("rss", "saved_searches_in_tree", True))
         p.campo(_("Mostrar las búsquedas guardadas en el árbol:"), self.rss_busquedas_arbol)
+        self.rss_agrupar = p.interruptor(config.get("rss", "group_by_date", False))
+        p.campo(_("Agrupar los artículos por _fecha:"), self.rss_agrupar,
+                _("La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su etiqueta delante."))
         self.rss_tope_alertas = Gtk.SpinButton.new_with_range(1, 50, 1)
         self.rss_tope_alertas.set_value(int(config.get("rss", "max_alert_notifications", 3) or 3))
         p.campo(_("Máximo de avisos de alertas por palabra clave en cada _descarga:"), self.rss_tope_alertas)
@@ -494,6 +497,10 @@ class DialogoPreferencias(Gtk.Window):
         config.set("rss", "download_images", self.rss_imagenes.get_active())
         config.set("rss", "hide_future_articles", self.rss_ocultar_futuros.get_active())
         config.set("rss", "saved_searches_in_tree", self.rss_busquedas_arbol.get_active())
+        config.set("rss", "group_by_date", self.rss_agrupar.get_active())
+        estado = self.padre.lookup_action("rss-agrupar-fecha")
+        if estado is not None:
+            estado.set_state(GLib.Variant.new_boolean(self.rss_agrupar.get_active()))
         config.set("rss", "max_alert_notifications", int(self.rss_tope_alertas.get_value()))
         config.set("rss", "podcast_max_mib", int(self.rss_podcast_mib.get_value()))
         config.set("rss", "keep_articles_days", int(self.rss_dias.get_value()))

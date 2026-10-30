@@ -207,7 +207,7 @@ o importar las suscripciones desde Google Takeout, importar OPML con vista previ
 (varias condiciones, acciones, ámbito y prioridad), carpetas inteligentes, búsquedas guardadas como buffers del árbol, alertas por
 palabra clave, salud de los feeds, descargas de podcast, sincronización con FreshRSS, Inoreader o Miniflux, historial y
 estadísticas de lectura, resumen de lo no leído y exportar artículos en lote. En Artículo: etiquetas, imágenes con su texto
-alternativo y la cola de podcasts. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
+alternativo y la cola de podcasts. «Agrupar por fecha» (menú Feeds o Preferencias) pone delante del primer artículo de cada bloque su etiqueta: Hoy, Ayer, Esta semana, Este mes. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
 
 **Bandeja de entrada unificada** (la misma configuración que en Windows: se activa en Preferencias o en Ver): un buffer que
 mezcla por fecha las publicaciones de los buffers y redes que elijas (Mastodon, Bluesky, W Social, X, Reddit, PeerTube y los

@@ -75,7 +75,8 @@ class FilaObj(GObject.Object):
         if getattr(self, "_desc_clave", None) != clave:
             self._desc_clave = clave
             origen = self.fila.extra.get("origen")      # en la bandeja, de qué buffer viene
-            self._desc = (f"{origen}. " if origen else "") + self._construir_descripcion()
+            grupo = self.fila.extra.get("grupo")        # primera fila de un bloque de fechas (Agrupar por fecha)
+            self._desc = (f"{grupo}. " if grupo else "") + (f"{origen}. " if origen else "") + self._construir_descripcion()
         return self._desc
 
     def _construir_descripcion(self) -> str:

@@ -43371,3 +43371,16 @@ msgid ""
 msgstr ""
 "Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, "
 "buffers, feeds y categorías)"
+
+msgid "Agrupar por _fecha"
+msgstr "Agrupar por _fecha"
+
+msgid "Agrupar los artículos por _fecha:"
+msgstr "Agrupar los artículos por _fecha:"
+
+msgid ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."
+msgstr ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."

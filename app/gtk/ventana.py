@@ -277,7 +277,7 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
             texto = ("★ " if obj.favorito else "") + f.titulo
             titulo.set_markup(f"<b>{GLib.markup_escape_text(texto)}</b>" if not obj.leido
                               else GLib.markup_escape_text(texto))
-            partes = [p for p in (f.extra.get("origen", ""), f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
+            partes = [p for p in (f"— {f.extra['grupo']} —" if f.extra.get("grupo") else "", f.extra.get("origen", ""), f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
                                   datos.fecha_legible(f.fecha)) if p]
             meta.set_text(" · ".join(partes))
             item.set_accessible_label(obj.descripcion())
@@ -757,7 +757,21 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
                 q = busqueda.lower()
                 filas = [f for f in filas if q in f.titulo.lower()]
             return filas
-        return datos.listar(self.account_id, nodo, busqueda=busqueda)
+        filas = datos.listar(self.account_id, nodo, busqueda=busqueda)
+        if config.get("rss", "group_by_date", False):
+            self._marcar_grupos_fecha(filas)
+        return filas
+
+    @staticmethod
+    def _marcar_grupos_fecha(filas):
+        """Anota en la primera fila de cada bloque de fechas su etiqueta (Hoy, Ayer...): se lee y se ve antes del feed."""
+        from app.core.fechas_grupo import bucket_fecha
+        actual = None
+        for f in filas:
+            grupo = bucket_fecha(f.fecha)
+            if grupo and grupo != actual:
+                actual = grupo
+                f.extra["grupo"] = grupo
 
     def cargar_lista(self, conservar_id: str = None, incremental: bool = False, despues=None):
         """Rellena la lista SIN bloquear la interfaz: lee en un hilo y aplica el resultado en el de la UI.

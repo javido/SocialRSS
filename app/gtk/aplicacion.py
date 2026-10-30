@@ -71,6 +71,7 @@ def _menu() -> Gio.Menu:
     feeds.append_section(None, sec((_("_Historial de lectura…"), "win.rss-historial"),
                                    (_("Estadísticas de _lectura…"), "win.rss-estadisticas"),
                                    (_("_Resumen de los artículos sin leer"), "win.rss-resumen"),
+                                   (_("Agrupar por _fecha"), "win.rss-agrupar-fecha"),
                                    (_("E_xportar artículos en lote…"), "win.rss-exportar"),
                                    (_("_Papelera de artículos…"), "win.herr-papelera")))
     barra.append_submenu(_("_Feeds"), feeds)

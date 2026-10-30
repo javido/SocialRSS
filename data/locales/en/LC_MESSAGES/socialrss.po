@@ -55188,3 +55188,16 @@ msgid ""
 msgstr ""
 "Ctrl+Up / Ctrl+Down: move the tree item (services, accounts, buffers, feeds "
 "and categories)"
+
+msgid "Agrupar por _fecha"
+msgstr "Group by _date"
+
+msgid "Agrupar los artículos por _fecha:"
+msgstr "Group the articles by _date:"
+
+msgid ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."
+msgstr ""
+"The first row of each block (Today, Yesterday, This week, This month) starts"
+" with its label."
