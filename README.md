@@ -139,8 +139,13 @@ moderación de verificación de edad y los contactos. No se ha probado con una c
 lista de chats y de chats sin leer, cada conversación como un buffer del árbol, enviar, responder, editar,
 borrar, reaccionar, reenviar, copiar, descargar y abrir adjuntos, reproducir notas de voz y audios, enviar
 archivos, mensajes guardados, silenciar, fijar, archivar, marcar leído, información del chat y avisos de mensajes nuevos en
-**tiempo real** (por voz solo de la conversación abierta y de chats privados). Aún faltan carpetas, foros con
-temas, encuestas, historias, administración de grupos, bots y llamadas.
+**tiempo real** (por voz solo de la conversación abierta y de chats privados). También: carpetas de chats (con enlaces para
+compartirlas), crear grupos, foros y canales, unirse por enlace, búsquedas (en todos los chats, en uno y de publicaciones de
+canales), chats frecuentes y canales parecidos, contenido compartido; administración de grupos y canales (miembros,
+administradores, enlaces de invitación, solicitudes de unión, ajustes, temas de foro, grupo de comentarios y registro de
+administración); encuestas, listas de tareas, mensajes fijados y programados, botones y comandos de bots, ubicación,
+contactos y dados; y la cuenta (perfil, contactos, bloqueados, sesiones, privacidad, verificación en dos pasos, historias y
+tus bots). Aún faltan TGDrive (la nube personal), los chats de voz y los álbumes, GIF, stickers y videomensajes.
 **IRC** (necesita `pydle`): redes con TLS, SASL y NickServ; cada red es una cuenta con los buffers Canales,
 Privados y Avisos del servidor, y cada conversación se abre como un buffer del árbol. Se escribe con Ctrl+N
 (Ctrl+R responde mencionando) y todo lo que empieza por barra es un comando (`/help` los enseña: `/me`, `/join`,

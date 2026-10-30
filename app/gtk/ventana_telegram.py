@@ -697,7 +697,181 @@ class _TelegramMixin:
                 break
 
     # ------------------------------------------------------------------ acciones
+    # ------------------------------------------------------------------ administrar el chat
+    def tg_admin_dialogo(self, nombre: str):
+        """Abre un diálogo de dialogos_telegram_admin sobre el chat enfocado."""
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_admin as adm
+            getattr(adm, nombre)(self, *datos).present()
+
+    def tg_admin_funcion(self, nombre: str, *extra):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_admin as adm
+            getattr(adm, nombre)(self, *datos, *extra)
+
+    def tg_vaciar(self):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from .dialogos_telegram_admin import vaciar_chat
+            tipo = datos_telegram.info_chat(datos[0], datos[1]).get("tipo")
+            vaciar_chat(self, datos[0], datos[1], datos[2], tipo, lambda: self._tg_refrescar_chat(datos[0], datos[1]))
+
+    def tg_enviar_como(self):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from .dialogos_telegram_admin import enviar_como
+            enviar_como(self, datos[0], datos[1])
+
+    # ------------------------------------------------------------------ carpetas, crear chats y búsquedas
+    def tg_cuenta_lista(self):
+        acc = self._tg_cuenta()
+        return acc if acc is not None and self._tg_disponible() else None
+
+    def tg_carpetas(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import DialogoCarpetasTG
+            DialogoCarpetasTG(self, acc).present()
+
+    def tg_crear_chat(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import crear_chat
+            crear_chat(self, acc, lambda cid, titulo: (self._tg_refrescar_chats(acc), self._tg_abrir_por_id(acc, cid, titulo)))
+
+    def tg_unirse_enlace(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import unirse_por_enlace
+            unirse_por_enlace(self, acc, lambda _r: self._tg_refrescar_chats(acc))
+
+    def tg_buscar_global(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import buscar_global
+            buscar_global(self, acc, self._tg_abrir_por_id)
+
+    def tg_buscar_publicaciones(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import buscar_publicaciones
+            buscar_publicaciones(self, acc)
+
+    def tg_frecuentes(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_chats import chats_frecuentes
+            chats_frecuentes(self, acc, self._tg_abrir_por_id)
+
+    def tg_chat_funcion(self, nombre: str, *extra):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_chats as ch
+            getattr(ch, nombre)(self, *datos, *extra)
+
+    # ------------------------------------------------------------------ mensajes: encuestas, fijados, programados, listas, bots
+    def tg_msg_funcion(self, nombre: str, *extra):
+        """Una función de dialogos_telegram_mensajes sobre el mensaje enfocado: (ventana, cuenta, chat, mensaje, ...)."""
+        obj = self._tg_mensaje()
+        if obj is None or not self._tg_disponible():
+            return
+        x = obj.fila.extra
+        from . import dialogos_telegram_mensajes as m
+        getattr(m, nombre)(self, x["account_id"], x["chat_id"], x["message_id"], *extra)
+
+    def tg_chat_msg_funcion(self, nombre: str, *extra):
+        """Una función de dialogos_telegram_mensajes sobre el chat enfocado: (ventana, cuenta, chat, título, ...)."""
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_mensajes as m
+            getattr(m, nombre)(self, *datos, *extra)
+
+    def _tg_recargar(self):
+        datos = self._tg_chat_abierto()
+        if datos:
+            self._tg_refrescar_chat(datos[0], datos[1])
+
+    def tg_chat_funcion_cid(self, nombre: str):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_mensajes as m
+            getattr(m, nombre)(self, datos[0], datos[1], self._tg_recargar)
+
+    def tg_programados(self):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from .dialogos_telegram_mensajes import DialogoProgramadosTG
+            DialogoProgramadosTG(self, *datos).present()
+
+    # ------------------------------------------------------------------ perfil y cuenta
+    def tg_cuenta_dialogo(self, nombre: str, **kw):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from . import dialogos_telegram_cuenta as c
+            getattr(c, nombre)(self, acc, **kw).present()
+
+    def tg_contactos(self):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from .dialogos_telegram_cuenta import DialogoContactosTG
+            DialogoContactosTG(self, acc, self._tg_abrir_por_id).present()
+
+    def tg_boosts(self, potenciar: bool = False):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_cuenta as c
+            (c.potenciar_canal if potenciar else c.estado_boosts)(self, *datos)
+
     def _registrar_acciones_telegram(self, accion):
+        for nombre, clase, kw in (("tg-mi-perfil", "DialogoMiPerfilTG", {}), ("tg-bloqueados", "DialogoBloqueadosTG", {}),
+                                  ("tg-sesiones", "DialogoSesionesTG", {}), ("tg-privacidad", "DialogoPrivacidadTG", {}),
+                                  ("tg-seguridad", "DialogoSeguridadTG", {}), ("tg-historias", "DialogoHistoriasTG", {}),
+                                  ("tg-mis-historias", "DialogoHistoriasTG", {"propias": True}),
+                                  ("tg-mis-bots", "DialogoMisBotsTG", {})):
+            accion(nombre, lambda c=clase, k=kw: self.tg_cuenta_dialogo(c, **k))
+        accion("tg-contactos", self.tg_contactos)
+        accion("tg-boosts", self.tg_boosts)
+        accion("tg-potenciar", lambda: self.tg_boosts(True))
+        accion("tg-encuesta-nueva", lambda: self.tg_chat_msg_funcion("crear_encuesta", self._tg_recargar))
+        accion("tg-encuesta", lambda: self.tg_msg_funcion("ver_encuesta", self._tg_recargar))
+        accion("tg-fijar-mensaje", lambda: self.tg_msg_funcion("fijar_mensaje", True))
+        accion("tg-desfijar-mensaje", lambda: self.tg_msg_funcion("fijar_mensaje", False))
+        accion("tg-desfijar-todos", lambda: self.tg_chat_msg_funcion("desfijar_todos"))
+        accion("tg-programar", lambda: self.tg_chat_msg_funcion("programar_mensaje"))
+        accion("tg-programados", self.tg_programados)
+        accion("tg-lista-tareas-nueva", lambda: self.tg_chat_msg_funcion("crear_lista_tareas"))
+        accion("tg-lista-tareas", lambda: self.tg_msg_funcion("ver_lista_tareas"))
+        accion("tg-botones", lambda: self.tg_msg_funcion("botones_del_mensaje", self._tg_recargar))
+        accion("tg-comandos-bot", lambda: self.tg_chat_msg_funcion("comandos_del_bot", self._tg_recargar))
+        accion("tg-iniciar-bot", lambda: self.tg_chat_funcion_cid("iniciar_bot"))
+        accion("tg-detalles-mensaje", lambda: self.tg_msg_funcion("detalles_mensaje"))
+        accion("tg-traducir-mensaje", lambda: self.tg_msg_funcion("traducir_mensaje"))
+        accion("tg-guardar-mensaje", lambda: self.tg_msg_funcion("reenviar_a_guardados"))
+        accion("tg-borrar-descarga", lambda: self.tg_msg_funcion("borrar_descarga_local"))
+        accion("tg-menciones-leidas", lambda: self.tg_chat_msg_funcion("marcar_menciones_leidas"))
+        accion("tg-reacciones-leidas", lambda: self.tg_chat_msg_funcion("marcar_reacciones_leidas"))
+        accion("tg-dado", lambda: self.tg_chat_msg_funcion("enviar_dado"))
+        accion("tg-ubicacion", lambda: self.tg_chat_msg_funcion("enviar_ubicacion"))
+        accion("tg-contacto", lambda: self.tg_chat_msg_funcion("enviar_contacto"))
+        accion("tg-carpetas", self.tg_carpetas)
+        accion("tg-crear-chat", self.tg_crear_chat)
+        accion("tg-unirse-enlace", self.tg_unirse_enlace)
+        accion("tg-buscar-global", self.tg_buscar_global)
+        accion("tg-buscar-publicaciones", self.tg_buscar_publicaciones)
+        accion("tg-frecuentes", self.tg_frecuentes)
+        accion("tg-buscar-chat", lambda: self.tg_chat_funcion("buscar_en_chat"))
+        accion("tg-medios", lambda: self.tg_chat_funcion("medios_del_chat"))
+        accion("tg-similares", lambda: self.tg_chat_funcion("canales_similares", self._tg_abrir_por_id))
+        for nombre, clase in (("tg-miembros", "DialogoMiembrosTG"), ("tg-enlaces", "DialogoEnlacesTG"),
+                              ("tg-solicitudes", "DialogoSolicitudesTG"), ("tg-ajustes", "DialogoAjustesChatTG"),
+                              ("tg-temas", "DialogoTemasTG")):
+            accion(nombre, lambda c=clase: self.tg_admin_dialogo(c))
+        accion("tg-registro-admin", lambda: self.tg_admin_funcion("registro_admin"))
+        accion("tg-grupo-comentarios", lambda: self.tg_admin_funcion("grupo_de_comentarios"))
+        accion("tg-vaciar", self.tg_vaciar)
+        accion("tg-enviar-como", self.tg_enviar_como)
         def a(nombre, fn, teclas=()):
             accion(nombre, fn, teclas)
         a("tg-chat-nuevo", self.tg_chat_nuevo)

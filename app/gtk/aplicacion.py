@@ -439,6 +439,15 @@ def _menu() -> Gio.Menu:
                                 (_("Enviar un a_rchivo…"), "win.tg-enviar-archivo"),
                                 (_("_Grabar y enviar una nota de voz"), "win.grabar-voz"),
                                 (_("Cancelar la grabación de voz"), "win.cancelar-voz")))
+    tg.append_section(None, sec((_("Carpetas de _chats…"), "win.tg-carpetas"),
+                                (_("Crear un grupo, foro o _canal…"), "win.tg-crear-chat"),
+                                (_("_Unirse a un chat con un enlace…"), "win.tg-unirse-enlace"),
+                                (_("_Buscar en todos los chats…"), "win.tg-buscar-global"),
+                                (_("Buscar en el chat _actual…"), "win.tg-buscar-chat"),
+                                (_("Buscar publicaciones de canales por _hashtag…"), "win.tg-buscar-publicaciones"),
+                                (_("Chats _frecuentes…"), "win.tg-frecuentes"),
+                                (_("Canales _parecidos…"), "win.tg-similares"),
+                                (_("Contenido _compartido del chat…"), "win.tg-medios")))
     tg.append_section(None, sec((_("Nuevo _chat con un usuario…"), "win.tg-chat-nuevo"),
                                 (_("Mensajes _guardados"), "win.tg-guardados"),
                                 (_("_Silenciar o reactivar el chat"), "win.tg-silenciar"),
@@ -449,6 +458,53 @@ def _menu() -> Gio.Menu:
                                 (_("Marcar _todos como leídos"), "win.tg-todo-leido"),
                                 (_("_Información del chat"), "win.perfil"),
                                 (_("Cargar mensajes _anteriores"), "win.cargar-mas")))
+    tgm = Gio.Menu()
+    tgm.append_section(None, sec((_("Crear una _encuesta…"), "win.tg-encuesta-nueva"),
+                                 (_("Ver o _votar la encuesta del mensaje…"), "win.tg-encuesta"),
+                                 (_("Crear una lista de _tareas…"), "win.tg-lista-tareas-nueva"),
+                                 (_("Ver la lista de tareas del _mensaje…"), "win.tg-lista-tareas"),
+                                 (_("Enviar una _ubicación…"), "win.tg-ubicacion"),
+                                 (_("Compartir un c_ontacto…"), "win.tg-contacto"),
+                                 (_("Enviar un _dado…"), "win.tg-dado")))
+    tgm.append_section(None, sec((_("_Fijar el mensaje"), "win.tg-fijar-mensaje"),
+                                 (_("D_esfijar el mensaje"), "win.tg-desfijar-mensaje"),
+                                 (_("Desfijar _todos los mensajes"), "win.tg-desfijar-todos"),
+                                 (_("_Programar un mensaje…"), "win.tg-programar"),
+                                 (_("Mensajes pro_gramados…"), "win.tg-programados")))
+    tgm.append_section(None, sec((_("_Botones del mensaje…"), "win.tg-botones"),
+                                 (_("Comandos del _bot…"), "win.tg-comandos-bot"),
+                                 (_("_Iniciar el bot"), "win.tg-iniciar-bot")))
+    tgm.append_section(None, sec((_("_Detalles del mensaje…"), "win.tg-detalles-mensaje"),
+                                 (_("T_raducir el mensaje (Telegram)…"), "win.tg-traducir-mensaje"),
+                                 (_("_Guardar el mensaje en Mensajes guardados"), "win.tg-guardar-mensaje"),
+                                 (_("Borrar el archivo descargado de este e_quipo"), "win.tg-borrar-descarga"),
+                                 (_("Marcar las _menciones como leídas"), "win.tg-menciones-leidas"),
+                                 (_("Marcar las _reacciones como leídas"), "win.tg-reacciones-leidas")))
+    tg.append_submenu(_("_Mensajes especiales"), tgm)
+    tga = Gio.Menu()
+    tga.append_section(None, sec((_("_Miembros…"), "win.tg-miembros"),
+                                 (_("_Enlaces de invitación…"), "win.tg-enlaces"),
+                                 (_("_Solicitudes de unión…"), "win.tg-solicitudes"),
+                                 (_("_Ajustes del chat…"), "win.tg-ajustes"),
+                                 (_("_Temas del foro…"), "win.tg-temas"),
+                                 (_("_Grupo de comentarios del canal…"), "win.tg-grupo-comentarios"),
+                                 (_("_Registro de administración…"), "win.tg-registro-admin"),
+                                 (_("_Vaciar la conversación…"), "win.tg-vaciar"),
+                                 (_("Enviar _como…"), "win.tg-enviar-como")))
+    tg.append_submenu(_("Administrar el _chat"), tga)
+    tgc = Gio.Menu()
+    tgc.append_section(None, sec((_("Mi _perfil…"), "win.tg-mi-perfil"),
+                                 (_("_Contactos…"), "win.tg-contactos"),
+                                 (_("Usuarios _bloqueados…"), "win.tg-bloqueados"),
+                                 (_("_Sesiones activas…"), "win.tg-sesiones"),
+                                 (_("P_rivacidad…"), "win.tg-privacidad"),
+                                 (_("S_eguridad (verificación en dos pasos)…"), "win.tg-seguridad")))
+    tgc.append_section(None, sec((_("_Historias de tus contactos…"), "win.tg-historias"),
+                                 (_("_Mis historias…"), "win.tg-mis-historias"),
+                                 (_("Mis b_ots…"), "win.tg-mis-bots"),
+                                 (_("Estado de la potenciación del _canal…"), "win.tg-boosts"),
+                                 (_("Potenciar el canal"), "win.tg-potenciar")))
+    tg.append_submenu(_("Mi c_uenta"), tgc)
     tg.append_section(None, sec((_("Credenciales de la _API…"), "win.tg-credenciales"),
                                 (_("Cerrar la _sesión y eliminar la cuenta…"), "win.tg-eliminar-cuenta")))
     barra.append_submenu(_("_Telegram"), tg)
