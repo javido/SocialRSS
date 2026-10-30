@@ -43567,3 +43567,102 @@ msgstr "{n} revisiones"
 
 msgid "Última edición: {f}"
 msgstr "Última edición: {f}"
+
+msgid "A_ctualizar"
+msgstr "A_ctualizar"
+
+msgid "Bo_rradores de Reddit…"
+msgstr "Bo_rradores de Reddit…"
+
+msgid "Borradores de Reddit"
+msgstr "Borradores de Reddit"
+
+msgid "Cargando las colecciones…"
+msgstr "Cargando las colecciones…"
+
+msgid "Cargando las novedades…"
+msgstr "Cargando las novedades…"
+
+msgid "Cargando los borradores…"
+msgstr "Cargando los borradores…"
+
+msgid "Co_lecciones de un subreddit…"
+msgstr "Co_lecciones de un subreddit…"
+
+msgid "Colecciones de r/{s}"
+msgstr "Colecciones de r/{s}"
+
+msgid "Colección: {t}"
+msgstr "Colección: {t}"
+
+msgid "Escribe el identificador de un hilo en directo y pulsa Intro."
+msgstr "Escribe el identificador de un hilo en directo y pulsa Intro."
+
+msgid "Escribe el título"
+msgstr "Escribe el título"
+
+msgid "Hilos en _directo…"
+msgstr "Hilos en _directo…"
+
+msgid "No se pudieron cargar las colecciones: {e}"
+msgstr "No se pudieron cargar las colecciones: {e}"
+
+msgid "No se pudieron cargar los borradores: {e}"
+msgstr "No se pudieron cargar los borradores: {e}"
+
+msgid "No se pudo abrir la colección: {e}"
+msgstr "No se pudo abrir la colección: {e}"
+
+msgid "Publicaciones de la colección"
+msgstr "Publicaciones de la colección"
+
+msgid "Te_xto (si no es un enlace):"
+msgstr "Te_xto (si no es un enlace):"
+
+msgid "_Comunidad (sin r/; opcional):"
+msgstr "_Comunidad (sin r/; opcional):"
+
+msgid "_Crear nuevo…"
+msgstr "_Crear nuevo…"
+
+msgid "_Enlace (déjalo vacío para un borrador de texto):"
+msgstr "_Enlace (déjalo vacío para un borrador de texto):"
+
+msgid "_Nueva colección…"
+msgstr "_Nueva colección…"
+
+msgid "_Publicar novedad…"
+msgstr "_Publicar novedad…"
+
+msgid "_Texto de la novedad:"
+msgstr "_Texto de la novedad:"
+
+msgid "u/{u}: {t}"
+msgstr "u/{u}: {t}"
+
+msgid "{n} colecciones"
+msgstr "{n} colecciones"
+
+msgid "{n} novedades"
+msgstr "{n} novedades"
+
+msgid "{n} publicaciones"
+msgstr "{n} publicaciones"
+
+msgid "{t} (u/{a})"
+msgstr "{t} (u/{a})"
+
+msgid "{t}, en r/{s}, {k}"
+msgstr "{t}, en r/{s}, {k}"
+
+msgid "{t}, {n} publicaciones"
+msgstr "{t}, {n} publicaciones"
+
+msgid "¿Borrar el borrador «{t}»?"
+msgstr "¿Borrar el borrador «{t}»?"
+
+msgid "¿Borrar la colección «{t}»?"
+msgstr "¿Borrar la colección «{t}»?"
+
+msgid "¿Publicar el borrador «{t}»?"
+msgstr "¿Publicar el borrador «{t}»?"

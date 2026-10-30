@@ -55384,3 +55384,102 @@ msgstr "{n} revisions"
 
 msgid "Última edición: {f}"
 msgstr "Last edited: {f}"
+
+msgid "A_ctualizar"
+msgstr "Re_fresh"
+
+msgid "Bo_rradores de Reddit…"
+msgstr "Reddit _drafts…"
+
+msgid "Borradores de Reddit"
+msgstr "Reddit drafts"
+
+msgid "Cargando las colecciones…"
+msgstr "Loading the collections…"
+
+msgid "Cargando las novedades…"
+msgstr "Loading the updates…"
+
+msgid "Cargando los borradores…"
+msgstr "Loading the drafts…"
+
+msgid "Co_lecciones de un subreddit…"
+msgstr "Collections of a _subreddit…"
+
+msgid "Colecciones de r/{s}"
+msgstr "Collections of r/{s}"
+
+msgid "Colección: {t}"
+msgstr "Collection: {t}"
+
+msgid "Escribe el identificador de un hilo en directo y pulsa Intro."
+msgstr "Type the id of a live thread and press Enter."
+
+msgid "Escribe el título"
+msgstr "Write the title"
+
+msgid "Hilos en _directo…"
+msgstr "_Live threads…"
+
+msgid "No se pudieron cargar las colecciones: {e}"
+msgstr "The collections could not be loaded: {e}"
+
+msgid "No se pudieron cargar los borradores: {e}"
+msgstr "The drafts could not be loaded: {e}"
+
+msgid "No se pudo abrir la colección: {e}"
+msgstr "The collection could not be opened: {e}"
+
+msgid "Publicaciones de la colección"
+msgstr "Posts in the collection"
+
+msgid "Te_xto (si no es un enlace):"
+msgstr "Te_xt (if it is not a link):"
+
+msgid "_Comunidad (sin r/; opcional):"
+msgstr "_Community (without r/; optional):"
+
+msgid "_Crear nuevo…"
+msgstr "_Create new…"
+
+msgid "_Enlace (déjalo vacío para un borrador de texto):"
+msgstr "_Link (leave empty for a text draft):"
+
+msgid "_Nueva colección…"
+msgstr "_New collection…"
+
+msgid "_Publicar novedad…"
+msgstr "_Post an update…"
+
+msgid "_Texto de la novedad:"
+msgstr "Update _text:"
+
+msgid "u/{u}: {t}"
+msgstr "u/{u}: {t}"
+
+msgid "{n} colecciones"
+msgstr "{n} collections"
+
+msgid "{n} novedades"
+msgstr "{n} updates"
+
+msgid "{n} publicaciones"
+msgstr "{n} posts"
+
+msgid "{t} (u/{a})"
+msgstr "{t} (u/{a})"
+
+msgid "{t}, en r/{s}, {k}"
+msgstr "{t}, in r/{s}, {k}"
+
+msgid "{t}, {n} publicaciones"
+msgstr "{t}, {n} posts"
+
+msgid "¿Borrar el borrador «{t}»?"
+msgstr "Delete the draft “{t}”?"
+
+msgid "¿Borrar la colección «{t}»?"
+msgstr "Delete the collection “{t}”?"
+
+msgid "¿Publicar el borrador «{t}»?"
+msgstr "Post the draft “{t}”?"

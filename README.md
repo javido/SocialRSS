@@ -191,7 +191,7 @@ mismas claves que usa la versión de Windows) y los perfiles y órdenes que abre
 anidados, donde se puede responder, votar, guardar, editar, borrar y traducir. Además: publicar texto, enlace, imagen, vídeo,
 galería o encuesta con etiqueta, +18 y spoiler, crosspost, votos, guardados, ocultar, perfiles (seguir, bloquear, mensaje), mensajes
 privados, buscar publicaciones, subreddits y usuarios, y cambiar el orden de un buffer. La lectura de cada elemento usa tus
-plantillas de lectura. El menú Reddit abre la wiki de un subreddit (leer, editar si tienes permiso, crear páginas y ver revisiones) y el modmail (bandejas, responder con nota interna, archivar y crear conversaciones). Aún no están la moderación, los directos, las colecciones ni los borradores.
+plantillas de lectura. El menú Reddit abre la wiki de un subreddit (leer, editar si tienes permiso, crear páginas y ver revisiones) y el modmail (bandejas, responder con nota interna, archivar y crear conversaciones), los hilos en directo (leer y publicar novedades), las colecciones de un subreddit y los borradores de Reddit. Aún no está la moderación.
 **PeerTube** (necesita `httpx`): el alta pide la instancia, el usuario y la contraseña (y el código de doble factor si lo tienes).
 Cada cuenta tiene Vídeos recientes, Populares, Tendencias, Locales, Federados, Suscripciones, Directos, Notificaciones, la
 rama Mi biblioteca (Mis vídeos, Mis canales, Listas de reproducción, Ver más tarde, Me gusta e Historial) y las búsquedas

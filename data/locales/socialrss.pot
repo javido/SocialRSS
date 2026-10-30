@@ -53630,3 +53630,102 @@ msgstr ""
 
 msgid "Última edición: {f}"
 msgstr ""
+
+msgid "A_ctualizar"
+msgstr ""
+
+msgid "Bo_rradores de Reddit…"
+msgstr ""
+
+msgid "Borradores de Reddit"
+msgstr ""
+
+msgid "Cargando las colecciones…"
+msgstr ""
+
+msgid "Cargando las novedades…"
+msgstr ""
+
+msgid "Cargando los borradores…"
+msgstr ""
+
+msgid "Co_lecciones de un subreddit…"
+msgstr ""
+
+msgid "Colecciones de r/{s}"
+msgstr ""
+
+msgid "Colección: {t}"
+msgstr ""
+
+msgid "Escribe el identificador de un hilo en directo y pulsa Intro."
+msgstr ""
+
+msgid "Escribe el título"
+msgstr ""
+
+msgid "Hilos en _directo…"
+msgstr ""
+
+msgid "No se pudieron cargar las colecciones: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los borradores: {e}"
+msgstr ""
+
+msgid "No se pudo abrir la colección: {e}"
+msgstr ""
+
+msgid "Publicaciones de la colección"
+msgstr ""
+
+msgid "Te_xto (si no es un enlace):"
+msgstr ""
+
+msgid "_Comunidad (sin r/; opcional):"
+msgstr ""
+
+msgid "_Crear nuevo…"
+msgstr ""
+
+msgid "_Enlace (déjalo vacío para un borrador de texto):"
+msgstr ""
+
+msgid "_Nueva colección…"
+msgstr ""
+
+msgid "_Publicar novedad…"
+msgstr ""
+
+msgid "_Texto de la novedad:"
+msgstr ""
+
+msgid "u/{u}: {t}"
+msgstr ""
+
+msgid "{n} colecciones"
+msgstr ""
+
+msgid "{n} novedades"
+msgstr ""
+
+msgid "{n} publicaciones"
+msgstr ""
+
+msgid "{t} (u/{a})"
+msgstr ""
+
+msgid "{t}, en r/{s}, {k}"
+msgstr ""
+
+msgid "{t}, {n} publicaciones"
+msgstr ""
+
+msgid "¿Borrar el borrador «{t}»?"
+msgstr ""
+
+msgid "¿Borrar la colección «{t}»?"
+msgstr ""
+
+msgid "¿Publicar el borrador «{t}»?"
+msgstr ""

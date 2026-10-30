@@ -408,6 +408,30 @@ class _RedditMixin:
         from .dialogos_reddit_comunidad import DialogoModmailReddit
         DialogoModmailReddit(self, acc, self._rd_subreddit_actual() or "all").present()
 
+    def rd_live(self):
+        acc = self._rd_cuenta()
+        if acc is not None:
+            from .dialogos_reddit_avanzado import DialogoLiveReddit
+            DialogoLiveReddit(self, acc).present()
+
+    def rd_colecciones(self):
+        acc = self._rd_cuenta()
+        if acc is None:
+            return
+
+        def _con(texto):
+            from .dialogos_reddit_avanzado import DialogoColeccionesReddit
+            DialogoColeccionesReddit(self, acc, texto.strip().lstrip("r/").lstrip("/")).present()
+        d = DialogoTexto(self, _("Colecciones de un subreddit"), _("_Subreddit (sin r/):"), _con, aceptar=_("_Abrir"))
+        d.entrada.set_text(self._rd_subreddit_actual())
+        d.present()
+
+    def rd_borradores(self):
+        acc = self._rd_cuenta()
+        if acc is not None:
+            from .dialogos_reddit_avanzado import DialogoBorradoresReddit
+            DialogoBorradoresReddit(self, acc).present()
+
     def rd_abrir_usuario(self, account_id: int, usuario: str):
         self._abrir_buffer(account_id, f"user:{usuario}", datos_reddit.titulo_buffer(f"user:{usuario}"), servicio="reddit")
 
@@ -667,6 +691,9 @@ class _RedditMixin:
         a("rd-perfil-de", self.rd_perfil_de)
         a("rd-wiki", self.rd_wiki)
         a("rd-modmail", self.rd_modmail)
+        a("rd-live", self.rd_live)
+        a("rd-colecciones", self.rd_colecciones)
+        a("rd-borradores", self.rd_borradores)
         a("rd-buscar", self.rd_buscar)
         a("rd-buscar-subreddits", self.rd_buscar_subreddits)
         a("rd-buscar-usuarios", self.rd_buscar_usuarios)
