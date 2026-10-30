@@ -536,6 +536,12 @@ def _menu() -> Gio.Menu:
                                   (_("_Extraer el texto de la imagen (OCR con IA)"), "win.ocr-imagen")))
     herr.append_section(None, sec((_("Historial de _traducciones…"), "win.historial-traducciones"),
                                   (_("Historial de _IA…"), "win.historial-ia")))
+    herr.append_section(None, sec((_("_Filtros de contenido…"), "win.herr-filtros"),
+                                  (_("Fra_gmentos de texto…"), "win.herr-fragmentos")))
+    herr.append_section(None, sec((_("_Copias de seguridad…"), "win.herr-copias"),
+                                  (_("_Migrar a otro ordenador…"), "win.herr-migrar"),
+                                  (_("_Borrar datos / liberar espacio…"), "win.herr-borrar")))
+    herr.append_section(None, sec((_("_Visor de registros…"), "win.herr-registro"),))
     barra.append_submenu(_("_Herramientas"), herr)
 
     ver = Gio.Menu()

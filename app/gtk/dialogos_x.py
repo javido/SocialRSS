@@ -15,6 +15,7 @@ from app.core.task_manager import task_manager
 from app.services.x import x_service
 
 from .dialogos import DialogoBase
+from .fragmentos import instalar_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -146,6 +147,7 @@ class DialogoPublicarX(DialogoBase):
         self.set_default_size(620, -1)
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        instalar_fragmentos(self.texto)
         self.buffer = self.texto.get_buffer()
         self.buffer.set_text(texto_inicial)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=130, hexpand=True, has_frame=True)
@@ -434,6 +436,7 @@ class DialogoMensajeX(DialogoBase):
         self.set_default_size(560, -1)
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        instalar_fragmentos(self.texto)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=110, hexpand=True, has_frame=True)
         etiqueta = Gtk.Label(label=_("_Mensaje:"), use_underline=True, xalign=0, yalign=0)
         etiqueta.set_mnemonic_widget(self.texto)

@@ -34,6 +34,7 @@ from . import (datos, datos_bluesky, datos_wsocial, datos_irc, datos_mastodon, d
 from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
+from .ventana_herramientas import _HerramientasMixin
 from .ventana_peertube import _PeerTubeMixin
 from .ventana_reddit import _RedditMixin
 from .ventana_x import _TwitterMixin
@@ -62,7 +63,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -474,6 +475,7 @@ class VentanaPrincipal(_BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin
                ["<Ctrl><Alt>f"])
         self._registrar_acciones_bluesky(accion)
         self._registrar_acciones_wsocial(accion)
+        self._registrar_acciones_herramientas(accion)
         self._registrar_acciones_telegram(accion)
         self._registrar_acciones_irc(accion)
         self._registrar_acciones_xmpp(accion)

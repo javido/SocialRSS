@@ -12,6 +12,7 @@ from app.core.speech import notificar
 from app.services.telegram.telegram_service import telegram_service
 
 from .dialogos import DialogoBase, ejecutar  # noqa: F401  (ejecutar se reexporta a ventana_telegram)
+from .fragmentos import instalar_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -202,6 +203,7 @@ class DialogoMensajeTelegram(DialogoBase):
             self._fila += 1
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        instalar_fragmentos(self.texto)
         self.texto.get_buffer().set_text(texto_inicial)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=110, hexpand=True, has_frame=True)
         etiqueta = Gtk.Label(label=_("_Mensaje:"), use_underline=True, xalign=0, yalign=0)

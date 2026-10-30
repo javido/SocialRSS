@@ -41552,3 +41552,311 @@ msgid ""
 msgstr ""
 "Mismas teclas que Mastodon y Bluesky: Ctrl+N publicar, Ctrl+R responder, "
 "Ctrl+Mayús+U citar, Ctrl+B me gusta, Ctrl+Mayús+P republicar"
+
+msgid "A_cción:"
+msgstr "A_cción:"
+
+msgid "Abrir c_arpeta"
+msgstr "Abrir c_arpeta"
+
+msgid "Activar / _desactivar"
+msgstr "Activar / _desactivar"
+
+msgid ""
+"Archivo válido.\n"
+"\n"
+"Fecha de exportación: {0}\n"
+"Cuentas con credenciales: {1}\n"
+"Incluye base de datos: {2}\n"
+"Sesiones de Telegram: {3}\n"
+"\n"
+"ATENCIÓN: al importar se BORRARÁ y SUSTITUIRÁ POR COMPLETO todo lo que tengas en ESTE ordenador. Esto NO se puede deshacer. Si quieres conservar lo actual, cancela y haz antes una copia de seguridad.\n"
+"\n"
+"¿Seguro que quieres continuar e importar?"
+msgstr ""
+"Archivo válido.\n"
+"\n"
+"Fecha de exportación: {0}\n"
+"Cuentas con credenciales: {1}\n"
+"Incluye base de datos: {2}\n"
+"Sesiones de Telegram: {3}\n"
+"\n"
+"ATENCIÓN: al importar se BORRARÁ y SUSTITUIRÁ POR COMPLETO todo lo que tengas en ESTE ordenador. Esto NO se puede deshacer. Si quieres conservar lo actual, cancela y haz antes una copia de seguridad.\n"
+"\n"
+"¿Seguro que quieres continuar e importar?"
+
+msgid "Borrando datos…"
+msgstr "Borrando datos…"
+
+msgid "Buscar a_nterior"
+msgstr "Buscar a_nterior"
+
+msgid "Buscar s_iguiente"
+msgstr "Buscar s_iguiente"
+
+msgid "C_errar"
+msgstr "C_errar"
+
+msgid "Creando la copia de seguridad…"
+msgstr "Creando la copia de seguridad…"
+
+msgid ""
+"Datos actuales: {0} publicaciones de Mastodon, {1} de Bluesky, {2} artículos"
+" de RSS, {3} mensajes de Telegram, {4} publicaciones de X, {5} mensajes de "
+"IRC, {6} de Matrix, {7} de XMPP, {8} de W Social y {9} de Reddit. Tamaño de "
+"la base de datos: {10} MB."
+msgstr ""
+"Datos actuales: {0} publicaciones de Mastodon, {1} de Bluesky, {2} artículos"
+" de RSS, {3} mensajes de Telegram, {4} publicaciones de X, {5} mensajes de "
+"IRC, {6} de Matrix, {7} de XMPP, {8} de W Social y {9} de Reddit. Tamaño de "
+"la base de datos: {10} MB."
+
+msgid "E_liminar"
+msgstr "E_liminar"
+
+msgid "Elegir el archivo de migración"
+msgstr "Elegir el archivo de migración"
+
+msgid "Elegir la copia que importar"
+msgstr "Elegir la copia que importar"
+
+msgid "Elige un fragmento y pulsa Intro."
+msgstr "Elige un fragmento y pulsa Intro."
+
+msgid "Es una e_xpresión regular"
+msgstr "Es una e_xpresión regular"
+
+msgid ""
+"Exportación creada en:\n"
+"{0}\n"
+"\n"
+"Llévala al otro ordenador, instala SocialRSS allí y usa Importar con la misma contraseña."
+msgstr ""
+"Exportación creada en:\n"
+"{0}\n"
+"\n"
+"Llévala al otro ordenador, instala SocialRSS allí y usa Importar con la misma contraseña."
+
+msgid "Exportando la copia…"
+msgstr "Exportando la copia…"
+
+msgid "Exportando. Espera, puede tardar según el tamaño de la base de datos…"
+msgstr "Exportando. Espera, puede tardar según el tamaño de la base de datos…"
+
+msgid "Expresión regular"
+msgstr "Expresión regular"
+
+msgid "Fra_gmentos de texto…"
+msgstr "Fra_gmentos de texto…"
+
+msgid "Fragmento de texto"
+msgstr "Fragmento de texto"
+
+msgid "Guardar la copia de seguridad como"
+msgstr "Guardar la copia de seguridad como"
+
+msgid "Guardar la exportación como"
+msgstr "Guardar la exportación como"
+
+msgid "Importación preparada. Se aplicará al reiniciar la aplicación."
+msgstr "Importación preparada. Se aplicará al reiniciar la aplicación."
+
+msgid "Importar"
+msgstr "Importar"
+
+msgid "Importar y sustituir todo"
+msgstr "Importar y sustituir todo"
+
+msgid "Insertar un fragmento"
+msgstr "Insertar un fragmento"
+
+msgid "La expresión regular no es válida: {e}"
+msgstr "La expresión regular no es válida: {e}"
+
+msgid "Las contraseñas no coinciden. Inténtalo de nuevo."
+msgstr "Las contraseñas no coinciden. Inténtalo de nuevo."
+
+msgid ""
+"Lleva toda tu instalación a otro ordenador: cuentas, inicios de sesión, "
+"configuración y base de datos. El archivo se protege con una contraseña; "
+"solo quien la conozca podrá importarlo. Es independiente de las copias de "
+"seguridad: esta es la forma de que en el otro equipo quede todo igual."
+msgstr ""
+"Lleva toda tu instalación a otro ordenador: cuentas, inicios de sesión, "
+"configuración y base de datos. El archivo se protege con una contraseña; "
+"solo quien la conozca podrá importarlo. Es independiente de las copias de "
+"seguridad: esta es la forma de que en el otro equipo quede todo igual."
+
+msgid "No hay filtros. Pulsa «Nuevo filtro» para crear uno."
+msgstr "No hay filtros. Pulsa «Nuevo filtro» para crear uno."
+
+msgid "No hay fragmentos. Pulsa «Nuevo» para crear uno."
+msgstr "No hay fragmentos. Pulsa «Nuevo» para crear uno."
+
+msgid "No hay registros todavía."
+msgstr "No hay registros todavía."
+
+msgid "No se encontró."
+msgstr "No se encontró."
+
+msgid "No se pudo abrir la carpeta: {e}"
+msgstr "No se pudo abrir la carpeta: {e}"
+
+msgid "No se pudo leer el registro: {e}"
+msgstr "No se pudo leer el registro: {e}"
+
+msgid "Preparando la importación. Espera…"
+msgstr "Preparando la importación. Espera…"
+
+msgid "Preparando la importación…"
+msgstr "Preparando la importación…"
+
+msgid "Preparando la restauración…"
+msgstr "Preparando la restauración…"
+
+msgid "Publicaciones de Reddit"
+msgstr "Publicaciones de Reddit"
+
+msgid "Registros"
+msgstr "Registros"
+
+msgid "Registros copiados"
+msgstr "Registros copiados"
+
+msgid "Reiniciar"
+msgstr "Reiniciar"
+
+msgid "Restauración preparada. Se aplicará al reiniciar la aplicación."
+msgstr "Restauración preparada. Se aplicará al reiniciar la aplicación."
+
+msgid "Seguimiento en vivo desactivado."
+msgstr "Seguimiento en vivo desactivado."
+
+msgid "Seguir en _vivo"
+msgstr "Seguir en _vivo"
+
+msgid "Selecciona al menos un tipo de datos a borrar."
+msgstr "Selecciona al menos un tipo de datos a borrar."
+
+msgid "Solo se muestra el final del archivo."
+msgstr "Solo se muestra el final del archivo."
+
+msgid "Todavía no hay copias."
+msgstr "Todavía no hay copias."
+
+msgid ""
+"Una copia incluye tus feeds, artículos, preferencias y credenciales "
+"cifradas. Las credenciales solo se podrán usar en este mismo equipo."
+msgstr ""
+"Una copia incluye tus feeds, artículos, preferencias y credenciales "
+"cifradas. Las credenciales solo se podrán usar en este mismo equipo."
+
+msgid "_Antigüedad: borrar lo de más de estos días (0 = todo):"
+msgstr "_Antigüedad: borrar lo de más de estos días (0 = todo):"
+
+msgid "_Aplicar a:"
+msgstr "_Aplicar a:"
+
+msgid "_Borrar datos / liberar espacio…"
+msgstr "_Borrar datos / liberar espacio…"
+
+msgid "_Borrar lo seleccionado"
+msgstr "_Borrar lo seleccionado"
+
+msgid "_Buscar en:"
+msgstr "_Buscar en:"
+
+msgid "_Conservar lo marcado (favoritos, destacados, leer más tarde)"
+msgstr "_Conservar lo marcado (favoritos, destacados, leer más tarde)"
+
+msgid "_Contraseña con la que se creó la exportación:"
+msgstr "_Contraseña con la que se creó la exportación:"
+
+msgid "_Contraseña para proteger la exportación (mínimo 10 caracteres):"
+msgstr "_Contraseña para proteger la exportación (mínimo 10 caracteres):"
+
+msgid "_Copiar lo mostrado"
+msgstr "_Copiar lo mostrado"
+
+msgid "_Copias de seguridad…"
+msgstr "_Copias de seguridad…"
+
+msgid "_Crear copia ahora"
+msgstr "_Crear copia ahora"
+
+msgid "_Eliminar"
+msgstr "_Eliminar"
+
+msgid "_Exportar a un archivo…"
+msgstr "_Exportar a un archivo…"
+
+msgid "_Filtros de contenido…"
+msgstr "_Filtros de contenido…"
+
+msgid "_Guardar en disco a partir de:"
+msgstr "_Guardar en disco a partir de:"
+
+msgid "_Importar desde un archivo…"
+msgstr "_Importar desde un archivo…"
+
+msgid "_Insertar"
+msgstr "_Insertar"
+
+msgid "_Limpiar esta sesión"
+msgstr "_Limpiar esta sesión"
+
+msgid "_Migrar a otro ordenador…"
+msgstr "_Migrar a otro ordenador…"
+
+msgid "_Nivel mínimo:"
+msgstr "_Nivel mínimo:"
+
+msgid "_Nuevo filtro…"
+msgstr "_Nuevo filtro…"
+
+msgid "_Nuevo…"
+msgstr "_Nuevo…"
+
+msgid "_Optimizar la base de datos al terminar (recomendado)"
+msgstr "_Optimizar la base de datos al terminar (recomendado)"
+
+msgid "_Palabra, frase o expresión regular:"
+msgstr "_Palabra, frase o expresión regular:"
+
+msgid "_Recargar"
+msgstr "_Recargar"
+
+msgid "_Repite la contraseña:"
+msgstr "_Repite la contraseña:"
+
+msgid "_Restaurar la seleccionada"
+msgstr "_Restaurar la seleccionada"
+
+msgid "_Sesión:"
+msgstr "_Sesión:"
+
+msgid "_Título (para identificarlo):"
+msgstr "_Título (para identificarlo):"
+
+msgid "_Visor de registros…"
+msgstr "_Visor de registros…"
+
+msgid "{nombre}. {fecha}. {kb} KB"
+msgstr "{nombre}. {fecha}. {kb} KB"
+
+msgid "{n} copias."
+msgstr "{n} copias."
+
+msgid "{n} fragmentos. Se insertan al redactar con Ctrl+Mayús+J."
+msgstr "{n} fragmentos. Se insertan al redactar con Ctrl+Mayús+J."
+
+msgid "{n} registros"
+msgstr "{n} registros"
+
+msgid ""
+"{patron}. {tipo}. {servicio}. Buscar en: {campo}. Acción: {accion}. {estado}"
+msgstr ""
+"{patron}. {tipo}. {servicio}. Buscar en: {campo}. Acción: {accion}. {estado}"
+
+msgid "¿Reiniciar ahora la aplicación?"
+msgstr "¿Reiniciar ahora la aplicación?"

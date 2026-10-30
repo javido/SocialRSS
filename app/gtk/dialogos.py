@@ -12,6 +12,7 @@ from gi.repository import Gtk  # noqa: E402
 from app.core.speech import notificar
 from app.core.task_manager import task_manager
 from app.services.rss.rss_service import rss_service
+from .fragmentos import instalar_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -363,6 +364,7 @@ class DialogoPublicar(DialogoBase):
 
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        instalar_fragmentos(self.texto)
         self.buffer = self.texto.get_buffer()
         self.buffer.set_text(texto_inicial)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=140, hexpand=True)

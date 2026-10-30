@@ -22,6 +22,7 @@ from . import datos_reddit
 from .datos import fecha_legible
 from .dialogos import DialogoBase, confirmar_async, ejecutar
 from .dialogos_mastodon import DialogoLista, ListaSimple
+from .fragmentos import instalar_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -39,8 +40,11 @@ def _texto_de(tv: Gtk.TextView) -> str:
 
 
 def _vista_texto(editable: bool = True) -> Gtk.TextView:
-    return Gtk.TextView(editable=editable, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
-                        right_margin=6, top_margin=6, bottom_margin=6)
+    vista = Gtk.TextView(editable=editable, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
+                         right_margin=6, top_margin=6, bottom_margin=6)
+    if editable:
+        instalar_fragmentos(vista)
+    return vista
 
 
 def _marco(tv: Gtk.TextView, alto: int) -> Gtk.ScrolledWindow:

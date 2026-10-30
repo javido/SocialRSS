@@ -16,6 +16,7 @@ from app.services.wsocial.wsocial_service import wsocial_service
 from .datos_wsocial import adaptar
 from .dialogos import DialogoBase, DialogoTexto, confirmar_async
 from .dialogos_mastodon import DialogoLista
+from .fragmentos import instalar_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -40,6 +41,7 @@ class DialogoMensajeWSocial(DialogoBase):
         self.set_default_size(560, -1)
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True,
                                   left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        instalar_fragmentos(self.texto)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=110, hexpand=True, has_frame=True)
         etiqueta = Gtk.Label(label=_("_Mensaje:"), use_underline=True, xalign=0, yalign=0)
         etiqueta.set_mnemonic_widget(self.texto)

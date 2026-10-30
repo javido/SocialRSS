@@ -19,6 +19,21 @@ def main(argv=None) -> int:
     inicializar_directorios()
     asegurar_bin_en_path()
 
+    # Una importación de migración o una restauración pendientes se aplican ANTES de abrir la base de datos y la
+    # configuración (es el único momento en que nada las tiene abiertas).
+    try:
+        from app.core.migration import aplicar_importacion_pendiente
+        if aplicar_importacion_pendiente():
+            log.info("Se aplicó una importación de migración en el arranque.")
+    except Exception as e:
+        log.warning("No se pudo aplicar la importación pendiente: %s", e)
+    try:
+        from app.core.backup import aplicar_restauracion_pendiente
+        if aplicar_restauracion_pendiente():
+            log.info("Se aplicó una restauración de copia de seguridad en el arranque.")
+    except Exception as e:
+        log.warning("No se pudo aplicar la restauración pendiente: %s", e)
+
     from app.core.config_manager import config
     from app.core.logger import configurar_logging
     configurar_logging(debug_mode=config.get("general", "debug", False))
@@ -42,6 +57,12 @@ def main(argv=None) -> int:
         aplicar_configuracion_proxy()
     except Exception as e:
         log.warning(f"No se pudo aplicar la configuración de proxy: {e}")
+
+    try:
+        from app.core.backup import comprobar_backup_automatico
+        comprobar_backup_automatico()
+    except Exception as e:
+        log.warning("No se pudo comprobar la copia automática: %s", e)
 
     from app.services.audio.sound_manager import sound_manager
     sound_manager.inicializar()
