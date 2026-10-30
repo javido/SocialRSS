@@ -383,6 +383,31 @@ class _RedditMixin:
             DialogoPerfilReddit(self, acc, texto).present()
         DialogoTexto(self, _("Perfil de un usuario"), _("_Usuario de Reddit (sin u/):"), _con, aceptar=_("_Ver")).present()
 
+    def _rd_subreddit_actual(self) -> str:
+        n = self.nodo_actual
+        if n is not None and n.servicio == "reddit" and n.timeline.startswith("sub:") and n.timeline.count(":") == 1:
+            return n.timeline[4:]
+        return ""
+
+    def rd_wiki(self):
+        acc = self._rd_cuenta()
+        if acc is None:
+            return
+
+        def _con(texto):
+            from .dialogos_reddit_comunidad import DialogoWikiReddit
+            DialogoWikiReddit(self, acc, texto.strip().lstrip("r/").lstrip("/")).present()
+        d = DialogoTexto(self, _("Wiki de un subreddit"), _("_Subreddit (sin r/):"), _con, aceptar=_("_Abrir"))
+        d.entrada.set_text(self._rd_subreddit_actual())
+        d.present()
+
+    def rd_modmail(self):
+        acc = self._rd_cuenta()
+        if acc is None:
+            return
+        from .dialogos_reddit_comunidad import DialogoModmailReddit
+        DialogoModmailReddit(self, acc, self._rd_subreddit_actual() or "all").present()
+
     def rd_abrir_usuario(self, account_id: int, usuario: str):
         self._abrir_buffer(account_id, f"user:{usuario}", datos_reddit.titulo_buffer(f"user:{usuario}"), servicio="reddit")
 
@@ -640,6 +665,8 @@ class _RedditMixin:
         a("rd-mensaje-autor", self.rd_mensaje_a_autor)
         a("rd-mensaje-nuevo", self.rd_mensaje_nuevo)
         a("rd-perfil-de", self.rd_perfil_de)
+        a("rd-wiki", self.rd_wiki)
+        a("rd-modmail", self.rd_modmail)
         a("rd-buscar", self.rd_buscar)
         a("rd-buscar-subreddits", self.rd_buscar_subreddits)
         a("rd-buscar-usuarios", self.rd_buscar_usuarios)

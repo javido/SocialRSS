@@ -312,6 +312,8 @@ def _menu() -> Gio.Menu:
                                     (_("_Fijar el subreddit en el árbol"), "win.rd-fijar"),
                                     (_("Mensaje privado al autor…"), "win.rd-mensaje-autor"),
                                     (_("Marcar la bandeja como _leída"), "win.marcar-todo-leido")))
+        rd.append_section(None, sec((_("_Wiki de un subreddit…"), "win.rd-wiki"),
+                                    (_("_Modmail…"), "win.rd-modmail")))
         rd.append_section(None, sec((_("Mostrar u ocultar bu_ffers…"), "win.rd-ocultar-buffers"),
                                     (_("Volver a autorizar la cuenta…"), "win.rd-reautorizar"),
                                     (_("Eliminar la cuenta…"), "win.eliminar-cuenta")))

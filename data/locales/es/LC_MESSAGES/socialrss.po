@@ -43444,3 +43444,126 @@ msgstr "_Editor de plantillas de lectura…"
 
 msgid "Conversación: {t}"
 msgstr "Conversación: {t}"
+
+msgid "(nota interna)"
+msgstr "(nota interna)"
+
+msgid "Asunto: {a}"
+msgstr "Asunto: {a}"
+
+msgid "Cargando las conversaciones…"
+msgstr "Cargando las conversaciones…"
+
+msgid "Cargando las páginas…"
+msgstr "Cargando las páginas…"
+
+msgid "Cargando {p}…"
+msgstr "Cargando {p}…"
+
+msgid "Enviar como _nota interna (solo moderadores)"
+msgstr "Enviar como _nota interna (solo moderadores)"
+
+msgid "Escribe la respuesta"
+msgstr "Escribe la respuesta"
+
+msgid "Guardar la página"
+msgstr "Guardar la página"
+
+msgid "Modmail"
+msgstr "Modmail"
+
+msgid "Modmail de r/{s}"
+msgstr "Modmail de r/{s}"
+
+msgid "No se pudieron cargar las revisiones: {e}"
+msgstr "No se pudieron cargar las revisiones: {e}"
+
+msgid "No se pudo abrir la página: {e}"
+msgstr "No se pudo abrir la página: {e}"
+
+msgid "No se pudo cargar el modmail: {e}"
+msgstr "No se pudo cargar el modmail: {e}"
+
+msgid "No se pudo cargar la wiki: {e}"
+msgstr "No se pudo cargar la wiki: {e}"
+
+msgid "Página _nueva…"
+msgstr "Página _nueva…"
+
+msgid "Rellena el subreddit, el destinatario, el asunto y el mensaje."
+msgstr "Rellena el subreddit, el destinatario, el asunto y el mensaje."
+
+msgid "Revisiones"
+msgstr "Revisiones"
+
+msgid "Revisiones de {p}"
+msgstr "Revisiones de {p}"
+
+msgid "Tu _respuesta:"
+msgstr "Tu _respuesta:"
+
+msgid "Ver _revisiones"
+msgstr "Ver _revisiones"
+
+msgid "Wiki de r/{s}"
+msgstr "Wiki de r/{s}"
+
+msgid "_Archivar"
+msgstr "_Archivar"
+
+msgid "_Asunto:"
+msgstr "_Asunto:"
+
+msgid "_Contenido de la página:"
+msgstr "_Contenido de la página:"
+
+msgid "_Desarchivar"
+msgstr "_Desarchivar"
+
+msgid "_Guardar cambios"
+msgstr "_Guardar cambios"
+
+msgid "_Mensajes:"
+msgstr "_Mensajes:"
+
+msgid "_Modmail…"
+msgstr "_Modmail…"
+
+msgid "_Motivo del cambio (opcional):"
+msgstr "_Motivo del cambio (opcional):"
+
+msgid "_Nombre de la página (por ejemplo reglas/spam):"
+msgstr "_Nombre de la página (por ejemplo reglas/spam):"
+
+msgid "_Nueva conversación…"
+msgstr "_Nueva conversación…"
+
+msgid "_Wiki de un subreddit…"
+msgstr "_Wiki de un subreddit…"
+
+msgid "por u/{u}"
+msgstr "por u/{u}"
+
+msgid "solo lectura"
+msgstr "solo lectura"
+
+msgid "u/{u}{n} — {f}:"
+msgstr "u/{u}{n} — {f}:"
+
+msgid "{a}, de u/{u}, {n} mensajes, {f}"
+msgstr "{a}, de u/{u}, {n} mensajes, {f}"
+
+msgid "{f}, u/{u}: {m}"
+msgstr "{f}, u/{u}: {m}"
+
+msgid "{n} conversaciones"
+msgstr "{n} conversaciones"
+
+msgid "{n} páginas"
+msgstr "{n} páginas"
+
+msgid "{n} revisiones"
+msgstr "{n} revisiones"
+
+msgid "Última edición: {f}"
+msgstr "Última edición: {f}"
