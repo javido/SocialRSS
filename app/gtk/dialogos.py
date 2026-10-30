@@ -115,7 +115,7 @@ class DialogoTeclas(Gtk.Window):
     def __init__(self, padre):
         super().__init__(title=_("Teclas de la aplicación"), transient_for=padre, modal=True)
         self.set_default_size(560, 520)
-        tv = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        tv = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                           left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
         tv.update_property([Gtk.AccessibleProperty.LABEL], [_("Lista de teclas")])
         tv.get_buffer().set_text(_teclas())
@@ -403,7 +403,7 @@ class DialogoPublicar(DialogoBase):
         pred = visibilidad or mastodon_service.visibilidad_predeterminada(account_id)
         self.visibilidad.set_selected(next((i for i, (c, _n) in enumerate(VISIBILIDADES) if c == pred), 0))
         self.idioma = self.campo(_("_Idioma (código, opcional):"), Gtk.Entry(max_length=5, width_chars=6))
-        self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(
+        self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(accepts_tab=False, 
             wrap_mode=Gtk.WrapMode.WORD_CHAR, hexpand=True, top_margin=4, bottom_margin=4, left_margin=6))
 
         self.programar = self.campo(_("Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"), Gtk.Entry(width_chars=18),
@@ -720,7 +720,7 @@ class DialogoPerfil(Gtk.Window):
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(12)
         self.set_child(caja)
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                                   left_margin=8, right_margin=8, top_margin=6, bottom_margin=6)
         self.texto.update_property([Gtk.AccessibleProperty.LABEL], [_("Datos del perfil")])
         self.texto.get_buffer().set_text(_("Cargando el perfil…"))

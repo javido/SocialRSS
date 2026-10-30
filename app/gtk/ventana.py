@@ -303,7 +303,7 @@ class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixi
         item._obj = None
 
     def _crear_lectura(self):
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
                                   left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
         self.texto.set_name("lectura")
         _etiquetar(self.texto, _("Contenido del artículo"))

@@ -50,7 +50,7 @@ class DialogoCuentaX(DialogoBase):
                          _("_Entiendo los riesgos y continúo"))
         self.al_terminar, self.account_id = al_terminar, account_id
         self.set_default_size(620, -1)
-        aviso = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
+        aviso = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
                              right_margin=8, top_margin=6, bottom_margin=6)
         aviso.get_buffer().set_text(aviso_riesgos())
         aviso.update_property([Gtk.AccessibleProperty.LABEL], [_("Aviso de riesgos")])
@@ -361,7 +361,7 @@ class DialogoPerfilX(Gtk.Window):
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(12)
         self.set_child(caja)
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                                   left_margin=8, right_margin=8, top_margin=6, bottom_margin=6)
         self.texto.update_property([Gtk.AccessibleProperty.LABEL], [_("Datos del perfil")])
         self.texto.get_buffer().set_text(_("Cargando el perfil…"))

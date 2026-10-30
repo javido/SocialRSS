@@ -75,7 +75,7 @@ class _Pagina(Gtk.ScrolledWindow):
 
     @staticmethod
     def texto_largo(valor: str = "", alto: int = 100):
-        tv = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        tv = Gtk.TextView(accepts_tab=False, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
         tv.get_buffer().set_text(valor)
         return tv, Gtk.ScrolledWindow(child=tv, min_content_height=alto, has_frame=True, hexpand=True)
 

@@ -40,7 +40,7 @@ def _texto_de(tv: Gtk.TextView) -> str:
 
 
 def _vista_texto(editable: bool = True) -> Gtk.TextView:
-    vista = Gtk.TextView(editable=editable, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
+    vista = Gtk.TextView(accepts_tab=False, editable=editable, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
                          right_margin=6, top_margin=6, bottom_margin=6)
     if editable:
         instalar_ayudas(vista)
@@ -73,7 +73,7 @@ class DialogoCuentaReddit(DialogoBase):
                          _("_Abrir el navegador y autorizar"))
         self.al_terminar, self.account_id = al_terminar, account_id
         self.set_default_size(620, -1)
-        ayuda = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
+        ayuda = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
                              right_margin=8, top_margin=6, bottom_margin=6)
         ayuda.get_buffer().set_text(_(
             "Reddit no deja usar una aplicación sin que la registres tú.\n\n"
@@ -399,7 +399,7 @@ class DialogoPerfilReddit(Gtk.Window):
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(12)
         self.set_child(caja)
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD, left_margin=8,
                                   right_margin=8, top_margin=6, bottom_margin=6)
         self.texto.update_property([Gtk.AccessibleProperty.LABEL], [_("Datos del perfil")])
         self.texto.get_buffer().set_text(_("Cargando el perfil…"))

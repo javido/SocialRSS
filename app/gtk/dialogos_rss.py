@@ -60,7 +60,7 @@ class DialogoEditarFeed(DialogoBase):
         botones.append(self.b_usar)
         self.rejilla.attach(botones, 1, self._fila, 1, 1)
         self._fila += 1
-        self.resultado = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
+        self.resultado = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
                                       right_margin=6, top_margin=4, bottom_margin=4)
         self.resultado.get_buffer().set_text(_("Último error al actualizar: {0}").format(ultimo_error) if ultimo_error else "")
         self.campo(_("_Resultado de la comprobación:"),
@@ -466,7 +466,7 @@ class DialogoFeedWeb(DialogoBase):
         self.estado = Gtk.Label(xalign=0, accessible_role=Gtk.AccessibleRole.STATUS)
         self.rejilla.attach(self.estado, 0, self._fila, 2, 1)
         self._fila += 1
-        self.vista = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
+        self.vista = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6,
                                   right_margin=6)
         self.campo(_("Artículos _detectados:"), Gtk.ScrolledWindow(child=self.vista, min_content_height=160,
                                                                    min_content_width=460, has_frame=True))

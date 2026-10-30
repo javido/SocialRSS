@@ -371,7 +371,7 @@ class DialogoHistorial(Gtk.Window):
     def __init__(self, padre, versiones):
         super().__init__(title=_("Historial de ediciones"), transient_for=padre, modal=True)
         self.set_default_size(620, 460)
-        tv = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        tv = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                           left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
         tv.update_property([Gtk.AccessibleProperty.LABEL], [_("Versiones de la publicación")])
         trozos = []
@@ -527,7 +527,7 @@ class DialogoMiPerfil(DialogoBase):
         super().__init__(padre, _("Mi perfil"), _("_Guardar"))
         self.account_id = account_id
         self.nombre = self.campo(_("_Nombre para mostrar:"), Gtk.Entry(activates_default=True, width_chars=40))
-        self.bio = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        self.bio = Gtk.TextView(accepts_tab=False, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
         marco = Gtk.ScrolledWindow(child=self.bio, min_content_height=120, min_content_width=420, has_frame=True)
         etiqueta = Gtk.Label(label=_("_Biografía:"), use_underline=True, xalign=0, yalign=0)
         etiqueta.set_mnemonic_widget(self.bio)

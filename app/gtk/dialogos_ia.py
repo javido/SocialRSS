@@ -40,7 +40,7 @@ class DialogoPrompts(Gtk.Window):
         caja.append(cuaderno)
         self.campos = {}
         for clave, titulo in self.CLAVES:
-            tv = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+            tv = Gtk.TextView(accepts_tab=False, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
             tv.get_buffer().set_text(config.get("ai", clave, ""))
             tv.update_property([Gtk.AccessibleProperty.LABEL], [_("Prompt de {t}").format(t=_(titulo).lower())])
             cuaderno.append_page(Gtk.ScrolledWindow(child=tv, has_frame=True), Gtk.Label(label=_(titulo)))
