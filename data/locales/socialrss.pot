@@ -52633,3 +52633,26 @@ msgstr ""
 
 msgid "Último _changelog"
 msgstr ""
+
+msgid ""
+"Al redactar: Ctrl+Mayús+J inserta un fragmento de texto y F7 revisa la "
+"ortografía"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+A: centro de notificaciones; Ctrl+Mayús+X: publicación cruzada; "
+"Ctrl+Mayús+S: búsqueda global"
+msgstr ""
+
+msgid ""
+"Ctrl+Mayús+Y: ponte al día con IA; Ctrl+Alt+K: descripción de la multimedia;"
+" Ctrl+Mayús+N: nuevo hilo"
+msgstr ""
+
+msgid "Herramientas"
+msgstr ""
+
+msgid ""
+"Herramientas, Editor de atajos de teclado: cambia la tecla de cualquier "
+"acción"
+msgstr ""

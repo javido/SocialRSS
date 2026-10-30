@@ -112,14 +112,15 @@ responder (con control de quién puede responder), citar, me gusta, republicar, 
 conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
 listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
 contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
-traducir, resumir y describir imágenes con IA. Aún faltan paquetes de inicio, tendencias y grupos de chat.
+traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). Aún faltan paquetes de inicio, tendencias y grupos de chat.
 **W Social**: alta con usuario y contraseña de aplicación (con «Comprobar el servidor» para ver dónde vive la cuenta
 antes de enviar nada, y «Volver a autorizar»), Inicio, Notificaciones, Menciones, Mis publicaciones, Me gusta, Marcadores y
 mensajes directos; publicar con imágenes o vídeo, responder (con control de quién puede responder), citar, me gusta,
 republicar, marcadores, borrar, conversaciones, citas, cronologías de usuario, perfil (seguir, silenciar, bloquear),
 búsqueda, feeds, listas (crear y gestionar sus miembros), quién ha dado me gusta o republicado, silenciar hilos, denuncias,
 seguidores, seguidos, bloqueadas y silenciadas, editar el perfil, contraseñas de aplicación y avisos de notificaciones y
-mensajes nuevos. Comparte las teclas de Mastodon y Bluesky. Todavía faltan en esta interfaz: hilos largos, borradores,
+mensajes nuevos. Comparte las teclas de Mastodon y Bluesky. Los hilos largos se escriben con Ctrl+Mayús+N, como en
+Mastodon. Todavía faltan en esta interfaz: borradores,
 publicaciones pendientes de envío, palabras silenciadas, moderación de contenido, servicios de etiquetado, grupos de chat,
 paquetes de inicio, tendencias y contactos. No se ha probado con una cuenta real de W Social.
 **Telegram** (necesita `kurigram`, ver más abajo): alta con teléfono, código y verificación en dos pasos
@@ -192,7 +193,19 @@ subida reanudable) e importar vídeos, editar y borrar los tuyos, crear y gestio
 cuentas e instancias, reportar y buscar vídeos y canales. Aún faltan los directos propios, las estadísticas, la moderación y la
 administración de la instancia. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
 aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.
-W Social se irá añadiendo después; su servicio ya funciona en Linux.
+
+**Menú Herramientas** (las mismas funciones y los mismos datos que la versión de Windows): filtros de contenido (ocultan
+publicaciones por palabra clave en Mastodon, Bluesky, W Social, X y RSS), fragmentos de texto (Ctrl+Mayús+J al redactar),
+corrector ortográfico (F7 al redactar), copias de seguridad y migración a otro ordenador (la restauración y la importación se
+aplican al reiniciar, y la aplicación se relanza sola), borrar datos y liberar espacio, mostrar u ocultar buffers de cada red,
+centro de notificaciones de todas las redes (Ctrl+Mayús+A), publicación cruzada (Ctrl+Mayús+X), búsqueda global en lo guardado
+(Ctrl+Mayús+S), borradores y programados de todas las redes, «Ponte al día» con IA (Ctrl+Mayús+Y), estadísticas, radio por
+internet, el reproductor de radio, podcast y YouTube (capítulos, cola, ecualizador y saltar silencios), descripción de la
+multimedia (Ctrl+Alt+K), editor de atajos de teclado (cualquier acción de la ventana), complementos (feeds populares,
+suscripciones de YouTube, web scraper y anti-clickbait), editor de plantillas de lectura (Reddit y PeerTube; el resto de redes
+usa por ahora la lectura por defecto) y visor de registros. En Feeds, la papelera de artículos; en Artículo, las versiones
+anteriores; y en Ayuda, el manual, el documento de teclas, el changelog, la prueba de sonidos y la búsqueda de actualizaciones
+(que en Linux avisa y abre la página de descargas, no instala nada).
 
 **Notas de voz** (Telegram, XMPP y Matrix): Ctrl+Alt+A empieza a grabar en el chat enfocado y, pulsado otra vez, la envía;
 Ctrl+Alt+Mayús+A la cancela. En Linux se graba con GStreamer (en Windows sigue siendo BASS), con el micrófono y el volumen

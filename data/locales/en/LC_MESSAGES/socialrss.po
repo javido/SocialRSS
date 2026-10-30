@@ -54343,3 +54343,32 @@ msgstr "{0} earlier versions."
 
 msgid "Último _changelog"
 msgstr "Latest _changelog"
+
+msgid ""
+"Al redactar: Ctrl+Mayús+J inserta un fragmento de texto y F7 revisa la "
+"ortografía"
+msgstr ""
+"While composing: Ctrl+Shift+J inserts a text snippet and F7 checks the "
+"spelling"
+
+msgid ""
+"Ctrl+Mayús+A: centro de notificaciones; Ctrl+Mayús+X: publicación cruzada; "
+"Ctrl+Mayús+S: búsqueda global"
+msgstr ""
+"Ctrl+Shift+A: notification center; Ctrl+Shift+X: cross-post; Ctrl+Shift+S: "
+"global search"
+
+msgid ""
+"Ctrl+Mayús+Y: ponte al día con IA; Ctrl+Alt+K: descripción de la multimedia;"
+" Ctrl+Mayús+N: nuevo hilo"
+msgstr ""
+"Ctrl+Shift+Y: catch up with AI; Ctrl+Alt+K: media description; Ctrl+Shift+N:"
+" new thread"
+
+msgid "Herramientas"
+msgstr "Tools"
+
+msgid ""
+"Herramientas, Editor de atajos de teclado: cambia la tecla de cualquier "
+"acción"
+msgstr "Tools, Keyboard shortcut editor: change the key of any action"
