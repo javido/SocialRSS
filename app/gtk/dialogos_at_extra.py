@@ -478,3 +478,55 @@ class DialogoSolicitudesMensajesBsky(DialogoLista):
             self.close()
             self.padre._abrir_buffer(self.account_id, f"dm:{s['convo_id']}", s["title"], servicio="bluesky")
         bluesky_service.aceptar_solicitud_convo_async(self.account_id, s["convo_id"], callback=_fin)
+
+
+# --------------------------------------------------------------------------- salida pendiente
+class DialogoSalidaAT(DialogoLista):
+    """Publicaciones que quedaron pendientes por un fallo de red: reintentarlas o descartarlas."""
+
+    ESTADOS = {"pending": "Pendiente", "error": "Con error", "failed": "Con error", "unknown": "Sin confirmar"}
+
+    def __init__(self, padre, red: RedAT, account_id: int):
+        super().__init__(padre, _("Salida pendiente de {r}").format(r=red.nombre), _("Publicaciones pendientes"))
+        self.red, self.account_id, self.items = red, account_id, []
+        self.boton(_("_Reintentar"), self._reintentar)
+        self.boton(_("_Descartar"), self._descartar)
+        self.boton(_("A_ctualizar"), self._cargar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        self.items = self.red.servicio.listar_outbox(self.account_id)
+        self.lista.poner([" ".join(((o.get("texto") or (o.get("payload") or {}).get("texto") or "")).split())[:160] + ". "
+                          + _(self.ESTADOS.get(o.get("estado"), o.get("estado") or "")) + (f". {o['error']}" if o.get("error") else "")
+                          for o in self.items])
+        self.mostrar_estado(_("{n} pendientes").format(n=len(self.items)) if self.items
+                            else _("No hay ninguna publicación pendiente."))
+        self.lista.enfocar()
+
+    def _actual(self):
+        p = self.lista.posicion()
+        return self.items[p] if 0 <= p < len(self.items) else None
+
+    def _reintentar(self):
+        o = self._actual()
+        if not o:
+            return
+        notificar(_("Reintentando…"))
+
+        def _fin(a, b):
+            ok = a if isinstance(a, bool) else not b
+            detalle = b if isinstance(a, bool) else (b or a)
+            if ok:
+                notificar(_("Ya se había publicado; se ha marcado como enviada.") if isinstance(detalle, dict) and detalle.get("ya_estaba")
+                          else _("Publicación enviada."))
+            else:
+                notificar(_("Sigue sin poder enviarse: {e}").format(e=detalle))
+            self._cargar()
+        self.red.servicio.reintentar_outbox_async(self.account_id, o["id"], callback=_fin)
+
+    def _descartar(self):
+        o = self._actual()
+        if o:
+            confirmar_async(self, _("¿Descartar esta publicación pendiente?"),
+                            lambda: (self.red.servicio.borrar_outbox(o["id"]), self._cargar()), etiqueta_si=_("Descartar"))

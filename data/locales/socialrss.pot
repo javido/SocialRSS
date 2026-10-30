@@ -54684,3 +54684,63 @@ msgstr ""
 
 msgid "¿Salir de este grupo?"
 msgstr ""
+
+msgid "Aplicarla solo a cuentas que _no sigues:"
+msgstr ""
+
+msgid "Borradores de W Social"
+msgstr ""
+
+msgid "Editar el borrador"
+msgstr ""
+
+msgid "Palabras silenciadas de W Social"
+msgstr ""
+
+msgid "Preferencias de _contenido…"
+msgstr ""
+
+msgid "Publicaciones pendientes"
+msgstr ""
+
+msgid "Reintentando…"
+msgstr ""
+
+msgid "Salida _pendiente…"
+msgstr ""
+
+msgid "Salida pendiente de {r}"
+msgstr ""
+
+msgid "Servicios de etiquetado de W Social"
+msgstr ""
+
+msgid "Sigue sin poder enviarse: {e}"
+msgstr ""
+
+msgid "_Añadir por usuario…"
+msgstr ""
+
+msgid "_Borradores del servidor…"
+msgstr ""
+
+msgid "_Dónde silenciarla:"
+msgstr ""
+
+msgid "_Idiomas que quieres ver (códigos separados por comas):"
+msgstr ""
+
+msgid "_Reintentar"
+msgstr ""
+
+msgid "_Suscribirse o cancelar"
+msgstr ""
+
+msgid "_Usuario o identificador del servicio de etiquetado:"
+msgstr ""
+
+msgid "{n} pendientes"
+msgstr ""
+
+msgid "¿Borrar este borrador?"
+msgstr ""

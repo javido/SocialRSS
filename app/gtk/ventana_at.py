@@ -115,7 +115,17 @@ class _ATMixin:
             bluesky_service.suscribir_actividad_async(acc, did, posts=True, callback=lambda r, e: self.avisar(
                 _("No se pudo suscribir: {e}").format(e=e) if e else _("Te avisaré cuando esta cuenta publique.")))
 
+    def at_wsocial_dialogo(self, nombre: str):
+        acc = self._ws_cuenta()
+        if acc is not None:
+            from . import dialogos_wsocial_moderacion as m
+            getattr(m, nombre)(self, acc).present()
+
     def _registrar_acciones_at(self, accion):
+        accion("at-salida", lambda: self.at_dialogo("DialogoSalidaAT"))
+        for nombre, clase in (("ws-palabras", "DialogoPalabrasWSocial"), ("ws-contenido", "DialogoContenidoWSocial"),
+                              ("ws-etiquetadores", "DialogoEtiquetadoresWSocial"), ("ws-borradores", "DialogoBorradoresWSocial")):
+            accion(nombre, lambda c=clase: self.at_wsocial_dialogo(c))
         accion("at-tendencias", lambda: self.at_dialogo("DialogoTendenciasAT"))
         accion("at-paquetes", lambda: self.at_dialogo("DialogoPaquetesAT"))
         accion("at-buscar-cuentas", self.at_buscar_cuentas)

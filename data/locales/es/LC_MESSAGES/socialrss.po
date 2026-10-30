@@ -44628,3 +44628,63 @@ msgstr "¿Borrar el paquete «{n}»?"
 
 msgid "¿Salir de este grupo?"
 msgstr "¿Salir de este grupo?"
+
+msgid "Aplicarla solo a cuentas que _no sigues:"
+msgstr "Aplicarla solo a cuentas que _no sigues:"
+
+msgid "Borradores de W Social"
+msgstr "Borradores de W Social"
+
+msgid "Editar el borrador"
+msgstr "Editar el borrador"
+
+msgid "Palabras silenciadas de W Social"
+msgstr "Palabras silenciadas de W Social"
+
+msgid "Preferencias de _contenido…"
+msgstr "Preferencias de _contenido…"
+
+msgid "Publicaciones pendientes"
+msgstr "Publicaciones pendientes"
+
+msgid "Reintentando…"
+msgstr "Reintentando…"
+
+msgid "Salida _pendiente…"
+msgstr "Salida _pendiente…"
+
+msgid "Salida pendiente de {r}"
+msgstr "Salida pendiente de {r}"
+
+msgid "Servicios de etiquetado de W Social"
+msgstr "Servicios de etiquetado de W Social"
+
+msgid "Sigue sin poder enviarse: {e}"
+msgstr "Sigue sin poder enviarse: {e}"
+
+msgid "_Añadir por usuario…"
+msgstr "_Añadir por usuario…"
+
+msgid "_Borradores del servidor…"
+msgstr "_Borradores del servidor…"
+
+msgid "_Dónde silenciarla:"
+msgstr "_Dónde silenciarla:"
+
+msgid "_Idiomas que quieres ver (códigos separados por comas):"
+msgstr "_Idiomas que quieres ver (códigos separados por comas):"
+
+msgid "_Reintentar"
+msgstr "_Reintentar"
+
+msgid "_Suscribirse o cancelar"
+msgstr "_Suscribirse o cancelar"
+
+msgid "_Usuario o identificador del servicio de etiquetado:"
+msgstr "_Usuario o identificador del servicio de etiquetado:"
+
+msgid "{n} pendientes"
+msgstr "{n} pendientes"
+
+msgid "¿Borrar este borrador?"
+msgstr "¿Borrar este borrador?"

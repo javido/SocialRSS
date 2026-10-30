@@ -56444,3 +56444,63 @@ msgstr "Delete the pack “{n}”?"
 
 msgid "¿Salir de este grupo?"
 msgstr "Leave this group?"
+
+msgid "Aplicarla solo a cuentas que _no sigues:"
+msgstr "Apply it only to accounts you _don't follow:"
+
+msgid "Borradores de W Social"
+msgstr "W Social drafts"
+
+msgid "Editar el borrador"
+msgstr "Edit the draft"
+
+msgid "Palabras silenciadas de W Social"
+msgstr "W Social muted words"
+
+msgid "Preferencias de _contenido…"
+msgstr "_Content preferences…"
+
+msgid "Publicaciones pendientes"
+msgstr "Pending posts"
+
+msgid "Reintentando…"
+msgstr "Retrying…"
+
+msgid "Salida _pendiente…"
+msgstr "_Pending outbox…"
+
+msgid "Salida pendiente de {r}"
+msgstr "Pending outbox of {r}"
+
+msgid "Servicios de etiquetado de W Social"
+msgstr "W Social labeling services"
+
+msgid "Sigue sin poder enviarse: {e}"
+msgstr "It still cannot be sent: {e}"
+
+msgid "_Añadir por usuario…"
+msgstr "_Add by username…"
+
+msgid "_Borradores del servidor…"
+msgstr "Server _drafts…"
+
+msgid "_Dónde silenciarla:"
+msgstr "_Where to mute it:"
+
+msgid "_Idiomas que quieres ver (códigos separados por comas):"
+msgstr "_Languages you want to see (codes separated by commas):"
+
+msgid "_Reintentar"
+msgstr "_Retry"
+
+msgid "_Suscribirse o cancelar"
+msgstr "_Subscribe or cancel"
+
+msgid "_Usuario o identificador del servicio de etiquetado:"
+msgstr "_User or identifier of the labeling service:"
+
+msgid "{n} pendientes"
+msgstr "{n} pending"
+
+msgid "¿Borrar este borrador?"
+msgstr "Delete this draft?"

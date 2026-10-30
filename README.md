@@ -123,7 +123,7 @@ responder (con control de quién puede responder), citar, me gusta, republicar, 
 conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
 listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
 contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
-traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). También en Bluesky y W Social: tendencias (Intro busca el tema), paquetes de inicio (ver, crear y borrar), buscar cuentas, grupos de chat (crear, entrar con un enlace, añadir y expulsar miembros, renombrar, enlace de invitación, solicitudes de entrada y salir), y en Bluesky las solicitudes de mensajes, las cuentas a cuya actividad sigues, las cuentas similares, los seguidores en común y los feeds del autor.
+traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). También en Bluesky y W Social: tendencias (Intro busca el tema), paquetes de inicio (ver, crear y borrar), buscar cuentas, grupos de chat (crear, entrar con un enlace, añadir y expulsar miembros, renombrar, enlace de invitación, solicitudes de entrada y salir), la salida pendiente de las dos redes, y en Bluesky las solicitudes de mensajes, las cuentas a cuya actividad sigues, las cuentas similares, los seguidores en común y los feeds del autor.
 **W Social**: alta con usuario y contraseña de aplicación (con «Comprobar el servidor» para ver dónde vive la cuenta
 antes de enviar nada, y «Volver a autorizar»), Inicio, Notificaciones, Menciones, Mis publicaciones, Me gusta, Marcadores y
 mensajes directos; publicar con imágenes o vídeo, responder (con control de quién puede responder), citar, me gusta,
@@ -131,9 +131,9 @@ republicar, marcadores, borrar, conversaciones, citas, cronologías de usuario, 
 búsqueda, feeds, listas (crear y gestionar sus miembros), quién ha dado me gusta o republicado, silenciar hilos, denuncias,
 seguidores, seguidos, bloqueadas y silenciadas, editar el perfil, contraseñas de aplicación y avisos de notificaciones y
 mensajes nuevos. Comparte las teclas de Mastodon y Bluesky. Los hilos largos se escriben con Ctrl+Mayús+N, como en
-Mastodon. Todavía faltan en esta interfaz: borradores,
-publicaciones pendientes de envío, palabras silenciadas, moderación de contenido, servicios de etiquetado, grupos de chat,
-paquetes de inicio, tendencias y contactos. No se ha probado con una cuenta real de W Social.
+Mastodon. También: borradores del servidor, salida pendiente (reintentar o descartar), palabras silenciadas, preferencias de
+contenido, servicios de etiquetado, grupos de chat, paquetes de inicio y tendencias. Todavía faltan la búsqueda con filtros, la
+moderación de verificación de edad y los contactos. No se ha probado con una cuenta real de W Social.
 **Telegram** (necesita `kurigram`, ver más abajo): alta con teléfono, código y verificación en dos pasos
 (las credenciales `api_id` y `api_hash` se piden en my.telegram.org y se indican desde el menú Telegram);
 lista de chats y de chats sin leer, cada conversación como un buffer del árbol, enviar, responder, editar,

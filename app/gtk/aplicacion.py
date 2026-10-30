@@ -210,6 +210,7 @@ def _menu() -> Gio.Menu:
                                  (_("Seguidores _en común con el autor…"), "win.at-seguidores-conocidos"),
                                  (_("_Feeds del autor…"), "win.at-feeds-de"),
                                  (_("A_visarme cuando el autor publique"), "win.at-suscribir-actividad")))
+    cta.append_section(None, sec((_("Salida _pendiente…"), "win.at-salida"),))
     cta.append_section(None, sec((_("_Listas…"), "win.bsky-listas"),
                                  (_("_Feeds…"), "win.bsky-feeds"),
                                  (_("_Palabras silenciadas…"), "win.bsky-palabras"),
@@ -262,7 +263,12 @@ def _menu() -> Gio.Menu:
     wcta.append_section(None, sec((_("_Tendencias…"), "win.at-tendencias"),
                                   (_("Paquetes de _inicio…"), "win.at-paquetes"),
                                   (_("Buscar _cuentas…"), "win.at-buscar-cuentas")))
-    wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),))
+    wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),
+                                  (_("_Palabras silenciadas…"), "win.ws-palabras"),
+                                  (_("Preferencias de _contenido…"), "win.ws-contenido"),
+                                  (_("Servicios de _etiquetado…"), "win.ws-etiquetadores"),
+                                  (_("_Borradores del servidor…"), "win.ws-borradores"),
+                                  (_("Salida _pendiente…"), "win.at-salida")))
     wcta.append_section(None, sec((_("Editar mi _perfil…"), "win.ws-mi-perfil"),
                                   (_("_Contraseñas de aplicación…"), "win.ws-claves"),
                                   (_("_Volver a autorizar la cuenta…"), "win.ws-reautorizar"),
