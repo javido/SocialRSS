@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from .datos import Nodo, Fila
+from .filtros_contenido import sin_ocultas
 
 log = logging.getLogger(__name__)
 
@@ -140,7 +141,10 @@ def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
         # La conversación va en orden cronológico, no del más nuevo al más viejo.
         sql = sql.replace("DESC LIMIT", "ASC LIMIT")
     try:
-        return [_fila_estado(r, nombre, account_id) for r in db.query(sql, (account_id, clave, limite))]
+        filas = db.query(sql, (account_id, clave, limite))
+        if not timeline.startswith("thread:"):
+            filas = sin_ocultas("mastodon", filas, 5, 4, html=True)
+        return [_fila_estado(r, nombre, account_id) for r in filas]
     except Exception as e:
         log.error(f"Error al listar el buffer '{timeline}': {e}")
         return []

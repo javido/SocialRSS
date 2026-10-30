@@ -18,6 +18,7 @@ from app.core.at_lectura import texto_respuesta_a
 # Textos accesibles de una publicación de X (módulo sin wx, compartido con la interfaz de Windows).
 from app.ui.x_lectura import (datos_encuesta_x, describir_media_x, texto_cita_x, texto_encuesta_x)
 from .datos import Nodo, Fila
+from .filtros_contenido import sin_ocultas
 
 log = logging.getLogger(__name__)
 
@@ -247,7 +248,10 @@ def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
     sql = (f"SELECT {_COLS} FROM x_tweets p JOIN x_timeline_tweets t ON p.id = t.tweet_db_id "
            "WHERE t.account_id = ? AND t.timeline = ? ORDER BY t.position LIMIT ?")
     try:
-        return [_fila_post(r, yo, account_id) for r in db.query(sql, (account_id, timeline, limite))]
+        filas = db.query(sql, (account_id, timeline, limite))
+        if not timeline.startswith("thread:"):
+            filas = sin_ocultas("x", filas, 5, 4)
+        return [_fila_post(r, yo, account_id) for r in filas]
     except Exception as e:
         log.error(f"Error al listar el buffer '{timeline}' de X: {e}")
         return []

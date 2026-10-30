@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from .datos import Nodo, Fila
+from .filtros_contenido import sin_ocultas
 
 log = logging.getLogger(__name__)
 
@@ -139,7 +140,10 @@ def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
                f"ORDER BY COALESCE(t.sort_key, 0) {orden}, p.indexed_at {orden} LIMIT ?")
         params = (account_id, timeline, limite)
     try:
-        return [_fila_post(r, yo, account_id) for r in db.query(sql, params)]
+        filas = db.query(sql, params)
+        if not timeline.startswith("thread:"):
+            filas = sin_ocultas("bluesky", filas, 6, 4)
+        return [_fila_post(r, yo, account_id) for r in filas]
     except Exception as e:
         log.error(f"Error al listar el buffer '{timeline}' de Bluesky: {e}")
         return []
