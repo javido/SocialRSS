@@ -55233,3 +55233,9 @@ msgid ""
 msgstr ""
 "Action buttons (Preferences): Tab from the list reaches the buttons; Left "
 "and Right switch buttons"
+
+msgid "Al pulsar _Intro sobre un artículo:"
+msgstr "When _Enter is pressed on an article:"
+
+msgid "Vale en los buffers de RSS y en la bandeja de entrada."
+msgstr "Applies in the RSS buffers and in the unified inbox."

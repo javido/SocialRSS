@@ -971,7 +971,40 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
             return self.rd_abrir_fila(obj)
         if obj.fila.servicio == "peertube":
             return self.pt_abrir_fila(obj)
-        # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
+        if obj.fila.servicio == "rss" and self._intro_rss(obj):
+            return
+        self._abrir_en_lector(obj)
+
+    def _intro_rss(self, obj) -> bool:
+        """Preferencia `rss.enter_action` (la misma que en Windows): navegador | lector | preguntar.
+        True si ya está resuelto aquí; False si hay que abrir el artículo en el panel de lectura."""
+        accion = config.get("rss", "enter_action", "navegador")
+        if accion == "preguntar":
+            dlg = Gtk.AlertDialog()
+            dlg.set_message(_("Abrir artículo"))
+            dlg.set_detail(_("¿Cómo quieres abrir este artículo?"))
+            dlg.set_buttons([_("Cancelar"), _("Abrir el lector limpio"), _("Abrir en el navegador")])
+            dlg.set_default_button(1)
+            dlg.set_cancel_button(0)
+
+            def _fin(origen, res):
+                try:
+                    elegido = origen.choose_finish(res)
+                except Exception:
+                    elegido = 0
+                if elegido == 1:
+                    self._abrir_en_lector(obj)
+                elif elegido == 2:
+                    self.accion_abrir_navegador(obj)
+            dlg.choose(self, None, _fin)
+            return True
+        if accion == "navegador" and obj.fila.enlace:
+            self.accion_abrir_navegador(obj)
+            return True
+        return False
+
+    def _abrir_en_lector(self, obj):
+        """El texto del artículo en el panel de lectura, ya cargado para que el lector de pantalla lo encuentre completo."""
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
             if config.get("rss", "mark_read_on_open", True):
@@ -1134,8 +1167,8 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
         self.refrescar_contadores()
         self.avisar(_("Todo marcado como leído"))
 
-    def accion_abrir_navegador(self):
-        obj = self._fila_actual()
+    def accion_abrir_navegador(self, obj=None):
+        obj = obj or self._fila_actual()
         if obj is None or not obj.fila.enlace:
             self.avisar(_("Este artículo no tiene enlace"))
             return

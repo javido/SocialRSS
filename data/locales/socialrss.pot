@@ -53481,3 +53481,9 @@ msgid ""
 "Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
 " Izquierda y Derecha cambian de botón"
 msgstr ""
+
+msgid "Al pulsar _Intro sobre un artículo:"
+msgstr ""
+
+msgid "Vale en los buffers de RSS y en la bandeja de entrada."
+msgstr ""

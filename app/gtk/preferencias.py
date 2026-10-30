@@ -24,6 +24,8 @@ log = logging.getLogger(__name__)
 IDIOMAS = list(NOMBRES_IDIOMA.keys())      # códigos ISO de 2 letras
 PT_NSFW = [("do_not_list", "No mostrarlo"), ("blur", "Mostrarlo difuminado"), ("display", "Mostrarlo")]
 PT_PRIVACIDAD = [(1, "Público"), (2, "No listado"), (3, "Privado"), (4, "Interno")]
+RSS_INTRO = [("navegador", "Abrir el enlace en el navegador (como hasta ahora)"), ("lector", "Abrir el lector limpio"),
+             ("preguntar", "Preguntar cada vez")]
 RD_ORDEN_COMENTARIOS = [("confidence", "Mejores (confianza)"), ("top", "Más votados"), ("new", "Nuevos"),
                         ("controversial", "Controvertidos"), ("old", "Antiguos"), ("qa", "Preguntas y respuestas")]
 RD_PERIODOS = [("hour", "Última hora"), ("day", "Hoy"), ("week", "Esta semana"), ("month", "Este mes"),
@@ -130,6 +132,11 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("A_visar de los artículos nuevos:"), self.rss_notificar)
         self.rss_siempre_completo = p.interruptor(config.get("rss", "download_fulltext", False))
         p.campo(_("Intentar descargar siempre el texto _completo del artículo:"), self.rss_siempre_completo)
+        self.rss_intro = Gtk.DropDown.new_from_strings([_(n) for _v, n in RSS_INTRO])
+        actual = config.get("rss", "enter_action", "navegador")
+        self.rss_intro.set_selected(next((i for i, (v, _n) in enumerate(RSS_INTRO) if v == actual), 0))
+        p.campo(_("Al pulsar _Intro sobre un artículo:"), self.rss_intro,
+                _("Vale en los buffers de RSS y en la bandeja de entrada."))
         self.rss_leido_al_abrir = p.interruptor(config.get("rss", "mark_read_on_open", True))
         p.campo(_("Marcar el artículo como leído al a_brirlo:"), self.rss_leido_al_abrir)
         self.rss_imagenes = p.interruptor(config.get("rss", "download_images", False))
@@ -502,6 +509,7 @@ class DialogoPreferencias(Gtk.Window):
         config.set("rss", "update_interval", int(self.rss_intervalo.get_value()))
         config.set("rss", "notifications_enabled", self.rss_notificar.get_active())
         config.set("rss", "download_fulltext", self.rss_siempre_completo.get_active())
+        config.set("rss", "enter_action", RSS_INTRO[self.rss_intro.get_selected()][0])
         config.set("rss", "mark_read_on_open", self.rss_leido_al_abrir.get_active())
         config.set("rss", "download_images", self.rss_imagenes.get_active())
         config.set("rss", "hide_future_articles", self.rss_ocultar_futuros.get_active())
