@@ -13,6 +13,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from .datos import Nodo, Fila, buffer_oculto
+from .lectura import con_plantilla, hora
 
 log = logging.getLogger(__name__)
 
@@ -162,13 +163,19 @@ def _listar_salas(account_id: int, timeline: str) -> List[Fila]:
             extras.append(_condensar(tema, 100))
         if extras:
             texto += " · " + ", ".join(extras)
-        filas.append(Fila(id=room_id, feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha="",
-                          leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="",
-                          servicio="matrix",
-                          extra={"tipo": "invitacion" if invitada else "sala", "account_id": account_id,
-                                 "room_id": room_id, "nombre": nombre, "dm": bool(dm), "cifrada": bool(cifrada),
-                                 "espacio": bool(espacio), "etiqueta": etiqueta, "no_leidos": no_leidos,
-                                 "propio": False}))
+        marcas = [m for m in extras if m != _condensar(tema, 100)] if extras else []
+        filas.append(con_plantilla(
+            Fila(id=room_id, feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha="",
+                 leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="matrix",
+                 extra={"tipo": "invitacion" if invitada else "sala", "account_id": account_id,
+                        "room_id": room_id, "nombre": nombre, "dm": bool(dm), "cifrada": bool(cifrada),
+                        "espacio": bool(espacio), "etiqueta": etiqueta, "no_leidos": no_leidos,
+                        "propio": False}),
+            "matrix_chat", {"sala": nombre + (" (" + ", ".join(marcas) + ")" if marcas else "")
+                            + (" " + _("(invitación)") if invitada else ""),
+                            "content": "" if invitada else _condensar(ultimo, 160),
+                            "unread": _("{n} sin leer").format(n=no_leidos) if no_leidos and not invitada else "",
+                            "topic": _condensar(tema, 100) if tema and not dm else ""}))
     return filas
 
 
@@ -259,7 +266,7 @@ def _fila_mensaje(r, account_id: int, room_id: str) -> Fila:
     linea = f"{autor}: {' '.join([cuerpo] + extras).strip()}" if tipo != "accion" else " ".join([cuerpo] + extras)
     if nuevo:
         linea = _("Nuevo. ") + linea
-    return Fila(id=str(mid), feed_id=0, feed_titulo=autor, titulo=linea, autor=autor, fecha=fecha, leido=not nuevo,
+    fila = Fila(id=str(mid), feed_id=0, feed_titulo=autor, titulo=linea, autor=autor, fecha=fecha, leido=not nuevo,
                 favorito=False, mas_tarde=False, audio=adjunto == "audio", enlace="", servicio="matrix",
                 extra={"tipo": "mensaje", "account_id": account_id, "room_id": room_id, "mid": mid,
                        "event_id": event_id or "", "texto": texto, "tipo_msg": tipo, "media_mxc": mxc,
@@ -267,6 +274,10 @@ def _fila_mensaje(r, account_id: int, room_id: str) -> Fila:
                        "sender": sender, "send_state": send_state, "reply_to": reply_to, "propio": bool(propio),
                        "nuevo": nuevo, "usuario": quien, "reproducible": adjunto in ("audio", "video"),
                        "descargable": bool(adjunto)})
+    if tipo == "accion":
+        return fila
+    return con_plantilla(fila, "matrix_message", {
+        "author": autor, "content": " ".join([cuerpo] + extras).strip(), "hora": hora(fecha), "sala": ""})
 
 
 def _listar_mensajes(account_id: int, room_id: str, limite: int) -> List[Fila]:

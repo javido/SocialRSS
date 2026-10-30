@@ -228,8 +228,9 @@ centro de notificaciones de todas las redes (Ctrl+Mayús+A), publicación cruzad
 (Ctrl+Mayús+S), borradores y programados de todas las redes, «Ponte al día» con IA (Ctrl+Mayús+Y), estadísticas, radio por
 internet, el reproductor de radio, podcast y YouTube (capítulos, cola, ecualizador y saltar silencios), descripción de la
 multimedia (Ctrl+Alt+K), editor de atajos de teclado (cualquier acción de la ventana), complementos (feeds populares,
-suscripciones de YouTube, web scraper y anti-clickbait), editor de plantillas de lectura (Reddit y PeerTube; el resto de redes
-usa por ahora la lectura por defecto) y visor de registros. En Feeds, la papelera de artículos; en Artículo, las versiones
+suscripciones de YouTube, web scraper y anti-clickbait), editor de plantillas de lectura (las mismas que en Windows: publicaciones y notificaciones de
+Mastodon, Bluesky, W Social y X, artículos RSS, chats de Telegram, IRC, Matrix y XMPP, Reddit, PeerTube y la bandeja; los indicadores
+como «Favorito» cambian al momento) y visor de registros. En Feeds, la papelera de artículos; en Artículo, las versiones
 anteriores; y en Ayuda, el manual, el documento de teclas, el changelog, la prueba de sonidos y la búsqueda de actualizaciones
 (que en Linux avisa y abre la página de descargas, no instala nada).
 

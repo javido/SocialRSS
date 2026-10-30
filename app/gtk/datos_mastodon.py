@@ -10,6 +10,7 @@ from typing import Dict, List, Optional
 from app.core.database import db
 from .datos import Nodo, Fila, buffer_oculto
 from .filtros_contenido import sin_ocultas
+from .lectura import con_plantilla, notificacion
 
 log = logging.getLogger(__name__)
 
@@ -110,19 +111,21 @@ _COLS = ("s.id, s.status_id, COALESCE(s.reblog_of_id, s.status_id), s.author_nam
          "COALESCE(s.content, ''), COALESCE(s.created_at, ''), COALESCE(s.visibility, 'public'), "
          "COALESCE(s.spoiler_text, ''), s.favourited, s.reblogged, s.bookmarked, COALESCE(s.media_json, '[]'), "
          "COALESCE(s.reblog_by_name, ''), COALESCE(s.has_poll, 0), COALESCE(s.replies_count, 0), "
-         "COALESCE(s.reblogs_count, 0), COALESCE(s.favourites_count, 0), COALESCE(s.uri, '')")
+         "COALESCE(s.reblogs_count, 0), COALESCE(s.favourites_count, 0), COALESCE(s.uri, ''), "
+         "COALESCE(s.edited_at, ''), COALESCE(s.in_reply_to_id, ''), COALESCE(s.pinned, 0), "
+         "COALESCE(s.application, ''), COALESCE(s.language, '')")
 
 
 def _fila_estado(r, nombre_cuenta: str, account_id: int) -> Fila:
     (dbid, sid, orig, autor, usuario, contenido, creado, visib, cw, fav, imp, marc, media,
-     impulsado_por, poll, resp, nimp, nfav, uri) = r
+     impulsado_por, poll, resp, nimp, nfav, uri, editado, responde_a, fijado, aplicacion, idioma) = r
     try:
         adjuntos = len(json.loads(media or "[]"))
     except Exception:
         adjuntos = 0
     resumen = f"{autor} ({usuario}): " + (f"{_('Aviso de contenido')}: {_condensar(cw, 120)}" if cw
                                            else _condensar(contenido))
-    return Fila(id=dbid, feed_id=0, feed_titulo=usuario or "", titulo=resumen, autor=autor or "",
+    fila = Fila(id=dbid, feed_id=0, feed_titulo=usuario or "", titulo=resumen, autor=autor or "",
                 fecha=creado, leido=True, favorito=bool(fav), mas_tarde=False, audio=False, enlace=uri,
                 servicio="mastodon",
                 extra={"tipo": "estado", "account_id": account_id, "status_id": orig, "entrada_id": sid,
@@ -130,6 +133,18 @@ def _fila_estado(r, nombre_cuenta: str, account_id: int) -> Fila:
                        "adjuntos": adjuntos, "encuesta": bool(poll), "respuestas": resp,
                        "n_impulsos": nimp, "n_favoritos": nfav, "visibilidad": visib,
                        "propio": _es_propio(usuario, nombre_cuenta), "usuario": usuario})
+    from html import unescape
+    from app.core.html_utils import html_a_texto
+    fijos = [_(t) for t, hay in (("Encuesta", poll), ("Editado", editado), ("Respuesta", responde_a),
+                                  ("Fijado", fijado)) if hay]
+    fila.extra["indicadores_fijos"] = fijos
+    return con_plantilla(fila, "mastodon_template", {
+        "author": impulsado_por or autor or "", "username": usuario or "",
+        "content": _condensar(html_a_texto(contenido) if "<" in (contenido or "") else unescape(contenido or "")),
+        "visibility": _(VISIBILIDAD.get(visib, visib)).capitalize(),
+        "media": (_("1 archivo adjunto") if adjuntos == 1 else _("{0} archivos adjuntos").format(adjuntos)) if adjuntos else "",
+        "application": aplicacion or "", "cw": (cw or "").strip(), "language": idioma or "",
+        "counts": _("{f} favoritos, {r} impulsos, {p} respuestas").format(f=nfav, r=nimp, p=resp)})
 
 
 def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
@@ -183,6 +198,11 @@ def _listar_notificaciones(account_id: int, nombre: str, solo_menciones: bool, l
                         "de_usuario": de_usuario, "account_id": account_id, "estado_db_id": estado[0] if estado else None})
         if fila_estado:
             f.extra["entrada_id"] = fila_estado.extra.get("entrada_id")
+        f.extra.pop("plantilla", None)          # se copió de la publicación: la notificación usa la suya
+        f.extra.pop("campos", None)
+        contenido = fila_estado.extra.get("campos", {}).get("content", "") if fila_estado else ""
+        notificacion(f, tipo, de_nombre, de_usuario, contenido,
+                     "mention_template" if (solo_menciones and tipo == "mention") else "")
         filas.append(f)
     return filas
 
@@ -199,9 +219,9 @@ def detalle(fila: Fila) -> tuple:
                      "FROM mastodon_statuses s WHERE s.id = ?", (dbid,))
     if not r:
         return (fila.titulo, "", fila.enlace, "")
-    base, (urls, cita, _app, editado, idioma) = r[:19], r[19:]  # noqa: F841
+    base, (urls, cita, _app, editado, idioma) = r[:24], r[24:]  # noqa: F841
     (_i, _sid, _orig, autor, usuario, contenido, creado, visib, cw, fav, imp, marc, media, impulsado_por,
-     poll, resp, nimp, nfav, uri) = base
+     poll, resp, nimp, nfav, uri) = base[:19]
     meta = [f"{autor} ({usuario})", fecha_legible(creado), _(VISIBILIDAD.get(visib, visib))]
     if editado:
         meta.append(_("editado"))

@@ -5,6 +5,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import GObject, Gio  # noqa: E402
 
+from . import lectura
 from .datos import Nodo, Fila
 
 
@@ -76,7 +77,13 @@ class FilaObj(GObject.Object):
             self._desc_clave = clave
             origen = self.fila.extra.get("origen")      # en la bandeja, de qué buffer viene
             grupo = self.fila.extra.get("grupo")        # primera fila de un bloque de fechas (Agrupar por fecha)
-            self._desc = (f"{grupo}. " if grupo else "") + (f"{origen}. " if origen else "") + self._construir_descripcion()
+            plantilla = lectura.leer(self)              # la plantilla de lectura del usuario, si la fila usa una
+            if plantilla is not None:
+                texto, con_origen = plantilla
+                origen = None if con_origen else origen
+            else:
+                texto = self._construir_descripcion()
+            self._desc = (f"{grupo}. " if grupo else "") + (f"{origen}. " if origen else "") + texto
         return self._desc
 
     def _construir_descripcion(self) -> str:

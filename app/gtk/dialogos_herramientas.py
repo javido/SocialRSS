@@ -1367,12 +1367,13 @@ class DialogoBuffers(DialogoBase):
 
 
 # --------------------------------------------------------------------------- plantillas de lectura
-# Redes cuyas filas se leen con las plantillas del usuario en la interfaz GTK.
-REDES_CON_PLANTILLAS = ("reddit", "peertube")
+# Redes cuyas filas se leen con las plantillas del usuario en la interfaz GTK (todas menos el visor de registros, que es de Windows).
+REDES_CON_PLANTILLAS = ("mastodon", "bluesky", "telegram", "rss", "x", "irc", "matrix", "xmpp", "reddit", "peertube",
+                        "wsocial", "inbox")
 
 
 class DialogoPlantillas(Gtk.Window):
-    """Cómo lee el lector de pantalla cada elemento de Reddit y PeerTube: texto de la plantilla con campos entre llaves,
+    """Cómo lee el lector de pantalla cada elemento de cada red: texto de la plantilla con campos entre llaves,
     modelos rápidos, vista previa con datos de ejemplo y restaurar los valores por defecto. Son las mismas plantillas
     (y la misma configuración) que usa la versión de Windows."""
 

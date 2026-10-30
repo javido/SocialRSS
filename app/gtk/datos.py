@@ -186,8 +186,11 @@ def listar(account_id: int, nodo: Nodo, limite: int = 300, busqueda: str = "") -
     except Exception as e:
         log.error(f"Error al listar artículos: {e}")
         return []
-    return [Fila(r[0], r[1], r[2] or "", r[3] or _("(sin título)"), r[4], r[5], bool(r[6]),
-                 bool(r[7]), bool(r[8]), bool(r[9]), r[10]) for r in filas]
+    from .lectura import con_plantilla
+    return [con_plantilla(Fila(r[0], r[1], r[2] or "", r[3] or _("(sin título)"), r[4], r[5], bool(r[6]),
+                               bool(r[7]), bool(r[8]), bool(r[9]), r[10]),
+                          "rss_template", {"feed": r[2] or "", "title": r[3] or _("(sin título)"), "author": r[4] or ""})
+            for r in filas]
 
 
 def fecha_legible(iso: str) -> str:

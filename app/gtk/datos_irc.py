@@ -9,6 +9,7 @@ from typing import Dict, List, Optional
 from app.core.database import db
 from app.services.irc.irc_service import irc_service
 from .datos import Nodo, Fila, buffer_oculto
+from .lectura import con_plantilla, hora
 
 log = logging.getLogger(__name__)
 
@@ -138,12 +139,16 @@ def _listar_chats(account_id: int, privados: bool) -> List[Fila]:
             texto += ": " + _condensar(ultimo, 160)
         if tema:
             texto += " · " + _("Tema: {t}").format(t=_condensar(tema, 120))
-        filas.append(Fila(id=nombre.lower(), feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha=fecha,
-                          leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="",
-                          servicio="irc",
-                          extra={"tipo": "chat", "account_id": account_id, "chat": nombre, "titulo": nombre,
-                                 "privado": privados, "unido": bool(unido), "tema": tema, "no_leidos": no_leidos,
-                                 "propio": False}))
+        filas.append(con_plantilla(
+            Fila(id=nombre.lower(), feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha=fecha,
+                 leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="irc",
+                 extra={"tipo": "chat", "account_id": account_id, "chat": nombre, "titulo": nombre,
+                        "privado": privados, "unido": bool(unido), "tema": tema, "no_leidos": no_leidos,
+                        "propio": False}),
+            "irc_chat", {"chat": nombre if (unido or privados) else _("{n} (no unido)").format(n=nombre),
+                         "content": _condensar(ultimo, 160),
+                         "unread": _("{n} sin leer").format(n=no_leidos) if no_leidos else "",
+                         "topic": _condensar(tema, 120)}))
     return filas
 
 
@@ -205,12 +210,17 @@ def _listar_mensajes(account_id: int, nombre: str, limite: int) -> List[Fila]:
             linea += " · " + _("te mencionan")
         if nuevo:
             linea = _("Nuevo. ") + linea
-        filas.append(Fila(id=str(mid), feed_id=0, feed_titulo=nick, titulo=linea, autor=nick, fecha=fecha,
-                          leido=not nuevo, favorito=False, mas_tarde=False, audio=False, enlace="",
-                          servicio="irc",
-                          extra={"tipo": "mensaje", "account_id": account_id, "chat": nombre, "nick": nick,
-                                 "texto": texto, "evento": tipo, "propio": bool(propio), "mencion": bool(mencion),
-                                 "nuevo": nuevo, "usuario": nick}))
+        fila = Fila(id=str(mid), feed_id=0, feed_titulo=nick, titulo=linea, autor=nick, fecha=fecha,
+                    leido=not nuevo, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="irc",
+                    extra={"tipo": "mensaje", "account_id": account_id, "chat": nombre, "nick": nick,
+                           "texto": texto, "evento": tipo, "propio": bool(propio), "mencion": bool(mencion),
+                           "nuevo": nuevo, "usuario": nick})
+        if tipo in ("msg", "action"):       # entradas, salidas y demás eventos se leen como frase suelta
+            fila = con_plantilla(fila, "irc_message", {
+                "nick": ("* " if tipo == "action" else "") + (_("Yo") if propio else nick or _("Servidor")),
+                "content": _condensar(texto) + (" · " + _("te mencionan") if mencion and not propio else ""),
+                "hora": hora(fecha), "canal": nombre})
+        filas.append(fila)
     return filas
 
 

@@ -53495,3 +53495,12 @@ msgid ""
 "El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
 "enseñan hasta que cambies de buffer."
 msgstr ""
+
+msgid "Aviso de contenido"
+msgstr ""
+
+msgid "[Reposteado por {0}] "
+msgstr ""
+
+msgid "_Editor de plantillas de lectura…"
+msgstr ""

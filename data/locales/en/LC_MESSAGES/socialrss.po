@@ -55249,3 +55249,12 @@ msgid ""
 msgstr ""
 "The reading panel under the list. When off it is hidden; Enter or Alt+3 show"
 " it until you switch buffer."
+
+msgid "Aviso de contenido"
+msgstr "Content warning"
+
+msgid "[Reposteado por {0}] "
+msgstr "[Reposted by {0}] "
+
+msgid "_Editor de plantillas de lectura…"
+msgstr "Reading _template editor…"

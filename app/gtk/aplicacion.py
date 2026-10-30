@@ -577,7 +577,7 @@ def _menu() -> Gio.Menu:
     herr.append_section(None, sec((_("_Ponte al día (resumen con IA)…"), "win.herr-ponte-al-dia"),
                                   (_("_Estadísticas de mis redes…"), "win.herr-estadisticas")))
     herr.append_section(None, sec((_("Mostrar u _ocultar buffers…"), "win.herr-buffers"),
-                                  (_("_Editor de plantillas de lectura (Reddit y PeerTube)…"), "win.herr-plantillas"),
+                                  (_("_Editor de plantillas de lectura…"), "win.herr-plantillas"),
                                   (_("Editor de _atajos de teclado…"), "win.herr-atajos"),
                                   (_("C_omplementos…"), "win.herr-complementos"),
                                   (_("_Visor de registros…"), "win.herr-registro")))
