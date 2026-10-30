@@ -16,6 +16,7 @@ from app.core.i18n import NOMBRES_IDIOMA
 from app.core.speech import notificar
 from app.core.task_manager import task_manager
 
+from .ventana_botonera import REDES_BOTONERA
 from .dialogos_ia import DialogoHistorialIA, DialogoHistorialTraducciones, DialogoPrompts
 
 log = logging.getLogger(__name__)
@@ -176,6 +177,12 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Descargar el artículo completo al a_brirlo:"), self.completo)
         self.solo_no_leidos = p.interruptor(config.get("rss", "show_only_unread", False))
         p.campo(_("Mostrar solo no _leídos en carpetas y feeds:"), self.solo_no_leidos)
+        self.botonera = {}
+        for clave, nombre in REDES_BOTONERA:
+            self.botonera[clave] = p.interruptor(config.get(clave, "show_action_buttons", False))
+            p.campo(_("Mostrar la botonera de acciones en {n}:").format(n=nombre), self.botonera[clave],
+                    _("Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento enfocado. Se llega con Tab.")
+                    if clave == "rss" else "")
         self.bandeja = p.interruptor(config.get("inbox", "enabled", False))
         p.campo(_("Mostrar la _bandeja de entrada unificada:"), self.bandeja,
                 _("Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se añaden desde el menú Ver "
@@ -487,6 +494,8 @@ class DialogoPreferencias(Gtk.Window):
         config.set("accessibility", "speech_announcements", self.voz.get_active())
         config.set("rss", "fulltext_auto", self.completo.get_active())
         config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
+        for clave, _nombre in REDES_BOTONERA:
+            config.set(clave, "show_action_buttons", self.botonera[clave].get_active())
         bandeja_cambiada = bool(config.get("inbox", "enabled", False)) != self.bandeja.get_active()
         config.set("inbox", "enabled", self.bandeja.get_active())
         config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
@@ -548,5 +557,6 @@ class DialogoPreferencias(Gtk.Window):
         self.close()
         if bandeja_cambiada:
             self.padre.cargar_arbol()
+        self.padre.programar_botonera()
         self.padre.cargar_lista()
         self.padre.iniciar_tiempo_real()

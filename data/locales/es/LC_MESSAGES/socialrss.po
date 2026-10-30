@@ -43384,3 +43384,35 @@ msgid ""
 msgstr ""
 "La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
 "etiqueta delante."
+
+msgid "Acciones…"
+msgstr "Acciones…"
+
+msgid ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+msgstr ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+
+msgid "Mostrar la botonera de acciones en {n}:"
+msgstr "Mostrar la botonera de acciones en {n}:"
+
+msgid "Más acciones…"
+msgstr "Más acciones…"
+
+msgid "Quitar de leer más tarde"
+msgstr "Quitar de leer más tarde"
+
+msgid "Quitar favorito"
+msgstr "Quitar favorito"
+
+msgid "Quitar impulso"
+msgstr "Quitar impulso"
+
+msgid ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"
+msgstr ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"

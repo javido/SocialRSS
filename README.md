@@ -25,7 +25,12 @@ haga perder el foco.
   quieres, un panel de detalles para leer el contenido con las flechas.
 - **Listas que se actualizan solas sin moverte el foco**: lo nuevo aparece en su sitio y el lector
   no te vuelve a leer nada. Las redes que lo admiten funcionan en **tiempo real**.
-- **Reordenar el árbol:** con el foco en el árbol, Ctrl+Arriba y Ctrl+Abajo mueven el elemento elegido: los servicios, las cuentas,
+- **Botonera de acciones** (opcional, una casilla por red en Preferencias, como en Windows): una fila de botones bajo la lista con
+las acciones más usadas del elemento enfocado (Responder, Me gusta, Impulsar, Conversación, Marcar leído, Voto +...) cuyas
+etiquetas reflejan el estado. Se llega con Tab desde la lista, Izquierda y Derecha pasan de un botón a otro, y «Más acciones…»
+abre el menú completo. En la bandeja actúa sobre la red de origen de cada publicación.
+
+**Reordenar el árbol:** con el foco en el árbol, Ctrl+Arriba y Ctrl+Abajo mueven el elemento elegido: los servicios, las cuentas,
 los buffers de cada red (el orden vale para todas sus cuentas), los buffers fijos de RSS, las categorías y los feeds (los feeds
 fijados siempre van arriba) y los buffers abiertos en la sesión. El orden se guarda en la misma configuración que usa Windows.
 

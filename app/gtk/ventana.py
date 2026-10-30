@@ -35,6 +35,7 @@ from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
 from .ventana_herramientas import _HerramientasMixin
+from .ventana_botonera import _BotoneraMixin
 from .orden_arbol import _OrdenMixin, aplicar_orden
 from .ventana_bandeja import _BandejaMixin
 from .ventana_rss import _RSSMixin
@@ -71,7 +72,7 @@ def _clave_fila(f) -> str:
     return f.extra.get("clave_lista") or f.id
 
 
-class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -147,7 +148,12 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
         self.paned_vertical.set_position(330)
         self.paned_horizontal.set_start_child(self._crear_arbol())
         self.paned_horizontal.set_end_child(self.paned_vertical)
-        self.paned_vertical.set_start_child(self._crear_lista())
+        lista = self._crear_lista()
+        lista.set_vexpand(True)
+        caja_lista = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        caja_lista.append(lista)
+        caja_lista.append(self._crear_botonera())
+        self.paned_vertical.set_start_child(caja_lista)
         self.paned_vertical.set_end_child(self._crear_lectura())
 
         # Barra de estado (rol "status": el lector la anuncia al cambiar)
@@ -315,7 +321,7 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
         foco = self.get_focus()
         if foco is None:
             return None
-        for panel in (self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto):
+        for panel in (self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.botonera, self.texto):
             if foco is panel or foco.is_ancestor(panel):
                 return panel
         return None
@@ -330,6 +336,10 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
             return False
         atras = keyval == Gdk.KEY_ISO_Left_Tab or bool(estado & Gdk.ModifierType.SHIFT_MASK)
         orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto]
+        if self.botonera.get_visible():
+            orden.insert(3, self.botonera)
+        if actual not in orden:
+            return False
         i = orden.index(actual)
         j = i - 1 if atras else i + 1
         if j < 0 or j >= len(orden):
@@ -458,6 +468,9 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
             if pos != Gtk.INVALID_LIST_POSITION:
                 # grab_focus() deja el foco en el primer elemento visible; se lleva al seleccionado.
                 panel.scroll_to(pos, Gtk.ListScrollFlags.FOCUS, None)
+            return
+        if panel is self.botonera:
+            self.enfocar_botonera()
             return
         panel.grab_focus()
 
@@ -796,6 +809,7 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
     def _aplicar_lista(self, gen, n, busqueda, filas, conservar_id, incremental, despues):
         if gen != self._gen_lista or n is not self.nodo_actual:
             return      # el usuario ya está en otra cosa
+        self.programar_botonera()
         titulo = n.titulo + (f" — {_('búsqueda')}: {busqueda}" if busqueda else "")
         if incremental and self._nodo_listado is n and self._sincronizar_lista(filas):
             self.estado.set_text(_("{t}: {n} elementos").format(t=n.titulo, n=len(filas)))
@@ -851,6 +865,7 @@ class VentanaPrincipal(_OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin
         return True
 
     def _on_fila_seleccionada(self, *_a):
+        self.programar_botonera()
         obj = self._fila_actual()
         if obj is not None:
             self._vista_previa(obj)

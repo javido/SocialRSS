@@ -243,6 +243,7 @@ def _teclas() -> str:
         "",
         _("Árbol de feeds"),
         _("Tecla Menú o Mayús+F10 sobre un feed, una carpeta o una cuenta: actualizar, fijar, pausar, renombrar, mover, editar..."),
+        _("Botonera de acciones (Preferencias): Tab desde la lista llega a los botones; Izquierda y Derecha cambian de botón"),
         _("Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, buffers, feeds y categorías)"),
         "",
         _("Bandeja de entrada"),

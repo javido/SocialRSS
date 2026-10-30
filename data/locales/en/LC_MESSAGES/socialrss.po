@@ -55201,3 +55201,35 @@ msgid ""
 msgstr ""
 "The first row of each block (Today, Yesterday, This week, This month) starts"
 " with its label."
+
+msgid "Acciones…"
+msgstr "Actions…"
+
+msgid ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+msgstr ""
+"Buttons under the list (Reply, Like...) that act on the focused item. Reach "
+"them with Tab."
+
+msgid "Mostrar la botonera de acciones en {n}:"
+msgstr "Show the action buttons in {n}:"
+
+msgid "Más acciones…"
+msgstr "More actions…"
+
+msgid "Quitar de leer más tarde"
+msgstr "Remove from read later"
+
+msgid "Quitar favorito"
+msgstr "Remove favorite"
+
+msgid "Quitar impulso"
+msgstr "Remove boost"
+
+msgid ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"
+msgstr ""
+"Action buttons (Preferences): Tab from the list reaches the buttons; Left "
+"and Right switch buttons"
