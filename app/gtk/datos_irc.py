@@ -103,8 +103,9 @@ def titulo_chat(account_id: int, nombre: str) -> str:
 
 
 def _condensar(texto: str, limite: int = 240) -> str:
+    """Une los espacios; el límite se ignora a propósito."""
     t = " ".join((texto or "").split())
-    return t if len(t) <= limite else t[:limite].rstrip() + "…"
+    return t        # sin recortar: el lector de pantalla debe leer el texto completo (la etiqueta se abrevia sola)
 
 
 def listar(account_id: int, timeline: str, limite: int = 300) -> List[Fila]:

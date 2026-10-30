@@ -101,8 +101,9 @@ def _es_propio(author_username: str, nombre_cuenta: str) -> bool:
 
 
 def _condensar(texto: str, limite: int = 220) -> str:
+    """Une los espacios; el límite se ignora a propósito."""
     t = " ".join((texto or "").split())
-    return t if len(t) <= limite else t[:limite].rstrip() + "…"
+    return t        # sin recortar: el lector de pantalla debe leer el texto completo (la etiqueta se abrevia sola)
 
 
 _COLS = ("s.id, s.status_id, COALESCE(s.reblog_of_id, s.status_id), s.author_name, s.author_username, "

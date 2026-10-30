@@ -77,8 +77,9 @@ def cerrar_extra(nodo: Nodo):
 
 
 def _condensar(texto: str, limite: int = 240) -> str:
+    """Une los espacios; el límite se ignora a propósito."""
     t = " ".join((texto or "").split())
-    return t if len(t) <= limite else t[:limite].rstrip() + "…"
+    return t        # sin recortar: el lector de pantalla debe leer el texto completo (la etiqueta se abrevia sola)
 
 
 def url_web(uri: str, handle: str) -> str:
