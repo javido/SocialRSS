@@ -15,6 +15,10 @@ class _HerramientasMixin:
         accion("herr-migrar", self.herr_migrar)
         accion("herr-borrar", self.herr_borrar)
         accion("herr-registro", self.herr_registro)
+        accion("herr-complementos", self.herr_complementos)
+        accion("herr-atajos", self.herr_atajos)
+        accion("herr-papelera", self.herr_papelera)
+        accion("herr-plantillas", self.herr_plantillas)
         accion("herr-buffers", self.herr_buffers)
         accion("herr-radio", self.herr_radio)
         accion("herr-reproductor", self.herr_reproductor)
@@ -57,6 +61,22 @@ class _HerramientasMixin:
     def herr_buffers(self):
         from .dialogos_herramientas import DialogoBuffers
         DialogoBuffers(self).present()
+
+    def herr_plantillas(self):
+        from .dialogos_herramientas import DialogoPlantillas
+        DialogoPlantillas(self).present()
+
+    def herr_papelera(self):
+        from .dialogos_herramientas import DialogoPapelera
+        DialogoPapelera(self, self.get_application().account_id).present()
+
+    def herr_atajos(self):
+        from .dialogos_atajos import DialogoAtajos
+        DialogoAtajos(self).present()
+
+    def herr_complementos(self):
+        from .plugins_ui import DialogoComplementos
+        DialogoComplementos(self).present()
 
     def herr_registro(self):
         from .dialogos_herramientas import DialogoRegistro

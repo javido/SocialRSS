@@ -53,7 +53,8 @@ def _menu() -> Gio.Menu:
     feeds = Gio.Menu()
     feeds.append_section(None, sec((_("Actualizar _todos"), "win.actualizar"),
                                    (_("Actualizar el _feed seleccionado"), "win.actualizar-feed"),
-                                   (_("_Marcar todo como leído"), "win.marcar-todo-leido")))
+                                   (_("_Marcar todo como leído"), "win.marcar-todo-leido"),
+                                   (_("_Papelera de artículos…"), "win.herr-papelera")))
     barra.append_submenu(_("_Feeds"), feeds)
 
     art = Gio.Menu()
@@ -551,6 +552,9 @@ def _menu() -> Gio.Menu:
     herr.append_section(None, sec((_("_Ponte al día (resumen con IA)…"), "win.herr-ponte-al-dia"),
                                   (_("_Estadísticas de mis redes…"), "win.herr-estadisticas")))
     herr.append_section(None, sec((_("Mostrar u _ocultar buffers…"), "win.herr-buffers"),
+                                  (_("_Editor de plantillas de lectura (Reddit y PeerTube)…"), "win.herr-plantillas"),
+                                  (_("Editor de _atajos de teclado…"), "win.herr-atajos"),
+                                  (_("C_omplementos…"), "win.herr-complementos"),
                                   (_("_Visor de registros…"), "win.herr-registro")))
     barra.append_submenu(_("_Herramientas"), herr)
 

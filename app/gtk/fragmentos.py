@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Fragmentos de texto reutilizables: Ctrl+Mayús+J en un campo de redacción inserta uno de los guardados. Se guardan en
-`general/snippets` de la configuración, los mismos que usa la versión de Windows."""
+"""Ayudas de los campos de redacción: Ctrl+Mayús+J inserta un fragmento de texto guardado (en `general/snippets` de la
+configuración, los mismos que usa la versión de Windows) y F7 revisa la ortografía."""
 
 import gi
 gi.require_version("Gtk", "4.0")
@@ -38,3 +38,38 @@ def instalar_fragmentos(vista: Gtk.TextView):
     ctl = Gtk.ShortcutController()
     ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("<Ctrl><Shift>j"), Gtk.CallbackAction.new(_insertar)))
     vista.add_controller(ctl)
+
+
+def instalar_ortografia(vista: Gtk.TextView):
+    """Activa F7 en un campo de redacción: revisa la ortografía palabra por palabra. Llamar una vez por campo."""
+    if vista is None or getattr(vista, "_ortografia_instalada", False):
+        return
+    vista._ortografia_instalada = True
+
+    def _revisar(*_a):
+        from app.services import spellcheck
+        if not spellcheck.disponible():
+            notificar(_("La corrección ortográfica no está disponible."))
+            return True
+        buf = vista.get_buffer()
+        texto = buf.get_text(buf.get_start_iter(), buf.get_end_iter(), False)
+        if not texto.strip():
+            notificar(_("No hay texto que revisar."))
+            return True
+        from .dialogos_herramientas import DialogoOrtografia
+
+        def _corregido(nuevo):
+            if nuevo != texto:
+                buf.set_text(nuevo)
+            vista.grab_focus()
+        DialogoOrtografia(vista.get_root(), texto, _corregido).present()
+        return True
+    ctl = Gtk.ShortcutController()
+    ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("F7"), Gtk.CallbackAction.new(_revisar)))
+    vista.add_controller(ctl)
+
+
+def instalar_ayudas(vista: Gtk.TextView):
+    """Todas las ayudas de un campo de redacción (fragmentos y ortografía)."""
+    instalar_fragmentos(vista)
+    instalar_ortografia(vista)

@@ -53941,3 +53941,307 @@ msgstr "{0} categories"
 
 msgid "{0} emisoras."
 msgstr "{0} stations."
+
+msgid "Artículos _detectados:"
+msgstr "Detected _articles:"
+
+msgid "Automático"
+msgstr "Automatic"
+
+msgid "Avisar (anteponer un símbolo al título)"
+msgstr "Warn (put a symbol before the title)"
+
+msgid "Añadidos {0} feeds."
+msgstr "{0} feeds added."
+
+msgid "Añadiendo {0} feeds…"
+msgstr "Adding {0} feeds…"
+
+msgid "C_omplementos…"
+msgstr "Plu_gins…"
+
+msgid "Configuración de Anti-clickbait guardada."
+msgstr "Anti-clickbait settings saved."
+
+msgid "Crea primero una cuenta de RSS en Preferencias."
+msgstr "First create an RSS account in Preferences."
+
+msgid "Creando el feed…"
+msgstr "Creating the feed…"
+
+msgid "Crear carpeta _nueva…"
+msgstr "Create a _new folder…"
+
+msgid "Crear feed con scraper de sitio"
+msgstr "Create a feed with a site scraper"
+
+msgid "Editor de _atajos de teclado…"
+msgstr "_Keyboard shortcut editor…"
+
+msgid "Editor de atajos de teclado"
+msgstr "Keyboard shortcut editor"
+
+msgid "El complemento no se pudo abrir: {0}"
+msgstr "The plugin could not be opened: {0}"
+
+msgid "El scraper falló: {0}"
+msgstr "The scraper failed: {0}"
+
+msgid "El scraper no devolvió artículos."
+msgstr "The scraper returned no articles."
+
+msgid "Error al suscribir: {0}"
+msgstr "Error subscribing: {0}"
+
+msgid "Esa combinación ya la usa «{o}». ¿Quitársela y dársela a «{a}»?"
+msgstr ""
+"“{o}” already uses that combination. Take it from there and give it to "
+"“{a}”?"
+
+msgid "Feed creado con el scraper de sitio."
+msgstr "Feed created with the site scraper."
+
+msgid "Importación terminada: {0} canales y {1} vídeos."
+msgstr "Import finished: {0} channels and {1} videos."
+
+msgid "Importando {0} canales. Esto puede tardar…"
+msgstr "Importing {0} channels. This may take a while…"
+
+msgid ""
+"La configuración de este complemento solo está disponible en la versión de "
+"Windows."
+msgstr "This plugin's settings are only available in the Windows version."
+
+msgid "Lista de acciones y sus teclas"
+msgstr "List of actions and their keys"
+
+msgid "Marca al menos un canal."
+msgstr "Check at least one channel."
+
+msgid "Marca al menos un feed."
+msgstr "Check at least one feed."
+
+msgid "Marcarlos como leídos"
+msgstr "Mark them as read"
+
+msgid "Mostrar u _ocultar buffers…"
+msgstr "Show or _hide buffers…"
+
+msgid ""
+"Ningún módulo sabe manejar esa URL. Elige uno en la lista o crea su módulo."
+msgstr ""
+"No module can handle that URL. Choose one from the list or create its "
+"module."
+
+msgid ""
+"No hay ningún módulo de scraper instalado. Crea uno copiando la plantilla de"
+" data/plugins/web_scraper/scrapers/_plantilla.py y reinicia la aplicación."
+msgstr ""
+"No scraper module is installed. Create one by copying the template at "
+"data/plugins/web_scraper/scrapers/_plantilla.py and restart the application."
+
+msgid "No hay texto que revisar."
+msgstr "There is no text to check."
+
+msgid "No se encontraron suscripciones."
+msgstr "No subscriptions were found."
+
+msgid ""
+"No se pudieron obtener las suscripciones: {0}. ¿Has iniciado sesión en "
+"YouTube en ese navegador?"
+msgstr ""
+"Could not get the subscriptions: {0}. Have you signed in to YouTube in that "
+"browser?"
+
+msgid "Nueva tecla"
+msgstr "New key"
+
+msgid "O _escribe la corrección a mano:"
+msgstr "Or _type the correction by hand:"
+
+msgid "Obteniendo tus suscripciones de YouTube…"
+msgstr "Getting your YouTube subscriptions…"
+
+msgid "Ocultarlos (no añadirlos)"
+msgstr "Hide them (don't add them)"
+
+msgid "Pasarela: {0}"
+msgstr "Gateway: {0}"
+
+msgid "Plantillas guardadas."
+msgstr "Templates saved."
+
+msgid "Primero prueba el scraper."
+msgstr "Test the scraper first."
+
+msgid "Probando con {0}…"
+msgstr "Testing with {0}…"
+
+msgid "Pulsa ahora la combinación de teclas para «{a}». Escape cancela."
+msgstr "Press the key combination for “{a}” now. Escape cancels."
+
+msgid "R_establecer esta"
+msgstr "R_eset this one"
+
+msgid "R_estaurar esta"
+msgstr "R_estore this one"
+
+msgid "Reasignar"
+msgstr "Reassign"
+
+msgid "Restablecer"
+msgstr "Reset"
+
+msgid "Restablecer _todas"
+msgstr "Reset _all"
+
+msgid "Restaurar _todas"
+msgstr "Restore _all"
+
+msgid "Suscripciones de YouTube"
+msgstr "YouTube subscriptions"
+
+msgid "Todas las teclas restablecidas."
+msgstr "All keys have been reset."
+
+msgid "_Activar / desactivar"
+msgstr "_Turn on / off"
+
+msgid "_Añadir los marcados"
+msgstr "_Add the checked ones"
+
+msgid "_Buffers visibles (marca los que quieres ver):"
+msgstr "_Visible buffers (check the ones you want to see):"
+
+msgid "_Cambiar la tecla…"
+msgstr "_Change the key…"
+
+msgid "_Campos disponibles (Intro inserta el campo):"
+msgstr "Available _fields (Enter inserts the field):"
+
+msgid "_Canales a los que seguir:"
+msgstr "_Channels to follow:"
+
+msgid "_Carpeta donde clasificarlos:"
+msgstr "_Folder to file them in:"
+
+msgid "_Configurar…"
+msgstr "_Configure…"
+
+msgid "_Crear el feed"
+msgstr "_Create the feed"
+
+msgid "_Dirección de la web a leer:"
+msgstr "Web _address to read:"
+
+msgid "_Editor de plantillas de lectura (Reddit y PeerTube)…"
+msgstr "Reading _template editor (Reddit and PeerTube)…"
+
+msgid "_Finalizar"
+msgstr "_Finish"
+
+msgid "_Ignorar"
+msgstr "_Ignore"
+
+msgid "_Insertar el campo"
+msgstr "_Insert the field"
+
+msgid "_Leer la vista previa"
+msgstr "_Read the preview"
+
+msgid "_Marca los feeds que quieras añadir:"
+msgstr "_Check the feeds you want to add:"
+
+msgid "_Marcar o desmarcar todos"
+msgstr "_Check or uncheck all"
+
+msgid "_Modelo rápido (rellena el texto de abajo):"
+msgstr "_Quick model (fills in the text below):"
+
+msgid "_Módulo de scraper (Automático lo detecta por la URL):"
+msgstr "Scraper _module (Automatic detects it from the URL):"
+
+msgid "_Navegador donde tienes la sesión de YouTube abierta:"
+msgstr "_Browser where you are signed in to YouTube:"
+
+msgid "_Nombre de la carpeta nueva:"
+msgstr "_Name of the new folder:"
+
+msgid "_Obtener mis suscripciones"
+msgstr "_Get my subscriptions"
+
+msgid "_Papelera de artículos…"
+msgstr "_Article trash…"
+
+msgid "_Plantilla a editar:"
+msgstr "_Template to edit:"
+
+msgid "_Probar"
+msgstr "_Test"
+
+msgid "_Quitar la tecla"
+msgstr "_Remove the key"
+
+msgid "_Red social:"
+msgstr "_Social network:"
+
+msgid "_Red:"
+msgstr "_Network:"
+
+msgid "_Reemplazar"
+msgstr "_Replace"
+
+msgid "_Restaurar el seleccionado"
+msgstr "_Restore the selected one"
+
+msgid "_Sensibilidad (umbral de puntuación, 1 = muy sensible):"
+msgstr "_Sensitivity (score threshold, 1 = very sensitive):"
+
+msgid "_Suscribir los marcados"
+msgstr "_Subscribe to the checked ones"
+
+msgid ""
+"_Texto de la plantilla (usa los campos entre llaves, por ejemplo {title}):"
+msgstr "Template _text (use the fields in braces, for example {title}):"
+
+msgid "_Título del feed:"
+msgstr "Feed _title:"
+
+msgid "_Usar…"
+msgstr "_Use…"
+
+msgid "_Vaciar la papelera"
+msgstr "_Empty the trash"
+
+msgid "sin tecla"
+msgstr "no key"
+
+msgid "{0} acciones. Intro cambia la tecla de la acción elegida."
+msgstr "{0} actions. Enter changes the key of the chosen action."
+
+msgid "{0} artículos eliminados (se pueden restaurar)."
+msgstr "{0} deleted articles (they can be restored)."
+
+msgid "{0} artículos. Revisa y pulsa Crear el feed."
+msgstr "{0} articles. Review them and press Create the feed."
+
+msgid "{0} canales. Marca los que quieras y pulsa Suscribir."
+msgstr "{0} channels. Check the ones you want and press Subscribe."
+
+msgid "{0} complementos"
+msgstr "{0} plugins"
+
+msgid "{a}: sin tecla"
+msgstr "{a}: no key"
+
+msgid "{a}: tecla restablecida"
+msgstr "{a}: key reset"
+
+msgid "{a}: {t}"
+msgstr "{a}: {t}"
+
+msgid "¿Qué hacer con los titulares _clickbait?"
+msgstr "What to do with _clickbait headlines?"
+
+msgid "¿Restablecer todas las teclas a sus valores por defecto?"
+msgstr "Reset all keys to their default values?"

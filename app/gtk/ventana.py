@@ -90,6 +90,7 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         self._timer_texto = 0
         self.set_default_size(1180, 760)
 
+        self._iniciar_complementos()
         self._construir_interfaz()
         self._configurar_tabulador()
         self._configurar_menu()
@@ -97,6 +98,7 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         self.cargar_arbol()
         self.connect("close-request", self._al_cerrar)
         self.iniciar_tiempo_real()
+        GLib.idle_add(self._avisar_complementos_arranque)
         GLib.timeout_add_seconds(SONDEO_SEGUNDOS, self._sondeo_automatico)
         GLib.timeout_add_seconds(1, self._latido_reproductor)
 
@@ -442,12 +444,18 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
 
     # ------------------------------------------------------------------ acciones
     def _registrar_acciones(self):
+        self._atajos_defecto = {}
+        personalizados = config.get("gtk", "atajos", {}) or {}
+
         def accion(nombre, fn, aceleradores=()):
             a = Gio.SimpleAction.new(nombre, None)
             a.connect("activate", lambda *_a: fn())
             self.add_action(a)
-            if aceleradores:
-                self.get_application().set_accels_for_action(f"win.{nombre}", list(aceleradores))
+            self._atajos_defecto[nombre] = list(aceleradores)
+            # Las teclas que el usuario cambió en el editor de atajos mandan sobre las de fábrica.
+            teclas = personalizados.get(nombre, aceleradores)
+            if teclas:
+                self.get_application().set_accels_for_action(f"win.{nombre}", list(teclas))
         self._accion = accion
         accion("actualizar", self.accion_actualizar, ["<Ctrl><Shift>r"])
         accion("actualizar-feed", self.accion_actualizar_feed)
@@ -900,6 +908,12 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         if obj.fila.servicio == "rss":
             self._marcar_leido(obj, True)
             rss_service.registrar_lectura(obj.fila.id)
+            try:
+                from app.core.plugins import plugin_manager, PluginHook
+                plugin_manager.dispatch(PluginHook.ARTICLE_OPENED, article={
+                    "id": obj.fila.id, "title": obj.fila.titulo, "link": obj.fila.enlace})
+            except Exception:
+                pass
             if rss_service.texto_completo_pendiente(obj.fila.id) and config.get("rss", "fulltext_auto", True):
                 self._descargar_completo(obj, silencioso=True)
 
@@ -1622,7 +1636,30 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
             self._tiempo_real = TiempoReal(self._evento_mastodon, self._reconectado_mastodon)
         self._tiempo_real.sincronizar([a for a, _n in datos_mastodon.cuentas()])
 
+    def _iniciar_complementos(self):
+        """Descubre y activa los complementos que el usuario tenía habilitados (antes de la primera descarga de feeds)."""
+        try:
+            from app.core.plugins import plugin_manager
+            plugin_manager.main_window = self
+            plugin_manager.descubrir()
+            plugin_manager.activar_guardados()
+        except Exception:
+            log.error("No se pudo iniciar el sistema de complementos", exc_info=True)
+
+    def _avisar_complementos_arranque(self):
+        try:
+            from app.core.plugins import plugin_manager, PluginHook
+            plugin_manager.dispatch(PluginHook.APP_STARTED)
+        except Exception:
+            log.error("No se pudo notificar APP_STARTED a los complementos", exc_info=True)
+        return False
+
     def _al_cerrar(self, *_a):
+        try:
+            from app.core.plugins import plugin_manager, PluginHook
+            plugin_manager.dispatch(PluginHook.APP_CLOSING)
+        except Exception:
+            pass
         self.voz_cancelar(avisar=False)
         self._tg_al_cambiar_nodo(self.nodo_actual, None)
         self.detener_tiempo_real_telegram()

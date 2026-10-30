@@ -24,7 +24,7 @@ from app.services.wsocial.wsocial_common import LIMITE_CARACTERES
 
 from .dialogos import DialogoBase, confirmar_async
 from .dialogos_mastodon import DialogoLista, ListaSimple
-from .fragmentos import instalar_fragmentos, obtener_fragmentos
+from .fragmentos import instalar_ayudas, obtener_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -942,7 +942,7 @@ class DialogoPublicacionCruzada(DialogoBase):
         self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True, left_margin=6,
                                   right_margin=6, top_margin=6, bottom_margin=6)
         self.texto.get_buffer().set_text(texto_inicial or "")
-        instalar_fragmentos(self.texto)
+        instalar_ayudas(self.texto)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=140, min_content_width=480, hexpand=True,
                                    has_frame=True)
         self.campo(_("_Texto para todas las redes marcadas:"), marco)
@@ -1364,3 +1364,287 @@ class DialogoBuffers(DialogoBase):
         if cambio:
             self.padre.cargar_arbol()
             notificar(_("Buffers actualizados."))
+
+
+# --------------------------------------------------------------------------- plantillas de lectura
+# Redes cuyas filas se leen con las plantillas del usuario en la interfaz GTK.
+REDES_CON_PLANTILLAS = ("reddit", "peertube")
+
+
+class DialogoPlantillas(Gtk.Window):
+    """Cómo lee el lector de pantalla cada elemento de Reddit y PeerTube: texto de la plantilla con campos entre llaves,
+    modelos rápidos, vista previa con datos de ejemplo y restaurar los valores por defecto. Son las mismas plantillas
+    (y la misma configuración) que usa la versión de Windows."""
+
+    def __init__(self, padre):
+        from app.core.plantillas import PLANTILLAS, REDES, plantillas_de_red
+        super().__init__(title=_("Editor de plantillas de lectura"), transient_for=padre, modal=True)
+        self.padre = padre
+        self.set_default_size(720, 640)
+        self._plantillas_de_red = plantillas_de_red
+        self.redes = [(c, n()) for c, n in REDES if c in REDES_CON_PLANTILLAS]
+        self.valores = {p["clave"]: config.get("accessibility", p["clave"], p["default"]) or p["default"]
+                        for p in PLANTILLAS}
+        self.iniciales = dict(self.valores)
+        self.actual = None              # definición de la plantilla que se está editando
+        self.de_red = []
+        caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+        for m in ("top", "bottom", "start", "end"):
+            getattr(caja, f"set_margin_{m}")(12)
+        self.set_child(caja)
+
+        def etiqueta(texto, widget):
+            lbl = Gtk.Label(label=texto, use_underline=True, xalign=0)
+            lbl.set_mnemonic_widget(widget)
+            caja.append(lbl)
+
+        def fila(texto, widget):
+            etiqueta(texto, widget)
+            caja.append(widget)
+            return widget
+        self.red = fila(_("_Red social:"), Gtk.DropDown.new_from_strings([n for _c, n in self.redes]))
+        self.plantilla = fila(_("_Plantilla a editar:"), Gtk.DropDown.new_from_strings([""]))
+        self.preset = fila(_("_Modelo rápido (rellena el texto de abajo):"), Gtk.DropDown.new_from_strings([""]))
+        self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, left_margin=6, right_margin=6,
+                                  top_margin=6, bottom_margin=6)
+        etiqueta(_("_Texto de la plantilla (usa los campos entre llaves, por ejemplo {title}):"), self.texto)
+        caja.append(Gtk.ScrolledWindow(child=self.texto, min_content_height=90, has_frame=True, vexpand=True))
+        self.campos = ListaSimple(_("Campos disponibles"), lambda pos: self._insertar())
+        self.campos.set_min_content_height(110)
+        etiqueta(_("_Campos disponibles (Intro inserta el campo):"), self.campos.vista)
+        caja.append(self.campos)
+        self.vista_previa = Gtk.Label(xalign=0, wrap=True, selectable=True)
+        self.vista_previa.update_property([Gtk.AccessibleProperty.LABEL], [_("Vista previa de la plantilla")])
+        caja.append(self.vista_previa)
+        botones = Gtk.Box(spacing=8, halign=Gtk.Align.END)
+        for et, fn in ((_("_Insertar el campo"), self._insertar), (_("_Leer la vista previa"), self._leer),
+                       (_("R_estaurar esta"), self._restaurar), (_("Restaurar _todas"), self._restaurar_todas),
+                       (_("_Guardar"), self._guardar), (_("_Cancelar"), self.close)):
+            b = Gtk.Button(label=et, use_underline=True)
+            b.connect("clicked", lambda *_a, fn=fn: fn())
+            botones.append(b)
+        caja.append(botones)
+        self.red.connect("notify::selected", lambda *_a: self._cambiar_red())
+        self.plantilla.connect("notify::selected", lambda *_a: self._cambiar_plantilla())
+        self.preset.connect("notify::selected", lambda *_a: self._aplicar_preset())
+        self.texto.get_buffer().connect("changed", lambda *_a: self._refrescar())
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Escape"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.close() or True)))
+        self.add_controller(ctl)
+        self._cambiar_red()
+        self.set_focus(self.red)
+
+    def _texto(self) -> str:
+        b = self.texto.get_buffer()
+        return b.get_text(b.get_start_iter(), b.get_end_iter(), False)
+
+    def _poner_texto(self, valor: str):
+        self.texto.get_buffer().set_text(valor)
+
+    def _recordar(self):
+        if self.actual is not None:
+            self.valores[self.actual["clave"]] = self._texto()
+
+    def _cambiar_red(self):
+        self._recordar()
+        self.de_red = self._plantillas_de_red(self.redes[self.red.get_selected()][0])
+        self.plantilla.set_model(Gtk.StringList.new([p["nombre"]() for p in self.de_red]))
+        self.actual = None
+        self._cambiar_plantilla()
+
+    def _cambiar_plantilla(self):
+        self._recordar()
+        i = self.plantilla.get_selected()
+        if not 0 <= i < len(self.de_red):
+            return
+        d = self.actual = self.de_red[i]
+        self.campos.poner(["{{{0}}} — {1}".format(c, desc()) for c, desc in d["campos"]])
+        self._presets = list(d.get("presets", []))
+        self.preset.set_model(Gtk.StringList.new([_("(elige un modelo)")] + [n() for n, _p in self._presets]))
+        self._poner_texto(self.valores.get(d["clave"], d["default"]))
+        self._refrescar()
+
+    def _aplicar_preset(self):
+        i = self.preset.get_selected()
+        if 0 < i <= len(getattr(self, "_presets", [])):
+            self._poner_texto(self._presets[i - 1][1])
+            notificar(_("Modelo aplicado."))
+
+    def _insertar(self):
+        p = self.campos.posicion()
+        if self.actual is None or not 0 <= p < len(self.actual["campos"]):
+            return
+        marcador = "{{{0}}}".format(self.actual["campos"][p][0])
+        self.texto.get_buffer().insert_at_cursor(marcador)
+        self.texto.grab_focus()
+        notificar(_("Insertado {0}.").format(marcador))
+
+    def _refrescar(self):
+        if self.actual is None:
+            return
+        from app.core.plantillas import columnas_de_plantilla, render_ejemplo
+        plantilla = self._texto()
+        cols = columnas_de_plantilla(plantilla)
+        texto = _("Columnas (en orden): {0}").format(", ".join(h for _c, h in cols) if cols else _("(ninguna)"))
+        try:
+            ejemplo = render_ejemplo(self.actual["clave"], plantilla)
+        except Exception:
+            ejemplo = ""
+        if ejemplo:
+            texto += "\n" + _("Ejemplo de fila: {0}").format(ejemplo)
+        self.vista_previa.set_text(texto)
+
+    def _leer(self):
+        notificar(self.vista_previa.get_text())
+
+    def _restaurar(self):
+        if self.actual is not None:
+            self._poner_texto(self.actual["default"])
+            notificar(_("Plantilla restaurada a su valor por defecto."))
+
+    def _restaurar_todas(self):
+        from app.core.plantillas import PLANTILLAS
+
+        def _hacer():
+            for p in PLANTILLAS:
+                self.valores[p["clave"]] = p["default"]
+            if self.actual is not None:
+                self._poner_texto(self.valores[self.actual["clave"]])
+            notificar(_("Todas las plantillas restauradas."))
+        confirmar_async(self, _("¿Restaurar TODAS las plantillas a sus valores por defecto?"), _hacer,
+                        etiqueta_si=_("Restaurar"))
+
+    def _guardar(self):
+        from app.core.plantillas import definicion
+        self._recordar()
+        cambio = False
+        for clave, texto in self.valores.items():
+            if not (texto or "").strip():
+                d = definicion(clave)
+                texto = d["default"] if d else texto
+            if texto != self.iniciales.get(clave):
+                config.set("accessibility", clave, texto)
+                cambio = True
+        self.close()
+        if cambio:
+            notificar(_("Plantillas guardadas."))
+            self.padre.cargar_lista()
+
+
+# --------------------------------------------------------------------------- ortografía
+class DialogoOrtografia(DialogoLista):
+    """Recorre las palabras desconocidas del texto y deja reemplazarlas, ignorarlas o escribir la corrección a mano."""
+
+    def __init__(self, padre, texto: str, al_terminar):
+        from app.services import spellcheck
+        super().__init__(padre, _("Corrección ortográfica"), _("Sugerencias de corrección"),
+                         al_activar=lambda pos: self._reemplazar())
+        self._spell = spellcheck
+        self.texto = texto
+        self.al_terminar = al_terminar
+        self.errores = spellcheck.revisar(texto)
+        self.indice = 0
+        self.manual = Gtk.Entry(hexpand=True, activates_default=False)
+        self.manual.update_property([Gtk.AccessibleProperty.LABEL], [_("Corrección manual")])
+        self.manual.connect("activate", lambda *_a: self._reemplazar(manual=True))
+        fila = Gtk.Box(spacing=8)
+        etiqueta = Gtk.Label(label=_("O _escribe la corrección a mano:"), use_underline=True)
+        etiqueta.set_mnemonic_widget(self.manual)
+        fila.append(etiqueta)
+        fila.append(self.manual)
+        self.get_child().insert_child_after(fila, self.lista)
+        self.lista.seleccion.connect("notify::selected", self._sugerencia_elegida)
+        self.boton(_("_Reemplazar"), self._reemplazar)
+        self.boton(_("_Ignorar"), self._ignorar)
+        self.boton(_("_Finalizar"), self._terminar)
+        self.cerrar_boton()
+        if not self.errores:
+            self.mostrar_estado(_("No se encontraron errores ortográficos."))
+            notificar(_("No se encontraron errores ortográficos."))
+        else:
+            self._mostrar()
+
+    def _mostrar(self):
+        if self.indice >= len(self.errores):
+            notificar(_("Revisión terminada."))
+            self._terminar()
+            return
+        palabra, sugerencias = self.errores[self.indice]
+        self.mostrar_estado(_("Palabra desconocida: {0}. {1} sugerencias.").format(palabra, len(sugerencias)))
+        self.lista.poner(sugerencias)
+        self.manual.set_text(sugerencias[0] if sugerencias else palabra)
+        self.lista.enfocar()
+
+    def _sugerencia_elegida(self, *_a):
+        """Al moverse por las sugerencias, la elegida pasa al campo de corrección (que se puede retocar)."""
+        if self.indice < len(self.errores):
+            sugerencias = self.errores[self.indice][1]
+            p = self.lista.posicion()
+            if 0 <= p < len(sugerencias):
+                self.manual.set_text(sugerencias[p])
+
+    def _reemplazar(self, manual: bool = False):
+        if self.indice >= len(self.errores):
+            return
+        palabra = self.errores[self.indice][0]
+        nueva = self.manual.get_text().strip()
+        if nueva:
+            self.texto = self._spell.reemplazar_palabra(self.texto, palabra, nueva)
+            notificar(_("Reemplazado por {0}.").format(nueva))
+        self.indice += 1
+        self._mostrar()
+
+    def _ignorar(self):
+        self.indice += 1
+        self._mostrar()
+
+    def _terminar(self):
+        self.close()
+        self.al_terminar(self.texto)
+
+
+# --------------------------------------------------------------------------- papelera
+class DialogoPapelera(DialogoLista):
+    """Artículos eliminados: se pueden restaurar o vaciar la papelera."""
+
+    def __init__(self, padre, account_id: int):
+        super().__init__(padre, _("Papelera de artículos"), _("Lista de artículos en la papelera"),
+                         al_activar=lambda pos: self._restaurar())
+        self.account_id = account_id
+        self.articulos = []
+        self.boton(_("_Restaurar el seleccionado"), self._restaurar)
+        self.boton(_("_Vaciar la papelera"), self._vaciar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self, pos: int = 0):
+        from app.services.rss.rss_service import rss_service
+        self.articulos = rss_service.listar_papelera(self.account_id) if self.account_id else []
+        self.lista.poner([f"{a.title or ''}. {a.author or ''}".rstrip(". ") for a in self.articulos])
+        if self.articulos:
+            self.lista.seleccion.set_selected(min(pos, len(self.articulos) - 1))
+        self.mostrar_estado(_("{0} artículos eliminados (se pueden restaurar).").format(len(self.articulos))
+                            if self.articulos else _("La papelera está vacía."))
+
+    def _restaurar(self):
+        from app.services.rss.rss_service import rss_service
+        p = self.lista.posicion()
+        if 0 <= p < len(self.articulos):
+            rss_service.restaurar_de_papelera(self.articulos[p].id)
+            self._cargar(p)
+            notificar(_("Artículo restaurado."))
+            self.padre.cargar_arbol()
+
+    def _vaciar(self):
+        if not self.articulos:
+            notificar(_("La papelera ya está vacía."))
+            return
+
+        def _hacer():
+            from app.services.rss.rss_service import rss_service
+            n = rss_service.vaciar_papelera(self.account_id)
+            self._cargar()
+            notificar(_("Papelera vaciada. {0} artículos borrados.").format(n))
+        confirmar_async(self, _("¿Borrar definitivamente todos los artículos de la papelera?"), _hacer,
+                        etiqueta_si=_("Vaciar"))

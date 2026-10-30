@@ -42115,3 +42115,307 @@ msgstr "{0} categorías"
 
 msgid "{0} emisoras."
 msgstr "{0} emisoras."
+
+msgid "Artículos _detectados:"
+msgstr "Artículos _detectados:"
+
+msgid "Automático"
+msgstr "Automático"
+
+msgid "Avisar (anteponer un símbolo al título)"
+msgstr "Avisar (anteponer un símbolo al título)"
+
+msgid "Añadidos {0} feeds."
+msgstr "Añadidos {0} feeds."
+
+msgid "Añadiendo {0} feeds…"
+msgstr "Añadiendo {0} feeds…"
+
+msgid "C_omplementos…"
+msgstr "C_omplementos…"
+
+msgid "Configuración de Anti-clickbait guardada."
+msgstr "Configuración de Anti-clickbait guardada."
+
+msgid "Crea primero una cuenta de RSS en Preferencias."
+msgstr "Crea primero una cuenta de RSS en Preferencias."
+
+msgid "Creando el feed…"
+msgstr "Creando el feed…"
+
+msgid "Crear carpeta _nueva…"
+msgstr "Crear carpeta _nueva…"
+
+msgid "Crear feed con scraper de sitio"
+msgstr "Crear feed con scraper de sitio"
+
+msgid "Editor de _atajos de teclado…"
+msgstr "Editor de _atajos de teclado…"
+
+msgid "Editor de atajos de teclado"
+msgstr "Editor de atajos de teclado"
+
+msgid "El complemento no se pudo abrir: {0}"
+msgstr "El complemento no se pudo abrir: {0}"
+
+msgid "El scraper falló: {0}"
+msgstr "El scraper falló: {0}"
+
+msgid "El scraper no devolvió artículos."
+msgstr "El scraper no devolvió artículos."
+
+msgid "Error al suscribir: {0}"
+msgstr "Error al suscribir: {0}"
+
+msgid "Esa combinación ya la usa «{o}». ¿Quitársela y dársela a «{a}»?"
+msgstr "Esa combinación ya la usa «{o}». ¿Quitársela y dársela a «{a}»?"
+
+msgid "Feed creado con el scraper de sitio."
+msgstr "Feed creado con el scraper de sitio."
+
+msgid "Importación terminada: {0} canales y {1} vídeos."
+msgstr "Importación terminada: {0} canales y {1} vídeos."
+
+msgid "Importando {0} canales. Esto puede tardar…"
+msgstr "Importando {0} canales. Esto puede tardar…"
+
+msgid ""
+"La configuración de este complemento solo está disponible en la versión de "
+"Windows."
+msgstr ""
+"La configuración de este complemento solo está disponible en la versión de "
+"Windows."
+
+msgid "Lista de acciones y sus teclas"
+msgstr "Lista de acciones y sus teclas"
+
+msgid "Marca al menos un canal."
+msgstr "Marca al menos un canal."
+
+msgid "Marca al menos un feed."
+msgstr "Marca al menos un feed."
+
+msgid "Marcarlos como leídos"
+msgstr "Marcarlos como leídos"
+
+msgid "Mostrar u _ocultar buffers…"
+msgstr "Mostrar u _ocultar buffers…"
+
+msgid ""
+"Ningún módulo sabe manejar esa URL. Elige uno en la lista o crea su módulo."
+msgstr ""
+"Ningún módulo sabe manejar esa URL. Elige uno en la lista o crea su módulo."
+
+msgid ""
+"No hay ningún módulo de scraper instalado. Crea uno copiando la plantilla de"
+" data/plugins/web_scraper/scrapers/_plantilla.py y reinicia la aplicación."
+msgstr ""
+"No hay ningún módulo de scraper instalado. Crea uno copiando la plantilla de"
+" data/plugins/web_scraper/scrapers/_plantilla.py y reinicia la aplicación."
+
+msgid "No hay texto que revisar."
+msgstr "No hay texto que revisar."
+
+msgid "No se encontraron suscripciones."
+msgstr "No se encontraron suscripciones."
+
+msgid ""
+"No se pudieron obtener las suscripciones: {0}. ¿Has iniciado sesión en "
+"YouTube en ese navegador?"
+msgstr ""
+"No se pudieron obtener las suscripciones: {0}. ¿Has iniciado sesión en "
+"YouTube en ese navegador?"
+
+msgid "Nueva tecla"
+msgstr "Nueva tecla"
+
+msgid "O _escribe la corrección a mano:"
+msgstr "O _escribe la corrección a mano:"
+
+msgid "Obteniendo tus suscripciones de YouTube…"
+msgstr "Obteniendo tus suscripciones de YouTube…"
+
+msgid "Ocultarlos (no añadirlos)"
+msgstr "Ocultarlos (no añadirlos)"
+
+msgid "Pasarela: {0}"
+msgstr "Pasarela: {0}"
+
+msgid "Plantillas guardadas."
+msgstr "Plantillas guardadas."
+
+msgid "Primero prueba el scraper."
+msgstr "Primero prueba el scraper."
+
+msgid "Probando con {0}…"
+msgstr "Probando con {0}…"
+
+msgid "Pulsa ahora la combinación de teclas para «{a}». Escape cancela."
+msgstr "Pulsa ahora la combinación de teclas para «{a}». Escape cancela."
+
+msgid "R_establecer esta"
+msgstr "R_establecer esta"
+
+msgid "R_estaurar esta"
+msgstr "R_estaurar esta"
+
+msgid "Reasignar"
+msgstr "Reasignar"
+
+msgid "Restablecer"
+msgstr "Restablecer"
+
+msgid "Restablecer _todas"
+msgstr "Restablecer _todas"
+
+msgid "Restaurar _todas"
+msgstr "Restaurar _todas"
+
+msgid "Suscripciones de YouTube"
+msgstr "Suscripciones de YouTube"
+
+msgid "Todas las teclas restablecidas."
+msgstr "Todas las teclas restablecidas."
+
+msgid "_Activar / desactivar"
+msgstr "_Activar / desactivar"
+
+msgid "_Añadir los marcados"
+msgstr "_Añadir los marcados"
+
+msgid "_Buffers visibles (marca los que quieres ver):"
+msgstr "_Buffers visibles (marca los que quieres ver):"
+
+msgid "_Cambiar la tecla…"
+msgstr "_Cambiar la tecla…"
+
+msgid "_Campos disponibles (Intro inserta el campo):"
+msgstr "_Campos disponibles (Intro inserta el campo):"
+
+msgid "_Canales a los que seguir:"
+msgstr "_Canales a los que seguir:"
+
+msgid "_Carpeta donde clasificarlos:"
+msgstr "_Carpeta donde clasificarlos:"
+
+msgid "_Configurar…"
+msgstr "_Configurar…"
+
+msgid "_Crear el feed"
+msgstr "_Crear el feed"
+
+msgid "_Dirección de la web a leer:"
+msgstr "_Dirección de la web a leer:"
+
+msgid "_Editor de plantillas de lectura (Reddit y PeerTube)…"
+msgstr "_Editor de plantillas de lectura (Reddit y PeerTube)…"
+
+msgid "_Finalizar"
+msgstr "_Finalizar"
+
+msgid "_Ignorar"
+msgstr "_Ignorar"
+
+msgid "_Insertar el campo"
+msgstr "_Insertar el campo"
+
+msgid "_Leer la vista previa"
+msgstr "_Leer la vista previa"
+
+msgid "_Marca los feeds que quieras añadir:"
+msgstr "_Marca los feeds que quieras añadir:"
+
+msgid "_Marcar o desmarcar todos"
+msgstr "_Marcar o desmarcar todos"
+
+msgid "_Modelo rápido (rellena el texto de abajo):"
+msgstr "_Modelo rápido (rellena el texto de abajo):"
+
+msgid "_Módulo de scraper (Automático lo detecta por la URL):"
+msgstr "_Módulo de scraper (Automático lo detecta por la URL):"
+
+msgid "_Navegador donde tienes la sesión de YouTube abierta:"
+msgstr "_Navegador donde tienes la sesión de YouTube abierta:"
+
+msgid "_Nombre de la carpeta nueva:"
+msgstr "_Nombre de la carpeta nueva:"
+
+msgid "_Obtener mis suscripciones"
+msgstr "_Obtener mis suscripciones"
+
+msgid "_Papelera de artículos…"
+msgstr "_Papelera de artículos…"
+
+msgid "_Plantilla a editar:"
+msgstr "_Plantilla a editar:"
+
+msgid "_Probar"
+msgstr "_Probar"
+
+msgid "_Quitar la tecla"
+msgstr "_Quitar la tecla"
+
+msgid "_Red social:"
+msgstr "_Red social:"
+
+msgid "_Red:"
+msgstr "_Red:"
+
+msgid "_Reemplazar"
+msgstr "_Reemplazar"
+
+msgid "_Restaurar el seleccionado"
+msgstr "_Restaurar el seleccionado"
+
+msgid "_Sensibilidad (umbral de puntuación, 1 = muy sensible):"
+msgstr "_Sensibilidad (umbral de puntuación, 1 = muy sensible):"
+
+msgid "_Suscribir los marcados"
+msgstr "_Suscribir los marcados"
+
+msgid ""
+"_Texto de la plantilla (usa los campos entre llaves, por ejemplo {title}):"
+msgstr ""
+"_Texto de la plantilla (usa los campos entre llaves, por ejemplo {title}):"
+
+msgid "_Título del feed:"
+msgstr "_Título del feed:"
+
+msgid "_Usar…"
+msgstr "_Usar…"
+
+msgid "_Vaciar la papelera"
+msgstr "_Vaciar la papelera"
+
+msgid "sin tecla"
+msgstr "sin tecla"
+
+msgid "{0} acciones. Intro cambia la tecla de la acción elegida."
+msgstr "{0} acciones. Intro cambia la tecla de la acción elegida."
+
+msgid "{0} artículos eliminados (se pueden restaurar)."
+msgstr "{0} artículos eliminados (se pueden restaurar)."
+
+msgid "{0} artículos. Revisa y pulsa Crear el feed."
+msgstr "{0} artículos. Revisa y pulsa Crear el feed."
+
+msgid "{0} canales. Marca los que quieras y pulsa Suscribir."
+msgstr "{0} canales. Marca los que quieras y pulsa Suscribir."
+
+msgid "{0} complementos"
+msgstr "{0} complementos"
+
+msgid "{a}: sin tecla"
+msgstr "{a}: sin tecla"
+
+msgid "{a}: tecla restablecida"
+msgstr "{a}: tecla restablecida"
+
+msgid "{a}: {t}"
+msgstr "{a}: {t}"
+
+msgid "¿Qué hacer con los titulares _clickbait?"
+msgstr "¿Qué hacer con los titulares _clickbait?"
+
+msgid "¿Restablecer todas las teclas a sus valores por defecto?"
+msgstr "¿Restablecer todas las teclas a sus valores por defecto?"

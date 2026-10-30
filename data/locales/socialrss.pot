@@ -52241,3 +52241,299 @@ msgstr ""
 
 msgid "{0} emisoras."
 msgstr ""
+
+msgid "Artículos _detectados:"
+msgstr ""
+
+msgid "Automático"
+msgstr ""
+
+msgid "Avisar (anteponer un símbolo al título)"
+msgstr ""
+
+msgid "Añadidos {0} feeds."
+msgstr ""
+
+msgid "Añadiendo {0} feeds…"
+msgstr ""
+
+msgid "C_omplementos…"
+msgstr ""
+
+msgid "Configuración de Anti-clickbait guardada."
+msgstr ""
+
+msgid "Crea primero una cuenta de RSS en Preferencias."
+msgstr ""
+
+msgid "Creando el feed…"
+msgstr ""
+
+msgid "Crear carpeta _nueva…"
+msgstr ""
+
+msgid "Crear feed con scraper de sitio"
+msgstr ""
+
+msgid "Editor de _atajos de teclado…"
+msgstr ""
+
+msgid "Editor de atajos de teclado"
+msgstr ""
+
+msgid "El complemento no se pudo abrir: {0}"
+msgstr ""
+
+msgid "El scraper falló: {0}"
+msgstr ""
+
+msgid "El scraper no devolvió artículos."
+msgstr ""
+
+msgid "Error al suscribir: {0}"
+msgstr ""
+
+msgid "Esa combinación ya la usa «{o}». ¿Quitársela y dársela a «{a}»?"
+msgstr ""
+
+msgid "Feed creado con el scraper de sitio."
+msgstr ""
+
+msgid "Importación terminada: {0} canales y {1} vídeos."
+msgstr ""
+
+msgid "Importando {0} canales. Esto puede tardar…"
+msgstr ""
+
+msgid ""
+"La configuración de este complemento solo está disponible en la versión de "
+"Windows."
+msgstr ""
+
+msgid "Lista de acciones y sus teclas"
+msgstr ""
+
+msgid "Marca al menos un canal."
+msgstr ""
+
+msgid "Marca al menos un feed."
+msgstr ""
+
+msgid "Marcarlos como leídos"
+msgstr ""
+
+msgid "Mostrar u _ocultar buffers…"
+msgstr ""
+
+msgid ""
+"Ningún módulo sabe manejar esa URL. Elige uno en la lista o crea su módulo."
+msgstr ""
+
+msgid ""
+"No hay ningún módulo de scraper instalado. Crea uno copiando la plantilla de"
+" data/plugins/web_scraper/scrapers/_plantilla.py y reinicia la aplicación."
+msgstr ""
+
+msgid "No hay texto que revisar."
+msgstr ""
+
+msgid "No se encontraron suscripciones."
+msgstr ""
+
+msgid ""
+"No se pudieron obtener las suscripciones: {0}. ¿Has iniciado sesión en "
+"YouTube en ese navegador?"
+msgstr ""
+
+msgid "Nueva tecla"
+msgstr ""
+
+msgid "O _escribe la corrección a mano:"
+msgstr ""
+
+msgid "Obteniendo tus suscripciones de YouTube…"
+msgstr ""
+
+msgid "Ocultarlos (no añadirlos)"
+msgstr ""
+
+msgid "Pasarela: {0}"
+msgstr ""
+
+msgid "Plantillas guardadas."
+msgstr ""
+
+msgid "Primero prueba el scraper."
+msgstr ""
+
+msgid "Probando con {0}…"
+msgstr ""
+
+msgid "Pulsa ahora la combinación de teclas para «{a}». Escape cancela."
+msgstr ""
+
+msgid "R_establecer esta"
+msgstr ""
+
+msgid "R_estaurar esta"
+msgstr ""
+
+msgid "Reasignar"
+msgstr ""
+
+msgid "Restablecer"
+msgstr ""
+
+msgid "Restablecer _todas"
+msgstr ""
+
+msgid "Restaurar _todas"
+msgstr ""
+
+msgid "Suscripciones de YouTube"
+msgstr ""
+
+msgid "Todas las teclas restablecidas."
+msgstr ""
+
+msgid "_Activar / desactivar"
+msgstr ""
+
+msgid "_Añadir los marcados"
+msgstr ""
+
+msgid "_Buffers visibles (marca los que quieres ver):"
+msgstr ""
+
+msgid "_Cambiar la tecla…"
+msgstr ""
+
+msgid "_Campos disponibles (Intro inserta el campo):"
+msgstr ""
+
+msgid "_Canales a los que seguir:"
+msgstr ""
+
+msgid "_Carpeta donde clasificarlos:"
+msgstr ""
+
+msgid "_Configurar…"
+msgstr ""
+
+msgid "_Crear el feed"
+msgstr ""
+
+msgid "_Dirección de la web a leer:"
+msgstr ""
+
+msgid "_Editor de plantillas de lectura (Reddit y PeerTube)…"
+msgstr ""
+
+msgid "_Finalizar"
+msgstr ""
+
+msgid "_Ignorar"
+msgstr ""
+
+msgid "_Insertar el campo"
+msgstr ""
+
+msgid "_Leer la vista previa"
+msgstr ""
+
+msgid "_Marca los feeds que quieras añadir:"
+msgstr ""
+
+msgid "_Marcar o desmarcar todos"
+msgstr ""
+
+msgid "_Modelo rápido (rellena el texto de abajo):"
+msgstr ""
+
+msgid "_Módulo de scraper (Automático lo detecta por la URL):"
+msgstr ""
+
+msgid "_Navegador donde tienes la sesión de YouTube abierta:"
+msgstr ""
+
+msgid "_Nombre de la carpeta nueva:"
+msgstr ""
+
+msgid "_Obtener mis suscripciones"
+msgstr ""
+
+msgid "_Papelera de artículos…"
+msgstr ""
+
+msgid "_Plantilla a editar:"
+msgstr ""
+
+msgid "_Probar"
+msgstr ""
+
+msgid "_Quitar la tecla"
+msgstr ""
+
+msgid "_Red social:"
+msgstr ""
+
+msgid "_Red:"
+msgstr ""
+
+msgid "_Reemplazar"
+msgstr ""
+
+msgid "_Restaurar el seleccionado"
+msgstr ""
+
+msgid "_Sensibilidad (umbral de puntuación, 1 = muy sensible):"
+msgstr ""
+
+msgid "_Suscribir los marcados"
+msgstr ""
+
+msgid ""
+"_Texto de la plantilla (usa los campos entre llaves, por ejemplo {title}):"
+msgstr ""
+
+msgid "_Título del feed:"
+msgstr ""
+
+msgid "_Usar…"
+msgstr ""
+
+msgid "_Vaciar la papelera"
+msgstr ""
+
+msgid "sin tecla"
+msgstr ""
+
+msgid "{0} acciones. Intro cambia la tecla de la acción elegida."
+msgstr ""
+
+msgid "{0} artículos eliminados (se pueden restaurar)."
+msgstr ""
+
+msgid "{0} artículos. Revisa y pulsa Crear el feed."
+msgstr ""
+
+msgid "{0} canales. Marca los que quieras y pulsa Suscribir."
+msgstr ""
+
+msgid "{0} complementos"
+msgstr ""
+
+msgid "{a}: sin tecla"
+msgstr ""
+
+msgid "{a}: tecla restablecida"
+msgstr ""
+
+msgid "{a}: {t}"
+msgstr ""
+
+msgid "¿Qué hacer con los titulares _clickbait?"
+msgstr ""
+
+msgid "¿Restablecer todas las teclas a sus valores por defecto?"
+msgstr ""
