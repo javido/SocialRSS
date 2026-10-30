@@ -115,6 +115,17 @@ class _ATMixin:
             bluesky_service.suscribir_actividad_async(acc, did, posts=True, callback=lambda r, e: self.avisar(
                 _("No se pudo suscribir: {e}").format(e=e) if e else _("Te avisaré cuando esta cuenta publique.")))
 
+    def at_cuenta(self, nombre: str, solo: str = ""):
+        """Abre una pantalla de dialogos_at_cuenta; `solo` limita la acción a una red («bluesky» o «wsocial»)."""
+        if solo == "bluesky" and self._ws_ctx():
+            return self.avisar(_("Esto solo está en Bluesky"))
+        if solo == "wsocial" and not self._ws_ctx():
+            return self.avisar(_("Esto solo está en W Social"))
+        r = self._at_red()
+        if r:
+            from . import dialogos_at_cuenta as c
+            getattr(c, nombre)(self, r[0], r[1])
+
     def at_wsocial_dialogo(self, nombre: str):
         acc = self._ws_cuenta()
         if acc is not None:
@@ -138,3 +149,13 @@ class _ATMixin:
         accion("at-seguidores-conocidos", lambda: self.at_autor("conocidos"))
         accion("at-feeds-de", lambda: self.at_autor("feeds"))
         accion("at-suscribir-actividad", lambda: self.at_autor("suscribir"))
+        for nombre, fn, solo in (("at-sugerencias", "sugerencias", ""), ("at-cambiar-usuario", "cambiar_usuario", ""),
+                                 ("at-vista", "vista_bsky", "bluesky"), ("at-ocultos", "ocultos_bsky", "bluesky"),
+                                 ("at-estado-cuenta", "estado_cuenta", "wsocial"), ("at-servidor", "info_servidor", "wsocial"),
+                                 ("at-verificacion-edad", "verificacion_edad", "wsocial"),
+                                 ("at-estado-temporal", "estado_temporal", "wsocial"),
+                                 ("at-privacidad-chat", "privacidad_chat", "wsocial"),
+                                 ("at-exportar-repositorio", "exportar_repositorio", "wsocial"),
+                                 ("at-feeds-populares", "feeds_populares", "wsocial"),
+                                 ("at-busqueda-filtros", "busqueda_filtros", "wsocial")):
+            accion(nombre, lambda f=fn, s=solo: self.at_cuenta(f, s))

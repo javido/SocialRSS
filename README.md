@@ -149,8 +149,12 @@ administración); encuestas, listas de tareas, mensajes fijados y programados, b
 contactos y dados; y la cuenta (perfil, contactos, bloqueados, sesiones, privacidad, verificación en dos pasos, historias y
 tus bots). También Telegram Drive, tu nube personal en un canal privado: una ventana por cuenta para navegar por carpetas virtuales,
 subir y descargar archivos y carpetas (con cola de transferencias, conflictos de nombre y reanudación), crear, renombrar,
-mover, copiar, papelera, búsqueda, propiedades y el mantenimiento del índice y del canal. Aún faltan los chats de voz y los
-álbumes, GIF, stickers y videomensajes.
+mover, copiar, papelera, búsqueda, propiedades y el mantenimiento del índice y del canal. También álbumes, GIF, stickers y
+videonotas, copiar mensajes, editar pies, saltar a una fecha, marcar leído hasta un mensaje, chats en común, privacidad de los
+chats, cambio de número, importar contactos y más acciones sobre historias (archivadas, texto, privacidad y fijar). Aún faltan los
+chats de voz. En Bluesky y W Social: cuentas sugeridas y cambio de nombre de usuario; en Bluesky, la vista de las cronologías y los
+hilos y la lista de hilos silenciados y publicaciones ocultas; en W Social, estado de la cuenta, información del servidor,
+verificación de edad, estado temporal, quién puede escribirte, copia del repositorio, feeds populares y búsqueda con filtros.
 **IRC** (necesita `pydle`): redes con TLS, SASL y NickServ; cada red es una cuenta con los buffers Canales,
 Privados y Avisos del servidor, y cada conversación se abre como un buffer del árbol. Se escribe con Ctrl+N
 (Ctrl+R responde mencionando) y todo lo que empieza por barra es un comando (`/help` los enseña: `/me`, `/join`,

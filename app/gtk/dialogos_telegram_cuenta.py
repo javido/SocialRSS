@@ -374,13 +374,20 @@ class DialogoSeguridadTG(DialogoBase):
 class DialogoHistoriasTG(DialogoLista):
     """Las historias activas de tus contactos (descargar la que elijas) y las tuyas."""
 
-    def __init__(self, padre, account_id: int, propias: bool = False):
-        super().__init__(padre, _("Mis historias") if propias else _("Historias de tus contactos"), _("Lista de historias"))
-        self.account_id, self.propias, self.items = account_id, propias, []
-        if propias:
+    def __init__(self, padre, account_id: int, propias: bool = False, archivadas: bool = False):
+        super().__init__(padre, _("Historias archivadas") if archivadas else _("Mis historias") if propias
+                         else _("Historias de tus contactos"), _("Lista de historias"))
+        self.account_id, self.propias, self.archivadas, self.items = account_id, propias or archivadas, archivadas, []
+        if propias and not archivadas:
             self.boton(_("_Publicar una…"), self._publicar)
             self.boton(_("_Quién la vio…"), self._quien)
+            self.boton(_("_Editar el texto…"), self._editar)
+            self.boton(_("_Privacidad…"), self._privacidad)
+            self.boton(_("_Fijar en el perfil"), lambda: self._fijar(True))
+            self.boton(_("_Desfijar"), lambda: self._fijar(False))
             self.boton(_("_Borrar"), self._borrar)
+        elif archivadas:
+            self.boton(_("_Quién la vio…"), self._quien)
         else:
             self.boton(_("_Marcar como vista"), self._vista)
             self.boton(_("_Descargar"), self._descargar)
@@ -398,7 +405,8 @@ class DialogoHistoriasTG(DialogoLista):
                               f"— {fecha_legible(h.get('fecha', ''))}" for h in self.items])
             self.mostrar_estado(_("{n} historias").format(n=len(self.items)) if self.items else _("No hay historias."))
             self.lista.enfocar()
-        ejecutar(lambda: (telegram_service.mis_historias if self.propias else telegram_service.obtener_historias)(self.account_id), _fin)
+        ejecutar(lambda: (telegram_service.mis_historias_archivadas if self.archivadas else telegram_service.mis_historias
+                          if self.propias else telegram_service.obtener_historias)(self.account_id), _fin)
 
     def _actual(self):
         p = self.lista.posicion()
@@ -429,6 +437,28 @@ class DialogoHistoriasTG(DialogoLista):
             def _fin(res, err):
                 texto_en_dialogo(self, _("Quién vio la historia"), "\n".join(res or []) or (_("Nadie todavía.") if not err else str(err)))
             ejecutar(lambda: telegram_service.quien_vio_historia(self.account_id, h["story_id"]), _fin)
+
+    def _editar(self):
+        h = self._actual()
+        if h:
+            _pedir(self, _("Editar el texto de la historia"), _("_Nuevo texto:"), lambda t: _hacer(
+                self, lambda: telegram_service.editar_pie_historia(self.account_id, h["story_id"], t), _("Texto editado."),
+                lambda _r: self._cargar()), _("_Guardar"), h.get("caption", ""))
+
+    def _privacidad(self):
+        h = self._actual()
+        if h:
+            opciones = [("PUBLIC", _("Todos")), ("CONTACTS", _("Mis contactos")), ("CLOSE_FRIENDS", _("Mejores amigos"))]
+            from .dialogos import DialogoElegir
+            DialogoElegir(self, _("Privacidad de la historia"), _("_Quién la ve:"), [n for _c, n in opciones], lambda i: _hacer(
+                self, lambda: telegram_service.editar_privacidad_historia(self.account_id, h["story_id"], opciones[i][0]),
+                _("Privacidad cambiada.")), _("_Guardar")).present()
+
+    def _fijar(self, fijar: bool):
+        h = self._actual()
+        if h:
+            _hacer(self, lambda: telegram_service.fijar_historia(self.account_id, h["story_id"], fijar),
+                   _("Historia fijada en tu perfil.") if fijar else _("Historia desfijada."))
 
     def _borrar(self):
         h = self._actual()

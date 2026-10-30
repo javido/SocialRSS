@@ -222,7 +222,11 @@ def _menu() -> Gio.Menu:
                                  (_("Seguidores _en común con el autor…"), "win.at-seguidores-conocidos"),
                                  (_("_Feeds del autor…"), "win.at-feeds-de"),
                                  (_("A_visarme cuando el autor publique"), "win.at-suscribir-actividad")))
-    cta.append_section(None, sec((_("Salida _pendiente…"), "win.at-salida"),))
+    cta.append_section(None, sec((_("Cuentas _sugeridas…"), "win.at-sugerencias"),
+                                 (_("Cambiar el nombre de _usuario…"), "win.at-cambiar-usuario"),
+                                 (_("_Vista de las cronologías y los hilos…"), "win.at-vista"),
+                                 (_("Hilos silenciados y publicaciones _ocultas…"), "win.at-ocultos"),
+                                 (_("Salida _pendiente…"), "win.at-salida")))
     cta.append_section(None, sec((_("_Listas…"), "win.bsky-listas"),
                                  (_("_Feeds…"), "win.bsky-feeds"),
                                  (_("_Palabras silenciadas…"), "win.bsky-palabras"),
@@ -281,6 +285,16 @@ def _menu() -> Gio.Menu:
                                   (_("Servicios de _etiquetado…"), "win.ws-etiquetadores"),
                                   (_("_Borradores del servidor…"), "win.ws-borradores"),
                                   (_("Salida _pendiente…"), "win.at-salida")))
+    wcta.append_section(None, sec((_("Cuentas _sugeridas…"), "win.at-sugerencias"),
+                                  (_("Feeds _populares…"), "win.at-feeds-populares"),
+                                  (_("Buscar publicaciones con _filtros…"), "win.at-busqueda-filtros"),
+                                  (_("_Estado temporal…"), "win.at-estado-temporal"),
+                                  (_("¿Quién puede e_scribirme?…"), "win.at-privacidad-chat")))
+    wcta.append_section(None, sec((_("E_stado de la cuenta…"), "win.at-estado-cuenta"),
+                                  (_("Información del _servidor…"), "win.at-servidor"),
+                                  (_("_Verificación de edad…"), "win.at-verificacion-edad"),
+                                  (_("Cambiar el nombre de _usuario…"), "win.at-cambiar-usuario"),
+                                  (_("Guardar una _copia de mi cuenta…"), "win.at-exportar-repositorio")))
     wcta.append_section(None, sec((_("Editar mi _perfil…"), "win.ws-mi-perfil"),
                                   (_("_Contraseñas de aplicación…"), "win.ws-claves"),
                                   (_("_Volver a autorizar la cuenta…"), "win.ws-reautorizar"),
@@ -483,6 +497,17 @@ def _menu() -> Gio.Menu:
                                  (_("Enviar una _ubicación…"), "win.tg-ubicacion"),
                                  (_("Compartir un c_ontacto…"), "win.tg-contacto"),
                                  (_("Enviar un _dado…"), "win.tg-dado")))
+    tgm.append_section(None, sec((_("Enviar un á_lbum…"), "win.tg-album"),
+                                 (_("Enviar un _GIF…"), "win.tg-gif"),
+                                 (_("Enviar un _sticker…"), "win.tg-sticker"),
+                                 (_("Enviar una _videonota…"), "win.tg-videonota")))
+    tgm.append_section(None, sec((_("_Editar el texto del archivo…"), "win.tg-editar-pie"),
+                                 (_("Copiar a _otro chat…"), "win.tg-copiar-a"),
+                                 (_("Reenviar el á_lbum entero…"), "win.tg-reenviar-album"),
+                                 (_("Marcar como leído _hasta este mensaje"), "win.tg-leido-hasta"),
+                                 (_("I_r a una fecha…"), "win.tg-saltar-fecha"),
+                                 (_("Chats en _común con esta persona…"), "win.tg-chats-comun"),
+                                 (_("Historias del _chat…"), "win.tg-historias-chat")))
     tgm.append_section(None, sec((_("_Fijar el mensaje"), "win.tg-fijar-mensaje"),
                                  (_("D_esfijar el mensaje"), "win.tg-desfijar-mensaje"),
                                  (_("Desfijar _todos los mensajes"), "win.tg-desfijar-todos"),
@@ -516,7 +541,11 @@ def _menu() -> Gio.Menu:
                                  (_("_Sesiones activas…"), "win.tg-sesiones"),
                                  (_("P_rivacidad…"), "win.tg-privacidad"),
                                  (_("S_eguridad (verificación en dos pasos)…"), "win.tg-seguridad")))
-    tgc.append_section(None, sec((_("_Historias de tus contactos…"), "win.tg-historias"),
+    tgc.append_section(None, sec((_("Privacidad de los c_hats…"), "win.tg-privacidad-global"),
+                                 (_("Cambiar el _número de teléfono…"), "win.tg-cambiar-numero"),
+                                 (_("_Importar contactos…"), "win.tg-importar-contactos")))
+    tgc.append_section(None, sec((_("Historias _archivadas…"), "win.tg-historias-archivadas"),
+                                 (_("_Historias de tus contactos…"), "win.tg-historias"),
                                  (_("_Mis historias…"), "win.tg-mis-historias"),
                                  (_("Mis b_ots…"), "win.tg-mis-bots"),
                                  (_("Estado de la potenciación del _canal…"), "win.tg-boosts"),

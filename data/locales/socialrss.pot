@@ -56501,3 +56501,436 @@ msgstr ""
 
 msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
 msgstr ""
+
+msgid "Archivos importados: {a} de {b}"
+msgstr ""
+
+msgid "Buscando el paquete…"
+msgstr ""
+
+msgid "Buscar con filtros"
+msgstr ""
+
+msgid "Buscar publicaciones con _filtros…"
+msgstr ""
+
+msgid "Cambiar el _número de teléfono…"
+msgstr ""
+
+msgid "Cambiar el nombre de _usuario…"
+msgstr ""
+
+msgid "Cambiar el número de teléfono"
+msgstr ""
+
+msgid "Cargando las sugerencias…"
+msgstr ""
+
+msgid "Chats en _común con esta persona…"
+msgstr ""
+
+msgid "Chats en común con {t}"
+msgstr ""
+
+msgid "Condiciones del servicio: {u}"
+msgstr ""
+
+msgid "Consultando el estado de la cuenta…"
+msgstr ""
+
+msgid "Consultando la verificación de edad…"
+msgstr ""
+
+msgid "Contacto: {c}"
+msgstr ""
+
+msgid "Contactos importados."
+msgstr ""
+
+msgid "Continúa la verificación en el navegador."
+msgstr ""
+
+msgid "Copia guardada en {r} ({k} KB)."
+msgstr ""
+
+msgid "Copiar a _otro chat…"
+msgstr ""
+
+msgid "Copiar el mensaje"
+msgstr ""
+
+msgid "Correo: {c} ({v})"
+msgstr ""
+
+msgid "Cuenta activada: {v}"
+msgstr ""
+
+msgid "Cuentas sugeridas en {r}"
+msgstr ""
+
+msgid "Código enviado. Escríbelo para confirmar el cambio."
+msgstr ""
+
+msgid "Descargando tu repositorio…"
+msgstr ""
+
+msgid "Dominios disponibles: {d}"
+msgstr ""
+
+msgid "E_stado de la cuenta…"
+msgstr ""
+
+msgid "Editar el texto de la historia"
+msgstr ""
+
+msgid "Editar el texto del archivo"
+msgstr ""
+
+msgid "El servidor no ha devuelto ninguna dirección."
+msgstr ""
+
+msgid "Elegir el GIF o el vídeo corto"
+msgstr ""
+
+msgid "Elegir el sticker"
+msgstr ""
+
+msgid "Elegir el vídeo cuadrado"
+msgstr ""
+
+msgid "Elegir las fotos o los vídeos del álbum"
+msgstr ""
+
+msgid "Enviar un _GIF…"
+msgstr ""
+
+msgid "Enviar un _sticker…"
+msgstr ""
+
+msgid "Enviar un sticker a {t}"
+msgstr ""
+
+msgid "Enviar un á_lbum…"
+msgstr ""
+
+msgid "Enviar una _videonota…"
+msgstr ""
+
+msgid "Escribe al menos un contacto: teléfono y nombre."
+msgstr ""
+
+msgid "Escribe la fecha como AAAA-MM-DD."
+msgstr ""
+
+msgid "Estado temporal"
+msgstr ""
+
+msgid ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+msgstr ""
+
+msgid "Esto solo está en W Social"
+msgstr ""
+
+msgid "Esto solo vale en la conversación con una persona."
+msgstr ""
+
+msgid "Exige invitación: {v}"
+msgstr ""
+
+msgid "Exige verificar el teléfono: {v}"
+msgstr ""
+
+msgid "Feeds _populares…"
+msgstr ""
+
+msgid "GIF para {t}"
+msgstr ""
+
+msgid "Guardar una _copia de mi cuenta…"
+msgstr ""
+
+msgid "Hilos silenciados y publicaciones _ocultas…"
+msgstr ""
+
+msgid "Hilos silenciados y publicaciones ocultas"
+msgstr ""
+
+msgid "Hilos silenciados: {n}"
+msgstr ""
+
+msgid "Historia desfijada."
+msgstr ""
+
+msgid "Historia fijada en tu perfil."
+msgstr ""
+
+msgid "Historias _archivadas…"
+msgstr ""
+
+msgid "Historias archivadas"
+msgstr ""
+
+msgid "Historias de {t}"
+msgstr ""
+
+msgid "Historias del _chat…"
+msgstr ""
+
+msgid "I_r a una fecha…"
+msgstr ""
+
+msgid "Identificador: {d}"
+msgstr ""
+
+msgid "Información del _servidor…"
+msgstr ""
+
+msgid "Información del servidor"
+msgstr ""
+
+msgid "Ir a una fecha en {t}"
+msgstr ""
+
+msgid "Marcado como leído hasta este mensaje."
+msgstr ""
+
+msgid "Marcar como leído _hasta este mensaje"
+msgstr ""
+
+msgid "Mejores amigos"
+msgstr ""
+
+msgid "Mensajes cargados."
+msgstr ""
+
+msgid "No se encontró ese paquete: {e}"
+msgstr ""
+
+msgid "No se encontró ninguna publicación."
+msgstr ""
+
+msgid "No se encontró ningún feed."
+msgstr ""
+
+msgid "No tenéis ningún chat en común."
+msgstr ""
+
+msgid "No tiene historias activas."
+msgstr ""
+
+msgid "Número cambiado."
+msgstr ""
+
+msgid "Ocultar las _citas"
+msgstr ""
+
+msgid "Ocultar las _respuestas en «Siguiendo»"
+msgstr ""
+
+msgid "Ocultar las respuestas a cuentas que _no sigo"
+msgstr ""
+
+msgid "Ocultar los re_posts"
+msgstr ""
+
+msgid "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+msgstr ""
+
+msgid "Política de privacidad: {u}"
+msgstr ""
+
+msgid "Privacidad cambiada."
+msgstr ""
+
+msgid "Privacidad de la historia"
+msgstr ""
+
+msgid "Privacidad de los c_hats…"
+msgstr ""
+
+msgid "Privacidad de los chats"
+msgstr ""
+
+msgid "Publicaciones encontradas"
+msgstr ""
+
+msgid "Publicaciones ocultas: {n}"
+msgstr ""
+
+msgid "Quién puede escribirme"
+msgstr ""
+
+msgid "Reenviar el á_lbum entero…"
+msgstr ""
+
+msgid "Reenviar el álbum entero"
+msgstr ""
+
+msgid "Repositorio válido: {v}"
+msgstr ""
+
+msgid "Resultados: {t}"
+msgstr ""
+
+msgid "Revisión del repositorio: {v}"
+msgstr ""
+
+msgid "Servidor: {p}"
+msgstr ""
+
+msgid "Texto editado."
+msgstr ""
+
+msgid "Tu nombre de usuario ahora es @{h}."
+msgstr ""
+
+msgid "Un álbum necesita entre 2 y 10 fotos o vídeos."
+msgstr ""
+
+msgid "Usuario: @{h}"
+msgstr ""
+
+msgid "Videonota enviada."
+msgstr ""
+
+msgid "Vista de las cronologías"
+msgstr ""
+
+msgid "Vista guardada."
+msgstr ""
+
+msgid "_Abrir el feed"
+msgstr ""
+
+msgid "_Autor (opcional):"
+msgstr ""
+
+msgid "_Cambiar el número"
+msgstr ""
+
+msgid "_Cargar"
+msgstr ""
+
+msgid "_Contactos (teléfono, nombre, apellido):"
+msgstr ""
+
+msgid "_Copiar a:"
+msgstr ""
+
+msgid "_Correo (opcional):"
+msgstr ""
+
+msgid "_Código recibido:"
+msgstr ""
+
+msgid "_Desde (AAAA-MM-DD, opcional):"
+msgstr ""
+
+msgid "_Desfijar"
+msgstr ""
+
+msgid "_Editar el texto del archivo…"
+msgstr ""
+
+msgid "_Editar el texto…"
+msgstr ""
+
+msgid "_Enviar el código"
+msgstr ""
+
+msgid "_Estado (vacío para retirarlo):"
+msgstr ""
+
+msgid "_Estado temporal…"
+msgstr ""
+
+msgid "_Fecha (AAAA-MM-DD):"
+msgstr ""
+
+msgid "_Fijar en el perfil"
+msgstr ""
+
+msgid "_Hasta (AAAA-MM-DD, opcional):"
+msgstr ""
+
+msgid "_Idioma (por ejemplo es, opcional):"
+msgstr ""
+
+msgid "_Importar contactos…"
+msgstr ""
+
+msgid "_Minutos que se muestra:"
+msgstr ""
+
+msgid "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+msgstr ""
+
+msgid "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+msgstr ""
+
+msgid "_Nuevo texto:"
+msgstr ""
+
+msgid "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+msgstr ""
+
+msgid "_Orden de las respuestas en un hilo:"
+msgstr ""
+
+msgid "_Privacidad…"
+msgstr ""
+
+msgid "_Pueden escribirme mensajes privados:"
+msgstr ""
+
+msgid "_Quién la ve:"
+msgstr ""
+
+msgid "_Sticker:"
+msgstr ""
+
+msgid "_Texto del álbum (opcional):"
+msgstr ""
+
+msgid "_Verificación de edad…"
+msgstr ""
+
+msgid "_Verificar en el navegador"
+msgstr ""
+
+msgid "_Vista de las cronologías y los hilos…"
+msgstr ""
+
+msgid "me gusta"
+msgstr ""
+
+msgid "sin correo"
+msgstr ""
+
+msgid "sin datos"
+msgstr ""
+
+msgid "sin emoji"
+msgstr ""
+
+msgid "{n} contactos importados."
+msgstr ""
+
+msgid "{n} feeds"
+msgstr ""
+
+msgid "{n} mensajes cargados."
+msgstr ""
+
+msgid ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+msgstr ""
+
+msgid "¿Quién puede e_scribirme?…"
+msgstr ""
+
+msgid "Álbum para {t}"
+msgstr ""

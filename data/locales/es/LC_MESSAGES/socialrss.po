@@ -46477,3 +46477,440 @@ msgstr "¿Quitar tu imagen de cabecera?"
 
 msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
 msgstr "¿Revocar esta cita? Dejará de mostrar tu publicación."
+
+msgid "Archivos importados: {a} de {b}"
+msgstr "Archivos importados: {a} de {b}"
+
+msgid "Buscando el paquete…"
+msgstr "Buscando el paquete…"
+
+msgid "Buscar con filtros"
+msgstr "Buscar con filtros"
+
+msgid "Buscar publicaciones con _filtros…"
+msgstr "Buscar publicaciones con _filtros…"
+
+msgid "Cambiar el _número de teléfono…"
+msgstr "Cambiar el _número de teléfono…"
+
+msgid "Cambiar el nombre de _usuario…"
+msgstr "Cambiar el nombre de _usuario…"
+
+msgid "Cambiar el número de teléfono"
+msgstr "Cambiar el número de teléfono"
+
+msgid "Cargando las sugerencias…"
+msgstr "Cargando las sugerencias…"
+
+msgid "Chats en _común con esta persona…"
+msgstr "Chats en _común con esta persona…"
+
+msgid "Chats en común con {t}"
+msgstr "Chats en común con {t}"
+
+msgid "Condiciones del servicio: {u}"
+msgstr "Condiciones del servicio: {u}"
+
+msgid "Consultando el estado de la cuenta…"
+msgstr "Consultando el estado de la cuenta…"
+
+msgid "Consultando la verificación de edad…"
+msgstr "Consultando la verificación de edad…"
+
+msgid "Contacto: {c}"
+msgstr "Contacto: {c}"
+
+msgid "Contactos importados."
+msgstr "Contactos importados."
+
+msgid "Continúa la verificación en el navegador."
+msgstr "Continúa la verificación en el navegador."
+
+msgid "Copia guardada en {r} ({k} KB)."
+msgstr "Copia guardada en {r} ({k} KB)."
+
+msgid "Copiar a _otro chat…"
+msgstr "Copiar a _otro chat…"
+
+msgid "Copiar el mensaje"
+msgstr "Copiar el mensaje"
+
+msgid "Correo: {c} ({v})"
+msgstr "Correo: {c} ({v})"
+
+msgid "Cuenta activada: {v}"
+msgstr "Cuenta activada: {v}"
+
+msgid "Cuentas sugeridas en {r}"
+msgstr "Cuentas sugeridas en {r}"
+
+msgid "Código enviado. Escríbelo para confirmar el cambio."
+msgstr "Código enviado. Escríbelo para confirmar el cambio."
+
+msgid "Descargando tu repositorio…"
+msgstr "Descargando tu repositorio…"
+
+msgid "Dominios disponibles: {d}"
+msgstr "Dominios disponibles: {d}"
+
+msgid "E_stado de la cuenta…"
+msgstr "E_stado de la cuenta…"
+
+msgid "Editar el texto de la historia"
+msgstr "Editar el texto de la historia"
+
+msgid "Editar el texto del archivo"
+msgstr "Editar el texto del archivo"
+
+msgid "El servidor no ha devuelto ninguna dirección."
+msgstr "El servidor no ha devuelto ninguna dirección."
+
+msgid "Elegir el GIF o el vídeo corto"
+msgstr "Elegir el GIF o el vídeo corto"
+
+msgid "Elegir el sticker"
+msgstr "Elegir el sticker"
+
+msgid "Elegir el vídeo cuadrado"
+msgstr "Elegir el vídeo cuadrado"
+
+msgid "Elegir las fotos o los vídeos del álbum"
+msgstr "Elegir las fotos o los vídeos del álbum"
+
+msgid "Enviar un _GIF…"
+msgstr "Enviar un _GIF…"
+
+msgid "Enviar un _sticker…"
+msgstr "Enviar un _sticker…"
+
+msgid "Enviar un sticker a {t}"
+msgstr "Enviar un sticker a {t}"
+
+msgid "Enviar un á_lbum…"
+msgstr "Enviar un á_lbum…"
+
+msgid "Enviar una _videonota…"
+msgstr "Enviar una _videonota…"
+
+msgid "Escribe al menos un contacto: teléfono y nombre."
+msgstr "Escribe al menos un contacto: teléfono y nombre."
+
+msgid "Escribe la fecha como AAAA-MM-DD."
+msgstr "Escribe la fecha como AAAA-MM-DD."
+
+msgid "Estado temporal"
+msgstr "Estado temporal"
+
+msgid ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+msgstr ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+
+msgid "Esto solo está en W Social"
+msgstr "Esto solo está en W Social"
+
+msgid "Esto solo vale en la conversación con una persona."
+msgstr "Esto solo vale en la conversación con una persona."
+
+msgid "Exige invitación: {v}"
+msgstr "Exige invitación: {v}"
+
+msgid "Exige verificar el teléfono: {v}"
+msgstr "Exige verificar el teléfono: {v}"
+
+msgid "Feeds _populares…"
+msgstr "Feeds _populares…"
+
+msgid "GIF para {t}"
+msgstr "GIF para {t}"
+
+msgid "Guardar una _copia de mi cuenta…"
+msgstr "Guardar una _copia de mi cuenta…"
+
+msgid "Hilos silenciados y publicaciones _ocultas…"
+msgstr "Hilos silenciados y publicaciones _ocultas…"
+
+msgid "Hilos silenciados y publicaciones ocultas"
+msgstr "Hilos silenciados y publicaciones ocultas"
+
+msgid "Hilos silenciados: {n}"
+msgstr "Hilos silenciados: {n}"
+
+msgid "Historia desfijada."
+msgstr "Historia desfijada."
+
+msgid "Historia fijada en tu perfil."
+msgstr "Historia fijada en tu perfil."
+
+msgid "Historias _archivadas…"
+msgstr "Historias _archivadas…"
+
+msgid "Historias archivadas"
+msgstr "Historias archivadas"
+
+msgid "Historias de {t}"
+msgstr "Historias de {t}"
+
+msgid "Historias del _chat…"
+msgstr "Historias del _chat…"
+
+msgid "I_r a una fecha…"
+msgstr "I_r a una fecha…"
+
+msgid "Identificador: {d}"
+msgstr "Identificador: {d}"
+
+msgid "Información del _servidor…"
+msgstr "Información del _servidor…"
+
+msgid "Información del servidor"
+msgstr "Información del servidor"
+
+msgid "Ir a una fecha en {t}"
+msgstr "Ir a una fecha en {t}"
+
+msgid "Marcado como leído hasta este mensaje."
+msgstr "Marcado como leído hasta este mensaje."
+
+msgid "Marcar como leído _hasta este mensaje"
+msgstr "Marcar como leído _hasta este mensaje"
+
+msgid "Mejores amigos"
+msgstr "Mejores amigos"
+
+msgid "Mensajes cargados."
+msgstr "Mensajes cargados."
+
+msgid "No se encontró ese paquete: {e}"
+msgstr "No se encontró ese paquete: {e}"
+
+msgid "No se encontró ninguna publicación."
+msgstr "No se encontró ninguna publicación."
+
+msgid "No se encontró ningún feed."
+msgstr "No se encontró ningún feed."
+
+msgid "No tenéis ningún chat en común."
+msgstr "No tenéis ningún chat en común."
+
+msgid "No tiene historias activas."
+msgstr "No tiene historias activas."
+
+msgid "Número cambiado."
+msgstr "Número cambiado."
+
+msgid "Ocultar las _citas"
+msgstr "Ocultar las _citas"
+
+msgid "Ocultar las _respuestas en «Siguiendo»"
+msgstr "Ocultar las _respuestas en «Siguiendo»"
+
+msgid "Ocultar las respuestas a cuentas que _no sigo"
+msgstr "Ocultar las respuestas a cuentas que _no sigo"
+
+msgid "Ocultar los re_posts"
+msgstr "Ocultar los re_posts"
+
+msgid "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+msgstr "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+
+msgid "Política de privacidad: {u}"
+msgstr "Política de privacidad: {u}"
+
+msgid "Privacidad cambiada."
+msgstr "Privacidad cambiada."
+
+msgid "Privacidad de la historia"
+msgstr "Privacidad de la historia"
+
+msgid "Privacidad de los c_hats…"
+msgstr "Privacidad de los c_hats…"
+
+msgid "Privacidad de los chats"
+msgstr "Privacidad de los chats"
+
+msgid "Publicaciones encontradas"
+msgstr "Publicaciones encontradas"
+
+msgid "Publicaciones ocultas: {n}"
+msgstr "Publicaciones ocultas: {n}"
+
+msgid "Quién puede escribirme"
+msgstr "Quién puede escribirme"
+
+msgid "Reenviar el á_lbum entero…"
+msgstr "Reenviar el á_lbum entero…"
+
+msgid "Reenviar el álbum entero"
+msgstr "Reenviar el álbum entero"
+
+msgid "Repositorio válido: {v}"
+msgstr "Repositorio válido: {v}"
+
+msgid "Resultados: {t}"
+msgstr "Resultados: {t}"
+
+msgid "Revisión del repositorio: {v}"
+msgstr "Revisión del repositorio: {v}"
+
+msgid "Servidor: {p}"
+msgstr "Servidor: {p}"
+
+msgid "Texto editado."
+msgstr "Texto editado."
+
+msgid "Tu nombre de usuario ahora es @{h}."
+msgstr "Tu nombre de usuario ahora es @{h}."
+
+msgid "Un álbum necesita entre 2 y 10 fotos o vídeos."
+msgstr "Un álbum necesita entre 2 y 10 fotos o vídeos."
+
+msgid "Usuario: @{h}"
+msgstr "Usuario: @{h}"
+
+msgid "Videonota enviada."
+msgstr "Videonota enviada."
+
+msgid "Vista de las cronologías"
+msgstr "Vista de las cronologías"
+
+msgid "Vista guardada."
+msgstr "Vista guardada."
+
+msgid "_Abrir el feed"
+msgstr "_Abrir el feed"
+
+msgid "_Autor (opcional):"
+msgstr "_Autor (opcional):"
+
+msgid "_Cambiar el número"
+msgstr "_Cambiar el número"
+
+msgid "_Cargar"
+msgstr "_Cargar"
+
+msgid "_Contactos (teléfono, nombre, apellido):"
+msgstr "_Contactos (teléfono, nombre, apellido):"
+
+msgid "_Copiar a:"
+msgstr "_Copiar a:"
+
+msgid "_Correo (opcional):"
+msgstr "_Correo (opcional):"
+
+msgid "_Código recibido:"
+msgstr "_Código recibido:"
+
+msgid "_Desde (AAAA-MM-DD, opcional):"
+msgstr "_Desde (AAAA-MM-DD, opcional):"
+
+msgid "_Desfijar"
+msgstr "_Desfijar"
+
+msgid "_Editar el texto del archivo…"
+msgstr "_Editar el texto del archivo…"
+
+msgid "_Editar el texto…"
+msgstr "_Editar el texto…"
+
+msgid "_Enviar el código"
+msgstr "_Enviar el código"
+
+msgid "_Estado (vacío para retirarlo):"
+msgstr "_Estado (vacío para retirarlo):"
+
+msgid "_Estado temporal…"
+msgstr "_Estado temporal…"
+
+msgid "_Fecha (AAAA-MM-DD):"
+msgstr "_Fecha (AAAA-MM-DD):"
+
+msgid "_Fijar en el perfil"
+msgstr "_Fijar en el perfil"
+
+msgid "_Hasta (AAAA-MM-DD, opcional):"
+msgstr "_Hasta (AAAA-MM-DD, opcional):"
+
+msgid "_Idioma (por ejemplo es, opcional):"
+msgstr "_Idioma (por ejemplo es, opcional):"
+
+msgid "_Importar contactos…"
+msgstr "_Importar contactos…"
+
+msgid "_Minutos que se muestra:"
+msgstr "_Minutos que se muestra:"
+
+msgid "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+msgstr "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+
+msgid "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+msgstr "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+
+msgid "_Nuevo texto:"
+msgstr "_Nuevo texto:"
+
+msgid "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+msgstr "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+
+msgid "_Orden de las respuestas en un hilo:"
+msgstr "_Orden de las respuestas en un hilo:"
+
+msgid "_Privacidad…"
+msgstr "_Privacidad…"
+
+msgid "_Pueden escribirme mensajes privados:"
+msgstr "_Pueden escribirme mensajes privados:"
+
+msgid "_Quién la ve:"
+msgstr "_Quién la ve:"
+
+msgid "_Sticker:"
+msgstr "_Sticker:"
+
+msgid "_Texto del álbum (opcional):"
+msgstr "_Texto del álbum (opcional):"
+
+msgid "_Verificación de edad…"
+msgstr "_Verificación de edad…"
+
+msgid "_Verificar en el navegador"
+msgstr "_Verificar en el navegador"
+
+msgid "_Vista de las cronologías y los hilos…"
+msgstr "_Vista de las cronologías y los hilos…"
+
+msgid "me gusta"
+msgstr "me gusta"
+
+msgid "sin correo"
+msgstr "sin correo"
+
+msgid "sin datos"
+msgstr "sin datos"
+
+msgid "sin emoji"
+msgstr "sin emoji"
+
+msgid "{n} contactos importados."
+msgstr "{n} contactos importados."
+
+msgid "{n} feeds"
+msgstr "{n} feeds"
+
+msgid "{n} mensajes cargados."
+msgstr "{n} mensajes cargados."
+
+msgid ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+msgstr ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+
+msgid "¿Quién puede e_scribirme?…"
+msgstr "¿Quién puede e_scribirme?…"
+
+msgid "Álbum para {t}"
+msgstr "Álbum para {t}"

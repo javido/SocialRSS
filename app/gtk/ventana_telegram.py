@@ -788,6 +788,26 @@ class _TelegramMixin:
             from . import dialogos_telegram_mensajes as m
             getattr(m, nombre)(self, *datos, *extra)
 
+    def tg_extra_cuenta(self, clase: str):
+        acc = self.tg_cuenta_lista()
+        if acc is not None:
+            from . import dialogos_telegram_extra as e
+            getattr(e, clase)(self, acc).present()
+
+    def tg_extra_chat(self, nombre: str, *extra):
+        datos = self._tg_chat_de_fila()
+        if datos and self._tg_disponible():
+            from . import dialogos_telegram_extra as e
+            getattr(e, nombre)(self, *datos, *extra)
+
+    def tg_extra_msg(self, nombre: str, *extra):
+        obj = self._tg_mensaje()
+        if obj is None or not self._tg_disponible():
+            return
+        x = obj.fila.extra
+        from . import dialogos_telegram_extra as e
+        getattr(e, nombre)(self, x["account_id"], x["chat_id"], x["message_id"], *extra)
+
     def _tg_recargar(self):
         datos = self._tg_chat_abierto()
         if datos:
@@ -839,6 +859,18 @@ class _TelegramMixin:
                                   ("tg-mis-bots", "DialogoMisBotsTG", {})):
             accion(nombre, lambda c=clase, k=kw: self.tg_cuenta_dialogo(c, **k))
         accion("tg-contactos", self.tg_contactos)
+        for nombre, clase in (("tg-privacidad-global", "DialogoPrivacidadGlobalTG"), ("tg-cambiar-numero", "DialogoNumeroTG"),
+                              ("tg-importar-contactos", "DialogoImportarContactosTG")):
+            accion(nombre, lambda c=clase: self.tg_extra_cuenta(c))
+        accion("tg-historias-archivadas", lambda: self.tg_cuenta_dialogo("DialogoHistoriasTG", archivadas=True))
+        for nombre, fn in (("tg-album", "enviar_album"), ("tg-gif", "enviar_gif"), ("tg-videonota", "enviar_videonota"),
+                           ("tg-sticker", "enviar_sticker"), ("tg-chats-comun", "chats_en_comun"),
+                           ("tg-historias-chat", "historias_del_chat")):
+            accion(nombre, lambda f=fn: self.tg_extra_chat(f))
+        accion("tg-saltar-fecha", lambda: self.tg_extra_chat("saltar_a_fecha", self._tg_recargar))
+        for nombre, fn, recarga in (("tg-editar-pie", "editar_pie", True), ("tg-copiar-a", "copiar_a_otro_chat", False),
+                                    ("tg-reenviar-album", "reenviar_album", False), ("tg-leido-hasta", "leido_hasta_aqui", True)):
+            accion(nombre, lambda f=fn, r=recarga: self.tg_extra_msg(f, *((self._tg_recargar,) if r else ())))
         accion("tg-boosts", self.tg_boosts)
         accion("tg-potenciar", lambda: self.tg_boosts(True))
         accion("tg-encuesta-nueva", lambda: self.tg_chat_msg_funcion("crear_encuesta", self._tg_recargar))
