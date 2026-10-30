@@ -95,6 +95,30 @@ def buffer_oculto(servicio: str, clave: str) -> bool:
     return CLAVE_OCULTOS.get((servicio, clave), clave) in set(config.get(servicio, "hidden_buffers", []) or [])
 
 
+def _nodos_guardados(account_id: int) -> List[Nodo]:
+    """Carpetas inteligentes, búsquedas guardadas y etiquetas de la cuenta, que se abren como un buffer más."""
+    nodos = []
+    try:
+        for sf_id, nombre in db.query("SELECT id, name FROM rss_smart_folders WHERE account_id = ? ORDER BY position, name",
+                                      (account_id,)):
+            nodos.append(Nodo(nombre, f"smart:{sf_id}"))
+    except Exception as e:
+        log.debug("No se pudieron cargar las carpetas inteligentes: %s", e)
+    if config.get("rss", "saved_searches_in_tree", True):
+        from app.services.rss.rss_buffers import busquedas_en_arbol
+        for bs_id, nombre in busquedas_en_arbol(account_id):
+            nodos.append(Nodo(_("Búsqueda: {0}").format(nombre), f"search:{bs_id}"))
+    try:
+        for tg_id, nombre in db.query(
+                "SELECT t.id, t.name FROM rss_tags t WHERE t.account_id = ? AND (EXISTS (SELECT 1 FROM rss_feed_tags ft "
+                "WHERE ft.tag_id = t.id) OR EXISTS (SELECT 1 FROM rss_article_tags at WHERE at.tag_id = t.id)) "
+                "ORDER BY t.position, t.name", (account_id,)):
+            nodos.append(Nodo("#" + nombre, f"tag:{tg_id}"))
+    except Exception as e:
+        log.debug("No se pudieron cargar las etiquetas RSS: %s", e)
+    return nodos
+
+
 def construir_arbol(account_id: int) -> List[Nodo]:
     """Buffers fijos, categorías (con sus subcategorías y feeds) y feeds sin categoría."""
     from app.services.rss.rss_service import rss_service
@@ -136,6 +160,7 @@ def construir_arbol(account_id: int) -> List[Nodo]:
         Nodo(_("Hoy"), "today"),
     ]
     arbol = [n for n in arbol if not buffer_oculto("rss", n.tipo)]
+    arbol.extend(_nodos_guardados(account_id))
     arbol.extend(raiz_cat)
     arbol.extend(por_cat.get(None, []))
     return arbol

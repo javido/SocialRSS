@@ -194,6 +194,17 @@ cuentas e instancias, reportar y buscar vídeos y canales. Aún faltan los direc
 administración de la instancia. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
 aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.
 
+**Gestión de feeds RSS** (los mismos servicios y datos que la versión de Windows): menú contextual del árbol (tecla Menú o
+Mayús+F10) con actualizar, marcar como leído, fijar, pausar, renombrar, mover, etiquetas, editar el feed (dirección con
+comprobación, intervalo propio, identificación, imágenes, texto completo y qué hace Suprimir), recuperar episodios antiguos del
+archivo de Internet y eliminar; en las carpetas, subcarpetas, renombrar, mover, estadísticas y eliminar. El menú Feeds
+reúne el buscador de feeds y podcasts en directorios públicos, crear un feed desde una web sin RSS, añadir un canal de YouTube
+o importar las suscripciones desde Google Takeout, importar OPML con vista previa, categorías, etiquetas, reglas automáticas
+(varias condiciones, acciones, ámbito y prioridad), carpetas inteligentes, búsquedas guardadas como buffers del árbol, alertas por
+palabra clave, salud de los feeds, descargas de podcast, sincronización con FreshRSS, Inoreader o Miniflux, historial y
+estadísticas de lectura, resumen de lo no leído y exportar artículos en lote. En Artículo: etiquetas, imágenes con su texto
+alternativo y la cola de podcasts. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
+
 **Menú Herramientas** (las mismas funciones y los mismos datos que la versión de Windows): filtros de contenido (ocultan
 publicaciones por palabra clave en Mastodon, Bluesky, W Social, X y RSS), fragmentos de texto (Ctrl+Mayús+J al redactar),
 corrector ortográfico (F7 al redactar), copias de seguridad y migración a otro ordenador (la restauración y la importación se

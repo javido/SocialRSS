@@ -53,7 +53,25 @@ def _menu() -> Gio.Menu:
     feeds = Gio.Menu()
     feeds.append_section(None, sec((_("Actualizar _todos"), "win.actualizar"),
                                    (_("Actualizar el _feed seleccionado"), "win.actualizar-feed"),
-                                   (_("_Marcar todo como leído"), "win.marcar-todo-leido"),
+                                   (_("_Marcar todo como leído"), "win.marcar-todo-leido")))
+    feeds.append_section(None, sec((_("_Buscar feeds y podcasts…"), "win.rss-buscar-feeds"),
+                                   (_("Crear un feed desde una _web sin RSS…"), "win.rss-feed-web"),
+                                   (_("Añadir un canal de _YouTube…"), "win.rss-youtube"),
+                                   (_("Importar suscripciones de YouTube (Google _Takeout)…"), "win.rss-takeout")))
+    feeds.append_section(None, sec((_("Gestionar _categorías…"), "win.rss-categorias"),
+                                   (_("Gestionar _etiquetas…"), "win.rss-etiquetas"),
+                                   (_("_Reglas y filtros automáticos…"), "win.rss-reglas"),
+                                   (_("Carpetas _inteligentes…"), "win.rss-carpetas"),
+                                   (_("Búsquedas _guardadas…"), "win.rss-busquedas"),
+                                   (_("_Guardar la búsqueda actual como buffer…"), "win.rss-guardar-busqueda"),
+                                   (_("_Alertas por palabra clave…"), "win.rss-alertas")))
+    feeds.append_section(None, sec((_("_Salud de los feeds…"), "win.rss-salud"),
+                                   (_("_Descargas de podcast…"), "win.rss-descargas"),
+                                   (_("_Sincronización con un servidor…"), "win.rss-sincronizacion")))
+    feeds.append_section(None, sec((_("_Historial de lectura…"), "win.rss-historial"),
+                                   (_("Estadísticas de _lectura…"), "win.rss-estadisticas"),
+                                   (_("_Resumen de los artículos sin leer"), "win.rss-resumen"),
+                                   (_("E_xportar artículos en lote…"), "win.rss-exportar"),
                                    (_("_Papelera de artículos…"), "win.herr-papelera")))
     barra.append_submenu(_("_Feeds"), feeds)
 
@@ -69,6 +87,9 @@ def _menu() -> Gio.Menu:
                                  (_("Copiar el _enlace"), "win.copiar-enlace"),
                                  (_("Copiar el t_ítulo"), "win.copiar-titulo"),
                                  (_("_Versiones anteriores…"), "win.rss-versiones")))
+    art.append_section(None, sec((_("Eti_quetas del artículo…"), "win.rss-etiquetas-articulo"),
+                                 (_("_Imágenes del artículo…"), "win.rss-galeria"),
+                                 (_("Añadir a la _cola de podcasts"), "win.rss-encolar")))
     barra.append_submenu(_("A_rtículo"), art)
 
     pub = Gio.Menu()
@@ -642,30 +663,7 @@ class Aplicacion(Gtk.Application):
         self.ventana.cargar_arbol()
 
     def importar_opml(self):
-        dlg = Gtk.FileDialog(title=_("Importar OPML"))
-        filtro = Gtk.FileFilter()
-        filtro.set_name("OPML (*.opml, *.xml)")
-        for p in ("*.opml", "*.xml"):
-            filtro.add_pattern(p)
-        almacen = Gio.ListStore.new(Gtk.FileFilter)
-        almacen.append(filtro)
-        dlg.set_filters(almacen)
-
-        def _fin(origen, res):
-            try:
-                f = origen.open_finish(res)
-            except GLib.Error:
-                return
-            notificar(_("Importando feeds…"))
-
-            def _hecho(n, err):
-                if err:
-                    notificar(_("Error al importar: {e}").format(e=err))
-                    return
-                notificar(_("{n} feeds importados").format(n=n))
-                self.ventana.cargar_arbol()
-            rss_service.importar_feeds_opml_async(self.account_id, f.get_path(), callback=_hecho)
-        dlg.open(self.ventana, None, _fin)
+        self.ventana.rss_importar_opml()
 
     def exportar_opml(self):
         dlg = Gtk.FileDialog(title=_("Exportar OPML"), initial_name="socialrss.opml")

@@ -35,6 +35,7 @@ from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
 from .ventana_herramientas import _HerramientasMixin
+from .ventana_rss import _RSSMixin
 from .ventana_peertube import _PeerTubeMixin
 from .ventana_reddit import _RedditMixin
 from .ventana_x import _TwitterMixin
@@ -63,7 +64,7 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -99,6 +100,7 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         self.connect("close-request", self._al_cerrar)
         self.iniciar_tiempo_real()
         GLib.idle_add(self._avisar_complementos_arranque)
+        GLib.timeout_add_seconds(20, self._mantenimiento_datos)
         GLib.timeout_add_seconds(SONDEO_SEGUNDOS, self._sondeo_automatico)
         GLib.timeout_add_seconds(1, self._latido_reproductor)
 
@@ -160,6 +162,14 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         self.vista_arbol = Gtk.ListView(model=self.seleccion_arbol, factory=fabrica)
         self.vista_arbol.set_name("arbol")
         _etiquetar(self.vista_arbol, _("Navegación"), _("Árbol de carpetas y feeds. Flecha derecha expande."))
+        ctl = Gtk.ShortcutController()
+        ctl.set_scope(Gtk.ShortcutScope.LOCAL)
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("Menu"),
+                                          Gtk.CallbackAction.new(lambda *_a: self.mostrar_menu_arbol() or True)))
+        self.vista_arbol.add_controller(ctl)
+        clic = Gtk.GestureClick(button=3)
+        clic.connect("pressed", lambda g, n, x, y: self.mostrar_menu_arbol(x, y))
+        self.vista_arbol.add_controller(clic)
         marco = Gtk.ScrolledWindow(child=self.vista_arbol, min_content_width=160)
         return marco
 
@@ -484,6 +494,7 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         self._registrar_acciones_bluesky(accion)
         self._registrar_acciones_wsocial(accion)
         self._registrar_acciones_herramientas(accion)
+        self._registrar_acciones_rss(accion)
         self._registrar_acciones_telegram(accion)
         self._registrar_acciones_irc(accion)
         self._registrar_acciones_xmpp(accion)
@@ -594,7 +605,11 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         previo = seleccionar or (self._nodo_obj_actual().clave() if (conservar and self._nodo_obj_actual()) else None)
         # Los grupos que el usuario tenía desplegados siguen así tras reconstruir el árbol.
         abiertos = {self.modelo_arbol.get_row(i).get_item().clave() for i in range(self.modelo_arbol.get_n_items())
-                    if self.modelo_arbol.get_row(i).get_item().nodo.tipo == "grupo" and self.modelo_arbol.get_row(i).get_expanded()}
+                    if self.modelo_arbol.get_row(i).get_item().nodo.tipo in ("grupo", "category")
+                    and self.modelo_arbol.get_row(i).get_expanded()}
+
+        def _contiene(nodo):
+            return any(NodoObj(h).clave() == previo or _contiene(h) for h in nodo.hijos)
         self.arbol = self._arbol_completo()
         self.raiz_arbol.remove_all()
         for n in self.arbol:
@@ -606,8 +621,8 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
             nodo_fila = row.get_item().nodo
             # Los grupos (Mi biblioteca, Búsquedas guardadas) se quedan plegados salvo que contengan el nodo a enfocar.
             if nodo_fila.tipo in ("servicio", "cuenta") or (
-                    nodo_fila.tipo == "grupo" and (row.get_item().clave() in abiertos or (
-                        previo and any(NodoObj(h).clave() == previo for h in nodo_fila.hijos)))):
+                    nodo_fila.tipo in ("grupo", "category") and (row.get_item().clave() in abiertos or (
+                        previo and _contiene(nodo_fila)))):
                 row.set_expanded(True)
             i += 1
         destino = None
@@ -906,7 +921,8 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
         # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
-            self._marcar_leido(obj, True)
+            if config.get("rss", "mark_read_on_open", True):
+                self._marcar_leido(obj, True)
             rss_service.registrar_lectura(obj.fila.id)
             try:
                 from app.core.plugins import plugin_manager, PluginHook
@@ -1636,6 +1652,14 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
             self._tiempo_real = TiempoReal(self._evento_mastodon, self._reconectado_mastodon)
         self._tiempo_real.sincronizar([a for a, _n in datos_mastodon.cuentas()])
 
+    def _mantenimiento_datos(self):
+        """Poda del histórico en segundo plano: la primera vez poco después de arrancar y luego cada 20 minutos."""
+        from app.core.mantenimiento import podar_historico
+        from app.core.task_manager import task_manager
+        task_manager.start_task(lambda ctx: podar_historico(), pass_context=True)
+        GLib.timeout_add_seconds(20 * 60, self._mantenimiento_datos)
+        return False
+
     def _iniciar_complementos(self):
         """Descubre y activa los complementos que el usuario tenía habilitados (antes de la primera descarga de feeds)."""
         try:
@@ -2138,6 +2162,8 @@ class VentanaPrincipal(_HerramientasMixin, _BlueskyMixin, _WSocialMixin, _Twitte
 
     # ------------------------------------------------------------------ menú contextual
     def mostrar_menu_contextual(self, x=None, y=None):
+        if self._foco_en_arbol():
+            return self.mostrar_menu_arbol()
         obj = self._fila_actual()
         if obj is None:
             return

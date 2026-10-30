@@ -54372,3 +54372,702 @@ msgid ""
 "Herramientas, Editor de atajos de teclado: cambia la tecla de cualquier "
 "acción"
 msgstr "Tools, Keyboard shortcut editor: change the key of any action"
+
+msgid "A_plicar a:"
+msgstr "A_pply to:"
+
+msgid "A_visar de los artículos nuevos:"
+msgstr "_Announce new articles:"
+
+msgid "Abrir el feed en el navegador"
+msgstr "Open the feed in the browser"
+
+msgid "Activar o _desactivar"
+msgstr "Turn on or _off"
+
+msgid "Actualizando feeds…"
+msgstr "Updating feeds…"
+
+msgid "Actualizando la categoría…"
+msgstr "Updating the category…"
+
+msgid "Actualizando {0}…"
+msgstr "Updating {0}…"
+
+msgid "Actualizar la categoría"
+msgstr "Update the category"
+
+msgid ""
+"Al limpiar los datos de RSS, bajar solo artículos _nuevos a partir de ese "
+"momento:"
+msgstr "When clearing RSS data, download only _new articles from then on:"
+
+msgid "Al pulsar _Suprimir en sus artículos:"
+msgstr "When pressing _Delete on its articles:"
+
+msgid "Alertas por palabra clave"
+msgstr "Keyword alerts"
+
+msgid "Analizando el archivo OPML…"
+msgstr "Analyzing the OPML file…"
+
+msgid "Analizando el archivo de Google Takeout…"
+msgstr "Analyzing the Google Takeout file…"
+
+msgid "Analizando la web…"
+msgstr "Analyzing the web page…"
+
+msgid "Antigüedad _máxima:"
+msgstr "Maximum _age:"
+
+msgid "Aplicar a los artículos que _ya tengo"
+msgstr "Apply to the articles I _already have"
+
+msgid "Añadiendo canal…"
+msgstr "Adding the channel…"
+
+msgid "Añadir a la _cola de podcasts"
+msgstr "Add to the podcast _queue"
+
+msgid "Añadir un canal de YouTube"
+msgstr "Add a YouTube channel"
+
+msgid "Añadir un canal de _YouTube…"
+msgstr "Add a _YouTube channel…"
+
+msgid "Añadir un feed…"
+msgstr "Add a feed…"
+
+msgid "B_uscar"
+msgstr "_Search"
+
+msgid "Buscando copias antiguas del feed en el archivo de Internet…"
+msgstr "Looking for old copies of the feed in the Internet Archive…"
+
+msgid "Buscando en los directorios…"
+msgstr "Searching the directories…"
+
+msgid "Búsquedas _guardadas…"
+msgstr "_Saved searches…"
+
+msgid "Búsquedas guardadas de RSS"
+msgstr "Saved RSS searches"
+
+msgid "C_ategoría:"
+msgstr "C_ategory:"
+
+msgid "C_omprobar la dirección"
+msgstr "Check the _address"
+
+msgid "C_opiar detalles"
+msgstr "C_opy details"
+
+msgid ""
+"Cada feed se vuelve a pedir cuando pasa este tiempo desde la última vez. Un "
+"feed puede tener el suyo propio en «Editar el feed»."
+msgstr ""
+"Each feed is requested again once this time has passed since the last time. "
+"A feed can have its own in “Edit the feed”."
+
+msgid "Carpeta inteligente eliminada."
+msgstr "Smart folder deleted."
+
+msgid "Carpetas _inteligentes…"
+msgstr "Smart _folders…"
+
+msgid "Co_mbinar las condiciones:"
+msgstr "Co_mbine the conditions:"
+
+msgid "Combinación _personalizada (por ejemplo: (1 y 2) o 3):"
+msgstr "Custom _combination (for example: (1 and 2) or 3):"
+
+msgid "Comprobando la dirección…"
+msgstr "Checking the address…"
+
+msgid "Con los números de las condiciones, y, o, no y paréntesis."
+msgstr "With the condition numbers, and, or, not and parentheses."
+
+msgid "Condición {0}: _texto (vacío = no usarla)"
+msgstr "Condition {0}: _text (empty = don't use it)"
+
+msgid "Condición {0}: c_ampo"
+msgstr "Condition {0}: f_ield"
+
+msgid "Condición {0}: o_perador"
+msgstr "Condition {0}: o_perator"
+
+msgid "Conservar los artículos (_días, 0 = para siempre):"
+msgstr "Keep articles (_days, 0 = forever):"
+
+msgid "Crea primero una cuenta de RSS en Preferencias"
+msgstr "First create an RSS account in Preferences"
+
+msgid "Crear un feed desde una _web sin RSS…"
+msgstr "Create a feed from a _web page without RSS…"
+
+msgid "Crear una subcarpeta"
+msgstr "Create a subfolder"
+
+msgid "Crear una subcarpeta aquí…"
+msgstr "Create a subfolder here…"
+
+msgid "Crear y asignar una etiqueta _nueva:"
+msgstr "Create and assign a _new tag:"
+
+msgid ""
+"Desactivado, las imágenes se sustituyen por su texto alternativo y no se "
+"pide nada al servidor del feed."
+msgstr ""
+"When off, images are replaced by their alternative text and nothing is "
+"requested from the feed's server."
+
+msgid "Descargando y describiendo la imagen con IA…"
+msgstr "Downloading and describing the image with AI…"
+
+msgid ""
+"Descargar siempre el artículo _completo (si el feed solo trae el resumen)"
+msgstr ""
+"Always download the _full article (if the feed only brings the summary)"
+
+msgid "Desfijar el feed"
+msgstr "Unpin the feed"
+
+msgid "Di_rección del artículo (contiene):"
+msgstr "Article add_ress (contains):"
+
+msgid "E_xportar artículos en lote…"
+msgstr "E_xport articles in bulk…"
+
+msgid "Editar el feed (título, dirección, ajustes)…"
+msgstr "Edit the feed (title, address, settings)…"
+
+msgid "Editar la búsqueda guardada…"
+msgstr "Edit the saved search…"
+
+msgid "Editar la carpeta inteligente…"
+msgstr "Edit the smart folder…"
+
+msgid "Elegir el archivo"
+msgstr "Choose the file"
+
+msgid "Eliminar el feed"
+msgstr "Delete the feed"
+
+msgid "Eliminar la carpeta"
+msgstr "Delete the folder"
+
+msgid "Eliminar la carpeta inteligente"
+msgstr "Delete the smart folder"
+
+msgid "Es una expresión _regular"
+msgstr "It is a _regular expression"
+
+msgid "Escribe el texto de la búsqueda."
+msgstr "Type the search text."
+
+msgid "Escribe qué buscas y pulsa Intro."
+msgstr "Type what you are looking for and press Enter."
+
+msgid "Espacio máximo para _podcasts descargados (MB, 0 = sin límite):"
+msgstr "Maximum space for downloaded _podcasts (MB, 0 = no limit):"
+
+msgid "Estadísticas de _lectura…"
+msgstr "_Reading statistics…"
+
+msgid "Este elemento no tiene menú"
+msgstr "This item has no menu"
+
+msgid "Eti_quetas del artículo…"
+msgstr "Article _tags…"
+
+msgid "Etiquetar el artículo _con:"
+msgstr "Tag the article _with:"
+
+msgid "Etiquetas del feed…"
+msgstr "Feed tags…"
+
+msgid "Exportando {0} artículos…"
+msgstr "Exporting {0} articles…"
+
+msgid "Feed en _pausa (no se actualiza)"
+msgstr "Feed _paused (not updated)"
+
+msgid "Fijar el feed arriba"
+msgstr "Pin the feed to the top"
+
+msgid "Gestionar _categorías…"
+msgstr "Manage _categories…"
+
+msgid "Gestionar _etiquetas…"
+msgstr "Manage _tags…"
+
+msgid "Gestionar categorías de RSS"
+msgstr "Manage RSS categories"
+
+msgid "Guardar la búsqueda"
+msgstr "Save the search"
+
+msgid "Identificación _propia (User-Agent):"
+msgstr "Own _identification (User-Agent):"
+
+msgid "Importando {0} feeds…"
+msgstr "Importing {0} feeds…"
+
+msgid "Importar suscripciones de YouTube (Google _Takeout)…"
+msgstr "Import YouTube subscriptions (Google _Takeout)…"
+
+msgid "Intentar descargar siempre el texto _completo del artículo:"
+msgstr "Always try to download the _full text of the article:"
+
+msgid "Lista de alertas"
+msgstr "List of alerts"
+
+msgid "Lista de búsquedas guardadas"
+msgstr "List of saved searches"
+
+msgid ""
+"Los más antiguos se eliminan al limpiar. Nunca se borran los destacados ni "
+"los marcados para leer más tarde."
+msgstr ""
+"The oldest are deleted when cleaning. Starred ones and those marked to read "
+"later are never deleted."
+
+msgid "Marcar el artículo como leído al a_brirlo:"
+msgstr "Mark the article as read when _opening it:"
+
+msgid "Mostrar _imágenes remotas en los artículos (menos privacidad):"
+msgstr "Show remote _images in articles (less privacy):"
+
+msgid "Mostrar las búsquedas guardadas en el árbol:"
+msgstr "Show saved searches in the tree:"
+
+msgid "Mover a una categoría"
+msgstr "Move to a category"
+
+msgid "Mover a una categoría…"
+msgstr "Move to a category…"
+
+msgid "Mover el feed _entero a la carpeta:"
+msgstr "Move the _whole feed to the folder:"
+
+msgid "Mover esta carpeta a…"
+msgstr "Move this folder to…"
+
+msgid "Mover la carpeta"
+msgstr "Move the folder"
+
+msgid "Máximo de artículos por _feed (0 = sin límite):"
+msgstr "Maximum articles per _feed (0 = no limit):"
+
+msgid "Máximo de avisos de alertas por palabra clave en cada _descarga:"
+msgstr "Maximum keyword alert notices per _download:"
+
+msgid "No _avisar de sus artículos nuevos (sin sonido ni notificación)"
+msgstr "Don't _announce its new articles (no sound or notification)"
+
+msgid "No conservar artículos entre _sesiones (vaciar al reiniciar):"
+msgstr "Don't keep articles between _sessions (clear on restart):"
+
+msgid "No descargar las _imágenes de este feed"
+msgstr "Don't download this feed's _images"
+
+msgid "No hay búsquedas guardadas."
+msgstr "There are no saved searches."
+
+msgid "No hay etiquetas."
+msgstr "There are no tags."
+
+msgid "No hay reglas."
+msgstr "There are no rules."
+
+msgid "Nueva etiqueta"
+msgstr "New tag"
+
+msgid "Ocultar los artículos anclados con fecha _futura:"
+msgstr "Hide pinned articles with a _future date:"
+
+msgid ""
+"Para obtener el archivo: entra en takeout.google.com, deja marcado solo «YouTube y YouTube Music» y pide la exportación. Google te enviará un enlace para descargar un ZIP. No hace falta descomprimirlo: elígelo tal cual.\n"
+"\n"
+"Se ofrecen tus suscripciones, tus canales y tus listas (marcados) y los canales de tu historial (sin marcar)."
+msgstr ""
+"To get the file: go to takeout.google.com, leave only “YouTube and YouTube Music” checked and request the export. Google will send you a link to download a ZIP. You don't need to unzip it: choose it as it is.\n"
+"\n"
+"Your subscriptions, your channels and your playlists are offered (checked) and the channels from your history (unchecked)."
+
+msgid "Pausar el feed (no actualizar)"
+msgstr "Pause the feed (don't update)"
+
+msgid "Pega la dirección de una web que NO tenga RSS y pulsa Analizar."
+msgstr "Paste the address of a web page that has NO RSS and press Analyze."
+
+msgid "Preparando el resumen de artículos sin leer…"
+msgstr "Preparing the summary of unread articles…"
+
+msgid "Probando las reglas…"
+msgstr "Testing the rules…"
+
+msgid "Que contengan el te_xto (título o contenido):"
+msgstr "That contain the te_xt (title or content):"
+
+msgid "R_eanudar"
+msgstr "R_esume"
+
+msgid "Reanudar el feed (actualizar)"
+msgstr "Resume the feed (update)"
+
+msgid "Recuperar episodios antiguos (archivo de Internet)…"
+msgstr "Recover old episodes (Internet Archive)…"
+
+msgid "Regla _activa"
+msgstr "_Active rule"
+
+msgid "Regla a_vanzada…"
+msgstr "A_dvanced rule…"
+
+msgid "Reglas y filtros RSS automáticos"
+msgstr "Automatic RSS rules and filters"
+
+msgid "Reintentando los feeds con fallos…"
+msgstr "Retrying the feeds with failures…"
+
+msgid "Renombrar el feed"
+msgstr "Rename the feed"
+
+msgid "Renombrar el feed…"
+msgstr "Rename the feed…"
+
+msgid "Renombrar la carpeta"
+msgstr "Rename the folder"
+
+msgid "Renombrar la carpeta…"
+msgstr "Rename the folder…"
+
+msgid ""
+"Se conservan los destacados, los marcados para leer más tarde y los podcasts"
+" descargados."
+msgstr ""
+"Starred items, those marked to read later and downloaded podcasts are kept."
+
+msgid "Selecciona en el árbol un elemento de RSS"
+msgstr "Select an RSS item in the tree"
+
+msgid "Si el _título contiene:"
+msgstr "If the _title contains:"
+
+msgid ""
+"Sincroniza esta cuenta RSS con un servidor para compartir tus feeds y lo "
+"leído y destacado entre dispositivos. Tus credenciales se guardan cifradas."
+msgstr ""
+"Sync this RSS account with a server to share your feeds and what you have "
+"read and starred between devices. Your credentials are stored encrypted."
+
+msgid "Sincronizando…"
+msgstr "Syncing…"
+
+msgid "Solo _destacados"
+msgstr "Only _starred"
+
+msgid "Solo con _audio o vídeo (podcasts)"
+msgstr "Only with _audio or video (podcasts)"
+
+msgid "Solo leer más _tarde"
+msgstr "Only read _later"
+
+msgid "Solo los _corregidos en origen (tienen versiones anteriores)"
+msgstr "Only those _corrected at the source (they have earlier versions)"
+
+msgid "Subcarpeta creada. Mueve feeds a ella desde su menú."
+msgstr "Subfolder created. Move feeds into it from their menu."
+
+msgid "Suscribiendo a {0}…"
+msgstr "Subscribing to {0}…"
+
+msgid ""
+"Te avisan cuando llega un artículo que contenga la palabra. {0} alertas."
+msgstr ""
+"They warn you when an article containing the word arrives. {0} alerts."
+
+msgid "Todavía no hay etiquetas."
+msgstr "There are no tags yet."
+
+msgid "Tus carpetas inteligentes (se abren desde el árbol de RSS)."
+msgstr "Your smart folders (they open from the RSS tree)."
+
+msgid "Ver las estadísticas de la categoría"
+msgstr "See the category statistics"
+
+msgid "Verificando credenciales…"
+msgstr "Verifying credentials…"
+
+msgid "_Abrir en el navegador"
+msgstr "_Open in the browser"
+
+msgid "_Actualizar ahora"
+msgstr "_Update now"
+
+msgid "_Alertas por palabra clave…"
+msgstr "_Keyword alerts…"
+
+msgid "_Analizar la web"
+msgstr "_Analyze the web page"
+
+msgid "_Autor (contiene):"
+msgstr "_Author (contains):"
+
+msgid "_Borrar descarga"
+msgstr "_Delete download"
+
+msgid "_Buscar ahora"
+msgstr "_Search now"
+
+msgid "_Buscar feeds y podcasts…"
+msgstr "_Search feeds and podcasts…"
+
+msgid "_Carpeta donde suscribirse:"
+msgstr "_Folder to subscribe in:"
+
+msgid "_Contraseña o token de API:"
+msgstr "_Password or API token:"
+
+msgid "_Copiar la dirección"
+msgstr "_Copy the address"
+
+msgid "_Crear la regla"
+msgstr "_Create the rule"
+
+msgid "_Crear una categoría…"
+msgstr "_Create a category…"
+
+msgid "_Crear una etiqueta…"
+msgstr "_Create a tag…"
+
+msgid "_Desactivar"
+msgstr "_Turn off"
+
+msgid "_Descargas de podcast…"
+msgstr "_Podcast downloads…"
+
+msgid "_Describir con IA"
+msgstr "_Describe with AI"
+
+msgid "_Detener: si esta regla coincide, no evaluar las siguientes"
+msgstr "_Stop: if this rule matches, don't evaluate the following ones"
+
+msgid "_Dirección (URL) del feed:"
+msgstr "Feed _address (URL):"
+
+msgid "_Dirección de la web (página de noticias, blog, etc.):"
+msgstr "Web page _address (news page, blog, etc.):"
+
+msgid "_Dirección del servidor (URL del API):"
+msgstr "Server _address (API URL):"
+
+msgid "_Elementos (Espacio marca o desmarca):"
+msgstr "_Items (Space checks or unchecks):"
+
+msgid "_Estado de lectura:"
+msgstr "_Reading status:"
+
+msgid "_Etiquetas de {0}:"
+msgstr "_Tags of {0}:"
+
+msgid "_Exportar"
+msgstr "_Export"
+
+msgid "_Formato de los archivos:"
+msgstr "File _format:"
+
+msgid "_Guardar la búsqueda actual como buffer…"
+msgstr "_Save the current search as a buffer…"
+
+msgid "_Guardar la carpeta"
+msgstr "_Save the folder"
+
+msgid "_Guardar la regla"
+msgstr "_Save the rule"
+
+msgid "_Historial de lectura…"
+msgstr "Reading _history…"
+
+msgid "_Identificarse ante el servidor como:"
+msgstr "_Identify to the server as:"
+
+msgid "_Imágenes del artículo…"
+msgstr "_Images of the article…"
+
+msgid "_Intervalo de actualización propio en minutos (0 = el general):"
+msgstr "Own update _interval in minutes (0 = the general one):"
+
+msgid ""
+"_Llevar también al servidor las altas, bajas, cambios de nombre y de carpeta"
+" de los feeds"
+msgstr ""
+"_Also send to the server feed additions, removals, renames and folder "
+"changes"
+
+msgid "_Minutos entre las descargas automáticas de artículos:"
+msgstr "_Minutes between automatic article downloads:"
+
+msgid "_Mover"
+msgstr "_Move"
+
+msgid "_Mover el feed a la categoría:"
+msgstr "_Move the feed to the category:"
+
+msgid "_Mover la carpeta dentro de:"
+msgstr "_Move the folder inside:"
+
+msgid "_Nombre de la carpeta:"
+msgstr "Folder _name:"
+
+msgid "_Nombre de la etiqueta:"
+msgstr "Tag _name:"
+
+msgid "_Nombre de la nueva subcarpeta:"
+msgstr "_Name of the new subfolder:"
+
+msgid "_Nombre de la regla:"
+msgstr "Rule _name:"
+
+msgid "_Nueva regla sencilla…"
+msgstr "_New simple rule…"
+
+msgid "_Nueva…"
+msgstr "_New…"
+
+msgid "_Nuevo nombre de la carpeta:"
+msgstr "_New name of the folder:"
+
+msgid "_Nuevo nombre del feed:"
+msgstr "_New name of the feed:"
+
+msgid "_Origen:"
+msgstr "_Source:"
+
+msgid "_Palabra o frase a vigilar:"
+msgstr "_Word or phrase to watch:"
+
+msgid "_Pausar"
+msgstr "_Pause"
+
+msgid "_Pausar o reactivar"
+msgstr "_Pause or resume"
+
+msgid "_Prioridad (mayor = se evalúa antes):"
+msgstr "_Priority (higher = evaluated first):"
+
+msgid "_Probar las reglas"
+msgstr "_Test the rules"
+
+msgid "_Probar y guardar"
+msgstr "_Test and save"
+
+msgid "_RSS"
+msgstr "_RSS"
+
+msgid "_Reglas y filtros automáticos…"
+msgstr "_Automatic rules and filters…"
+
+msgid "_Reintentar todos los rotos"
+msgstr "_Retry all the broken ones"
+
+msgid "_Resultado de la comprobación:"
+msgstr "_Check result:"
+
+msgid "_Resumen de los artículos sin leer"
+msgstr "_Summary of unread articles"
+
+msgid "_Salud de los feeds…"
+msgstr "Feed _health…"
+
+msgid "_Sincronización con un servidor…"
+msgstr "Sync with a _server…"
+
+msgid "_Sincronizar ahora"
+msgstr "_Sync now"
+
+msgid "_Sincronizar cada (minutos):"
+msgstr "_Sync every (minutes):"
+
+msgid "_Suscribirse"
+msgstr "_Subscribe"
+
+msgid "_Texto de la búsqueda:"
+msgstr "Search _text:"
+
+msgid "_Tipo de servidor:"
+msgstr "Server _type:"
+
+msgid "_URL del canal de YouTube o su ID (UC…):"
+msgstr "YouTube channel _URL or its ID (UC…):"
+
+msgid "_Usar la dirección sugerida"
+msgstr "_Use the suggested address"
+
+msgid "_Usuario (déjalo vacío si usas un token de API):"
+msgstr "_User (leave empty if you use an API token):"
+
+msgid "_Ver la ficha"
+msgstr "_View the details"
+
+msgid "{0} artículos detectados. Revisa y pulsa Crear el feed."
+msgstr "{0} articles detected. Review them and press Create the feed."
+
+msgid "{0} artículos leídos (Intro para reabrir)."
+msgstr "{0} articles read (Enter to reopen)."
+
+msgid "{0} búsquedas guardadas"
+msgstr "{0} saved searches"
+
+msgid ""
+"{0} feeds en {4}: {1} nuevos, {2} ya suscritos y {3} no válidos. Marca los "
+"que quieres importar (los nuevos vienen marcados):"
+msgstr ""
+"{0} feeds in {4}: {1} new, {2} already subscribed and {3} invalid. Check the"
+" ones you want to import (the new ones come checked):"
+
+msgid "{0} imágenes (con su texto alternativo)."
+msgstr "{0} images (with their alternative text)."
+
+msgid "{0} reglas (por prioridad)."
+msgstr "{0} rules (by priority)."
+
+msgid "{0} resultados, buscando más…"
+msgstr "{0} results, looking for more…"
+
+msgid "¿Borrar la descarga de «{0}»?"
+msgstr "Delete the download of “{0}”?"
+
+msgid "¿Eliminar el feed «{0}» y todos sus artículos?"
+msgstr "Delete the feed “{0}” and all its articles?"
+
+msgid ""
+"¿Eliminar la carpeta «{0}»? Los feeds dentro de ella se mantendrán sin "
+"categoría."
+msgstr "Delete the folder “{0}”? The feeds inside it will stay uncategorized."
+
+msgid "¿Qué artículos quieres _exportar?"
+msgstr "Which articles do you want to _export?"
+
+msgid ""
+"¿Qué reglas quieres aplicar? (Los sonidos y avisos por voz no se ejecutan.)"
+msgstr ""
+"Which rules do you want to apply? (Sounds and spoken alerts are not run.)"
+
+msgid ""
+"¿Seguro que quieres eliminar la categoría «{name}»? Los feeds dentro de ella"
+" se mantendrán sin categoría."
+msgstr ""
+"Are you sure you want to delete the category “{name}”? The feeds inside it "
+"will stay uncategorized."
+
+msgid ""
+"Tecla Menú o Mayús+F10 sobre un feed, una carpeta o una cuenta: actualizar, "
+"fijar, pausar, renombrar, mover, editar..."
+msgstr ""
+"Menu key or Shift+F10 on a feed, a folder or an account: update, pin, pause,"
+" rename, move, edit..."
+
+msgid "Árbol de feeds"
+msgstr "Feed tree"

@@ -94,6 +94,7 @@ class DialogoPreferencias(Gtk.Window):
         self.cuaderno.update_property([Gtk.AccessibleProperty.LABEL], [_("Categorías de preferencias")])
         caja.append(self.cuaderno)
         self._crear_general()
+        self._crear_rss()
         self._crear_ia()
         self._crear_traduccion()
 
@@ -115,6 +116,51 @@ class DialogoPreferencias(Gtk.Window):
     def _pestana(self, titulo: str, pagina: _Pagina):
         etiqueta = Gtk.Label(label=titulo, use_underline=True)
         self.cuaderno.append_page(pagina, etiqueta)
+
+    # ------------------------------------------------------------------ RSS
+    def _crear_rss(self):
+        p = _Pagina()
+        self.rss_intervalo = Gtk.SpinButton.new_with_range(1, 1440, 5)
+        self.rss_intervalo.set_value(int(config.get("rss", "update_interval", 30) or 30))
+        p.campo(_("_Minutos entre las descargas automáticas de artículos:"), self.rss_intervalo,
+                _("Cada feed se vuelve a pedir cuando pasa este tiempo desde la última vez. Un feed puede tener el suyo propio "
+                  "en «Editar el feed»."))
+        self.rss_notificar = p.interruptor(config.get("rss", "notifications_enabled", True))
+        p.campo(_("A_visar de los artículos nuevos:"), self.rss_notificar)
+        self.rss_siempre_completo = p.interruptor(config.get("rss", "download_fulltext", False))
+        p.campo(_("Intentar descargar siempre el texto _completo del artículo:"), self.rss_siempre_completo)
+        self.rss_leido_al_abrir = p.interruptor(config.get("rss", "mark_read_on_open", True))
+        p.campo(_("Marcar el artículo como leído al a_brirlo:"), self.rss_leido_al_abrir)
+        self.rss_imagenes = p.interruptor(config.get("rss", "download_images", False))
+        p.campo(_("Mostrar _imágenes remotas en los artículos (menos privacidad):"), self.rss_imagenes,
+                _("Desactivado, las imágenes se sustituyen por su texto alternativo y no se pide nada al servidor del feed."))
+        self.rss_ocultar_futuros = p.interruptor(config.get("rss", "hide_future_articles", False))
+        p.campo(_("Ocultar los artículos anclados con fecha _futura:"), self.rss_ocultar_futuros)
+        self.rss_busquedas_arbol = p.interruptor(config.get("rss", "saved_searches_in_tree", True))
+        p.campo(_("Mostrar las búsquedas guardadas en el árbol:"), self.rss_busquedas_arbol)
+        self.rss_tope_alertas = Gtk.SpinButton.new_with_range(1, 50, 1)
+        self.rss_tope_alertas.set_value(int(config.get("rss", "max_alert_notifications", 3) or 3))
+        p.campo(_("Máximo de avisos de alertas por palabra clave en cada _descarga:"), self.rss_tope_alertas)
+        try:
+            mib = int(config.get("rss", "podcast_max_mib", 4096))
+        except (TypeError, ValueError):
+            mib = 4096
+        self.rss_podcast_mib = Gtk.SpinButton.new_with_range(0, 1048576, 256)
+        self.rss_podcast_mib.set_value(max(0, mib))
+        p.campo(_("Espacio máximo para _podcasts descargados (MB, 0 = sin límite):"), self.rss_podcast_mib)
+        self.rss_dias = Gtk.SpinButton.new_with_range(0, 3650, 10)
+        self.rss_dias.set_value(int(config.get("rss", "keep_articles_days", 0) or 0))
+        p.campo(_("Conservar los artículos (_días, 0 = para siempre):"), self.rss_dias,
+                _("Los más antiguos se eliminan al limpiar. Nunca se borran los destacados ni los marcados para leer más tarde."))
+        self.rss_max_feed = Gtk.SpinButton.new_with_range(0, 100000, 50)
+        self.rss_max_feed.set_value(int(config.get("rss", "max_articles_per_feed", 0) or 0))
+        p.campo(_("Máximo de artículos por _feed (0 = sin límite):"), self.rss_max_feed)
+        self.rss_no_conservar = p.interruptor(config.get("rss", "no_conservar_entre_sesiones", False))
+        p.campo(_("No conservar artículos entre _sesiones (vaciar al reiniciar):"), self.rss_no_conservar,
+                _("Se conservan los destacados, los marcados para leer más tarde y los podcasts descargados."))
+        self.rss_corte = p.interruptor(config.get("rss", "corte_al_limpiar", False))
+        p.campo(_("Al limpiar los datos de RSS, bajar solo artículos _nuevos a partir de ese momento:"), self.rss_corte)
+        self._pestana(_("_RSS"), p)
 
     # ------------------------------------------------------------------ General
     def _crear_general(self):
@@ -435,6 +481,19 @@ class DialogoPreferencias(Gtk.Window):
         config.set("rss", "fulltext_auto", self.completo.get_active())
         config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
         config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
+        config.set("rss", "update_interval", int(self.rss_intervalo.get_value()))
+        config.set("rss", "notifications_enabled", self.rss_notificar.get_active())
+        config.set("rss", "download_fulltext", self.rss_siempre_completo.get_active())
+        config.set("rss", "mark_read_on_open", self.rss_leido_al_abrir.get_active())
+        config.set("rss", "download_images", self.rss_imagenes.get_active())
+        config.set("rss", "hide_future_articles", self.rss_ocultar_futuros.get_active())
+        config.set("rss", "saved_searches_in_tree", self.rss_busquedas_arbol.get_active())
+        config.set("rss", "max_alert_notifications", int(self.rss_tope_alertas.get_value()))
+        config.set("rss", "podcast_max_mib", int(self.rss_podcast_mib.get_value()))
+        config.set("rss", "keep_articles_days", int(self.rss_dias.get_value()))
+        config.set("rss", "max_articles_per_feed", int(self.rss_max_feed.get_value()))
+        config.set("rss", "no_conservar_entre_sesiones", self.rss_no_conservar.get_active())
+        config.set("rss", "corte_al_limpiar", self.rss_corte.get_active())
         config.set("gtk", "mastodon_realtime", self.tiempo_real.get_active())
         config.set("gtk", "bluesky_realtime", self.tiempo_real_bsky.get_active())
         config.set("gtk", "wsocial_realtime", self.tiempo_real_ws.get_active())
