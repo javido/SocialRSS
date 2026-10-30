@@ -185,10 +185,81 @@ class _OrdenMixin:
         if n.servicio == "rss" and n.tipo == "category":
             return self._mover_db(n, [h for h in hermanos if h.tipo == "category"], "rss_categories",
                                   lambda h: h.category_id, subir)
+        # listas, búsquedas, cronologías y demás buffers guardados de X y de Reddit
+        if n.servicio in ("x", "reddit") and n.timeline:
+            movido = self._mover_x(n, hermanos, subir) if n.servicio == "x" else self._mover_reddit(n, subir)
+            if movido is not None:
+                return movido
         # buffers abiertos durante la sesión
         if n.cerrable:
             return self._mover_extra(n, subir)
         return False
+
+    # ------------------------------------------------------------------ X y Reddit
+    @staticmethod
+    def _id_x(h: Nodo, tabla: str):
+        """Id de la fila de X que corresponde a un nodo del árbol (las listas la llevan en la clave; las demás se buscan)."""
+        tl = h.timeline
+        if tabla == "x_lists":
+            return f"{h.account_id}:{tl[5:]}"
+        if tabla == "x_searches":
+            f = db.query_one("SELECT id FROM x_searches WHERE account_id = ? AND query = ?", (h.account_id, tl[7:]))
+        else:
+            uid, _s, modo = tl[5:].partition(":")
+            f = db.query_one("SELECT id FROM x_user_timelines WHERE account_id = ? AND user_id = ? "
+                             "AND COALESCE(modo, 'tweets') = ?", (h.account_id, uid, modo or "tweets"))
+        return f[0] if f else None
+
+    def _mover_x(self, n: Nodo, hermanos: list, subir: bool):
+        """True/False si el nodo es de un grupo de X que se reordena; None si no lo es."""
+        tl = n.timeline
+        tablas = (("list:", "x_lists"), ("search:", "x_searches"), ("user:", "x_user_timelines"))
+        for prefijo, tabla in tablas:
+            if tl.startswith(prefijo):
+                grupo = [h for h in hermanos if h.timeline.startswith(prefijo)]
+                if any(self._id_x(h, tabla) is None for h in grupo):
+                    return False
+                return self._mover_db(n, grupo, tabla, lambda h, t=tabla: self._id_x(h, t), subir)
+        for prefijo, clave in (("thread:", "thread_buffers"), ("community:", "community_buffers"), ("dm:", "dm_buffers")):
+            if tl.startswith(prefijo):
+                guardadas = list(config.get("x", clave, []) or [])
+                visibles = [(i, str(c.get("id"))) for i, c in enumerate(guardadas)
+                            if isinstance(c, dict) and c.get("account_id") in (None, n.account_id)]
+                return self._mover_en_config("x", clave, guardadas, visibles, tl[len(prefijo):], subir)
+        return None
+
+    def _mover_reddit(self, n: Nodo, subir: bool):
+        tl = n.timeline
+        if tl.startswith("sub:") and tl.count(":") == 1:
+            clave, valor = "saved_subreddits", tl[4:]
+            guardadas = list(config.get("reddit", clave, []) or [])
+            visibles = [(i, s.get("name") if isinstance(s, dict) else str(s)) for i, s in enumerate(guardadas)]
+        elif tl.startswith("search:"):
+            clave, valor = "saved_searches", tl[7:]
+            guardadas = list(config.get("reddit", clave, []) or [])
+            visibles = list(enumerate(guardadas))
+        else:
+            clave, valor = "gtk_buffers", tl
+            guardadas = list(config.get("reddit", clave, []) or [])
+            visibles = [(i, c.get("timeline")) for i, c in enumerate(guardadas)
+                        if isinstance(c, dict) and c.get("account_id") in (None, n.account_id)]
+            if valor not in [v for _i, v in visibles]:
+                return None
+        return self._mover_en_config("reddit", clave, guardadas, visibles, valor, subir)
+
+    @staticmethod
+    def _mover_en_config(servicio: str, clave: str, guardadas: list, visibles: list, valor, subir: bool) -> bool:
+        """Intercambia en una lista guardada la entrada `valor` con la vecina de su grupo (`visibles`: (posición, valor))."""
+        pos = next((k for k, (_i, v) in enumerate(visibles) if v == valor), None)
+        if pos is None:
+            return False
+        otro = pos - 1 if subir else pos + 1
+        if not 0 <= otro < len(visibles):
+            return False
+        a, b = visibles[pos][0], visibles[otro][0]
+        guardadas[a], guardadas[b] = guardadas[b], guardadas[a]
+        config.set(servicio, clave, guardadas)
+        return True
 
     @staticmethod
     def _pinned(h: Nodo) -> int:
