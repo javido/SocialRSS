@@ -888,7 +888,8 @@ class _PeerTubeMixin:
         a("pt-estadisticas-instancia", self.pt_estadisticas_instancia)
         a("pt-bloquear-video", lambda: self.pt_bloquear_video(True))
         a("pt-desbloquear-video", lambda: self.pt_bloquear_video(False))
-        for nombre, clase, kw in (("pt-mis-denuncias", "DialogoAbusosPT", {"solo_mias": True}),
+        for nombre, clase, kw in (("pt-importaciones", "DialogoImportacionesPT", {}), ("pt-avisos", "DialogoAvisosPT", {}),
+                                  ("pt-mis-denuncias", "DialogoAbusosPT", {"solo_mias": True}),
                                   ("pt-mod-denuncias", "DialogoAbusosPT", {}),
                                   ("pt-mod-bloqueados", "DialogoBloqueadosPT", {}),
                                   ("pt-admin-usuarios", "DialogoUsuariosAdminPT", {}),

@@ -544,3 +544,80 @@ class DialogoRunnersAdminPT(_ListaAdmin):
                                                _("Token borrado.")), etiqueta_si=_("Borrar"))
 
 
+
+
+# --------------------------------------------------------------------------- importaciones y avisos
+class DialogoImportacionesPT(DialogoLista):
+    """Tus importaciones de vídeo por dirección: su estado, reintentar, cancelar y borrar."""
+
+    def __init__(self, padre, account_id: int):
+        super().__init__(padre, _("Mis importaciones"), _("Lista de importaciones"))
+        self.account_id, self.items = account_id, []
+        self.boton(_("_Reintentar"), lambda: self._sobre(peertube_service.reintentar_importacion, _("Importación reintentada.")))
+        self.boton(_("_Cancelar"), lambda: self._sobre(peertube_service.cancelar_importacion, _("Importación cancelada.")))
+        self.boton(_("_Borrar"), lambda: self._sobre(peertube_service.borrar_importacion, _("Importación borrada.")))
+        self.boton(_("A_ctualizar"), self._cargar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("No se pudieron cargar las importaciones: {e}").format(e=err))
+                return
+            self.items = res or []
+            self.lista.poner([f"{i['titulo']}. {i['estado']}" + (f". {i['error']}" if i.get("error") else "") for i in self.items])
+            self.mostrar_estado(_("{n} importaciones").format(n=len(self.items)) if self.items else _("No tienes importaciones."))
+            self.lista.enfocar()
+        ejecutar(lambda: peertube_service.listar_importaciones(self.account_id), _fin)
+
+    def _sobre(self, fn, ok: str):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.items):
+            i = self.items[p]
+            _hacer(self, lambda: fn(self.account_id, i["id"]), ok, lambda _r: self._cargar())
+
+
+AVISOS_PT = [("newVideoFromSubscription", "Nuevo vídeo de una suscripción"), ("newLiveFromSubscription", "Directo de una suscripción"),
+             ("newCommentOnMyVideo", "Comentario en mis vídeos"), ("commentMention", "Menciones en comentarios"),
+             ("newFollow", "Nuevo seguidor de mi canal"), ("myVideoPublished", "Mis vídeos publicados"),
+             ("myVideoImportFinished", "Importaciones terminadas"), ("newPeerTubeVersion", "Nuevas versiones de PeerTube")]
+
+
+class DialogoAvisosPT(DialogoBase):
+    """De qué recibes aviso en PeerTube (aviso web). Solo cambia lo que se muestra; el resto se conserva."""
+
+    def __init__(self, padre, account_id: int):
+        super().__init__(padre, _("Preferencias de notificaciones"), _("_Guardar"))
+        self.account_id, self.prefs, self.casillas = account_id, {}, {}
+        for clave, nombre in AVISOS_PT:
+            c = Gtk.CheckButton(label=_(nombre))
+            self.rejilla.attach(c, 1, self._fila, 1, 1)
+            self._fila += 1
+            self.casillas[clave] = c
+        self.boton_aceptar.set_sensitive(False)
+        self.set_focus(next(iter(self.casillas.values())))
+
+        def _fin(prefs, err):
+            if err:
+                return notificar(_("No se pudieron cargar las preferencias: {e}").format(e=err))
+            self.prefs = dict(prefs or {})
+            for clave, c in self.casillas.items():
+                try:
+                    c.set_active(bool(int(self.prefs.get(clave, 0) or 0) & 1))
+                except (TypeError, ValueError):
+                    pass
+            self.boton_aceptar.set_sensitive(True)
+        ejecutar(lambda: peertube_service.preferencias_notificaciones(account_id), _fin)
+
+    def aceptar(self):
+        ajustes = dict(self.prefs)
+        for clave, c in self.casillas.items():
+            try:
+                valor = int(ajustes.get(clave, 0) or 0)
+            except (TypeError, ValueError):
+                valor = 0
+            ajustes[clave] = (valor | 1) if c.get_active() else (valor & ~1)
+        self.close()
+        _hacer(self.padre, lambda: peertube_service.guardar_preferencias_notificaciones(self.account_id, ajustes),
+               _("Preferencias guardadas."))

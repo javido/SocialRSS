@@ -56137,3 +56137,367 @@ msgid ""
 "Documentos huérfanos: {o}\n"
 "Archivos con partes que faltan en el canal: {b}"
 msgstr ""
+
+msgid "(Crear un filtro nuevo)"
+msgstr ""
+
+msgid "Asignar una etiqueta"
+msgstr ""
+
+msgid "Barra lateral de r/{s}"
+msgstr ""
+
+msgid "Bloquear el servidor {d}…"
+msgstr ""
+
+msgid "Bloquear un servidor"
+msgstr ""
+
+msgid "Borrar y _volver a redactar"
+msgstr ""
+
+msgid "Borrar y redactar"
+msgstr ""
+
+msgid "Cabecera quitada."
+msgstr ""
+
+msgid "Cargando la barra lateral…"
+msgstr ""
+
+msgid "Cargando los emojis…"
+msgstr ""
+
+msgid "Citas de tu publicación"
+msgstr ""
+
+msgid "Cuenta destacada."
+msgstr ""
+
+msgid "Cuenta ya no destacada."
+msgstr ""
+
+msgid "Cuentas _destacadas en mi perfil…"
+msgstr ""
+
+msgid "Dejar de destacar la cuenta"
+msgstr ""
+
+msgid "Destacar la cuenta en mi perfil"
+msgstr ""
+
+msgid "Destacar un hashtag"
+msgstr ""
+
+msgid "El usuario puede _editar el texto:"
+msgstr ""
+
+msgid "Elementos de la barra lateral"
+msgstr ""
+
+msgid "Emo_jis de un subreddit…"
+msgstr ""
+
+msgid "Emojis de r/{s}"
+msgstr ""
+
+msgid ""
+"Es la primera vez: se ha guardado la lista de tus {n} seguidores. La próxima"
+" vez verás quién se ha ido y quién ha llegado."
+msgstr ""
+
+msgid "Establecer _mi etiqueta…"
+msgstr ""
+
+msgid "Etiquetas de r/{s}"
+msgstr ""
+
+msgid "Filtrar la publicación"
+msgstr ""
+
+msgid "Filtro nuevo"
+msgstr ""
+
+msgid "Hashtag quitado."
+msgstr ""
+
+msgid "Hashtags destacados de @{a}"
+msgstr ""
+
+msgid "Hashtags destacados en mi perfil"
+msgstr ""
+
+msgid "Hashtags destacados en su perfil…"
+msgstr ""
+
+msgid "Importación borrada."
+msgstr ""
+
+msgid "Importación cancelada."
+msgstr ""
+
+msgid "Importación reintentada."
+msgstr ""
+
+msgid "Lista de importaciones"
+msgstr ""
+
+msgid "Lista e_xclusiva (sus miembros no salen en Inicio):"
+msgstr ""
+
+msgid "Listas a las que pertenece"
+msgstr ""
+
+msgid "Listas a las que pertenece…"
+msgstr ""
+
+msgid "Listas de @{a}"
+msgstr ""
+
+msgid "Los adjuntos no se recuperan."
+msgstr ""
+
+msgid "Mi nota privada sobre la cuenta…"
+msgstr ""
+
+msgid "Mis _importaciones…"
+msgstr ""
+
+msgid "Mis _listas…"
+msgstr ""
+
+msgid "Mostrar _respuestas:"
+msgstr ""
+
+msgid "Más acciones sobre @{a}"
+msgstr ""
+
+msgid "Más acciones sobre la _cuenta del autor…"
+msgstr ""
+
+msgid "Nadie ha citado esta publicación."
+msgstr ""
+
+msgid "No se pudieron cargar las citas: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar las importaciones: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar las plantillas: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar las preferencias: {e}"
+msgstr ""
+
+msgid "No se pudieron cargar los emojis: {e}"
+msgstr ""
+
+msgid "No se pudieron leer los filtros: {e}"
+msgstr ""
+
+msgid "No se pudo cargar la barra lateral: {e}"
+msgstr ""
+
+msgid "No se pudo consultar la cuenta: {e}"
+msgstr ""
+
+msgid "No tiene hashtags destacados."
+msgstr ""
+
+msgid "No tienes importaciones."
+msgstr ""
+
+msgid "Nuevos:"
+msgstr ""
+
+msgid "Política de citas cambiada."
+msgstr ""
+
+msgid "Preferencias de _notificaciones…"
+msgstr ""
+
+msgid "Publicaciones que te citan"
+msgstr ""
+
+msgid "Publicación borrada. Puedes volver a redactarla."
+msgstr ""
+
+msgid "Publicación filtrada."
+msgstr ""
+
+msgid "Quitar mi foto de _perfil…"
+msgstr ""
+
+msgid "Quitar mi imagen de _cabecera…"
+msgstr ""
+
+msgid "Quién puede citar esta publicación"
+msgstr ""
+
+msgid "Quién puede citar mi publicación…"
+msgstr ""
+
+msgid "Seguidores ahora: {n}"
+msgstr ""
+
+msgid "Seguidores en común con @{a}"
+msgstr ""
+
+msgid "Seguidores en común…"
+msgstr ""
+
+msgid "Seguimiento actualizado."
+msgstr ""
+
+msgid "Seguir a @{a}"
+msgstr ""
+
+msgid "Seguir con opciones (impulsos y avisos)…"
+msgstr ""
+
+msgid "Servidor bloqueado."
+msgstr ""
+
+msgid "Servidor desbloqueado."
+msgstr ""
+
+msgid "Servidores _bloqueados…"
+msgstr ""
+
+msgid "Servidores bloqueados"
+msgstr ""
+
+msgid "Solo la pueden usar los _moderadores:"
+msgstr ""
+
+msgid "Solo puedes hacer esto con tus propias publicaciones"
+msgstr ""
+
+msgid "Te han dejado de seguir:"
+msgstr ""
+
+msgid "Tus listas de Mastodon"
+msgstr ""
+
+msgid "Ver las citas de mi publicación…"
+msgstr ""
+
+msgid "Ver sus _impulsos:"
+msgstr ""
+
+msgid "_Asignar"
+msgstr ""
+
+msgid "_Asignar a un usuario…"
+msgstr ""
+
+msgid "_Avisarme de sus publicaciones nuevas:"
+msgstr ""
+
+msgid "_Barra lateral de un subreddit…"
+msgstr ""
+
+msgid "_Bloquear uno…"
+msgstr ""
+
+msgid "_Borrar plantilla"
+msgstr ""
+
+msgid "_Elegir la imagen…"
+msgstr ""
+
+msgid "_Etiquetas (flair) de un subreddit…"
+msgstr ""
+
+msgid "_Filtrar esta publicación…"
+msgstr ""
+
+msgid "_Filtro:"
+msgstr ""
+
+msgid "_Hashtag (sin #):"
+msgstr ""
+
+msgid "_Hashtags destacados en mi perfil…"
+msgstr ""
+
+msgid "_Nombre de la lista:"
+msgstr ""
+
+msgid "_Nombre del emoji (sin dos puntos):"
+msgstr ""
+
+msgid "_Nombre del filtro:"
+msgstr ""
+
+msgid "_Novedades de seguidores…"
+msgstr ""
+
+msgid "_Nueva plantilla…"
+msgstr ""
+
+msgid "_Quién:"
+msgstr ""
+
+msgid "_Revocar la cita"
+msgstr ""
+
+msgid "_Servidor (por ejemplo ejemplo.social):"
+msgstr ""
+
+msgid "_Texto de la etiqueta (vacío para quitarla):"
+msgstr ""
+
+msgid "_Texto de la etiqueta:"
+msgstr ""
+
+msgid "_Texto de tu etiqueta (vacío para quitarla):"
+msgstr ""
+
+msgid "_Ver el contenido"
+msgstr ""
+
+msgid "editable"
+msgstr ""
+
+msgid "{n} citas"
+msgstr ""
+
+msgid "{n} emojis"
+msgstr ""
+
+msgid "{n} importaciones"
+msgstr ""
+
+msgid "{n} plantillas"
+msgstr ""
+
+msgid "{n}, tipo {k}"
+msgstr ""
+
+msgid "¿Bloquear todo el servidor {d}? Dejarás de ver a sus cuentas."
+msgstr ""
+
+msgid "¿Borrar el emoji «{n}»?"
+msgstr ""
+
+msgid "¿Borrar la lista «{t}»?"
+msgstr ""
+
+msgid "¿Borrar la plantilla «{t}»?"
+msgstr ""
+
+msgid ""
+"¿Borrar la publicación y abrir el editor con su texto para volver a "
+"escribirla?"
+msgstr ""
+
+msgid "¿Quitar tu foto de perfil?"
+msgstr ""
+
+msgid "¿Quitar tu imagen de cabecera?"
+msgstr ""
+
+msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
+msgstr ""

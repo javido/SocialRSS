@@ -110,6 +110,11 @@ def _menu() -> Gio.Menu:
                                  (_("Re_portar la publicación"), "win.reportar"),
                                  (_("Cargar publicaciones _anteriores"), "win.cargar-mas"),
                                  (_("C_errar el buffer"), "win.cerrar-buffer")))
+    pub.append_section(None, sec((_("Más acciones sobre la _cuenta del autor…"), "win.ms-cuenta-del-autor"),
+                                 (_("_Filtrar esta publicación…"), "win.ms-filtrar-publicacion"),
+                                 (_("Borrar y _volver a redactar"), "win.ms-borrar-redactar"),
+                                 (_("Ver las citas de mi publicación…"), "win.ms-citas"),
+                                 (_("Quién puede citar mi publicación…"), "win.ms-politica-citas")))
     pub.append_section(None, sec((_("Quién la ha impulsa_do"), "win.quien-impulso"),
                                  (_("Quién la ha marcado como _favorita"), "win.quien-favorito"),
                                  (_("_Historial de ediciones"), "win.historial"),
@@ -136,6 +141,13 @@ def _menu() -> Gio.Menu:
                                      (_("Cuentas s_ilenciadas…"), "win.cuentas-muted")))
     cuentas.append_section(None, sec((_("Filtros del _servidor…"), "win.filtros"),
                                      (_("Editar _mi perfil…"), "win.mi-perfil")))
+    cuentas.append_section(None, sec((_("Mis _listas…"), "win.ms-listas"),
+                                     (_("_Hashtags destacados en mi perfil…"), "win.ms-hashtags-destacados"),
+                                     (_("Cuentas _destacadas en mi perfil…"), "win.ms-cuentas-destacadas"),
+                                     (_("Servidores _bloqueados…"), "win.ms-dominios-bloqueados"),
+                                     (_("_Novedades de seguidores…"), "win.ms-novedades-seguidores"),
+                                     (_("Quitar mi foto de _perfil…"), "win.ms-quitar-avatar"),
+                                     (_("Quitar mi imagen de _cabecera…"), "win.ms-quitar-cabecera")))
     cuentas.append_section(None, sec((_("_Anuncios del servidor…"), "win.ms-anuncios"),
                                      (_("Enlaces en _tendencia…"), "win.ms-enlaces-tendencia"),
                                      (_("_Información de la instancia…"), "win.ms-info-instancia"),
@@ -360,6 +372,9 @@ def _menu() -> Gio.Menu:
         rd.append_section(None, sec((_("_Wiki de un subreddit…"), "win.rd-wiki"),
                                     (_("_Modmail…"), "win.rd-modmail"),
                                     (_("Hilos en _directo…"), "win.rd-live"),
+                                    (_("_Etiquetas (flair) de un subreddit…"), "win.rd-flairs"),
+                                    (_("Emo_jis de un subreddit…"), "win.rd-emojis"),
+                                    (_("_Barra lateral de un subreddit…"), "win.rd-widgets"),
                                     (_("Co_lecciones de un subreddit…"), "win.rd-colecciones"),
                                     (_("Bo_rradores de Reddit…"), "win.rd-borradores")))
         rd.append_section(None, sec((_("Mostrar u ocultar bu_ffers…"), "win.rd-ocultar-buffers"),
@@ -411,7 +426,9 @@ def _menu() -> Gio.Menu:
                                     (_("Datos de emisión del directo…"), "win.pt-datos-emision"),
                                     (_("Sesiones y repeticiones del directo…"), "win.pt-sesiones-directo"),
                                     (_("Estadísticas de la instancia…"), "win.pt-estadisticas-instancia"),
-                                    (_("Mis denuncias…"), "win.pt-mis-denuncias")))
+                                    (_("Mis denuncias…"), "win.pt-mis-denuncias"),
+                                    (_("Mis _importaciones…"), "win.pt-importaciones"),
+                                    (_("Preferencias de _notificaciones…"), "win.pt-avisos")))
         pt.append_submenu(_("_Moderación"), mod)
         pt.append_submenu(_("_Administración"), adm)
         pt.append_section(None, sec((_("Silenciar la cuenta del autor"), "win.pt-silenciar"),

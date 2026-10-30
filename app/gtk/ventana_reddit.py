@@ -408,6 +408,18 @@ class _RedditMixin:
         from .dialogos_reddit_comunidad import DialogoModmailReddit
         DialogoModmailReddit(self, acc, self._rd_subreddit_actual() or "all").present()
 
+    def _rd_pedir_sub(self, titulo: str, clase: str):
+        acc = self._rd_cuenta()
+        if acc is None:
+            return
+
+        def _con(texto):
+            from . import dialogos_reddit_comunidad as c
+            getattr(c, clase)(self, acc, texto.strip().lstrip("r/").lstrip("/")).present()
+        d = DialogoTexto(self, titulo, _("_Subreddit (sin r/):"), _con, aceptar=_("_Abrir"))
+        d.entrada.set_text(self._rd_subreddit_actual())
+        d.present()
+
     def rd_live(self):
         acc = self._rd_cuenta()
         if acc is not None:
@@ -744,6 +756,9 @@ class _RedditMixin:
         a("rd-wiki", self.rd_wiki)
         a("rd-modmail", self.rd_modmail)
         a("rd-live", self.rd_live)
+        a("rd-flairs", lambda: self._rd_pedir_sub(_("Etiquetas de un subreddit"), "DialogoFlairsReddit"))
+        a("rd-emojis", lambda: self._rd_pedir_sub(_("Emojis de un subreddit"), "DialogoEmojisReddit"))
+        a("rd-widgets", lambda: self._rd_pedir_sub(_("Barra lateral de un subreddit"), "DialogoWidgetsReddit"))
         a("rd-mod-cola", self.rd_mod_cola)
         a("rd-mod-usuarios", self.rd_mod_usuarios)
         a("rd-mod-motivos", self.rd_mod_motivos)

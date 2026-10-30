@@ -325,3 +325,189 @@ class DialogoConversacionModmail(Gtk.Window):
         _hacer(self, lambda: reddit_service.responder_modmail(self.account_id, self.subreddit, self.conv_id, texto, interno),
                _("Respuesta enviada."), lambda _r: self.close())
 
+
+
+# --------------------------------------------------------------------------- etiquetas (flair), emojis y barra lateral
+class DialogoFlairsReddit(DialogoLista):
+    """Etiquetas de un subreddit: plantillas de usuario o de publicación, tu etiqueta y asignarla a otros."""
+
+    def __init__(self, padre, account_id: int, subreddit: str):
+        super().__init__(padre, _("Etiquetas de r/{s}").format(s=subreddit), _("Plantillas de etiqueta"))
+        self.account_id, self.subreddit, self.filas = account_id, subreddit, []
+        self.combo = Gtk.DropDown.new_from_strings([_("Etiquetas de usuario"), _("Etiquetas de publicación")])
+        self.combo.update_property([Gtk.AccessibleProperty.LABEL], [_("Tipo de etiqueta")])
+        self.combo.connect("notify::selected", lambda *_a: self._cargar())
+        self.fila_botones.prepend(self.combo)
+        self.boton(_("_Nueva plantilla…"), self._nueva)
+        self.boton(_("_Borrar plantilla"), self._borrar)
+        self.b_mia = self.boton(_("Establecer _mi etiqueta…"), self._mi_flair)
+        self.b_asig = self.boton(_("_Asignar a un usuario…"), self._asignar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _es_link(self) -> bool:
+        return self.combo.get_selected() == 1
+
+    def _cargar(self):
+        es_link = self._es_link()
+        self.b_mia.set_sensitive(not es_link)
+        self.b_asig.set_sensitive(not es_link)
+        self.mostrar_estado(_("Cargando…"))
+        fn = reddit_service.plantillas_flair_enlace if es_link else reddit_service.plantillas_flair_usuario
+
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("No se pudieron cargar las plantillas: {e}").format(e=err))
+                return
+            self.filas = res or []
+            self.lista.poner([f"{t.get('text') or _('sin texto')}. " + (_("solo moderadores") if t.get("mod_only") else _("todos"))
+                              + (". " + _("editable") if t.get("text_editable") else "") for t in self.filas])
+            self.mostrar_estado(_("{n} plantillas").format(n=len(self.filas)))
+            self.lista.enfocar()
+        ejecutar(lambda: fn(self.account_id, self.subreddit), _fin)
+
+    def _nueva(self):
+        d = DialogoBase(self, _("Nueva plantilla de etiqueta"), _("_Crear"))
+        texto = d.campo(_("_Texto de la etiqueta:"), Gtk.Entry(activates_default=True, max_length=64, width_chars=36))
+        mod = d.campo(_("Solo la pueden usar los _moderadores:"), Gtk.Switch(halign=Gtk.Align.START))
+        edit = d.campo(_("El usuario puede _editar el texto:"), Gtk.Switch(halign=Gtk.Align.START))
+        d.set_focus(texto)
+
+        def _ok():
+            t = texto.get_text().strip()
+            if not t:
+                return notificar(_("Escribe el texto de la etiqueta."))
+            args = dict(tipo="link" if self._es_link() else "user", mod_only=mod.get_active(), text_editable=edit.get_active())
+            d.close()
+            _hacer(self, lambda: reddit_service.crear_plantilla_flair(self.account_id, self.subreddit, t, **args),
+                   _("Plantilla creada."), lambda _r: self._cargar())
+        d.aceptar = _ok
+        d.present()
+
+    def _borrar(self):
+        p = self.lista.posicion()
+        if not 0 <= p < len(self.filas):
+            return
+        t = self.filas[p]
+        from .dialogos import confirmar_async
+        confirmar_async(self, _("¿Borrar la plantilla «{t}»?").format(t=t.get("text") or ""),
+                        lambda: _hacer(self, lambda: reddit_service.borrar_plantilla_flair(self.account_id, self.subreddit,
+                                                                                         t.get("id", "")),
+                                       _("Plantilla borrada."), lambda _r: self._cargar()), etiqueta_si=_("Borrar"))
+
+    def _mi_flair(self):
+        d = DialogoBase(self, _("Mi etiqueta"), _("_Guardar"))
+        texto = d.campo(_("_Texto de tu etiqueta (vacío para quitarla):"), Gtk.Entry(activates_default=True, width_chars=36))
+        d.set_focus(texto)
+
+        def _ok():
+            t = texto.get_text().strip()
+            d.close()
+            _hacer(self, lambda: reddit_service.establecer_mi_flair(self.account_id, self.subreddit, text=t),
+                   _("Etiqueta actualizada."))
+        d.aceptar = _ok
+        d.present()
+
+    def _asignar(self):
+        d = DialogoBase(self, _("Asignar una etiqueta"), _("_Asignar"))
+        usuario = d.campo(_("_Usuario (sin u/):"), Gtk.Entry(activates_default=True, width_chars=30))
+        texto = d.campo(_("_Texto de la etiqueta (vacío para quitarla):"), Gtk.Entry(activates_default=True, width_chars=36))
+        d.set_focus(usuario)
+
+        def _ok():
+            u, t = usuario.get_text().strip().lstrip("u/").lstrip("/"), texto.get_text().strip()
+            if not u:
+                return
+            d.close()
+            if t:
+                _hacer(self, lambda: reddit_service.asignar_flair_usuario(self.account_id, self.subreddit, u, text=t),
+                       _("Etiqueta asignada."))
+            else:
+                _hacer(self, lambda: reddit_service.quitar_flair_usuario(self.account_id, self.subreddit, u), _("Etiqueta quitada."))
+        d.aceptar = _ok
+        d.present()
+
+
+class DialogoEmojisReddit(DialogoLista):
+    def __init__(self, padre, account_id: int, subreddit: str):
+        super().__init__(padre, _("Emojis de r/{s}").format(s=subreddit), _("Lista de emojis"))
+        self.account_id, self.subreddit, self.emojis = account_id, subreddit, []
+        self.boton(_("_Añadir…"), self._anadir)
+        self.boton(_("_Borrar"), self._borrar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        self.mostrar_estado(_("Cargando los emojis…"))
+
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("No se pudieron cargar los emojis: {e}").format(e=err))
+                return
+            self.emojis = res or []
+            self.lista.poner([f":{e.get('name', '')}:" + (". " + _("solo moderadores") if e.get("mod_flair_only") else "")
+                              for e in self.emojis])
+            self.mostrar_estado(_("{n} emojis").format(n=len(self.emojis)))
+            self.lista.enfocar()
+        ejecutar(lambda: reddit_service.listar_emojis(self.account_id, self.subreddit), _fin)
+
+    def _anadir(self):
+        d = DialogoBase(self, _("Nuevo emoji"), _("_Elegir la imagen…"))
+        nombre = d.campo(_("_Nombre del emoji (sin dos puntos):"), Gtk.Entry(activates_default=True, width_chars=30))
+        d.set_focus(nombre)
+
+        def _ok():
+            n = nombre.get_text().strip().strip(":")
+            if not n:
+                return
+            d.close()
+            dlg = Gtk.FileDialog(title=_("Imagen del emoji"))
+
+            def _fin(origen, res):
+                try:
+                    ruta = origen.open_finish(res).get_path()
+                except Exception:
+                    return
+                _hacer(self, lambda: reddit_service.añadir_emoji(self.account_id, self.subreddit, n, ruta), _("Emoji añadido."),
+                       lambda _r: self._cargar())
+            dlg.open(self, None, _fin)
+        d.aceptar = _ok
+        d.present()
+
+    def _borrar(self):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.emojis):
+            nombre = self.emojis[p].get("name", "")
+            from .dialogos import confirmar_async
+            confirmar_async(self, _("¿Borrar el emoji «{n}»?").format(n=nombre),
+                            lambda: _hacer(self, lambda: reddit_service.borrar_emoji(self.account_id, self.subreddit, nombre),
+                                           _("Emoji borrado."), lambda _r: self._cargar()), etiqueta_si=_("Borrar"))
+
+
+class DialogoWidgetsReddit(DialogoLista):
+    """Los elementos de la barra lateral de un subreddit (solo lectura): Intro muestra su contenido."""
+
+    def __init__(self, padre, account_id: int, subreddit: str):
+        super().__init__(padre, _("Barra lateral de r/{s}").format(s=subreddit), _("Elementos de la barra lateral"),
+                         lambda pos: self._ver(pos))
+        self.widgets = []
+        self.boton(_("_Ver el contenido"), lambda: self._ver(self.lista.posicion()))
+        self.cerrar_boton()
+        self.mostrar_estado(_("Cargando la barra lateral…"))
+
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("No se pudo cargar la barra lateral: {e}").format(e=err))
+                return
+            self.widgets = res or []
+            self.lista.poner([_("{n}, tipo {k}").format(n=w.get("shortName") or w.get("kind") or _("(elemento)"), k=w.get("kind", ""))
+                              for w in self.widgets])
+            self.mostrar_estado(_("{n} elementos").format(n=len(self.widgets)))
+            self.lista.enfocar()
+        ejecutar(lambda: reddit_service.listar_widgets_sidebar(account_id, subreddit), _fin)
+
+    def _ver(self, pos):
+        if 0 <= pos < len(self.widgets):
+            from .dialogos_peertube_instancia import texto_en_dialogo
+            w = self.widgets[pos]
+            texto_en_dialogo(self, w.get("shortName") or w.get("kind") or _("Elemento"), w.get("text") or _("(sin texto)"))

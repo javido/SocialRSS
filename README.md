@@ -109,7 +109,9 @@ aviso al cerrar el editor), publicaciones programadas, hashtags en tendencia y s
 perfil, descartar notificaciones, notificaciones agrupadas con su política y solicitudes, hilos
 propios (un texto largo dividido en mensajes, con hilos guardados), colecciones de cuentas (las tuyas, las de otra cuenta y
 aquellas en las que apareces), anuncios del servidor (con reacciones), enlaces en tendencia, directorio y cuentas sugeridas,
-información de la instancia y su administración (informes, cuentas, dominios bloqueados y permitidos, bloqueos de IP y de
+mis listas (crear, editar, miembros), hashtags y cuentas destacados en mi perfil, servidores bloqueados, novedades de seguidores, más
+acciones sobre la cuenta de un autor (seguir con opciones, destacarla, nota, listas, bloquear su servidor), filtrar una publicación, borrar y
+volver a redactar, citas y su política, información de la instancia y su administración (informes, cuentas, dominios bloqueados y permitidos, bloqueos de IP y de
 correo, tendencias y descubrimiento, y estadísticas del servidor). Las novedades de Inicio, Notificaciones,
 Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en Preferencias) y se
 anuncian sin interrumpir a Orca. **Preferencias** en pestañas (General, Inteligencia artificial y Traducción): proveedor de IA con
@@ -202,7 +204,7 @@ mismas claves que usa la versión de Windows) y los perfiles y órdenes que abre
 anidados, donde se puede responder, votar, guardar, editar, borrar y traducir. Además: publicar texto, enlace, imagen, vídeo,
 galería o encuesta con etiqueta, +18 y spoiler, crosspost, votos, guardados, ocultar, perfiles (seguir, bloquear, mensaje), mensajes
 privados, buscar publicaciones, subreddits y usuarios, y cambiar el orden de un buffer. La lectura de cada elemento usa tus
-plantillas de lectura. El menú Reddit abre la wiki de un subreddit (leer, editar si tienes permiso, crear páginas y ver revisiones) y el modmail (bandejas, responder con nota interna, archivar y crear conversaciones), los hilos en directo (leer y publicar novedades), las colecciones de un subreddit y los borradores de Reddit. Para moderadores: las colas (cola de moderación, reportados, spam, sin moderar y editados) con aprobar, eliminar, distinguir, bloquear y mensaje de eliminación, «Moderar…» sobre cualquier publicación o comentario, los usuarios del subreddit (baneados, silenciados, contribuidores y moderadores con sus permisos), los motivos de eliminación, la configuración y el registro de moderación.
+plantillas de lectura. El menú Reddit abre la wiki de un subreddit (leer, editar si tienes permiso, crear páginas y ver revisiones) y el modmail (bandejas, responder con nota interna, archivar y crear conversaciones), los hilos en directo (leer y publicar novedades), las colecciones de un subreddit y los borradores de Reddit. Etiquetas (flair), emojis y barra lateral de un subreddit. Para moderadores: las colas (cola de moderación, reportados, spam, sin moderar y editados) con aprobar, eliminar, distinguir, bloquear y mensaje de eliminación, «Moderar…» sobre cualquier publicación o comentario, los usuarios del subreddit (baneados, silenciados, contribuidores y moderadores con sus permisos), los motivos de eliminación, la configuración y el registro de moderación.
 **PeerTube** (necesita `httpx`): el alta pide la instancia, el usuario y la contraseña (y el código de doble factor si lo tienes).
 Cada cuenta tiene Vídeos recientes, Populares, Tendencias, Locales, Federados, Suscripciones, Directos, Notificaciones, la
 rama Mi biblioteca (Mis vídeos, Mis canales, Listas de reproducción, Ver más tarde, Me gusta e Historial) y las búsquedas
@@ -210,7 +212,7 @@ guardadas (las mismas claves de configuración que la versión de Windows); los 
 buffers. Intro reproduce el vídeo (suena el audio) y F2 lo pausa. Además: me gusta y no me gusta, suscribirse a canales,
 comentarios con respuestas anidadas, subtítulos como texto, calidad, descargar, ver más tarde, añadir a listas, subir (con
 subida reanudable) e importar vídeos, editar y borrar los tuyos, crear y gestionar listas y canales, notificaciones, silenciar
-cuentas e instancias, reportar y buscar vídeos y canales. También: crear directos (con sus datos de emisión, la clave oculta y las sesiones), las estadísticas de un vídeo y de la
+cuentas e instancias, reportar y buscar vídeos y canales, mis importaciones y las preferencias de notificaciones. También: crear directos (con sus datos de emisión, la clave oculta y las sesiones), las estadísticas de un vídeo y de la
 instancia, mis denuncias, y para moderadores y administradores la cola de denuncias, los vídeos bloqueados, los usuarios, las
 solicitudes de registro, la federación, los trabajos, los plugins y los tokens de runners. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
 aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.

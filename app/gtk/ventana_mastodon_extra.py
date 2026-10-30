@@ -58,7 +58,50 @@ class _MastodonExtraMixin:
             from .dialogos_mastodon import DialogoCuentas
             DialogoCuentas(self, acc, tipo).present()
 
+    # ------------------------------------------------------------------ listas, cuentas y publicaciones
+    def ms_gestion(self, nombre: str, **kw):
+        """Un diálogo de dialogos_mastodon_gestion para la cuenta activa."""
+        self._ms_dialogo("dialogos_mastodon_gestion", nombre, **kw)
+
+    def ms_funcion(self, nombre: str, *extra):
+        acc = self._ms_cuenta()
+        if acc is not None:
+            from . import dialogos_mastodon_gestion as g
+            getattr(g, nombre)(self, acc, *extra)
+
+    def ms_cuenta_del_autor(self):
+        obj = self._contexto_mastodon()
+        usuario = self._usuario_de(obj) if obj else ""
+        if usuario:
+            from .dialogos_mastodon_gestion import acciones_cuenta
+            acciones_cuenta(self, obj.fila.extra["account_id"], usuario)
+
+    def ms_publicacion(self, nombre: str, propia: bool = False, usa_db_id: bool = True):
+        obj = self._contexto_mastodon()
+        if not obj:
+            return
+        x = obj.fila.extra
+        if propia and (not x.get("propio") or x.get("impulsado_por")):
+            return self.avisar(_("Solo puedes hacer esto con tus propias publicaciones"))
+        from . import dialogos_mastodon_gestion as g
+        ident = self._estado_db_id(obj) if usa_db_id else x.get("status_id")
+        if nombre == "borrar_y_redactar":
+            return g.borrar_y_redactar(self, x["account_id"], ident, lambda: self.cargar_lista())
+        getattr(g, nombre)(self, x["account_id"], ident)
+
     def _registrar_acciones_mastodon_extra(self, accion):
+        accion("ms-listas", lambda: self.ms_gestion("DialogoListasMastodon"))
+        accion("ms-cuenta-del-autor", self.ms_cuenta_del_autor)
+        accion("ms-hashtags-destacados", lambda: self.ms_gestion("DialogoHashtagsDestacados"))
+        accion("ms-cuentas-destacadas", lambda: self.ms_gestion("DialogoCuentasDestacadas"))
+        accion("ms-dominios-bloqueados", lambda: self.ms_gestion("DialogoDominiosBloqueados"))
+        accion("ms-novedades-seguidores", lambda: self.ms_funcion("novedades_seguidores"))
+        accion("ms-quitar-avatar", lambda: self.ms_funcion("quitar_imagen", True))
+        accion("ms-quitar-cabecera", lambda: self.ms_funcion("quitar_imagen", False))
+        accion("ms-filtrar-publicacion", lambda: self.ms_publicacion("filtrar_publicacion"))
+        accion("ms-borrar-redactar", lambda: self.ms_publicacion("borrar_y_redactar", True))
+        accion("ms-citas", lambda: self.ms_publicacion("citas_de", True, False))
+        accion("ms-politica-citas", lambda: self.ms_publicacion("politica_de_citas", True, False))
         accion("ms-anuncios", lambda: self._ms_dialogo("dialogos_mastodon_instancia", "DialogoAnuncios"))
         accion("ms-enlaces-tendencia", lambda: self._ms_dialogo("dialogos_mastodon_instancia", "DialogoEnlacesTendencia"))
         accion("ms-info-instancia", self.ms_info_instancia)

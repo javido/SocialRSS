@@ -57922,3 +57922,369 @@ msgstr ""
 "\n"
 "Orphan documents: {o}\n"
 "Files with parts missing in the channel: {b}"
+
+msgid "(Crear un filtro nuevo)"
+msgstr "(Create a new filter)"
+
+msgid "Asignar una etiqueta"
+msgstr "Assign a flair"
+
+msgid "Barra lateral de r/{s}"
+msgstr "Sidebar of r/{s}"
+
+msgid "Bloquear el servidor {d}…"
+msgstr "Block the server {d}…"
+
+msgid "Bloquear un servidor"
+msgstr "Block a server"
+
+msgid "Borrar y _volver a redactar"
+msgstr "Delete and _redraft"
+
+msgid "Borrar y redactar"
+msgstr "Delete and redraft"
+
+msgid "Cabecera quitada."
+msgstr "Header removed."
+
+msgid "Cargando la barra lateral…"
+msgstr "Loading the sidebar…"
+
+msgid "Cargando los emojis…"
+msgstr "Loading the emojis…"
+
+msgid "Citas de tu publicación"
+msgstr "Quotes of your post"
+
+msgid "Cuenta destacada."
+msgstr "Account featured."
+
+msgid "Cuenta ya no destacada."
+msgstr "Account no longer featured."
+
+msgid "Cuentas _destacadas en mi perfil…"
+msgstr "Accounts _featured on my profile…"
+
+msgid "Dejar de destacar la cuenta"
+msgstr "Stop featuring the account"
+
+msgid "Destacar la cuenta en mi perfil"
+msgstr "Feature the account on my profile"
+
+msgid "Destacar un hashtag"
+msgstr "Feature a hashtag"
+
+msgid "El usuario puede _editar el texto:"
+msgstr "The user can _edit the text:"
+
+msgid "Elementos de la barra lateral"
+msgstr "Sidebar items"
+
+msgid "Emo_jis de un subreddit…"
+msgstr "Emo_jis of a subreddit…"
+
+msgid "Emojis de r/{s}"
+msgstr "Emojis of r/{s}"
+
+msgid ""
+"Es la primera vez: se ha guardado la lista de tus {n} seguidores. La próxima"
+" vez verás quién se ha ido y quién ha llegado."
+msgstr ""
+"This is the first time: the list of your {n} followers has been saved. Next "
+"time you will see who left and who arrived."
+
+msgid "Establecer _mi etiqueta…"
+msgstr "Set _my flair…"
+
+msgid "Etiquetas de r/{s}"
+msgstr "Flairs of r/{s}"
+
+msgid "Filtrar la publicación"
+msgstr "Filter the post"
+
+msgid "Filtro nuevo"
+msgstr "New filter"
+
+msgid "Hashtag quitado."
+msgstr "Hashtag removed."
+
+msgid "Hashtags destacados de @{a}"
+msgstr "Featured hashtags of @{a}"
+
+msgid "Hashtags destacados en mi perfil"
+msgstr "Hashtags featured on my profile"
+
+msgid "Hashtags destacados en su perfil…"
+msgstr "Hashtags featured on their profile…"
+
+msgid "Importación borrada."
+msgstr "Import deleted."
+
+msgid "Importación cancelada."
+msgstr "Import cancelled."
+
+msgid "Importación reintentada."
+msgstr "Import retried."
+
+msgid "Lista de importaciones"
+msgstr "List of imports"
+
+msgid "Lista e_xclusiva (sus miembros no salen en Inicio):"
+msgstr "E_xclusive list (its members do not appear in Home):"
+
+msgid "Listas a las que pertenece"
+msgstr "Lists it belongs to"
+
+msgid "Listas a las que pertenece…"
+msgstr "Lists it belongs to…"
+
+msgid "Listas de @{a}"
+msgstr "Lists of @{a}"
+
+msgid "Los adjuntos no se recuperan."
+msgstr "Attachments are not recovered."
+
+msgid "Mi nota privada sobre la cuenta…"
+msgstr "My private note about the account…"
+
+msgid "Mis _importaciones…"
+msgstr "My _imports…"
+
+msgid "Mis _listas…"
+msgstr "My _lists…"
+
+msgid "Mostrar _respuestas:"
+msgstr "Show _replies:"
+
+msgid "Más acciones sobre @{a}"
+msgstr "More actions on @{a}"
+
+msgid "Más acciones sobre la _cuenta del autor…"
+msgstr "More actions on the author's _account…"
+
+msgid "Nadie ha citado esta publicación."
+msgstr "Nobody has quoted this post."
+
+msgid "No se pudieron cargar las citas: {e}"
+msgstr "The quotes could not be loaded: {e}"
+
+msgid "No se pudieron cargar las importaciones: {e}"
+msgstr "The imports could not be loaded: {e}"
+
+msgid "No se pudieron cargar las plantillas: {e}"
+msgstr "The templates could not be loaded: {e}"
+
+msgid "No se pudieron cargar las preferencias: {e}"
+msgstr "The preferences could not be loaded: {e}"
+
+msgid "No se pudieron cargar los emojis: {e}"
+msgstr "The emojis could not be loaded: {e}"
+
+msgid "No se pudieron leer los filtros: {e}"
+msgstr "The filters could not be read: {e}"
+
+msgid "No se pudo cargar la barra lateral: {e}"
+msgstr "The sidebar could not be loaded: {e}"
+
+msgid "No se pudo consultar la cuenta: {e}"
+msgstr "The account could not be checked: {e}"
+
+msgid "No tiene hashtags destacados."
+msgstr "It has no featured hashtags."
+
+msgid "No tienes importaciones."
+msgstr "You have no imports."
+
+msgid "Nuevos:"
+msgstr "New:"
+
+msgid "Política de citas cambiada."
+msgstr "Quote policy changed."
+
+msgid "Preferencias de _notificaciones…"
+msgstr "_Notification preferences…"
+
+msgid "Publicaciones que te citan"
+msgstr "Posts that quote you"
+
+msgid "Publicación borrada. Puedes volver a redactarla."
+msgstr "Post deleted. You can write it again."
+
+msgid "Publicación filtrada."
+msgstr "Post filtered."
+
+msgid "Quitar mi foto de _perfil…"
+msgstr "Remove my _profile photo…"
+
+msgid "Quitar mi imagen de _cabecera…"
+msgstr "Remove my _header image…"
+
+msgid "Quién puede citar esta publicación"
+msgstr "Who can quote this post"
+
+msgid "Quién puede citar mi publicación…"
+msgstr "Who can quote my post…"
+
+msgid "Seguidores ahora: {n}"
+msgstr "Followers now: {n}"
+
+msgid "Seguidores en común con @{a}"
+msgstr "Followers in common with @{a}"
+
+msgid "Seguidores en común…"
+msgstr "Followers in common…"
+
+msgid "Seguimiento actualizado."
+msgstr "Follow updated."
+
+msgid "Seguir a @{a}"
+msgstr "Follow @{a}"
+
+msgid "Seguir con opciones (impulsos y avisos)…"
+msgstr "Follow with options (boosts and notices)…"
+
+msgid "Servidor bloqueado."
+msgstr "Server blocked."
+
+msgid "Servidor desbloqueado."
+msgstr "Server unblocked."
+
+msgid "Servidores _bloqueados…"
+msgstr "_Blocked servers…"
+
+msgid "Servidores bloqueados"
+msgstr "Blocked servers"
+
+msgid "Solo la pueden usar los _moderadores:"
+msgstr "Only _moderators can use it:"
+
+msgid "Solo puedes hacer esto con tus propias publicaciones"
+msgstr "You can only do this with your own posts"
+
+msgid "Te han dejado de seguir:"
+msgstr "They stopped following you:"
+
+msgid "Tus listas de Mastodon"
+msgstr "Your Mastodon lists"
+
+msgid "Ver las citas de mi publicación…"
+msgstr "View the quotes of my post…"
+
+msgid "Ver sus _impulsos:"
+msgstr "See their _boosts:"
+
+msgid "_Asignar"
+msgstr "_Assign"
+
+msgid "_Asignar a un usuario…"
+msgstr "_Assign to a user…"
+
+msgid "_Avisarme de sus publicaciones nuevas:"
+msgstr "_Notify me of their new posts:"
+
+msgid "_Barra lateral de un subreddit…"
+msgstr "_Sidebar of a subreddit…"
+
+msgid "_Bloquear uno…"
+msgstr "_Block one…"
+
+msgid "_Borrar plantilla"
+msgstr "_Delete template"
+
+msgid "_Elegir la imagen…"
+msgstr "_Choose the image…"
+
+msgid "_Etiquetas (flair) de un subreddit…"
+msgstr "_Flairs of a subreddit…"
+
+msgid "_Filtrar esta publicación…"
+msgstr "_Filter this post…"
+
+msgid "_Filtro:"
+msgstr "_Filter:"
+
+msgid "_Hashtag (sin #):"
+msgstr "_Hashtag (without #):"
+
+msgid "_Hashtags destacados en mi perfil…"
+msgstr "_Hashtags featured on my profile…"
+
+msgid "_Nombre de la lista:"
+msgstr "List _name:"
+
+msgid "_Nombre del emoji (sin dos puntos):"
+msgstr "Emoji _name (without colons):"
+
+msgid "_Nombre del filtro:"
+msgstr "Filter _name:"
+
+msgid "_Novedades de seguidores…"
+msgstr "_Follower updates…"
+
+msgid "_Nueva plantilla…"
+msgstr "_New template…"
+
+msgid "_Quién:"
+msgstr "_Who:"
+
+msgid "_Revocar la cita"
+msgstr "_Revoke the quote"
+
+msgid "_Servidor (por ejemplo ejemplo.social):"
+msgstr "_Server (for example example.social):"
+
+msgid "_Texto de la etiqueta (vacío para quitarla):"
+msgstr "Flair _text (empty to remove it):"
+
+msgid "_Texto de la etiqueta:"
+msgstr "Flair _text:"
+
+msgid "_Texto de tu etiqueta (vacío para quitarla):"
+msgstr "_Text of your flair (empty to remove it):"
+
+msgid "_Ver el contenido"
+msgstr "_View the content"
+
+msgid "editable"
+msgstr "editable"
+
+msgid "{n} citas"
+msgstr "{n} quotes"
+
+msgid "{n} emojis"
+msgstr "{n} emojis"
+
+msgid "{n} importaciones"
+msgstr "{n} imports"
+
+msgid "{n} plantillas"
+msgstr "{n} templates"
+
+msgid "{n}, tipo {k}"
+msgstr "{n}, type {k}"
+
+msgid "¿Bloquear todo el servidor {d}? Dejarás de ver a sus cuentas."
+msgstr "Block the whole server {d}? You will stop seeing its accounts."
+
+msgid "¿Borrar el emoji «{n}»?"
+msgstr "Delete the emoji “{n}”?"
+
+msgid "¿Borrar la lista «{t}»?"
+msgstr "Delete the list “{t}”?"
+
+msgid "¿Borrar la plantilla «{t}»?"
+msgstr "Delete the template “{t}”?"
+
+msgid ""
+"¿Borrar la publicación y abrir el editor con su texto para volver a "
+"escribirla?"
+msgstr "Delete the post and open the editor with its text to write it again?"
+
+msgid "¿Quitar tu foto de perfil?"
+msgstr "Remove your profile photo?"
+
+msgid "¿Quitar tu imagen de cabecera?"
+msgstr "Remove your header image?"
+
+msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
+msgstr "Revoke this quote? It will stop showing your post."
