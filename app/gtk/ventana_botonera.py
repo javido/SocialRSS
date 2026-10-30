@@ -22,6 +22,8 @@ log = logging.getLogger(__name__)
 REDES_BOTONERA = (("rss", "RSS"), ("mastodon", "Mastodon"), ("bluesky", "Bluesky"), ("wsocial", "W Social"),
                   ("x", "X"), ("telegram", "Telegram"), ("reddit", "Reddit"), ("peertube", "PeerTube"),
                   ("inbox", "la bandeja de entrada"))
+# Redes con panel de detalles opcional (`<red>.show_details_panel`; en Mastodon viene desactivado, como en Windows).
+REDES_DETALLES = tuple((c, n) for c, n in REDES_BOTONERA if c != "telegram")
 _ESTADOS = ("leido", "favorito", "mas_tarde", "impulsado", "marcador")
 
 
@@ -93,6 +95,28 @@ class _BotoneraMixin:
             return False
         clave = "inbox" if n.servicio == "bandeja" else n.servicio
         return bool(config.get(clave, "show_action_buttons", False))
+
+    def panel_detalles_activo(self) -> bool:
+        """Preferencia del panel de detalles para el buffer actual (la bandeja tiene la suya). Las redes de chat
+        no tienen casilla: su panel siempre se ve."""
+        n = self.nodo_actual
+        if n is None:
+            return True
+        clave = "inbox" if n.servicio == "bandeja" else n.servicio
+        if clave not in dict(REDES_DETALLES):
+            return True
+        return bool(config.get(clave, "show_details_panel", clave != "mastodon"))
+
+    def aplicar_visibilidad_detalles(self):
+        self.panel_lectura.set_visible(self.panel_detalles_activo())
+
+    def mostrar_panel_lectura(self):
+        """Para leer un artículo con Intro o Alt+3 hace falta el panel aunque esté oculto: se enseña hasta cambiar de buffer."""
+        if not self.panel_lectura.get_visible():
+            self.panel_lectura.set_visible(True)
+            obj = self._fila_actual()
+            if obj is not None:
+                self._vista_previa(obj, ahora=True)
 
     def programar_botonera(self, *_a):
         """Rehace la botonera cuando el usuario se detiene (al recorrer la lista no se reconstruye en cada paso)."""

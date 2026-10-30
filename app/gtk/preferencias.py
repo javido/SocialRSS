@@ -16,7 +16,7 @@ from app.core.i18n import NOMBRES_IDIOMA
 from app.core.speech import notificar
 from app.core.task_manager import task_manager
 
-from .ventana_botonera import REDES_BOTONERA
+from .ventana_botonera import REDES_BOTONERA, REDES_DETALLES
 from .dialogos_ia import DialogoHistorialIA, DialogoHistorialTraducciones, DialogoPrompts
 
 log = logging.getLogger(__name__)
@@ -189,6 +189,12 @@ class DialogoPreferencias(Gtk.Window):
             self.botonera[clave] = p.interruptor(config.get(clave, "show_action_buttons", False))
             p.campo(_("Mostrar la botonera de acciones en {n}:").format(n=nombre), self.botonera[clave],
                     _("Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento enfocado. Se llega con Tab.")
+                    if clave == "rss" else "")
+        self.detalles = {}
+        for clave, nombre in REDES_DETALLES:
+            self.detalles[clave] = p.interruptor(config.get(clave, "show_details_panel", clave != "mastodon"))
+            p.campo(_("Mostrar el panel de detalles en {n}:").format(n=nombre), self.detalles[clave],
+                    _("El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo enseñan hasta que cambies de buffer.")
                     if clave == "rss" else "")
         self.bandeja = p.interruptor(config.get("inbox", "enabled", False))
         p.campo(_("Mostrar la _bandeja de entrada unificada:"), self.bandeja,
@@ -503,6 +509,8 @@ class DialogoPreferencias(Gtk.Window):
         config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
         for clave, _nombre in REDES_BOTONERA:
             config.set(clave, "show_action_buttons", self.botonera[clave].get_active())
+        for clave, _nombre in REDES_DETALLES:
+            config.set(clave, "show_details_panel", self.detalles[clave].get_active())
         bandeja_cambiada = bool(config.get("inbox", "enabled", False)) != self.bandeja.get_active()
         config.set("inbox", "enabled", self.bandeja.get_active())
         config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
@@ -566,5 +574,6 @@ class DialogoPreferencias(Gtk.Window):
         if bandeja_cambiada:
             self.padre.cargar_arbol()
         self.padre.programar_botonera()
+        self.padre.aplicar_visibilidad_detalles()
         self.padre.cargar_lista()
         self.padre.iniciar_tiempo_real()

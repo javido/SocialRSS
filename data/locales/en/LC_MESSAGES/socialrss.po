@@ -55239,3 +55239,13 @@ msgstr "When _Enter is pressed on an article:"
 
 msgid "Vale en los buffers de RSS y en la bandeja de entrada."
 msgstr "Applies in the RSS buffers and in the unified inbox."
+
+msgid "Mostrar el panel de detalles en {n}:"
+msgstr "Show the details panel in {n}:"
+
+msgid ""
+"El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
+"enseñan hasta que cambies de buffer."
+msgstr ""
+"The reading panel under the list. When off it is hidden; Enter or Alt+3 show"
+" it until you switch buffer."

@@ -53487,3 +53487,11 @@ msgstr ""
 
 msgid "Vale en los buffers de RSS y en la bandeja de entrada."
 msgstr ""
+
+msgid "Mostrar el panel de detalles en {n}:"
+msgstr ""
+
+msgid ""
+"El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
+"enseñan hasta que cambies de buffer."
+msgstr ""

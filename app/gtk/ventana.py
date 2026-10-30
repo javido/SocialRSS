@@ -306,7 +306,8 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
         self.buffer = self.texto.get_buffer()
         self.etiqueta_titulo = self.buffer.create_tag("titulo", weight=Pango.Weight.BOLD, scale=1.3)
         self.etiqueta_meta = self.buffer.create_tag("meta", foreground_rgba=Gdk.RGBA(0.45, 0.45, 0.45, 1))
-        return Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
+        self.panel_lectura = Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
+        return self.panel_lectura
 
     # ------------------------------------------------------------------ foco entre paneles
     def _configurar_tabulador(self):
@@ -335,9 +336,11 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
         if actual is None:
             return False
         atras = keyval == Gdk.KEY_ISO_Left_Tab or bool(estado & Gdk.ModifierType.SHIFT_MASK)
-        orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto]
+        orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista]
         if self.botonera.get_visible():
-            orden.insert(3, self.botonera)
+            orden.append(self.botonera)
+        if self.panel_lectura.get_visible():
+            orden.append(self.texto)
         if actual not in orden:
             return False
         i = orden.index(actual)
@@ -472,6 +475,8 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
         if panel is self.botonera:
             self.enfocar_botonera()
             return
+        if panel is self.texto:
+            self.mostrar_panel_lectura()
         panel.grab_focus()
 
     # ------------------------------------------------------------------ acciones
@@ -703,6 +708,7 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
         self._mx_al_cambiar_nodo(self.nodo_actual, obj.nodo)
         self._tw_al_cambiar_nodo(self.nodo_actual, obj.nodo)
         self.nodo_actual = obj.nodo
+        self.aplicar_visibilidad_detalles()
         self.busqueda = ""
         n = obj.nodo
         self.set_title(f"{n.titulo} — SocialRSS")
@@ -903,6 +909,8 @@ class VentanaPrincipal(_BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _H
     def _vista_previa(self, obj, ahora: bool = False, despues=None):
         """Carga el texto en el panel de lectura sin marcar como leído ni mover el foco. Al recorrer la lista
         con las flechas espera a que el usuario se detenga; la lectura se hace fuera del hilo de la UI."""
+        if not ahora and not self.panel_lectura.get_visible():
+            return          # panel de detalles oculto: no se lee nada mientras no se vea
         self._gen_texto += 1
         self._cancelar_timer("_timer_texto")
         gen = self._gen_texto
