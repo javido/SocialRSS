@@ -15,6 +15,7 @@ from app.services.bluesky.bluesky_service import bluesky_service
 from app.services.wsocial.wsocial_service import wsocial_service
 
 from .dialogos import DialogoBase, DialogoElegir, confirmar_async
+from .datos_wsocial import adaptar
 from .dialogos_mastodon import DialogoLista
 from .dialogos_peertube_instancia import texto_en_dialogo
 
@@ -25,19 +26,23 @@ class RedAT:
     nombre: str
     servicio: Any
 
+    def cb(self, f):
+        """El servicio de W Social entrega (ok, resultado); el de Bluesky, (resultado, error): se unifica en (resultado, error)."""
+        return adaptar(f) if self.clave == "wsocial" else f
+
     # ---- lo que cambia de una red a otra
     def tendencias(self, acc, cb):
         if self.clave == "bluesky":
             self.servicio.cargar_tendencias_async(acc, callback=lambda r, e: cb(
                 [{"nombre": t["topic"], "publicaciones": t["posts"], "categoria": ""} for t in r or []] if r is not None else r, e))
         else:
-            self.servicio.tendencias_async(acc, callback=cb)
+            self.servicio.tendencias_async(acc, callback=self.cb(cb))
 
     def buscar_cuentas(self, acc, texto, cb):
         if self.clave == "bluesky":
             self.servicio.buscar_actores_async(acc, texto, callback=cb)
         else:
-            self.servicio.buscar_cuentas_async(acc, texto, callback=cb)
+            self.servicio.buscar_cuentas_async(acc, texto, callback=self.cb(cb))
 
     def paquetes(self, acc, cb):
         if self.clave == "bluesky":
@@ -45,20 +50,20 @@ class RedAT:
                 [{"uri": p["uri"], "name": p["name"], "cuentas": p["members"], "description": ""} for p in r or []]
                 if r is not None else r, e))
         else:
-            self.servicio.cargar_starter_packs_async(acc, callback=cb)
+            self.servicio.cargar_starter_packs_async(acc, callback=self.cb(cb))
 
     def miembros(self, acc, convo_id, cb):
         def _norm(r, e):
             cb([{"did": m.get("did", ""), "handle": m.get("handle", ""), "nombre": m.get("nombre") or m.get("name", ""),
                  "papel": m.get("papel", "")} for m in r or []] if r is not None else r, e)
         (self.servicio.miembros_convo_async if self.clave == "bluesky" else self.servicio.miembros_grupo_async)(
-            acc, convo_id, callback=_norm)
+            acc, convo_id, callback=self.cb(_norm))
 
     def salir_grupo(self, acc, convo_id, cb):
         if self.clave == "bluesky":
             self.servicio.salir_grupo_async(acc, convo_id, callback=cb)
         else:
-            self.servicio.accion_convo_async(acc, convo_id, "salir", callback=cb)
+            self.servicio.accion_convo_async(acc, convo_id, "salir", callback=self.cb(cb))
 
     def abrir_perfil(self, padre, acc, did):
         if self.clave == "bluesky":
@@ -174,7 +179,7 @@ class DialogoPaquetesAT(DialogoLista):
             lineas = [res.get("description") or ""] + [f"{c['display_name'] or c['handle']} (@{c['handle']})" for c in res["cuentas"]]
             lineas += [_("Feed: {n}").format(n=f["name"]) for f in res.get("feeds", [])]
             texto_en_dialogo(self, res.get("name") or _("Paquete de inicio"), "\n".join(x for x in lineas if x))
-        self.red.servicio.detalle_starter_pack_async(self.account_id, self.items[pos]["uri"], callback=_fin)
+        self.red.servicio.detalle_starter_pack_async(self.account_id, self.items[pos]["uri"], callback=self.red.cb(_fin))
 
     def _crear(self):
         if self.red.clave == "bluesky":
@@ -192,9 +197,9 @@ class DialogoPaquetesAT(DialogoLista):
                 return
             ds = desc.get_text().strip()
             d.close()
-            wsocial_service.crear_starter_pack_async(self.account_id, n, ds, a, callback=lambda r, e: (
+            wsocial_service.crear_starter_pack_async(self.account_id, n, ds, a, callback=adaptar(lambda r, e: (
                 notificar(_("No se pudo crear el paquete: {e}").format(e=e)) if e else (notificar(_("Paquete de inicio creado.")),
-                                                                                         self._cargar())))
+                                                                                         self._cargar()))))
         d.aceptar = _ok
         d.present()
 
@@ -244,7 +249,7 @@ class DialogoPaquetesAT(DialogoLista):
             d.mostrar_estado(_("{n} paquetes").format(n=len(res or [])))
             d.cerrar_boton()
             d.present()
-        wsocial_service.paquetes_sugeridos_async(self.account_id, callback=_fin)
+        wsocial_service.paquetes_sugeridos_async(self.account_id, callback=adaptar(_fin))
 
 
 # --------------------------------------------------------------------------- cuentas
@@ -327,15 +332,15 @@ def crear_grupo(padre, red: RedAT, acc: int):
             notificar(_("Escribe el nombre y añade al menos una cuenta al grupo."))
             return
         d.close()
-        red.servicio.crear_grupo_async(acc, n, a, callback=_aviso(_("Grupo creado.")))
+        red.servicio.crear_grupo_async(acc, n, a, callback=red.cb(_aviso(_("Grupo creado."))))
     d.aceptar = _ok
     d.present()
 
 
 def entrar_en_grupo(padre, red: RedAT, acc: int):
     def _con(enlace):
-        red.servicio.pedir_entrada_grupo_async(acc, enlace, callback=lambda r, e: notificar(
-            _("No se pudo: {e}").format(e=e) if e else (_("Solicitud enviada.") if (r or {}).get("pendiente") else _("Ya estás en el grupo."))))
+        red.servicio.pedir_entrada_grupo_async(acc, enlace, callback=red.cb(lambda r, e: notificar(
+            _("No se pudo: {e}").format(e=e) if e else (_("Solicitud enviada.") if (r or {}).get("pendiente") else _("Ya estás en el grupo.")))))
     _pedir(padre, _("Entrar en un grupo"), _("_Enlace de invitación al grupo:"), _con, _("_Entrar"))
 
 
@@ -380,7 +385,7 @@ class DialogoGrupoAT(DialogoLista):
     def _anadir(self):
         _pedir(self, _("Añadir al grupo"), _("_Cuentas a añadir, separadas por comas:"),
                lambda t: self.red.servicio.gestionar_miembros_grupo_async(self.account_id, self.convo_id, _cuentas(t), quitar=False,
-                                                                           callback=self._tras(_("Cuentas añadidas al grupo."))),
+                                                                           callback=self.red.cb(self._tras(_("Cuentas añadidas al grupo.")))),
                _("_Añadir"))
 
     def _expulsar(self):
@@ -391,12 +396,12 @@ class DialogoGrupoAT(DialogoLista):
         confirmar_async(self, _("Vas a expulsar a {u} del grupo. ¿Continuar?").format(u=m["handle"] or m["did"]),
                         lambda: self.red.servicio.gestionar_miembros_grupo_async(
                             self.account_id, self.convo_id, [m["did"] or m["handle"]], quitar=True,
-                            callback=self._tras(_("Cuenta expulsada."))), etiqueta_si=_("Expulsar"))
+                            callback=self.red.cb(self._tras(_("Cuenta expulsada.")))), etiqueta_si=_("Expulsar"))
 
     def _renombrar(self):
         _pedir(self, _("Cambiar el nombre"), _("_Nuevo nombre del grupo:"),
                lambda t: self.red.servicio.editar_grupo_async(self.account_id, self.convo_id, t,
-                                                              callback=_aviso(_("Nombre cambiado."))), _("_Cambiar"))
+                                                              callback=self.red.cb(_aviso(_("Nombre cambiado.")))), _("_Cambiar"))
 
     def _enlace(self):
         def _fin(res, err):
@@ -407,7 +412,7 @@ class DialogoGrupoAT(DialogoLista):
             if enlace:
                 copiar_al_portapapeles(enlace, _("Enlace de invitación copiado"))
             texto_en_dialogo(self, _("Invitar al grupo"), enlace or _("El servidor no ha devuelto ningún enlace."))
-        self.red.servicio.enlace_grupo_async(self.account_id, self.convo_id, "crear", callback=_fin)
+        self.red.servicio.enlace_grupo_async(self.account_id, self.convo_id, "crear", callback=self.red.cb(_fin))
 
     def _solicitudes(self):
         def _fin(res, err):
@@ -423,14 +428,14 @@ class DialogoGrupoAT(DialogoLista):
                 confirmar_async(
                     self, _("¿Aceptar a {u} en el grupo? Si dices que no, se rechaza.").format(u=s.get("handle")),
                     lambda: self.red.servicio.resolver_solicitud_grupo_async(
-                        self.account_id, self.convo_id, s["did"], True, callback=_aviso(_("Solicitud aceptada."))),
+                        self.account_id, self.convo_id, s["did"], True, callback=self.red.cb(_aviso(_("Solicitud aceptada.")))),
                     etiqueta_si=_("Aceptar"),
                     al_no=lambda: self.red.servicio.resolver_solicitud_grupo_async(
-                        self.account_id, self.convo_id, s["did"], False, callback=_aviso(_("Solicitud rechazada."))))
+                        self.account_id, self.convo_id, s["did"], False, callback=self.red.cb(_aviso(_("Solicitud rechazada.")))))
             DialogoElegir(self, _("Solicitudes del grupo"), _("_Solicitud:"),
                           [f"{s.get('nombre') or s.get('handle')} (@{s.get('handle')})" for s in res], _elegida,
                           _("_Resolver")).present()
-        self.red.servicio.solicitudes_grupo_async(self.account_id, self.convo_id, callback=_fin)
+        self.red.servicio.solicitudes_grupo_async(self.account_id, self.convo_id, callback=self.red.cb(_fin))
 
     def _salir(self):
         confirmar_async(self, _("¿Salir de este grupo?"),
