@@ -5,6 +5,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import List, Optional
 
+from app.core.config_manager import config
 from app.core.database import db
 from app.services.rss.rss_buffers import where_buffer, consulta_fts
 
@@ -85,6 +86,15 @@ def _contar(account_id: int, tipo: str) -> int:
     return fila[0] if fila else 0
 
 
+# En la configuración (compartida con la versión de Windows) algunos buffers se llaman distinto que aquí.
+CLAVE_OCULTOS = {("bluesky", "dms"): "convos", ("wsocial", "dms"): "convos", ("telegram", "chats"): "all"}
+
+
+def buffer_oculto(servicio: str, clave: str) -> bool:
+    """¿Ha pedido el usuario no ver este buffer fijo en el árbol? (Herramientas → Mostrar u ocultar buffers)"""
+    return CLAVE_OCULTOS.get((servicio, clave), clave) in set(config.get(servicio, "hidden_buffers", []) or [])
+
+
 def construir_arbol(account_id: int) -> List[Nodo]:
     """Buffers fijos, categorías (con sus subcategorías y feeds) y feeds sin categoría."""
     from app.services.rss.rss_service import rss_service
@@ -125,6 +135,7 @@ def construir_arbol(account_id: int) -> List[Nodo]:
         Nodo(_("Leer más tarde"), "read_later"),
         Nodo(_("Hoy"), "today"),
     ]
+    arbol = [n for n in arbol if not buffer_oculto("rss", n.tipo)]
     arbol.extend(raiz_cat)
     arbol.extend(por_cat.get(None, []))
     return arbol

@@ -550,7 +550,8 @@ def _menu() -> Gio.Menu:
                                   (_("_Borrar datos / liberar espacio…"), "win.herr-borrar")))
     herr.append_section(None, sec((_("_Ponte al día (resumen con IA)…"), "win.herr-ponte-al-dia"),
                                   (_("_Estadísticas de mis redes…"), "win.herr-estadisticas")))
-    herr.append_section(None, sec((_("_Visor de registros…"), "win.herr-registro"),))
+    herr.append_section(None, sec((_("Mostrar u _ocultar buffers…"), "win.herr-buffers"),
+                                  (_("_Visor de registros…"), "win.herr-registro")))
     barra.append_submenu(_("_Herramientas"), herr)
 
     ver = Gio.Menu()

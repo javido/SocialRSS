@@ -1269,3 +1269,98 @@ class DialogoColaUnificada(DialogoLista):
                 self._cargar()
             mastodon_service.cancelar_programado_async(datos["_cuenta"], datos["id"], callback=_fin)
         confirmar_async(self, _("¿Cancelar esta publicación programada?"), _hacer, etiqueta_si=_("Cancelar publicación"))
+
+
+# --------------------------------------------------------------------------- mostrar u ocultar buffers
+REDES_BUFFERS = [("mastodon", _("Mastodon")), ("bluesky", _("Bluesky")), ("wsocial", _("W Social")), ("rss", _("RSS")),
+                 ("telegram", _("Telegram")), ("x", _("X (Twitter)")), ("irc", _("IRC")), ("matrix", _("Matrix")),
+                 ("xmpp", _("XMPP")), ("reddit", _("Reddit")), ("peertube", _("PeerTube"))]
+
+
+def clave_ocultos(servicio: str) -> str:
+    """Dónde guarda la configuración los buffers ocultos de una red (PeerTube los llama secciones)."""
+    return "hidden_sections" if servicio == "peertube" else "hidden_buffers"
+
+
+def buffers_de(servicio: str) -> list:
+    """(clave de la configuración, etiqueta) de los buffers fijos que el árbol de esa red puede ocultar."""
+    from .datos import CLAVE_OCULTOS
+    if servicio == "rss":
+        return [("all", _("Todos los artículos")), ("unread", _("No leídos")), ("favorites", _("Favoritos")),
+                ("read_later", _("Leer más tarde")), ("today", _("Hoy"))]
+    if servicio == "peertube":
+        from . import datos_peertube
+        return [(c, _(t)) for c, t in datos_peertube.SECCIONES.items()]
+    from importlib import import_module
+    modulo = import_module(f"app.gtk.datos_{servicio}")
+    lista = [(CLAVE_OCULTOS.get((servicio, c), c), _(t)) for c, t in modulo.BUFFERS]
+    if servicio == "xmpp":
+        # Cada pasarela detectada (WhatsApp, Discord…) se puede ocultar entera.
+        try:
+            from app.core.database import db
+            vistos = set()
+            for (acc,) in db.query("SELECT id FROM accounts WHERE service_id='xmpp' AND active=1"):
+                for p in modulo.puentes(acc):
+                    if p["dominio"] not in vistos:
+                        vistos.add(p["dominio"])
+                        lista.append(("puente:" + p["dominio"], _("Pasarela: {0}").format(p["nombre"])))
+        except Exception:
+            pass
+    return lista
+
+
+def redes_con_buffers() -> list:
+    from app.core.feature_flags import servicio_habilitado
+    from . import datos_peertube, datos_reddit, datos_x
+    disponible = {"x": datos_x.disponible(), "reddit": datos_reddit.disponible(), "peertube": datos_peertube.disponible()}
+    return [(s, n) for s, n in REDES_BUFFERS if disponible.get(s, True) and servicio_habilitado(s)] or REDES_BUFFERS[:1]
+
+
+class DialogoBuffers(DialogoBase):
+    """Elegir qué buffers fijos aparecen en el árbol de cada red. Se guarda en la configuración que comparte la versión de
+    Windows (los buffers que crea el usuario se cierran desde su menú contextual)."""
+
+    def __init__(self, padre):
+        super().__init__(padre, _("Mostrar u ocultar buffers"), _("_Aceptar"))
+        self.redes = redes_con_buffers()
+        self.ocultos = {s: set(config.get(s, clave_ocultos(s), []) or []) for s, _n in self.redes}
+        self.actual = None
+        self.red = self.campo(_("_Red:"), Gtk.DropDown.new_from_strings([n for _s, n in self.redes]))
+        self.caja_checks = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
+        marco = Gtk.ScrolledWindow(child=self.caja_checks, min_content_height=300, min_content_width=380, has_frame=True)
+        self.campo(_("_Buffers visibles (marca los que quieres ver):"), marco)
+        self.checks = []
+        self.red.connect("notify::selected", lambda *_a: self._cambiar())
+        self._cambiar()
+        self.set_focus(self.red)
+
+    def _guardar_estado(self):
+        if self.actual is not None:
+            for clave, cb in self.checks:
+                (self.ocultos[self.actual].discard if cb.get_active() else self.ocultos[self.actual].add)(clave)
+
+    def _cambiar(self):
+        self._guardar_estado()
+        servicio = self.redes[self.red.get_selected()][0]
+        self.actual = servicio
+        while (hijo := self.caja_checks.get_first_child()) is not None:
+            self.caja_checks.remove(hijo)
+        self.checks = []
+        for clave, etiqueta in buffers_de(servicio):
+            cb = Gtk.CheckButton(label=etiqueta, active=clave not in self.ocultos[servicio])
+            self.caja_checks.append(cb)
+            self.checks.append((clave, cb))
+
+    def aceptar(self):
+        self._guardar_estado()
+        cambio = False
+        for servicio, _n in self.redes:
+            clave = clave_ocultos(servicio)
+            previo = set(config.get(servicio, clave, []) or [])
+            if previo != self.ocultos[servicio]:
+                config.set(servicio, clave, sorted(self.ocultos[servicio]))
+                cambio = True
+        self.close()
+        if cambio:
+            self.padre.cargar_arbol()
+            notificar(_("Buffers actualizados."))

@@ -8,7 +8,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from app.services.irc.irc_service import irc_service
-from .datos import Nodo, Fila
+from .datos import Nodo, Fila, buffer_oculto
 
 log = logging.getLogger(__name__)
 
@@ -42,6 +42,8 @@ def construir_nodos() -> Nodo:
         titulo = nombre if conectada(acc_id) else _("{n} (desconectada)").format(n=nombre)
         cuenta = Nodo(titulo, "cuenta", servicio="irc", account_id=acc_id)
         for clave, etiqueta in BUFFERS:
+            if buffer_oculto("irc", clave):
+                continue
             cuenta.hijos.append(Nodo(_(etiqueta), "timeline", servicio="irc", account_id=acc_id, timeline=clave))
         cuenta.hijos.extend(EXTRA.get(acc_id, []))
         raiz.hijos.append(cuenta)

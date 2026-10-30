@@ -8,7 +8,7 @@ import logging
 from typing import Dict, List, Optional
 
 from app.core.database import db
-from .datos import Nodo, Fila
+from .datos import Nodo, Fila, buffer_oculto
 from .filtros_contenido import sin_ocultas
 
 log = logging.getLogger(__name__)
@@ -53,6 +53,8 @@ def construir_nodos() -> Nodo:
     for acc_id, nombre in cuentas():
         cuenta = Nodo(nombre, "cuenta", servicio="bluesky", account_id=acc_id)
         for clave, titulo in BUFFERS:
+            if buffer_oculto("bluesky", clave):
+                continue
             cuenta.hijos.append(Nodo(_(titulo), "timeline", servicio="bluesky", account_id=acc_id, timeline=clave))
         cuenta.hijos.extend(EXTRA.get(acc_id, []))
         raiz.hijos.append(cuenta)

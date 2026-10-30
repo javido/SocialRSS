@@ -15,6 +15,7 @@ class _HerramientasMixin:
         accion("herr-migrar", self.herr_migrar)
         accion("herr-borrar", self.herr_borrar)
         accion("herr-registro", self.herr_registro)
+        accion("herr-buffers", self.herr_buffers)
         accion("herr-radio", self.herr_radio)
         accion("herr-reproductor", self.herr_reproductor)
         accion("herr-ver-descripcion", self.herr_ver_descripcion, ["<Ctrl><Alt>k"])
@@ -52,6 +53,10 @@ class _HerramientasMixin:
     def herr_cola(self):
         from .dialogos_herramientas import DialogoColaUnificada
         DialogoColaUnificada(self).present()
+
+    def herr_buffers(self):
+        from .dialogos_herramientas import DialogoBuffers
+        DialogoBuffers(self).present()
 
     def herr_registro(self):
         from .dialogos_herramientas import DialogoRegistro

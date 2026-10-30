@@ -9,7 +9,7 @@ import sys
 from typing import Dict, List, Optional
 
 from app.core.database import db
-from .datos import Nodo, Fila
+from .datos import Nodo, Fila, buffer_oculto
 
 log = logging.getLogger(__name__)
 
@@ -70,14 +70,16 @@ def construir_nodos() -> Nodo:
         cuenta = Nodo(titulo, "cuenta", servicio="xmpp", account_id=acc_id)
         pasarelas = puentes(acc_id)
         for clave, etiqueta in BUFFERS:
-            if pasarelas and clave not in BUFFERS_CON_PUENTES:
+            if (pasarelas and clave not in BUFFERS_CON_PUENTES) or buffer_oculto("xmpp", clave):
                 continue
             timeline = f"{clave}@{NATIVO}" if pasarelas else clave
             cuenta.hijos.append(Nodo(_(etiqueta), "timeline", servicio="xmpp", account_id=acc_id, timeline=timeline))
         for p in pasarelas:
+            if buffer_oculto("xmpp", "puente:" + p["dominio"]):
+                continue
             rama = Nodo(p["nombre"], "cuenta", servicio="xmpp", account_id=acc_id, timeline="puente:" + p["dominio"])
             for clave, etiqueta in BUFFERS:
-                if clave in BUFFERS_DE_PUENTE:
+                if clave in BUFFERS_DE_PUENTE and not buffer_oculto("xmpp", clave):
                     rama.hijos.append(Nodo(_(etiqueta), "timeline", servicio="xmpp", account_id=acc_id,
                                            timeline=f"{clave}@{p['dominio']}"))
             cuenta.hijos.append(rama)
