@@ -536,6 +536,9 @@ def _menu() -> Gio.Menu:
                                   (_("_Extraer el texto de la imagen (OCR con IA)"), "win.ocr-imagen")))
     herr.append_section(None, sec((_("Historial de _traducciones…"), "win.historial-traducciones"),
                                   (_("Historial de _IA…"), "win.historial-ia")))
+    herr.append_section(None, sec((_("_Radio por internet…"), "win.herr-radio"),
+                                  (_("Reproductor de radio, _podcast y YouTube…"), "win.herr-reproductor"),
+                                  (_("Ver la _descripción de la multimedia"), "win.herr-ver-descripcion")))
     herr.append_section(None, sec((_("Buscar en _todo el contenido…"), "win.herr-buscar-global"),
                                   (_("_Borradores y programados de todas las redes…"), "win.herr-cola"),
                                   (_("Centro de _notificaciones (todas las redes)…"), "win.herr-centro-notificaciones"),

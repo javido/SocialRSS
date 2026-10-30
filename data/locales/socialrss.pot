@@ -52093,3 +52093,151 @@ msgstr ""
 
 msgid "Ámbito de la búsqueda"
 msgstr ""
+
+msgid "A_vanzar {0}s"
+msgstr ""
+
+msgid "A_ñadir o quitar de favoritos"
+msgstr ""
+
+msgid "Activar _sonido"
+msgstr ""
+
+msgid "C_ola…"
+msgstr ""
+
+msgid "Ca_pítulos…"
+msgstr ""
+
+msgid "Cambiar"
+msgstr ""
+
+msgid "Cargando emisoras…"
+msgstr ""
+
+msgid "Cate_gorías…"
+msgstr ""
+
+msgid "Categorías de favoritos"
+msgstr ""
+
+msgid ""
+"Enfoca una publicación de Mastodon, Bluesky, W Social o X para ver su "
+"descripción."
+msgstr ""
+
+msgid ""
+"Episodios que sonarán a continuación, en este orden. Se añaden desde el menú"
+" de un artículo de podcast."
+msgstr ""
+
+msgid "Historial de emisoras"
+msgstr ""
+
+msgid "Lista de emisoras favoritas"
+msgstr ""
+
+msgid "Reproductor de radio, _podcast y YouTube…"
+msgstr ""
+
+msgid "Veloc_idad:"
+msgstr ""
+
+msgid "Ver la _descripción de la multimedia"
+msgstr ""
+
+msgid "Vo_lumen:"
+msgstr ""
+
+msgid "Votando…"
+msgstr ""
+
+msgid "_Actualizar la lista"
+msgstr ""
+
+msgid "_Atrasar {0}s"
+msgstr ""
+
+msgid "_Bajar"
+msgstr ""
+
+msgid "_Borrar el historial"
+msgstr ""
+
+msgid "_Borrar la categoría"
+msgstr ""
+
+msgid "_Cargar emisoras"
+msgstr ""
+
+msgid "_Categoría:"
+msgstr ""
+
+msgid "_Copiar la URL"
+msgstr ""
+
+msgid "_Crear una categoría"
+msgstr ""
+
+msgid "_Detener"
+msgstr ""
+
+msgid "_Ecualizador…"
+msgstr ""
+
+msgid "_Género:"
+msgstr ""
+
+msgid "_Información"
+msgstr ""
+
+msgid "_Ir al capítulo"
+msgstr ""
+
+msgid "_Nombre de la categoría:"
+msgstr ""
+
+msgid "_Nuevo favorito…"
+msgstr ""
+
+msgid "_País:"
+msgstr ""
+
+msgid "_Preajuste:"
+msgstr ""
+
+msgid "_Preamplificador (dB):"
+msgstr ""
+
+msgid "_Radio por internet…"
+msgstr ""
+
+msgid "_Reproducir / pausar"
+msgstr ""
+
+msgid "_Reproducir ahora"
+msgstr ""
+
+msgid "_Restablecer (plano)"
+msgstr ""
+
+msgid "_Saltar silencios"
+msgstr ""
+
+msgid "_URL del stream:"
+msgstr ""
+
+msgid "_Vaciar la cola"
+msgstr ""
+
+msgid "{0} _Hz (dB):"
+msgstr ""
+
+msgid "{0} _kHz (dB):"
+msgstr ""
+
+msgid "{0} categorías"
+msgstr ""
+
+msgid "{0} emisoras."
+msgstr ""

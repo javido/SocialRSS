@@ -15,6 +15,9 @@ class _HerramientasMixin:
         accion("herr-migrar", self.herr_migrar)
         accion("herr-borrar", self.herr_borrar)
         accion("herr-registro", self.herr_registro)
+        accion("herr-radio", self.herr_radio)
+        accion("herr-reproductor", self.herr_reproductor)
+        accion("herr-ver-descripcion", self.herr_ver_descripcion, ["<Ctrl><Alt>k"])
         accion("herr-cola", self.herr_cola)
         accion("herr-estadisticas", self.herr_estadisticas)
         accion("herr-ponte-al-dia", self.herr_ponte_al_dia, ["<Ctrl><Shift>y"])
@@ -182,3 +185,44 @@ class _HerramientasMixin:
             self.avisar(_("Resumen listo"))
             DialogoTextoLargo(self, _("Ponte al día"), markdown_a_texto(res)).present()
         task_manager.start_task(_bg, callback=_fin, pass_context=True)
+
+    # ------------------------------------------------------------------ radio y reproductor
+    def herr_radio(self):
+        from .dialogos_radio import DialogoRadio
+        DialogoRadio(self).present()
+
+    def herr_reproductor(self):
+        from .dialogos_reproductor import DialogoReproductor2
+        DialogoReproductor2.mostrar(self)
+
+    # ------------------------------------------------------------------ descripción de la multimedia
+    def herr_ver_descripcion(self):
+        """Muestra el texto alternativo que el autor puso a las imágenes y vídeos de la publicación enfocada."""
+        import json
+        from app.core.database import db
+        from .dialogos_mastodon_extra import DialogoTextoLargo
+        obj = self._fila_actual()
+        if obj is None or obj.fila.servicio not in ("mastodon", "bluesky", "wsocial", "x"):
+            self.avisar(_("Enfoca una publicación de Mastodon, Bluesky, W Social o X para ver su descripción."))
+            return
+        f = obj.fila
+        tabla = {"mastodon": "mastodon_statuses", "bluesky": "bluesky_posts", "wsocial": "wsocial_posts",
+                 "x": "x_tweets"}[f.servicio]
+        fila = db.query_one(f"SELECT COALESCE(media_json, '') FROM {tabla} WHERE id = ?",
+                            (f.extra.get("estado_db_id") or f.id,))
+        descripciones = []
+        if fila and fila[0]:
+            try:
+                for a in json.loads(fila[0]) or []:
+                    if isinstance(a, dict):
+                        d = (a.get("description") or a.get("alt") or "").strip()
+                        if d:
+                            descripciones.append(d)
+            except (TypeError, ValueError):
+                pass
+        if not descripciones:
+            self.avisar(_("Esta publicación no tiene descripción en su multimedia."))
+            return
+        texto = descripciones[0] if len(descripciones) == 1 else "\n\n".join(
+            _("Imagen {0}: {1}").format(i + 1, d) for i, d in enumerate(descripciones))
+        DialogoTextoLargo(self, _("Descripción de la multimedia"), texto).present()

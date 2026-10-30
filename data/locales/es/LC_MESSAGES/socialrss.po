@@ -41963,3 +41963,155 @@ msgstr "_Texto para todas las redes marcadas:"
 
 msgid "Ámbito de la búsqueda"
 msgstr "Ámbito de la búsqueda"
+
+msgid "A_vanzar {0}s"
+msgstr "A_vanzar {0}s"
+
+msgid "A_ñadir o quitar de favoritos"
+msgstr "A_ñadir o quitar de favoritos"
+
+msgid "Activar _sonido"
+msgstr "Activar _sonido"
+
+msgid "C_ola…"
+msgstr "C_ola…"
+
+msgid "Ca_pítulos…"
+msgstr "Ca_pítulos…"
+
+msgid "Cambiar"
+msgstr "Cambiar"
+
+msgid "Cargando emisoras…"
+msgstr "Cargando emisoras…"
+
+msgid "Cate_gorías…"
+msgstr "Cate_gorías…"
+
+msgid "Categorías de favoritos"
+msgstr "Categorías de favoritos"
+
+msgid ""
+"Enfoca una publicación de Mastodon, Bluesky, W Social o X para ver su "
+"descripción."
+msgstr ""
+"Enfoca una publicación de Mastodon, Bluesky, W Social o X para ver su "
+"descripción."
+
+msgid ""
+"Episodios que sonarán a continuación, en este orden. Se añaden desde el menú"
+" de un artículo de podcast."
+msgstr ""
+"Episodios que sonarán a continuación, en este orden. Se añaden desde el menú"
+" de un artículo de podcast."
+
+msgid "Historial de emisoras"
+msgstr "Historial de emisoras"
+
+msgid "Lista de emisoras favoritas"
+msgstr "Lista de emisoras favoritas"
+
+msgid "Reproductor de radio, _podcast y YouTube…"
+msgstr "Reproductor de radio, _podcast y YouTube…"
+
+msgid "Veloc_idad:"
+msgstr "Veloc_idad:"
+
+msgid "Ver la _descripción de la multimedia"
+msgstr "Ver la _descripción de la multimedia"
+
+msgid "Vo_lumen:"
+msgstr "Vo_lumen:"
+
+msgid "Votando…"
+msgstr "Votando…"
+
+msgid "_Actualizar la lista"
+msgstr "_Actualizar la lista"
+
+msgid "_Atrasar {0}s"
+msgstr "_Atrasar {0}s"
+
+msgid "_Bajar"
+msgstr "_Bajar"
+
+msgid "_Borrar el historial"
+msgstr "_Borrar el historial"
+
+msgid "_Borrar la categoría"
+msgstr "_Borrar la categoría"
+
+msgid "_Cargar emisoras"
+msgstr "_Cargar emisoras"
+
+msgid "_Categoría:"
+msgstr "_Categoría:"
+
+msgid "_Copiar la URL"
+msgstr "_Copiar la URL"
+
+msgid "_Crear una categoría"
+msgstr "_Crear una categoría"
+
+msgid "_Detener"
+msgstr "_Detener"
+
+msgid "_Ecualizador…"
+msgstr "_Ecualizador…"
+
+msgid "_Género:"
+msgstr "_Género:"
+
+msgid "_Información"
+msgstr "_Información"
+
+msgid "_Ir al capítulo"
+msgstr "_Ir al capítulo"
+
+msgid "_Nombre de la categoría:"
+msgstr "_Nombre de la categoría:"
+
+msgid "_Nuevo favorito…"
+msgstr "_Nuevo favorito…"
+
+msgid "_País:"
+msgstr "_País:"
+
+msgid "_Preajuste:"
+msgstr "_Preajuste:"
+
+msgid "_Preamplificador (dB):"
+msgstr "_Preamplificador (dB):"
+
+msgid "_Radio por internet…"
+msgstr "_Radio por internet…"
+
+msgid "_Reproducir / pausar"
+msgstr "_Reproducir / pausar"
+
+msgid "_Reproducir ahora"
+msgstr "_Reproducir ahora"
+
+msgid "_Restablecer (plano)"
+msgstr "_Restablecer (plano)"
+
+msgid "_Saltar silencios"
+msgstr "_Saltar silencios"
+
+msgid "_URL del stream:"
+msgstr "_URL del stream:"
+
+msgid "_Vaciar la cola"
+msgstr "_Vaciar la cola"
+
+msgid "{0} _Hz (dB):"
+msgstr "{0} _Hz (dB):"
+
+msgid "{0} _kHz (dB):"
+msgstr "{0} _kHz (dB):"
+
+msgid "{0} categorías"
+msgstr "{0} categorías"
+
+msgid "{0} emisoras."
+msgstr "{0} emisoras."

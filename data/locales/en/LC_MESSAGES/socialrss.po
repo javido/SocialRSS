@@ -53791,3 +53791,153 @@ msgstr "_Text for all the selected networks:"
 
 msgid "Ámbito de la búsqueda"
 msgstr "Search scope"
+
+msgid "A_vanzar {0}s"
+msgstr "Skip _forward {0}s"
+
+msgid "A_ñadir o quitar de favoritos"
+msgstr "Add to or remove from _favorites"
+
+msgid "Activar _sonido"
+msgstr "Turn _sound on"
+
+msgid "C_ola…"
+msgstr "_Queue…"
+
+msgid "Ca_pítulos…"
+msgstr "Cha_pters…"
+
+msgid "Cambiar"
+msgstr "Switch"
+
+msgid "Cargando emisoras…"
+msgstr "Loading stations…"
+
+msgid "Cate_gorías…"
+msgstr "Cate_gories…"
+
+msgid "Categorías de favoritos"
+msgstr "Favorite categories"
+
+msgid ""
+"Enfoca una publicación de Mastodon, Bluesky, W Social o X para ver su "
+"descripción."
+msgstr "Focus a Mastodon, Bluesky, W Social or X post to see its description."
+
+msgid ""
+"Episodios que sonarán a continuación, en este orden. Se añaden desde el menú"
+" de un artículo de podcast."
+msgstr ""
+"Episodes that will play next, in this order. They are added from a podcast "
+"article's menu."
+
+msgid "Historial de emisoras"
+msgstr "Station history"
+
+msgid "Lista de emisoras favoritas"
+msgstr "Favorite stations list"
+
+msgid "Reproductor de radio, _podcast y YouTube…"
+msgstr "Radio, _podcast and YouTube player…"
+
+msgid "Veloc_idad:"
+msgstr "Spee_d:"
+
+msgid "Ver la _descripción de la multimedia"
+msgstr "See the media _description"
+
+msgid "Vo_lumen:"
+msgstr "Vo_lume:"
+
+msgid "Votando…"
+msgstr "Voting…"
+
+msgid "_Actualizar la lista"
+msgstr "_Refresh the list"
+
+msgid "_Atrasar {0}s"
+msgstr "Skip _back {0}s"
+
+msgid "_Bajar"
+msgstr "Move _down"
+
+msgid "_Borrar el historial"
+msgstr "_Delete the history"
+
+msgid "_Borrar la categoría"
+msgstr "_Delete the category"
+
+msgid "_Cargar emisoras"
+msgstr "_Load stations"
+
+msgid "_Categoría:"
+msgstr "_Category:"
+
+msgid "_Copiar la URL"
+msgstr "_Copy the URL"
+
+msgid "_Crear una categoría"
+msgstr "_Create a category"
+
+msgid "_Detener"
+msgstr "_Stop"
+
+msgid "_Ecualizador…"
+msgstr "_Equalizer…"
+
+msgid "_Género:"
+msgstr "_Genre:"
+
+msgid "_Información"
+msgstr "_Information"
+
+msgid "_Ir al capítulo"
+msgstr "_Go to the chapter"
+
+msgid "_Nombre de la categoría:"
+msgstr "_Category name:"
+
+msgid "_Nuevo favorito…"
+msgstr "_New favorite…"
+
+msgid "_País:"
+msgstr "_Country:"
+
+msgid "_Preajuste:"
+msgstr "_Preset:"
+
+msgid "_Preamplificador (dB):"
+msgstr "_Preamp (dB):"
+
+msgid "_Radio por internet…"
+msgstr "Internet _radio…"
+
+msgid "_Reproducir / pausar"
+msgstr "_Play / pause"
+
+msgid "_Reproducir ahora"
+msgstr "_Play now"
+
+msgid "_Restablecer (plano)"
+msgstr "_Reset (flat)"
+
+msgid "_Saltar silencios"
+msgstr "_Skip silences"
+
+msgid "_URL del stream:"
+msgstr "Stream _URL:"
+
+msgid "_Vaciar la cola"
+msgstr "_Clear the queue"
+
+msgid "{0} _Hz (dB):"
+msgstr "{0} _Hz (dB):"
+
+msgid "{0} _kHz (dB):"
+msgstr "{0} _kHz (dB):"
+
+msgid "{0} categorías"
+msgstr "{0} categories"
+
+msgid "{0} emisoras."
+msgstr "{0} stations."
