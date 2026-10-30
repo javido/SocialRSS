@@ -20,10 +20,11 @@ from app.core.content_filters import ContentFilterEngine
 from app.core.paths import get_data_path
 from app.core.speech import copiar_al_portapapeles, notificar
 from app.core.task_manager import TareaDuplicadaError, task_manager
+from app.services.wsocial.wsocial_common import LIMITE_CARACTERES
 
 from .dialogos import DialogoBase, confirmar_async
 from .dialogos_mastodon import DialogoLista, ListaSimple
-from .fragmentos import obtener_fragmentos
+from .fragmentos import instalar_fragmentos, obtener_fragmentos
 
 log = logging.getLogger(__name__)
 
@@ -837,3 +838,434 @@ class DialogoRegistro(Gtk.Window):
             GLib.source_remove(self._seguir)
             self._seguir = 0
         return False
+
+
+# --------------------------------------------------------------------------- centro de notificaciones
+class DialogoCentroNotificaciones(DialogoLista):
+    """Todo lo que te menciona o interpela, de todas las redes, de más reciente a más antiguo. Intro abre el elemento
+    en su red. Lee solo la caché local."""
+
+    def __init__(self, padre, al_abrir):
+        super().__init__(padre, _("Centro de notificaciones (todas las redes)"), _("Lista de notificaciones"),
+                         al_activar=lambda pos: self._abrir())
+        self.al_abrir = al_abrir
+        self.items = []
+        self.boton(_("_Abrir"), self._abrir)
+        self.boton(_("_Actualizar"), self._cargar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        from app.core.centro_notificaciones import reunir
+        from .datos import fecha_legible
+        self.mostrar_estado(_("Cargando notificaciones…"))
+
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("No se pudieron cargar las notificaciones: {0}").format(err))
+                return
+            self.items = res or []
+            self.lista.poner([". ".join(x for x in (it["red"], it["tipo"], it["de"], " ".join(it["texto"].split()),
+                                                    fecha_legible(it["fecha"]) if it["fecha"] else "") if x)
+                              for it in self.items])
+            self.mostrar_estado(_("{0} notificaciones.").format(len(self.items)) if self.items
+                                else _("No tienes notificaciones nuevas."))
+            self.lista.enfocar()
+        task_manager.start_task(lambda ctx: reunir(), callback=_fin, pass_context=True)
+
+    def _abrir(self):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.items) and self.items[p].get("abrir"):
+            destino = self.items[p]["abrir"]
+            self.close()
+            self.al_abrir(destino)
+
+
+# --------------------------------------------------------------------------- publicación cruzada
+LIMITES_CRUZADA = {"mastodon": 500, "bluesky": 300, "wsocial": LIMITE_CARACTERES, "x": 280}
+NOMBRES_RED = {"mastodon": "Mastodon", "bluesky": "Bluesky", "wsocial": "W Social", "x": "X"}
+
+
+def destinos_publicacion_cruzada() -> list:
+    """(red, account_id, etiqueta) de cada cuenta activa de una red habilitada que publica estados."""
+    from app.core.database import db
+    from app.core.feature_flags import servicio_habilitado
+    destinos = []
+    for red in ("mastodon", "bluesky", "wsocial", "x"):
+        if not servicio_habilitado(red):
+            continue
+        for aid, nombre in db.query("SELECT id, name FROM accounts WHERE service_id=? AND active=1 ORDER BY position, id",
+                                    (red,)):
+            destinos.append((red, aid, f"{NOMBRES_RED[red]}: {nombre}"))
+    return destinos
+
+
+def publicar_en_cuenta(red: str, account_id: int, texto: str, imagenes, alts, etiqueta: str, estado: dict, idem: str):
+    """Publica en UNA cuenta y actualiza el conteo de `estado`. Cada red avisa con una firma distinta y aquí se adaptan."""
+    def _terminado(ok, motivo=None):
+        estado["hechas"] += 1
+        if not ok:
+            estado["errores"].append(_("{0} ({1})").format(etiqueta, str(motivo)[:120]) if motivo else etiqueta)
+        if estado["hechas"] >= estado["total"]:
+            notificar(_("Publicado en todas las redes.") if not estado["errores"]
+                      else _("Publicado, pero falló en: {0}").format("; ".join(estado["errores"])))
+    try:
+        if red == "mastodon":
+            from app.services.mastodon.mastodon_composer import MastodonComposer
+            MastodonComposer.publicar_toot_async(account_id, texto, media_paths=imagenes, alt_texts=alts,
+                                                 idempotency_key=idem,
+                                                 callback=lambda ok, msg: _terminado(bool(ok), None if ok else msg))
+        elif red == "bluesky":
+            from app.services.bluesky import bluesky_service
+            bluesky_service.publicar_post_async(account_id, texto, media_paths=imagenes, alt_texts=alts,
+                                                callback=lambda ok, msg: _terminado(bool(ok), None if ok else msg))
+        elif red == "wsocial":
+            from app.services.wsocial.wsocial_service import wsocial_service
+            wsocial_service.publicar_post_async(account_id, texto, imagenes=imagenes, alt_texts=alts,
+                                                callback=lambda ok, msg: _terminado(bool(ok), None if ok else msg))
+        elif red == "x":
+            from app.services.x.x_service import x_service
+            x_service.publicar_async(account_id, texto, media_paths=imagenes, alt_texts=alts,
+                                     callback=lambda _res, err: _terminado(err is None, err))
+    except Exception as e:
+        _terminado(False, e)
+
+
+class DialogoPublicacionCruzada(DialogoBase):
+    """Un solo texto (y hasta cuatro imágenes) publicado a la vez en las cuentas marcadas de varias redes."""
+
+    def __init__(self, padre, texto_inicial: str = ""):
+        super().__init__(padre, _("Publicación cruzada (varias redes)"), _("_Publicar en las cuentas marcadas"))
+        self.imagenes = []          # (ruta, descripción)
+        self._publicando = False
+        self.destinos = destinos_publicacion_cruzada()
+        self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, accepts_tab=False, hexpand=True, left_margin=6,
+                                  right_margin=6, top_margin=6, bottom_margin=6)
+        self.texto.get_buffer().set_text(texto_inicial or "")
+        instalar_fragmentos(self.texto)
+        marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=140, min_content_width=480, hexpand=True,
+                                   has_frame=True)
+        self.campo(_("_Texto para todas las redes marcadas:"), marco)
+        self.rejilla.get_child_at(0, self._fila - 1).set_mnemonic_widget(self.texto)
+        self.contador = Gtk.Label(xalign=0, accessible_role=Gtk.AccessibleRole.STATUS)
+        self.rejilla.attach(self.contador, 0, self._fila, 2, 1)
+        self._fila += 1
+        self.texto.get_buffer().connect("changed", lambda *_a: self._contar())
+        ctl = Gtk.ShortcutController()
+        ctl.add_shortcut(Gtk.Shortcut.new(Gtk.ShortcutTrigger.parse_string("<Ctrl><Shift>space"),
+                                          Gtk.CallbackAction.new(lambda *_a: self._decir_caracteres() or True)))
+        self.texto.add_controller(ctl)
+
+        self.checks = []
+        if not self.destinos:
+            self.rejilla.attach(Gtk.Label(label=_("No hay cuentas de Mastodon, Bluesky, W Social o X activas."), xalign=0),
+                                0, self._fila, 2, 1)
+            self._fila += 1
+            self.boton_aceptar.set_sensitive(False)
+        else:
+            self.rejilla.attach(Gtk.Label(label=_("Publicar en estas cuentas:"), xalign=0), 0, self._fila, 2, 1)
+            self._fila += 1
+            self.todas = Gtk.CheckButton(label=_("Seleccionar _todas las cuentas"), use_underline=True)
+            self.todas.connect("toggled", lambda *_a: self._marcar_todas())
+            self.rejilla.attach(self.todas, 0, self._fila, 2, 1)
+            self._fila += 1
+            recordadas = set(config.get("general", "crosspost_ultimas", []) or [])
+            for red, aid, etiqueta in self.destinos:
+                cb = Gtk.CheckButton(label=etiqueta, active=f"{red}:{aid}" in recordadas)
+                cb.connect("toggled", lambda *_a: self._sincronizar_todas())
+                self.rejilla.attach(cb, 0, self._fila, 2, 1)
+                self._fila += 1
+                self.checks.append((red, aid, etiqueta, cb))
+            self._sincronizar_todas()
+
+        self.lbl_imagenes = Gtk.Label(xalign=0, label=_("Sin imágenes"))
+        fila = Gtk.Box(spacing=8)
+        b_add = Gtk.Button(label=_("Añadir _imagen…"), use_underline=True)
+        b_add.connect("clicked", lambda *_a: self._anadir_imagen())
+        b_quitar = Gtk.Button(label=_("_Quitar la última imagen"), use_underline=True)
+        b_quitar.connect("clicked", lambda *_a: self._quitar_imagen())
+        for w in (b_add, b_quitar, self.lbl_imagenes):
+            fila.append(w)
+        self.rejilla.attach(fila, 0, self._fila, 2, 1)
+        self._fila += 1
+        self._contar()
+        self.set_focus(self.texto)
+
+    def _texto(self) -> str:
+        b = self.texto.get_buffer()
+        return b.get_text(b.get_start_iter(), b.get_end_iter(), False)
+
+    def _excedidas(self, n: int, redes=None) -> list:
+        return [NOMBRES_RED[r] for r, lim in LIMITES_CRUZADA.items() if n > lim and (redes is None or r in redes)]
+
+    def _contar(self):
+        n = len(self._texto())
+        excede = self._excedidas(n)
+        self.contador.set_text(_("{0} caracteres. Excede el límite de: {1}").format(n, ", ".join(excede)) if excede
+                               else _("{0} caracteres.").format(n))
+
+    def _decir_caracteres(self):
+        n = len(self._texto())
+        excede = self._excedidas(n)
+        notificar(_("{0} caracteres escritos. Excede el límite de: {1}.").format(n, ", ".join(excede)) if excede
+                  else _("{0} caracteres escritos.").format(n))
+
+    def _marcar_todas(self):
+        valor = self.todas.get_active()
+        for *_r, cb in self.checks:
+            cb.set_active(valor)
+
+    def _sincronizar_todas(self):
+        if self.checks:
+            self.todas.set_active(all(cb.get_active() for *_r, cb in self.checks))
+
+    def _anadir_imagen(self):
+        if len(self.imagenes) >= 4:
+            notificar(_("Todas las redes admiten hasta cuatro imágenes."))
+            return
+
+        def _ruta(ruta):
+            d = DialogoBase(self, _("Descripción de la imagen"), _("_Aceptar"))
+            entrada = d.campo(_("_Descripción para quien no la ve:"), Gtk.Entry(activates_default=True, width_chars=50),
+                              _("Describe la imagen. Se recomienda siempre."))
+            ia = Gtk.Button(label=_("_Generar con IA"), use_underline=True)
+            ia.connect("clicked", lambda *_a: self._descripcion_ia(ruta, entrada))
+            d.rejilla.attach(ia, 1, d._fila, 1, 1)
+            d._fila += 1
+
+            def _listo():
+                self.imagenes.append((ruta, entrada.get_text().strip()))
+                self.lbl_imagenes.set_text(_("{0} imágenes").format(len(self.imagenes)))
+                notificar(self.lbl_imagenes.get_text())
+                d.close()
+            d.aceptar = _listo
+            d.set_focus(entrada)
+            d.present()
+        _abrir_de(self, _("Elige una imagen"), ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.webp"], _ruta)
+
+    @staticmethod
+    def _descripcion_ia(ruta: str, entrada):
+        from .acciones_ia import texto_alternativo
+        texto_alternativo(ruta, lambda t: (entrada.set_text(t), entrada.grab_focus()))
+
+    def _quitar_imagen(self):
+        if self.imagenes:
+            self.imagenes.pop()
+            self.lbl_imagenes.set_text(_("{0} imágenes").format(len(self.imagenes)) if self.imagenes else _("Sin imágenes"))
+            notificar(self.lbl_imagenes.get_text())
+
+    def aceptar(self):
+        if self._publicando:
+            return
+        texto = self._texto().strip()
+        if not texto and not self.imagenes:
+            notificar(_("Escribe algo o añade una imagen."))
+            return
+        elegidos, vistos = [], set()
+        for red, aid, etiqueta, cb in self.checks:
+            if cb.get_active() and (red, aid) not in vistos:
+                vistos.add((red, aid))
+                elegidos.append((red, aid, etiqueta))
+        if not elegidos:
+            notificar(_("Marca al menos una cuenta."))
+            return
+        excede = self._excedidas(len(texto), {r for r, _a, _e in elegidos})
+
+        def _publicar():
+            import uuid
+            config.set("general", "crosspost_ultimas", [f"{r}:{a}" for r, a, _e in elegidos])
+            self._publicando = True
+            self.boton_aceptar.set_sensitive(False)
+            base = uuid.uuid4().hex
+            estado = {"total": len(elegidos), "hechas": 0, "errores": []}
+            notificar(_("Publicando en {0} cuentas…").format(estado["total"]))
+            rutas = [r for r, _d in self.imagenes] or None
+            alts = [d for _r, d in self.imagenes] or None
+            for red, aid, etiqueta in elegidos:
+                publicar_en_cuenta(red, aid, texto, rutas, alts, etiqueta, estado, f"{base}:{red}:{aid}")
+            self.close()
+        if excede:
+            confirmar_async(self, _("El texto supera el límite de {0}. Puede que se rechace o se recorte en esas redes. "
+                                    "¿Publicar de todas formas?").format(", ".join(excede)), _publicar,
+                            etiqueta_si=_("Publicar"))
+        else:
+            _publicar()
+
+
+# --------------------------------------------------------------------------- búsqueda global
+ETIQUETAS_RED = {"mastodon": "Mastodon", "bluesky": "Bluesky", "wsocial": "W Social", "rss": "RSS", "telegram": "Telegram",
+                 "x": "X", "irc": "IRC", "matrix": "Matrix", "xmpp": "XMPP"}
+
+
+class DialogoBusquedaGlobal(DialogoLista):
+    """Busca en texto completo en todo lo guardado en local. Intro abre el resultado en su red."""
+
+    def __init__(self, padre, al_abrir, consulta: str = "", solo_rss: bool = False):
+        super().__init__(padre, _("Buscar en todo el contenido"), _("Lista de resultados de la búsqueda"),
+                         al_activar=lambda pos: self._abrir())
+        from app.core.busqueda_global import AMBITOS
+        self.al_abrir = al_abrir
+        self.resultados = []
+        self._ambitos = AMBITOS
+        fila = Gtk.Box(spacing=8)
+        self.entrada = Gtk.SearchEntry(hexpand=True)
+        self.entrada.update_property([Gtk.AccessibleProperty.LABEL], [_("Texto a buscar")])
+        self.entrada.connect("activate", lambda *_a: self._buscar())
+        self.ambito = Gtk.DropDown.new_from_strings(
+            [_("Todos")] + [_("Solo {0}").format(ETIQUETAS_RED[a]) for a in AMBITOS[1:]])
+        self.ambito.update_property([Gtk.AccessibleProperty.LABEL], [_("Ámbito de la búsqueda")])
+        etiqueta = Gtk.Label(label=_("_Buscar:"), use_underline=True)
+        etiqueta.set_mnemonic_widget(self.entrada)
+        for w in (etiqueta, self.entrada, self.ambito):
+            fila.append(w)
+        self.get_child().insert_child_after(fila, None)
+        self.boton(_("_Buscar"), self._buscar)
+        self.boton(_("_Abrir"), self._abrir)
+        self.cerrar_boton()
+        self.lista.anterior = self.entrada
+        if solo_rss:
+            self.ambito.set_selected(AMBITOS.index("rss"))
+        if consulta:
+            self.entrada.set_text(consulta)
+            self._buscar()
+        self.mostrar_estado(_("Escribe lo que buscas y pulsa Intro."))
+
+    def present(self):
+        Gtk.Window.present(self)
+        self.entrada.grab_focus()
+
+    def _buscar(self):
+        consulta = self.entrada.get_text().strip()
+        if not consulta:
+            notificar(_("Escribe algo que buscar."))
+            return
+        from app.core.busqueda_global import buscar
+        ambito = self.ambito.get_selected()
+        self.mostrar_estado(_("Buscando…"))
+
+        def _fin(res, err):
+            if err:
+                self.mostrar_estado(_("Error en la búsqueda: {0}").format(err))
+                return
+            from .datos import fecha_legible
+            self.resultados = res or []
+            self.lista.poner([". ".join(x for x in (ETIQUETAS_RED.get(r["service"], r["service"]), r["origen"],
+                                                    " ".join((r["texto"] or "").split())[:240],
+                                                    fecha_legible(r["fecha"]) if r["fecha"] else "") if x)
+                              for r in self.resultados])
+            self.mostrar_estado(_("{0} resultados encontrados.").format(len(self.resultados)) if self.resultados
+                                else _("Sin resultados."))
+            if self.resultados:
+                self.lista.enfocar()
+        task_manager.start_task(lambda ctx: buscar(consulta, ambito), callback=_fin, pass_context=True)
+
+    def _abrir(self):
+        p = self.lista.posicion()
+        if 0 <= p < len(self.resultados):
+            r = self.resultados[p]
+            self.close()
+            self.al_abrir(r)
+
+
+def markdown_a_texto(texto: str) -> str:
+    """Las respuestas de la IA suelen venir en markdown; para leerlas se quitan las marcas (asteriscos, almohadillas...)
+    pasando por HTML. Si no hay librería de markdown, se deja tal cual."""
+    try:
+        import markdown
+        from app.core.html_utils import html_a_texto
+        return html_a_texto(markdown.markdown(texto or "", extensions=["extra", "sane_lists", "nl2br"])).strip()
+    except Exception:
+        return texto or ""
+
+
+# --------------------------------------------------------------------------- borradores y programados
+class DialogoColaUnificada(DialogoLista):
+    """Borradores (de Mastodon y los guardados en la configuración por otras redes) y publicaciones programadas de
+    Mastodon, de todas las cuentas, en una sola lista. Intro abre el borrador; en una programada, cancelarla."""
+
+    def __init__(self, padre):
+        super().__init__(padre, _("Borradores y programados de todas las redes"), _("Lista de borradores y programados"),
+                         al_activar=lambda pos: self._abrir())
+        self.items = []         # (etiqueta, tipo, red, datos)
+        self.boton(_("_Abrir"), self._abrir)
+        self.boton(_("_Cancelar la programada"), self._cancelar)
+        self.cerrar_boton()
+        self._cargar()
+
+    def _cargar(self):
+        from app.core.database import db
+        from app.services.mastodon import mastodon_borradores as mb
+        from app.services.mastodon.mastodon_service import mastodon_service
+        self.mostrar_estado(_("Reuniendo borradores y programados…"))
+        items = []
+        cuentas = [r[0] for r in db.query("SELECT id FROM accounts WHERE service_id='mastodon' AND active=1 ORDER BY position, id")]
+        for acc in cuentas:
+            for d in mb.listar_borradores(acc):
+                items.append((_("[Borrador Mastodon] {0}").format((d["texto"] or _("(sin texto)"))[:80]), "borrador_db",
+                              "mastodon", d))
+        for red, clave in (("Mastodon", ("mastodon", "drafts")), ("Bluesky", ("bluesky", "drafts")), ("X", ("x", "drafts"))):
+            datos = config.get(clave[0], clave[1], [])
+            for d in (datos if isinstance(datos, list) else []):
+                txt = (d.get("text", "") if isinstance(d, dict) else str(d)) or ""
+                if txt.strip():
+                    items.append((_("[Borrador {0}] {1}").format(red, txt[:80]), "borrador", red.lower(), txt))
+        tg = config.get("telegram", "drafts", {})
+        for txt in (tg.values() if isinstance(tg, dict) else []):
+            if (txt or "").strip():
+                items.append((_("[Borrador Telegram] {0}").format(txt[:80]), "borrador", "telegram", txt))
+        self.items = items
+        pendientes = {"n": len(cuentas)}
+
+        def _programadas(acc):
+            def _fin(res, err):
+                pendientes["n"] -= 1
+                for p in ([] if err else res or []):
+                    cuando = (p.get("scheduled_at", "") or "")[:16].replace("T", " ")
+                    self.items.append((_("[Programado Mastodon {0}] {1}").format(cuando, (p.get("text", "") or "")[:70]),
+                                       "programado", "mastodon", dict(p, _cuenta=acc)))
+                if pendientes["n"] <= 0:
+                    self._pintar()
+            mastodon_service.obtener_programados_async(acc, callback=_fin)
+        for acc in cuentas:
+            _programadas(acc)
+        if not cuentas:
+            self._pintar()
+
+    def _pintar(self):
+        self.lista.poner([e for e, *_r in self.items])
+        self.mostrar_estado(_("{0} elementos.").format(len(self.items)) if self.items
+                            else _("No tienes borradores ni publicaciones programadas."))
+        self.lista.enfocar()
+
+    def _actual(self):
+        p = self.lista.posicion()
+        return self.items[p] if 0 <= p < len(self.items) else None
+
+    def _abrir(self):
+        item = self._actual()
+        if not item:
+            return
+        _etq, tipo, red, datos = item
+        if tipo == "borrador_db":
+            self.close()
+            self.padre.abrir_borrador(datos["id"])
+        elif tipo == "borrador":
+            self.close()
+            self.padre.herr_publicacion_cruzada(datos)
+        else:
+            notificar(_("Una publicación programada se puede cancelar o cambiar de fecha desde «Programadas» de Mastodon."))
+
+    def _cancelar(self):
+        item = self._actual()
+        if not item or item[1] != "programado":
+            notificar(_("Selecciona una publicación programada."))
+            return
+        from app.services.mastodon.mastodon_service import mastodon_service
+        datos = item[3]
+
+        def _hacer():
+            def _fin(res, err):
+                notificar(_("No se pudo cancelar: {e}").format(e=err) if err else _("Publicación cancelada"))
+                self._cargar()
+            mastodon_service.cancelar_programado_async(datos["_cuenta"], datos["id"], callback=_fin)
+        confirmar_async(self, _("¿Cancelar esta publicación programada?"), _hacer, etiqueta_si=_("Cancelar publicación"))

@@ -53688,3 +53688,106 @@ msgstr ""
 
 msgid "¿Reiniciar ahora la aplicación?"
 msgstr "Restart the application now?"
+
+msgid "Añadir _imagen…"
+msgstr "Add an _image…"
+
+msgid "Borradores y programados de todas las redes"
+msgstr "Drafts and scheduled posts from all networks"
+
+msgid "Buscar en _todo el contenido…"
+msgstr "Search _all content…"
+
+msgid "Calculando estadísticas…"
+msgstr "Calculating statistics…"
+
+msgid "Cargando notificaciones…"
+msgstr "Loading notifications…"
+
+msgid "Centro de _notificaciones (todas las redes)…"
+msgstr "_Notification center (all networks)…"
+
+msgid "Describe la imagen. Se recomienda siempre."
+msgstr "Describe the image. Always recommended."
+
+msgid "Escribe lo que buscas y pulsa Intro."
+msgstr "Type what you are looking for and press Enter."
+
+msgid "Lista de borradores y programados"
+msgstr "List of drafts and scheduled posts"
+
+msgid "Lista de notificaciones"
+msgstr "Notification list"
+
+msgid "No hay cuentas de Mastodon, Bluesky, W Social o X activas."
+msgstr "There are no active Mastodon, Bluesky, W Social or X accounts."
+
+msgid "No se encontró el artículo"
+msgstr "The article was not found"
+
+msgid "No se encontró el buffer de notificaciones de W Social"
+msgstr "The W Social notifications buffer was not found"
+
+msgid "Publicando en {0} cuentas…"
+msgstr "Posting to {0} accounts…"
+
+msgid "Publicar en estas cuentas:"
+msgstr "Post to these accounts:"
+
+msgid "Reuniendo borradores y programados…"
+msgstr "Gathering drafts and scheduled posts…"
+
+msgid "Reuniendo lo que no has leído…"
+msgstr "Gathering what you haven't read…"
+
+msgid "Selecciona una publicación programada."
+msgstr "Select a scheduled post."
+
+msgid "Seleccionar _todas las cuentas"
+msgstr "Select _all accounts"
+
+msgid "Solo {0}"
+msgstr "Only {0}"
+
+msgid "Todas las redes admiten hasta cuatro imágenes."
+msgstr "All networks accept up to four images."
+
+msgid ""
+"Una publicación programada se puede cancelar o cambiar de fecha desde "
+"«Programadas» de Mastodon."
+msgstr ""
+"A scheduled post can be cancelled or rescheduled from Mastodon's “Scheduled”"
+" list."
+
+msgid "[Borrador Mastodon] {0}"
+msgstr "[Mastodon draft] {0}"
+
+msgid "_Borradores y programados de todas las redes…"
+msgstr "_Drafts and scheduled posts from all networks…"
+
+msgid "_Cancelar la programada"
+msgstr "_Cancel the scheduled post"
+
+msgid "_Descripción para quien no la ve:"
+msgstr "_Description for people who can't see it:"
+
+msgid "_Estadísticas de mis redes…"
+msgstr "_Statistics for my networks…"
+
+msgid "_Ponte al día (resumen con IA)…"
+msgstr "_Catch up (AI summary)…"
+
+msgid "_Publicación cruzada (varias redes)…"
+msgstr "_Cross-post (several networks)…"
+
+msgid "_Publicar en las cuentas marcadas"
+msgstr "_Post to the selected accounts"
+
+msgid "_Quitar la última imagen"
+msgstr "_Remove the last image"
+
+msgid "_Texto para todas las redes marcadas:"
+msgstr "_Text for all the selected networks:"
+
+msgid "Ámbito de la búsqueda"
+msgstr "Search scope"

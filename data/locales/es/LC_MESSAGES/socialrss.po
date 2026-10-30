@@ -41860,3 +41860,106 @@ msgstr ""
 
 msgid "¿Reiniciar ahora la aplicación?"
 msgstr "¿Reiniciar ahora la aplicación?"
+
+msgid "Añadir _imagen…"
+msgstr "Añadir _imagen…"
+
+msgid "Borradores y programados de todas las redes"
+msgstr "Borradores y programados de todas las redes"
+
+msgid "Buscar en _todo el contenido…"
+msgstr "Buscar en _todo el contenido…"
+
+msgid "Calculando estadísticas…"
+msgstr "Calculando estadísticas…"
+
+msgid "Cargando notificaciones…"
+msgstr "Cargando notificaciones…"
+
+msgid "Centro de _notificaciones (todas las redes)…"
+msgstr "Centro de _notificaciones (todas las redes)…"
+
+msgid "Describe la imagen. Se recomienda siempre."
+msgstr "Describe la imagen. Se recomienda siempre."
+
+msgid "Escribe lo que buscas y pulsa Intro."
+msgstr "Escribe lo que buscas y pulsa Intro."
+
+msgid "Lista de borradores y programados"
+msgstr "Lista de borradores y programados"
+
+msgid "Lista de notificaciones"
+msgstr "Lista de notificaciones"
+
+msgid "No hay cuentas de Mastodon, Bluesky, W Social o X activas."
+msgstr "No hay cuentas de Mastodon, Bluesky, W Social o X activas."
+
+msgid "No se encontró el artículo"
+msgstr "No se encontró el artículo"
+
+msgid "No se encontró el buffer de notificaciones de W Social"
+msgstr "No se encontró el buffer de notificaciones de W Social"
+
+msgid "Publicando en {0} cuentas…"
+msgstr "Publicando en {0} cuentas…"
+
+msgid "Publicar en estas cuentas:"
+msgstr "Publicar en estas cuentas:"
+
+msgid "Reuniendo borradores y programados…"
+msgstr "Reuniendo borradores y programados…"
+
+msgid "Reuniendo lo que no has leído…"
+msgstr "Reuniendo lo que no has leído…"
+
+msgid "Selecciona una publicación programada."
+msgstr "Selecciona una publicación programada."
+
+msgid "Seleccionar _todas las cuentas"
+msgstr "Seleccionar _todas las cuentas"
+
+msgid "Solo {0}"
+msgstr "Solo {0}"
+
+msgid "Todas las redes admiten hasta cuatro imágenes."
+msgstr "Todas las redes admiten hasta cuatro imágenes."
+
+msgid ""
+"Una publicación programada se puede cancelar o cambiar de fecha desde "
+"«Programadas» de Mastodon."
+msgstr ""
+"Una publicación programada se puede cancelar o cambiar de fecha desde "
+"«Programadas» de Mastodon."
+
+msgid "[Borrador Mastodon] {0}"
+msgstr "[Borrador Mastodon] {0}"
+
+msgid "_Borradores y programados de todas las redes…"
+msgstr "_Borradores y programados de todas las redes…"
+
+msgid "_Cancelar la programada"
+msgstr "_Cancelar la programada"
+
+msgid "_Descripción para quien no la ve:"
+msgstr "_Descripción para quien no la ve:"
+
+msgid "_Estadísticas de mis redes…"
+msgstr "_Estadísticas de mis redes…"
+
+msgid "_Ponte al día (resumen con IA)…"
+msgstr "_Ponte al día (resumen con IA)…"
+
+msgid "_Publicación cruzada (varias redes)…"
+msgstr "_Publicación cruzada (varias redes)…"
+
+msgid "_Publicar en las cuentas marcadas"
+msgstr "_Publicar en las cuentas marcadas"
+
+msgid "_Quitar la última imagen"
+msgstr "_Quitar la última imagen"
+
+msgid "_Texto para todas las redes marcadas:"
+msgstr "_Texto para todas las redes marcadas:"
+
+msgid "Ámbito de la búsqueda"
+msgstr "Ámbito de la búsqueda"

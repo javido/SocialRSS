@@ -51992,3 +51992,104 @@ msgstr ""
 
 msgid "¿Reiniciar ahora la aplicación?"
 msgstr ""
+
+msgid "Añadir _imagen…"
+msgstr ""
+
+msgid "Borradores y programados de todas las redes"
+msgstr ""
+
+msgid "Buscar en _todo el contenido…"
+msgstr ""
+
+msgid "Calculando estadísticas…"
+msgstr ""
+
+msgid "Cargando notificaciones…"
+msgstr ""
+
+msgid "Centro de _notificaciones (todas las redes)…"
+msgstr ""
+
+msgid "Describe la imagen. Se recomienda siempre."
+msgstr ""
+
+msgid "Escribe lo que buscas y pulsa Intro."
+msgstr ""
+
+msgid "Lista de borradores y programados"
+msgstr ""
+
+msgid "Lista de notificaciones"
+msgstr ""
+
+msgid "No hay cuentas de Mastodon, Bluesky, W Social o X activas."
+msgstr ""
+
+msgid "No se encontró el artículo"
+msgstr ""
+
+msgid "No se encontró el buffer de notificaciones de W Social"
+msgstr ""
+
+msgid "Publicando en {0} cuentas…"
+msgstr ""
+
+msgid "Publicar en estas cuentas:"
+msgstr ""
+
+msgid "Reuniendo borradores y programados…"
+msgstr ""
+
+msgid "Reuniendo lo que no has leído…"
+msgstr ""
+
+msgid "Selecciona una publicación programada."
+msgstr ""
+
+msgid "Seleccionar _todas las cuentas"
+msgstr ""
+
+msgid "Solo {0}"
+msgstr ""
+
+msgid "Todas las redes admiten hasta cuatro imágenes."
+msgstr ""
+
+msgid ""
+"Una publicación programada se puede cancelar o cambiar de fecha desde "
+"«Programadas» de Mastodon."
+msgstr ""
+
+msgid "[Borrador Mastodon] {0}"
+msgstr ""
+
+msgid "_Borradores y programados de todas las redes…"
+msgstr ""
+
+msgid "_Cancelar la programada"
+msgstr ""
+
+msgid "_Descripción para quien no la ve:"
+msgstr ""
+
+msgid "_Estadísticas de mis redes…"
+msgstr ""
+
+msgid "_Ponte al día (resumen con IA)…"
+msgstr ""
+
+msgid "_Publicación cruzada (varias redes)…"
+msgstr ""
+
+msgid "_Publicar en las cuentas marcadas"
+msgstr ""
+
+msgid "_Quitar la última imagen"
+msgstr ""
+
+msgid "_Texto para todas las redes marcadas:"
+msgstr ""
+
+msgid "Ámbito de la búsqueda"
+msgstr ""

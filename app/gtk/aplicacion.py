@@ -536,11 +536,17 @@ def _menu() -> Gio.Menu:
                                   (_("_Extraer el texto de la imagen (OCR con IA)"), "win.ocr-imagen")))
     herr.append_section(None, sec((_("Historial de _traducciones…"), "win.historial-traducciones"),
                                   (_("Historial de _IA…"), "win.historial-ia")))
-    herr.append_section(None, sec((_("_Filtros de contenido…"), "win.herr-filtros"),
+    herr.append_section(None, sec((_("Buscar en _todo el contenido…"), "win.herr-buscar-global"),
+                                  (_("_Borradores y programados de todas las redes…"), "win.herr-cola"),
+                                  (_("Centro de _notificaciones (todas las redes)…"), "win.herr-centro-notificaciones"),
+                                  (_("_Publicación cruzada (varias redes)…"), "win.herr-publicacion-cruzada"),
+                                  (_("_Filtros de contenido…"), "win.herr-filtros"),
                                   (_("Fra_gmentos de texto…"), "win.herr-fragmentos")))
     herr.append_section(None, sec((_("_Copias de seguridad…"), "win.herr-copias"),
                                   (_("_Migrar a otro ordenador…"), "win.herr-migrar"),
                                   (_("_Borrar datos / liberar espacio…"), "win.herr-borrar")))
+    herr.append_section(None, sec((_("_Ponte al día (resumen con IA)…"), "win.herr-ponte-al-dia"),
+                                  (_("_Estadísticas de mis redes…"), "win.herr-estadisticas")))
     herr.append_section(None, sec((_("_Visor de registros…"), "win.herr-registro"),))
     barra.append_submenu(_("_Herramientas"), herr)
 
