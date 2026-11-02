@@ -1,17 +1,2 @@
-SocialRSS Accessible Suite. Novedades de la versión 1.0.27.
+SocialRSS Accessible Suite. Novedades de la versión 1.0.28.
 
-NUEVO: CÓDIGO EN GITHUB Y ACTUALIZACIONES DE RESPALDO
-
-- El código fuente de SocialRSS está publicado en GitHub, en github.com/hxebolax/SocialRSS, con
-  instrucciones para compilarlo desde cero. Cada versión se publica también allí, en el apartado
-  Releases, desde donde se puede descargar.
-- Si el servidor de actualizaciones no responde, o no tiene el paquete, la aplicación busca y
-  descarga la actualización de GitHub. La comprobación de seguridad es la misma: firma digital y
-  huella del paquete; si no coinciden, no se instala nada.
-- SocialRSS es software libre con licencia GPL versión 3 (o posterior). El texto de la licencia
-  va incluido en la carpeta de la aplicación, en LICENSE.txt.
-
-MEJORADO: TRADUCCIÓN AL INGLÉS
-
-- La interfaz en inglés estaba incompleta y muchas opciones nuevas aparecían en español. Se han
-  traducido todas las cadenas nuevas.
