@@ -41,7 +41,7 @@ class DialogoHilo(DialogoBase):
         self.account_id = account_id
         self.limite = mastodon_service.obtener_limite_caracteres(account_id)
         self.set_default_size(680, -1)
-        self.texto = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6,
+        self.texto = Gtk.TextView(accepts_tab=False, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6,
                                   top_margin=6, bottom_margin=6)
         marco = Gtk.ScrolledWindow(child=self.texto, min_content_height=220, hexpand=True, has_frame=True)
         etiqueta = Gtk.Label(label=_("_Texto del hilo:"), use_underline=True, xalign=0, yalign=0)

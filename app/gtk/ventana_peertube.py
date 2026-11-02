@@ -678,6 +678,77 @@ class _PeerTubeMixin:
                 lambda: peertube_service.silenciar_cuenta(x["account_id"], handle), _("Cuenta silenciada")),
                 etiqueta_si=_("Silenciar"))
 
+    # ------------------------------------------------------------------ directos, estadísticas, moderación y administración
+    def _pt_video_id(self):
+        """(cuenta, id del vídeo) del vídeo enfocado, o None."""
+        obj = self._pt_obj()
+        if not obj:
+            return None
+        x = obj.fila.extra
+        return x["account_id"], (x.get("video_id") or x.get("uuid"))
+
+    def pt_crear_directo(self):
+        acc = self._pt_cuenta()
+        if acc is None:
+            return
+        from .dialogos_peertube_instancia import DialogoCrearDirecto, DialogoDatosEmision
+
+        def _crear(d):
+            def _tras(res):
+                self.avisar(_("Directo creado. Estos son sus datos de emisión."))
+                if res and res.get("id"):
+                    ejecutar(lambda: peertube_service.info_directo(acc, res["id"]),
+                             lambda info, err: DialogoDatosEmision(self, info).present() if info and not err else
+                             self._pt_error(err, _("No se pudieron obtener los datos de emisión: {e}")))
+            self._pt_hacer(lambda: peertube_service.crear_directo(
+                acc, d["channel_id"], d["name"], privacy=d["privacy"], permanent_live=d["permanent_live"],
+                latency_mode=d["latency_mode"], save_replay=d["save_replay"]), None, _("No se pudo crear el directo: {e}"), _tras)
+        DialogoCrearDirecto(self, acc, _crear).present()
+
+    def pt_datos_emision(self):
+        v = self._pt_video_id()
+        if v:
+            from .dialogos_peertube_instancia import DialogoDatosEmision
+            ejecutar(lambda: peertube_service.info_directo(*v),
+                     lambda info, err: DialogoDatosEmision(self, info).present() if info and not err else
+                     self._pt_error(err, _("No se pudieron obtener los datos de emisión: {e}")))
+
+    def pt_sesiones_directo(self):
+        v = self._pt_video_id()
+        if v:
+            from .dialogos_peertube_instancia import sesiones_directo
+            sesiones_directo(self, *v)
+
+    def pt_estadisticas_video(self):
+        v = self._pt_video_id()
+        if v:
+            from .dialogos_peertube_instancia import estadisticas_video
+            estadisticas_video(self, *v)
+
+    def pt_estadisticas_instancia(self):
+        acc = self._pt_cuenta()
+        if acc is not None:
+            from .dialogos_peertube_instancia import estadisticas_instancia
+            estadisticas_instancia(self, acc)
+
+    def pt_abrir_dialogo(self, nombre: str, **kw):
+        """Abre uno de los diálogos de moderación o administración de dialogos_peertube_instancia."""
+        acc = self._pt_cuenta()
+        if acc is not None:
+            from . import dialogos_peertube_instancia as inst
+            getattr(inst, nombre)(self, acc, **kw).present()
+
+    def pt_bloquear_video(self, bloquear: bool = True):
+        v = self._pt_video_id()
+        if not v:
+            return
+        if not bloquear:
+            return self._pt_hacer(lambda: peertube_service.desbloquear_video(*v), _("Vídeo desbloqueado."))
+        from .dialogos_reddit import DialogoTextoLibre
+        DialogoTextoLibre(self, _("Bloquear vídeo"), _("_Motivo del bloqueo (opcional):"),
+                          lambda motivo: self._pt_hacer(lambda: peertube_service.bloquear_video(*v, razon=motivo),
+                                                        _("Vídeo bloqueado.")), aceptar=_("_Bloquear")).present()
+
     def pt_reportar(self):
         obj = self._pt_obj()
         if not obj:
@@ -783,7 +854,11 @@ class _PeerTubeMixin:
                  (_("Descargar…"), "win.pt-descargar"), (_("Calidad de reproducción…"), "win.pt-calidad"),
                  (_("Traducir"), "win.traducir"), (_("Resumir con IA"), "win.resumir-ia"),
                  (_("Silenciar la cuenta"), "win.pt-silenciar"), (_("Silenciar la instancia"), "win.pt-silenciar-instancia"),
-                 (_("Reportar el vídeo…"), "win.pt-reportar"),
+                 (_("Reportar el vídeo…"), "win.pt-reportar"), (_("Estadísticas del vídeo…"), "win.pt-estadisticas-video"),
+                 (_("Datos de emisión del directo…"), "win.pt-datos-emision"),
+                 (_("Sesiones y repeticiones del directo…"), "win.pt-sesiones-directo"),
+                 (_("Bloquear el vídeo (moderadores)…"), "win.pt-bloquear-video"),
+                 (_("Desbloquear el vídeo (moderadores)"), "win.pt-desbloquear-video"),
                  (_("Abrir en el navegador"), "win.navegador"), (_("Copiar el enlace"), "win.copiar-enlace")]
         n = self.nodo_actual
         if n is not None and n.timeline == "historial":
@@ -806,6 +881,24 @@ class _PeerTubeMixin:
         a("pt-silenciar", lambda: self.pt_silenciar(False))
         a("pt-silenciar-instancia", lambda: self.pt_silenciar(True))
         a("pt-reportar", self.pt_reportar)
+        a("pt-crear-directo", self.pt_crear_directo)
+        a("pt-datos-emision", self.pt_datos_emision)
+        a("pt-sesiones-directo", self.pt_sesiones_directo)
+        a("pt-estadisticas-video", self.pt_estadisticas_video)
+        a("pt-estadisticas-instancia", self.pt_estadisticas_instancia)
+        a("pt-bloquear-video", lambda: self.pt_bloquear_video(True))
+        a("pt-desbloquear-video", lambda: self.pt_bloquear_video(False))
+        for nombre, clase, kw in (("pt-importaciones", "DialogoImportacionesPT", {}), ("pt-avisos", "DialogoAvisosPT", {}),
+                                  ("pt-mis-denuncias", "DialogoAbusosPT", {"solo_mias": True}),
+                                  ("pt-mod-denuncias", "DialogoAbusosPT", {}),
+                                  ("pt-mod-bloqueados", "DialogoBloqueadosPT", {}),
+                                  ("pt-admin-usuarios", "DialogoUsuariosAdminPT", {}),
+                                  ("pt-admin-registros", "DialogoRegistrosAdminPT", {}),
+                                  ("pt-admin-federacion", "DialogoFederacionAdminPT", {}),
+                                  ("pt-admin-trabajos", "DialogoTrabajosAdminPT", {}),
+                                  ("pt-admin-plugins", "DialogoPluginsAdminPT", {}),
+                                  ("pt-admin-runners", "DialogoRunnersAdminPT", {})):
+            a(nombre, lambda c=clase, k=kw: self.pt_abrir_dialogo(c, **k))
         a("pt-vaciar-historial", self.pt_vaciar_historial)
         a("pt-subir", self.pt_subir)
         a("pt-importar", self.pt_importar)

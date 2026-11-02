@@ -8,6 +8,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Gio, GLib, Gtk  # noqa: E402
 
+from app.core.config_manager import config
 from app.core.database import db
 from app.core.privacy import abrir_url
 from app.core.task_manager import task_manager
@@ -34,6 +35,11 @@ class _RSSMixin:
                            ("rss-borrar-nodo-guardado", self.rss_borrar_nodo_guardado),
                            ("menu-arbol", self.mostrar_menu_arbol)):
             accion(nombre, fn)
+        agrupar = Gio.SimpleAction.new_stateful("rss-agrupar-fecha", None,
+                                                GLib.Variant.new_boolean(bool(config.get("rss", "group_by_date", False))))
+        agrupar.connect("activate", lambda *_a: self.rss_alternar_agrupar())
+        self.add_action(agrupar)
+        self._atajos_defecto["rss-agrupar-fecha"] = []
         # generales de RSS
         for nombre, fn in (("rss-buscar-feeds", self.rss_buscar_feeds), ("rss-feed-web", self.rss_feed_web),
                            ("rss-youtube", self.rss_canal_youtube), ("rss-takeout", self.rss_takeout),
@@ -110,11 +116,23 @@ class _RSSMixin:
                      (_("Eliminar la carpeta inteligente"), "win.rss-borrar-nodo-guardado")]]
         return []
 
+    def rss_alternar_agrupar(self, valor=None):
+        """Agrupar por fecha: a la primera fila de cada bloque (Hoy, Ayer, Esta semana...) se le antepone su etiqueta."""
+        nuevo = (not config.get("rss", "group_by_date", False)) if valor is None else valor
+        config.set("rss", "group_by_date", nuevo)
+        accion = self.lookup_action("rss-agrupar-fecha")
+        if accion is not None:
+            accion.set_state(GLib.Variant.new_boolean(nuevo))
+        obj = self._fila_actual()
+        self.cargar_lista(conservar_id=obj.fila.id if obj else None)
+        self.avisar(_("Agrupar por fecha activado.") if nuevo else _("Agrupación desactivada."))
+
     def mostrar_menu_arbol(self, x=None, y=None):
         n = self.nodo_actual
         if n is None:
             return
         secciones = self._menu_nodo_rss(n) if n.servicio == "rss" else []
+        secciones = secciones + self.menu_bandeja_nodo(n)
         if not secciones:
             self.avisar(_("Este elemento no tiene menú"))
             return

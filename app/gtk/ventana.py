@@ -35,6 +35,9 @@ from .ventana_bluesky import _BlueskyMixin
 from .ventana_wsocial import _WSocialMixin
 from .ventana_voz import _VozMixin
 from .ventana_herramientas import _HerramientasMixin
+from .ventana_botonera import _BotoneraMixin
+from .orden_arbol import _OrdenMixin, aplicar_orden
+from .ventana_bandeja import _BandejaMixin
 from .ventana_rss import _RSSMixin
 from .ventana_peertube import _PeerTubeMixin
 from .ventana_reddit import _RedditMixin
@@ -43,6 +46,8 @@ from .ventana_irc import _IRCMixin
 from .ventana_telegram import _TelegramMixin
 from .ventana_matrix import _MatrixMixin
 from .ventana_xmpp import _XMPPMixin
+from .ventana_mastodon_extra import _MastodonExtraMixin
+from .ventana_at import _ATMixin
 from .datos import Nodo
 from .modelos import NodoObj, FilaObj
 
@@ -53,6 +58,7 @@ log = logging.getLogger(__name__)
 PAUSA_LISTA_MS = 120
 PAUSA_TEXTO_MS = 150
 PAUSA_RED_MS = 700
+LISTA_DIRECTA, LISTA_VENTANA, LISTA_LOTE = 50, 20, 30     # filas que se ponen de golpe, a cada lado de la selección, y por tanda
 
 # Intervalo del sondeo automático de feeds (los que ya vencieron según su propio intervalo).
 SONDEO_SEGUNDOS = 300
@@ -64,7 +70,12 @@ def _etiquetar(widget, nombre: str, descripcion: str = ""):
         widget.update_property([Gtk.AccessibleProperty.DESCRIPTION], [descripcion])
 
 
-class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
+def _clave_fila(f) -> str:
+    """Identidad de una fila en la lista: en la bandeja los ids de redes distintas pueden coincidir."""
+    return f.extra.get("clave_lista") or f.id
+
+
+class VentanaPrincipal(_ATMixin, _MastodonExtraMixin, _BotoneraMixin, _OrdenMixin, _BandejaMixin, _RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMixin, _TwitterMixin, _RedditMixin, _PeerTubeMixin, _VozMixin, _TelegramMixin, _IRCMixin, _XMPPMixin, _MatrixMixin, Gtk.ApplicationWindow):
     def __init__(self, app, account_id: int):
         super().__init__(application=app, title="SocialRSS Accessible Suite")
         self.account_id = account_id
@@ -74,6 +85,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._tick_reproductor = 0
         self._actualizando = False
         self._cargados = set()      # buffers de Mastodon ya descargados en esta sesión
+        self._id_pendiente = None   # fila a enfocar en la próxima carga de lista (ir al origen desde la bandeja)
         self._nodo_listado = None   # nodo cuya lista está en pantalla (para actualizar sin reconstruir)
         self._eventos_pendientes = {}
         self._encuestas = {}        # db id del toot -> última encuesta descargada
@@ -84,6 +96,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         # interfaz solo aplica resultados. Cada petición lleva un número de generación; si el usuario ya
         # se movió a otra cosa, el resultado viejo se descarta.
         self._lector = ThreadPoolExecutor(max_workers=1, thread_name_prefix="LectorUI")
+        self._relleno_id, self._relleno_despues = 0, None
         self._gen_lista = 0
         self._gen_texto = 0
         self._timer_lista = 0
@@ -94,6 +107,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._iniciar_complementos()
         self._construir_interfaz()
         self._configurar_tabulador()
+        self._configurar_orden_arbol()
         self._configurar_menu()
         self._registrar_acciones()
         self.cargar_arbol()
@@ -138,7 +152,12 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self.paned_vertical.set_position(330)
         self.paned_horizontal.set_start_child(self._crear_arbol())
         self.paned_horizontal.set_end_child(self.paned_vertical)
-        self.paned_vertical.set_start_child(self._crear_lista())
+        lista = self._crear_lista()
+        lista.set_vexpand(True)
+        caja_lista = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        caja_lista.append(lista)
+        caja_lista.append(self._crear_botonera())
+        self.paned_vertical.set_start_child(caja_lista)
         self.paned_vertical.set_end_child(self._crear_lectura())
 
         # Barra de estado (rol "status": el lector la anuncia al cambiar)
@@ -268,7 +287,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
             texto = ("★ " if obj.favorito else "") + f.titulo
             titulo.set_markup(f"<b>{GLib.markup_escape_text(texto)}</b>" if not obj.leido
                               else GLib.markup_escape_text(texto))
-            partes = [p for p in (f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
+            partes = [p for p in (f"— {f.extra['grupo']} —" if f.extra.get("grupo") else "", f.extra.get("origen", ""), f.feed_titulo, f.autor if f.autor != f.feed_titulo else "",
                                   datos.fecha_legible(f.fecha)) if p]
             meta.set_text(" · ".join(partes))
             item.set_accessible_label(obj.descripcion())
@@ -284,14 +303,15 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         item._obj = None
 
     def _crear_lectura(self):
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
                                   left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
         self.texto.set_name("lectura")
         _etiquetar(self.texto, _("Contenido del artículo"))
         self.buffer = self.texto.get_buffer()
         self.etiqueta_titulo = self.buffer.create_tag("titulo", weight=Pango.Weight.BOLD, scale=1.3)
         self.etiqueta_meta = self.buffer.create_tag("meta", foreground_rgba=Gdk.RGBA(0.45, 0.45, 0.45, 1))
-        return Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
+        self.panel_lectura = Gtk.ScrolledWindow(child=self.texto, min_content_height=120)
+        return self.panel_lectura
 
     # ------------------------------------------------------------------ foco entre paneles
     def _configurar_tabulador(self):
@@ -306,7 +326,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         foco = self.get_focus()
         if foco is None:
             return None
-        for panel in (self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto):
+        for panel in (self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.botonera, self.texto):
             if foco is panel or foco.is_ancestor(panel):
                 return panel
         return None
@@ -320,7 +340,13 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         if actual is None:
             return False
         atras = keyval == Gdk.KEY_ISO_Left_Tab or bool(estado & Gdk.ModifierType.SHIFT_MASK)
-        orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista, self.texto]
+        orden = [self.entrada_busqueda, self.vista_arbol, self.vista_lista]
+        if self.botonera.get_visible():
+            orden.append(self.botonera)
+        if self.panel_lectura.get_visible():
+            orden.append(self.texto)
+        if actual not in orden:
+            return False
         i = orden.index(actual)
         j = i - 1 if atras else i + 1
         if j < 0 or j >= len(orden):
@@ -450,6 +476,11 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                 # grab_focus() deja el foco en el primer elemento visible; se lleva al seleccionado.
                 panel.scroll_to(pos, Gtk.ListScrollFlags.FOCUS, None)
             return
+        if panel is self.botonera:
+            self.enfocar_botonera()
+            return
+        if panel is self.texto:
+            self.mostrar_panel_lectura()
         panel.grab_focus()
 
     # ------------------------------------------------------------------ acciones
@@ -459,7 +490,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
 
         def accion(nombre, fn, aceleradores=()):
             a = Gio.SimpleAction.new(nombre, None)
-            a.connect("activate", lambda *_a: fn())
+            envuelta = self._con_contexto_bandeja(nombre, fn)
+            a.connect("activate", lambda *_a: envuelta())
             self.add_action(a)
             self._atajos_defecto[nombre] = list(aceleradores)
             # Las teclas que el usuario cambió en el editor de atajos mandan sobre las de fábrica.
@@ -468,6 +500,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                 self.get_application().set_accels_for_action(f"win.{nombre}", list(teclas))
         self._accion = accion
         accion("actualizar", self.accion_actualizar, ["<Ctrl><Shift>r"])
+        accion("arbol-subir", lambda: self.mover_nodo_arbol(True))
+        accion("arbol-bajar", lambda: self.mover_nodo_arbol(False))
         accion("actualizar-feed", self.accion_actualizar_feed)
         accion("buscar", lambda: self.entrada_busqueda.grab_focus(), ["<Ctrl>f"])
         accion("leido", self.accion_alternar_leido, ["<Ctrl>m"])
@@ -495,6 +529,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._registrar_acciones_wsocial(accion)
         self._registrar_acciones_herramientas(accion)
         self._registrar_acciones_rss(accion)
+        self._registrar_acciones_bandeja(accion)
         self._registrar_acciones_telegram(accion)
         self._registrar_acciones_irc(accion)
         self._registrar_acciones_xmpp(accion)
@@ -502,6 +537,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._registrar_acciones_x(accion)
         self._registrar_acciones_reddit(accion)
         self._registrar_acciones_peertube(accion)
+        self._registrar_acciones_mastodon_extra(accion)
+        self._registrar_acciones_at(accion)
         accion("voto-negativo", self.accion_voto_negativo, ["<Ctrl><Shift>d"])
         self._registrar_acciones_voz(accion)
         accion("unirse-canal", self.accion_unirse, ["<Ctrl><Alt>j"])
@@ -594,10 +631,13 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                  datos_irc.construir_nodos(), datos_xmpp.construir_nodos(), datos_matrix.construir_nodos()]
         if datos_x.disponible():
             arbol.insert(3, datos_x.construir_nodos())
+        if self.bandeja_habilitada():
+            arbol.insert(1, self.bandeja_nodo_raiz())
         if datos_reddit.disponible():
             arbol.append(datos_reddit.construir_nodos())
         if datos_peertube.disponible():
             arbol.append(datos_peertube.construir_nodos())
+        aplicar_orden(arbol)
         return arbol
 
     def cargar_arbol(self, conservar=True, seleccionar=None):
@@ -674,6 +714,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self._mx_al_cambiar_nodo(self.nodo_actual, obj.nodo)
         self._tw_al_cambiar_nodo(self.nodo_actual, obj.nodo)
         self.nodo_actual = obj.nodo
+        self.aplicar_visibilidad_detalles()
         self.busqueda = ""
         n = obj.nodo
         self.set_title(f"{n.titulo} — SocialRSS")
@@ -726,6 +767,12 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         """Hilo lector: consulta la base de datos y devuelve las filas (sin tocar widgets)."""
         if not nodo.listable:
             return []
+        if nodo.servicio == "bandeja":
+            filas = self.bandeja_filas()
+            if busqueda:
+                q = busqueda.lower()
+                filas = [f for f in filas if q in f.titulo.lower() or q in f.autor.lower()]
+            return filas
         if nodo.servicio in ("mastodon", "bluesky", "wsocial", "telegram", "irc", "xmpp", "matrix", "x", "reddit", "peertube"):
             modulo = {"mastodon": datos_mastodon, "bluesky": datos_bluesky, "wsocial": datos_wsocial, "telegram": datos_telegram,
                       "irc": datos_irc, "xmpp": datos_xmpp, "matrix": datos_matrix, "x": datos_x,
@@ -735,7 +782,21 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                 q = busqueda.lower()
                 filas = [f for f in filas if q in f.titulo.lower()]
             return filas
-        return datos.listar(self.account_id, nodo, busqueda=busqueda)
+        filas = datos.listar(self.account_id, nodo, busqueda=busqueda)
+        if config.get("rss", "group_by_date", False):
+            self._marcar_grupos_fecha(filas)
+        return filas
+
+    @staticmethod
+    def _marcar_grupos_fecha(filas):
+        """Anota en la primera fila de cada bloque de fechas su etiqueta (Hoy, Ayer...): se lee y se ve antes del feed."""
+        from app.core.fechas_grupo import bucket_fecha
+        actual = None
+        for f in filas:
+            grupo = bucket_fecha(f.fecha)
+            if grupo and grupo != actual:
+                actual = grupo
+                f.extra["grupo"] = grupo
 
     def cargar_lista(self, conservar_id: str = None, incremental: bool = False, despues=None):
         """Rellena la lista SIN bloquear la interfaz: lee en un hilo y aplica el resultado en el de la UI.
@@ -745,6 +806,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
             return
         self._gen_lista += 1
         gen, nodo, busqueda = self._gen_lista, self.nodo_actual, self.busqueda
+        if conservar_id is None and self._id_pendiente is not None:
+            conservar_id, self._id_pendiente = self._id_pendiente, None
 
         def _trabajo():
             try:
@@ -758,25 +821,39 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
     def _aplicar_lista(self, gen, n, busqueda, filas, conservar_id, incremental, despues):
         if gen != self._gen_lista or n is not self.nodo_actual:
             return      # el usuario ya está en otra cosa
+        self.programar_botonera()
         titulo = n.titulo + (f" — {_('búsqueda')}: {busqueda}" if busqueda else "")
         if incremental and self._nodo_listado is n and self._sincronizar_lista(filas):
             self.estado.set_text(_("{t}: {n} elementos").format(t=n.titulo, n=len(filas)))
-            if despues:
-                despues(filas)
+            pendiente, self._relleno_despues = self._relleno_despues, None
+            self._cancelar_relleno()        # la sincronización ya ha completado la lista
+            for cb in (pendiente, despues):
+                if cb:
+                    cb(filas)
             return
         self._nodo_listado = n
-        nuevos = [FilaObj(f) for f in filas]
-        # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
-        # eventos de accesibilidad que remove_all() seguido de splice().
-        self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), nuevos)
+        self._cancelar_relleno()
+        self._relleno_despues = None
         seleccionar = datos_telegram.seleccion_inicial(filas) if self._es_conversacion(n) else 0
         if conservar_id:
             for i, f in enumerate(filas):
-                if f.id == conservar_id:
+                if f.id == conservar_id or f.extra.get("clave_lista") == conservar_id:
                     seleccionar = i
                     break
+        # Una sola operación sobre el modelo (quitar lo viejo y poner lo nuevo): menos señales y menos
+        # eventos de accesibilidad que remove_all() seguido de splice().
+        # Cada fila cuesta tiempo del hilo de la interfaz aunque no se vea, así que una lista larga se pone por
+        # tandas: primero la zona de la selección y luego, en los huecos, el resto (el foco no se mueve).
+        if len(filas) <= LISTA_DIRECTA:
+            tanda, resto = filas, None
+            primera = 0
+        else:
+            primera = max(0, seleccionar - LISTA_VENTANA)
+            fin = min(len(filas), seleccionar + LISTA_VENTANA + 1)
+            tanda, resto = filas[primera:fin], (primera, fin)
+        self.almacen_lista.splice(0, self.almacen_lista.get_n_items(), [FilaObj(f) for f in tanda])
         if filas:
-            self.seleccion_lista.set_selected(seleccionar)
+            self.seleccion_lista.set_selected(seleccionar - primera)
         self.estado.set_text(_("{t}: {n} elementos").format(t=titulo, n=len(filas)) if n.listable else n.titulo)
         if not filas:
             if not n.listable:
@@ -784,23 +861,55 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
                          if n.servicio == "mastodon" and not n.hijos else "")
                 self._mostrar_texto("", vacio, "", "")
             else:
-                self._mostrar_texto("", _("No hay elementos."), "", "")
-        if despues:
-            despues(filas)
+                self._mostrar_texto("", self.bandeja_vacia() if n.servicio == "bandeja" else _("No hay elementos."), "", "")
+        if resto is None:
+            if despues:
+                despues(filas)
+            return
+        self._relleno_despues = despues
+        self._relleno_id = GLib.idle_add(self._rellenar_lista, gen, n, filas, resto[0], resto[1], True, despues,
+                                         priority=GLib.PRIORITY_DEFAULT_IDLE)
+
+    def _cancelar_relleno(self):
+        if getattr(self, "_relleno_id", 0):
+            GLib.source_remove(self._relleno_id)
+        self._relleno_id = 0
+
+    def _rellenar_lista(self, gen, n, filas, ini, fin, hacia_abajo, despues):
+        """Una tanda del resto de la lista: alterna entre añadir por debajo y por encima de lo que ya hay."""
+        self._relleno_id = 0
+        if gen != self._gen_lista or n is not self.nodo_actual:
+            return GLib.SOURCE_REMOVE
+        if (hacia_abajo and fin < len(filas)) or ini == 0:
+            nuevo = min(len(filas), fin + LISTA_LOTE)
+            self.almacen_lista.splice(self.almacen_lista.get_n_items(), 0, [FilaObj(f) for f in filas[fin:nuevo]])
+            fin = nuevo
+        elif ini > 0:
+            nuevo = max(0, ini - LISTA_LOTE)
+            self.almacen_lista.splice(0, 0, [FilaObj(f) for f in filas[nuevo:ini]])
+            ini = nuevo
+        if ini == 0 and fin >= len(filas):
+            self._relleno_despues = None
+            if despues:
+                despues(filas)
+            return GLib.SOURCE_REMOVE
+        self._relleno_id = GLib.idle_add(self._rellenar_lista, gen, n, filas, ini, fin, not hacia_abajo, despues,
+                                         priority=GLib.PRIORITY_DEFAULT_IDLE)
+        return GLib.SOURCE_REMOVE
 
     def _sincronizar_lista(self, filas) -> bool:
         """Actualiza la lista en su sitio. False si el orden relativo cambió y hay que rehacerla."""
         almacen = self.almacen_lista
-        viejos = [almacen.get_item(i).fila.id for i in range(almacen.get_n_items())]
-        nuevos = {f.id for f in filas}
+        viejos = [_clave_fila(almacen.get_item(i).fila) for i in range(almacen.get_n_items())]
+        nuevos = {_clave_fila(f) for f in filas}
         viejos_set = set(viejos)
-        if [i for i in viejos if i in nuevos] != [f.id for f in filas if f.id in viejos_set]:
+        if [i for i in viejos if i in nuevos] != [_clave_fila(f) for f in filas if _clave_fila(f) in viejos_set]:
             return False
         for i in range(almacen.get_n_items() - 1, -1, -1):
-            if almacen.get_item(i).fila.id not in nuevos:
+            if _clave_fila(almacen.get_item(i).fila) not in nuevos:
                 almacen.remove(i)
         for i, f in enumerate(filas):
-            if i < almacen.get_n_items() and almacen.get_item(i).fila.id == f.id:
+            if i < almacen.get_n_items() and _clave_fila(almacen.get_item(i).fila) == _clave_fila(f):
                 obj = almacen.get_item(i)
                 obj.fila = f
                 obj.favorito, obj.leido = f.favorito, f.leido
@@ -813,6 +922,7 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         return True
 
     def _on_fila_seleccionada(self, *_a):
+        self.programar_botonera()
         obj = self._fila_actual()
         if obj is not None:
             self._vista_previa(obj)
@@ -850,6 +960,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
     def _vista_previa(self, obj, ahora: bool = False, despues=None):
         """Carga el texto en el panel de lectura sin marcar como leído ni mover el foco. Al recorrer la lista
         con las flechas espera a que el usuario se detenga; la lectura se hace fuera del hilo de la UI."""
+        if not ahora and not self.panel_lectura.get_visible():
+            return          # panel de detalles oculto: no se lee nada mientras no se vea
         self._gen_texto += 1
         self._cancelar_timer("_timer_texto")
         gen = self._gen_texto
@@ -918,7 +1030,40 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
             return self.rd_abrir_fila(obj)
         if obj.fila.servicio == "peertube":
             return self.pt_abrir_fila(obj)
-        # El foco pasa al texto cuando ya está cargado, para que el lector lo encuentre completo.
+        if obj.fila.servicio == "rss" and self._intro_rss(obj):
+            return
+        self._abrir_en_lector(obj)
+
+    def _intro_rss(self, obj) -> bool:
+        """Preferencia `rss.enter_action` (la misma que en Windows): navegador | lector | preguntar.
+        True si ya está resuelto aquí; False si hay que abrir el artículo en el panel de lectura."""
+        accion = config.get("rss", "enter_action", "navegador")
+        if accion == "preguntar":
+            dlg = Gtk.AlertDialog()
+            dlg.set_message(_("Abrir artículo"))
+            dlg.set_detail(_("¿Cómo quieres abrir este artículo?"))
+            dlg.set_buttons([_("Cancelar"), _("Abrir el lector limpio"), _("Abrir en el navegador")])
+            dlg.set_default_button(1)
+            dlg.set_cancel_button(0)
+
+            def _fin(origen, res):
+                try:
+                    elegido = origen.choose_finish(res)
+                except Exception:
+                    elegido = 0
+                if elegido == 1:
+                    self._abrir_en_lector(obj)
+                elif elegido == 2:
+                    self.accion_abrir_navegador(obj)
+            dlg.choose(self, None, _fin)
+            return True
+        if accion == "navegador" and obj.fila.enlace:
+            self.accion_abrir_navegador(obj)
+            return True
+        return False
+
+    def _abrir_en_lector(self, obj):
+        """El texto del artículo en el panel de lectura, ya cargado para que el lector de pantalla lo encuentre completo."""
         self._vista_previa(obj, ahora=True, despues=lambda: self.enfocar_panel(self.texto))
         if obj.fila.servicio == "rss":
             if config.get("rss", "mark_read_on_open", True):
@@ -1081,8 +1226,8 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
         self.refrescar_contadores()
         self.avisar(_("Todo marcado como leído"))
 
-    def accion_abrir_navegador(self):
-        obj = self._fila_actual()
+    def accion_abrir_navegador(self, obj=None):
+        obj = obj or self._fila_actual()
         if obj is None or not obj.fila.enlace:
             self.avisar(_("Este artículo no tiene enlace"))
             return
@@ -1149,6 +1294,9 @@ class VentanaPrincipal(_RSSMixin, _HerramientasMixin, _BlueskyMixin, _WSocialMix
     # ------------------------------------------------------------------ actualización
     def accion_actualizar(self):
         n0 = self.nodo_actual
+        if n0 is not None and n0.servicio == "bandeja":
+            self.bandeja_actualizar()
+            return
         if n0 is not None and n0.servicio == "telegram":
             if n0.listable:
                 self.avisar(_("Actualizando {t}…").format(t=n0.titulo))

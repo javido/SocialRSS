@@ -352,7 +352,7 @@ class DialogoScraperSitio(DialogoBase):
         self.estado = Gtk.Label(xalign=0, accessible_role=Gtk.AccessibleRole.STATUS)
         self.rejilla.attach(self.estado, 0, self._fila, 2, 1)
         self._fila += 1
-        self.vista = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR)
+        self.vista = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR)
         self.campo(_("Artículos _detectados:"), Gtk.ScrolledWindow(child=self.vista, min_content_height=160, has_frame=True))
         self.rejilla.get_child_at(0, self._fila - 1).set_mnemonic_widget(self.vista)
         self.titulo = self.campo(_("_Título del feed:"), Gtk.Entry(width_chars=50))

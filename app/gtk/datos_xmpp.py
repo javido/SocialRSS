@@ -10,6 +10,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from .datos import Nodo, Fila, buffer_oculto
+from .lectura import con_plantilla, hora
 
 log = logging.getLogger(__name__)
 
@@ -206,11 +207,16 @@ def _filas_chats(account_id: int, chats: List[dict], tipo_fijo: Optional[str]) -
         if c.get("silenciado"):
             extras.append(_("silenciado"))
         texto += " · " + ", ".join(extras)
-        filas.append(Fila(id=c["jid"], feed_id=0, feed_titulo=c["nombre"], titulo=texto, autor=c["nombre"], fecha="",
-                          leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="xmpp",
-                          extra={"tipo": "chat", "account_id": account_id, "jid": c["jid"], "nombre": c["nombre"],
-                                 "sala": sala, "presencia": c.get("presencia", ""), "no_leidos": no_leidos,
-                                 "bloqueado": bool(c.get("bloqueado")), "propio": False}))
+        filas.append(con_plantilla(
+            Fila(id=c["jid"], feed_id=0, feed_titulo=c["nombre"], titulo=texto, autor=c["nombre"], fecha="",
+                 leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="", servicio="xmpp",
+                 extra={"tipo": "chat", "account_id": account_id, "jid": c["jid"], "nombre": c["nombre"],
+                        "sala": sala, "presencia": c.get("presencia", ""), "no_leidos": no_leidos,
+                        "bloqueado": bool(c.get("bloqueado")), "propio": False}),
+            "xmpp_chat", {"contacto": nombre, "presencia": _("grupo") if sala else (c.get("presencia") or _("Sin conexión")),
+                          "content": _condensar(c.get("ultimo", ""), 160),
+                          "unread": _("{n} sin leer").format(n=no_leidos) if no_leidos else "",
+                          "estado": "" if sala else c.get("estado_texto", "")}))
     return filas
 
 
@@ -286,13 +292,19 @@ def _fila_mensaje(r, account_id: int, jid: str, srv) -> Fila:
     linea = f"{autor}: {' '.join([cuerpo] + extras).strip()}"
     if nuevo:
         linea = _("Nuevo. ") + linea
-    return Fila(id=str(mid), feed_id=0, feed_titulo=autor, titulo=linea, autor=autor, fecha=fecha, leido=not nuevo,
+    fila = Fila(id=str(mid), feed_id=0, feed_titulo=autor, titulo=linea, autor=autor, fecha=fecha, leido=not nuevo,
                 favorito=bool(destacado), mas_tarde=False, audio=adjunto in ("voz", "audio"), enlace="", servicio="xmpp",
                 extra={"tipo": "mensaje", "account_id": account_id, "jid": jid, "mid": mid, "stanza_id": stanza_id,
                        "texto": texto, "media_url": media_url, "adjunto": adjunto, "propio": bool(propio),
                        "nuevo": nuevo, "es_voz": bool(es_voz), "destacado": bool(destacado),
                        "reproducible": adjunto in ("voz", "audio", "video"), "descargable": bool(adjunto),
                        "usuario": quien})
+    cita = _texto_de_respuesta(account_id, reply_to) if reply_to else ""
+    return con_plantilla(fila, "xmpp_message", {
+        "author": autor, "content": " ".join([cuerpo] + extras).strip(), "hora": hora(fecha), "contacto": "",
+        "media": _(ETIQUETAS_ADJUNTO[adjunto]) if adjunto else "", "duracion": srv.formato_duracion(duracion) if adjunto else "",
+        "estado": ((_("reproducido") if (reproducido or propio) else _("pendiente")) if adjunto == "voz" else ""),
+        "reacciones": reacciones or "", "cita": cita or ""})
 
 
 def _listar_mensajes(account_id: int, jid: str, limite: int) -> List[Fila]:

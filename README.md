@@ -25,7 +25,16 @@ haga perder el foco.
   quieres, un panel de detalles para leer el contenido con las flechas.
 - **Listas que se actualizan solas sin moverte el foco**: lo nuevo aparece en su sitio y el lector
   no te vuelve a leer nada. Las redes que lo admiten funcionan en **tiempo real**.
-- **Bandeja de entrada unificada**: un único buffer con lo importante de varias redes.
+- **Botonera de acciones** (opcional, una casilla por red en Preferencias, como en Windows): una fila de botones bajo la lista con
+las acciones más usadas del elemento enfocado (Responder, Me gusta, Impulsar, Conversación, Marcar leído, Voto +...) cuyas
+etiquetas reflejan el estado. Se llega con Tab desde la lista, Izquierda y Derecha pasan de un botón a otro, y «Más acciones…»
+abre el menú completo. En la bandeja actúa sobre la red de origen de cada publicación.
+
+**Reordenar el árbol:** con el foco en el árbol, Ctrl+Arriba y Ctrl+Abajo mueven el elemento elegido: los servicios, las cuentas,
+los buffers de cada red (el orden vale para todas sus cuentas), los buffers fijos de RSS, las categorías y los feeds (los feeds
+fijados siempre van arriba) y los buffers abiertos en la sesión (menos las conversaciones, cronologías y búsquedas de Mastodon, Bluesky y W Social, que se conservan entre sesiones y se reordenan dentro de su grupo). En X se mueven también las listas, las búsquedas, las cronologías y las conversaciones guardadas, y en Reddit los subreddits, las búsquedas y los demás buffers guardados; siempre dentro de su grupo. El orden se guarda en la misma configuración que usa Windows.
+
+**Bandeja de entrada unificada**: un único buffer con lo importante de varias redes.
 - **Cada red, completa**:
   - Mastodon: publicar (con encuestas, avisos de contenido, adjuntos con descripción, programado,
     hilos), citas, filtros del servidor, listas, hashtags, notificaciones agrupadas, borradores,
@@ -98,8 +107,12 @@ publicación, historial de ediciones, silenciar conversaciones, fijar, seguidore
 solicitudes de seguimiento, bloqueados y silenciados, filtros del servidor, borradores (con
 aviso al cerrar el editor), publicaciones programadas, hashtags en tendencia y seguidos, editar tu
 perfil, descartar notificaciones, notificaciones agrupadas con su política y solicitudes, hilos
-propios (un texto largo dividido en mensajes, con hilos guardados) y administración básica de la
-instancia (informes, cuentas y dominios bloqueados). Las novedades de Inicio, Notificaciones,
+propios (un texto largo dividido en mensajes, con hilos guardados), colecciones de cuentas (las tuyas, las de otra cuenta y
+aquellas en las que apareces), anuncios del servidor (con reacciones), enlaces en tendencia, directorio y cuentas sugeridas,
+mis listas (crear, editar, miembros), hashtags y cuentas destacados en mi perfil, servidores bloqueados, novedades de seguidores, más
+acciones sobre la cuenta de un autor (seguir con opciones, destacarla, nota, listas, bloquear su servidor), filtrar una publicación, borrar y
+volver a redactar, citas y su política, información de la instancia y su administración (informes, cuentas, dominios bloqueados y permitidos, bloqueos de IP y de
+correo, tendencias y descubrimiento, y estadísticas del servidor). Las novedades de Inicio, Notificaciones,
 Menciones y Mensajes directos llegan en **tiempo real** (se puede apagar en Preferencias) y se
 anuncian sin interrumpir a Orca. **Preferencias** en pestañas (General, Inteligencia artificial y Traducción): proveedor de IA con
 sus claves y modelo, prompts, motor y idiomas de traducción, historiales y pruebas. Con ellas, Ctrl+T
@@ -112,7 +125,7 @@ responder (con control de quién puede responder), citar, me gusta, republicar, 
 conversaciones, cronologías de usuario, perfil (seguir, silenciar, bloquear), búsqueda, feeds y
 listas (crear y gestionar sus miembros), mensajes directos, palabras silenciadas, moderación de
 contenido, servicios de etiquetado, denuncias, contraseñas de aplicación y tiempo real, además de
-traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). Aún faltan paquetes de inicio, tendencias y grupos de chat.
+traducir, resumir y describir imágenes con IA, e hilos largos (Ctrl+Mayús+N, públicos o por mensaje directo). También en Bluesky y W Social: tendencias (Intro busca el tema), paquetes de inicio (ver, crear y borrar), buscar cuentas, grupos de chat (crear, entrar con un enlace, añadir y expulsar miembros, renombrar, enlace de invitación, solicitudes de entrada y salir), la salida pendiente de las dos redes, y en Bluesky las solicitudes de mensajes, las cuentas a cuya actividad sigues, las cuentas similares, los seguidores en común y los feeds del autor.
 **W Social**: alta con usuario y contraseña de aplicación (con «Comprobar el servidor» para ver dónde vive la cuenta
 antes de enviar nada, y «Volver a autorizar»), Inicio, Notificaciones, Menciones, Mis publicaciones, Me gusta, Marcadores y
 mensajes directos; publicar con imágenes o vídeo, responder (con control de quién puede responder), citar, me gusta,
@@ -120,16 +133,28 @@ republicar, marcadores, borrar, conversaciones, citas, cronologías de usuario, 
 búsqueda, feeds, listas (crear y gestionar sus miembros), quién ha dado me gusta o republicado, silenciar hilos, denuncias,
 seguidores, seguidos, bloqueadas y silenciadas, editar el perfil, contraseñas de aplicación y avisos de notificaciones y
 mensajes nuevos. Comparte las teclas de Mastodon y Bluesky. Los hilos largos se escriben con Ctrl+Mayús+N, como en
-Mastodon. Todavía faltan en esta interfaz: borradores,
-publicaciones pendientes de envío, palabras silenciadas, moderación de contenido, servicios de etiquetado, grupos de chat,
-paquetes de inicio, tendencias y contactos. No se ha probado con una cuenta real de W Social.
+Mastodon. También: borradores del servidor, salida pendiente (reintentar o descartar), palabras silenciadas, preferencias de
+contenido, servicios de etiquetado, grupos de chat, paquetes de inicio y tendencias. Todavía faltan la búsqueda con filtros, la
+moderación de verificación de edad y los contactos. No se ha probado con una cuenta real de W Social.
 **Telegram** (necesita `kurigram`, ver más abajo): alta con teléfono, código y verificación en dos pasos
 (las credenciales `api_id` y `api_hash` se piden en my.telegram.org y se indican desde el menú Telegram);
 lista de chats y de chats sin leer, cada conversación como un buffer del árbol, enviar, responder, editar,
 borrar, reaccionar, reenviar, copiar, descargar y abrir adjuntos, reproducir notas de voz y audios, enviar
 archivos, mensajes guardados, silenciar, fijar, archivar, marcar leído, información del chat y avisos de mensajes nuevos en
-**tiempo real** (por voz solo de la conversación abierta y de chats privados). Aún faltan carpetas, foros con
-temas, encuestas, historias, administración de grupos, bots y llamadas.
+**tiempo real** (por voz solo de la conversación abierta y de chats privados). También: carpetas de chats (con enlaces para
+compartirlas), crear grupos, foros y canales, unirse por enlace, búsquedas (en todos los chats, en uno y de publicaciones de
+canales), chats frecuentes y canales parecidos, contenido compartido; administración de grupos y canales (miembros,
+administradores, enlaces de invitación, solicitudes de unión, ajustes, temas de foro, grupo de comentarios y registro de
+administración); encuestas, listas de tareas, mensajes fijados y programados, botones y comandos de bots, ubicación,
+contactos y dados; y la cuenta (perfil, contactos, bloqueados, sesiones, privacidad, verificación en dos pasos, historias y
+tus bots). También Telegram Drive, tu nube personal en un canal privado: una ventana por cuenta para navegar por carpetas virtuales,
+subir y descargar archivos y carpetas (con cola de transferencias, conflictos de nombre y reanudación), crear, renombrar,
+mover, copiar, papelera, búsqueda, propiedades y el mantenimiento del índice y del canal. También álbumes, GIF, stickers y
+videonotas, copiar mensajes, editar pies, saltar a una fecha, marcar leído hasta un mensaje, chats en común, privacidad de los
+chats, cambio de número, importar contactos y más acciones sobre historias (archivadas, texto, privacidad y fijar). Aún faltan los
+chats de voz. En Bluesky y W Social: cuentas sugeridas y cambio de nombre de usuario; en Bluesky, la vista de las cronologías y los
+hilos y la lista de hilos silenciados y publicaciones ocultas; en W Social, estado de la cuenta, información del servidor,
+verificación de edad, estado temporal, quién puede escribirte, copia del repositorio, feeds populares y búsqueda con filtros.
 **IRC** (necesita `pydle`): redes con TLS, SASL y NickServ; cada red es una cuenta con los buffers Canales,
 Privados y Avisos del servidor, y cada conversación se abre como un buffer del árbol. Se escribe con Ctrl+N
 (Ctrl+R responde mencionando) y todo lo que empieza por barra es un comando (`/help` los enseña: `/me`, `/join`,
@@ -144,8 +169,9 @@ reaccionar, destacar, enviar y descargar archivos, reproducir notas de voz y aud
 solicitudes, agregar, renombrar, bloquear y quitar contactos, ficha (vCard) e información técnica, zumbidos,
 salas (unirse, directorio, ocupantes con moderación, tema, salir), fijar, silenciar, archivar, nivel de aviso,
 vaciar y exportar conversaciones, cifrado OMEMO con verificación de huellas, y tu presencia, ánimo y actividad.
-Los mensajes, la presencia y las solicitudes llegan en **tiempo real**. Aún faltan la grabación de notas de voz,
-el registro y la baja de pasarelas, los comandos del servidor y la búsqueda de usuarios.
+Los mensajes, la presencia y las solicitudes llegan en **tiempo real**. También: los comandos del servidor (formularios de
+administración y de bots), las pasarelas (registrarse, comandos, chat y cancelar el registro), la búsqueda de usuarios,
+editar tu ficha, cambiar la contraseña y crear o borrar cuentas en el servidor. Aún falta la grabación de notas de voz.
 **Matrix** (necesita `matrix-nio`; el cifrado necesita además `python-olm`, que hay que compilar con `libolm`): alta con
 usuario y contraseña, inicio de sesión por navegador (servidores con MAS/OAuth) y registro de cuentas nuevas. Cada cuenta
 tiene Salas, Mensajes directos e Invitaciones, y cada sala se abre como un buffer del árbol. Escribir, responder, editar,
@@ -182,7 +208,7 @@ mismas claves que usa la versión de Windows) y los perfiles y órdenes que abre
 anidados, donde se puede responder, votar, guardar, editar, borrar y traducir. Además: publicar texto, enlace, imagen, vídeo,
 galería o encuesta con etiqueta, +18 y spoiler, crosspost, votos, guardados, ocultar, perfiles (seguir, bloquear, mensaje), mensajes
 privados, buscar publicaciones, subreddits y usuarios, y cambiar el orden de un buffer. La lectura de cada elemento usa tus
-plantillas de lectura. Aún no están la moderación, el wiki, el modmail, los directos, las colecciones ni los borradores.
+plantillas de lectura. El menú Reddit abre la wiki de un subreddit (leer, editar si tienes permiso, crear páginas y ver revisiones) y el modmail (bandejas, responder con nota interna, archivar y crear conversaciones), los hilos en directo (leer y publicar novedades), las colecciones de un subreddit y los borradores de Reddit. Etiquetas (flair), emojis y barra lateral de un subreddit. Para moderadores: las colas (cola de moderación, reportados, spam, sin moderar y editados) con aprobar, eliminar, distinguir, bloquear y mensaje de eliminación, «Moderar…» sobre cualquier publicación o comentario, los usuarios del subreddit (baneados, silenciados, contribuidores y moderadores con sus permisos), los motivos de eliminación, la configuración y el registro de moderación.
 **PeerTube** (necesita `httpx`): el alta pide la instancia, el usuario y la contraseña (y el código de doble factor si lo tienes).
 Cada cuenta tiene Vídeos recientes, Populares, Tendencias, Locales, Federados, Suscripciones, Directos, Notificaciones, la
 rama Mi biblioteca (Mis vídeos, Mis canales, Listas de reproducción, Ver más tarde, Me gusta e Historial) y las búsquedas
@@ -190,8 +216,9 @@ guardadas (las mismas claves de configuración que la versión de Windows); los 
 buffers. Intro reproduce el vídeo (suena el audio) y F2 lo pausa. Además: me gusta y no me gusta, suscribirse a canales,
 comentarios con respuestas anidadas, subtítulos como texto, calidad, descargar, ver más tarde, añadir a listas, subir (con
 subida reanudable) e importar vídeos, editar y borrar los tuyos, crear y gestionar listas y canales, notificaciones, silenciar
-cuentas e instancias, reportar y buscar vídeos y canales. Aún faltan los directos propios, las estadísticas, la moderación y la
-administración de la instancia. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
+cuentas e instancias, reportar y buscar vídeos y canales, mis importaciones y las preferencias de notificaciones. También: crear directos (con sus datos de emisión, la clave oculta y las sesiones), las estadísticas de un vídeo y de la
+instancia, mis denuncias, y para moderadores y administradores la cola de denuncias, los vídeos bloqueados, los usuarios, las
+solicitudes de registro, la federación, los trabajos, los plugins y los tokens de runners. Reddit pide ahora que Reddit apruebe el acceso a su API (las cuentas nuevas no pueden crear la
 aplicación del alta mientras tanto), así que su alta puede no estar disponible para cuentas recién registradas.
 
 **Gestión de feeds RSS** (los mismos servicios y datos que la versión de Windows): menú contextual del árbol (tecla Menú o
@@ -203,7 +230,13 @@ o importar las suscripciones desde Google Takeout, importar OPML con vista previ
 (varias condiciones, acciones, ámbito y prioridad), carpetas inteligentes, búsquedas guardadas como buffers del árbol, alertas por
 palabra clave, salud de los feeds, descargas de podcast, sincronización con FreshRSS, Inoreader o Miniflux, historial y
 estadísticas de lectura, resumen de lo no leído y exportar artículos en lote. En Artículo: etiquetas, imágenes con su texto
-alternativo y la cola de podcasts. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
+alternativo y la cola de podcasts. «Agrupar por fecha» (menú Feeds o Preferencias) pone delante del primer artículo de cada bloque su etiqueta: Hoy, Ayer, Esta semana, Este mes. El panel de lectura bajo la lista se puede ocultar por red y en la bandeja (Preferencias, General: «Mostrar el panel de detalles en…»; en Mastodon viene oculto, como en Windows); Intro y Alt+3 lo enseñan hasta que cambias de buffer. Lo que hace Intro sobre un artículo (también en la bandeja) se elige en Preferencias, pestaña RSS: abrir el enlace en el navegador (por defecto, como en Windows), abrir el texto en el panel de lectura o preguntar cada vez. Preferencias tiene una pestaña RSS (intervalo, avisos, límites de conservación...).
+
+**Bandeja de entrada unificada** (la misma configuración que en Windows: se activa en Preferencias o en Ver): un buffer que
+mezcla por fecha las publicaciones de los buffers y redes que elijas (Mastodon, Bluesky, W Social, X, Reddit, PeerTube y los
+buffers de RSS). Se añaden desde Ver, Añadir buffers a la bandeja, o con la tecla Menú sobre cualquier buffer del árbol.
+Cada fila dice de dónde viene y todas las acciones (responder, me gusta, impulsar, conversación...) funcionan como en su buffer
+de origen; Ctrl+Alt+Z salta a él. Se actualiza con Ctrl+Mayús+R y se refresca sola con lo que llega por tiempo real.
 
 **Menú Herramientas** (las mismas funciones y los mismos datos que la versión de Windows): filtros de contenido (ocultan
 publicaciones por palabra clave en Mastodon, Bluesky, W Social, X y RSS), fragmentos de texto (Ctrl+Mayús+J al redactar),
@@ -213,8 +246,9 @@ centro de notificaciones de todas las redes (Ctrl+Mayús+A), publicación cruzad
 (Ctrl+Mayús+S), borradores y programados de todas las redes, «Ponte al día» con IA (Ctrl+Mayús+Y), estadísticas, radio por
 internet, el reproductor de radio, podcast y YouTube (capítulos, cola, ecualizador y saltar silencios), descripción de la
 multimedia (Ctrl+Alt+K), editor de atajos de teclado (cualquier acción de la ventana), complementos (feeds populares,
-suscripciones de YouTube, web scraper y anti-clickbait), editor de plantillas de lectura (Reddit y PeerTube; el resto de redes
-usa por ahora la lectura por defecto) y visor de registros. En Feeds, la papelera de artículos; en Artículo, las versiones
+suscripciones de YouTube, web scraper y anti-clickbait), editor de plantillas de lectura (las mismas que en Windows: publicaciones y notificaciones de
+Mastodon, Bluesky, W Social y X, artículos RSS, chats de Telegram, IRC, Matrix y XMPP, Reddit, PeerTube y la bandeja; los indicadores
+como «Favorito» cambian al momento) y visor de registros. En Feeds, la papelera de artículos; en Artículo, las versiones
 anteriores; y en Ayuda, el manual, el documento de teclas, el changelog, la prueba de sonidos y la búsqueda de actualizaciones
 (que en Linux avisa y abre la página de descargas, no instala nada).
 

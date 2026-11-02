@@ -19,6 +19,7 @@ from app.core.at_lectura import texto_respuesta_a
 from app.ui.x_lectura import (datos_encuesta_x, describir_media_x, texto_cita_x, texto_encuesta_x)
 from .datos import Nodo, Fila
 from .filtros_contenido import sin_ocultas
+from .lectura import con_plantilla, notificacion
 
 log = logging.getLogger(__name__)
 
@@ -227,14 +228,20 @@ def _fila_post(r, yo: str, account_id: int) -> Fila:
         adjuntos = len(json.loads(media)) if media else 0
     except Exception:
         adjuntos = 0
-    return Fila(id=dbid, feed_id=0, feed_titulo=f"@{screen}", titulo=resumen, autor=quien, fecha=creado, leido=True,
+    fila = Fila(id=dbid, feed_id=0, feed_titulo=f"@{screen}", titulo=resumen, autor=quien, fecha=creado, leido=True,
                 favorito=bool(liked), mas_tarde=False, audio=False, enlace=url_tweet(screen, tid), servicio="x",
                 extra={"tipo": "estado", "account_id": account_id, "tweet_id": tid, "author_id": autor_id,
                        "usuario": screen, "impulsado": bool(retuiteado), "marcador": bool(guardado),
                        "impulsado_por": rt_por, "adjuntos": adjuntos, "encuesta": bool(texto_encuesta_x(encuesta)),
                        "respuestas": nresp, "n_impulsos": nrts + ncitas, "n_favoritos": nlikes,
                        "es_respuesta": bool(resp_id), "respuesta_a": texto_respuesta_a(resp_a, "", yo),
-                       "propio": bool(propio) or screen.lower() == yo})
+                       "propio": bool(propio) or screen.lower() == yo,
+                       "indicadores_fijos": ([_("RT de @{0}").format(rt_por)] if rt_por else [])
+                       + ([_("Respuesta")] if resp_id else []) + ([_("Cita")] if cita_autor else [])})
+    return con_plantilla(fila, "x_post", {
+        "author": quien, "username": f"@{screen}" if screen else "", "content": _condensar(cuerpo),
+        "reply_to": texto_respuesta_a(resp_a, "", yo), "media": descripcion_media, "cw": "", "language": idioma or "",
+        "counts": _("{0} me gusta, {1} RT, {2} resp.").format(nlikes or 0, nrts or 0, nresp or 0)})
 
 
 def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
@@ -273,11 +280,12 @@ def _listar_notificaciones(account_id: int, limite: int) -> List[Fila]:
         linea = f"{quien} (@{screen}): {accion}"
         if texto:
             linea += ". " + _condensar(texto, 200)
-        filas.append(Fila(id=nid, feed_id=0, feed_titulo=f"@{screen}", titulo=linea, autor=quien, fecha=fecha,
-                          leido=True, favorito=False, mas_tarde=False, audio=False,
-                          enlace=url_tweet(screen, tid) if tid else f"https://x.com/{screen}", servicio="x",
-                          extra={"tipo": "notificacion", "motivo": tipo, "account_id": account_id, "usuario": screen,
-                                 "tweet_id": tid, "propio": False}))
+        filas.append(notificacion(
+            Fila(id=nid, feed_id=0, feed_titulo=f"@{screen}", titulo=linea, autor=quien, fecha=fecha,
+                 leido=True, favorito=False, mas_tarde=False, audio=False,
+                 enlace=url_tweet(screen, tid) if tid else f"https://x.com/{screen}", servicio="x",
+                 extra={"tipo": "notificacion", "motivo": tipo, "account_id": account_id, "usuario": screen,
+                        "tweet_id": tid, "propio": False}), tipo, quien, screen, _condensar(texto)))
     return filas
 
 

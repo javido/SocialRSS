@@ -1367,12 +1367,13 @@ class DialogoBuffers(DialogoBase):
 
 
 # --------------------------------------------------------------------------- plantillas de lectura
-# Redes cuyas filas se leen con las plantillas del usuario en la interfaz GTK.
-REDES_CON_PLANTILLAS = ("reddit", "peertube")
+# Redes cuyas filas se leen con las plantillas del usuario en la interfaz GTK (todas menos el visor de registros, que es de Windows).
+REDES_CON_PLANTILLAS = ("mastodon", "bluesky", "telegram", "rss", "x", "irc", "matrix", "xmpp", "reddit", "peertube",
+                        "wsocial", "inbox")
 
 
 class DialogoPlantillas(Gtk.Window):
-    """Cómo lee el lector de pantalla cada elemento de Reddit y PeerTube: texto de la plantilla con campos entre llaves,
+    """Cómo lee el lector de pantalla cada elemento de cada red: texto de la plantilla con campos entre llaves,
     modelos rápidos, vista previa con datos de ejemplo y restaurar los valores por defecto. Son las mismas plantillas
     (y la misma configuración) que usa la versión de Windows."""
 
@@ -1661,7 +1662,7 @@ class DialogoVersionesArticulo(DialogoLista):
         self._rss_versiones = rss_versiones
         self.article_id = article_id
         self.versiones = rss_versiones.listar(article_id)
-        self.cambios = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
+        self.cambios = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD_CHAR,
                                     left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
         self.cambios.update_property([Gtk.AccessibleProperty.LABEL], [_("Cambios respecto a la versión actual")])
         marco = Gtk.ScrolledWindow(child=self.cambios, min_content_height=200, has_frame=True)

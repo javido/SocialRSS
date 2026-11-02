@@ -8,8 +8,10 @@ import logging
 from typing import Dict, List, Optional
 
 from app.core.database import db
+from . import buffers_guardados
 from .datos import Nodo, Fila, buffer_oculto
 from .filtros_contenido import sin_ocultas
+from .lectura import campos_post_at, con_plantilla, describir_adjuntos_at, notificacion
 
 log = logging.getLogger(__name__)
 
@@ -56,12 +58,17 @@ def construir_nodos() -> Nodo:
             if buffer_oculto("bluesky", clave):
                 continue
             cuenta.hijos.append(Nodo(_(titulo), "timeline", servicio="bluesky", account_id=acc_id, timeline=clave))
+        cuenta.hijos.extend(buffers_guardados.nodos("bluesky", acc_id))
         cuenta.hijos.extend(EXTRA.get(acc_id, []))
         raiz.hijos.append(cuenta)
     return raiz
 
 
 def nodo_extra(account_id: int, timeline: str, titulo: str) -> Nodo:
+    """Crea (o recupera) un buffer abierto por el usuario; conversaciones, cronologías y búsquedas se guardan."""
+    if buffers_guardados.guarda("bluesky", timeline):
+        titulo = buffers_guardados.guardar("bluesky", account_id, timeline, titulo)
+        return next(n for n in buffers_guardados.nodos("bluesky", account_id) if n.timeline == timeline)
     for n in EXTRA.setdefault(account_id, []):
         if n.timeline == timeline:
             return n
@@ -71,6 +78,8 @@ def nodo_extra(account_id: int, timeline: str, titulo: str) -> Nodo:
 
 
 def cerrar_extra(nodo: Nodo):
+    if buffers_guardados.guarda("bluesky", nodo.timeline):
+        return buffers_guardados.quitar("bluesky", nodo.account_id, nodo.timeline)
     lista = EXTRA.get(nodo.account_id, [])
     if nodo in lista:
         lista.remove(nodo)
@@ -113,14 +122,18 @@ def _fila_post(r, yo: str, account_id: int) -> Fila:
         adjuntos = 0
     autor = nombre or handle
     resumen = f"{autor} (@{handle}): " + _condensar(contenido)
-    return Fila(id=dbid, feed_id=0, feed_titulo=f"@{handle}", titulo=resumen, autor=autor,
+    fila = Fila(id=dbid, feed_id=0, feed_titulo=f"@{handle}", titulo=resumen, autor=autor,
                 fecha=creado or indexado, leido=True, favorito=bool(liked), mas_tarde=False, audio=False,
                 enlace=url_web(uri, handle), servicio="bluesky",
                 extra={"tipo": "estado", "account_id": account_id, "uri": uri, "cid": cid, "did": did,
                        "usuario": handle, "impulsado": bool(reposted), "marcador": bool(marcador),
                        "impulsado_por": repost_por, "adjuntos": adjuntos, "respuestas": nresp,
                        "n_impulsos": nreposts + ncitas, "n_favoritos": nlikes, "etiquetas": etiquetas,
-                       "es_respuesta": bool(padre), "propio": handle.lower() == yo, "cita": cita})
+                       "es_respuesta": bool(padre), "propio": handle.lower() == yo, "cita": cita,
+                       "indicadores_fijos": ([_("Respuesta")] if padre else []) + ([_("Cita")] if cita else [])})
+    return con_plantilla(fila, "bluesky_post", campos_post_at(
+        autor, handle, contenido, repost_por, describir_adjuntos_at(media, bool(cita)), etiquetas, nlikes, nreposts,
+        nresp, ncitas, False))
 
 
 def listar(account_id: int, timeline: str, limite: int = 200) -> List[Fila]:
@@ -175,7 +188,7 @@ def _listar_notificaciones(account_id: int, yo: str, solo_menciones: bool, limit
                  enlace=url_web(sujeto, "") if sujeto else "", servicio="bluesky",
                  extra={"tipo": "notificacion", "motivo": motivo, "account_id": account_id, "usuario": handle,
                         "uri": sujeto, "propio": False})
-        filas.append(f)
+        filas.append(notificacion(f, motivo, quien, handle, _condensar(contenido)))
     return filas
 
 

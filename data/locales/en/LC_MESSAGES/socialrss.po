@@ -55071,3 +55071,3701 @@ msgstr ""
 
 msgid "Árbol de feeds"
 msgstr "Feed tree"
+
+msgid "Actualizando la bandeja…"
+msgstr "Updating the inbox…"
+
+msgid "Actualizar la bandeja"
+msgstr "Update the inbox"
+
+msgid "Añadir a la bandeja"
+msgstr "Add to the inbox"
+
+msgid "Añadir buffers a la bandeja"
+msgstr "Add buffers to the inbox"
+
+msgid "Añadir buffers…"
+msgstr "Add buffers…"
+
+msgid "Bandeja de entrada mostrada."
+msgstr "Inbox shown."
+
+msgid "Bandeja de entrada oculta."
+msgstr "Inbox hidden."
+
+msgid "Elige una publicación de la bandeja."
+msgstr "Choose a post in the inbox."
+
+msgid "Este buffer no está en la bandeja."
+msgstr "This buffer is not in the inbox."
+
+msgid "Este buffer no se puede añadir a la bandeja."
+msgstr "This buffer cannot be added to the inbox."
+
+msgid "Ir al buffer de _origen de la publicación"
+msgstr "Go to the post's _source buffer"
+
+msgid ""
+"La bandeja no tiene buffers. Usa Ver, Añadir buffers a la bandeja para "
+"elegirlos."
+msgstr ""
+"The inbox has no buffers. Use View, Add buffers to the inbox to choose them."
+
+msgid "Marca los buffers que quieres añadir a la bandeja de entrada:"
+msgstr "Check the buffers you want to add to the inbox:"
+
+msgid "Marca los buffers que quieres quitar de la bandeja de entrada:"
+msgstr "Check the buffers you want to remove from the inbox:"
+
+msgid "Mostrar la _bandeja de entrada unificada:"
+msgstr "Show the unified _inbox:"
+
+msgid "Mostrar u ocultar la _bandeja de entrada"
+msgstr "Show or hide the _inbox"
+
+msgid "No hay más buffers que añadir."
+msgstr "There are no more buffers to add."
+
+msgid "Quitar buffers…"
+msgstr "Remove buffers…"
+
+msgid "Quitar de la bandeja"
+msgstr "Remove from the inbox"
+
+msgid ""
+"Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se "
+"añaden desde el menú Ver o con el menú del buffer en el árbol."
+msgstr ""
+"A buffer that gathers posts from several buffers and networks you choose. "
+"Add them from the View menu or with the buffer's menu in the tree."
+
+msgid "Ya está en la bandeja."
+msgstr "It is already in the inbox."
+
+msgid "_Añadir buffers a la bandeja…"
+msgstr "_Add buffers to the inbox…"
+
+msgid "_Quitar buffers de la bandeja…"
+msgstr "_Remove buffers from the inbox…"
+
+msgid "{n} buffers añadidos a la bandeja."
+msgstr "{n} buffers added to the inbox."
+
+msgid "{n} buffers quitados de la bandeja."
+msgstr "{n} buffers removed from the inbox."
+
+msgid "{t} añadido a la bandeja."
+msgstr "{t} added to the inbox."
+
+msgid "{t} quitado de la bandeja."
+msgstr "{t} removed from the inbox."
+
+msgid ""
+"Ver, Añadir buffers a la bandeja (o Añadir a la bandeja en el menú del "
+"buffer): reúne varias redes por fecha"
+msgstr ""
+"View, Add buffers to the inbox (or Add to the inbox in the buffer menu): "
+"gathers several networks by date"
+
+msgid "Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"
+msgstr "Ctrl+Alt+Z: go to the source buffer of the focused post"
+
+msgid "Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"
+msgstr "Move the tree item _down (Ctrl+Down in the tree)"
+
+msgid "Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"
+msgstr "Move the tree item _up (Ctrl+Up in the tree)"
+
+msgid "No se puede mover más abajo."
+msgstr "It cannot be moved further down."
+
+msgid "No se puede mover más arriba."
+msgstr "It cannot be moved further up."
+
+msgid ""
+"Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, "
+"buffers, feeds y categorías)"
+msgstr ""
+"Ctrl+Up / Ctrl+Down: move the tree item (services, accounts, buffers, feeds "
+"and categories)"
+
+msgid "Agrupar por _fecha"
+msgstr "Group by _date"
+
+msgid "Agrupar los artículos por _fecha:"
+msgstr "Group the articles by _date:"
+
+msgid ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."
+msgstr ""
+"The first row of each block (Today, Yesterday, This week, This month) starts"
+" with its label."
+
+msgid "Acciones…"
+msgstr "Actions…"
+
+msgid ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+msgstr ""
+"Buttons under the list (Reply, Like...) that act on the focused item. Reach "
+"them with Tab."
+
+msgid "Mostrar la botonera de acciones en {n}:"
+msgstr "Show the action buttons in {n}:"
+
+msgid "Más acciones…"
+msgstr "More actions…"
+
+msgid "Quitar de leer más tarde"
+msgstr "Remove from read later"
+
+msgid "Quitar favorito"
+msgstr "Remove favorite"
+
+msgid "Quitar impulso"
+msgstr "Remove boost"
+
+msgid ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"
+msgstr ""
+"Action buttons (Preferences): Tab from the list reaches the buttons; Left "
+"and Right switch buttons"
+
+msgid "Al pulsar _Intro sobre un artículo:"
+msgstr "When _Enter is pressed on an article:"
+
+msgid "Vale en los buffers de RSS y en la bandeja de entrada."
+msgstr "Applies in the RSS buffers and in the unified inbox."
+
+msgid "Mostrar el panel de detalles en {n}:"
+msgstr "Show the details panel in {n}:"
+
+msgid ""
+"El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
+"enseñan hasta que cambies de buffer."
+msgstr ""
+"The reading panel under the list. When off it is hidden; Enter or Alt+3 show"
+" it until you switch buffer."
+
+msgid "Aviso de contenido"
+msgstr "Content warning"
+
+msgid "[Reposteado por {0}] "
+msgstr "[Reposted by {0}] "
+
+msgid "_Editor de plantillas de lectura…"
+msgstr "Reading _template editor…"
+
+msgid "Conversación: {t}"
+msgstr "Conversation: {t}"
+
+msgid "(nota interna)"
+msgstr "(internal note)"
+
+msgid "Asunto: {a}"
+msgstr "Subject: {a}"
+
+msgid "Cargando las conversaciones…"
+msgstr "Loading the conversations…"
+
+msgid "Cargando las páginas…"
+msgstr "Loading the pages…"
+
+msgid "Cargando {p}…"
+msgstr "Loading {p}…"
+
+msgid "Enviar como _nota interna (solo moderadores)"
+msgstr "Send as an internal _note (moderators only)"
+
+msgid "Escribe la respuesta"
+msgstr "Write the reply"
+
+msgid "Guardar la página"
+msgstr "Save the page"
+
+msgid "Modmail"
+msgstr "Modmail"
+
+msgid "Modmail de r/{s}"
+msgstr "Modmail of r/{s}"
+
+msgid "No se pudieron cargar las revisiones: {e}"
+msgstr "The revisions could not be loaded: {e}"
+
+msgid "No se pudo abrir la página: {e}"
+msgstr "The page could not be opened: {e}"
+
+msgid "No se pudo cargar el modmail: {e}"
+msgstr "The modmail could not be loaded: {e}"
+
+msgid "No se pudo cargar la wiki: {e}"
+msgstr "The wiki could not be loaded: {e}"
+
+msgid "Página _nueva…"
+msgstr "_New page…"
+
+msgid "Rellena el subreddit, el destinatario, el asunto y el mensaje."
+msgstr "Fill in the subreddit, the recipient, the subject and the message."
+
+msgid "Revisiones"
+msgstr "Revisions"
+
+msgid "Revisiones de {p}"
+msgstr "Revisions of {p}"
+
+msgid "Tu _respuesta:"
+msgstr "Your _reply:"
+
+msgid "Ver _revisiones"
+msgstr "View _revisions"
+
+msgid "Wiki de r/{s}"
+msgstr "Wiki of r/{s}"
+
+msgid "_Archivar"
+msgstr "_Archive"
+
+msgid "_Asunto:"
+msgstr "_Subject:"
+
+msgid "_Contenido de la página:"
+msgstr "_Page content:"
+
+msgid "_Desarchivar"
+msgstr "_Unarchive"
+
+msgid "_Guardar cambios"
+msgstr "_Save changes"
+
+msgid "_Mensajes:"
+msgstr "_Messages:"
+
+msgid "_Modmail…"
+msgstr "_Modmail…"
+
+msgid "_Motivo del cambio (opcional):"
+msgstr "_Reason for the change (optional):"
+
+msgid "_Nombre de la página (por ejemplo reglas/spam):"
+msgstr "Page _name (for example rules/spam):"
+
+msgid "_Nueva conversación…"
+msgstr "_New conversation…"
+
+msgid "_Wiki de un subreddit…"
+msgstr "_Wiki of a subreddit…"
+
+msgid "por u/{u}"
+msgstr "by u/{u}"
+
+msgid "solo lectura"
+msgstr "read only"
+
+msgid "u/{u}{n} — {f}:"
+msgstr "u/{u}{n} — {f}:"
+
+msgid "{a}, de u/{u}, {n} mensajes, {f}"
+msgstr "{a}, from u/{u}, {n} messages, {f}"
+
+msgid "{f}, u/{u}: {m}"
+msgstr "{f}, u/{u}: {m}"
+
+msgid "{n} conversaciones"
+msgstr "{n} conversations"
+
+msgid "{n} páginas"
+msgstr "{n} pages"
+
+msgid "{n} revisiones"
+msgstr "{n} revisions"
+
+msgid "Última edición: {f}"
+msgstr "Last edited: {f}"
+
+msgid "A_ctualizar"
+msgstr "Re_fresh"
+
+msgid "Bo_rradores de Reddit…"
+msgstr "Reddit _drafts…"
+
+msgid "Borradores de Reddit"
+msgstr "Reddit drafts"
+
+msgid "Cargando las colecciones…"
+msgstr "Loading the collections…"
+
+msgid "Cargando las novedades…"
+msgstr "Loading the updates…"
+
+msgid "Cargando los borradores…"
+msgstr "Loading the drafts…"
+
+msgid "Co_lecciones de un subreddit…"
+msgstr "Collections of a _subreddit…"
+
+msgid "Colecciones de r/{s}"
+msgstr "Collections of r/{s}"
+
+msgid "Colección: {t}"
+msgstr "Collection: {t}"
+
+msgid "Escribe el identificador de un hilo en directo y pulsa Intro."
+msgstr "Type the id of a live thread and press Enter."
+
+msgid "Escribe el título"
+msgstr "Write the title"
+
+msgid "Hilos en _directo…"
+msgstr "_Live threads…"
+
+msgid "No se pudieron cargar las colecciones: {e}"
+msgstr "The collections could not be loaded: {e}"
+
+msgid "No se pudieron cargar los borradores: {e}"
+msgstr "The drafts could not be loaded: {e}"
+
+msgid "No se pudo abrir la colección: {e}"
+msgstr "The collection could not be opened: {e}"
+
+msgid "Publicaciones de la colección"
+msgstr "Posts in the collection"
+
+msgid "Te_xto (si no es un enlace):"
+msgstr "Te_xt (if it is not a link):"
+
+msgid "_Comunidad (sin r/; opcional):"
+msgstr "_Community (without r/; optional):"
+
+msgid "_Crear nuevo…"
+msgstr "_Create new…"
+
+msgid "_Enlace (déjalo vacío para un borrador de texto):"
+msgstr "_Link (leave empty for a text draft):"
+
+msgid "_Nueva colección…"
+msgstr "_New collection…"
+
+msgid "_Publicar novedad…"
+msgstr "_Post an update…"
+
+msgid "_Texto de la novedad:"
+msgstr "Update _text:"
+
+msgid "u/{u}: {t}"
+msgstr "u/{u}: {t}"
+
+msgid "{n} colecciones"
+msgstr "{n} collections"
+
+msgid "{n} novedades"
+msgstr "{n} updates"
+
+msgid "{n} publicaciones"
+msgstr "{n} posts"
+
+msgid "{t} (u/{a})"
+msgstr "{t} (u/{a})"
+
+msgid "{t}, en r/{s}, {k}"
+msgstr "{t}, in r/{s}, {k}"
+
+msgid "{t}, {n} publicaciones"
+msgstr "{t}, {n} posts"
+
+msgid "¿Borrar el borrador «{t}»?"
+msgstr "Delete the draft “{t}”?"
+
+msgid "¿Borrar la colección «{t}»?"
+msgstr "Delete the collection “{t}”?"
+
+msgid "¿Publicar el borrador «{t}»?"
+msgstr "Post the draft “{t}”?"
+
+msgid "A_brir en el navegador"
+msgstr "Open in the _browser"
+
+msgid "Acciones de moderación"
+msgstr "Moderation actions"
+
+msgid "Banear en r/{s}"
+msgstr "Ban in r/{s}"
+
+msgid "Cargando la configuración…"
+msgstr "Loading the settings…"
+
+msgid "Cargando los subreddits que moderas…"
+msgstr "Loading the subreddits you moderate…"
+
+msgid "Cola de moderación…"
+msgstr "Moderation queue…"
+
+msgid "Configuración de r/{s}"
+msgstr "Settings of r/{s}"
+
+msgid "Configuración del subreddit…"
+msgstr "Subreddit settings…"
+
+msgid "Elige un moderador"
+msgstr "Choose a moderator"
+
+msgid "Enviar un mensaje de eliminación…"
+msgstr "Send a removal message…"
+
+msgid "Me_nsaje para el usuario (opcional):"
+msgstr "Me_ssage for the user (optional):"
+
+msgid "Moderación de r/{s}"
+msgstr "Moderation of r/{s}"
+
+msgid "Moderar el elemento enfo_cado…"
+msgstr "Moderate the _focused item…"
+
+msgid "Moderar…"
+msgstr "Moderate…"
+
+msgid "Motivos de eliminación de r/{s}"
+msgstr "Removal reasons of r/{s}"
+
+msgid "Motivos de eliminación…"
+msgstr "Removal reasons…"
+
+msgid "No se pudieron cargar los motivos: {e}"
+msgstr "The reasons could not be loaded: {e}"
+
+msgid "No se pudo cargar el registro: {e}"
+msgstr "The log could not be loaded: {e}"
+
+msgid "No se pudo cargar la cola: {e}"
+msgstr "The queue could not be loaded: {e}"
+
+msgid "No se pudo cargar la configuración: {e}"
+msgstr "The settings could not be loaded: {e}"
+
+msgid "No se pudo cargar la lista: {e}"
+msgstr "The list could not be loaded: {e}"
+
+msgid "No se pudo obtener la lista de subreddits que moderas: {e}"
+msgstr "The list of subreddits you moderate could not be obtained: {e}"
+
+msgid "Nota _interna (opcional):"
+msgstr "_Internal note (optional):"
+
+msgid "Permisos de u/{u}"
+msgstr "Permissions of u/{u}"
+
+msgid "Registro de moderación…"
+msgstr "Moderation log…"
+
+msgid "Registro de r/{s}"
+msgstr "Log of r/{s}"
+
+msgid "Usuarios de r/{s}"
+msgstr "Users of r/{s}"
+
+msgid "Usuarios del subreddit…"
+msgstr "Subreddit users…"
+
+msgid "_Duración en días (0 = permanente):"
+msgstr "_Duration in days (0 = permanent):"
+
+msgid "_Motivo que se enviará al autor:"
+msgstr "_Reason that will be sent to the author:"
+
+msgid "_Más acciones…"
+msgstr "_More actions…"
+
+msgid "_Permisos…"
+msgstr "_Permissions…"
+
+msgid "_Usuario (sin u/):"
+msgstr "_User (without u/):"
+
+msgid "u/{u}. {d}"
+msgstr "u/{u}. {d}"
+
+msgid "{f}, u/{m}: {a} {d}"
+msgstr "{f}, u/{m}: {a} {d}"
+
+msgid "{n} acciones"
+msgstr "{n} actions"
+
+msgid "{n} motivos"
+msgstr "{n} reasons"
+
+msgid "{t} de u/{a}. {c}. {r} reportes. {f}"
+msgstr "{t} by u/{a}. {c}. {r} reports. {f}"
+
+msgid "{t}. {m}"
+msgstr "{t}. {m}"
+
+msgid "¿Borrar el motivo «{t}»?"
+msgstr "Delete the reason “{t}”?"
+
+msgid "¿Quitar a u/{u}?"
+msgstr "Remove u/{u}?"
+
+msgid "  {p}: {n} espectadores"
+msgstr "  {p}: {n} viewers"
+
+msgid "(con error)"
+msgstr "(with error)"
+
+msgid "Act_ivos"
+msgstr "Act_ive"
+
+msgid "B_orrar"
+msgstr "_Delete"
+
+msgid "Bloquear el vídeo (moderadores)…"
+msgstr "Block the video (moderators)…"
+
+msgid "Cargando las denuncias…"
+msgstr "Loading the reports…"
+
+msgid "Cola de denuncias…"
+msgstr "Report queue…"
+
+msgid "Con_traseña:"
+msgstr "_Password:"
+
+msgid "Copiar la URL R_TMP"
+msgstr "Copy the R_TMP URL"
+
+msgid "Copiar la _clave de emisión"
+msgstr "Copy the stream _key"
+
+msgid "Crear un _directo…"
+msgstr "Create a _live stream…"
+
+msgid "Datos de emisión del directo…"
+msgstr "Live stream broadcast details…"
+
+msgid "Desbloquear el vídeo (moderadores)"
+msgstr "Unblock the video (moderators)"
+
+msgid "Desinstalar"
+msgstr "Uninstall"
+
+msgid "Directo _permanente (puedes emitir varias veces):"
+msgstr "_Permanent live (you can stream several times):"
+
+msgid "El título y el canal son obligatorios"
+msgstr "The title and the channel are required"
+
+msgid "En _espera"
+msgstr "_Waiting"
+
+msgid "Espectadores totales: {n}"
+msgstr "Total viewers: {n}"
+
+msgid "Estadísticas de la instancia…"
+msgstr "Instance statistics…"
+
+msgid "Estadísticas del _vídeo…"
+msgstr "_Video statistics…"
+
+msgid "Estadísticas del vídeo…"
+msgstr "Video statistics…"
+
+msgid "Federación (instancias)…"
+msgstr "Federation (instances)…"
+
+msgid "Guardar la _repetición al terminar:"
+msgstr "Save the _replay when it ends:"
+
+msgid "Latencia: {l}"
+msgstr "Latency: {l}"
+
+msgid "Mis denuncias…"
+msgstr "My reports…"
+
+msgid "No se pudieron cargar las denuncias: {e}"
+msgstr "The reports could not be loaded: {e}"
+
+msgid "No se pudieron cargar las estadísticas: {e}"
+msgstr "The statistics could not be loaded: {e}"
+
+msgid "No se pudieron cargar las sesiones: {e}"
+msgstr "The sessions could not be loaded: {e}"
+
+msgid "No se pudieron cargar los mensajes: {e}"
+msgstr "The messages could not be loaded: {e}"
+
+msgid "No se pudieron cargar los vídeos bloqueados: {e}"
+msgstr "The blocked videos could not be loaded: {e}"
+
+msgid "No se pudieron obtener los datos de emisión: {e}"
+msgstr "The broadcast details could not be obtained: {e}"
+
+msgid "No se pudo crear el directo: {e}"
+msgstr "The live stream could not be created: {e}"
+
+msgid "Pico de espectadores: {n}"
+msgstr "Peak viewers: {n}"
+
+msgid "Plugins…"
+msgstr "Plugins…"
+
+msgid "Rellena el usuario, el correo y la contraseña."
+msgstr "Fill in the user, the email and the password."
+
+msgid "Rol de {u}"
+msgstr "Role of {u}"
+
+msgid "Seguir _instancia…"
+msgstr "Follow _instance…"
+
+msgid "Sesiones y repeticiones del directo…"
+msgstr "Live stream sessions and replays…"
+
+msgid "Sesión del {f}{e}{r}"
+msgstr "Session of {f}{e}{r}"
+
+msgid "Solicitudes de registro…"
+msgstr "Registration requests…"
+
+msgid "Tiempo medio por espectador: {n} segundos"
+msgstr "Average time per viewer: {n} seconds"
+
+msgid "Tiempo total de reproducción: {n} minutos"
+msgstr "Total watch time: {n} minutes"
+
+msgid "Tokens de runners…"
+msgstr "Runner tokens…"
+
+msgid "Trabajos del servidor…"
+msgstr "Server jobs…"
+
+msgid "URL RTMP_S (segura):"
+msgstr "RTMP_S URL (secure):"
+
+msgid "URL del servidor _RTMP:"
+msgstr "_RTMP server URL:"
+
+msgid "Usuarios…"
+msgstr "Users…"
+
+msgid "Ver _siguiendo"
+msgstr "View _following"
+
+msgid "Ver se_guidores"
+msgstr "View fo_llowers"
+
+msgid "Vídeos bloqueados…"
+msgstr "Blocked videos…"
+
+msgid "_Aceptar seguidor"
+msgstr "_Accept follower"
+
+msgid "_Administración"
+msgstr "_Administration"
+
+msgid "_Añadir un mensaje (opcional):"
+msgstr "_Add a message (optional):"
+
+msgid "_Comentario de moderación (opcional):"
+msgstr "_Moderation comment (optional):"
+
+msgid "_Completados"
+msgstr "_Completed"
+
+msgid "_Copiar token"
+msgstr "_Copy token"
+
+msgid "_Correo electrónico:"
+msgstr "_Email:"
+
+msgid "_Cuota de vídeo en GB (-1 = sin límite):"
+msgstr "Video _quota in GB (-1 = unlimited):"
+
+msgid "_Dejar o rechazar"
+msgstr "_Unfollow or reject"
+
+msgid "_Desinstalar"
+msgstr "_Uninstall"
+
+msgid "_Fallidos"
+msgstr "_Failed"
+
+msgid "_Generar nuevo"
+msgstr "_Generate new"
+
+msgid "_Instalar…"
+msgstr "_Install…"
+
+msgid "_Instancia a seguir (host):"
+msgstr "_Instance to follow (host):"
+
+msgid "_Latencia:"
+msgstr "_Latency:"
+
+msgid "_Mensajes…"
+msgstr "_Messages…"
+
+msgid "_Moderación"
+msgstr "_Moderation"
+
+msgid "_Motivo del bloqueo (opcional):"
+msgstr "_Reason for the block (optional):"
+
+msgid "_Nombre del paquete npm del plugin:"
+msgstr "_npm package name of the plugin:"
+
+msgid "_Respuesta al solicitante (opcional):"
+msgstr "_Reply to the applicant (optional):"
+
+msgid "_Rol y cuota…"
+msgstr "_Role and quota…"
+
+msgid "_Rol:"
+msgstr "_Role:"
+
+msgid "_Título del directo:"
+msgstr "_Title of the live stream:"
+
+msgid "activo"
+msgstr "active"
+
+msgid "repetición: {t}"
+msgstr "replay: {t}"
+
+msgid "{h}, {e}"
+msgstr "{h}, {e}"
+
+msgid "{m}. Estado: {s}. Contra {d}. {o}"
+msgstr "{m}. Status: {s}. Against {d}. {o}"
+
+msgid "{n} denuncias"
+msgstr "{n} reports"
+
+msgid "{n} sesiones"
+msgstr "{n} sessions"
+
+msgid "{n} vídeos"
+msgstr "{n} videos"
+
+msgid "{n}, versión {v}, {p}"
+msgstr "{n}, version {v}, {p}"
+
+msgid "{t}, creado {f}"
+msgstr "{t}, created {f}"
+
+msgid "{t}, {s}. {e}"
+msgstr "{t}, {s}. {e}"
+
+msgid "{t}. Motivo: {m}"
+msgstr "{t}. Reason: {m}"
+
+msgid "{u}, {c}, motivo: {m}"
+msgstr "{u}, {c}, reason: {m}"
+
+msgid "{u}, {c}, rol {r}, {e}"
+msgstr "{u}, {c}, role {r}, {e}"
+
+msgid "¿Borrar al usuario «{u}»? Se eliminan sus vídeos y datos."
+msgstr "Delete the user “{u}”? Their videos and data are removed."
+
+msgid "¿Dejar de seguir a {h}?"
+msgstr "Unfollow {h}?"
+
+msgid "¿Desbloquear «{t}»? Volverá a estar disponible."
+msgstr "Unblock “{t}”? It will be available again."
+
+msgid "¿Desinstalar «{n}»?"
+msgstr "Uninstall “{n}”?"
+
+msgid "    {f}: {v} personas, {t:.1f} %"
+msgstr "    {f}: {v} people, {t:.1f} %"
+
+msgid "  Cohorte {p} ({f}):"
+msgstr "  Cohort {p} ({f}):"
+
+msgid "  Periodo anterior: {v}"
+msgstr "  Previous period: {v}"
+
+msgid "  Semana {s}: {p} publicaciones, {r} registros, {a} activos"
+msgstr "  Week {s}: {p} posts, {r} sign-ups, {a} active"
+
+msgid "(sin leer) "
+msgstr "(unread) "
+
+msgid "@{a} añadida a la colección."
+msgstr "@{a} added to the collection."
+
+msgid "@{a} añadida a «{c}»."
+msgstr "@{a} added to “{c}”."
+
+msgid "@{a} añadida a «{c}». Queda pendiente de que acepte."
+msgstr "@{a} added to “{c}”. It is pending their acceptance."
+
+msgid "@{a} añadida. Queda pendiente de que acepte aparecer en la colección."
+msgstr ""
+"@{a} added. It is pending their acceptance to appear in the collection."
+
+msgid "Actividad reciente:"
+msgstr "Recent activity:"
+
+msgid "Administración: {t}"
+msgstr "Administration: {t}"
+
+msgid "Anuncio marcado como leído"
+msgstr "Announcement marked as read"
+
+msgid "Añadir _hash…"
+msgstr "Add _hash…"
+
+msgid "Añadir al autor a una de mis colecciones…"
+msgstr "Add the author to one of my collections…"
+
+msgid "Bloqueos de _IP…"
+msgstr "_IP blocks…"
+
+msgid "Caducar en _segundos (vacío = permanente):"
+msgstr "Expire in _seconds (empty = permanent):"
+
+msgid "Cargando las estadísticas…"
+msgstr "Loading the statistics…"
+
+msgid "Cargando los anuncios…"
+msgstr "Loading the announcements…"
+
+msgid "Cargando los enlaces…"
+msgstr "Loading the links…"
+
+msgid "Cargar _anteriores"
+msgstr "Load _older"
+
+msgid "Colecciones de @{a}"
+msgstr "Collections of @{a}"
+
+msgid "Colecciones de una cuenta"
+msgstr "Collections of an account"
+
+msgid "Colecciones de una cuenta…"
+msgstr "Collections of an account…"
+
+msgid "Colecciones en las que _apareces…"
+msgstr "Collections you _appear in…"
+
+msgid "Colección «{n}»"
+msgstr "Collection “{n}”"
+
+msgid "Colección «{n}» creada."
+msgstr "Collection “{n}” created."
+
+msgid "Con aprobación"
+msgstr "With approval"
+
+msgid "Configurar hashtag #{n}"
+msgstr "Configure hashtag #{n}"
+
+msgid "Correos canónicos bloqueados…"
+msgstr "Blocked canonical emails…"
+
+msgid "Creado: {c}"
+msgstr "Created: {c}"
+
+msgid "Cuentas _sugeridas…"
+msgstr "_Suggested accounts…"
+
+msgid "Dominios _permitidos…"
+msgstr "_Allowed domains…"
+
+msgid "Dominios de correo bloqueados…"
+msgstr "Blocked email domains…"
+
+msgid "El correo coincide con {n} bloqueo(s) canónico(s)."
+msgstr "The email matches {n} canonical block(s)."
+
+msgid "Enlaces en _tendencia…"
+msgstr "_Trending links…"
+
+msgid "ID numérico del _hashtag (para las métricas de hashtag):"
+msgstr "Numeric ID of the _hashtag (for the hashtag metrics):"
+
+msgid "Idiomas: {i}"
+msgstr "Languages: {i}"
+
+msgid "Información de la instancia"
+msgstr "Instance information"
+
+msgid "Instancias federadas conocidas: {n}"
+msgstr "Known federated instances: {n}"
+
+msgid "La colección necesita un nombre."
+msgstr "The collection needs a name."
+
+msgid "Lista de anuncios"
+msgstr "List of announcements"
+
+msgid "Lista de enlaces en tendencia"
+msgstr "List of trending links"
+
+msgid "Marcarla como contenido _sensible:"
+msgstr "Mark it as _sensitive content:"
+
+msgid "Mis co_lecciones…"
+msgstr "My co_llections…"
+
+msgid "Mostrarla en mi _perfil, en las búsquedas y en las recomendaciones:"
+msgstr "Show it on my _profile, in searches and in recommendations:"
+
+msgid "No hay anuncios"
+msgstr "There are no announcements"
+
+msgid "No hay elementos"
+msgstr "There are no items"
+
+msgid "No hay enlaces en tendencia"
+msgstr "There are no trending links"
+
+msgid "No se pudieron cargar los anuncios: {e}"
+msgstr "The announcements could not be loaded: {e}"
+
+msgid "No se pudieron cargar los enlaces: {e}"
+msgstr "The links could not be loaded: {e}"
+
+msgid "No se pudieron cargar tus colecciones: {e}"
+msgstr "Your collections could not be loaded: {e}"
+
+msgid "No se pudo cargar la colección: {e}"
+msgstr "The collection could not be loaded: {e}"
+
+msgid "No se pudo cargar la información de la instancia: {e}"
+msgstr "The instance information could not be loaded: {e}"
+
+msgid "No se pudo crear la colección: {e}"
+msgstr "The collection could not be created: {e}"
+
+msgid "Nombre para _mostrar:"
+msgstr "Display _name:"
+
+msgid "Normas:"
+msgstr "Rules:"
+
+msgid "Periodo: últimos {n} días"
+msgstr "Period: last {n} days"
+
+msgid "Permitir que aparezca como _tendencia:"
+msgstr "Allow it to appear as a _trend:"
+
+msgid "Permitir que aparezca en _búsquedas y directorios:"
+msgstr "Allow it to appear in _searches and directories:"
+
+msgid "Permitir su _uso en publicaciones locales:"
+msgstr "Allow its _use in local posts:"
+
+msgid "Sin información"
+msgstr "No information"
+
+msgid "Software: {s}"
+msgstr "Software: {s}"
+
+msgid "Sugerencia descartada"
+msgstr "Suggestion dismissed"
+
+msgid "Tiempo real disponible: {s}"
+msgstr "Real time available: {s}"
+
+msgid "Usuarios activos al mes: {n}"
+msgstr "Monthly active users: {n}"
+
+msgid "Valor: {v}"
+msgstr "Value: {v}"
+
+msgid "_Anuncios del servidor…"
+msgstr "Server _announcements…"
+
+msgid "_Colección:"
+msgstr "_Collection:"
+
+msgid "_Comentario interno:"
+msgstr "Internal _comment:"
+
+msgid "_Comprobar correo…"
+msgstr "_Check email…"
+
+msgid "_Configurar hashtag…"
+msgstr "_Configure hashtag…"
+
+msgid "_Correo que quieres comprobar:"
+msgstr "_Email you want to check:"
+
+msgid "_Cuenta (@usuario o @usuario@servidor):"
+msgstr "_Account (@user or @user@server):"
+
+msgid "_Cuenta que añadir (@usuario o @usuario@servidor):"
+msgstr "_Account to add (@user or @user@server):"
+
+msgid ""
+"_Cuentas que incluir desde el principio (opcional, @usuario separados por "
+"espacios):"
+msgstr ""
+"_Accounts to include from the start (optional, @users separated by spaces):"
+
+msgid "_Descartar la sugerencia"
+msgstr "_Dismiss the suggestion"
+
+msgid "_Descripción (máximo {n} caracteres):"
+msgstr "_Description (maximum {n} characters):"
+
+msgid "_Directorio de cuentas…"
+msgstr "Account _directory…"
+
+msgid "_Dominio remoto (para las métricas de dominio):"
+msgstr "Remote _domain (for the domain metrics):"
+
+msgid "_Días del periodo:"
+msgstr "_Days of the period:"
+
+msgid "_Emoji (o :atajo:):"
+msgstr "_Emoji (or :shortcode:):"
+
+msgid "_Etiqueta que la describe (opcional, sin #):"
+msgstr "_Tag that describes it (optional, without #):"
+
+msgid "_Hash SHA-256 canónico de 64 caracteres:"
+msgstr "Canonical SHA-256 _hash of 64 characters:"
+
+msgid "_IP o rango CIDR:"
+msgstr "_IP or CIDR range:"
+
+msgid "_Idioma (código, por ejemplo es):"
+msgstr "_Language (code, for example es):"
+
+msgid "_Información de la instancia…"
+msgstr "_Instance information…"
+
+msgid "_Métricas que se consultarán:"
+msgstr "_Metrics to query:"
+
+msgid "_Nombre (máximo {n} caracteres):"
+msgstr "_Name (maximum {n} characters):"
+
+msgid "_Quitar de la colección"
+msgstr "_Remove from the collection"
+
+msgid "_Quitar mi reacción…"
+msgstr "_Remove my reaction…"
+
+msgid "_Reaccionar…"
+msgstr "_React…"
+
+msgid "_Retención:"
+msgstr "_Retention:"
+
+msgid "_Retirarme de esta colección"
+msgstr "_Withdraw me from this collection"
+
+msgid "_Tendencias y descubrimiento…"
+msgstr "_Trends and discovery…"
+
+msgid "_Ver cuentas"
+msgstr "_View accounts"
+
+msgid "listable {a}, utilizable {b}, tendencia {c}, revisión {d}"
+msgstr "listable {a}, usable {b}, trending {c}, review {d}"
+
+msgid "tendencia {c}, revisión {d}"
+msgstr "trending {c}, review {d}"
+
+msgid "{d}: {c} cuentas, {u} direcciones IP"
+msgstr "{d}: {c} accounts, {u} IP addresses"
+
+msgid "{n} (@{a}), {e}"
+msgstr "{n} (@{a}), {e}"
+
+msgid "{n} anuncios"
+msgstr "{n} announcements"
+
+msgid "{n} enlaces"
+msgstr "{n} links"
+
+msgid "{n}, {c} cuentas. {d}"
+msgstr "{n}, {c} accounts. {d}"
+
+msgid "«{n}»: {c} cuentas."
+msgstr "“{n}”: {c} accounts."
+
+msgid "¿Borrar la colección «{n}»? No se puede deshacer."
+msgstr "Delete the collection “{n}”? This cannot be undone."
+
+msgid "¿Eliminar el bloqueo de {ip}?"
+msgstr "Remove the block of {ip}?"
+
+msgid ""
+"¿Permitir altas desde este dominio solo después de aprobación manual? Si "
+"dices que no, se bloquean por completo."
+msgstr ""
+"Allow sign-ups from this domain only after manual approval? If you say no, "
+"they are blocked completely."
+
+msgid "¿Quitar a @{a} de la colección?"
+msgstr "Remove @{a} from the collection?"
+
+msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+msgstr "Withdraw from the collection “{n}”? You will stop appearing in it."
+
+msgid "A_visarme cuando el autor publique"
+msgstr "_Notify me when the author posts"
+
+msgid "Cargando las tendencias…"
+msgstr "Loading the trends…"
+
+msgid "Cargando los miembros…"
+msgstr "Loading the members…"
+
+msgid "Cargando los paquetes…"
+msgstr "Loading the packs…"
+
+msgid "Crear un paquete de inicio"
+msgstr "Create a starter pack"
+
+msgid "Cuentas _similares al autor…"
+msgstr "Accounts _similar to the author…"
+
+msgid "Cuentas a cuya _actividad sigues…"
+msgstr "Accounts whose _activity you follow…"
+
+msgid "Cuentas añadidas al grupo."
+msgstr "Accounts added to the group."
+
+msgid "Cuentas de {r}: {t}"
+msgstr "{r} accounts: {t}"
+
+msgid "Cuentas encontradas"
+msgstr "Accounts found"
+
+msgid "Cuentas suscritas"
+msgstr "Subscribed accounts"
+
+msgid "Dejarás de recibir avisos de esta cuenta."
+msgstr "You will stop receiving notices from this account."
+
+msgid "El servidor no ha devuelto ningún enlace."
+msgstr "The server did not return any link."
+
+msgid "Enlace de invitación copiado"
+msgstr "Invitation link copied"
+
+msgid "Error al cargar tus listas: {e}"
+msgstr "Error loading your lists: {e}"
+
+msgid "Escribe el nombre y al menos una cuenta."
+msgstr "Write the name and at least one account."
+
+msgid "Escribe el nombre y añade al menos una cuenta al grupo."
+msgstr "Write the name and add at least one account to the group."
+
+msgid "Esto solo está en Bluesky"
+msgstr "This is only in Bluesky"
+
+msgid "Feed: {n}"
+msgstr "Feed: {n}"
+
+msgid "Grupo: {t}"
+msgstr "Group: {t}"
+
+msgid "Miembros del grupo"
+msgstr "Group members"
+
+msgid ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+msgstr ""
+"You need at least one list. Create it in My account, Lists, and add accounts"
+" to it before making the pack."
+
+msgid "No hay tendencias"
+msgstr "There are no trends"
+
+msgid "No se encontró ninguna cuenta"
+msgstr "No account was found"
+
+msgid "No se pudieron cargar las tendencias: {e}"
+msgstr "The trends could not be loaded: {e}"
+
+msgid "No se pudieron cargar los paquetes sugeridos: {e}"
+msgstr "The suggested packs could not be loaded: {e}"
+
+msgid "No se pudieron cargar los paquetes: {e}"
+msgstr "The packs could not be loaded: {e}"
+
+msgid "No se pudieron consultar las solicitudes: {e}"
+msgstr "The requests could not be checked: {e}"
+
+msgid "No se pudo abrir el paquete: {e}"
+msgstr "The pack could not be opened: {e}"
+
+msgid "No se pudo aceptar: {e}"
+msgstr "It could not be accepted: {e}"
+
+msgid "No se pudo crear el paquete: {e}"
+msgstr "The pack could not be created: {e}"
+
+msgid "No se pudo obtener el enlace: {e}"
+msgstr "The link could not be obtained: {e}"
+
+msgid "No se pudo suscribir: {e}"
+msgstr "Could not subscribe: {e}"
+
+msgid "No tienes paquetes de inicio"
+msgstr "You have no starter packs"
+
+msgid "Paquete borrado."
+msgstr "Pack deleted."
+
+msgid "Paquete de inicio"
+msgstr "Starter pack"
+
+msgid "Paquete de inicio creado."
+msgstr "Starter pack created."
+
+msgid "Paquetes de _inicio…"
+msgstr "_Starter packs…"
+
+msgid "Paquetes de inicio de {r}"
+msgstr "{r} starter packs"
+
+msgid "Paquetes de inicio sugeridos"
+msgstr "Suggested starter packs"
+
+msgid "Paquetes sugeridos"
+msgstr "Suggested packs"
+
+msgid "S_alir del grupo"
+msgstr "_Leave the group"
+
+msgid "Seguidores _en común con el autor…"
+msgstr "Followers _in common with the author…"
+
+msgid "Selecciona un elemento de Bluesky o de W Social"
+msgstr "Select an item from Bluesky or W Social"
+
+msgid "Selecciona una conversación de grupo"
+msgstr "Select a group conversation"
+
+msgid "Solicitudes de _mensajes…"
+msgstr "Message _requests…"
+
+msgid "Temas en tendencia"
+msgstr "Trending topics"
+
+msgid "Tendencias de {r}"
+msgstr "{r} trends"
+
+msgid "Un nombre, un usuario o parte de la biografía."
+msgstr "A name, a username or part of the bio."
+
+msgid "Vas a expulsar a {u} del grupo. ¿Continuar?"
+msgstr "You are about to remove {u} from the group. Continue?"
+
+msgid "_Aceptar y abrir"
+msgstr "_Accept and open"
+
+msgid "_Añadir cuentas…"
+msgstr "_Add accounts…"
+
+msgid "_Buscar el tema"
+msgstr "_Search the topic"
+
+msgid "_Crear un grupo…"
+msgstr "_Create a group…"
+
+msgid "_Crear uno nuevo…"
+msgstr "_Create a new one…"
+
+msgid ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+msgstr "_Accounts to add, separated by commas (for example name.bsky.social):"
+
+msgid "_Cuentas a añadir, separadas por comas:"
+msgstr "_Accounts to add, separated by commas:"
+
+msgid "_Cuentas, separadas por comas:"
+msgstr "_Accounts, separated by commas:"
+
+msgid "_Dejar de recibir avisos"
+msgstr "_Stop receiving notices"
+
+msgid "_Enlace de invitación"
+msgstr "Invitation _link"
+
+msgid "_Enlace de invitación al grupo:"
+msgstr "Group invitation _link:"
+
+msgid "_Entrar en un grupo con un enlace…"
+msgstr "_Join a group with a link…"
+
+msgid "_Expulsar"
+msgstr "_Remove"
+
+msgid "_Feeds del autor…"
+msgstr "Author's _feeds…"
+
+msgid "_Gestionar el grupo…"
+msgstr "_Manage the group…"
+
+msgid "_Lista que incluirá el paquete:"
+msgstr "_List that the pack will include:"
+
+msgid "_Nombre del grupo:"
+msgstr "Group _name:"
+
+msgid "_Nombre del paquete:"
+msgstr "Pack _name:"
+
+msgid "_Nuevo nombre del grupo:"
+msgstr "_New group name:"
+
+msgid "_Solicitud:"
+msgstr "_Request:"
+
+msgid "_Solicitudes de entrada…"
+msgstr "_Join requests…"
+
+msgid "_Sugeridos…"
+msgstr "_Suggested…"
+
+msgid "{n} paquetes"
+msgstr "{n} packs"
+
+msgid "{n} temas"
+msgstr "{n} topics"
+
+msgid "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+msgstr "Accept {u} into the group? If you say no, it is rejected."
+
+msgid "¿Borrar el paquete «{n}»?"
+msgstr "Delete the pack “{n}”?"
+
+msgid "¿Salir de este grupo?"
+msgstr "Leave this group?"
+
+msgid "Aplicarla solo a cuentas que _no sigues:"
+msgstr "Apply it only to accounts you _don't follow:"
+
+msgid "Borradores de W Social"
+msgstr "W Social drafts"
+
+msgid "Editar el borrador"
+msgstr "Edit the draft"
+
+msgid "Palabras silenciadas de W Social"
+msgstr "W Social muted words"
+
+msgid "Preferencias de _contenido…"
+msgstr "_Content preferences…"
+
+msgid "Publicaciones pendientes"
+msgstr "Pending posts"
+
+msgid "Reintentando…"
+msgstr "Retrying…"
+
+msgid "Salida _pendiente…"
+msgstr "_Pending outbox…"
+
+msgid "Salida pendiente de {r}"
+msgstr "Pending outbox of {r}"
+
+msgid "Servicios de etiquetado de W Social"
+msgstr "W Social labeling services"
+
+msgid "Sigue sin poder enviarse: {e}"
+msgstr "It still cannot be sent: {e}"
+
+msgid "_Añadir por usuario…"
+msgstr "_Add by username…"
+
+msgid "_Borradores del servidor…"
+msgstr "Server _drafts…"
+
+msgid "_Dónde silenciarla:"
+msgstr "_Where to mute it:"
+
+msgid "_Idiomas que quieres ver (códigos separados por comas):"
+msgstr "_Languages you want to see (codes separated by commas):"
+
+msgid "_Reintentar"
+msgstr "_Retry"
+
+msgid "_Suscribirse o cancelar"
+msgstr "_Subscribe or cancel"
+
+msgid "_Usuario o identificador del servicio de etiquetado:"
+msgstr "_User or identifier of the labeling service:"
+
+msgid "{n} pendientes"
+msgstr "{n} pending"
+
+msgid "¿Borrar este borrador?"
+msgstr "Delete this draft?"
+
+msgid "Abrir _chat con la pasarela"
+msgstr "Open _chat with the gateway"
+
+msgid "Borrar la cuenta"
+msgstr "Delete the account"
+
+msgid "Borrar mi cuenta del _servidor…"
+msgstr "Delete my account from the _server…"
+
+msgid "Buscando pasarelas…"
+msgstr "Looking for gateways…"
+
+msgid "Buscar _usuarios en el servidor…"
+msgstr "Search _users on the server…"
+
+msgid "Buscar usuarios en {s}"
+msgstr "Search users on {s}"
+
+msgid "C_orreo (opcional, algunos servidores lo piden):"
+msgstr "_Email (optional, some servers ask for it):"
+
+msgid "Cambiar la _contraseña…"
+msgstr "Change the _password…"
+
+msgid "Cancelar el registro"
+msgstr "Cancel the registration"
+
+msgid "Cancelar re_gistro…"
+msgstr "Cancel re_gistration…"
+
+msgid "Ce_rrar"
+msgstr "C_lose"
+
+msgid "Comandos de _otro JID…"
+msgstr "Commands of _another JID…"
+
+msgid "Comandos de {j}"
+msgstr "Commands of {j}"
+
+msgid "Comandos de {n}"
+msgstr "Commands of {n}"
+
+msgid "Comandos del _servidor…"
+msgstr "_Server commands…"
+
+msgid "Comandos del chat o la pasarela enfocados…"
+msgstr "Commands of the focused chat or gateway…"
+
+msgid "Consultando los comandos…"
+msgstr "Checking the commands…"
+
+msgid "Creando la cuenta…"
+msgstr "Creating the account…"
+
+msgid "Crear una cuenta _nueva en un servidor…"
+msgstr "Create a _new account on a server…"
+
+msgid "Editar mi _ficha (vCard)…"
+msgstr "Edit my _card (vCard)…"
+
+msgid "Editar registro en {n}"
+msgstr "Edit registration on {n}"
+
+msgid "El servidor devolvió un error: {e}"
+msgstr "The server returned an error: {e}"
+
+msgid "Escribe el JID y la contraseña."
+msgstr "Write the JID and the password."
+
+msgid "No se pudieron buscar pasarelas: {e}"
+msgstr "Gateways could not be searched: {e}"
+
+msgid "No se pudieron listar los comandos: {e}"
+msgstr "The commands could not be listed: {e}"
+
+msgid "No se pudo abrir la búsqueda: {e}"
+msgstr "The search could not be opened: {e}"
+
+msgid "No se pudo cancelar la cuenta: {e}"
+msgstr "The account could not be cancelled: {e}"
+
+msgid "No se pudo crear la cuenta: {e}"
+msgstr "The account could not be created: {e}"
+
+msgid "No se pudo ejecutar: {e}"
+msgstr "It could not be run: {e}"
+
+msgid "No se pudo obtener el registro: {e}"
+msgstr "The registration could not be obtained: {e}"
+
+msgid ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+msgstr ""
+"To link your WhatsApp account: press “Register”; then open the chat with the"
+" gateway, where the QR code arrives (as text or image) and, on the phone, "
+"Settings, Linked devices, Link a device. You can also pair by number with "
+"the “pair-phone” command in “Gateway commands”."
+
+msgid "Registrarse en {n}"
+msgstr "Register on {n}"
+
+msgid ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+msgstr ""
+"Registration sent. If the gateway asks for pairing (for example the WhatsApp"
+" code), open it in “Gateway commands” or in the chat with the gateway: the "
+"code appears as text."
+
+msgid "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+msgstr "If you do not know it, try the suggested one or “vjud.your-server”."
+
+msgid "Solicitud enviada a {j}."
+msgstr "Request sent to {j}."
+
+msgid ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+msgstr ""
+"You are about to cancel your registration on {n}. You will stop using that "
+"gateway and its contacts will disappear from your list. Are you sure?"
+
+msgid "_Agregar a mis contactos"
+msgstr "_Add to my contacts"
+
+msgid "_Comandos de la pasarela…"
+msgstr "Gateway _commands…"
+
+msgid "_Ejecutar"
+msgstr "_Run"
+
+msgid "_JID (servidor, componente o contacto):"
+msgstr "_JID (server, component or contact):"
+
+msgid "_JID de la cuenta nueva (usuario@servidor):"
+msgstr "_JID of the new account (user@server):"
+
+msgid "_Pasarelas (WhatsApp, Telegram…)…"
+msgstr "_Gateways (WhatsApp, Telegram…)…"
+
+msgid "_Registrarse"
+msgstr "_Register"
+
+msgid "_Registrarse…"
+msgstr "_Register…"
+
+msgid "_Resultados (Intro agrega al contacto):"
+msgstr "_Results (Enter adds the contact):"
+
+msgid "_Servicio de búsqueda del servidor:"
+msgstr "Server _search service:"
+
+msgid "{n} comandos"
+msgstr "{n} commands"
+
+msgid "{n} pasarelas"
+msgstr "{n} gateways"
+
+msgid "{n}, red {r}, {j}"
+msgstr "{n}, network {r}, {j}"
+
+msgid "_Siguiente"
+msgstr "_Next"
+
+msgid "_Anterior"
+msgstr "_Previous"
+
+msgid "_Completar"
+msgstr "_Complete"
+
+msgid "_Cancelar comando"
+msgstr "_Cancel command"
+
+msgid "(Quitar el grupo de comentarios)"
+msgstr "(Remove the comments group)"
+
+msgid "Activar los _temas (modo foro):"
+msgstr "Turn on _topics (forum mode):"
+
+msgid "Administrador quitado."
+msgstr "Administrator removed."
+
+msgid "Administrar el _chat"
+msgstr "Manage the _chat"
+
+msgid "Ajustes de {t}"
+msgstr "Settings of {t}"
+
+msgid "Al dueño no se le puede promover, degradar ni banear."
+msgstr "The owner cannot be promoted, demoted or banned."
+
+msgid "Aprobar _todas"
+msgstr "Approve _all"
+
+msgid "Archivo descargado borrado de este equipo."
+msgstr "Downloaded file deleted from this computer."
+
+msgid "Autodestrucción de la _cuenta por inactividad…"
+msgstr "Account _self-destruct on inactivity…"
+
+msgid "Autodestrucción de la cuenta"
+msgstr "Account self-destruct"
+
+msgid "Añadir al chat"
+msgstr "Add to the chat"
+
+msgid "Añadir un contacto"
+msgstr "Add a contact"
+
+msgid "Ba_jar"
+msgstr "Move _down"
+
+msgid "Boosts para el siguiente nivel: {n}"
+msgstr "Boosts for the next level: {n}"
+
+msgid "Boosts: {n}"
+msgstr "Boosts: {n}"
+
+msgid "Borrado a_utomático de mensajes en segundos (0 = desactivado):"
+msgstr "A_utomatic message deletion in seconds (0 = off):"
+
+msgid "Borrar el archivo descargado de este e_quipo"
+msgstr "Delete the downloaded file from this com_puter"
+
+msgid "Bot actualizado."
+msgstr "Bot updated."
+
+msgid "Bot creado."
+msgstr "Bot created."
+
+msgid "Buscar en el chat"
+msgstr "Search in the chat"
+
+msgid "Buscar en el chat _actual…"
+msgstr "Search in the _current chat…"
+
+msgid "Buscar en todos los chats"
+msgstr "Search in all chats"
+
+msgid "Buscar publicaciones de canales por _hashtag…"
+msgstr "Search channel posts by _hashtag…"
+
+msgid "Buscar usuarios, grupos y canales"
+msgstr "Search users, groups and channels"
+
+msgid "Cambiar la _foto…"
+msgstr "Change the _photo…"
+
+msgid "Cambiar sus permisos de administrador…"
+msgstr "Change their administrator permissions…"
+
+msgid "Canales _parecidos…"
+msgstr "_Similar channels…"
+
+msgid "Canales parecidos a {t}"
+msgstr "Channels similar to {t}"
+
+msgid "Cargando los contactos…"
+msgstr "Loading the contacts…"
+
+msgid "Carpetas de _chats…"
+msgstr "_Chat folders…"
+
+msgid "Ce_rrar o reabrir"
+msgstr "Close or _reopen"
+
+msgid "Cerrada."
+msgstr "Closed."
+
+msgid "Cerrar _todas las demás"
+msgstr "Close _all the others"
+
+msgid "Chat creado."
+msgstr "Chat created."
+
+msgid "Chats _frecuentes…"
+msgstr "_Frequent chats…"
+
+msgid "Chats frecuentes: {c}"
+msgstr "Frequent chats: {c}"
+
+msgid "Cierre de las _sesiones inactivas…"
+msgstr "Closing of inactive _sessions…"
+
+msgid "Cierre de sesiones inactivas"
+msgstr "Closing of inactive sessions"
+
+msgid "Co_mpartir por enlace…"
+msgstr "Share _by link…"
+
+msgid "Comando enviado."
+msgstr "Command sent."
+
+msgid "Comandos de {t}"
+msgstr "Commands of {t}"
+
+msgid "Comandos del _bot…"
+msgstr "_Bot commands…"
+
+msgid "Compartir la carpeta"
+msgstr "Share the folder"
+
+msgid "Compartir un c_ontacto…"
+msgstr "Share a c_ontact…"
+
+msgid "Compartir un contacto con {t}"
+msgstr "Share a contact with {t}"
+
+msgid "Contacto borrado."
+msgstr "Contact deleted."
+
+msgid "Contactos de Telegram"
+msgstr "Telegram contacts"
+
+msgid "Contenido _compartido del chat…"
+msgstr "Chat _shared content…"
+
+msgid "Contenido _protegido (no se puede reenviar ni guardar):"
+msgstr "_Protected content (cannot be forwarded or saved):"
+
+msgid "Contenido compartido"
+msgstr "Shared content"
+
+msgid "Contraseña _actual:"
+msgstr "_Current password:"
+
+msgid "Contraseña _nueva:"
+msgstr "_New password:"
+
+msgid "Conversación vaciada."
+msgstr "Conversation cleared."
+
+msgid "Correo de _recuperación (opcional):"
+msgstr "_Recovery email (optional):"
+
+msgid "Crear un bot"
+msgstr "Create a bot"
+
+msgid "Crear un chat"
+msgstr "Create a chat"
+
+msgid "Crear un grupo, foro o _canal…"
+msgstr "Create a group, forum or _channel…"
+
+msgid "Crear una _encuesta…"
+msgstr "Create a _poll…"
+
+msgid "Crear una lista de _tareas…"
+msgstr "Create a _task list…"
+
+msgid "Cumpleaños guardado."
+msgstr "Birthday saved."
+
+msgid "D_esfijar el mensaje"
+msgstr "_Unpin the message"
+
+msgid "Descripción _corta:"
+msgstr "_Short description:"
+
+msgid "Descripción _corta…"
+msgstr "_Short description…"
+
+msgid "Desfijar _todos los mensajes"
+msgstr "Unpin _all messages"
+
+msgid "Editar el bot"
+msgstr "Edit the bot"
+
+msgid "Elegir la foto de perfil"
+msgstr "Choose the profile photo"
+
+msgid "Elegir la foto o el vídeo"
+msgstr "Choose the photo or video"
+
+msgid "Encuesta creada."
+msgstr "Poll created."
+
+msgid "Enlace creado y copiado"
+msgstr "Link created and copied"
+
+msgid "Enlace de la carpeta copiado"
+msgstr "Folder link copied"
+
+msgid "Enlaces de invitación"
+msgstr "Invitation links"
+
+msgid "Enlaces de invitación de {t}"
+msgstr "Invitation links of {t}"
+
+msgid "Enviado: {t}"
+msgstr "Sent: {t}"
+
+msgid "Enviar _como…"
+msgstr "Send _as…"
+
+msgid "Enviar un _dado…"
+msgstr "Send a _die…"
+
+msgid "Enviar un dado"
+msgstr "Send a die"
+
+msgid "Enviar una _ubicación…"
+msgstr "Send a _location…"
+
+msgid "Enviar una ubicación a {t}"
+msgstr "Send a location to {t}"
+
+msgid "Envío cancelado."
+msgstr "Sending cancelled."
+
+msgid "Es un _concurso (con respuesta correcta):"
+msgstr "It is a _quiz (with a correct answer):"
+
+msgid "Esa es la sesión actual."
+msgstr "That is the current session."
+
+msgid "Escribe el mensaje y una fecha futura."
+msgstr "Write the message and a future date."
+
+msgid "Escribe el nombre y un usuario que acabe en bot."
+msgstr "Write the name and a username ending in bot."
+
+msgid "Escribe el teléfono y el nombre."
+msgstr "Write the phone and the name."
+
+msgid "Escribe el título y al menos una tarea."
+msgstr "Write the title and at least one task."
+
+msgid "Escribe el título."
+msgstr "Write the title."
+
+msgid "Escribe el usuario y el nombre."
+msgstr "Write the user and the name."
+
+msgid "Escribe la fecha como AAAA-MM-DD HH:MM."
+msgstr "Write the date as YYYY-MM-DD HH:MM."
+
+msgid "Escribe la latitud y la longitud como números."
+msgstr "Write the latitude and the longitude as numbers."
+
+msgid "Escribe la pregunta y entre 2 y 10 opciones."
+msgstr "Write the question and between 2 and 10 options."
+
+msgid "Esta carpeta no tiene chats que se puedan compartir."
+msgstr "This folder has no chats that can be shared."
+
+msgid "Estado de la potenciación del _canal…"
+msgstr "Boost status of the _channel…"
+
+msgid "Estado emoji quitado."
+msgstr "Emoji status removed."
+
+msgid "Este chat no es un bot o no publica comandos."
+msgstr "This chat is not a bot or does not publish commands."
+
+msgid "Este chat no tiene temas."
+msgstr "This chat has no topics."
+
+msgid "Este mensaje no tiene botones."
+msgstr "This message has no buttons."
+
+msgid "Este mensaje no tiene lista de tareas."
+msgstr "This message has no task list."
+
+msgid "Exigir la _aprobación de un administrador:"
+msgstr "Require an administrator's _approval:"
+
+msgid "Foro (supergrupo con temas)"
+msgstr "Forum (supergroup with topics)"
+
+msgid "Foto cambiada."
+msgstr "Photo changed."
+
+msgid "Foto quitada."
+msgstr "Photo removed."
+
+msgid "Hecha: "
+msgstr "Done: "
+
+msgid "Historia descargada."
+msgstr "Story downloaded."
+
+msgid "Historia marcada como vista."
+msgstr "Story marked as seen."
+
+msgid "Historias de tus contactos"
+msgstr "Stories of your contacts"
+
+msgid "L_ongitud:"
+msgstr "L_ongitude:"
+
+msgid "Lista de bots"
+msgstr "List of bots"
+
+msgid "Lista de contactos"
+msgstr "List of contacts"
+
+msgid "Lista de sesiones"
+msgstr "List of sessions"
+
+msgid "Lista de usuarios bloqueados"
+msgstr "List of blocked users"
+
+msgid "Marcar como _hecha"
+msgstr "Mark as _done"
+
+msgid "Marcar como _pendiente"
+msgstr "Mark as _pending"
+
+msgid "Marcar las _menciones como leídas"
+msgstr "Mark the _mentions as read"
+
+msgid "Marcar las _reacciones como leídas"
+msgstr "Mark the _reactions as read"
+
+msgid "Menciones marcadas como leídas."
+msgstr "Mentions marked as read."
+
+msgid "Mensaje guardado en tus mensajes guardados."
+msgstr "Message saved in your saved messages."
+
+msgid "Mensajes desfijados."
+msgstr "Messages unpinned."
+
+msgid "Mensajes pro_gramados…"
+msgstr "Sche_duled messages…"
+
+msgid "Mensajes programados de {t}"
+msgstr "Scheduled messages of {t}"
+
+msgid "Mi _perfil…"
+msgstr "My _profile…"
+
+msgid "Mi c_uenta"
+msgstr "My ac_count"
+
+msgid "Miembros de {t}"
+msgstr "Members of {t}"
+
+msgid "Mis b_ots…"
+msgstr "My b_ots…"
+
+msgid "Nivel: {n}"
+msgstr "Level: {n}"
+
+msgid "No has bloqueado a nadie."
+msgstr "You have not blocked anyone."
+
+msgid "No has cambiado nada."
+msgstr "You have not changed anything."
+
+msgid "No hay enlaces"
+msgstr "There are no links"
+
+msgid "No hay perfiles alternativos para este chat."
+msgstr "There are no alternative profiles for this chat."
+
+msgid "No se pudieron cargar las carpetas: {e}"
+msgstr "The folders could not be loaded: {e}"
+
+msgid "No se pudieron cargar las historias: {e}"
+msgstr "The stories could not be loaded: {e}"
+
+msgid "No se pudieron cargar las solicitudes: {e}"
+msgstr "The requests could not be loaded: {e}"
+
+msgid "No se pudieron cargar los bots: {e}"
+msgstr "The bots could not be loaded: {e}"
+
+msgid "No se pudieron cargar los contactos: {e}"
+msgstr "The contacts could not be loaded: {e}"
+
+msgid "No se pudieron cargar los grupos: {e}"
+msgstr "The groups could not be loaded: {e}"
+
+msgid "No se pudieron cargar los temas: {e}"
+msgstr "The topics could not be loaded: {e}"
+
+msgid "No se pudieron cargar: {e}"
+msgstr "They could not be loaded: {e}"
+
+msgid "No se pudieron leer los detalles: {e}"
+msgstr "The details could not be read: {e}"
+
+msgid "No se pudo crear el enlace: {e}"
+msgstr "The link could not be created: {e}"
+
+msgid "No se pudo leer la encuesta: {e}"
+msgstr "The poll could not be read: {e}"
+
+msgid "No se pudo traducir: {e}"
+msgstr "It could not be translated: {e}"
+
+msgid "No tienes bots."
+msgstr "You have no bots."
+
+msgid "No tienes carpetas"
+msgstr "You have no folders"
+
+msgid "Nombre de _usuario (debe acabar en bot):"
+msgstr "_Username (must end in bot):"
+
+msgid "Nombre de _usuario (sin @):"
+msgstr "_Username (without @):"
+
+msgid "Nota privada"
+msgstr "Private note"
+
+msgid "Nueva encuesta en {t}"
+msgstr "New poll in {t}"
+
+msgid "Nueva lista de tareas en {t}"
+msgstr "New task list in {t}"
+
+msgid "Nuevo enlace de invitación"
+msgstr "New invitation link"
+
+msgid "Nuevo tema"
+msgstr "New topic"
+
+msgid "Número de la opción co_rrecta (concurso):"
+msgstr "Number of the co_rrect option (quiz):"
+
+msgid "Orden guardado."
+msgstr "Order saved."
+
+msgid "Otros pueden _añadir tareas:"
+msgstr "Others can _add tasks:"
+
+msgid "Otros pueden _marcarlas como hechas:"
+msgstr "Others can _mark them as done:"
+
+msgid "P_rivacidad…"
+msgstr "P_rivacy…"
+
+msgid "Pendiente: "
+msgstr "Pending: "
+
+msgid "Perfil guardado."
+msgstr "Profile saved."
+
+msgid "Permisos guardados."
+msgstr "Permissions saved."
+
+msgid "Permitir _varias respuestas:"
+msgstr "Allow _several answers:"
+
+msgid "Potenciación de {t}"
+msgstr "Boosts of {t}"
+
+msgid "Potenciar el canal"
+msgstr "Boost the channel"
+
+msgid "Privacidad guardada."
+msgstr "Privacy saved."
+
+msgid "Programar un mensaje para {t}"
+msgstr "Schedule a message for {t}"
+
+msgid "Promover con permisos concretos…"
+msgstr "Promote with specific permissions…"
+
+msgid "Promovido a administrador."
+msgstr "Promoted to administrator."
+
+msgid "Publicaciones de {t}"
+msgstr "Posts of {t}"
+
+msgid "Publicar una historia"
+msgstr "Post a story"
+
+msgid "Quitar el _estado emoji"
+msgstr "Remove the _emoji status"
+
+msgid "Quién se unió por este enlace"
+msgstr "Who joined through this link"
+
+msgid "Quién vio la historia"
+msgstr "Who saw the story"
+
+msgid "Reacciones marcadas como leídas."
+msgstr "Reactions marked as read."
+
+msgid "Rechazar t_odas"
+msgstr "Reject a_ll"
+
+msgid "Registro de administración de {t}"
+msgstr "Administration log of {t}"
+
+msgid "Renombrar el tema"
+msgstr "Rename the topic"
+
+msgid "Restricciones quitadas."
+msgstr "Restrictions removed."
+
+msgid "Resultados de «{t}»"
+msgstr "Results for “{t}”"
+
+msgid "Revocado. "
+msgstr "Revoked. "
+
+msgid "S_eguridad (verificación en dos pasos)…"
+msgstr "S_ecurity (two-step verification)…"
+
+msgid "Se publicará con ese perfil."
+msgstr "It will be posted with that profile."
+
+msgid "Seguridad de la cuenta"
+msgstr "Account security"
+
+msgid "Sesiones activas"
+msgstr "Active sessions"
+
+msgid "Sesiones cerradas."
+msgstr "Sessions closed."
+
+msgid "Sin acciones recientes."
+msgstr "No recent actions."
+
+msgid "Sin datos."
+msgstr "No data."
+
+msgid "Solicitud aprobada."
+msgstr "Request approved."
+
+msgid "Solicitudes de unión a {t}"
+msgstr "Join requests to {t}"
+
+msgid "Su_bir"
+msgstr "Move _up"
+
+msgid "T_raducir el mensaje (Telegram)…"
+msgstr "T_ranslate the message (Telegram)…"
+
+msgid "Tarea marcada como hecha."
+msgstr "Task marked as done."
+
+msgid "Tarea marcada como pendiente."
+msgstr "Task marked as pending."
+
+msgid "Tareas"
+msgstr "Tasks"
+
+msgid "Tareas añadidas."
+msgstr "Tasks added."
+
+msgid "Te has unido."
+msgstr "You have joined."
+
+msgid "Tema borrado."
+msgstr "Topic deleted."
+
+msgid "Tema cerrado."
+msgstr "Topic closed."
+
+msgid "Tema fijado."
+msgstr "Topic pinned."
+
+msgid "Tema renombrado."
+msgstr "Topic renamed."
+
+msgid "Temas de {t}"
+msgstr "Topics of {t}"
+
+msgid "Todavía no has potenciado este canal."
+msgstr "You have not boosted this channel yet."
+
+msgid "Título cambiado."
+msgstr "Title changed."
+
+msgid "Título de administrador…"
+msgstr "Administrator title…"
+
+msgid "Un grupo necesita al menos un miembro."
+msgstr "A group needs at least one member."
+
+msgid "Unirse a un chat"
+msgstr "Join a chat"
+
+msgid "Usuarios _bloqueados…"
+msgstr "_Blocked users…"
+
+msgid "Ver la lista de tareas del _mensaje…"
+msgstr "View the _message's task list…"
+
+msgid "Ver o _votar la encuesta del mensaje…"
+msgstr "View or _vote in the message's poll…"
+
+msgid "Verificación en dos pasos quitada."
+msgstr "Two-step verification removed."
+
+msgid "Votos _anónimos:"
+msgstr "_Anonymous votes:"
+
+msgid "Ya has potenciado este canal."
+msgstr "You have already boosted this channel."
+
+msgid "_Abrir el chat"
+msgstr "_Open the chat"
+
+msgid "_Activar"
+msgstr "_Activate"
+
+msgid "_Activar la verificación en dos pasos…"
+msgstr "_Turn on two-step verification…"
+
+msgid "_Ajustes del chat…"
+msgstr "Chat _settings…"
+
+msgid "_Apellido (opcional):"
+msgstr "_Last name (optional):"
+
+msgid "_Apellido:"
+msgstr "_Last name:"
+
+msgid "_Añadir tareas…"
+msgstr "_Add tasks…"
+
+msgid "_Año (0 = no indicarlo):"
+msgstr "_Year (0 = do not indicate it):"
+
+msgid "_Botones del mensaje…"
+msgstr "Message _buttons…"
+
+msgid "_Botón:"
+msgstr "_Button:"
+
+msgid "_Buscar en todos los chats…"
+msgstr "_Search in all chats…"
+
+msgid "_Buscar…"
+msgstr "_Search…"
+
+msgid "_Caduca en días (0 = no caduca):"
+msgstr "_Expires in days (0 = never):"
+
+msgid "_Cambiar la contraseña…"
+msgstr "_Change the password…"
+
+msgid "_Cancelar el envío"
+msgstr "_Cancel the sending"
+
+msgid "_Cerrar esta sesión"
+msgstr "_Close this session"
+
+msgid "_Cerrar la encuesta"
+msgstr "_Close the poll"
+
+msgid "_Comando:"
+msgstr "_Command:"
+
+msgid "_Contactos…"
+msgstr "_Contacts…"
+
+msgid "_Contraseña actual:"
+msgstr "_Current password:"
+
+msgid "_Copiar"
+msgstr "_Copy"
+
+msgid "_Crear el enlace"
+msgstr "_Create the link"
+
+msgid "_Crear un bot…"
+msgstr "_Create a bot…"
+
+msgid "_Crear…"
+msgstr "_Create…"
+
+msgid "_Cumpleaños…"
+msgstr "_Birthday…"
+
+msgid "_Descargar"
+msgstr "_Download"
+
+msgid "_Descripción…"
+msgstr "_Description…"
+
+msgid "_Detalles del mensaje…"
+msgstr "Message _details…"
+
+msgid "_Día:"
+msgstr "_Day:"
+
+msgid "_Días de inactividad antes de borrar la cuenta:"
+msgstr "_Days of inactivity before the account is deleted:"
+
+msgid "_Días de inactividad antes de cerrar una sesión:"
+msgstr "_Days of inactivity before a session is closed:"
+
+msgid "_Enlace de invitación o @usuario público:"
+msgstr "Invitation _link or public @username:"
+
+msgid "_Enlace de la carpeta:"
+msgstr "Folder _link:"
+
+msgid "_Enlaces de invitación…"
+msgstr "Invitation _links…"
+
+msgid "_Enviar ahora"
+msgstr "_Send now"
+
+msgid "_Explicación de la respuesta (concurso, opcional):"
+msgstr "_Explanation of the answer (quiz, optional):"
+
+msgid "_Fecha y hora (AAAA-MM-DD HH:MM):"
+msgstr "_Date and time (YYYY-MM-DD HH:MM):"
+
+msgid "_Fijar el mensaje"
+msgstr "_Pin the message"
+
+msgid "_Fijar o desfijar"
+msgstr "_Pin or unpin"
+
+msgid "_Grupo de comentarios del canal…"
+msgstr "Channel _comments group…"
+
+msgid "_Grupo:"
+msgstr "_Group:"
+
+msgid "_Guardar el mensaje en Mensajes guardados"
+msgstr "_Save the message in Saved messages"
+
+msgid "_Historias de tus contactos…"
+msgstr "_Stories of your contacts…"
+
+msgid "_Iniciar el bot"
+msgstr "_Start the bot"
+
+msgid "_Juego:"
+msgstr "_Game:"
+
+msgid "_Latitud:"
+msgstr "_Latitude:"
+
+msgid "_Límite de miembros (0 = sin límite):"
+msgstr "Member _limit (0 = unlimited):"
+
+msgid "_Marcar como vista"
+msgstr "_Mark as seen"
+
+msgid "_Mensajes especiales"
+msgstr "Special _messages"
+
+msgid "_Mes:"
+msgstr "_Month:"
+
+msgid "_Miembros del grupo (@usuario separados por comas):"
+msgstr "Group _members (@users separated by commas):"
+
+msgid "_Mis historias…"
+msgstr "_My stories…"
+
+msgid "_Modo lento en segundos (0 = desactivado):"
+msgstr "_Slow mode in seconds (0 = off):"
+
+msgid "_Nombre del enlace:"
+msgstr "Link _name:"
+
+msgid "_Nombre público (sin @, vacío = privado):"
+msgstr "Public _name (without @, empty = private):"
+
+msgid "_Nombre…"
+msgstr "_Name…"
+
+msgid "_Nota (vacía = borrarla):"
+msgstr "_Note (empty = delete it):"
+
+msgid "_Nota…"
+msgstr "_Note…"
+
+msgid "_Opciones (una por línea, de 2 a 10):"
+msgstr "_Options (one per line, from 2 to 10):"
+
+msgid "_Perfil:"
+msgstr "_Profile:"
+
+msgid "_Pista (opcional):"
+msgstr "_Hint (optional):"
+
+msgid "_Programar"
+msgstr "_Schedule"
+
+msgid "_Programar un mensaje…"
+msgstr "_Schedule a message…"
+
+msgid "_Programar uno nuevo…"
+msgstr "_Schedule a new one…"
+
+msgid "_Publicar una…"
+msgstr "_Post one…"
+
+msgid "_Pulsar"
+msgstr "_Press"
+
+msgid "_Quitar la foto"
+msgstr "_Remove the photo"
+
+msgid "_Quitar la verificación en dos pasos…"
+msgstr "_Remove two-step verification…"
+
+msgid "_Quién la vio…"
+msgstr "_Who saw it…"
+
+msgid "_Quién se unió…"
+msgstr "_Who joined…"
+
+msgid "_Registro de administración…"
+msgstr "_Administration log…"
+
+msgid "_Retirar mi voto"
+msgstr "_Withdraw my vote"
+
+msgid "_Revocar"
+msgstr "_Revoke"
+
+msgid "_Sesiones activas…"
+msgstr "Active _sessions…"
+
+msgid "_Solicitudes de unión…"
+msgstr "Join _requests…"
+
+msgid "_Tareas (una por línea):"
+msgstr "_Tasks (one per line):"
+
+msgid "_Tareas separadas por «;»:"
+msgstr "_Tasks separated by “;”:"
+
+msgid "_Teléfono:"
+msgstr "_Phone:"
+
+msgid "_Temas del foro…"
+msgstr "Forum _topics…"
+
+msgid "_Texto (opcional):"
+msgstr "_Text (optional):"
+
+msgid "_Tipo:"
+msgstr "_Type:"
+
+msgid "_Título (por ejemplo Moderador):"
+msgstr "_Title (for example Moderator):"
+
+msgid "_Título de la lista:"
+msgstr "List _title:"
+
+msgid "_Unirme por enlace…"
+msgstr "_Join by link…"
+
+msgid "_Unirse a un chat con un enlace…"
+msgstr "_Join a chat with a link…"
+
+msgid "_Usuario (@usuario, número o teléfono):"
+msgstr "_User (@username, number or phone):"
+
+msgid "_Usuarios (@usuario o número), separados por comas:"
+msgstr "_Users (@username or number), separated by commas:"
+
+msgid "_Vaciar la conversación…"
+msgstr "_Clear the conversation…"
+
+msgid "_Votar esta opción"
+msgstr "_Vote for this option"
+
+msgid "no tiene encuesta"
+msgstr "it has no poll"
+
+msgid "sin nombre"
+msgstr "unnamed"
+
+msgid "tu voto"
+msgstr "your vote"
+
+msgid "{n} bloqueados"
+msgstr "{n} blocked"
+
+msgid "{n} bots"
+msgstr "{n} bots"
+
+msgid "{n} carpetas"
+msgstr "{n} folders"
+
+msgid "{n} contactos"
+msgstr "{n} contacts"
+
+msgid "{n} historias"
+msgstr "{n} stories"
+
+msgid "{n} programados"
+msgstr "{n} scheduled"
+
+msgid "{n} solicitudes pendientes"
+msgstr "{n} pending requests"
+
+msgid "{n} tareas"
+msgstr "{n} tasks"
+
+msgid "{n} votos"
+msgstr "{n} votes"
+
+msgid "{t}: {v} votos, {p} %"
+msgstr "{t}: {v} votes, {p} %"
+
+msgid "«{t}» en {c}"
+msgstr "“{t}” in {c}"
+
+msgid "¿Aprobar todas las solicitudes?"
+msgstr "Approve all the requests?"
+
+msgid "¿Banear a {n}? Se le expulsa del grupo."
+msgstr "Ban {n}? They are removed from the group."
+
+msgid "¿Borrar a {n} de tus contactos?"
+msgstr "Delete {n} from your contacts?"
+
+msgid "¿Borrar el tema «{t}» con todos sus mensajes?"
+msgstr "Delete the topic “{t}” with all its messages?"
+
+msgid "¿Borrar esta historia?"
+msgstr "Delete this story?"
+
+msgid "¿Borrar la carpeta «{n}»? Los chats no se borran."
+msgstr "Delete the folder “{n}”? The chats are not deleted."
+
+msgid "¿Borrar todos los mensajes de {n}?"
+msgstr "Delete all the messages of {n}?"
+
+msgid "¿Cerrar la encuesta? Ya no admitirá más votos."
+msgstr "Close the poll? It will not accept more votes."
+
+msgid ""
+"¿Cerrar todas las demás sesiones? Los otros dispositivos tendrán que volver "
+"a entrar."
+msgstr ""
+"Close all the other sessions? The other devices will have to sign in again."
+
+msgid "¿Desfijar todos los mensajes de {t}?"
+msgstr "Unpin all the messages of {t}?"
+
+msgid "¿Rechazar todas las solicitudes?"
+msgstr "Reject all the requests?"
+
+msgid "¿Revocar este enlace? Dejará de funcionar."
+msgstr "Revoke this link? It will stop working."
+
+msgid "¿Vaciar la conversación con {t}? Se borra el historial."
+msgstr "Clear the conversation with {t}? The history is deleted."
+
+msgid "  Parte {o}: {t}, mensaje {m}"
+msgstr "  Part {o}: {t}, message {m}"
+
+msgid "Adelante"
+msgstr "Forward"
+
+msgid "Archivos y carpetas"
+msgstr "Files and folders"
+
+msgid "Atrás"
+msgstr "Back"
+
+msgid "Cambiar la descripción…"
+msgstr "Change the description…"
+
+msgid "Carpeta añadida: {n} archivos en cola."
+msgstr "Folder added: {n} files queued."
+
+msgid "Cifrado: {v}"
+msgstr "Encrypted: {v}"
+
+msgid "Creado: {v}"
+msgstr "Created: {v}"
+
+msgid "Creando el canal privado…"
+msgstr "Creating the private channel…"
+
+msgid "Descripción de «{n}»"
+msgstr "Description of “{n}”"
+
+msgid "Descripción: {v}"
+msgstr "Description: {v}"
+
+msgid "Eliminar Telegram Drive por completo…"
+msgstr "Delete Telegram Drive completely…"
+
+msgid "Eliminar para siempre"
+msgstr "Delete forever"
+
+msgid "Enviar a la _papelera"
+msgstr "Move to the _trash"
+
+msgid "Error al eliminar: {e}"
+msgstr "Error deleting: {e}"
+
+msgid "Error al reparar: {e}"
+msgstr "Error repairing: {e}"
+
+msgid "Estado: {v}"
+msgstr "Status: {v}"
+
+msgid "Fallida: {e}"
+msgstr "Failed: {e}"
+
+msgid "Marcar o desmarcar"
+msgstr "Mark or unmark"
+
+msgid "Modificado: {v}"
+msgstr "Modified: {v}"
+
+msgid "Más _acciones…"
+msgstr "More _actions…"
+
+msgid "Más acciones"
+msgstr "More actions"
+
+msgid "No hay transferencias."
+msgstr "There are no transfers."
+
+msgid "No se pudo eliminar la nube: {e}"
+msgstr "The cloud could not be deleted: {e}"
+
+msgid "Nombre: {v}"
+msgstr "Name: {v}"
+
+msgid "Omitir este archivo"
+msgstr "Skip this file"
+
+msgid "Partes: {v}"
+msgstr "Parts: {v}"
+
+msgid "R_eintentar"
+msgstr "R_etry"
+
+msgid "Reanudando {n} transferencias pendientes."
+msgstr "Resuming {n} pending transfers."
+
+msgid "Reconstruir"
+msgstr "Rebuild"
+
+msgid "Reconstruir el índice desde el canal"
+msgstr "Rebuild the index from the channel"
+
+msgid "Reemplazar (quedan ambos hasta que borres el viejo)"
+msgstr "Replace (both remain until you delete the old one)"
+
+msgid "Reintentar las eliminaciones pendientes"
+msgstr "Retry the pending deletions"
+
+msgid ""
+"Reparado: {o} huérfanos borrados del canal, {b} archivos rotos quitados del "
+"índice."
+msgstr ""
+"Repaired: {o} orphans deleted from the channel, {b} broken files removed "
+"from the index."
+
+msgid "Reparar"
+msgstr "Repair"
+
+msgid "Revisar el canal…"
+msgstr "Check the channel…"
+
+msgid "Ruta: {v}"
+msgstr "Path: {v}"
+
+msgid "SHA-256: {v}"
+msgstr "SHA-256: {v}"
+
+msgid "Se vaciaron {n} elementos caducados de la papelera."
+msgstr "{n} expired items were emptied from the trash."
+
+msgid "Solo las canceladas"
+msgstr "Only the cancelled"
+
+msgid "Solo las completadas"
+msgstr "Only the completed"
+
+msgid "Solo las fallidas"
+msgstr "Only the failed"
+
+msgid "Subir _carpeta…"
+msgstr "Upload _folder…"
+
+msgid "Subir un nivel"
+msgstr "Go up a level"
+
+msgid "Tamaño: {v}"
+msgstr "Size: {v}"
+
+msgid "Telegram Drive eliminado."
+msgstr "Telegram Drive deleted."
+
+msgid ""
+"Telegram Drive necesita un canal privado donde guardar tus archivos. Solo tú"
+" tendrás acceso. ¿Qué quieres hacer?"
+msgstr ""
+"Telegram Drive needs a private channel to store your files. Only you will "
+"have access. What do you want to do?"
+
+msgid "Telegram Drive — {u}"
+msgstr "Telegram Drive — {u}"
+
+msgid "Telegram _Drive (tu nube personal)…"
+msgstr "Telegram _Drive (your personal cloud)…"
+
+msgid "Tipo de contenido: {v}"
+msgstr "Content type: {v}"
+
+msgid "Tipo: {v}"
+msgstr "Type: {v}"
+
+msgid "Todas las terminadas"
+msgstr "All the finished ones"
+
+msgid "Transferencias…"
+msgstr "Transfers…"
+
+msgid "Ubicación: {u}"
+msgstr "Location: {u}"
+
+msgid ""
+"Vas a ELIMINAR por completo tu Telegram Drive.\n"
+"\n"
+"Se borrará el canal privado de Telegram y con él TODOS tus archivos ({a} archivos, {c} carpetas, {t}). Esto NO se puede deshacer.\n"
+"\n"
+"¿Seguro?"
+msgstr ""
+"You are about to COMPLETELY DELETE your Telegram Drive.\n"
+"\n"
+"The private Telegram channel will be deleted and with it ALL your files ({a} files, {c} folders, {t}). This CANNOT be undone.\n"
+"\n"
+"Are you sure?"
+
+msgid "Ver la papelera"
+msgstr "View the trash"
+
+msgid "Volver a mis archivos"
+msgstr "Back to my files"
+
+msgid "Ya existe «{n}» en esta carpeta. ¿_Qué quieres hacer?"
+msgstr "“{n}” already exists in this folder. _What do you want to do?"
+
+msgid "_Buscar por nombre:"
+msgstr "_Search by name:"
+
+msgid "_Limpiar terminadas…"
+msgstr "_Clear finished…"
+
+msgid "_Nueva carpeta…"
+msgstr "_New folder…"
+
+msgid "_Qué transferencias terminadas quitar:"
+msgstr "_Which finished transfers to remove:"
+
+msgid "_Subir archivos…"
+msgstr "_Upload files…"
+
+msgid ""
+"{a} archivos, {c} carpetas, {t}. Marcados: {m}. Transferencias activas: {n}."
+msgstr "{a} files, {c} folders, {t}. Marked: {m}. Active transfers: {n}."
+
+msgid "{n} archivos añadidos a la cola de descarga."
+msgstr "{n} files added to the download queue."
+
+msgid "{n} archivos añadidos a la cola de subida."
+msgstr "{n} files added to the upload queue."
+
+msgid "{n} elementos copiados."
+msgstr "{n} items copied."
+
+msgid "{n} elementos cortados."
+msgstr "{n} items cut."
+
+msgid "{n} elementos pegados."
+msgstr "{n} items pasted."
+
+msgid "{n} eliminaciones pendientes resueltas."
+msgstr "{n} pending deletions resolved."
+
+msgid "{n} subidas no se pueden reanudar: su archivo de origen ya no existe."
+msgstr "{n} uploads cannot be resumed: their source file no longer exists."
+
+msgid "{n} transferencias"
+msgstr "{n} transfers"
+
+msgid "{n} transferencias quitadas de la lista."
+msgstr "{n} transfers removed from the list."
+
+msgid "¿Eliminar DEFINITIVAMENTE {n} elementos? No se puede deshacer."
+msgstr "Delete {n} items PERMANENTLY? This cannot be undone."
+
+msgid "¿Enviar {n} elementos a la papelera?"
+msgstr "Move {n} items to the trash?"
+
+msgid ""
+"¿Reparar? Se borran del canal los huérfanos y se quitan del índice los "
+"rotos."
+msgstr ""
+"Repair? The orphans are deleted from the channel and the broken ones are "
+"removed from the index."
+
+msgid "Índice reconstruido: {n} elementos."
+msgstr "Index rebuilt: {n} items."
+
+msgid ""
+"El canal tiene {t} documentos; {r} coinciden con tu índice.\n"
+"\n"
+"Documentos huérfanos: {o}\n"
+"Archivos con partes que faltan en el canal: {b}"
+msgstr ""
+"The channel has {t} documents; {r} match your index.\n"
+"\n"
+"Orphan documents: {o}\n"
+"Files with parts missing in the channel: {b}"
+
+msgid "(Crear un filtro nuevo)"
+msgstr "(Create a new filter)"
+
+msgid "Asignar una etiqueta"
+msgstr "Assign a flair"
+
+msgid "Barra lateral de r/{s}"
+msgstr "Sidebar of r/{s}"
+
+msgid "Bloquear el servidor {d}…"
+msgstr "Block the server {d}…"
+
+msgid "Bloquear un servidor"
+msgstr "Block a server"
+
+msgid "Borrar y _volver a redactar"
+msgstr "Delete and _redraft"
+
+msgid "Borrar y redactar"
+msgstr "Delete and redraft"
+
+msgid "Cabecera quitada."
+msgstr "Header removed."
+
+msgid "Cargando la barra lateral…"
+msgstr "Loading the sidebar…"
+
+msgid "Cargando los emojis…"
+msgstr "Loading the emojis…"
+
+msgid "Citas de tu publicación"
+msgstr "Quotes of your post"
+
+msgid "Cuenta destacada."
+msgstr "Account featured."
+
+msgid "Cuenta ya no destacada."
+msgstr "Account no longer featured."
+
+msgid "Cuentas _destacadas en mi perfil…"
+msgstr "Accounts _featured on my profile…"
+
+msgid "Dejar de destacar la cuenta"
+msgstr "Stop featuring the account"
+
+msgid "Destacar la cuenta en mi perfil"
+msgstr "Feature the account on my profile"
+
+msgid "Destacar un hashtag"
+msgstr "Feature a hashtag"
+
+msgid "El usuario puede _editar el texto:"
+msgstr "The user can _edit the text:"
+
+msgid "Elementos de la barra lateral"
+msgstr "Sidebar items"
+
+msgid "Emo_jis de un subreddit…"
+msgstr "Emo_jis of a subreddit…"
+
+msgid "Emojis de r/{s}"
+msgstr "Emojis of r/{s}"
+
+msgid ""
+"Es la primera vez: se ha guardado la lista de tus {n} seguidores. La próxima"
+" vez verás quién se ha ido y quién ha llegado."
+msgstr ""
+"This is the first time: the list of your {n} followers has been saved. Next "
+"time you will see who left and who arrived."
+
+msgid "Establecer _mi etiqueta…"
+msgstr "Set _my flair…"
+
+msgid "Etiquetas de r/{s}"
+msgstr "Flairs of r/{s}"
+
+msgid "Filtrar la publicación"
+msgstr "Filter the post"
+
+msgid "Filtro nuevo"
+msgstr "New filter"
+
+msgid "Hashtag quitado."
+msgstr "Hashtag removed."
+
+msgid "Hashtags destacados de @{a}"
+msgstr "Featured hashtags of @{a}"
+
+msgid "Hashtags destacados en mi perfil"
+msgstr "Hashtags featured on my profile"
+
+msgid "Hashtags destacados en su perfil…"
+msgstr "Hashtags featured on their profile…"
+
+msgid "Importación borrada."
+msgstr "Import deleted."
+
+msgid "Importación cancelada."
+msgstr "Import cancelled."
+
+msgid "Importación reintentada."
+msgstr "Import retried."
+
+msgid "Lista de importaciones"
+msgstr "List of imports"
+
+msgid "Lista e_xclusiva (sus miembros no salen en Inicio):"
+msgstr "E_xclusive list (its members do not appear in Home):"
+
+msgid "Listas a las que pertenece"
+msgstr "Lists it belongs to"
+
+msgid "Listas a las que pertenece…"
+msgstr "Lists it belongs to…"
+
+msgid "Listas de @{a}"
+msgstr "Lists of @{a}"
+
+msgid "Los adjuntos no se recuperan."
+msgstr "Attachments are not recovered."
+
+msgid "Mi nota privada sobre la cuenta…"
+msgstr "My private note about the account…"
+
+msgid "Mis _importaciones…"
+msgstr "My _imports…"
+
+msgid "Mis _listas…"
+msgstr "My _lists…"
+
+msgid "Mostrar _respuestas:"
+msgstr "Show _replies:"
+
+msgid "Más acciones sobre @{a}"
+msgstr "More actions on @{a}"
+
+msgid "Más acciones sobre la _cuenta del autor…"
+msgstr "More actions on the author's _account…"
+
+msgid "Nadie ha citado esta publicación."
+msgstr "Nobody has quoted this post."
+
+msgid "No se pudieron cargar las citas: {e}"
+msgstr "The quotes could not be loaded: {e}"
+
+msgid "No se pudieron cargar las importaciones: {e}"
+msgstr "The imports could not be loaded: {e}"
+
+msgid "No se pudieron cargar las plantillas: {e}"
+msgstr "The templates could not be loaded: {e}"
+
+msgid "No se pudieron cargar las preferencias: {e}"
+msgstr "The preferences could not be loaded: {e}"
+
+msgid "No se pudieron cargar los emojis: {e}"
+msgstr "The emojis could not be loaded: {e}"
+
+msgid "No se pudieron leer los filtros: {e}"
+msgstr "The filters could not be read: {e}"
+
+msgid "No se pudo cargar la barra lateral: {e}"
+msgstr "The sidebar could not be loaded: {e}"
+
+msgid "No se pudo consultar la cuenta: {e}"
+msgstr "The account could not be checked: {e}"
+
+msgid "No tiene hashtags destacados."
+msgstr "It has no featured hashtags."
+
+msgid "No tienes importaciones."
+msgstr "You have no imports."
+
+msgid "Nuevos:"
+msgstr "New:"
+
+msgid "Política de citas cambiada."
+msgstr "Quote policy changed."
+
+msgid "Preferencias de _notificaciones…"
+msgstr "_Notification preferences…"
+
+msgid "Publicaciones que te citan"
+msgstr "Posts that quote you"
+
+msgid "Publicación borrada. Puedes volver a redactarla."
+msgstr "Post deleted. You can write it again."
+
+msgid "Publicación filtrada."
+msgstr "Post filtered."
+
+msgid "Quitar mi foto de _perfil…"
+msgstr "Remove my _profile photo…"
+
+msgid "Quitar mi imagen de _cabecera…"
+msgstr "Remove my _header image…"
+
+msgid "Quién puede citar esta publicación"
+msgstr "Who can quote this post"
+
+msgid "Quién puede citar mi publicación…"
+msgstr "Who can quote my post…"
+
+msgid "Seguidores ahora: {n}"
+msgstr "Followers now: {n}"
+
+msgid "Seguidores en común con @{a}"
+msgstr "Followers in common with @{a}"
+
+msgid "Seguidores en común…"
+msgstr "Followers in common…"
+
+msgid "Seguimiento actualizado."
+msgstr "Follow updated."
+
+msgid "Seguir a @{a}"
+msgstr "Follow @{a}"
+
+msgid "Seguir con opciones (impulsos y avisos)…"
+msgstr "Follow with options (boosts and notices)…"
+
+msgid "Servidor bloqueado."
+msgstr "Server blocked."
+
+msgid "Servidor desbloqueado."
+msgstr "Server unblocked."
+
+msgid "Servidores _bloqueados…"
+msgstr "_Blocked servers…"
+
+msgid "Servidores bloqueados"
+msgstr "Blocked servers"
+
+msgid "Solo la pueden usar los _moderadores:"
+msgstr "Only _moderators can use it:"
+
+msgid "Solo puedes hacer esto con tus propias publicaciones"
+msgstr "You can only do this with your own posts"
+
+msgid "Te han dejado de seguir:"
+msgstr "They stopped following you:"
+
+msgid "Tus listas de Mastodon"
+msgstr "Your Mastodon lists"
+
+msgid "Ver las citas de mi publicación…"
+msgstr "View the quotes of my post…"
+
+msgid "Ver sus _impulsos:"
+msgstr "See their _boosts:"
+
+msgid "_Asignar"
+msgstr "_Assign"
+
+msgid "_Asignar a un usuario…"
+msgstr "_Assign to a user…"
+
+msgid "_Avisarme de sus publicaciones nuevas:"
+msgstr "_Notify me of their new posts:"
+
+msgid "_Barra lateral de un subreddit…"
+msgstr "_Sidebar of a subreddit…"
+
+msgid "_Bloquear uno…"
+msgstr "_Block one…"
+
+msgid "_Borrar plantilla"
+msgstr "_Delete template"
+
+msgid "_Elegir la imagen…"
+msgstr "_Choose the image…"
+
+msgid "_Etiquetas (flair) de un subreddit…"
+msgstr "_Flairs of a subreddit…"
+
+msgid "_Filtrar esta publicación…"
+msgstr "_Filter this post…"
+
+msgid "_Filtro:"
+msgstr "_Filter:"
+
+msgid "_Hashtag (sin #):"
+msgstr "_Hashtag (without #):"
+
+msgid "_Hashtags destacados en mi perfil…"
+msgstr "_Hashtags featured on my profile…"
+
+msgid "_Nombre de la lista:"
+msgstr "List _name:"
+
+msgid "_Nombre del emoji (sin dos puntos):"
+msgstr "Emoji _name (without colons):"
+
+msgid "_Nombre del filtro:"
+msgstr "Filter _name:"
+
+msgid "_Novedades de seguidores…"
+msgstr "_Follower updates…"
+
+msgid "_Nueva plantilla…"
+msgstr "_New template…"
+
+msgid "_Quién:"
+msgstr "_Who:"
+
+msgid "_Revocar la cita"
+msgstr "_Revoke the quote"
+
+msgid "_Servidor (por ejemplo ejemplo.social):"
+msgstr "_Server (for example example.social):"
+
+msgid "_Texto de la etiqueta (vacío para quitarla):"
+msgstr "Flair _text (empty to remove it):"
+
+msgid "_Texto de la etiqueta:"
+msgstr "Flair _text:"
+
+msgid "_Texto de tu etiqueta (vacío para quitarla):"
+msgstr "_Text of your flair (empty to remove it):"
+
+msgid "_Ver el contenido"
+msgstr "_View the content"
+
+msgid "editable"
+msgstr "editable"
+
+msgid "{n} citas"
+msgstr "{n} quotes"
+
+msgid "{n} emojis"
+msgstr "{n} emojis"
+
+msgid "{n} importaciones"
+msgstr "{n} imports"
+
+msgid "{n} plantillas"
+msgstr "{n} templates"
+
+msgid "{n}, tipo {k}"
+msgstr "{n}, type {k}"
+
+msgid "¿Bloquear todo el servidor {d}? Dejarás de ver a sus cuentas."
+msgstr "Block the whole server {d}? You will stop seeing its accounts."
+
+msgid "¿Borrar el emoji «{n}»?"
+msgstr "Delete the emoji “{n}”?"
+
+msgid "¿Borrar la lista «{t}»?"
+msgstr "Delete the list “{t}”?"
+
+msgid "¿Borrar la plantilla «{t}»?"
+msgstr "Delete the template “{t}”?"
+
+msgid ""
+"¿Borrar la publicación y abrir el editor con su texto para volver a "
+"escribirla?"
+msgstr "Delete the post and open the editor with its text to write it again?"
+
+msgid "¿Quitar tu foto de perfil?"
+msgstr "Remove your profile photo?"
+
+msgid "¿Quitar tu imagen de cabecera?"
+msgstr "Remove your header image?"
+
+msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
+msgstr "Revoke this quote? It will stop showing your post."
+
+msgid "Archivos importados: {a} de {b}"
+msgstr "Imported files: {a} of {b}"
+
+msgid "Buscando el paquete…"
+msgstr "Looking for the pack…"
+
+msgid "Buscar con filtros"
+msgstr "Search with filters"
+
+msgid "Buscar publicaciones con _filtros…"
+msgstr "Search posts with _filters…"
+
+msgid "Cambiar el _número de teléfono…"
+msgstr "Change the phone _number…"
+
+msgid "Cambiar el nombre de _usuario…"
+msgstr "Change the _username…"
+
+msgid "Cambiar el número de teléfono"
+msgstr "Change the phone number"
+
+msgid "Cargando las sugerencias…"
+msgstr "Loading the suggestions…"
+
+msgid "Chats en _común con esta persona…"
+msgstr "Chats in _common with this person…"
+
+msgid "Chats en común con {t}"
+msgstr "Chats in common with {t}"
+
+msgid "Condiciones del servicio: {u}"
+msgstr "Terms of service: {u}"
+
+msgid "Consultando el estado de la cuenta…"
+msgstr "Checking the account status…"
+
+msgid "Consultando la verificación de edad…"
+msgstr "Checking the age verification…"
+
+msgid "Contacto: {c}"
+msgstr "Contact: {c}"
+
+msgid "Contactos importados."
+msgstr "Contacts imported."
+
+msgid "Continúa la verificación en el navegador."
+msgstr "Continue the verification in the browser."
+
+msgid "Copia guardada en {r} ({k} KB)."
+msgstr "Copy saved to {r} ({k} KB)."
+
+msgid "Copiar a _otro chat…"
+msgstr "Copy to _another chat…"
+
+msgid "Copiar el mensaje"
+msgstr "Copy the message"
+
+msgid "Correo: {c} ({v})"
+msgstr "Email: {c} ({v})"
+
+msgid "Cuenta activada: {v}"
+msgstr "Account activated: {v}"
+
+msgid "Cuentas sugeridas en {r}"
+msgstr "Suggested accounts on {r}"
+
+msgid "Código enviado. Escríbelo para confirmar el cambio."
+msgstr "Code sent. Type it to confirm the change."
+
+msgid "Descargando tu repositorio…"
+msgstr "Downloading your repository…"
+
+msgid "Dominios disponibles: {d}"
+msgstr "Available domains: {d}"
+
+msgid "E_stado de la cuenta…"
+msgstr "Account _status…"
+
+msgid "Editar el texto de la historia"
+msgstr "Edit the story text"
+
+msgid "Editar el texto del archivo"
+msgstr "Edit the file text"
+
+msgid "El servidor no ha devuelto ninguna dirección."
+msgstr "The server returned no address."
+
+msgid "Elegir el GIF o el vídeo corto"
+msgstr "Choose the GIF or short video"
+
+msgid "Elegir el sticker"
+msgstr "Choose the sticker"
+
+msgid "Elegir el vídeo cuadrado"
+msgstr "Choose the square video"
+
+msgid "Elegir las fotos o los vídeos del álbum"
+msgstr "Choose the photos or videos for the album"
+
+msgid "Enviar un _GIF…"
+msgstr "Send a _GIF…"
+
+msgid "Enviar un _sticker…"
+msgstr "Send a _sticker…"
+
+msgid "Enviar un sticker a {t}"
+msgstr "Send a sticker to {t}"
+
+msgid "Enviar un á_lbum…"
+msgstr "Send an a_lbum…"
+
+msgid "Enviar una _videonota…"
+msgstr "Send a _video note…"
+
+msgid "Escribe al menos un contacto: teléfono y nombre."
+msgstr "Type at least one contact: phone and name."
+
+msgid "Escribe la fecha como AAAA-MM-DD."
+msgstr "Type the date as YYYY-MM-DD."
+
+msgid "Estado temporal"
+msgstr "Temporary status"
+
+msgid ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+msgstr ""
+"Status: {e}. Required in your country ({p})?: {x}. The verification is "
+"completed in the browser; this application never sees your documents."
+
+msgid "Esto solo está en W Social"
+msgstr "This is only in W Social"
+
+msgid "Esto solo vale en la conversación con una persona."
+msgstr "This only works in a conversation with a person."
+
+msgid "Exige invitación: {v}"
+msgstr "Requires an invitation: {v}"
+
+msgid "Exige verificar el teléfono: {v}"
+msgstr "Requires phone verification: {v}"
+
+msgid "Feeds _populares…"
+msgstr "_Popular feeds…"
+
+msgid "GIF para {t}"
+msgstr "GIF for {t}"
+
+msgid "Guardar una _copia de mi cuenta…"
+msgstr "Save a _copy of my account…"
+
+msgid "Hilos silenciados y publicaciones _ocultas…"
+msgstr "Muted threads and _hidden posts…"
+
+msgid "Hilos silenciados y publicaciones ocultas"
+msgstr "Muted threads and hidden posts"
+
+msgid "Hilos silenciados: {n}"
+msgstr "Muted threads: {n}"
+
+msgid "Historia desfijada."
+msgstr "Story unpinned."
+
+msgid "Historia fijada en tu perfil."
+msgstr "Story pinned to your profile."
+
+msgid "Historias _archivadas…"
+msgstr "_Archived stories…"
+
+msgid "Historias archivadas"
+msgstr "Archived stories"
+
+msgid "Historias de {t}"
+msgstr "Stories of {t}"
+
+msgid "Historias del _chat…"
+msgstr "Stories of the _chat…"
+
+msgid "I_r a una fecha…"
+msgstr "_Go to a date…"
+
+msgid "Identificador: {d}"
+msgstr "Identifier: {d}"
+
+msgid "Información del _servidor…"
+msgstr "_Server information…"
+
+msgid "Información del servidor"
+msgstr "Server information"
+
+msgid "Ir a una fecha en {t}"
+msgstr "Go to a date in {t}"
+
+msgid "Marcado como leído hasta este mensaje."
+msgstr "Marked as read up to this message."
+
+msgid "Marcar como leído _hasta este mensaje"
+msgstr "Mark as read _up to this message"
+
+msgid "Mejores amigos"
+msgstr "Close friends"
+
+msgid "Mensajes cargados."
+msgstr "Messages loaded."
+
+msgid "No se encontró ese paquete: {e}"
+msgstr "That pack was not found: {e}"
+
+msgid "No se encontró ninguna publicación."
+msgstr "No post was found."
+
+msgid "No se encontró ningún feed."
+msgstr "No feed was found."
+
+msgid "No tenéis ningún chat en común."
+msgstr "You have no chats in common."
+
+msgid "No tiene historias activas."
+msgstr "It has no active stories."
+
+msgid "Número cambiado."
+msgstr "Number changed."
+
+msgid "Ocultar las _citas"
+msgstr "Hide _quote posts"
+
+msgid "Ocultar las _respuestas en «Siguiendo»"
+msgstr "Hide _replies in “Following”"
+
+msgid "Ocultar las respuestas a cuentas que _no sigo"
+msgstr "Hide replies to accounts I _don't follow"
+
+msgid "Ocultar los re_posts"
+msgstr "Hide re_posts"
+
+msgid "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+msgstr "Hide replies with fewer than _likes (0 = none):"
+
+msgid "Política de privacidad: {u}"
+msgstr "Privacy policy: {u}"
+
+msgid "Privacidad cambiada."
+msgstr "Privacy changed."
+
+msgid "Privacidad de la historia"
+msgstr "Story privacy"
+
+msgid "Privacidad de los c_hats…"
+msgstr "C_hat privacy…"
+
+msgid "Privacidad de los chats"
+msgstr "Chat privacy"
+
+msgid "Publicaciones encontradas"
+msgstr "Posts found"
+
+msgid "Publicaciones ocultas: {n}"
+msgstr "Hidden posts: {n}"
+
+msgid "Quién puede escribirme"
+msgstr "Who can message me"
+
+msgid "Reenviar el á_lbum entero…"
+msgstr "Forward the entire a_lbum…"
+
+msgid "Reenviar el álbum entero"
+msgstr "Forward the entire album"
+
+msgid "Repositorio válido: {v}"
+msgstr "Valid repository: {v}"
+
+msgid "Resultados: {t}"
+msgstr "Results: {t}"
+
+msgid "Revisión del repositorio: {v}"
+msgstr "Repository revision: {v}"
+
+msgid "Servidor: {p}"
+msgstr "Server: {p}"
+
+msgid "Texto editado."
+msgstr "Text edited."
+
+msgid "Tu nombre de usuario ahora es @{h}."
+msgstr "Your username is now @{h}."
+
+msgid "Un álbum necesita entre 2 y 10 fotos o vídeos."
+msgstr "An album needs between 2 and 10 photos or videos."
+
+msgid "Usuario: @{h}"
+msgstr "Username: @{h}"
+
+msgid "Videonota enviada."
+msgstr "Video note sent."
+
+msgid "Vista de las cronologías"
+msgstr "Timeline view"
+
+msgid "Vista guardada."
+msgstr "View saved."
+
+msgid "_Abrir el feed"
+msgstr "_Open the feed"
+
+msgid "_Autor (opcional):"
+msgstr "_Author (optional):"
+
+msgid "_Cambiar el número"
+msgstr "_Change the number"
+
+msgid "_Cargar"
+msgstr "_Load"
+
+msgid "_Contactos (teléfono, nombre, apellido):"
+msgstr "_Contacts (phone, first name, last name):"
+
+msgid "_Copiar a:"
+msgstr "_Copy to:"
+
+msgid "_Correo (opcional):"
+msgstr "_Email (optional):"
+
+msgid "_Código recibido:"
+msgstr "_Code received:"
+
+msgid "_Desde (AAAA-MM-DD, opcional):"
+msgstr "_From (YYYY-MM-DD, optional):"
+
+msgid "_Desfijar"
+msgstr "_Unpin"
+
+msgid "_Editar el texto del archivo…"
+msgstr "_Edit the file text…"
+
+msgid "_Editar el texto…"
+msgstr "_Edit the text…"
+
+msgid "_Enviar el código"
+msgstr "_Send the code"
+
+msgid "_Estado (vacío para retirarlo):"
+msgstr "_Status (empty to remove it):"
+
+msgid "_Estado temporal…"
+msgstr "Temporary _status…"
+
+msgid "_Fecha (AAAA-MM-DD):"
+msgstr "_Date (YYYY-MM-DD):"
+
+msgid "_Fijar en el perfil"
+msgstr "_Pin to the profile"
+
+msgid "_Hasta (AAAA-MM-DD, opcional):"
+msgstr "_Until (YYYY-MM-DD, optional):"
+
+msgid "_Idioma (por ejemplo es, opcional):"
+msgstr "_Language (for example en, optional):"
+
+msgid "_Importar contactos…"
+msgstr "_Import contacts…"
+
+msgid "_Minutos que se muestra:"
+msgstr "_Minutes it is shown:"
+
+msgid "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+msgstr "_Short name of the pack (for example AnimatedEmojies):"
+
+msgid "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+msgstr "_New name (for example name.bsky.social):"
+
+msgid "_Nuevo texto:"
+msgstr "_New text:"
+
+msgid "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+msgstr "_New number (with prefix, for example +34600000000):"
+
+msgid "_Orden de las respuestas en un hilo:"
+msgstr "Reply _order in a thread:"
+
+msgid "_Privacidad…"
+msgstr "_Privacy…"
+
+msgid "_Pueden escribirme mensajes privados:"
+msgstr "_Who can send me private messages:"
+
+msgid "_Quién la ve:"
+msgstr "_Who sees it:"
+
+msgid "_Sticker:"
+msgstr "_Sticker:"
+
+msgid "_Texto del álbum (opcional):"
+msgstr "_Album text (optional):"
+
+msgid "_Verificación de edad…"
+msgstr "_Age verification…"
+
+msgid "_Verificar en el navegador"
+msgstr "_Verify in the browser"
+
+msgid "_Vista de las cronologías y los hilos…"
+msgstr "_View of timelines and threads…"
+
+msgid "me gusta"
+msgstr "likes"
+
+msgid "sin correo"
+msgstr "no email"
+
+msgid "sin datos"
+msgstr "no data"
+
+msgid "sin emoji"
+msgstr "no emoji"
+
+msgid "{n} contactos importados."
+msgstr "{n} contacts imported."
+
+msgid "{n} feeds"
+msgstr "{n} feeds"
+
+msgid "{n} mensajes cargados."
+msgstr "{n} messages loaded."
+
+msgid ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+msgstr ""
+"Change your username to @{h}? Anyone mentioning you with the old one will "
+"stop finding you."
+
+msgid "¿Quién puede e_scribirme?…"
+msgstr "Who can me_ssage me?…"
+
+msgid "Álbum para {t}"
+msgstr "Album for {t}"
+msgid "&Dejar de ignorar"
+msgstr "&Stop ignoring"
+
+msgid "Clientes ignorados"
+msgstr "Ignored clients"
+
+msgid "Clientes ignorados..."
+msgstr "Ignored clients..."
+
+msgid "Conversación reactivada: vuelves a recibir sus notificaciones."
+msgstr "Conversation unmuted: you will receive its notifications again."
+
+msgid "Dejar de ignorar publicaciones de este cliente"
+msgstr "Stop ignoring posts from this client"
+
+msgid "Ignorar cliente"
+msgstr "Ignore client"
+
+msgid "No tienes clientes ignorados."
+msgstr "You have no ignored clients."
+
+msgid "Seleccione un cliente."
+msgstr "Select a client."
+
+msgid "Silenciar o reactivar esta conversación"
+msgstr "Mute or unmute this conversation"
+
+msgid "Sus publicaciones están ocultas en todas tus cuentas de Mastodon:"
+msgstr "Their posts are hidden on all your Mastodon accounts:"
+
+msgid ""
+"Ver y recuperar los clientes (aplicaciones) cuyas publicaciones has ocultado"
+msgstr "View and restore the clients (apps) whose posts you have hidden"
+
+msgid "Vuelven a mostrarse las publicaciones del cliente {0}."
+msgstr "Posts from the client {0} are shown again."
+
+msgid ""
+"¿Ocultar todas las publicaciones hechas desde el cliente {0}, en todas tus "
+"cuentas de Mastodon? Podrás recuperarlas en el menú Mastodon, Clientes "
+"ignorados."
+msgstr ""
+"Hide all posts made from the client {0}, on all your Mastodon accounts? You "
+"can restore them from the Mastodon menu, Ignored clients."

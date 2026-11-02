@@ -560,6 +560,9 @@ msgstr "&Dejar / Rechazar"
 msgid "&Dejar de destacar"
 msgstr "&Dejar de destacar"
 
+msgid "&Dejar de ignorar"
+msgstr "&Dejar de ignorar"
+
 msgid "&Dejar de ocultar"
 msgstr "&Dejar de ocultar"
 
@@ -6783,6 +6786,12 @@ msgstr "Cliente de X (Twitter) - riesgos"
 msgid "Cliente: {0}"
 msgstr "Cliente: {0}"
 
+msgid "Clientes ignorados"
+msgstr "Clientes ignorados"
+
+msgid "Clientes ignorados..."
+msgstr "Clientes ignorados..."
+
 msgid "Co&mbinar las condiciones:"
 msgstr "Co&mbinar las condiciones:"
 
@@ -8053,6 +8062,9 @@ msgstr "Conversación quitada de tu lista."
 
 msgid "Conversación quitada."
 msgstr "Conversación quitada."
+
+msgid "Conversación reactivada: vuelves a recibir sus notificaciones."
+msgstr "Conversación reactivada: vuelves a recibir sus notificaciones."
 
 msgid "Conversación silenciada."
 msgstr "Conversación silenciada."
@@ -9335,6 +9347,9 @@ msgstr "Dejar de ignorar"
 
 msgid "Dejar de ignorar a {0}"
 msgstr "Dejar de ignorar a {0}"
+
+msgid "Dejar de ignorar publicaciones de este cliente"
+msgstr "Dejar de ignorar publicaciones de este cliente"
 
 msgid "Dejar de ignorar reportes"
 msgstr "Dejar de ignorar reportes"
@@ -13025,9 +13040,6 @@ msgstr "Ese artículo ya no está disponible (se eliminó)."
 msgid "Ese campo se edita en la pantalla del perfil, no aquí."
 msgstr "Ese campo se edita en la pantalla del perfil, no aquí."
 
-msgid "Ese cliente ya está en la lista de ignorados."
-msgstr "Ese cliente ya está en la lista de ignorados."
-
 msgid "Ese email SÍ está bloqueado ({0} coincidencias)."
 msgstr "Ese email SÍ está bloqueado ({0} coincidencias)."
 
@@ -15560,6 +15572,9 @@ msgstr "Ignorar a {0}"
 
 msgid "Ignorar a {0}..."
 msgstr "Ignorar a {0}..."
+
+msgid "Ignorar cliente"
+msgstr "Ignorar cliente"
 
 msgid "Ignorar publicaciones de este cliente"
 msgstr "Ignorar publicaciones de este cliente"
@@ -20893,9 +20908,6 @@ msgstr "No se pudo salir: {0}"
 msgid "No se pudo seguir: {0}"
 msgstr "No se pudo seguir: {0}"
 
-msgid "No se pudo silenciar: {0}"
-msgstr "No se pudo silenciar: {0}"
-
 msgid "No se pudo situar el mensaje en la conversación."
 msgstr "No se pudo situar el mensaje en la conversación."
 
@@ -21012,6 +21024,9 @@ msgstr "No tienes borradores ni publicaciones programadas."
 
 msgid "No tienes chats archivados."
 msgstr "No tienes chats archivados."
+
+msgid "No tienes clientes ignorados."
+msgstr "No tienes clientes ignorados."
 
 msgid "No tienes contactos ni grupos a los que reenviar."
 msgstr "No tienes contactos ni grupos a los que reenviar."
@@ -25923,6 +25938,9 @@ msgstr "Seleccione primero una cuenta activa para actualizar."
 msgid "Seleccione un bot."
 msgstr "Seleccione un bot."
 
+msgid "Seleccione un cliente."
+msgstr "Seleccione un cliente."
+
 msgid "Seleccione un elemento."
 msgstr "Seleccione un elemento."
 
@@ -26406,9 +26424,6 @@ msgstr "Silenciados"
 msgid "Silenciados los reposts de {0}."
 msgstr "Silenciados los reposts de {0}."
 
-msgid "Silenciando conversación..."
-msgstr "Silenciando conversación..."
-
 msgid "Silenciar"
 msgstr "Silenciar"
 
@@ -26444,6 +26459,9 @@ msgstr "Silenciar la instancia"
 
 msgid "Silenciar notificaciones"
 msgstr "Silenciar notificaciones"
+
+msgid "Silenciar o reactivar esta conversación"
+msgstr "Silenciar o reactivar esta conversación"
 
 msgid "Silenciar servidor"
 msgstr "Silenciar servidor"
@@ -27258,6 +27276,9 @@ msgstr "Suplantar: obtener una sesión como este usuario..."
 
 msgid "Sus me gusta (lo que le ha gustado)"
 msgstr "Sus me gusta (lo que le ha gustado)"
+
+msgid "Sus publicaciones están ocultas en todas tus cuentas de Mastodon:"
+msgstr "Sus publicaciones están ocultas en todas tus cuentas de Mastodon:"
 
 msgid "Suscribiendo a {0}..."
 msgstr "Suscribiendo a {0}..."
@@ -29732,6 +29753,11 @@ msgstr "Ver y quitar miembros"
 msgid "Ver y quitar usuarios ignorados de la red activa"
 msgstr "Ver y quitar usuarios ignorados de la red activa"
 
+msgid ""
+"Ver y recuperar los clientes (aplicaciones) cuyas publicaciones has ocultado"
+msgstr ""
+"Ver y recuperar los clientes (aplicaciones) cuyas publicaciones has ocultado"
+
 msgid "Ver y restaurar artículos eliminados"
 msgstr "Ver y restaurar artículos eliminados"
 
@@ -30118,6 +30144,9 @@ msgstr "Voz de lectura"
 
 msgid "Voz:"
 msgstr "Voz:"
+
+msgid "Vuelven a mostrarse las publicaciones del cliente {0}."
+msgstr "Vuelven a mostrarse las publicaciones del cliente {0}."
 
 msgid "Vuelves a estar disponible."
 msgstr "Vuelves a estar disponible."
@@ -32719,6 +32748,15 @@ msgstr ""
 
 msgid "¿Lista privada (solo la ves tú)?"
 msgstr "¿Lista privada (solo la ves tú)?"
+
+msgid ""
+"¿Ocultar todas las publicaciones hechas desde el cliente {0}, en todas tus "
+"cuentas de Mastodon? Podrás recuperarlas en el menú Mastodon, Clientes "
+"ignorados."
+msgstr ""
+"¿Ocultar todas las publicaciones hechas desde el cliente {0}, en todas tus "
+"cuentas de Mastodon? Podrás recuperarlas en el menú Mastodon, Clientes "
+"ignorados."
 
 msgid "¿Para qué es la lista?"
 msgstr "¿Para qué es la lista?"
@@ -43253,3 +43291,3664 @@ msgstr ""
 
 msgid "Árbol de feeds"
 msgstr "Árbol de feeds"
+
+msgid "Actualizando la bandeja…"
+msgstr "Actualizando la bandeja…"
+
+msgid "Actualizar la bandeja"
+msgstr "Actualizar la bandeja"
+
+msgid "Añadir a la bandeja"
+msgstr "Añadir a la bandeja"
+
+msgid "Añadir buffers a la bandeja"
+msgstr "Añadir buffers a la bandeja"
+
+msgid "Añadir buffers…"
+msgstr "Añadir buffers…"
+
+msgid "Bandeja de entrada mostrada."
+msgstr "Bandeja de entrada mostrada."
+
+msgid "Bandeja de entrada oculta."
+msgstr "Bandeja de entrada oculta."
+
+msgid "Elige una publicación de la bandeja."
+msgstr "Elige una publicación de la bandeja."
+
+msgid "Este buffer no está en la bandeja."
+msgstr "Este buffer no está en la bandeja."
+
+msgid "Este buffer no se puede añadir a la bandeja."
+msgstr "Este buffer no se puede añadir a la bandeja."
+
+msgid "Ir al buffer de _origen de la publicación"
+msgstr "Ir al buffer de _origen de la publicación"
+
+msgid ""
+"La bandeja no tiene buffers. Usa Ver, Añadir buffers a la bandeja para "
+"elegirlos."
+msgstr ""
+"La bandeja no tiene buffers. Usa Ver, Añadir buffers a la bandeja para "
+"elegirlos."
+
+msgid "Marca los buffers que quieres añadir a la bandeja de entrada:"
+msgstr "Marca los buffers que quieres añadir a la bandeja de entrada:"
+
+msgid "Marca los buffers que quieres quitar de la bandeja de entrada:"
+msgstr "Marca los buffers que quieres quitar de la bandeja de entrada:"
+
+msgid "Mostrar la _bandeja de entrada unificada:"
+msgstr "Mostrar la _bandeja de entrada unificada:"
+
+msgid "Mostrar u ocultar la _bandeja de entrada"
+msgstr "Mostrar u ocultar la _bandeja de entrada"
+
+msgid "No hay más buffers que añadir."
+msgstr "No hay más buffers que añadir."
+
+msgid "Quitar buffers…"
+msgstr "Quitar buffers…"
+
+msgid "Quitar de la bandeja"
+msgstr "Quitar de la bandeja"
+
+msgid ""
+"Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se "
+"añaden desde el menú Ver o con el menú del buffer en el árbol."
+msgstr ""
+"Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se "
+"añaden desde el menú Ver o con el menú del buffer en el árbol."
+
+msgid "Ya está en la bandeja."
+msgstr "Ya está en la bandeja."
+
+msgid "_Añadir buffers a la bandeja…"
+msgstr "_Añadir buffers a la bandeja…"
+
+msgid "_Quitar buffers de la bandeja…"
+msgstr "_Quitar buffers de la bandeja…"
+
+msgid "{n} buffers añadidos a la bandeja."
+msgstr "{n} buffers añadidos a la bandeja."
+
+msgid "{n} buffers quitados de la bandeja."
+msgstr "{n} buffers quitados de la bandeja."
+
+msgid "{t} añadido a la bandeja."
+msgstr "{t} añadido a la bandeja."
+
+msgid "{t} quitado de la bandeja."
+msgstr "{t} quitado de la bandeja."
+
+msgid ""
+"Ver, Añadir buffers a la bandeja (o Añadir a la bandeja en el menú del "
+"buffer): reúne varias redes por fecha"
+msgstr ""
+"Ver, Añadir buffers a la bandeja (o Añadir a la bandeja en el menú del "
+"buffer): reúne varias redes por fecha"
+
+msgid "Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"
+msgstr "Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"
+
+msgid "Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"
+msgstr "Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"
+
+msgid "Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"
+msgstr "Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"
+
+msgid "No se puede mover más abajo."
+msgstr "No se puede mover más abajo."
+
+msgid "No se puede mover más arriba."
+msgstr "No se puede mover más arriba."
+
+msgid ""
+"Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, "
+"buffers, feeds y categorías)"
+msgstr ""
+"Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, "
+"buffers, feeds y categorías)"
+
+msgid "Agrupar por _fecha"
+msgstr "Agrupar por _fecha"
+
+msgid "Agrupar los artículos por _fecha:"
+msgstr "Agrupar los artículos por _fecha:"
+
+msgid ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."
+msgstr ""
+"La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su "
+"etiqueta delante."
+
+msgid "Acciones…"
+msgstr "Acciones…"
+
+msgid ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+msgstr ""
+"Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento "
+"enfocado. Se llega con Tab."
+
+msgid "Mostrar la botonera de acciones en {n}:"
+msgstr "Mostrar la botonera de acciones en {n}:"
+
+msgid "Más acciones…"
+msgstr "Más acciones…"
+
+msgid "Quitar de leer más tarde"
+msgstr "Quitar de leer más tarde"
+
+msgid "Quitar favorito"
+msgstr "Quitar favorito"
+
+msgid "Quitar impulso"
+msgstr "Quitar impulso"
+
+msgid ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"
+msgstr ""
+"Botonera de acciones (Preferencias): Tab desde la lista llega a los botones;"
+" Izquierda y Derecha cambian de botón"
+
+msgid "Al pulsar _Intro sobre un artículo:"
+msgstr "Al pulsar _Intro sobre un artículo:"
+
+msgid "Vale en los buffers de RSS y en la bandeja de entrada."
+msgstr "Vale en los buffers de RSS y en la bandeja de entrada."
+
+msgid "Mostrar el panel de detalles en {n}:"
+msgstr "Mostrar el panel de detalles en {n}:"
+
+msgid ""
+"El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
+"enseñan hasta que cambies de buffer."
+msgstr ""
+"El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo "
+"enseñan hasta que cambies de buffer."
+
+msgid "Aviso de contenido"
+msgstr "Aviso de contenido"
+
+msgid "[Reposteado por {0}] "
+msgstr "[Reposteado por {0}] "
+
+msgid "_Editor de plantillas de lectura…"
+msgstr "_Editor de plantillas de lectura…"
+
+msgid "Conversación: {t}"
+msgstr "Conversación: {t}"
+
+msgid "(nota interna)"
+msgstr "(nota interna)"
+
+msgid "Asunto: {a}"
+msgstr "Asunto: {a}"
+
+msgid "Cargando las conversaciones…"
+msgstr "Cargando las conversaciones…"
+
+msgid "Cargando las páginas…"
+msgstr "Cargando las páginas…"
+
+msgid "Cargando {p}…"
+msgstr "Cargando {p}…"
+
+msgid "Enviar como _nota interna (solo moderadores)"
+msgstr "Enviar como _nota interna (solo moderadores)"
+
+msgid "Escribe la respuesta"
+msgstr "Escribe la respuesta"
+
+msgid "Guardar la página"
+msgstr "Guardar la página"
+
+msgid "Modmail"
+msgstr "Modmail"
+
+msgid "Modmail de r/{s}"
+msgstr "Modmail de r/{s}"
+
+msgid "No se pudieron cargar las revisiones: {e}"
+msgstr "No se pudieron cargar las revisiones: {e}"
+
+msgid "No se pudo abrir la página: {e}"
+msgstr "No se pudo abrir la página: {e}"
+
+msgid "No se pudo cargar el modmail: {e}"
+msgstr "No se pudo cargar el modmail: {e}"
+
+msgid "No se pudo cargar la wiki: {e}"
+msgstr "No se pudo cargar la wiki: {e}"
+
+msgid "Página _nueva…"
+msgstr "Página _nueva…"
+
+msgid "Rellena el subreddit, el destinatario, el asunto y el mensaje."
+msgstr "Rellena el subreddit, el destinatario, el asunto y el mensaje."
+
+msgid "Revisiones"
+msgstr "Revisiones"
+
+msgid "Revisiones de {p}"
+msgstr "Revisiones de {p}"
+
+msgid "Tu _respuesta:"
+msgstr "Tu _respuesta:"
+
+msgid "Ver _revisiones"
+msgstr "Ver _revisiones"
+
+msgid "Wiki de r/{s}"
+msgstr "Wiki de r/{s}"
+
+msgid "_Archivar"
+msgstr "_Archivar"
+
+msgid "_Asunto:"
+msgstr "_Asunto:"
+
+msgid "_Contenido de la página:"
+msgstr "_Contenido de la página:"
+
+msgid "_Desarchivar"
+msgstr "_Desarchivar"
+
+msgid "_Guardar cambios"
+msgstr "_Guardar cambios"
+
+msgid "_Mensajes:"
+msgstr "_Mensajes:"
+
+msgid "_Modmail…"
+msgstr "_Modmail…"
+
+msgid "_Motivo del cambio (opcional):"
+msgstr "_Motivo del cambio (opcional):"
+
+msgid "_Nombre de la página (por ejemplo reglas/spam):"
+msgstr "_Nombre de la página (por ejemplo reglas/spam):"
+
+msgid "_Nueva conversación…"
+msgstr "_Nueva conversación…"
+
+msgid "_Wiki de un subreddit…"
+msgstr "_Wiki de un subreddit…"
+
+msgid "por u/{u}"
+msgstr "por u/{u}"
+
+msgid "solo lectura"
+msgstr "solo lectura"
+
+msgid "u/{u}{n} — {f}:"
+msgstr "u/{u}{n} — {f}:"
+
+msgid "{a}, de u/{u}, {n} mensajes, {f}"
+msgstr "{a}, de u/{u}, {n} mensajes, {f}"
+
+msgid "{f}, u/{u}: {m}"
+msgstr "{f}, u/{u}: {m}"
+
+msgid "{n} conversaciones"
+msgstr "{n} conversaciones"
+
+msgid "{n} páginas"
+msgstr "{n} páginas"
+
+msgid "{n} revisiones"
+msgstr "{n} revisiones"
+
+msgid "Última edición: {f}"
+msgstr "Última edición: {f}"
+
+msgid "A_ctualizar"
+msgstr "A_ctualizar"
+
+msgid "Bo_rradores de Reddit…"
+msgstr "Bo_rradores de Reddit…"
+
+msgid "Borradores de Reddit"
+msgstr "Borradores de Reddit"
+
+msgid "Cargando las colecciones…"
+msgstr "Cargando las colecciones…"
+
+msgid "Cargando las novedades…"
+msgstr "Cargando las novedades…"
+
+msgid "Cargando los borradores…"
+msgstr "Cargando los borradores…"
+
+msgid "Co_lecciones de un subreddit…"
+msgstr "Co_lecciones de un subreddit…"
+
+msgid "Colecciones de r/{s}"
+msgstr "Colecciones de r/{s}"
+
+msgid "Colección: {t}"
+msgstr "Colección: {t}"
+
+msgid "Escribe el identificador de un hilo en directo y pulsa Intro."
+msgstr "Escribe el identificador de un hilo en directo y pulsa Intro."
+
+msgid "Escribe el título"
+msgstr "Escribe el título"
+
+msgid "Hilos en _directo…"
+msgstr "Hilos en _directo…"
+
+msgid "No se pudieron cargar las colecciones: {e}"
+msgstr "No se pudieron cargar las colecciones: {e}"
+
+msgid "No se pudieron cargar los borradores: {e}"
+msgstr "No se pudieron cargar los borradores: {e}"
+
+msgid "No se pudo abrir la colección: {e}"
+msgstr "No se pudo abrir la colección: {e}"
+
+msgid "Publicaciones de la colección"
+msgstr "Publicaciones de la colección"
+
+msgid "Te_xto (si no es un enlace):"
+msgstr "Te_xto (si no es un enlace):"
+
+msgid "_Comunidad (sin r/; opcional):"
+msgstr "_Comunidad (sin r/; opcional):"
+
+msgid "_Crear nuevo…"
+msgstr "_Crear nuevo…"
+
+msgid "_Enlace (déjalo vacío para un borrador de texto):"
+msgstr "_Enlace (déjalo vacío para un borrador de texto):"
+
+msgid "_Nueva colección…"
+msgstr "_Nueva colección…"
+
+msgid "_Publicar novedad…"
+msgstr "_Publicar novedad…"
+
+msgid "_Texto de la novedad:"
+msgstr "_Texto de la novedad:"
+
+msgid "u/{u}: {t}"
+msgstr "u/{u}: {t}"
+
+msgid "{n} colecciones"
+msgstr "{n} colecciones"
+
+msgid "{n} novedades"
+msgstr "{n} novedades"
+
+msgid "{n} publicaciones"
+msgstr "{n} publicaciones"
+
+msgid "{t} (u/{a})"
+msgstr "{t} (u/{a})"
+
+msgid "{t}, en r/{s}, {k}"
+msgstr "{t}, en r/{s}, {k}"
+
+msgid "{t}, {n} publicaciones"
+msgstr "{t}, {n} publicaciones"
+
+msgid "¿Borrar el borrador «{t}»?"
+msgstr "¿Borrar el borrador «{t}»?"
+
+msgid "¿Borrar la colección «{t}»?"
+msgstr "¿Borrar la colección «{t}»?"
+
+msgid "¿Publicar el borrador «{t}»?"
+msgstr "¿Publicar el borrador «{t}»?"
+
+msgid "A_brir en el navegador"
+msgstr "A_brir en el navegador"
+
+msgid "Acciones de moderación"
+msgstr "Acciones de moderación"
+
+msgid "Banear en r/{s}"
+msgstr "Banear en r/{s}"
+
+msgid "Cargando la configuración…"
+msgstr "Cargando la configuración…"
+
+msgid "Cargando los subreddits que moderas…"
+msgstr "Cargando los subreddits que moderas…"
+
+msgid "Cola de moderación…"
+msgstr "Cola de moderación…"
+
+msgid "Configuración de r/{s}"
+msgstr "Configuración de r/{s}"
+
+msgid "Configuración del subreddit…"
+msgstr "Configuración del subreddit…"
+
+msgid "Elige un moderador"
+msgstr "Elige un moderador"
+
+msgid "Enviar un mensaje de eliminación…"
+msgstr "Enviar un mensaje de eliminación…"
+
+msgid "Me_nsaje para el usuario (opcional):"
+msgstr "Me_nsaje para el usuario (opcional):"
+
+msgid "Moderación de r/{s}"
+msgstr "Moderación de r/{s}"
+
+msgid "Moderar el elemento enfo_cado…"
+msgstr "Moderar el elemento enfo_cado…"
+
+msgid "Moderar…"
+msgstr "Moderar…"
+
+msgid "Motivos de eliminación de r/{s}"
+msgstr "Motivos de eliminación de r/{s}"
+
+msgid "Motivos de eliminación…"
+msgstr "Motivos de eliminación…"
+
+msgid "No se pudieron cargar los motivos: {e}"
+msgstr "No se pudieron cargar los motivos: {e}"
+
+msgid "No se pudo cargar el registro: {e}"
+msgstr "No se pudo cargar el registro: {e}"
+
+msgid "No se pudo cargar la cola: {e}"
+msgstr "No se pudo cargar la cola: {e}"
+
+msgid "No se pudo cargar la configuración: {e}"
+msgstr "No se pudo cargar la configuración: {e}"
+
+msgid "No se pudo cargar la lista: {e}"
+msgstr "No se pudo cargar la lista: {e}"
+
+msgid "No se pudo obtener la lista de subreddits que moderas: {e}"
+msgstr "No se pudo obtener la lista de subreddits que moderas: {e}"
+
+msgid "Nota _interna (opcional):"
+msgstr "Nota _interna (opcional):"
+
+msgid "Permisos de u/{u}"
+msgstr "Permisos de u/{u}"
+
+msgid "Registro de moderación…"
+msgstr "Registro de moderación…"
+
+msgid "Registro de r/{s}"
+msgstr "Registro de r/{s}"
+
+msgid "Usuarios de r/{s}"
+msgstr "Usuarios de r/{s}"
+
+msgid "Usuarios del subreddit…"
+msgstr "Usuarios del subreddit…"
+
+msgid "_Duración en días (0 = permanente):"
+msgstr "_Duración en días (0 = permanente):"
+
+msgid "_Motivo que se enviará al autor:"
+msgstr "_Motivo que se enviará al autor:"
+
+msgid "_Más acciones…"
+msgstr "_Más acciones…"
+
+msgid "_Permisos…"
+msgstr "_Permisos…"
+
+msgid "_Usuario (sin u/):"
+msgstr "_Usuario (sin u/):"
+
+msgid "u/{u}. {d}"
+msgstr "u/{u}. {d}"
+
+msgid "{f}, u/{m}: {a} {d}"
+msgstr "{f}, u/{m}: {a} {d}"
+
+msgid "{n} acciones"
+msgstr "{n} acciones"
+
+msgid "{n} motivos"
+msgstr "{n} motivos"
+
+msgid "{t} de u/{a}. {c}. {r} reportes. {f}"
+msgstr "{t} de u/{a}. {c}. {r} reportes. {f}"
+
+msgid "{t}. {m}"
+msgstr "{t}. {m}"
+
+msgid "¿Borrar el motivo «{t}»?"
+msgstr "¿Borrar el motivo «{t}»?"
+
+msgid "¿Quitar a u/{u}?"
+msgstr "¿Quitar a u/{u}?"
+
+msgid "  {p}: {n} espectadores"
+msgstr "  {p}: {n} espectadores"
+
+msgid "(con error)"
+msgstr "(con error)"
+
+msgid "Act_ivos"
+msgstr "Act_ivos"
+
+msgid "B_orrar"
+msgstr "B_orrar"
+
+msgid "Bloquear el vídeo (moderadores)…"
+msgstr "Bloquear el vídeo (moderadores)…"
+
+msgid "Cargando las denuncias…"
+msgstr "Cargando las denuncias…"
+
+msgid "Cola de denuncias…"
+msgstr "Cola de denuncias…"
+
+msgid "Con_traseña:"
+msgstr "Con_traseña:"
+
+msgid "Copiar la URL R_TMP"
+msgstr "Copiar la URL R_TMP"
+
+msgid "Copiar la _clave de emisión"
+msgstr "Copiar la _clave de emisión"
+
+msgid "Crear un _directo…"
+msgstr "Crear un _directo…"
+
+msgid "Datos de emisión del directo…"
+msgstr "Datos de emisión del directo…"
+
+msgid "Desbloquear el vídeo (moderadores)"
+msgstr "Desbloquear el vídeo (moderadores)"
+
+msgid "Desinstalar"
+msgstr "Desinstalar"
+
+msgid "Directo _permanente (puedes emitir varias veces):"
+msgstr "Directo _permanente (puedes emitir varias veces):"
+
+msgid "El título y el canal son obligatorios"
+msgstr "El título y el canal son obligatorios"
+
+msgid "En _espera"
+msgstr "En _espera"
+
+msgid "Espectadores totales: {n}"
+msgstr "Espectadores totales: {n}"
+
+msgid "Estadísticas de la instancia…"
+msgstr "Estadísticas de la instancia…"
+
+msgid "Estadísticas del _vídeo…"
+msgstr "Estadísticas del _vídeo…"
+
+msgid "Estadísticas del vídeo…"
+msgstr "Estadísticas del vídeo…"
+
+msgid "Federación (instancias)…"
+msgstr "Federación (instancias)…"
+
+msgid "Guardar la _repetición al terminar:"
+msgstr "Guardar la _repetición al terminar:"
+
+msgid "Latencia: {l}"
+msgstr "Latencia: {l}"
+
+msgid "Mis denuncias…"
+msgstr "Mis denuncias…"
+
+msgid "No se pudieron cargar las denuncias: {e}"
+msgstr "No se pudieron cargar las denuncias: {e}"
+
+msgid "No se pudieron cargar las estadísticas: {e}"
+msgstr "No se pudieron cargar las estadísticas: {e}"
+
+msgid "No se pudieron cargar las sesiones: {e}"
+msgstr "No se pudieron cargar las sesiones: {e}"
+
+msgid "No se pudieron cargar los mensajes: {e}"
+msgstr "No se pudieron cargar los mensajes: {e}"
+
+msgid "No se pudieron cargar los vídeos bloqueados: {e}"
+msgstr "No se pudieron cargar los vídeos bloqueados: {e}"
+
+msgid "No se pudieron obtener los datos de emisión: {e}"
+msgstr "No se pudieron obtener los datos de emisión: {e}"
+
+msgid "No se pudo crear el directo: {e}"
+msgstr "No se pudo crear el directo: {e}"
+
+msgid "Pico de espectadores: {n}"
+msgstr "Pico de espectadores: {n}"
+
+msgid "Plugins…"
+msgstr "Plugins…"
+
+msgid "Rellena el usuario, el correo y la contraseña."
+msgstr "Rellena el usuario, el correo y la contraseña."
+
+msgid "Rol de {u}"
+msgstr "Rol de {u}"
+
+msgid "Seguir _instancia…"
+msgstr "Seguir _instancia…"
+
+msgid "Sesiones y repeticiones del directo…"
+msgstr "Sesiones y repeticiones del directo…"
+
+msgid "Sesión del {f}{e}{r}"
+msgstr "Sesión del {f}{e}{r}"
+
+msgid "Solicitudes de registro…"
+msgstr "Solicitudes de registro…"
+
+msgid "Tiempo medio por espectador: {n} segundos"
+msgstr "Tiempo medio por espectador: {n} segundos"
+
+msgid "Tiempo total de reproducción: {n} minutos"
+msgstr "Tiempo total de reproducción: {n} minutos"
+
+msgid "Tokens de runners…"
+msgstr "Tokens de runners…"
+
+msgid "Trabajos del servidor…"
+msgstr "Trabajos del servidor…"
+
+msgid "URL RTMP_S (segura):"
+msgstr "URL RTMP_S (segura):"
+
+msgid "URL del servidor _RTMP:"
+msgstr "URL del servidor _RTMP:"
+
+msgid "Usuarios…"
+msgstr "Usuarios…"
+
+msgid "Ver _siguiendo"
+msgstr "Ver _siguiendo"
+
+msgid "Ver se_guidores"
+msgstr "Ver se_guidores"
+
+msgid "Vídeos bloqueados…"
+msgstr "Vídeos bloqueados…"
+
+msgid "_Aceptar seguidor"
+msgstr "_Aceptar seguidor"
+
+msgid "_Administración"
+msgstr "_Administración"
+
+msgid "_Añadir un mensaje (opcional):"
+msgstr "_Añadir un mensaje (opcional):"
+
+msgid "_Comentario de moderación (opcional):"
+msgstr "_Comentario de moderación (opcional):"
+
+msgid "_Completados"
+msgstr "_Completados"
+
+msgid "_Copiar token"
+msgstr "_Copiar token"
+
+msgid "_Correo electrónico:"
+msgstr "_Correo electrónico:"
+
+msgid "_Cuota de vídeo en GB (-1 = sin límite):"
+msgstr "_Cuota de vídeo en GB (-1 = sin límite):"
+
+msgid "_Dejar o rechazar"
+msgstr "_Dejar o rechazar"
+
+msgid "_Desinstalar"
+msgstr "_Desinstalar"
+
+msgid "_Fallidos"
+msgstr "_Fallidos"
+
+msgid "_Generar nuevo"
+msgstr "_Generar nuevo"
+
+msgid "_Instalar…"
+msgstr "_Instalar…"
+
+msgid "_Instancia a seguir (host):"
+msgstr "_Instancia a seguir (host):"
+
+msgid "_Latencia:"
+msgstr "_Latencia:"
+
+msgid "_Mensajes…"
+msgstr "_Mensajes…"
+
+msgid "_Moderación"
+msgstr "_Moderación"
+
+msgid "_Motivo del bloqueo (opcional):"
+msgstr "_Motivo del bloqueo (opcional):"
+
+msgid "_Nombre del paquete npm del plugin:"
+msgstr "_Nombre del paquete npm del plugin:"
+
+msgid "_Respuesta al solicitante (opcional):"
+msgstr "_Respuesta al solicitante (opcional):"
+
+msgid "_Rol y cuota…"
+msgstr "_Rol y cuota…"
+
+msgid "_Rol:"
+msgstr "_Rol:"
+
+msgid "_Título del directo:"
+msgstr "_Título del directo:"
+
+msgid "activo"
+msgstr "activo"
+
+msgid "repetición: {t}"
+msgstr "repetición: {t}"
+
+msgid "{h}, {e}"
+msgstr "{h}, {e}"
+
+msgid "{m}. Estado: {s}. Contra {d}. {o}"
+msgstr "{m}. Estado: {s}. Contra {d}. {o}"
+
+msgid "{n} denuncias"
+msgstr "{n} denuncias"
+
+msgid "{n} sesiones"
+msgstr "{n} sesiones"
+
+msgid "{n} vídeos"
+msgstr "{n} vídeos"
+
+msgid "{n}, versión {v}, {p}"
+msgstr "{n}, versión {v}, {p}"
+
+msgid "{t}, creado {f}"
+msgstr "{t}, creado {f}"
+
+msgid "{t}, {s}. {e}"
+msgstr "{t}, {s}. {e}"
+
+msgid "{t}. Motivo: {m}"
+msgstr "{t}. Motivo: {m}"
+
+msgid "{u}, {c}, motivo: {m}"
+msgstr "{u}, {c}, motivo: {m}"
+
+msgid "{u}, {c}, rol {r}, {e}"
+msgstr "{u}, {c}, rol {r}, {e}"
+
+msgid "¿Borrar al usuario «{u}»? Se eliminan sus vídeos y datos."
+msgstr "¿Borrar al usuario «{u}»? Se eliminan sus vídeos y datos."
+
+msgid "¿Dejar de seguir a {h}?"
+msgstr "¿Dejar de seguir a {h}?"
+
+msgid "¿Desbloquear «{t}»? Volverá a estar disponible."
+msgstr "¿Desbloquear «{t}»? Volverá a estar disponible."
+
+msgid "¿Desinstalar «{n}»?"
+msgstr "¿Desinstalar «{n}»?"
+
+msgid "    {f}: {v} personas, {t:.1f} %"
+msgstr "    {f}: {v} personas, {t:.1f} %"
+
+msgid "  Cohorte {p} ({f}):"
+msgstr "  Cohorte {p} ({f}):"
+
+msgid "  Periodo anterior: {v}"
+msgstr "  Periodo anterior: {v}"
+
+msgid "  Semana {s}: {p} publicaciones, {r} registros, {a} activos"
+msgstr "  Semana {s}: {p} publicaciones, {r} registros, {a} activos"
+
+msgid "(sin leer) "
+msgstr "(sin leer) "
+
+msgid "@{a} añadida a la colección."
+msgstr "@{a} añadida a la colección."
+
+msgid "@{a} añadida a «{c}»."
+msgstr "@{a} añadida a «{c}»."
+
+msgid "@{a} añadida a «{c}». Queda pendiente de que acepte."
+msgstr "@{a} añadida a «{c}». Queda pendiente de que acepte."
+
+msgid "@{a} añadida. Queda pendiente de que acepte aparecer en la colección."
+msgstr "@{a} añadida. Queda pendiente de que acepte aparecer en la colección."
+
+msgid "Actividad reciente:"
+msgstr "Actividad reciente:"
+
+msgid "Administración: {t}"
+msgstr "Administración: {t}"
+
+msgid "Anuncio marcado como leído"
+msgstr "Anuncio marcado como leído"
+
+msgid "Añadir _hash…"
+msgstr "Añadir _hash…"
+
+msgid "Añadir al autor a una de mis colecciones…"
+msgstr "Añadir al autor a una de mis colecciones…"
+
+msgid "Bloqueos de _IP…"
+msgstr "Bloqueos de _IP…"
+
+msgid "Caducar en _segundos (vacío = permanente):"
+msgstr "Caducar en _segundos (vacío = permanente):"
+
+msgid "Cargando las estadísticas…"
+msgstr "Cargando las estadísticas…"
+
+msgid "Cargando los anuncios…"
+msgstr "Cargando los anuncios…"
+
+msgid "Cargando los enlaces…"
+msgstr "Cargando los enlaces…"
+
+msgid "Cargar _anteriores"
+msgstr "Cargar _anteriores"
+
+msgid "Colecciones de @{a}"
+msgstr "Colecciones de @{a}"
+
+msgid "Colecciones de una cuenta"
+msgstr "Colecciones de una cuenta"
+
+msgid "Colecciones de una cuenta…"
+msgstr "Colecciones de una cuenta…"
+
+msgid "Colecciones en las que _apareces…"
+msgstr "Colecciones en las que _apareces…"
+
+msgid "Colección «{n}»"
+msgstr "Colección «{n}»"
+
+msgid "Colección «{n}» creada."
+msgstr "Colección «{n}» creada."
+
+msgid "Con aprobación"
+msgstr "Con aprobación"
+
+msgid "Configurar hashtag #{n}"
+msgstr "Configurar hashtag #{n}"
+
+msgid "Correos canónicos bloqueados…"
+msgstr "Correos canónicos bloqueados…"
+
+msgid "Creado: {c}"
+msgstr "Creado: {c}"
+
+msgid "Cuentas _sugeridas…"
+msgstr "Cuentas _sugeridas…"
+
+msgid "Dominios _permitidos…"
+msgstr "Dominios _permitidos…"
+
+msgid "Dominios de correo bloqueados…"
+msgstr "Dominios de correo bloqueados…"
+
+msgid "El correo coincide con {n} bloqueo(s) canónico(s)."
+msgstr "El correo coincide con {n} bloqueo(s) canónico(s)."
+
+msgid "Enlaces en _tendencia…"
+msgstr "Enlaces en _tendencia…"
+
+msgid "ID numérico del _hashtag (para las métricas de hashtag):"
+msgstr "ID numérico del _hashtag (para las métricas de hashtag):"
+
+msgid "Idiomas: {i}"
+msgstr "Idiomas: {i}"
+
+msgid "Información de la instancia"
+msgstr "Información de la instancia"
+
+msgid "Instancias federadas conocidas: {n}"
+msgstr "Instancias federadas conocidas: {n}"
+
+msgid "La colección necesita un nombre."
+msgstr "La colección necesita un nombre."
+
+msgid "Lista de anuncios"
+msgstr "Lista de anuncios"
+
+msgid "Lista de enlaces en tendencia"
+msgstr "Lista de enlaces en tendencia"
+
+msgid "Marcarla como contenido _sensible:"
+msgstr "Marcarla como contenido _sensible:"
+
+msgid "Mis co_lecciones…"
+msgstr "Mis co_lecciones…"
+
+msgid "Mostrarla en mi _perfil, en las búsquedas y en las recomendaciones:"
+msgstr "Mostrarla en mi _perfil, en las búsquedas y en las recomendaciones:"
+
+msgid "No hay anuncios"
+msgstr "No hay anuncios"
+
+msgid "No hay elementos"
+msgstr "No hay elementos"
+
+msgid "No hay enlaces en tendencia"
+msgstr "No hay enlaces en tendencia"
+
+msgid "No se pudieron cargar los anuncios: {e}"
+msgstr "No se pudieron cargar los anuncios: {e}"
+
+msgid "No se pudieron cargar los enlaces: {e}"
+msgstr "No se pudieron cargar los enlaces: {e}"
+
+msgid "No se pudieron cargar tus colecciones: {e}"
+msgstr "No se pudieron cargar tus colecciones: {e}"
+
+msgid "No se pudo cargar la colección: {e}"
+msgstr "No se pudo cargar la colección: {e}"
+
+msgid "No se pudo cargar la información de la instancia: {e}"
+msgstr "No se pudo cargar la información de la instancia: {e}"
+
+msgid "No se pudo crear la colección: {e}"
+msgstr "No se pudo crear la colección: {e}"
+
+msgid "Nombre para _mostrar:"
+msgstr "Nombre para _mostrar:"
+
+msgid "Normas:"
+msgstr "Normas:"
+
+msgid "Periodo: últimos {n} días"
+msgstr "Periodo: últimos {n} días"
+
+msgid "Permitir que aparezca como _tendencia:"
+msgstr "Permitir que aparezca como _tendencia:"
+
+msgid "Permitir que aparezca en _búsquedas y directorios:"
+msgstr "Permitir que aparezca en _búsquedas y directorios:"
+
+msgid "Permitir su _uso en publicaciones locales:"
+msgstr "Permitir su _uso en publicaciones locales:"
+
+msgid "Sin información"
+msgstr "Sin información"
+
+msgid "Software: {s}"
+msgstr "Software: {s}"
+
+msgid "Sugerencia descartada"
+msgstr "Sugerencia descartada"
+
+msgid "Tiempo real disponible: {s}"
+msgstr "Tiempo real disponible: {s}"
+
+msgid "Usuarios activos al mes: {n}"
+msgstr "Usuarios activos al mes: {n}"
+
+msgid "Valor: {v}"
+msgstr "Valor: {v}"
+
+msgid "_Anuncios del servidor…"
+msgstr "_Anuncios del servidor…"
+
+msgid "_Colección:"
+msgstr "_Colección:"
+
+msgid "_Comentario interno:"
+msgstr "_Comentario interno:"
+
+msgid "_Comprobar correo…"
+msgstr "_Comprobar correo…"
+
+msgid "_Configurar hashtag…"
+msgstr "_Configurar hashtag…"
+
+msgid "_Correo que quieres comprobar:"
+msgstr "_Correo que quieres comprobar:"
+
+msgid "_Cuenta (@usuario o @usuario@servidor):"
+msgstr "_Cuenta (@usuario o @usuario@servidor):"
+
+msgid "_Cuenta que añadir (@usuario o @usuario@servidor):"
+msgstr "_Cuenta que añadir (@usuario o @usuario@servidor):"
+
+msgid ""
+"_Cuentas que incluir desde el principio (opcional, @usuario separados por "
+"espacios):"
+msgstr ""
+"_Cuentas que incluir desde el principio (opcional, @usuario separados por "
+"espacios):"
+
+msgid "_Descartar la sugerencia"
+msgstr "_Descartar la sugerencia"
+
+msgid "_Descripción (máximo {n} caracteres):"
+msgstr "_Descripción (máximo {n} caracteres):"
+
+msgid "_Directorio de cuentas…"
+msgstr "_Directorio de cuentas…"
+
+msgid "_Dominio remoto (para las métricas de dominio):"
+msgstr "_Dominio remoto (para las métricas de dominio):"
+
+msgid "_Días del periodo:"
+msgstr "_Días del periodo:"
+
+msgid "_Emoji (o :atajo:):"
+msgstr "_Emoji (o :atajo:):"
+
+msgid "_Etiqueta que la describe (opcional, sin #):"
+msgstr "_Etiqueta que la describe (opcional, sin #):"
+
+msgid "_Hash SHA-256 canónico de 64 caracteres:"
+msgstr "_Hash SHA-256 canónico de 64 caracteres:"
+
+msgid "_IP o rango CIDR:"
+msgstr "_IP o rango CIDR:"
+
+msgid "_Idioma (código, por ejemplo es):"
+msgstr "_Idioma (código, por ejemplo es):"
+
+msgid "_Información de la instancia…"
+msgstr "_Información de la instancia…"
+
+msgid "_Métricas que se consultarán:"
+msgstr "_Métricas que se consultarán:"
+
+msgid "_Nombre (máximo {n} caracteres):"
+msgstr "_Nombre (máximo {n} caracteres):"
+
+msgid "_Quitar de la colección"
+msgstr "_Quitar de la colección"
+
+msgid "_Quitar mi reacción…"
+msgstr "_Quitar mi reacción…"
+
+msgid "_Reaccionar…"
+msgstr "_Reaccionar…"
+
+msgid "_Retención:"
+msgstr "_Retención:"
+
+msgid "_Retirarme de esta colección"
+msgstr "_Retirarme de esta colección"
+
+msgid "_Tendencias y descubrimiento…"
+msgstr "_Tendencias y descubrimiento…"
+
+msgid "_Ver cuentas"
+msgstr "_Ver cuentas"
+
+msgid "listable {a}, utilizable {b}, tendencia {c}, revisión {d}"
+msgstr "listable {a}, utilizable {b}, tendencia {c}, revisión {d}"
+
+msgid "tendencia {c}, revisión {d}"
+msgstr "tendencia {c}, revisión {d}"
+
+msgid "{d}: {c} cuentas, {u} direcciones IP"
+msgstr "{d}: {c} cuentas, {u} direcciones IP"
+
+msgid "{n} (@{a}), {e}"
+msgstr "{n} (@{a}), {e}"
+
+msgid "{n} anuncios"
+msgstr "{n} anuncios"
+
+msgid "{n} enlaces"
+msgstr "{n} enlaces"
+
+msgid "{n}, {c} cuentas. {d}"
+msgstr "{n}, {c} cuentas. {d}"
+
+msgid "«{n}»: {c} cuentas."
+msgstr "«{n}»: {c} cuentas."
+
+msgid "¿Borrar la colección «{n}»? No se puede deshacer."
+msgstr "¿Borrar la colección «{n}»? No se puede deshacer."
+
+msgid "¿Eliminar el bloqueo de {ip}?"
+msgstr "¿Eliminar el bloqueo de {ip}?"
+
+msgid ""
+"¿Permitir altas desde este dominio solo después de aprobación manual? Si "
+"dices que no, se bloquean por completo."
+msgstr ""
+"¿Permitir altas desde este dominio solo después de aprobación manual? Si "
+"dices que no, se bloquean por completo."
+
+msgid "¿Quitar a @{a} de la colección?"
+msgstr "¿Quitar a @{a} de la colección?"
+
+msgid "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+msgstr "¿Retirarte de la colección «{n}»? Dejarás de aparecer en ella."
+
+msgid "A_visarme cuando el autor publique"
+msgstr "A_visarme cuando el autor publique"
+
+msgid "Cargando las tendencias…"
+msgstr "Cargando las tendencias…"
+
+msgid "Cargando los miembros…"
+msgstr "Cargando los miembros…"
+
+msgid "Cargando los paquetes…"
+msgstr "Cargando los paquetes…"
+
+msgid "Crear un paquete de inicio"
+msgstr "Crear un paquete de inicio"
+
+msgid "Cuentas _similares al autor…"
+msgstr "Cuentas _similares al autor…"
+
+msgid "Cuentas a cuya _actividad sigues…"
+msgstr "Cuentas a cuya _actividad sigues…"
+
+msgid "Cuentas añadidas al grupo."
+msgstr "Cuentas añadidas al grupo."
+
+msgid "Cuentas de {r}: {t}"
+msgstr "Cuentas de {r}: {t}"
+
+msgid "Cuentas encontradas"
+msgstr "Cuentas encontradas"
+
+msgid "Cuentas suscritas"
+msgstr "Cuentas suscritas"
+
+msgid "Dejarás de recibir avisos de esta cuenta."
+msgstr "Dejarás de recibir avisos de esta cuenta."
+
+msgid "El servidor no ha devuelto ningún enlace."
+msgstr "El servidor no ha devuelto ningún enlace."
+
+msgid "Enlace de invitación copiado"
+msgstr "Enlace de invitación copiado"
+
+msgid "Error al cargar tus listas: {e}"
+msgstr "Error al cargar tus listas: {e}"
+
+msgid "Escribe el nombre y al menos una cuenta."
+msgstr "Escribe el nombre y al menos una cuenta."
+
+msgid "Escribe el nombre y añade al menos una cuenta al grupo."
+msgstr "Escribe el nombre y añade al menos una cuenta al grupo."
+
+msgid "Esto solo está en Bluesky"
+msgstr "Esto solo está en Bluesky"
+
+msgid "Feed: {n}"
+msgstr "Feed: {n}"
+
+msgid "Grupo: {t}"
+msgstr "Grupo: {t}"
+
+msgid "Miembros del grupo"
+msgstr "Miembros del grupo"
+
+msgid ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+msgstr ""
+"Necesitas al menos una lista. Créala en Mi cuenta, Listas, y añádele cuentas"
+" antes de hacer el paquete."
+
+msgid "No hay tendencias"
+msgstr "No hay tendencias"
+
+msgid "No se encontró ninguna cuenta"
+msgstr "No se encontró ninguna cuenta"
+
+msgid "No se pudieron cargar las tendencias: {e}"
+msgstr "No se pudieron cargar las tendencias: {e}"
+
+msgid "No se pudieron cargar los paquetes sugeridos: {e}"
+msgstr "No se pudieron cargar los paquetes sugeridos: {e}"
+
+msgid "No se pudieron cargar los paquetes: {e}"
+msgstr "No se pudieron cargar los paquetes: {e}"
+
+msgid "No se pudieron consultar las solicitudes: {e}"
+msgstr "No se pudieron consultar las solicitudes: {e}"
+
+msgid "No se pudo abrir el paquete: {e}"
+msgstr "No se pudo abrir el paquete: {e}"
+
+msgid "No se pudo aceptar: {e}"
+msgstr "No se pudo aceptar: {e}"
+
+msgid "No se pudo crear el paquete: {e}"
+msgstr "No se pudo crear el paquete: {e}"
+
+msgid "No se pudo obtener el enlace: {e}"
+msgstr "No se pudo obtener el enlace: {e}"
+
+msgid "No se pudo suscribir: {e}"
+msgstr "No se pudo suscribir: {e}"
+
+msgid "No tienes paquetes de inicio"
+msgstr "No tienes paquetes de inicio"
+
+msgid "Paquete borrado."
+msgstr "Paquete borrado."
+
+msgid "Paquete de inicio"
+msgstr "Paquete de inicio"
+
+msgid "Paquete de inicio creado."
+msgstr "Paquete de inicio creado."
+
+msgid "Paquetes de _inicio…"
+msgstr "Paquetes de _inicio…"
+
+msgid "Paquetes de inicio de {r}"
+msgstr "Paquetes de inicio de {r}"
+
+msgid "Paquetes de inicio sugeridos"
+msgstr "Paquetes de inicio sugeridos"
+
+msgid "Paquetes sugeridos"
+msgstr "Paquetes sugeridos"
+
+msgid "S_alir del grupo"
+msgstr "S_alir del grupo"
+
+msgid "Seguidores _en común con el autor…"
+msgstr "Seguidores _en común con el autor…"
+
+msgid "Selecciona un elemento de Bluesky o de W Social"
+msgstr "Selecciona un elemento de Bluesky o de W Social"
+
+msgid "Selecciona una conversación de grupo"
+msgstr "Selecciona una conversación de grupo"
+
+msgid "Solicitudes de _mensajes…"
+msgstr "Solicitudes de _mensajes…"
+
+msgid "Temas en tendencia"
+msgstr "Temas en tendencia"
+
+msgid "Tendencias de {r}"
+msgstr "Tendencias de {r}"
+
+msgid "Un nombre, un usuario o parte de la biografía."
+msgstr "Un nombre, un usuario o parte de la biografía."
+
+msgid "Vas a expulsar a {u} del grupo. ¿Continuar?"
+msgstr "Vas a expulsar a {u} del grupo. ¿Continuar?"
+
+msgid "_Aceptar y abrir"
+msgstr "_Aceptar y abrir"
+
+msgid "_Añadir cuentas…"
+msgstr "_Añadir cuentas…"
+
+msgid "_Buscar el tema"
+msgstr "_Buscar el tema"
+
+msgid "_Crear un grupo…"
+msgstr "_Crear un grupo…"
+
+msgid "_Crear uno nuevo…"
+msgstr "_Crear uno nuevo…"
+
+msgid ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+msgstr ""
+"_Cuentas a añadir, separadas por comas (por ejemplo nombre.bsky.social):"
+
+msgid "_Cuentas a añadir, separadas por comas:"
+msgstr "_Cuentas a añadir, separadas por comas:"
+
+msgid "_Cuentas, separadas por comas:"
+msgstr "_Cuentas, separadas por comas:"
+
+msgid "_Dejar de recibir avisos"
+msgstr "_Dejar de recibir avisos"
+
+msgid "_Enlace de invitación"
+msgstr "_Enlace de invitación"
+
+msgid "_Enlace de invitación al grupo:"
+msgstr "_Enlace de invitación al grupo:"
+
+msgid "_Entrar en un grupo con un enlace…"
+msgstr "_Entrar en un grupo con un enlace…"
+
+msgid "_Expulsar"
+msgstr "_Expulsar"
+
+msgid "_Feeds del autor…"
+msgstr "_Feeds del autor…"
+
+msgid "_Gestionar el grupo…"
+msgstr "_Gestionar el grupo…"
+
+msgid "_Lista que incluirá el paquete:"
+msgstr "_Lista que incluirá el paquete:"
+
+msgid "_Nombre del grupo:"
+msgstr "_Nombre del grupo:"
+
+msgid "_Nombre del paquete:"
+msgstr "_Nombre del paquete:"
+
+msgid "_Nuevo nombre del grupo:"
+msgstr "_Nuevo nombre del grupo:"
+
+msgid "_Solicitud:"
+msgstr "_Solicitud:"
+
+msgid "_Solicitudes de entrada…"
+msgstr "_Solicitudes de entrada…"
+
+msgid "_Sugeridos…"
+msgstr "_Sugeridos…"
+
+msgid "{n} paquetes"
+msgstr "{n} paquetes"
+
+msgid "{n} temas"
+msgstr "{n} temas"
+
+msgid "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+msgstr "¿Aceptar a {u} en el grupo? Si dices que no, se rechaza."
+
+msgid "¿Borrar el paquete «{n}»?"
+msgstr "¿Borrar el paquete «{n}»?"
+
+msgid "¿Salir de este grupo?"
+msgstr "¿Salir de este grupo?"
+
+msgid "Aplicarla solo a cuentas que _no sigues:"
+msgstr "Aplicarla solo a cuentas que _no sigues:"
+
+msgid "Borradores de W Social"
+msgstr "Borradores de W Social"
+
+msgid "Editar el borrador"
+msgstr "Editar el borrador"
+
+msgid "Palabras silenciadas de W Social"
+msgstr "Palabras silenciadas de W Social"
+
+msgid "Preferencias de _contenido…"
+msgstr "Preferencias de _contenido…"
+
+msgid "Publicaciones pendientes"
+msgstr "Publicaciones pendientes"
+
+msgid "Reintentando…"
+msgstr "Reintentando…"
+
+msgid "Salida _pendiente…"
+msgstr "Salida _pendiente…"
+
+msgid "Salida pendiente de {r}"
+msgstr "Salida pendiente de {r}"
+
+msgid "Servicios de etiquetado de W Social"
+msgstr "Servicios de etiquetado de W Social"
+
+msgid "Sigue sin poder enviarse: {e}"
+msgstr "Sigue sin poder enviarse: {e}"
+
+msgid "_Añadir por usuario…"
+msgstr "_Añadir por usuario…"
+
+msgid "_Borradores del servidor…"
+msgstr "_Borradores del servidor…"
+
+msgid "_Dónde silenciarla:"
+msgstr "_Dónde silenciarla:"
+
+msgid "_Idiomas que quieres ver (códigos separados por comas):"
+msgstr "_Idiomas que quieres ver (códigos separados por comas):"
+
+msgid "_Reintentar"
+msgstr "_Reintentar"
+
+msgid "_Suscribirse o cancelar"
+msgstr "_Suscribirse o cancelar"
+
+msgid "_Usuario o identificador del servicio de etiquetado:"
+msgstr "_Usuario o identificador del servicio de etiquetado:"
+
+msgid "{n} pendientes"
+msgstr "{n} pendientes"
+
+msgid "¿Borrar este borrador?"
+msgstr "¿Borrar este borrador?"
+
+msgid "Abrir _chat con la pasarela"
+msgstr "Abrir _chat con la pasarela"
+
+msgid "Borrar la cuenta"
+msgstr "Borrar la cuenta"
+
+msgid "Borrar mi cuenta del _servidor…"
+msgstr "Borrar mi cuenta del _servidor…"
+
+msgid "Buscando pasarelas…"
+msgstr "Buscando pasarelas…"
+
+msgid "Buscar _usuarios en el servidor…"
+msgstr "Buscar _usuarios en el servidor…"
+
+msgid "Buscar usuarios en {s}"
+msgstr "Buscar usuarios en {s}"
+
+msgid "C_orreo (opcional, algunos servidores lo piden):"
+msgstr "C_orreo (opcional, algunos servidores lo piden):"
+
+msgid "Cambiar la _contraseña…"
+msgstr "Cambiar la _contraseña…"
+
+msgid "Cancelar el registro"
+msgstr "Cancelar el registro"
+
+msgid "Cancelar re_gistro…"
+msgstr "Cancelar re_gistro…"
+
+msgid "Ce_rrar"
+msgstr "Ce_rrar"
+
+msgid "Comandos de _otro JID…"
+msgstr "Comandos de _otro JID…"
+
+msgid "Comandos de {j}"
+msgstr "Comandos de {j}"
+
+msgid "Comandos de {n}"
+msgstr "Comandos de {n}"
+
+msgid "Comandos del _servidor…"
+msgstr "Comandos del _servidor…"
+
+msgid "Comandos del chat o la pasarela enfocados…"
+msgstr "Comandos del chat o la pasarela enfocados…"
+
+msgid "Consultando los comandos…"
+msgstr "Consultando los comandos…"
+
+msgid "Creando la cuenta…"
+msgstr "Creando la cuenta…"
+
+msgid "Crear una cuenta _nueva en un servidor…"
+msgstr "Crear una cuenta _nueva en un servidor…"
+
+msgid "Editar mi _ficha (vCard)…"
+msgstr "Editar mi _ficha (vCard)…"
+
+msgid "Editar registro en {n}"
+msgstr "Editar registro en {n}"
+
+msgid "El servidor devolvió un error: {e}"
+msgstr "El servidor devolvió un error: {e}"
+
+msgid "Escribe el JID y la contraseña."
+msgstr "Escribe el JID y la contraseña."
+
+msgid "No se pudieron buscar pasarelas: {e}"
+msgstr "No se pudieron buscar pasarelas: {e}"
+
+msgid "No se pudieron listar los comandos: {e}"
+msgstr "No se pudieron listar los comandos: {e}"
+
+msgid "No se pudo abrir la búsqueda: {e}"
+msgstr "No se pudo abrir la búsqueda: {e}"
+
+msgid "No se pudo cancelar la cuenta: {e}"
+msgstr "No se pudo cancelar la cuenta: {e}"
+
+msgid "No se pudo crear la cuenta: {e}"
+msgstr "No se pudo crear la cuenta: {e}"
+
+msgid "No se pudo ejecutar: {e}"
+msgstr "No se pudo ejecutar: {e}"
+
+msgid "No se pudo obtener el registro: {e}"
+msgstr "No se pudo obtener el registro: {e}"
+
+msgid ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+msgstr ""
+"Para vincular tu cuenta de WhatsApp: pulsa «Registrarse»; después abre el "
+"chat con la pasarela, donde llega el código QR (como texto o imagen) y, en "
+"el móvil, Ajustes, Dispositivos vinculados, Vincular un dispositivo. También"
+" puedes emparejar por número con el comando «pair-phone» de «Comandos de la "
+"pasarela»."
+
+msgid "Registrarse en {n}"
+msgstr "Registrarse en {n}"
+
+msgid ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+msgstr ""
+"Registro enviado. Si la pasarela pide emparejamiento (por ejemplo el código "
+"de WhatsApp), ábrelo en «Comandos de la pasarela» o en el chat con la "
+"pasarela: el código aparece como texto."
+
+msgid "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+msgstr "Si no lo sabes, prueba el sugerido o «vjud.tu-servidor»."
+
+msgid "Solicitud enviada a {j}."
+msgstr "Solicitud enviada a {j}."
+
+msgid ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+msgstr ""
+"Vas a cancelar tu registro en {n}. Dejarás de usar esa pasarela y sus "
+"contactos desaparecerán de tu lista. ¿Seguro?"
+
+msgid "_Agregar a mis contactos"
+msgstr "_Agregar a mis contactos"
+
+msgid "_Comandos de la pasarela…"
+msgstr "_Comandos de la pasarela…"
+
+msgid "_Ejecutar"
+msgstr "_Ejecutar"
+
+msgid "_JID (servidor, componente o contacto):"
+msgstr "_JID (servidor, componente o contacto):"
+
+msgid "_JID de la cuenta nueva (usuario@servidor):"
+msgstr "_JID de la cuenta nueva (usuario@servidor):"
+
+msgid "_Pasarelas (WhatsApp, Telegram…)…"
+msgstr "_Pasarelas (WhatsApp, Telegram…)…"
+
+msgid "_Registrarse"
+msgstr "_Registrarse"
+
+msgid "_Registrarse…"
+msgstr "_Registrarse…"
+
+msgid "_Resultados (Intro agrega al contacto):"
+msgstr "_Resultados (Intro agrega al contacto):"
+
+msgid "_Servicio de búsqueda del servidor:"
+msgstr "_Servicio de búsqueda del servidor:"
+
+msgid "{n} comandos"
+msgstr "{n} comandos"
+
+msgid "{n} pasarelas"
+msgstr "{n} pasarelas"
+
+msgid "{n}, red {r}, {j}"
+msgstr "{n}, red {r}, {j}"
+
+msgid "_Siguiente"
+msgstr "_Siguiente"
+
+msgid "_Anterior"
+msgstr "_Anterior"
+
+msgid "_Completar"
+msgstr "_Completar"
+
+msgid "_Cancelar comando"
+msgstr "_Cancelar comando"
+
+msgid "(Quitar el grupo de comentarios)"
+msgstr "(Quitar el grupo de comentarios)"
+
+msgid "Activar los _temas (modo foro):"
+msgstr "Activar los _temas (modo foro):"
+
+msgid "Administrador quitado."
+msgstr "Administrador quitado."
+
+msgid "Administrar el _chat"
+msgstr "Administrar el _chat"
+
+msgid "Ajustes de {t}"
+msgstr "Ajustes de {t}"
+
+msgid "Al dueño no se le puede promover, degradar ni banear."
+msgstr "Al dueño no se le puede promover, degradar ni banear."
+
+msgid "Aprobar _todas"
+msgstr "Aprobar _todas"
+
+msgid "Archivo descargado borrado de este equipo."
+msgstr "Archivo descargado borrado de este equipo."
+
+msgid "Autodestrucción de la _cuenta por inactividad…"
+msgstr "Autodestrucción de la _cuenta por inactividad…"
+
+msgid "Autodestrucción de la cuenta"
+msgstr "Autodestrucción de la cuenta"
+
+msgid "Añadir al chat"
+msgstr "Añadir al chat"
+
+msgid "Añadir un contacto"
+msgstr "Añadir un contacto"
+
+msgid "Ba_jar"
+msgstr "Ba_jar"
+
+msgid "Boosts para el siguiente nivel: {n}"
+msgstr "Boosts para el siguiente nivel: {n}"
+
+msgid "Boosts: {n}"
+msgstr "Boosts: {n}"
+
+msgid "Borrado a_utomático de mensajes en segundos (0 = desactivado):"
+msgstr "Borrado a_utomático de mensajes en segundos (0 = desactivado):"
+
+msgid "Borrar el archivo descargado de este e_quipo"
+msgstr "Borrar el archivo descargado de este e_quipo"
+
+msgid "Bot actualizado."
+msgstr "Bot actualizado."
+
+msgid "Bot creado."
+msgstr "Bot creado."
+
+msgid "Buscar en el chat"
+msgstr "Buscar en el chat"
+
+msgid "Buscar en el chat _actual…"
+msgstr "Buscar en el chat _actual…"
+
+msgid "Buscar en todos los chats"
+msgstr "Buscar en todos los chats"
+
+msgid "Buscar publicaciones de canales por _hashtag…"
+msgstr "Buscar publicaciones de canales por _hashtag…"
+
+msgid "Buscar usuarios, grupos y canales"
+msgstr "Buscar usuarios, grupos y canales"
+
+msgid "Cambiar la _foto…"
+msgstr "Cambiar la _foto…"
+
+msgid "Cambiar sus permisos de administrador…"
+msgstr "Cambiar sus permisos de administrador…"
+
+msgid "Canales _parecidos…"
+msgstr "Canales _parecidos…"
+
+msgid "Canales parecidos a {t}"
+msgstr "Canales parecidos a {t}"
+
+msgid "Cargando los contactos…"
+msgstr "Cargando los contactos…"
+
+msgid "Carpetas de _chats…"
+msgstr "Carpetas de _chats…"
+
+msgid "Ce_rrar o reabrir"
+msgstr "Ce_rrar o reabrir"
+
+msgid "Cerrada."
+msgstr "Cerrada."
+
+msgid "Cerrar _todas las demás"
+msgstr "Cerrar _todas las demás"
+
+msgid "Chat creado."
+msgstr "Chat creado."
+
+msgid "Chats _frecuentes…"
+msgstr "Chats _frecuentes…"
+
+msgid "Chats frecuentes: {c}"
+msgstr "Chats frecuentes: {c}"
+
+msgid "Cierre de las _sesiones inactivas…"
+msgstr "Cierre de las _sesiones inactivas…"
+
+msgid "Cierre de sesiones inactivas"
+msgstr "Cierre de sesiones inactivas"
+
+msgid "Co_mpartir por enlace…"
+msgstr "Co_mpartir por enlace…"
+
+msgid "Comando enviado."
+msgstr "Comando enviado."
+
+msgid "Comandos de {t}"
+msgstr "Comandos de {t}"
+
+msgid "Comandos del _bot…"
+msgstr "Comandos del _bot…"
+
+msgid "Compartir la carpeta"
+msgstr "Compartir la carpeta"
+
+msgid "Compartir un c_ontacto…"
+msgstr "Compartir un c_ontacto…"
+
+msgid "Compartir un contacto con {t}"
+msgstr "Compartir un contacto con {t}"
+
+msgid "Contacto borrado."
+msgstr "Contacto borrado."
+
+msgid "Contactos de Telegram"
+msgstr "Contactos de Telegram"
+
+msgid "Contenido _compartido del chat…"
+msgstr "Contenido _compartido del chat…"
+
+msgid "Contenido _protegido (no se puede reenviar ni guardar):"
+msgstr "Contenido _protegido (no se puede reenviar ni guardar):"
+
+msgid "Contenido compartido"
+msgstr "Contenido compartido"
+
+msgid "Contraseña _actual:"
+msgstr "Contraseña _actual:"
+
+msgid "Contraseña _nueva:"
+msgstr "Contraseña _nueva:"
+
+msgid "Conversación vaciada."
+msgstr "Conversación vaciada."
+
+msgid "Correo de _recuperación (opcional):"
+msgstr "Correo de _recuperación (opcional):"
+
+msgid "Crear un bot"
+msgstr "Crear un bot"
+
+msgid "Crear un chat"
+msgstr "Crear un chat"
+
+msgid "Crear un grupo, foro o _canal…"
+msgstr "Crear un grupo, foro o _canal…"
+
+msgid "Crear una _encuesta…"
+msgstr "Crear una _encuesta…"
+
+msgid "Crear una lista de _tareas…"
+msgstr "Crear una lista de _tareas…"
+
+msgid "Cumpleaños guardado."
+msgstr "Cumpleaños guardado."
+
+msgid "D_esfijar el mensaje"
+msgstr "D_esfijar el mensaje"
+
+msgid "Descripción _corta:"
+msgstr "Descripción _corta:"
+
+msgid "Descripción _corta…"
+msgstr "Descripción _corta…"
+
+msgid "Desfijar _todos los mensajes"
+msgstr "Desfijar _todos los mensajes"
+
+msgid "Editar el bot"
+msgstr "Editar el bot"
+
+msgid "Elegir la foto de perfil"
+msgstr "Elegir la foto de perfil"
+
+msgid "Elegir la foto o el vídeo"
+msgstr "Elegir la foto o el vídeo"
+
+msgid "Encuesta creada."
+msgstr "Encuesta creada."
+
+msgid "Enlace creado y copiado"
+msgstr "Enlace creado y copiado"
+
+msgid "Enlace de la carpeta copiado"
+msgstr "Enlace de la carpeta copiado"
+
+msgid "Enlaces de invitación"
+msgstr "Enlaces de invitación"
+
+msgid "Enlaces de invitación de {t}"
+msgstr "Enlaces de invitación de {t}"
+
+msgid "Enviado: {t}"
+msgstr "Enviado: {t}"
+
+msgid "Enviar _como…"
+msgstr "Enviar _como…"
+
+msgid "Enviar un _dado…"
+msgstr "Enviar un _dado…"
+
+msgid "Enviar un dado"
+msgstr "Enviar un dado"
+
+msgid "Enviar una _ubicación…"
+msgstr "Enviar una _ubicación…"
+
+msgid "Enviar una ubicación a {t}"
+msgstr "Enviar una ubicación a {t}"
+
+msgid "Envío cancelado."
+msgstr "Envío cancelado."
+
+msgid "Es un _concurso (con respuesta correcta):"
+msgstr "Es un _concurso (con respuesta correcta):"
+
+msgid "Esa es la sesión actual."
+msgstr "Esa es la sesión actual."
+
+msgid "Escribe el mensaje y una fecha futura."
+msgstr "Escribe el mensaje y una fecha futura."
+
+msgid "Escribe el nombre y un usuario que acabe en bot."
+msgstr "Escribe el nombre y un usuario que acabe en bot."
+
+msgid "Escribe el teléfono y el nombre."
+msgstr "Escribe el teléfono y el nombre."
+
+msgid "Escribe el título y al menos una tarea."
+msgstr "Escribe el título y al menos una tarea."
+
+msgid "Escribe el título."
+msgstr "Escribe el título."
+
+msgid "Escribe el usuario y el nombre."
+msgstr "Escribe el usuario y el nombre."
+
+msgid "Escribe la fecha como AAAA-MM-DD HH:MM."
+msgstr "Escribe la fecha como AAAA-MM-DD HH:MM."
+
+msgid "Escribe la latitud y la longitud como números."
+msgstr "Escribe la latitud y la longitud como números."
+
+msgid "Escribe la pregunta y entre 2 y 10 opciones."
+msgstr "Escribe la pregunta y entre 2 y 10 opciones."
+
+msgid "Esta carpeta no tiene chats que se puedan compartir."
+msgstr "Esta carpeta no tiene chats que se puedan compartir."
+
+msgid "Estado de la potenciación del _canal…"
+msgstr "Estado de la potenciación del _canal…"
+
+msgid "Estado emoji quitado."
+msgstr "Estado emoji quitado."
+
+msgid "Este chat no es un bot o no publica comandos."
+msgstr "Este chat no es un bot o no publica comandos."
+
+msgid "Este chat no tiene temas."
+msgstr "Este chat no tiene temas."
+
+msgid "Este mensaje no tiene botones."
+msgstr "Este mensaje no tiene botones."
+
+msgid "Este mensaje no tiene lista de tareas."
+msgstr "Este mensaje no tiene lista de tareas."
+
+msgid "Exigir la _aprobación de un administrador:"
+msgstr "Exigir la _aprobación de un administrador:"
+
+msgid "Foro (supergrupo con temas)"
+msgstr "Foro (supergrupo con temas)"
+
+msgid "Foto cambiada."
+msgstr "Foto cambiada."
+
+msgid "Foto quitada."
+msgstr "Foto quitada."
+
+msgid "Hecha: "
+msgstr "Hecha: "
+
+msgid "Historia descargada."
+msgstr "Historia descargada."
+
+msgid "Historia marcada como vista."
+msgstr "Historia marcada como vista."
+
+msgid "Historias de tus contactos"
+msgstr "Historias de tus contactos"
+
+msgid "L_ongitud:"
+msgstr "L_ongitud:"
+
+msgid "Lista de bots"
+msgstr "Lista de bots"
+
+msgid "Lista de contactos"
+msgstr "Lista de contactos"
+
+msgid "Lista de sesiones"
+msgstr "Lista de sesiones"
+
+msgid "Lista de usuarios bloqueados"
+msgstr "Lista de usuarios bloqueados"
+
+msgid "Marcar como _hecha"
+msgstr "Marcar como _hecha"
+
+msgid "Marcar como _pendiente"
+msgstr "Marcar como _pendiente"
+
+msgid "Marcar las _menciones como leídas"
+msgstr "Marcar las _menciones como leídas"
+
+msgid "Marcar las _reacciones como leídas"
+msgstr "Marcar las _reacciones como leídas"
+
+msgid "Menciones marcadas como leídas."
+msgstr "Menciones marcadas como leídas."
+
+msgid "Mensaje guardado en tus mensajes guardados."
+msgstr "Mensaje guardado en tus mensajes guardados."
+
+msgid "Mensajes desfijados."
+msgstr "Mensajes desfijados."
+
+msgid "Mensajes pro_gramados…"
+msgstr "Mensajes pro_gramados…"
+
+msgid "Mensajes programados de {t}"
+msgstr "Mensajes programados de {t}"
+
+msgid "Mi _perfil…"
+msgstr "Mi _perfil…"
+
+msgid "Mi c_uenta"
+msgstr "Mi c_uenta"
+
+msgid "Miembros de {t}"
+msgstr "Miembros de {t}"
+
+msgid "Mis b_ots…"
+msgstr "Mis b_ots…"
+
+msgid "Nivel: {n}"
+msgstr "Nivel: {n}"
+
+msgid "No has bloqueado a nadie."
+msgstr "No has bloqueado a nadie."
+
+msgid "No has cambiado nada."
+msgstr "No has cambiado nada."
+
+msgid "No hay enlaces"
+msgstr "No hay enlaces"
+
+msgid "No hay perfiles alternativos para este chat."
+msgstr "No hay perfiles alternativos para este chat."
+
+msgid "No se pudieron cargar las carpetas: {e}"
+msgstr "No se pudieron cargar las carpetas: {e}"
+
+msgid "No se pudieron cargar las historias: {e}"
+msgstr "No se pudieron cargar las historias: {e}"
+
+msgid "No se pudieron cargar las solicitudes: {e}"
+msgstr "No se pudieron cargar las solicitudes: {e}"
+
+msgid "No se pudieron cargar los bots: {e}"
+msgstr "No se pudieron cargar los bots: {e}"
+
+msgid "No se pudieron cargar los contactos: {e}"
+msgstr "No se pudieron cargar los contactos: {e}"
+
+msgid "No se pudieron cargar los grupos: {e}"
+msgstr "No se pudieron cargar los grupos: {e}"
+
+msgid "No se pudieron cargar los temas: {e}"
+msgstr "No se pudieron cargar los temas: {e}"
+
+msgid "No se pudieron cargar: {e}"
+msgstr "No se pudieron cargar: {e}"
+
+msgid "No se pudieron leer los detalles: {e}"
+msgstr "No se pudieron leer los detalles: {e}"
+
+msgid "No se pudo crear el enlace: {e}"
+msgstr "No se pudo crear el enlace: {e}"
+
+msgid "No se pudo leer la encuesta: {e}"
+msgstr "No se pudo leer la encuesta: {e}"
+
+msgid "No se pudo traducir: {e}"
+msgstr "No se pudo traducir: {e}"
+
+msgid "No tienes bots."
+msgstr "No tienes bots."
+
+msgid "No tienes carpetas"
+msgstr "No tienes carpetas"
+
+msgid "Nombre de _usuario (debe acabar en bot):"
+msgstr "Nombre de _usuario (debe acabar en bot):"
+
+msgid "Nombre de _usuario (sin @):"
+msgstr "Nombre de _usuario (sin @):"
+
+msgid "Nota privada"
+msgstr "Nota privada"
+
+msgid "Nueva encuesta en {t}"
+msgstr "Nueva encuesta en {t}"
+
+msgid "Nueva lista de tareas en {t}"
+msgstr "Nueva lista de tareas en {t}"
+
+msgid "Nuevo enlace de invitación"
+msgstr "Nuevo enlace de invitación"
+
+msgid "Nuevo tema"
+msgstr "Nuevo tema"
+
+msgid "Número de la opción co_rrecta (concurso):"
+msgstr "Número de la opción co_rrecta (concurso):"
+
+msgid "Orden guardado."
+msgstr "Orden guardado."
+
+msgid "Otros pueden _añadir tareas:"
+msgstr "Otros pueden _añadir tareas:"
+
+msgid "Otros pueden _marcarlas como hechas:"
+msgstr "Otros pueden _marcarlas como hechas:"
+
+msgid "P_rivacidad…"
+msgstr "P_rivacidad…"
+
+msgid "Pendiente: "
+msgstr "Pendiente: "
+
+msgid "Perfil guardado."
+msgstr "Perfil guardado."
+
+msgid "Permisos guardados."
+msgstr "Permisos guardados."
+
+msgid "Permitir _varias respuestas:"
+msgstr "Permitir _varias respuestas:"
+
+msgid "Potenciación de {t}"
+msgstr "Potenciación de {t}"
+
+msgid "Potenciar el canal"
+msgstr "Potenciar el canal"
+
+msgid "Privacidad guardada."
+msgstr "Privacidad guardada."
+
+msgid "Programar un mensaje para {t}"
+msgstr "Programar un mensaje para {t}"
+
+msgid "Promover con permisos concretos…"
+msgstr "Promover con permisos concretos…"
+
+msgid "Promovido a administrador."
+msgstr "Promovido a administrador."
+
+msgid "Publicaciones de {t}"
+msgstr "Publicaciones de {t}"
+
+msgid "Publicar una historia"
+msgstr "Publicar una historia"
+
+msgid "Quitar el _estado emoji"
+msgstr "Quitar el _estado emoji"
+
+msgid "Quién se unió por este enlace"
+msgstr "Quién se unió por este enlace"
+
+msgid "Quién vio la historia"
+msgstr "Quién vio la historia"
+
+msgid "Reacciones marcadas como leídas."
+msgstr "Reacciones marcadas como leídas."
+
+msgid "Rechazar t_odas"
+msgstr "Rechazar t_odas"
+
+msgid "Registro de administración de {t}"
+msgstr "Registro de administración de {t}"
+
+msgid "Renombrar el tema"
+msgstr "Renombrar el tema"
+
+msgid "Restricciones quitadas."
+msgstr "Restricciones quitadas."
+
+msgid "Resultados de «{t}»"
+msgstr "Resultados de «{t}»"
+
+msgid "Revocado. "
+msgstr "Revocado. "
+
+msgid "S_eguridad (verificación en dos pasos)…"
+msgstr "S_eguridad (verificación en dos pasos)…"
+
+msgid "Se publicará con ese perfil."
+msgstr "Se publicará con ese perfil."
+
+msgid "Seguridad de la cuenta"
+msgstr "Seguridad de la cuenta"
+
+msgid "Sesiones activas"
+msgstr "Sesiones activas"
+
+msgid "Sesiones cerradas."
+msgstr "Sesiones cerradas."
+
+msgid "Sin acciones recientes."
+msgstr "Sin acciones recientes."
+
+msgid "Sin datos."
+msgstr "Sin datos."
+
+msgid "Solicitud aprobada."
+msgstr "Solicitud aprobada."
+
+msgid "Solicitudes de unión a {t}"
+msgstr "Solicitudes de unión a {t}"
+
+msgid "Su_bir"
+msgstr "Su_bir"
+
+msgid "T_raducir el mensaje (Telegram)…"
+msgstr "T_raducir el mensaje (Telegram)…"
+
+msgid "Tarea marcada como hecha."
+msgstr "Tarea marcada como hecha."
+
+msgid "Tarea marcada como pendiente."
+msgstr "Tarea marcada como pendiente."
+
+msgid "Tareas"
+msgstr "Tareas"
+
+msgid "Tareas añadidas."
+msgstr "Tareas añadidas."
+
+msgid "Te has unido."
+msgstr "Te has unido."
+
+msgid "Tema borrado."
+msgstr "Tema borrado."
+
+msgid "Tema cerrado."
+msgstr "Tema cerrado."
+
+msgid "Tema fijado."
+msgstr "Tema fijado."
+
+msgid "Tema renombrado."
+msgstr "Tema renombrado."
+
+msgid "Temas de {t}"
+msgstr "Temas de {t}"
+
+msgid "Todavía no has potenciado este canal."
+msgstr "Todavía no has potenciado este canal."
+
+msgid "Título cambiado."
+msgstr "Título cambiado."
+
+msgid "Título de administrador…"
+msgstr "Título de administrador…"
+
+msgid "Un grupo necesita al menos un miembro."
+msgstr "Un grupo necesita al menos un miembro."
+
+msgid "Unirse a un chat"
+msgstr "Unirse a un chat"
+
+msgid "Usuarios _bloqueados…"
+msgstr "Usuarios _bloqueados…"
+
+msgid "Ver la lista de tareas del _mensaje…"
+msgstr "Ver la lista de tareas del _mensaje…"
+
+msgid "Ver o _votar la encuesta del mensaje…"
+msgstr "Ver o _votar la encuesta del mensaje…"
+
+msgid "Verificación en dos pasos quitada."
+msgstr "Verificación en dos pasos quitada."
+
+msgid "Votos _anónimos:"
+msgstr "Votos _anónimos:"
+
+msgid "Ya has potenciado este canal."
+msgstr "Ya has potenciado este canal."
+
+msgid "_Abrir el chat"
+msgstr "_Abrir el chat"
+
+msgid "_Activar"
+msgstr "_Activar"
+
+msgid "_Activar la verificación en dos pasos…"
+msgstr "_Activar la verificación en dos pasos…"
+
+msgid "_Ajustes del chat…"
+msgstr "_Ajustes del chat…"
+
+msgid "_Apellido (opcional):"
+msgstr "_Apellido (opcional):"
+
+msgid "_Apellido:"
+msgstr "_Apellido:"
+
+msgid "_Añadir tareas…"
+msgstr "_Añadir tareas…"
+
+msgid "_Año (0 = no indicarlo):"
+msgstr "_Año (0 = no indicarlo):"
+
+msgid "_Botones del mensaje…"
+msgstr "_Botones del mensaje…"
+
+msgid "_Botón:"
+msgstr "_Botón:"
+
+msgid "_Buscar en todos los chats…"
+msgstr "_Buscar en todos los chats…"
+
+msgid "_Buscar…"
+msgstr "_Buscar…"
+
+msgid "_Caduca en días (0 = no caduca):"
+msgstr "_Caduca en días (0 = no caduca):"
+
+msgid "_Cambiar la contraseña…"
+msgstr "_Cambiar la contraseña…"
+
+msgid "_Cancelar el envío"
+msgstr "_Cancelar el envío"
+
+msgid "_Cerrar esta sesión"
+msgstr "_Cerrar esta sesión"
+
+msgid "_Cerrar la encuesta"
+msgstr "_Cerrar la encuesta"
+
+msgid "_Comando:"
+msgstr "_Comando:"
+
+msgid "_Contactos…"
+msgstr "_Contactos…"
+
+msgid "_Contraseña actual:"
+msgstr "_Contraseña actual:"
+
+msgid "_Copiar"
+msgstr "_Copiar"
+
+msgid "_Crear el enlace"
+msgstr "_Crear el enlace"
+
+msgid "_Crear un bot…"
+msgstr "_Crear un bot…"
+
+msgid "_Crear…"
+msgstr "_Crear…"
+
+msgid "_Cumpleaños…"
+msgstr "_Cumpleaños…"
+
+msgid "_Descargar"
+msgstr "_Descargar"
+
+msgid "_Descripción…"
+msgstr "_Descripción…"
+
+msgid "_Detalles del mensaje…"
+msgstr "_Detalles del mensaje…"
+
+msgid "_Día:"
+msgstr "_Día:"
+
+msgid "_Días de inactividad antes de borrar la cuenta:"
+msgstr "_Días de inactividad antes de borrar la cuenta:"
+
+msgid "_Días de inactividad antes de cerrar una sesión:"
+msgstr "_Días de inactividad antes de cerrar una sesión:"
+
+msgid "_Enlace de invitación o @usuario público:"
+msgstr "_Enlace de invitación o @usuario público:"
+
+msgid "_Enlace de la carpeta:"
+msgstr "_Enlace de la carpeta:"
+
+msgid "_Enlaces de invitación…"
+msgstr "_Enlaces de invitación…"
+
+msgid "_Enviar ahora"
+msgstr "_Enviar ahora"
+
+msgid "_Explicación de la respuesta (concurso, opcional):"
+msgstr "_Explicación de la respuesta (concurso, opcional):"
+
+msgid "_Fecha y hora (AAAA-MM-DD HH:MM):"
+msgstr "_Fecha y hora (AAAA-MM-DD HH:MM):"
+
+msgid "_Fijar el mensaje"
+msgstr "_Fijar el mensaje"
+
+msgid "_Fijar o desfijar"
+msgstr "_Fijar o desfijar"
+
+msgid "_Grupo de comentarios del canal…"
+msgstr "_Grupo de comentarios del canal…"
+
+msgid "_Grupo:"
+msgstr "_Grupo:"
+
+msgid "_Guardar el mensaje en Mensajes guardados"
+msgstr "_Guardar el mensaje en Mensajes guardados"
+
+msgid "_Historias de tus contactos…"
+msgstr "_Historias de tus contactos…"
+
+msgid "_Iniciar el bot"
+msgstr "_Iniciar el bot"
+
+msgid "_Juego:"
+msgstr "_Juego:"
+
+msgid "_Latitud:"
+msgstr "_Latitud:"
+
+msgid "_Límite de miembros (0 = sin límite):"
+msgstr "_Límite de miembros (0 = sin límite):"
+
+msgid "_Marcar como vista"
+msgstr "_Marcar como vista"
+
+msgid "_Mensajes especiales"
+msgstr "_Mensajes especiales"
+
+msgid "_Mes:"
+msgstr "_Mes:"
+
+msgid "_Miembros del grupo (@usuario separados por comas):"
+msgstr "_Miembros del grupo (@usuario separados por comas):"
+
+msgid "_Mis historias…"
+msgstr "_Mis historias…"
+
+msgid "_Modo lento en segundos (0 = desactivado):"
+msgstr "_Modo lento en segundos (0 = desactivado):"
+
+msgid "_Nombre del enlace:"
+msgstr "_Nombre del enlace:"
+
+msgid "_Nombre público (sin @, vacío = privado):"
+msgstr "_Nombre público (sin @, vacío = privado):"
+
+msgid "_Nombre…"
+msgstr "_Nombre…"
+
+msgid "_Nota (vacía = borrarla):"
+msgstr "_Nota (vacía = borrarla):"
+
+msgid "_Nota…"
+msgstr "_Nota…"
+
+msgid "_Opciones (una por línea, de 2 a 10):"
+msgstr "_Opciones (una por línea, de 2 a 10):"
+
+msgid "_Perfil:"
+msgstr "_Perfil:"
+
+msgid "_Pista (opcional):"
+msgstr "_Pista (opcional):"
+
+msgid "_Programar"
+msgstr "_Programar"
+
+msgid "_Programar un mensaje…"
+msgstr "_Programar un mensaje…"
+
+msgid "_Programar uno nuevo…"
+msgstr "_Programar uno nuevo…"
+
+msgid "_Publicar una…"
+msgstr "_Publicar una…"
+
+msgid "_Pulsar"
+msgstr "_Pulsar"
+
+msgid "_Quitar la foto"
+msgstr "_Quitar la foto"
+
+msgid "_Quitar la verificación en dos pasos…"
+msgstr "_Quitar la verificación en dos pasos…"
+
+msgid "_Quién la vio…"
+msgstr "_Quién la vio…"
+
+msgid "_Quién se unió…"
+msgstr "_Quién se unió…"
+
+msgid "_Registro de administración…"
+msgstr "_Registro de administración…"
+
+msgid "_Retirar mi voto"
+msgstr "_Retirar mi voto"
+
+msgid "_Revocar"
+msgstr "_Revocar"
+
+msgid "_Sesiones activas…"
+msgstr "_Sesiones activas…"
+
+msgid "_Solicitudes de unión…"
+msgstr "_Solicitudes de unión…"
+
+msgid "_Tareas (una por línea):"
+msgstr "_Tareas (una por línea):"
+
+msgid "_Tareas separadas por «;»:"
+msgstr "_Tareas separadas por «;»:"
+
+msgid "_Teléfono:"
+msgstr "_Teléfono:"
+
+msgid "_Temas del foro…"
+msgstr "_Temas del foro…"
+
+msgid "_Texto (opcional):"
+msgstr "_Texto (opcional):"
+
+msgid "_Tipo:"
+msgstr "_Tipo:"
+
+msgid "_Título (por ejemplo Moderador):"
+msgstr "_Título (por ejemplo Moderador):"
+
+msgid "_Título de la lista:"
+msgstr "_Título de la lista:"
+
+msgid "_Unirme por enlace…"
+msgstr "_Unirme por enlace…"
+
+msgid "_Unirse a un chat con un enlace…"
+msgstr "_Unirse a un chat con un enlace…"
+
+msgid "_Usuario (@usuario, número o teléfono):"
+msgstr "_Usuario (@usuario, número o teléfono):"
+
+msgid "_Usuarios (@usuario o número), separados por comas:"
+msgstr "_Usuarios (@usuario o número), separados por comas:"
+
+msgid "_Vaciar la conversación…"
+msgstr "_Vaciar la conversación…"
+
+msgid "_Votar esta opción"
+msgstr "_Votar esta opción"
+
+msgid "no tiene encuesta"
+msgstr "no tiene encuesta"
+
+msgid "sin nombre"
+msgstr "sin nombre"
+
+msgid "tu voto"
+msgstr "tu voto"
+
+msgid "{n} bloqueados"
+msgstr "{n} bloqueados"
+
+msgid "{n} bots"
+msgstr "{n} bots"
+
+msgid "{n} carpetas"
+msgstr "{n} carpetas"
+
+msgid "{n} contactos"
+msgstr "{n} contactos"
+
+msgid "{n} historias"
+msgstr "{n} historias"
+
+msgid "{n} programados"
+msgstr "{n} programados"
+
+msgid "{n} solicitudes pendientes"
+msgstr "{n} solicitudes pendientes"
+
+msgid "{n} tareas"
+msgstr "{n} tareas"
+
+msgid "{n} votos"
+msgstr "{n} votos"
+
+msgid "{t}: {v} votos, {p} %"
+msgstr "{t}: {v} votos, {p} %"
+
+msgid "«{t}» en {c}"
+msgstr "«{t}» en {c}"
+
+msgid "¿Aprobar todas las solicitudes?"
+msgstr "¿Aprobar todas las solicitudes?"
+
+msgid "¿Banear a {n}? Se le expulsa del grupo."
+msgstr "¿Banear a {n}? Se le expulsa del grupo."
+
+msgid "¿Borrar a {n} de tus contactos?"
+msgstr "¿Borrar a {n} de tus contactos?"
+
+msgid "¿Borrar el tema «{t}» con todos sus mensajes?"
+msgstr "¿Borrar el tema «{t}» con todos sus mensajes?"
+
+msgid "¿Borrar esta historia?"
+msgstr "¿Borrar esta historia?"
+
+msgid "¿Borrar la carpeta «{n}»? Los chats no se borran."
+msgstr "¿Borrar la carpeta «{n}»? Los chats no se borran."
+
+msgid "¿Borrar todos los mensajes de {n}?"
+msgstr "¿Borrar todos los mensajes de {n}?"
+
+msgid "¿Cerrar la encuesta? Ya no admitirá más votos."
+msgstr "¿Cerrar la encuesta? Ya no admitirá más votos."
+
+msgid ""
+"¿Cerrar todas las demás sesiones? Los otros dispositivos tendrán que volver "
+"a entrar."
+msgstr ""
+"¿Cerrar todas las demás sesiones? Los otros dispositivos tendrán que volver "
+"a entrar."
+
+msgid "¿Desfijar todos los mensajes de {t}?"
+msgstr "¿Desfijar todos los mensajes de {t}?"
+
+msgid "¿Rechazar todas las solicitudes?"
+msgstr "¿Rechazar todas las solicitudes?"
+
+msgid "¿Revocar este enlace? Dejará de funcionar."
+msgstr "¿Revocar este enlace? Dejará de funcionar."
+
+msgid "¿Vaciar la conversación con {t}? Se borra el historial."
+msgstr "¿Vaciar la conversación con {t}? Se borra el historial."
+
+msgid "  Parte {o}: {t}, mensaje {m}"
+msgstr "  Parte {o}: {t}, mensaje {m}"
+
+msgid "Adelante"
+msgstr "Adelante"
+
+msgid "Archivos y carpetas"
+msgstr "Archivos y carpetas"
+
+msgid "Atrás"
+msgstr "Atrás"
+
+msgid "Cambiar la descripción…"
+msgstr "Cambiar la descripción…"
+
+msgid "Carpeta añadida: {n} archivos en cola."
+msgstr "Carpeta añadida: {n} archivos en cola."
+
+msgid "Cifrado: {v}"
+msgstr "Cifrado: {v}"
+
+msgid "Creado: {v}"
+msgstr "Creado: {v}"
+
+msgid "Creando el canal privado…"
+msgstr "Creando el canal privado…"
+
+msgid "Descripción de «{n}»"
+msgstr "Descripción de «{n}»"
+
+msgid "Descripción: {v}"
+msgstr "Descripción: {v}"
+
+msgid "Eliminar Telegram Drive por completo…"
+msgstr "Eliminar Telegram Drive por completo…"
+
+msgid "Eliminar para siempre"
+msgstr "Eliminar para siempre"
+
+msgid "Enviar a la _papelera"
+msgstr "Enviar a la _papelera"
+
+msgid "Error al eliminar: {e}"
+msgstr "Error al eliminar: {e}"
+
+msgid "Error al reparar: {e}"
+msgstr "Error al reparar: {e}"
+
+msgid "Estado: {v}"
+msgstr "Estado: {v}"
+
+msgid "Fallida: {e}"
+msgstr "Fallida: {e}"
+
+msgid "Marcar o desmarcar"
+msgstr "Marcar o desmarcar"
+
+msgid "Modificado: {v}"
+msgstr "Modificado: {v}"
+
+msgid "Más _acciones…"
+msgstr "Más _acciones…"
+
+msgid "Más acciones"
+msgstr "Más acciones"
+
+msgid "No hay transferencias."
+msgstr "No hay transferencias."
+
+msgid "No se pudo eliminar la nube: {e}"
+msgstr "No se pudo eliminar la nube: {e}"
+
+msgid "Nombre: {v}"
+msgstr "Nombre: {v}"
+
+msgid "Omitir este archivo"
+msgstr "Omitir este archivo"
+
+msgid "Partes: {v}"
+msgstr "Partes: {v}"
+
+msgid "R_eintentar"
+msgstr "R_eintentar"
+
+msgid "Reanudando {n} transferencias pendientes."
+msgstr "Reanudando {n} transferencias pendientes."
+
+msgid "Reconstruir"
+msgstr "Reconstruir"
+
+msgid "Reconstruir el índice desde el canal"
+msgstr "Reconstruir el índice desde el canal"
+
+msgid "Reemplazar (quedan ambos hasta que borres el viejo)"
+msgstr "Reemplazar (quedan ambos hasta que borres el viejo)"
+
+msgid "Reintentar las eliminaciones pendientes"
+msgstr "Reintentar las eliminaciones pendientes"
+
+msgid ""
+"Reparado: {o} huérfanos borrados del canal, {b} archivos rotos quitados del "
+"índice."
+msgstr ""
+"Reparado: {o} huérfanos borrados del canal, {b} archivos rotos quitados del "
+"índice."
+
+msgid "Reparar"
+msgstr "Reparar"
+
+msgid "Revisar el canal…"
+msgstr "Revisar el canal…"
+
+msgid "Ruta: {v}"
+msgstr "Ruta: {v}"
+
+msgid "SHA-256: {v}"
+msgstr "SHA-256: {v}"
+
+msgid "Se vaciaron {n} elementos caducados de la papelera."
+msgstr "Se vaciaron {n} elementos caducados de la papelera."
+
+msgid "Solo las canceladas"
+msgstr "Solo las canceladas"
+
+msgid "Solo las completadas"
+msgstr "Solo las completadas"
+
+msgid "Solo las fallidas"
+msgstr "Solo las fallidas"
+
+msgid "Subir _carpeta…"
+msgstr "Subir _carpeta…"
+
+msgid "Subir un nivel"
+msgstr "Subir un nivel"
+
+msgid "Tamaño: {v}"
+msgstr "Tamaño: {v}"
+
+msgid "Telegram Drive eliminado."
+msgstr "Telegram Drive eliminado."
+
+msgid ""
+"Telegram Drive necesita un canal privado donde guardar tus archivos. Solo tú"
+" tendrás acceso. ¿Qué quieres hacer?"
+msgstr ""
+"Telegram Drive necesita un canal privado donde guardar tus archivos. Solo tú"
+" tendrás acceso. ¿Qué quieres hacer?"
+
+msgid "Telegram Drive — {u}"
+msgstr "Telegram Drive — {u}"
+
+msgid "Telegram _Drive (tu nube personal)…"
+msgstr "Telegram _Drive (tu nube personal)…"
+
+msgid "Tipo de contenido: {v}"
+msgstr "Tipo de contenido: {v}"
+
+msgid "Tipo: {v}"
+msgstr "Tipo: {v}"
+
+msgid "Todas las terminadas"
+msgstr "Todas las terminadas"
+
+msgid "Transferencias…"
+msgstr "Transferencias…"
+
+msgid "Ubicación: {u}"
+msgstr "Ubicación: {u}"
+
+msgid ""
+"Vas a ELIMINAR por completo tu Telegram Drive.\n"
+"\n"
+"Se borrará el canal privado de Telegram y con él TODOS tus archivos ({a} archivos, {c} carpetas, {t}). Esto NO se puede deshacer.\n"
+"\n"
+"¿Seguro?"
+msgstr ""
+"Vas a ELIMINAR por completo tu Telegram Drive.\n"
+"\n"
+"Se borrará el canal privado de Telegram y con él TODOS tus archivos ({a} archivos, {c} carpetas, {t}). Esto NO se puede deshacer.\n"
+"\n"
+"¿Seguro?"
+
+msgid "Ver la papelera"
+msgstr "Ver la papelera"
+
+msgid "Volver a mis archivos"
+msgstr "Volver a mis archivos"
+
+msgid "Ya existe «{n}» en esta carpeta. ¿_Qué quieres hacer?"
+msgstr "Ya existe «{n}» en esta carpeta. ¿_Qué quieres hacer?"
+
+msgid "_Buscar por nombre:"
+msgstr "_Buscar por nombre:"
+
+msgid "_Limpiar terminadas…"
+msgstr "_Limpiar terminadas…"
+
+msgid "_Nueva carpeta…"
+msgstr "_Nueva carpeta…"
+
+msgid "_Qué transferencias terminadas quitar:"
+msgstr "_Qué transferencias terminadas quitar:"
+
+msgid "_Subir archivos…"
+msgstr "_Subir archivos…"
+
+msgid ""
+"{a} archivos, {c} carpetas, {t}. Marcados: {m}. Transferencias activas: {n}."
+msgstr ""
+"{a} archivos, {c} carpetas, {t}. Marcados: {m}. Transferencias activas: {n}."
+
+msgid "{n} archivos añadidos a la cola de descarga."
+msgstr "{n} archivos añadidos a la cola de descarga."
+
+msgid "{n} archivos añadidos a la cola de subida."
+msgstr "{n} archivos añadidos a la cola de subida."
+
+msgid "{n} elementos copiados."
+msgstr "{n} elementos copiados."
+
+msgid "{n} elementos cortados."
+msgstr "{n} elementos cortados."
+
+msgid "{n} elementos pegados."
+msgstr "{n} elementos pegados."
+
+msgid "{n} eliminaciones pendientes resueltas."
+msgstr "{n} eliminaciones pendientes resueltas."
+
+msgid "{n} subidas no se pueden reanudar: su archivo de origen ya no existe."
+msgstr "{n} subidas no se pueden reanudar: su archivo de origen ya no existe."
+
+msgid "{n} transferencias"
+msgstr "{n} transferencias"
+
+msgid "{n} transferencias quitadas de la lista."
+msgstr "{n} transferencias quitadas de la lista."
+
+msgid "¿Eliminar DEFINITIVAMENTE {n} elementos? No se puede deshacer."
+msgstr "¿Eliminar DEFINITIVAMENTE {n} elementos? No se puede deshacer."
+
+msgid "¿Enviar {n} elementos a la papelera?"
+msgstr "¿Enviar {n} elementos a la papelera?"
+
+msgid ""
+"¿Reparar? Se borran del canal los huérfanos y se quitan del índice los "
+"rotos."
+msgstr ""
+"¿Reparar? Se borran del canal los huérfanos y se quitan del índice los "
+"rotos."
+
+msgid "Índice reconstruido: {n} elementos."
+msgstr "Índice reconstruido: {n} elementos."
+
+msgid ""
+"El canal tiene {t} documentos; {r} coinciden con tu índice.\n"
+"\n"
+"Documentos huérfanos: {o}\n"
+"Archivos con partes que faltan en el canal: {b}"
+msgstr ""
+"El canal tiene {t} documentos; {r} coinciden con tu índice.\n"
+"\n"
+"Documentos huérfanos: {o}\n"
+"Archivos con partes que faltan en el canal: {b}"
+
+msgid "(Crear un filtro nuevo)"
+msgstr "(Crear un filtro nuevo)"
+
+msgid "Asignar una etiqueta"
+msgstr "Asignar una etiqueta"
+
+msgid "Barra lateral de r/{s}"
+msgstr "Barra lateral de r/{s}"
+
+msgid "Bloquear el servidor {d}…"
+msgstr "Bloquear el servidor {d}…"
+
+msgid "Bloquear un servidor"
+msgstr "Bloquear un servidor"
+
+msgid "Borrar y _volver a redactar"
+msgstr "Borrar y _volver a redactar"
+
+msgid "Borrar y redactar"
+msgstr "Borrar y redactar"
+
+msgid "Cabecera quitada."
+msgstr "Cabecera quitada."
+
+msgid "Cargando la barra lateral…"
+msgstr "Cargando la barra lateral…"
+
+msgid "Cargando los emojis…"
+msgstr "Cargando los emojis…"
+
+msgid "Citas de tu publicación"
+msgstr "Citas de tu publicación"
+
+msgid "Cuenta destacada."
+msgstr "Cuenta destacada."
+
+msgid "Cuenta ya no destacada."
+msgstr "Cuenta ya no destacada."
+
+msgid "Cuentas _destacadas en mi perfil…"
+msgstr "Cuentas _destacadas en mi perfil…"
+
+msgid "Dejar de destacar la cuenta"
+msgstr "Dejar de destacar la cuenta"
+
+msgid "Destacar la cuenta en mi perfil"
+msgstr "Destacar la cuenta en mi perfil"
+
+msgid "Destacar un hashtag"
+msgstr "Destacar un hashtag"
+
+msgid "El usuario puede _editar el texto:"
+msgstr "El usuario puede _editar el texto:"
+
+msgid "Elementos de la barra lateral"
+msgstr "Elementos de la barra lateral"
+
+msgid "Emo_jis de un subreddit…"
+msgstr "Emo_jis de un subreddit…"
+
+msgid "Emojis de r/{s}"
+msgstr "Emojis de r/{s}"
+
+msgid ""
+"Es la primera vez: se ha guardado la lista de tus {n} seguidores. La próxima"
+" vez verás quién se ha ido y quién ha llegado."
+msgstr ""
+"Es la primera vez: se ha guardado la lista de tus {n} seguidores. La próxima"
+" vez verás quién se ha ido y quién ha llegado."
+
+msgid "Establecer _mi etiqueta…"
+msgstr "Establecer _mi etiqueta…"
+
+msgid "Etiquetas de r/{s}"
+msgstr "Etiquetas de r/{s}"
+
+msgid "Filtrar la publicación"
+msgstr "Filtrar la publicación"
+
+msgid "Filtro nuevo"
+msgstr "Filtro nuevo"
+
+msgid "Hashtag quitado."
+msgstr "Hashtag quitado."
+
+msgid "Hashtags destacados de @{a}"
+msgstr "Hashtags destacados de @{a}"
+
+msgid "Hashtags destacados en mi perfil"
+msgstr "Hashtags destacados en mi perfil"
+
+msgid "Hashtags destacados en su perfil…"
+msgstr "Hashtags destacados en su perfil…"
+
+msgid "Importación borrada."
+msgstr "Importación borrada."
+
+msgid "Importación cancelada."
+msgstr "Importación cancelada."
+
+msgid "Importación reintentada."
+msgstr "Importación reintentada."
+
+msgid "Lista de importaciones"
+msgstr "Lista de importaciones"
+
+msgid "Lista e_xclusiva (sus miembros no salen en Inicio):"
+msgstr "Lista e_xclusiva (sus miembros no salen en Inicio):"
+
+msgid "Listas a las que pertenece"
+msgstr "Listas a las que pertenece"
+
+msgid "Listas a las que pertenece…"
+msgstr "Listas a las que pertenece…"
+
+msgid "Listas de @{a}"
+msgstr "Listas de @{a}"
+
+msgid "Los adjuntos no se recuperan."
+msgstr "Los adjuntos no se recuperan."
+
+msgid "Mi nota privada sobre la cuenta…"
+msgstr "Mi nota privada sobre la cuenta…"
+
+msgid "Mis _importaciones…"
+msgstr "Mis _importaciones…"
+
+msgid "Mis _listas…"
+msgstr "Mis _listas…"
+
+msgid "Mostrar _respuestas:"
+msgstr "Mostrar _respuestas:"
+
+msgid "Más acciones sobre @{a}"
+msgstr "Más acciones sobre @{a}"
+
+msgid "Más acciones sobre la _cuenta del autor…"
+msgstr "Más acciones sobre la _cuenta del autor…"
+
+msgid "Nadie ha citado esta publicación."
+msgstr "Nadie ha citado esta publicación."
+
+msgid "No se pudieron cargar las citas: {e}"
+msgstr "No se pudieron cargar las citas: {e}"
+
+msgid "No se pudieron cargar las importaciones: {e}"
+msgstr "No se pudieron cargar las importaciones: {e}"
+
+msgid "No se pudieron cargar las plantillas: {e}"
+msgstr "No se pudieron cargar las plantillas: {e}"
+
+msgid "No se pudieron cargar las preferencias: {e}"
+msgstr "No se pudieron cargar las preferencias: {e}"
+
+msgid "No se pudieron cargar los emojis: {e}"
+msgstr "No se pudieron cargar los emojis: {e}"
+
+msgid "No se pudieron leer los filtros: {e}"
+msgstr "No se pudieron leer los filtros: {e}"
+
+msgid "No se pudo cargar la barra lateral: {e}"
+msgstr "No se pudo cargar la barra lateral: {e}"
+
+msgid "No se pudo consultar la cuenta: {e}"
+msgstr "No se pudo consultar la cuenta: {e}"
+
+msgid "No tiene hashtags destacados."
+msgstr "No tiene hashtags destacados."
+
+msgid "No tienes importaciones."
+msgstr "No tienes importaciones."
+
+msgid "Nuevos:"
+msgstr "Nuevos:"
+
+msgid "Política de citas cambiada."
+msgstr "Política de citas cambiada."
+
+msgid "Preferencias de _notificaciones…"
+msgstr "Preferencias de _notificaciones…"
+
+msgid "Publicaciones que te citan"
+msgstr "Publicaciones que te citan"
+
+msgid "Publicación borrada. Puedes volver a redactarla."
+msgstr "Publicación borrada. Puedes volver a redactarla."
+
+msgid "Publicación filtrada."
+msgstr "Publicación filtrada."
+
+msgid "Quitar mi foto de _perfil…"
+msgstr "Quitar mi foto de _perfil…"
+
+msgid "Quitar mi imagen de _cabecera…"
+msgstr "Quitar mi imagen de _cabecera…"
+
+msgid "Quién puede citar esta publicación"
+msgstr "Quién puede citar esta publicación"
+
+msgid "Quién puede citar mi publicación…"
+msgstr "Quién puede citar mi publicación…"
+
+msgid "Seguidores ahora: {n}"
+msgstr "Seguidores ahora: {n}"
+
+msgid "Seguidores en común con @{a}"
+msgstr "Seguidores en común con @{a}"
+
+msgid "Seguidores en común…"
+msgstr "Seguidores en común…"
+
+msgid "Seguimiento actualizado."
+msgstr "Seguimiento actualizado."
+
+msgid "Seguir a @{a}"
+msgstr "Seguir a @{a}"
+
+msgid "Seguir con opciones (impulsos y avisos)…"
+msgstr "Seguir con opciones (impulsos y avisos)…"
+
+msgid "Servidor bloqueado."
+msgstr "Servidor bloqueado."
+
+msgid "Servidor desbloqueado."
+msgstr "Servidor desbloqueado."
+
+msgid "Servidores _bloqueados…"
+msgstr "Servidores _bloqueados…"
+
+msgid "Servidores bloqueados"
+msgstr "Servidores bloqueados"
+
+msgid "Solo la pueden usar los _moderadores:"
+msgstr "Solo la pueden usar los _moderadores:"
+
+msgid "Solo puedes hacer esto con tus propias publicaciones"
+msgstr "Solo puedes hacer esto con tus propias publicaciones"
+
+msgid "Te han dejado de seguir:"
+msgstr "Te han dejado de seguir:"
+
+msgid "Tus listas de Mastodon"
+msgstr "Tus listas de Mastodon"
+
+msgid "Ver las citas de mi publicación…"
+msgstr "Ver las citas de mi publicación…"
+
+msgid "Ver sus _impulsos:"
+msgstr "Ver sus _impulsos:"
+
+msgid "_Asignar"
+msgstr "_Asignar"
+
+msgid "_Asignar a un usuario…"
+msgstr "_Asignar a un usuario…"
+
+msgid "_Avisarme de sus publicaciones nuevas:"
+msgstr "_Avisarme de sus publicaciones nuevas:"
+
+msgid "_Barra lateral de un subreddit…"
+msgstr "_Barra lateral de un subreddit…"
+
+msgid "_Bloquear uno…"
+msgstr "_Bloquear uno…"
+
+msgid "_Borrar plantilla"
+msgstr "_Borrar plantilla"
+
+msgid "_Elegir la imagen…"
+msgstr "_Elegir la imagen…"
+
+msgid "_Etiquetas (flair) de un subreddit…"
+msgstr "_Etiquetas (flair) de un subreddit…"
+
+msgid "_Filtrar esta publicación…"
+msgstr "_Filtrar esta publicación…"
+
+msgid "_Filtro:"
+msgstr "_Filtro:"
+
+msgid "_Hashtag (sin #):"
+msgstr "_Hashtag (sin #):"
+
+msgid "_Hashtags destacados en mi perfil…"
+msgstr "_Hashtags destacados en mi perfil…"
+
+msgid "_Nombre de la lista:"
+msgstr "_Nombre de la lista:"
+
+msgid "_Nombre del emoji (sin dos puntos):"
+msgstr "_Nombre del emoji (sin dos puntos):"
+
+msgid "_Nombre del filtro:"
+msgstr "_Nombre del filtro:"
+
+msgid "_Novedades de seguidores…"
+msgstr "_Novedades de seguidores…"
+
+msgid "_Nueva plantilla…"
+msgstr "_Nueva plantilla…"
+
+msgid "_Quién:"
+msgstr "_Quién:"
+
+msgid "_Revocar la cita"
+msgstr "_Revocar la cita"
+
+msgid "_Servidor (por ejemplo ejemplo.social):"
+msgstr "_Servidor (por ejemplo ejemplo.social):"
+
+msgid "_Texto de la etiqueta (vacío para quitarla):"
+msgstr "_Texto de la etiqueta (vacío para quitarla):"
+
+msgid "_Texto de la etiqueta:"
+msgstr "_Texto de la etiqueta:"
+
+msgid "_Texto de tu etiqueta (vacío para quitarla):"
+msgstr "_Texto de tu etiqueta (vacío para quitarla):"
+
+msgid "_Ver el contenido"
+msgstr "_Ver el contenido"
+
+msgid "editable"
+msgstr "editable"
+
+msgid "{n} citas"
+msgstr "{n} citas"
+
+msgid "{n} emojis"
+msgstr "{n} emojis"
+
+msgid "{n} importaciones"
+msgstr "{n} importaciones"
+
+msgid "{n} plantillas"
+msgstr "{n} plantillas"
+
+msgid "{n}, tipo {k}"
+msgstr "{n}, tipo {k}"
+
+msgid "¿Bloquear todo el servidor {d}? Dejarás de ver a sus cuentas."
+msgstr "¿Bloquear todo el servidor {d}? Dejarás de ver a sus cuentas."
+
+msgid "¿Borrar el emoji «{n}»?"
+msgstr "¿Borrar el emoji «{n}»?"
+
+msgid "¿Borrar la lista «{t}»?"
+msgstr "¿Borrar la lista «{t}»?"
+
+msgid "¿Borrar la plantilla «{t}»?"
+msgstr "¿Borrar la plantilla «{t}»?"
+
+msgid ""
+"¿Borrar la publicación y abrir el editor con su texto para volver a "
+"escribirla?"
+msgstr ""
+"¿Borrar la publicación y abrir el editor con su texto para volver a "
+"escribirla?"
+
+msgid "¿Quitar tu foto de perfil?"
+msgstr "¿Quitar tu foto de perfil?"
+
+msgid "¿Quitar tu imagen de cabecera?"
+msgstr "¿Quitar tu imagen de cabecera?"
+
+msgid "¿Revocar esta cita? Dejará de mostrar tu publicación."
+msgstr "¿Revocar esta cita? Dejará de mostrar tu publicación."
+
+msgid "Archivos importados: {a} de {b}"
+msgstr "Archivos importados: {a} de {b}"
+
+msgid "Buscando el paquete…"
+msgstr "Buscando el paquete…"
+
+msgid "Buscar con filtros"
+msgstr "Buscar con filtros"
+
+msgid "Buscar publicaciones con _filtros…"
+msgstr "Buscar publicaciones con _filtros…"
+
+msgid "Cambiar el _número de teléfono…"
+msgstr "Cambiar el _número de teléfono…"
+
+msgid "Cambiar el nombre de _usuario…"
+msgstr "Cambiar el nombre de _usuario…"
+
+msgid "Cambiar el número de teléfono"
+msgstr "Cambiar el número de teléfono"
+
+msgid "Cargando las sugerencias…"
+msgstr "Cargando las sugerencias…"
+
+msgid "Chats en _común con esta persona…"
+msgstr "Chats en _común con esta persona…"
+
+msgid "Chats en común con {t}"
+msgstr "Chats en común con {t}"
+
+msgid "Condiciones del servicio: {u}"
+msgstr "Condiciones del servicio: {u}"
+
+msgid "Consultando el estado de la cuenta…"
+msgstr "Consultando el estado de la cuenta…"
+
+msgid "Consultando la verificación de edad…"
+msgstr "Consultando la verificación de edad…"
+
+msgid "Contacto: {c}"
+msgstr "Contacto: {c}"
+
+msgid "Contactos importados."
+msgstr "Contactos importados."
+
+msgid "Continúa la verificación en el navegador."
+msgstr "Continúa la verificación en el navegador."
+
+msgid "Copia guardada en {r} ({k} KB)."
+msgstr "Copia guardada en {r} ({k} KB)."
+
+msgid "Copiar a _otro chat…"
+msgstr "Copiar a _otro chat…"
+
+msgid "Copiar el mensaje"
+msgstr "Copiar el mensaje"
+
+msgid "Correo: {c} ({v})"
+msgstr "Correo: {c} ({v})"
+
+msgid "Cuenta activada: {v}"
+msgstr "Cuenta activada: {v}"
+
+msgid "Cuentas sugeridas en {r}"
+msgstr "Cuentas sugeridas en {r}"
+
+msgid "Código enviado. Escríbelo para confirmar el cambio."
+msgstr "Código enviado. Escríbelo para confirmar el cambio."
+
+msgid "Descargando tu repositorio…"
+msgstr "Descargando tu repositorio…"
+
+msgid "Dominios disponibles: {d}"
+msgstr "Dominios disponibles: {d}"
+
+msgid "E_stado de la cuenta…"
+msgstr "E_stado de la cuenta…"
+
+msgid "Editar el texto de la historia"
+msgstr "Editar el texto de la historia"
+
+msgid "Editar el texto del archivo"
+msgstr "Editar el texto del archivo"
+
+msgid "El servidor no ha devuelto ninguna dirección."
+msgstr "El servidor no ha devuelto ninguna dirección."
+
+msgid "Elegir el GIF o el vídeo corto"
+msgstr "Elegir el GIF o el vídeo corto"
+
+msgid "Elegir el sticker"
+msgstr "Elegir el sticker"
+
+msgid "Elegir el vídeo cuadrado"
+msgstr "Elegir el vídeo cuadrado"
+
+msgid "Elegir las fotos o los vídeos del álbum"
+msgstr "Elegir las fotos o los vídeos del álbum"
+
+msgid "Enviar un _GIF…"
+msgstr "Enviar un _GIF…"
+
+msgid "Enviar un _sticker…"
+msgstr "Enviar un _sticker…"
+
+msgid "Enviar un sticker a {t}"
+msgstr "Enviar un sticker a {t}"
+
+msgid "Enviar un á_lbum…"
+msgstr "Enviar un á_lbum…"
+
+msgid "Enviar una _videonota…"
+msgstr "Enviar una _videonota…"
+
+msgid "Escribe al menos un contacto: teléfono y nombre."
+msgstr "Escribe al menos un contacto: teléfono y nombre."
+
+msgid "Escribe la fecha como AAAA-MM-DD."
+msgstr "Escribe la fecha como AAAA-MM-DD."
+
+msgid "Estado temporal"
+msgstr "Estado temporal"
+
+msgid ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+msgstr ""
+"Estado: {e}. ¿Exigida en tu país ({p})?: {x}. La verificación se completa en"
+" el navegador; esta aplicación no ve tus documentos."
+
+msgid "Esto solo está en W Social"
+msgstr "Esto solo está en W Social"
+
+msgid "Esto solo vale en la conversación con una persona."
+msgstr "Esto solo vale en la conversación con una persona."
+
+msgid "Exige invitación: {v}"
+msgstr "Exige invitación: {v}"
+
+msgid "Exige verificar el teléfono: {v}"
+msgstr "Exige verificar el teléfono: {v}"
+
+msgid "Feeds _populares…"
+msgstr "Feeds _populares…"
+
+msgid "GIF para {t}"
+msgstr "GIF para {t}"
+
+msgid "Guardar una _copia de mi cuenta…"
+msgstr "Guardar una _copia de mi cuenta…"
+
+msgid "Hilos silenciados y publicaciones _ocultas…"
+msgstr "Hilos silenciados y publicaciones _ocultas…"
+
+msgid "Hilos silenciados y publicaciones ocultas"
+msgstr "Hilos silenciados y publicaciones ocultas"
+
+msgid "Hilos silenciados: {n}"
+msgstr "Hilos silenciados: {n}"
+
+msgid "Historia desfijada."
+msgstr "Historia desfijada."
+
+msgid "Historia fijada en tu perfil."
+msgstr "Historia fijada en tu perfil."
+
+msgid "Historias _archivadas…"
+msgstr "Historias _archivadas…"
+
+msgid "Historias archivadas"
+msgstr "Historias archivadas"
+
+msgid "Historias de {t}"
+msgstr "Historias de {t}"
+
+msgid "Historias del _chat…"
+msgstr "Historias del _chat…"
+
+msgid "I_r a una fecha…"
+msgstr "I_r a una fecha…"
+
+msgid "Identificador: {d}"
+msgstr "Identificador: {d}"
+
+msgid "Información del _servidor…"
+msgstr "Información del _servidor…"
+
+msgid "Información del servidor"
+msgstr "Información del servidor"
+
+msgid "Ir a una fecha en {t}"
+msgstr "Ir a una fecha en {t}"
+
+msgid "Marcado como leído hasta este mensaje."
+msgstr "Marcado como leído hasta este mensaje."
+
+msgid "Marcar como leído _hasta este mensaje"
+msgstr "Marcar como leído _hasta este mensaje"
+
+msgid "Mejores amigos"
+msgstr "Mejores amigos"
+
+msgid "Mensajes cargados."
+msgstr "Mensajes cargados."
+
+msgid "No se encontró ese paquete: {e}"
+msgstr "No se encontró ese paquete: {e}"
+
+msgid "No se encontró ninguna publicación."
+msgstr "No se encontró ninguna publicación."
+
+msgid "No se encontró ningún feed."
+msgstr "No se encontró ningún feed."
+
+msgid "No tenéis ningún chat en común."
+msgstr "No tenéis ningún chat en común."
+
+msgid "No tiene historias activas."
+msgstr "No tiene historias activas."
+
+msgid "Número cambiado."
+msgstr "Número cambiado."
+
+msgid "Ocultar las _citas"
+msgstr "Ocultar las _citas"
+
+msgid "Ocultar las _respuestas en «Siguiendo»"
+msgstr "Ocultar las _respuestas en «Siguiendo»"
+
+msgid "Ocultar las respuestas a cuentas que _no sigo"
+msgstr "Ocultar las respuestas a cuentas que _no sigo"
+
+msgid "Ocultar los re_posts"
+msgstr "Ocultar los re_posts"
+
+msgid "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+msgstr "Ocultar respuestas con menos de _me gusta (0 = ninguna):"
+
+msgid "Política de privacidad: {u}"
+msgstr "Política de privacidad: {u}"
+
+msgid "Privacidad cambiada."
+msgstr "Privacidad cambiada."
+
+msgid "Privacidad de la historia"
+msgstr "Privacidad de la historia"
+
+msgid "Privacidad de los c_hats…"
+msgstr "Privacidad de los c_hats…"
+
+msgid "Privacidad de los chats"
+msgstr "Privacidad de los chats"
+
+msgid "Publicaciones encontradas"
+msgstr "Publicaciones encontradas"
+
+msgid "Publicaciones ocultas: {n}"
+msgstr "Publicaciones ocultas: {n}"
+
+msgid "Quién puede escribirme"
+msgstr "Quién puede escribirme"
+
+msgid "Reenviar el á_lbum entero…"
+msgstr "Reenviar el á_lbum entero…"
+
+msgid "Reenviar el álbum entero"
+msgstr "Reenviar el álbum entero"
+
+msgid "Repositorio válido: {v}"
+msgstr "Repositorio válido: {v}"
+
+msgid "Resultados: {t}"
+msgstr "Resultados: {t}"
+
+msgid "Revisión del repositorio: {v}"
+msgstr "Revisión del repositorio: {v}"
+
+msgid "Servidor: {p}"
+msgstr "Servidor: {p}"
+
+msgid "Texto editado."
+msgstr "Texto editado."
+
+msgid "Tu nombre de usuario ahora es @{h}."
+msgstr "Tu nombre de usuario ahora es @{h}."
+
+msgid "Un álbum necesita entre 2 y 10 fotos o vídeos."
+msgstr "Un álbum necesita entre 2 y 10 fotos o vídeos."
+
+msgid "Usuario: @{h}"
+msgstr "Usuario: @{h}"
+
+msgid "Videonota enviada."
+msgstr "Videonota enviada."
+
+msgid "Vista de las cronologías"
+msgstr "Vista de las cronologías"
+
+msgid "Vista guardada."
+msgstr "Vista guardada."
+
+msgid "_Abrir el feed"
+msgstr "_Abrir el feed"
+
+msgid "_Autor (opcional):"
+msgstr "_Autor (opcional):"
+
+msgid "_Cambiar el número"
+msgstr "_Cambiar el número"
+
+msgid "_Cargar"
+msgstr "_Cargar"
+
+msgid "_Contactos (teléfono, nombre, apellido):"
+msgstr "_Contactos (teléfono, nombre, apellido):"
+
+msgid "_Copiar a:"
+msgstr "_Copiar a:"
+
+msgid "_Correo (opcional):"
+msgstr "_Correo (opcional):"
+
+msgid "_Código recibido:"
+msgstr "_Código recibido:"
+
+msgid "_Desde (AAAA-MM-DD, opcional):"
+msgstr "_Desde (AAAA-MM-DD, opcional):"
+
+msgid "_Desfijar"
+msgstr "_Desfijar"
+
+msgid "_Editar el texto del archivo…"
+msgstr "_Editar el texto del archivo…"
+
+msgid "_Editar el texto…"
+msgstr "_Editar el texto…"
+
+msgid "_Enviar el código"
+msgstr "_Enviar el código"
+
+msgid "_Estado (vacío para retirarlo):"
+msgstr "_Estado (vacío para retirarlo):"
+
+msgid "_Estado temporal…"
+msgstr "_Estado temporal…"
+
+msgid "_Fecha (AAAA-MM-DD):"
+msgstr "_Fecha (AAAA-MM-DD):"
+
+msgid "_Fijar en el perfil"
+msgstr "_Fijar en el perfil"
+
+msgid "_Hasta (AAAA-MM-DD, opcional):"
+msgstr "_Hasta (AAAA-MM-DD, opcional):"
+
+msgid "_Idioma (por ejemplo es, opcional):"
+msgstr "_Idioma (por ejemplo es, opcional):"
+
+msgid "_Importar contactos…"
+msgstr "_Importar contactos…"
+
+msgid "_Minutos que se muestra:"
+msgstr "_Minutos que se muestra:"
+
+msgid "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+msgstr "_Nombre corto del paquete (por ejemplo AnimatedEmojies):"
+
+msgid "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+msgstr "_Nuevo nombre (por ejemplo nombre.bsky.social):"
+
+msgid "_Nuevo texto:"
+msgstr "_Nuevo texto:"
+
+msgid "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+msgstr "_Número nuevo (con prefijo, por ejemplo +34600000000):"
+
+msgid "_Orden de las respuestas en un hilo:"
+msgstr "_Orden de las respuestas en un hilo:"
+
+msgid "_Privacidad…"
+msgstr "_Privacidad…"
+
+msgid "_Pueden escribirme mensajes privados:"
+msgstr "_Pueden escribirme mensajes privados:"
+
+msgid "_Quién la ve:"
+msgstr "_Quién la ve:"
+
+msgid "_Sticker:"
+msgstr "_Sticker:"
+
+msgid "_Texto del álbum (opcional):"
+msgstr "_Texto del álbum (opcional):"
+
+msgid "_Verificación de edad…"
+msgstr "_Verificación de edad…"
+
+msgid "_Verificar en el navegador"
+msgstr "_Verificar en el navegador"
+
+msgid "_Vista de las cronologías y los hilos…"
+msgstr "_Vista de las cronologías y los hilos…"
+
+msgid "me gusta"
+msgstr "me gusta"
+
+msgid "sin correo"
+msgstr "sin correo"
+
+msgid "sin datos"
+msgstr "sin datos"
+
+msgid "sin emoji"
+msgstr "sin emoji"
+
+msgid "{n} contactos importados."
+msgstr "{n} contactos importados."
+
+msgid "{n} feeds"
+msgstr "{n} feeds"
+
+msgid "{n} mensajes cargados."
+msgstr "{n} mensajes cargados."
+
+msgid ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+msgstr ""
+"¿Cambiar tu nombre de usuario a @{h}? Quien te mencione con el anterior "
+"dejará de encontrarte."
+
+msgid "¿Quién puede e_scribirme?…"
+msgstr "¿Quién puede e_scribirme?…"
+
+msgid "Álbum para {t}"
+msgstr "Álbum para {t}"

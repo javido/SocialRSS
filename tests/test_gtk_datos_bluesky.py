@@ -75,9 +75,11 @@ def test_notificaciones_dicen_quien_y_que(cuenta):
 def test_url_web_y_buffers_extra(cuenta):
     assert db_.url_web("at://did:plc:x/app.bsky.feed.post/abc", "x.bsky.social") == "https://bsky.app/profile/x.bsky.social/post/abc"
     n = db_.nodo_extra(cuenta, "thread:at://z", "Hilo")
-    assert db_.nodo_extra(cuenta, "thread:at://z", "Hilo") is n and n.cerrable
+    assert db_.nodo_extra(cuenta, "thread:at://z", "Hilo").timeline == n.timeline and n.cerrable
+    hijos = lambda: [h.timeline for c in db_.construir_nodos().hijos if c.account_id == cuenta for h in c.hijos]  # noqa: E731
+    assert hijos().count("thread:at://z") == 1
     db_.cerrar_extra(n)
-    assert n not in next(c for c in db_.construir_nodos().hijos if c.account_id == cuenta).hijos
+    assert "thread:at://z" not in hijos()
 
 
 @pytest.fixture

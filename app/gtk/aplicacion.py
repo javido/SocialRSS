@@ -71,6 +71,7 @@ def _menu() -> Gio.Menu:
     feeds.append_section(None, sec((_("_Historial de lectura…"), "win.rss-historial"),
                                    (_("Estadísticas de _lectura…"), "win.rss-estadisticas"),
                                    (_("_Resumen de los artículos sin leer"), "win.rss-resumen"),
+                                   (_("Agrupar por _fecha"), "win.rss-agrupar-fecha"),
                                    (_("E_xportar artículos en lote…"), "win.rss-exportar"),
                                    (_("_Papelera de artículos…"), "win.herr-papelera")))
     barra.append_submenu(_("_Feeds"), feeds)
@@ -109,6 +110,11 @@ def _menu() -> Gio.Menu:
                                  (_("Re_portar la publicación"), "win.reportar"),
                                  (_("Cargar publicaciones _anteriores"), "win.cargar-mas"),
                                  (_("C_errar el buffer"), "win.cerrar-buffer")))
+    pub.append_section(None, sec((_("Más acciones sobre la _cuenta del autor…"), "win.ms-cuenta-del-autor"),
+                                 (_("_Filtrar esta publicación…"), "win.ms-filtrar-publicacion"),
+                                 (_("Borrar y _volver a redactar"), "win.ms-borrar-redactar"),
+                                 (_("Ver las citas de mi publicación…"), "win.ms-citas"),
+                                 (_("Quién puede citar mi publicación…"), "win.ms-politica-citas")))
     pub.append_section(None, sec((_("Quién la ha impulsa_do"), "win.quien-impulso"),
                                  (_("Quién la ha marcado como _favorita"), "win.quien-favorito"),
                                  (_("_Historial de ediciones"), "win.historial"),
@@ -135,6 +141,22 @@ def _menu() -> Gio.Menu:
                                      (_("Cuentas s_ilenciadas…"), "win.cuentas-muted")))
     cuentas.append_section(None, sec((_("Filtros del _servidor…"), "win.filtros"),
                                      (_("Editar _mi perfil…"), "win.mi-perfil")))
+    cuentas.append_section(None, sec((_("Mis _listas…"), "win.ms-listas"),
+                                     (_("_Hashtags destacados en mi perfil…"), "win.ms-hashtags-destacados"),
+                                     (_("Cuentas _destacadas en mi perfil…"), "win.ms-cuentas-destacadas"),
+                                     (_("Servidores _bloqueados…"), "win.ms-dominios-bloqueados"),
+                                     (_("_Novedades de seguidores…"), "win.ms-novedades-seguidores"),
+                                     (_("Quitar mi foto de _perfil…"), "win.ms-quitar-avatar"),
+                                     (_("Quitar mi imagen de _cabecera…"), "win.ms-quitar-cabecera")))
+    cuentas.append_section(None, sec((_("_Anuncios del servidor…"), "win.ms-anuncios"),
+                                     (_("Enlaces en _tendencia…"), "win.ms-enlaces-tendencia"),
+                                     (_("_Información de la instancia…"), "win.ms-info-instancia"),
+                                     (_("_Directorio de cuentas…"), "win.ms-directorio"),
+                                     (_("Cuentas _sugeridas…"), "win.ms-sugerencias")))
+    cuentas.append_section(None, sec((_("Mis co_lecciones…"), "win.ms-colecciones-mias"),
+                                     (_("Colecciones en las que _apareces…"), "win.ms-colecciones-donde-estoy"),
+                                     (_("Colecciones de una cuenta…"), "win.ms-colecciones-de"),
+                                     (_("Añadir al autor a una de mis colecciones…"), "win.ms-coleccion-anadir-autor")))
     cuentas.append_section(None, sec((_("Notificaciones a_grupadas…"), "win.notif-agrupadas"),
                                      (_("_Política de notificaciones…"), "win.notif-politica"),
                                      (_("Solicitudes de _notificaciones…"), "win.notif-solicitudes")))
@@ -142,6 +164,12 @@ def _menu() -> Gio.Menu:
     admin.append_section(None, sec((_("_Informes de moderación…"), "win.admin-informes"),
                                    (_("_Cuentas de la instancia…"), "win.admin-cuentas"),
                                    (_("_Dominios bloqueados…"), "win.admin-dominios")))
+    admin.append_section(None, sec((_("Bloqueos de _IP…"), "win.ms-admin-ip"),
+                                   (_("Dominios _permitidos…"), "win.ms-admin-permitidos"),
+                                   (_("Dominios de correo bloqueados…"), "win.ms-admin-correos"),
+                                   (_("Correos canónicos bloqueados…"), "win.ms-admin-canonicos"),
+                                   (_("_Tendencias y descubrimiento…"), "win.ms-admin-tendencias"),
+                                   (_("_Estadísticas del servidor…"), "win.ms-admin-estadisticas")))
     cuentas.append_submenu(_("Adminis_tración de la instancia"), admin)
     pub.append_submenu(_("Mi _cuenta"), cuentas)
     barra.append_submenu(_("_Mastodon"), pub)
@@ -172,6 +200,10 @@ def _menu() -> Gio.Menu:
                                   (_("Denunciar la publicación…"), "win.bsky-reportar"),
                                   (_("Denunciar la cuenta…"), "win.bsky-reportar-cuenta")))
     dm = Gio.Menu()
+    dm.append_section(None, sec((_("_Crear un grupo…"), "win.at-grupo-crear"),
+                                (_("_Entrar en un grupo con un enlace…"), "win.at-grupo-entrar"),
+                                (_("_Gestionar el grupo…"), "win.at-grupo-gestionar"),
+                                (_("Solicitudes de _mensajes…"), "win.at-solicitudes-mensajes")))
     dm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.bsky-mensaje-nuevo"),
                                 (_("Mensaje directo al _autor"), "win.bsky-mensaje-autor"),
                                 (_("_Reaccionar al mensaje…"), "win.bsky-reaccionar"),
@@ -182,6 +214,19 @@ def _menu() -> Gio.Menu:
                                  (_("S_iguiendo…"), "win.bsky-siguiendo"),
                                  (_("Cuentas _bloqueadas…"), "win.bsky-bloqueadas"),
                                  (_("Cuentas s_ilenciadas…"), "win.bsky-silenciadas")))
+    cta.append_section(None, sec((_("_Tendencias…"), "win.at-tendencias"),
+                                 (_("Paquetes de _inicio…"), "win.at-paquetes"),
+                                 (_("Buscar _cuentas…"), "win.at-buscar-cuentas"),
+                                 (_("Cuentas a cuya _actividad sigues…"), "win.at-actividad"),
+                                 (_("Cuentas _similares al autor…"), "win.at-cuentas-similares"),
+                                 (_("Seguidores _en común con el autor…"), "win.at-seguidores-conocidos"),
+                                 (_("_Feeds del autor…"), "win.at-feeds-de"),
+                                 (_("A_visarme cuando el autor publique"), "win.at-suscribir-actividad")))
+    cta.append_section(None, sec((_("Cuentas _sugeridas…"), "win.at-sugerencias"),
+                                 (_("Cambiar el nombre de _usuario…"), "win.at-cambiar-usuario"),
+                                 (_("_Vista de las cronologías y los hilos…"), "win.at-vista"),
+                                 (_("Hilos silenciados y publicaciones _ocultas…"), "win.at-ocultos"),
+                                 (_("Salida _pendiente…"), "win.at-salida")))
     cta.append_section(None, sec((_("_Listas…"), "win.bsky-listas"),
                                  (_("_Feeds…"), "win.bsky-feeds"),
                                  (_("_Palabras silenciadas…"), "win.bsky-palabras"),
@@ -218,6 +263,9 @@ def _menu() -> Gio.Menu:
                                 (_("Denunciar la publicación…"), "win.ws-reportar"),
                                 (_("Denunciar la cuenta…"), "win.ws-reportar-cuenta")))
     wdm = Gio.Menu()
+    wdm.append_section(None, sec((_("_Crear un grupo…"), "win.at-grupo-crear"),
+                                 (_("_Entrar en un grupo con un enlace…"), "win.at-grupo-entrar"),
+                                 (_("_Gestionar el grupo…"), "win.at-grupo-gestionar")))
     wdm.append_section(None, sec((_("_Nuevo mensaje directo…"), "win.ws-mensaje-nuevo"),
                                  (_("Mensaje directo al _autor"), "win.ws-mensaje-autor"),
                                  (_("_Reaccionar al mensaje…"), "win.ws-reaccionar"),
@@ -228,7 +276,25 @@ def _menu() -> Gio.Menu:
                                   (_("S_iguiendo…"), "win.ws-siguiendo"),
                                   (_("Cuentas _bloqueadas…"), "win.ws-bloqueadas"),
                                   (_("Cuentas s_ilenciadas…"), "win.ws-silenciadas")))
-    wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),))
+    wcta.append_section(None, sec((_("_Tendencias…"), "win.at-tendencias"),
+                                  (_("Paquetes de _inicio…"), "win.at-paquetes"),
+                                  (_("Buscar _cuentas…"), "win.at-buscar-cuentas")))
+    wcta.append_section(None, sec((_("_Listas…"), "win.ws-listas"),
+                                  (_("_Palabras silenciadas…"), "win.ws-palabras"),
+                                  (_("Preferencias de _contenido…"), "win.ws-contenido"),
+                                  (_("Servicios de _etiquetado…"), "win.ws-etiquetadores"),
+                                  (_("_Borradores del servidor…"), "win.ws-borradores"),
+                                  (_("Salida _pendiente…"), "win.at-salida")))
+    wcta.append_section(None, sec((_("Cuentas _sugeridas…"), "win.at-sugerencias"),
+                                  (_("Feeds _populares…"), "win.at-feeds-populares"),
+                                  (_("Buscar publicaciones con _filtros…"), "win.at-busqueda-filtros"),
+                                  (_("_Estado temporal…"), "win.at-estado-temporal"),
+                                  (_("¿Quién puede e_scribirme?…"), "win.at-privacidad-chat")))
+    wcta.append_section(None, sec((_("E_stado de la cuenta…"), "win.at-estado-cuenta"),
+                                  (_("Información del _servidor…"), "win.at-servidor"),
+                                  (_("_Verificación de edad…"), "win.at-verificacion-edad"),
+                                  (_("Cambiar el nombre de _usuario…"), "win.at-cambiar-usuario"),
+                                  (_("Guardar una _copia de mi cuenta…"), "win.at-exportar-repositorio")))
     wcta.append_section(None, sec((_("Editar mi _perfil…"), "win.ws-mi-perfil"),
                                   (_("_Contraseñas de aplicación…"), "win.ws-claves"),
                                   (_("_Volver a autorizar la cuenta…"), "win.ws-reautorizar"),
@@ -311,6 +377,20 @@ def _menu() -> Gio.Menu:
                                     (_("_Fijar el subreddit en el árbol"), "win.rd-fijar"),
                                     (_("Mensaje privado al autor…"), "win.rd-mensaje-autor"),
                                     (_("Marcar la bandeja como _leída"), "win.marcar-todo-leido")))
+        rd.append_section(None, sec((_("Moderar el elemento enfo_cado…"), "win.rd-moderar"),
+                                    (_("Cola de moderación…"), "win.rd-mod-cola"),
+                                    (_("Usuarios del subreddit…"), "win.rd-mod-usuarios"),
+                                    (_("Motivos de eliminación…"), "win.rd-mod-motivos"),
+                                    (_("Configuración del subreddit…"), "win.rd-mod-config"),
+                                    (_("Registro de moderación…"), "win.rd-mod-registro")))
+        rd.append_section(None, sec((_("_Wiki de un subreddit…"), "win.rd-wiki"),
+                                    (_("_Modmail…"), "win.rd-modmail"),
+                                    (_("Hilos en _directo…"), "win.rd-live"),
+                                    (_("_Etiquetas (flair) de un subreddit…"), "win.rd-flairs"),
+                                    (_("Emo_jis de un subreddit…"), "win.rd-emojis"),
+                                    (_("_Barra lateral de un subreddit…"), "win.rd-widgets"),
+                                    (_("Co_lecciones de un subreddit…"), "win.rd-colecciones"),
+                                    (_("Bo_rradores de Reddit…"), "win.rd-borradores")))
         rd.append_section(None, sec((_("Mostrar u ocultar bu_ffers…"), "win.rd-ocultar-buffers"),
                                     (_("Volver a autorizar la cuenta…"), "win.rd-reautorizar"),
                                     (_("Eliminar la cuenta…"), "win.eliminar-cuenta")))
@@ -345,6 +425,26 @@ def _menu() -> Gio.Menu:
                                     (_("_Borrar o quitar…"), "win.papelera"),
                                     (_("Crear una lista o un canal (en su sección)"), "win.nuevo"),
                                     (_("Vaciar el _historial…"), "win.pt-vaciar-historial")))
+        mod = Gio.Menu()
+        mod.append_section(None, sec((_("Cola de denuncias…"), "win.pt-mod-denuncias"),
+                                     (_("Vídeos bloqueados…"), "win.pt-mod-bloqueados")))
+        adm = Gio.Menu()
+        adm.append_section(None, sec((_("Usuarios…"), "win.pt-admin-usuarios"),
+                                     (_("Solicitudes de registro…"), "win.pt-admin-registros"),
+                                     (_("Federación (instancias)…"), "win.pt-admin-federacion"),
+                                     (_("Trabajos del servidor…"), "win.pt-admin-trabajos"),
+                                     (_("Plugins…"), "win.pt-admin-plugins"),
+                                     (_("Tokens de runners…"), "win.pt-admin-runners")))
+        pt.append_section(None, sec((_("Crear un _directo…"), "win.pt-crear-directo"),
+                                    (_("Estadísticas del _vídeo…"), "win.pt-estadisticas-video"),
+                                    (_("Datos de emisión del directo…"), "win.pt-datos-emision"),
+                                    (_("Sesiones y repeticiones del directo…"), "win.pt-sesiones-directo"),
+                                    (_("Estadísticas de la instancia…"), "win.pt-estadisticas-instancia"),
+                                    (_("Mis denuncias…"), "win.pt-mis-denuncias"),
+                                    (_("Mis _importaciones…"), "win.pt-importaciones"),
+                                    (_("Preferencias de _notificaciones…"), "win.pt-avisos")))
+        pt.append_submenu(_("_Moderación"), mod)
+        pt.append_submenu(_("_Administración"), adm)
         pt.append_section(None, sec((_("Silenciar la cuenta del autor"), "win.pt-silenciar"),
                                     (_("Silenciar la instancia del autor"), "win.pt-silenciar-instancia"),
                                     (_("_Reportar el vídeo…"), "win.pt-reportar"),
@@ -370,6 +470,15 @@ def _menu() -> Gio.Menu:
                                 (_("Enviar un a_rchivo…"), "win.tg-enviar-archivo"),
                                 (_("_Grabar y enviar una nota de voz"), "win.grabar-voz"),
                                 (_("Cancelar la grabación de voz"), "win.cancelar-voz")))
+    tg.append_section(None, sec((_("Carpetas de _chats…"), "win.tg-carpetas"),
+                                (_("Crear un grupo, foro o _canal…"), "win.tg-crear-chat"),
+                                (_("_Unirse a un chat con un enlace…"), "win.tg-unirse-enlace"),
+                                (_("_Buscar en todos los chats…"), "win.tg-buscar-global"),
+                                (_("Buscar en el chat _actual…"), "win.tg-buscar-chat"),
+                                (_("Buscar publicaciones de canales por _hashtag…"), "win.tg-buscar-publicaciones"),
+                                (_("Chats _frecuentes…"), "win.tg-frecuentes"),
+                                (_("Canales _parecidos…"), "win.tg-similares"),
+                                (_("Contenido _compartido del chat…"), "win.tg-medios")))
     tg.append_section(None, sec((_("Nuevo _chat con un usuario…"), "win.tg-chat-nuevo"),
                                 (_("Mensajes _guardados"), "win.tg-guardados"),
                                 (_("_Silenciar o reactivar el chat"), "win.tg-silenciar"),
@@ -380,6 +489,69 @@ def _menu() -> Gio.Menu:
                                 (_("Marcar _todos como leídos"), "win.tg-todo-leido"),
                                 (_("_Información del chat"), "win.perfil"),
                                 (_("Cargar mensajes _anteriores"), "win.cargar-mas")))
+    tgm = Gio.Menu()
+    tgm.append_section(None, sec((_("Crear una _encuesta…"), "win.tg-encuesta-nueva"),
+                                 (_("Ver o _votar la encuesta del mensaje…"), "win.tg-encuesta"),
+                                 (_("Crear una lista de _tareas…"), "win.tg-lista-tareas-nueva"),
+                                 (_("Ver la lista de tareas del _mensaje…"), "win.tg-lista-tareas"),
+                                 (_("Enviar una _ubicación…"), "win.tg-ubicacion"),
+                                 (_("Compartir un c_ontacto…"), "win.tg-contacto"),
+                                 (_("Enviar un _dado…"), "win.tg-dado")))
+    tgm.append_section(None, sec((_("Enviar un á_lbum…"), "win.tg-album"),
+                                 (_("Enviar un _GIF…"), "win.tg-gif"),
+                                 (_("Enviar un _sticker…"), "win.tg-sticker"),
+                                 (_("Enviar una _videonota…"), "win.tg-videonota")))
+    tgm.append_section(None, sec((_("_Editar el texto del archivo…"), "win.tg-editar-pie"),
+                                 (_("Copiar a _otro chat…"), "win.tg-copiar-a"),
+                                 (_("Reenviar el á_lbum entero…"), "win.tg-reenviar-album"),
+                                 (_("Marcar como leído _hasta este mensaje"), "win.tg-leido-hasta"),
+                                 (_("I_r a una fecha…"), "win.tg-saltar-fecha"),
+                                 (_("Chats en _común con esta persona…"), "win.tg-chats-comun"),
+                                 (_("Historias del _chat…"), "win.tg-historias-chat")))
+    tgm.append_section(None, sec((_("_Fijar el mensaje"), "win.tg-fijar-mensaje"),
+                                 (_("D_esfijar el mensaje"), "win.tg-desfijar-mensaje"),
+                                 (_("Desfijar _todos los mensajes"), "win.tg-desfijar-todos"),
+                                 (_("_Programar un mensaje…"), "win.tg-programar"),
+                                 (_("Mensajes pro_gramados…"), "win.tg-programados")))
+    tgm.append_section(None, sec((_("_Botones del mensaje…"), "win.tg-botones"),
+                                 (_("Comandos del _bot…"), "win.tg-comandos-bot"),
+                                 (_("_Iniciar el bot"), "win.tg-iniciar-bot")))
+    tgm.append_section(None, sec((_("_Detalles del mensaje…"), "win.tg-detalles-mensaje"),
+                                 (_("T_raducir el mensaje (Telegram)…"), "win.tg-traducir-mensaje"),
+                                 (_("_Guardar el mensaje en Mensajes guardados"), "win.tg-guardar-mensaje"),
+                                 (_("Borrar el archivo descargado de este e_quipo"), "win.tg-borrar-descarga"),
+                                 (_("Marcar las _menciones como leídas"), "win.tg-menciones-leidas"),
+                                 (_("Marcar las _reacciones como leídas"), "win.tg-reacciones-leidas")))
+    tg.append_submenu(_("_Mensajes especiales"), tgm)
+    tga = Gio.Menu()
+    tga.append_section(None, sec((_("_Miembros…"), "win.tg-miembros"),
+                                 (_("_Enlaces de invitación…"), "win.tg-enlaces"),
+                                 (_("_Solicitudes de unión…"), "win.tg-solicitudes"),
+                                 (_("_Ajustes del chat…"), "win.tg-ajustes"),
+                                 (_("_Temas del foro…"), "win.tg-temas"),
+                                 (_("_Grupo de comentarios del canal…"), "win.tg-grupo-comentarios"),
+                                 (_("_Registro de administración…"), "win.tg-registro-admin"),
+                                 (_("_Vaciar la conversación…"), "win.tg-vaciar"),
+                                 (_("Enviar _como…"), "win.tg-enviar-como")))
+    tg.append_submenu(_("Administrar el _chat"), tga)
+    tgc = Gio.Menu()
+    tgc.append_section(None, sec((_("Mi _perfil…"), "win.tg-mi-perfil"),
+                                 (_("_Contactos…"), "win.tg-contactos"),
+                                 (_("Usuarios _bloqueados…"), "win.tg-bloqueados"),
+                                 (_("_Sesiones activas…"), "win.tg-sesiones"),
+                                 (_("P_rivacidad…"), "win.tg-privacidad"),
+                                 (_("S_eguridad (verificación en dos pasos)…"), "win.tg-seguridad")))
+    tgc.append_section(None, sec((_("Privacidad de los c_hats…"), "win.tg-privacidad-global"),
+                                 (_("Cambiar el _número de teléfono…"), "win.tg-cambiar-numero"),
+                                 (_("_Importar contactos…"), "win.tg-importar-contactos")))
+    tgc.append_section(None, sec((_("Historias _archivadas…"), "win.tg-historias-archivadas"),
+                                 (_("_Historias de tus contactos…"), "win.tg-historias"),
+                                 (_("_Mis historias…"), "win.tg-mis-historias"),
+                                 (_("Mis b_ots…"), "win.tg-mis-bots"),
+                                 (_("Estado de la potenciación del _canal…"), "win.tg-boosts"),
+                                 (_("Potenciar el canal"), "win.tg-potenciar")))
+    tg.append_submenu(_("Mi c_uenta"), tgc)
+    tg.append_section(None, sec((_("Telegram _Drive (tu nube personal)…"), "win.tg-drive"),))
     tg.append_section(None, sec((_("Credenciales de la _API…"), "win.tg-credenciales"),
                                 (_("Cerrar la _sesión y eliminar la cuenta…"), "win.tg-eliminar-cuenta")))
     barra.append_submenu(_("_Telegram"), tg)
@@ -459,6 +631,14 @@ def _menu() -> Gio.Menu:
                                 (_("E_xportar la conversación…"), "win.x-exportar")))
     xm.append_section(None, sec((_("Activar o quitar el cifrado _OMEMO"), "win.x-cifrado"),
                                 (_("_Huellas de cifrado OMEMO…"), "win.x-huellas")))
+    xm.append_section(None, sec((_("Comandos del _servidor…"), "win.x-comandos-servidor"),
+                                (_("Comandos del chat o la pasarela enfocados…"), "win.x-comandos-de"),
+                                (_("_Pasarelas (WhatsApp, Telegram…)…"), "win.x-pasarelas"),
+                                (_("Buscar _usuarios en el servidor…"), "win.x-buscar-usuarios")))
+    xm.append_section(None, sec((_("Editar mi _ficha (vCard)…"), "win.x-editar-ficha"),
+                                (_("Cambiar la _contraseña…"), "win.x-cambiar-contrasena"),
+                                (_("Crear una cuenta _nueva en un servidor…"), "win.x-crear-cuenta-nueva"),
+                                (_("Borrar mi cuenta del _servidor…"), "win.x-cancelar-cuenta-servidor")))
     xm.append_section(None, sec((_("Mi _presencia…"), "win.x-presencia"),
                                 (_("Mi estado de á_nimo…"), "win.x-animo"),
                                 (_("Mi activi_dad…"), "win.x-actividad"),
@@ -576,7 +756,7 @@ def _menu() -> Gio.Menu:
     herr.append_section(None, sec((_("_Ponte al día (resumen con IA)…"), "win.herr-ponte-al-dia"),
                                   (_("_Estadísticas de mis redes…"), "win.herr-estadisticas")))
     herr.append_section(None, sec((_("Mostrar u _ocultar buffers…"), "win.herr-buffers"),
-                                  (_("_Editor de plantillas de lectura (Reddit y PeerTube)…"), "win.herr-plantillas"),
+                                  (_("_Editor de plantillas de lectura…"), "win.herr-plantillas"),
                                   (_("Editor de _atajos de teclado…"), "win.herr-atajos"),
                                   (_("C_omplementos…"), "win.herr-complementos"),
                                   (_("_Visor de registros…"), "win.herr-registro")))
@@ -587,6 +767,12 @@ def _menu() -> Gio.Menu:
                                  (_("Ir a la lista de artículos"), "win.ir-lista"),
                                  (_("Ir al texto del artículo"), "win.ir-lectura"),
                                  (_("_Buscar"), "win.buscar")))
+    ver.append_section(None, sec((_("Mostrar u ocultar la _bandeja de entrada"), "win.bandeja-alternar"),
+                                 (_("_Añadir buffers a la bandeja…"), "win.bandeja-anadir"),
+                                 (_("_Quitar buffers de la bandeja…"), "win.bandeja-quitar"),
+                                 (_("Ir al buffer de _origen de la publicación"), "win.bandeja-origen")))
+    ver.append_section(None, sec((_("Mover hacia a_rriba el elemento del árbol (Ctrl+Arriba en el árbol)"), "win.arbol-subir"),
+                                 (_("Mover hacia a_bajo el elemento del árbol (Ctrl+Abajo en el árbol)"), "win.arbol-bajar")))
     barra.append_submenu(_("_Ver"), ver)
 
     ayuda = Gio.Menu()

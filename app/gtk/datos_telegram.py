@@ -10,6 +10,7 @@ from typing import Dict, List, Optional
 
 from app.core.database import db
 from .datos import Nodo, Fila, buffer_oculto
+from .lectura import con_plantilla
 
 log = logging.getLogger(__name__)
 
@@ -153,12 +154,18 @@ def _listar_chats(account_id: int, solo_no_leidos: bool, limite: int) -> List[Fi
             texto += " · " + _("silenciado")
         if tipo in TIPOS_CHAT:
             texto += " · " + _(TIPOS_CHAT[tipo])
-        filas.append(Fila(id=str(cid), feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha=fecha,
-                          leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="",
-                          servicio="telegram",
-                          extra={"tipo": "chat", "account_id": account_id, "chat_id": cid, "titulo": nombre,
-                                 "chat_tipo": tipo, "usuario": usuario, "silenciado": bool(silenciado),
-                                 "fijado": bool(fijado), "no_leidos": no_leidos, "propio": False}))
+        filas.append(con_plantilla(
+            Fila(id=str(cid), feed_id=0, feed_titulo=nombre, titulo=texto, autor=nombre, fecha=fecha,
+                 leido=not no_leidos, favorito=False, mas_tarde=False, audio=False, enlace="",
+                 servicio="telegram",
+                 extra={"tipo": "chat", "account_id": account_id, "chat_id": cid, "titulo": nombre,
+                        "chat_tipo": tipo, "usuario": usuario, "silenciado": bool(silenciado),
+                        "fijado": bool(fijado), "no_leidos": no_leidos, "propio": False}),
+            "telegram_chat", {
+                "chat": nombre, "type": _(TIPOS_CHAT[tipo]) if tipo in TIPOS_CHAT else "", "content": resumen,
+                "unread": _("{n} sin leer").format(n=no_leidos) if no_leidos else "",
+                "silenciado": _("Silenciado") if silenciado else "", "fijado": _("Fijado") if fijado else "",
+                "verificado": _("Verificado") if verificado else "", "protegido": ""}))
     return filas
 
 
@@ -196,7 +203,7 @@ def _fila_mensaje(r, account_id: int, chat_id: int, leido_hasta: int) -> Fila:
     nuevo = (not saliente) and mid > leido_hasta > 0
     if nuevo:
         linea = _("Nuevo. ") + linea
-    return Fila(id=f"{account_id}:{chat_id}:{mid}", feed_id=0, feed_titulo=quien, titulo=linea, autor=quien,
+    fila = Fila(id=f"{account_id}:{chat_id}:{mid}", feed_id=0, feed_titulo=quien, titulo=linea, autor=quien,
                 fecha=fecha, leido=not nuevo, favorito=False, mas_tarde=False, audio=medio in REPRODUCIBLES,
                 enlace="", servicio="telegram",
                 extra={"tipo": "mensaje", "account_id": account_id, "chat_id": chat_id, "message_id": mid,
@@ -205,6 +212,14 @@ def _fila_mensaje(r, account_id: int, chat_id: int, leido_hasta: int) -> Fila:
                        "reproducible": medio in REPRODUCIBLES, "descargable": medio in DESCARGABLES,
                        "nombre_archivo": nombre_archivo, "responde_a": responde, "nuevo": nuevo,
                        "album": album, "urls": urls})
+    adjunto_txt = adjunto + (" " + _("(F2 para reproducir)") if adjunto and medio in REPRODUCIBLES else "")
+    return con_plantilla(fila, "telegram_message", {
+        "author": quien, "username": f"@{usuario}" if usuario else "", "content": cuerpo, "media": adjunto_txt,
+        "descarga": _("Descargado") if descargado else "", "flags": _("Editado") if editado else "",
+        "respuesta": _("Respuesta") if responde else "",
+        "reenviado": _("Reenviado de {n}").format(n=reenviado) if reenviado else "",
+        "vistas": _("{n} vistas").format(n=vistas) if vistas else "", "reactions": reacciones or "",
+        "botones": _("Con botones") if botones else "", "album": _("Álbum") if album else ""})
 
 
 def leido_hasta(account_id: int, chat_id: int) -> int:

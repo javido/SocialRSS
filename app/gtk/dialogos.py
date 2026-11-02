@@ -28,6 +28,8 @@ class DialogoBase(Gtk.Window):
     def __init__(self, padre, titulo: str, aceptar: str = None):
         super().__init__(title=titulo, transient_for=padre, modal=True, resizable=False)
         self.padre = padre
+        from .mnemonicos import vigilar
+        vigilar(self)
         caja = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(14)
@@ -113,7 +115,7 @@ class DialogoTeclas(Gtk.Window):
     def __init__(self, padre):
         super().__init__(title=_("Teclas de la aplicación"), transient_for=padre, modal=True)
         self.set_default_size(560, 520)
-        tv = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        tv = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                           left_margin=10, right_margin=10, top_margin=8, bottom_margin=8)
         tv.update_property([Gtk.AccessibleProperty.LABEL], [_("Lista de teclas")])
         tv.get_buffer().set_text(_teclas())
@@ -243,6 +245,12 @@ def _teclas() -> str:
         "",
         _("Árbol de feeds"),
         _("Tecla Menú o Mayús+F10 sobre un feed, una carpeta o una cuenta: actualizar, fijar, pausar, renombrar, mover, editar..."),
+        _("Botonera de acciones (Preferencias): Tab desde la lista llega a los botones; Izquierda y Derecha cambian de botón"),
+        _("Ctrl+Arriba / Ctrl+Abajo: mueve el elemento del árbol (servicios, cuentas, buffers, feeds y categorías)"),
+        "",
+        _("Bandeja de entrada"),
+        _("Ver, Añadir buffers a la bandeja (o Añadir a la bandeja en el menú del buffer): reúne varias redes por fecha"),
+        _("Ctrl+Alt+Z: ir al buffer de origen de la publicación enfocada"),
         "",
         _("Herramientas"),
         _("Ctrl+Mayús+A: centro de notificaciones; Ctrl+Mayús+X: publicación cruzada; Ctrl+Mayús+S: búsqueda global"),
@@ -395,7 +403,7 @@ class DialogoPublicar(DialogoBase):
         pred = visibilidad or mastodon_service.visibilidad_predeterminada(account_id)
         self.visibilidad.set_selected(next((i for i, (c, _n) in enumerate(VISIBILIDADES) if c == pred), 0))
         self.idioma = self.campo(_("_Idioma (código, opcional):"), Gtk.Entry(max_length=5, width_chars=6))
-        self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(
+        self.encuesta = self.campo(_("_Encuesta: opciones, una por línea (vacío = sin encuesta)"), Gtk.TextView(accepts_tab=False, 
             wrap_mode=Gtk.WrapMode.WORD_CHAR, hexpand=True, top_margin=4, bottom_margin=4, left_margin=6))
 
         self.programar = self.campo(_("Pro_gramar para (AAAA-MM-DD HH:MM, opcional):"), Gtk.Entry(width_chars=18),
@@ -712,7 +720,7 @@ class DialogoPerfil(Gtk.Window):
         for m in ("top", "bottom", "start", "end"):
             getattr(caja, f"set_margin_{m}")(12)
         self.set_child(caja)
-        self.texto = Gtk.TextView(editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
+        self.texto = Gtk.TextView(accepts_tab=False, editable=False, cursor_visible=True, wrap_mode=Gtk.WrapMode.WORD,
                                   left_margin=8, right_margin=8, top_margin=6, bottom_margin=6)
         self.texto.update_property([Gtk.AccessibleProperty.LABEL], [_("Datos del perfil")])
         self.texto.get_buffer().set_text(_("Cargando el perfil…"))

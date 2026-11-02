@@ -9,13 +9,14 @@ import logging
 
 import gi
 gi.require_version("Gtk", "4.0")
-from gi.repository import Gtk  # noqa: E402
+from gi.repository import GLib, Gtk  # noqa: E402
 
 from app.core.config_manager import config
 from app.core.i18n import NOMBRES_IDIOMA
 from app.core.speech import notificar
 from app.core.task_manager import task_manager
 
+from .ventana_botonera import REDES_BOTONERA, REDES_DETALLES
 from .dialogos_ia import DialogoHistorialIA, DialogoHistorialTraducciones, DialogoPrompts
 
 log = logging.getLogger(__name__)
@@ -23,6 +24,8 @@ log = logging.getLogger(__name__)
 IDIOMAS = list(NOMBRES_IDIOMA.keys())      # códigos ISO de 2 letras
 PT_NSFW = [("do_not_list", "No mostrarlo"), ("blur", "Mostrarlo difuminado"), ("display", "Mostrarlo")]
 PT_PRIVACIDAD = [(1, "Público"), (2, "No listado"), (3, "Privado"), (4, "Interno")]
+RSS_INTRO = [("navegador", "Abrir el enlace en el navegador (como hasta ahora)"), ("lector", "Abrir el lector limpio"),
+             ("preguntar", "Preguntar cada vez")]
 RD_ORDEN_COMENTARIOS = [("confidence", "Mejores (confianza)"), ("top", "Más votados"), ("new", "Nuevos"),
                         ("controversial", "Controvertidos"), ("old", "Antiguos"), ("qa", "Preguntas y respuestas")]
 RD_PERIODOS = [("hour", "Última hora"), ("day", "Hoy"), ("week", "Esta semana"), ("month", "Este mes"),
@@ -72,7 +75,7 @@ class _Pagina(Gtk.ScrolledWindow):
 
     @staticmethod
     def texto_largo(valor: str = "", alto: int = 100):
-        tv = Gtk.TextView(wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
+        tv = Gtk.TextView(accepts_tab=False, wrap_mode=Gtk.WrapMode.WORD_CHAR, left_margin=6, right_margin=6, top_margin=6, bottom_margin=6)
         tv.get_buffer().set_text(valor)
         return tv, Gtk.ScrolledWindow(child=tv, min_content_height=alto, has_frame=True, hexpand=True)
 
@@ -129,6 +132,11 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("A_visar de los artículos nuevos:"), self.rss_notificar)
         self.rss_siempre_completo = p.interruptor(config.get("rss", "download_fulltext", False))
         p.campo(_("Intentar descargar siempre el texto _completo del artículo:"), self.rss_siempre_completo)
+        self.rss_intro = Gtk.DropDown.new_from_strings([_(n) for _v, n in RSS_INTRO])
+        actual = config.get("rss", "enter_action", "navegador")
+        self.rss_intro.set_selected(next((i for i, (v, _n) in enumerate(RSS_INTRO) if v == actual), 0))
+        p.campo(_("Al pulsar _Intro sobre un artículo:"), self.rss_intro,
+                _("Vale en los buffers de RSS y en la bandeja de entrada."))
         self.rss_leido_al_abrir = p.interruptor(config.get("rss", "mark_read_on_open", True))
         p.campo(_("Marcar el artículo como leído al a_brirlo:"), self.rss_leido_al_abrir)
         self.rss_imagenes = p.interruptor(config.get("rss", "download_images", False))
@@ -138,6 +146,9 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Ocultar los artículos anclados con fecha _futura:"), self.rss_ocultar_futuros)
         self.rss_busquedas_arbol = p.interruptor(config.get("rss", "saved_searches_in_tree", True))
         p.campo(_("Mostrar las búsquedas guardadas en el árbol:"), self.rss_busquedas_arbol)
+        self.rss_agrupar = p.interruptor(config.get("rss", "group_by_date", False))
+        p.campo(_("Agrupar los artículos por _fecha:"), self.rss_agrupar,
+                _("La primera fila de cada bloque (Hoy, Ayer, Esta semana, Este mes) lleva su etiqueta delante."))
         self.rss_tope_alertas = Gtk.SpinButton.new_with_range(1, 50, 1)
         self.rss_tope_alertas.set_value(int(config.get("rss", "max_alert_notifications", 3) or 3))
         p.campo(_("Máximo de avisos de alertas por palabra clave en cada _descarga:"), self.rss_tope_alertas)
@@ -173,6 +184,22 @@ class DialogoPreferencias(Gtk.Window):
         p.campo(_("Descargar el artículo completo al a_brirlo:"), self.completo)
         self.solo_no_leidos = p.interruptor(config.get("rss", "show_only_unread", False))
         p.campo(_("Mostrar solo no _leídos en carpetas y feeds:"), self.solo_no_leidos)
+        self.botonera = {}
+        for clave, nombre in REDES_BOTONERA:
+            self.botonera[clave] = p.interruptor(config.get(clave, "show_action_buttons", False))
+            p.campo(_("Mostrar la botonera de acciones en {n}:").format(n=nombre), self.botonera[clave],
+                    _("Botones bajo la lista (Responder, Me gusta...) que actúan sobre el elemento enfocado. Se llega con Tab.")
+                    if clave == "rss" else "")
+        self.detalles = {}
+        for clave, nombre in REDES_DETALLES:
+            self.detalles[clave] = p.interruptor(config.get(clave, "show_details_panel", clave != "mastodon"))
+            p.campo(_("Mostrar el panel de detalles en {n}:").format(n=nombre), self.detalles[clave],
+                    _("El panel de lectura bajo la lista. Desactivado se oculta; Intro o Alt+3 lo enseñan hasta que cambies de buffer.")
+                    if clave == "rss" else "")
+        self.bandeja = p.interruptor(config.get("inbox", "enabled", False))
+        p.campo(_("Mostrar la _bandeja de entrada unificada:"), self.bandeja,
+                _("Un buffer que reúne publicaciones de varios buffers y redes que elijas. Se añaden desde el menú Ver "
+                  "o con el menú del buffer en el árbol."))
         self.tiempo_real = p.interruptor(config.get("gtk", "mastodon_realtime", True))
         p.campo(_("_Tiempo real en Mastodon:"), self.tiempo_real)
         self.tiempo_real_bsky = p.interruptor(config.get("gtk", "bluesky_realtime", True))
@@ -480,14 +507,25 @@ class DialogoPreferencias(Gtk.Window):
         config.set("accessibility", "speech_announcements", self.voz.get_active())
         config.set("rss", "fulltext_auto", self.completo.get_active())
         config.set("rss", "show_only_unread", self.solo_no_leidos.get_active())
+        for clave, _nombre in REDES_BOTONERA:
+            config.set(clave, "show_action_buttons", self.botonera[clave].get_active())
+        for clave, _nombre in REDES_DETALLES:
+            config.set(clave, "show_details_panel", self.detalles[clave].get_active())
+        bandeja_cambiada = bool(config.get("inbox", "enabled", False)) != self.bandeja.get_active()
+        config.set("inbox", "enabled", self.bandeja.get_active())
         config.set("rss", "max_parallel_updates", int(self.paralelas.get_value()))
         config.set("rss", "update_interval", int(self.rss_intervalo.get_value()))
         config.set("rss", "notifications_enabled", self.rss_notificar.get_active())
         config.set("rss", "download_fulltext", self.rss_siempre_completo.get_active())
+        config.set("rss", "enter_action", RSS_INTRO[self.rss_intro.get_selected()][0])
         config.set("rss", "mark_read_on_open", self.rss_leido_al_abrir.get_active())
         config.set("rss", "download_images", self.rss_imagenes.get_active())
         config.set("rss", "hide_future_articles", self.rss_ocultar_futuros.get_active())
         config.set("rss", "saved_searches_in_tree", self.rss_busquedas_arbol.get_active())
+        config.set("rss", "group_by_date", self.rss_agrupar.get_active())
+        estado = self.padre.lookup_action("rss-agrupar-fecha")
+        if estado is not None:
+            estado.set_state(GLib.Variant.new_boolean(self.rss_agrupar.get_active()))
         config.set("rss", "max_alert_notifications", int(self.rss_tope_alertas.get_value()))
         config.set("rss", "podcast_max_mib", int(self.rss_podcast_mib.get_value()))
         config.set("rss", "keep_articles_days", int(self.rss_dias.get_value()))
@@ -533,5 +571,9 @@ class DialogoPreferencias(Gtk.Window):
         config.save()
         notificar(_("Preferencias guardadas"))
         self.close()
+        if bandeja_cambiada:
+            self.padre.cargar_arbol()
+        self.padre.programar_botonera()
+        self.padre.aplicar_visibilidad_detalles()
         self.padre.cargar_lista()
         self.padre.iniciar_tiempo_real()
